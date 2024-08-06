@@ -1,15 +1,103 @@
-<!DOCTYPE html><html lang="zh-CN"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta name="description" content="【笔记】Docker学习笔记"><meta name="keywords" content="Docker"><meta name="author" content="绯鞠"><meta name="copyright" content="绯鞠"><title>【笔记】Docker学习笔记 | 绯鞠的博客</title><link rel="shortcut icon" href="/dist/images/favicon_package/favicon.ico"><link rel="stylesheet" href="/css/index.css?version=1.9.1"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@latest/css/font-awesome.min.css?version=1.9.1"><meta name="format-detection" content="telephone=no"><meta http-equiv="x-dns-prefetch-control" content="on"><link rel="dns-prefetch" href="https://cdn.jsdelivr.net"><link rel="manifest" href="/dist/images/favicon_package/site.webmanifest"><link rel="manifest" href="/dist/images/favicon_package/site.webmanifest"><meta name="theme-color" content="#F6CDE1"><meta name="msapplication-TileColor" content="#F6CDE1"><link rel="apple-touch-icon" sizes="180x180" href="/dist/images/favicon_package/apple-touch-icon.png"><link rel="icon" type="image/png" sizes="32x32" href="/dist/images/favicon_package/favicon-32x32.png"><link rel="icon" type="image/png" sizes="16x16" href="/dist/images/favicon_package/favicon-16x16.png"><link rel="mask-icon" href="/dist/images/favicon_package/safari-pinned-tab.svg" color="#F6CDE1"><meta http-equiv="Cache-Control" content="no-transform"><meta http-equiv="Cache-Control" content="no-siteapp"><script>var GLOBAL_CONFIG = { 
-  root: '/',
-  algolia: undefined,
-  localSearch: {"path":"search.xml","languages":{"hits_empty":"We didn't find any results for the search: ${query}"}},
-  copy: {
-    success: 'Copy successfully',
-    error: 'Copy error',
-    noSupport: 'The browser does not support'
-  },
-  hexoVersion: '6.3.0'
-} </script><meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="绯鞠的博客" type="application/atom+xml">
-</head><body><i class="fa fa-arrow-right" id="toggle-sidebar" aria-hidden="true"></i><div id="sidebar" data-display="true"><div class="toggle-sidebar-info text-center"><span data-toggle="Toggle article">Toggle site</span><hr></div><div class="sidebar-toc"><div class="sidebar-toc__title">Catalog</div><div class="sidebar-toc__progress"><span class="progress-notice">You've read</span><span class="progress-num">0</span><span class="progress-percentage">%</span><div class="sidebar-toc__progress-bar"></div></div><div class="sidebar-toc__content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%89%8D%E8%A8%80"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%89%E8%A3%85Docker"><span class="toc-number">2.</span> <span class="toc-text">安装Docker</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#MacOS"><span class="toc-number">2.1.</span> <span class="toc-text">MacOS</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Linux"><span class="toc-number">2.2.</span> <span class="toc-text">Linux</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%B8%8B%E8%BD%BD%E4%BE%9D%E8%B5%96"><span class="toc-number">2.2.1.</span> <span class="toc-text">下载依赖</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%AE%BE%E7%BD%AE%E4%B8%8B%E8%BD%BDDocker%E7%9A%84%E9%95%9C%E5%83%8F%E6%BA%90%EF%BC%88%E5%8F%AF%E9%80%89%EF%BC%89"><span class="toc-number">2.2.2.</span> <span class="toc-text">设置下载Docker的镜像源（可选）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%AE%89%E8%A3%85Docker-1"><span class="toc-number">2.2.3.</span> <span class="toc-text">安装Docker</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%90%AF%E5%8A%A8Docker"><span class="toc-number">3.</span> <span class="toc-text">启动Docker</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#MacOS-1"><span class="toc-number">3.1.</span> <span class="toc-text">MacOS</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Linux-1"><span class="toc-number">3.2.</span> <span class="toc-text">Linux</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%90%AF%E5%8A%A8%E6%9C%8D%E5%8A%A1"><span class="toc-number">3.2.1.</span> <span class="toc-text">启动服务</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%AE%BE%E7%BD%AE%E5%BC%80%E6%9C%BA%E8%87%AA%E5%90%AF"><span class="toc-number">3.2.2.</span> <span class="toc-text">设置开机自启</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B5%8B%E8%AF%95%E6%98%AF%E5%90%A6%E5%AE%89%E8%A3%85%E6%88%90%E5%8A%9F"><span class="toc-number">3.3.</span> <span class="toc-text">测试是否安装成功</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%AD%E5%A4%AE%E4%BB%93%E5%BA%93"><span class="toc-number">4.</span> <span class="toc-text">中央仓库</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%85%8D%E7%BD%AE%E7%A7%81%E6%9C%8D"><span class="toc-number">4.1.</span> <span class="toc-text">配置私服</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Linux-2"><span class="toc-number">4.1.1.</span> <span class="toc-text">Linux</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%95%9C%E5%83%8F%E6%93%8D%E4%BD%9C"><span class="toc-number">5.</span> <span class="toc-text">镜像操作</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8B%89%E5%8F%96%E9%95%9C%E5%83%8F%E5%88%B0%E6%9C%AC%E5%9C%B0"><span class="toc-number">5.1.</span> <span class="toc-text">拉取镜像到本地</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%8C%87%E5%AE%9A%E7%89%88%E6%9C%AC"><span class="toc-number">5.1.1.</span> <span class="toc-text">指定版本</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9F%A5%E7%9C%8B%E5%85%A8%E9%83%A8%E7%9A%84%E9%95%9C%E5%83%8F"><span class="toc-number">5.2.</span> <span class="toc-text">查看全部的镜像</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%A0%E9%99%A4%E6%9C%AC%E5%9C%B0%E9%95%9C%E5%83%8F"><span class="toc-number">5.3.</span> <span class="toc-text">删除本地镜像</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%BC%BA%E5%88%B6%E5%88%A0%E9%99%A4"><span class="toc-number">5.3.1.</span> <span class="toc-text">强制删除</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9F%A5%E7%9C%8B%E9%95%9C%E5%83%8F%E4%B8%AD%E8%AE%BE%E7%BD%AE%E7%9A%84%E9%BB%98%E8%AE%A4%E5%91%BD%E4%BB%A4"><span class="toc-number">5.4.</span> <span class="toc-text">查看镜像中设置的默认命令</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%8C%87%E5%AE%9A%E4%BB%BB%E6%84%8F%E5%91%BD%E4%BB%A4%E6%9B%BF%E6%8D%A2%E9%BB%98%E8%AE%A4"><span class="toc-number">5.4.1.</span> <span class="toc-text">指定任意命令替换默认</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%95%9C%E5%83%8F%E7%9A%84%E5%AF%BC%E5%85%A5%E5%AF%BC%E5%87%BA%EF%BC%88%E4%B8%8D%E8%A7%84%E8%8C%83%EF%BC%89"><span class="toc-number">5.5.</span> <span class="toc-text">镜像的导入导出（不规范）</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%AF%BC%E5%87%BA"><span class="toc-number">5.5.1.</span> <span class="toc-text">导出</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%AF%BC%E5%85%A5"><span class="toc-number">5.5.2.</span> <span class="toc-text">导入</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E4%BF%AE%E6%94%B9%E5%AF%BC%E5%85%A5%E5%90%8E%E7%9A%84%E7%A9%BA%E5%90%8D%E7%A7%B0"><span class="toc-number">5.5.2.1.</span> <span class="toc-text">修改导入后的空名称</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%95%9C%E5%83%8F%E7%9A%84%E5%AF%BC%E5%85%A5%E5%AF%BC%E5%87%BA%EF%BC%88%E9%87%8D%E5%AE%9A%E5%90%91%EF%BC%89"><span class="toc-number">5.6.</span> <span class="toc-text">镜像的导入导出（重定向）</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%AF%BC%E5%87%BA-1"><span class="toc-number">5.6.1.</span> <span class="toc-text">导出</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%AF%BC%E5%85%A5-1"><span class="toc-number">5.6.2.</span> <span class="toc-text">导入</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B8%85%E7%90%86%E6%89%80%E6%9C%89%E5%90%8D%E7%A7%B0%E4%B8%BA%E7%A9%BA%E7%9A%84%E9%95%9C%E5%83%8F"><span class="toc-number">5.7.</span> <span class="toc-text">清理所有名称为空的镜像</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%B9%E5%99%A8%E7%9A%84%E6%93%8D%E4%BD%9C"><span class="toc-number">6.</span> <span class="toc-text">容器的操作</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%BF%90%E8%A1%8C%E5%AE%B9%E5%99%A8"><span class="toc-number">6.1.</span> <span class="toc-text">运行容器</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8F%82%E6%95%B0"><span class="toc-number">6.1.1.</span> <span class="toc-text">参数</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#mysql%E5%9C%A8%E8%BF%90%E8%A1%8C%E6%97%B6%E6%8C%87%E5%AE%9A%E5%88%9D%E5%A7%8B%E5%AF%86%E7%A0%81"><span class="toc-number">6.1.1.1.</span> <span class="toc-text">mysql在运行时指定初始密码</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9F%A5%E7%9C%8B%E6%AD%A3%E5%9C%A8%E8%BF%9B%E8%A1%8C%E7%9A%84%E5%AE%B9%E5%99%A8"><span class="toc-number">6.2.</span> <span class="toc-text">查看正在进行的容器</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8F%82%E6%95%B0-1"><span class="toc-number">6.2.1.</span> <span class="toc-text">参数</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%90%AF%E5%8A%A8%E5%AE%B9%E5%99%A8"><span class="toc-number">6.3.</span> <span class="toc-text">启动容器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%87%8D%E5%90%AF%E5%AE%B9%E5%99%A8"><span class="toc-number">6.4.</span> <span class="toc-text">重启容器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%81%9C%E6%AD%A2%E5%AE%B9%E5%99%A8"><span class="toc-number">6.5.</span> <span class="toc-text">停止容器</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%81%9C%E6%AD%A2%E5%85%A8%E9%83%A8%E5%AE%B9%E5%99%A8"><span class="toc-number">6.5.1.</span> <span class="toc-text">停止全部容器</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%A0%E9%99%A4%E5%AE%B9%E5%99%A8"><span class="toc-number">6.6.</span> <span class="toc-text">删除容器</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%BC%BA%E5%88%B6%E5%88%A0%E9%99%A4%E5%AE%B9%E5%99%A8"><span class="toc-number">6.6.1.</span> <span class="toc-text">强制删除容器</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%88%A0%E9%99%A4%E5%85%A8%E9%83%A8%E5%AE%B9%E5%99%A8"><span class="toc-number">6.6.2.</span> <span class="toc-text">删除全部容器</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%BF%9B%E5%85%A5%E5%88%B0%E5%AE%B9%E5%99%A8%E5%86%85%E9%83%A8"><span class="toc-number">6.7.</span> <span class="toc-text">进入到容器内部</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9F%A5%E7%9C%8B%E5%AE%B9%E5%99%A8%E7%9A%84%E6%97%A5%E5%BF%97"><span class="toc-number">6.8.</span> <span class="toc-text">查看容器的日志</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B8%85%E7%90%86%E6%89%80%E6%9C%89%E7%BB%88%E6%AD%A2%E7%8A%B6%E6%80%81%E7%9A%84%E5%AE%B9%E5%99%A8"><span class="toc-number">6.9.</span> <span class="toc-text">清理所有终止状态的容器</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%A4%8D%E5%88%B6%E5%AE%BF%E4%B8%BB%E6%9C%BA%E5%86%85%E5%AE%B9%E5%88%B0%E5%AE%B9%E5%99%A8%E5%86%85%E9%83%A8"><span class="toc-number">7.</span> <span class="toc-text">复制宿主机内容到容器内部</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E5%8D%B7"><span class="toc-number">8.</span> <span class="toc-text">数据卷</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%9B%E5%BB%BA%E6%95%B0%E6%8D%AE%E5%8D%B7"><span class="toc-number">8.1.</span> <span class="toc-text">创建数据卷</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9F%A5%E7%9C%8B%E6%95%B0%E6%8D%AE%E5%8D%B7%E7%9A%84%E8%AF%A6%E7%BB%86%E4%BF%A1%E6%81%AF"><span class="toc-number">8.2.</span> <span class="toc-text">查看数据卷的详细信息</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9F%A5%E7%9C%8B%E5%85%A8%E9%83%A8%E6%95%B0%E6%8D%AE%E5%8D%B7"><span class="toc-number">8.3.</span> <span class="toc-text">查看全部数据卷</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%A0%E9%99%A4%E6%95%B0%E6%8D%AE%E5%8D%B7"><span class="toc-number">8.4.</span> <span class="toc-text">删除数据卷</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%98%A0%E5%B0%84%E6%95%B0%E6%8D%AE%E5%8D%B7"><span class="toc-number">8.5.</span> <span class="toc-text">映射数据卷</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%B9%E5%99%A8%E4%BA%92%E8%81%94"><span class="toc-number">9.</span> <span class="toc-text">容器互联</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%9B%E5%BB%BA%E8%99%9A%E6%8B%9F%E7%BD%91%E7%BB%9C"><span class="toc-number">9.1.</span> <span class="toc-text">创建虚拟网络</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9F%A5%E7%9C%8B%E6%89%80%E6%9C%89%E8%99%9A%E6%8B%9F%E7%BD%91%E7%BB%9C"><span class="toc-number">9.2.</span> <span class="toc-text">查看所有虚拟网络</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%A0%E9%99%A4%E8%99%9A%E6%8B%9F%E7%BD%91%E5%8D%A1"><span class="toc-number">9.3.</span> <span class="toc-text">删除虚拟网卡</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9F%A5%E7%9C%8B%E7%BD%91%E7%BB%9C%E8%AF%A6%E6%83%85"><span class="toc-number">9.4.</span> <span class="toc-text">查看网络详情</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9F%A5%E7%9C%8B%E5%AE%BF%E4%B8%BB%E6%9C%BA%E4%B8%8A%E6%96%B0%E5%BB%BA%E7%9A%84%E8%99%9A%E6%8B%9F%E7%BD%91%E5%8D%A1"><span class="toc-number">9.5.</span> <span class="toc-text">查看宿主机上新建的虚拟网卡</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%BF%9E%E6%8E%A5%E8%99%9A%E6%8B%9F%E7%BD%91%E7%BB%9C"><span class="toc-number">9.6.</span> <span class="toc-text">连接虚拟网络</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%87%AA%E5%AE%9A%E4%B9%89%E9%95%9C%E5%83%8F"><span class="toc-number">10.</span> <span class="toc-text">自定义镜像</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%9B%E5%BB%BA%E4%B8%80%E4%B8%AADockerfile%E6%96%87%E4%BB%B6"><span class="toc-number">10.1.</span> <span class="toc-text">创建一个Dockerfile文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Dockerfile%E6%96%87%E4%BB%B6%E4%B8%AD%E7%9A%84%E7%89%B9%E6%AE%8A%E5%91%BD%E4%BB%A4"><span class="toc-number">10.2.</span> <span class="toc-text">Dockerfile文件中的特殊命令</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BC%96%E8%BE%91Dockerfile%E6%96%87%E4%BB%B6"><span class="toc-number">10.3.</span> <span class="toc-text">编辑Dockerfile文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%80%9A%E8%BF%87Dockerfile%E5%88%B6%E4%BD%9C%E9%95%9C%E5%83%8F"><span class="toc-number">10.4.</span> <span class="toc-text">通过Dockerfile制作镜像</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#docker-compose"><span class="toc-number">11.</span> <span class="toc-text">docker-compose</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%87%86%E5%A4%87%E5%B7%A5%E4%BD%9C"><span class="toc-number">11.1.</span> <span class="toc-text">准备工作</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6"><span class="toc-number">11.2.</span> <span class="toc-text">配置文件</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%88%9B%E5%BB%BA%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6"><span class="toc-number">11.2.1.</span> <span class="toc-text">创建配置文件</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%BC%96%E8%BE%91%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6"><span class="toc-number">11.2.2.</span> <span class="toc-text">编辑配置文件</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BF%AE%E6%94%B9%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6"><span class="toc-number">11.2.3.</span> <span class="toc-text">修改配置文件</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%90%AF%E5%8A%A8docker-compose%E7%AE%A1%E7%90%86%E7%9A%84%E5%AE%B9%E5%99%A8"><span class="toc-number">11.3.</span> <span class="toc-text">启动docker-compose管理的容器</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BB%A5%E5%90%8E%E5%8F%B0%E5%90%AF%E5%8A%A8"><span class="toc-number">11.3.1.</span> <span class="toc-text">以后台启动</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%85%B3%E9%97%AD%E5%B9%B6%E5%88%A0%E9%99%A4docker-compose%E7%AE%A1%E7%90%86%E7%9A%84%E5%AE%B9%E5%99%A8"><span class="toc-number">11.4.</span> <span class="toc-text">关闭并删除docker-compose管理的容器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BC%80%E5%90%AFdocker-compose%E7%AE%A1%E7%90%86%E7%9A%84%E5%AE%B9%E5%99%A8"><span class="toc-number">11.5.</span> <span class="toc-text">开启docker-compose管理的容器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%85%B3%E9%97%ADdocker-compose%E7%AE%A1%E7%90%86%E7%9A%84%E5%AE%B9%E5%99%A8"><span class="toc-number">11.6.</span> <span class="toc-text">关闭docker-compose管理的容器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%87%8D%E5%90%AFdocker-compose%E7%AE%A1%E7%90%86%E7%9A%84%E5%AE%B9%E5%99%A8"><span class="toc-number">11.7.</span> <span class="toc-text">重启docker-compose管理的容器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9F%A5%E7%9C%8Bdocker-compose%E7%AE%A1%E7%90%86%E7%9A%84%E5%AE%B9%E5%99%A8"><span class="toc-number">11.8.</span> <span class="toc-text">查看docker-compose管理的容器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9F%A5%E7%9C%8Bdocker-compose%E7%AE%A1%E7%90%86%E7%9A%84%E5%AE%B9%E5%99%A8%E6%97%A5%E5%BF%97"><span class="toc-number">11.9.</span> <span class="toc-text">查看docker-compose管理的容器日志</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%8C%E6%88%90"><span class="toc-number">12.</span> <span class="toc-text">完成</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%82%E8%80%83%E6%96%87%E7%8C%AE"><span class="toc-number">13.</span> <span class="toc-text">参考文献</span></a></li></ol></div></div><div class="author-info hide"><div class="author-info__avatar text-center"><img src="/dist/images/avatar.gif"></div><div class="author-info__name text-center">绯鞠</div><div class="author-info__description text-center">捕捉一只爱折腾的绯鞠</div><hr><div class="author-info-articles"><a class="author-info-articles__archives article-meta" href="/archives"><span class="pull-left">Articles</span><span class="pull-right">2912</span></a><a class="author-info-articles__tags article-meta" href="/tags"><span class="pull-left">Tags</span><span class="pull-right">115</span></a><a class="author-info-articles__categories article-meta" href="/categories"><span class="pull-left">Categories</span><span class="pull-right">17</span></a></div></div></div><div id="content-outer"><div class="no-bg" id="top-container"><div id="page-header"><span class="pull-left"> <a id="site-name" href="/">绯鞠的博客</a></span><i class="fa fa-bars toggle-menu pull-right" aria-hidden="true"></i><span class="pull-right menus">   <a class="site-page" href="/">主页</a><a class="site-page" href="/about/">关于</a><a class="site-page" href="/tags/">标签</a><a class="site-page" href="/categories/">分类</a><a class="site-page" href="/archives/">归档</a><a class="site-page" href="/links/">友链</a><a class="site-page" href="/reward/">赞助</a><a class="site-page" href="/atom.xml">订阅</a><a class="site-page" target="_blank" rel="noopener" href="//hacker.loli.fj.cn">主题</a></span><span class="pull-right"><a class="site-page social-icon search"><i class="fa fa-search"></i><span> Search</span></a></span></div><div id="post-info"><div id="post-title">【笔记】Docker学习笔记</div><div id="post-meta"><time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> 2020-09-10</time></div></div></div><div class="layout" id="content-inner"><article id="post"><div class="article-container" id="post-content"><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>Docker 是一个开放源代码软件，是一个开放平台，用于开发应用、交付（shipping）应用、运行应用。 Docker允许用户将基础设施（Infrastructure）中的应用单独分割出来，形成更小的颗粒（容器），从而提高交付软件的速度。（<a href="/302.html?target=https://zh.wikipedia.org/wiki/Docker">维基百科</a>）</p>
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>【笔记】Docker学习笔记 | 绯鞠的博客 | 连蜜统治世界!!!💕</title>
+
+  
+  <meta name="author" content="绯鞠">
+  
+
+  
+  <meta name="description" content="捕捉一只爱折腾的绯鞠">
+  
+
+  
+  
+  <meta name="keywords" content="Docker">
+  
+
+  <meta id="viewport" name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+  <meta property="og:title" content="【笔记】Docker学习笔记"/>
+
+  <meta property="og:site_name" content="绯鞠的博客"/>
+
+  
+  <meta property="og:image" content="/favicon.ico"/>
+  
+
+  <link href="/favicon.ico" rel="icon">
+  <link rel="alternate" href="/atom.xml" title="绯鞠的博客" type="application/atom+xml">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+
+<body>
+<div class="blog">
+  <div class="content">
+
+    <header>
+  <div class="site-branding">
+    <h1 class="site-title">
+      <a href="/">绯鞠的博客</a>
+    </h1>
+    <p class="site-description">连蜜统治世界!!!💕</p>
+  </div>
+  <nav class="site-navigation">
+    <ul>
+      
+        <li><a href="/">主页</a></li>
+      
+        <li><a href="/about/">关于</a></li>
+      
+        <li><a href="/tags/">标签</a></li>
+      
+        <li><a href="/categories/">分类</a></li>
+      
+        <li><a href="/archives/">归档</a></li>
+      
+        <li><a href="/links/">友链</a></li>
+      
+        <li><a href="/reward/">赞助</a></li>
+      
+        <li><a href="/atom.xml">订阅</a></li>
+      
+        <li><a target="_blank" rel="noopener" href="//stellar.loli.fj.cn">主题</a></li>
+      
+    </ul>
+  </nav>
+</header>
+
+    <main class="site-main posts-loop">
+    <article>
+
+  
+    
+    <h3 class="article-title"><span>【笔记】Docker学习笔记</span></h3>
+    
+  
+
+  <div class="article-top-meta">
+    <span class="posted-on">
+      <a href="/2020/09/10/Docker学习笔记/" rel="bookmark">
+        <time class="entry-date published" datetime="2020-09-10T04:03:32.000Z">
+          2020-09-10
+        </time>
+      </a>
+    </span>
+  </div>
+
+
+  
+
+  <div class="article-content">
+    <div class="entry">
+      
+        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>Docker 是一个开放源代码软件，是一个开放平台，用于开发应用、交付（shipping）应用、运行应用。 Docker允许用户将基础设施（Infrastructure）中的应用单独分割出来，形成更小的颗粒（容器），从而提高交付软件的速度。（<a href="/302.html?target=https://zh.wikipedia.org/wiki/Docker">维基百科</a>）</p>
 <span id="more"></span>
 
 <h2 id="安装Docker"><a href="#安装Docker" class="headerlink" title="安装Docker"></a>安装Docker</h2><h3 id="MacOS"><a href="#MacOS" class="headerlink" title="MacOS"></a>MacOS</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew cask install docker</span><br></pre></td></tr></table></figure>
@@ -303,8 +391,57 @@
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker-compose logs -f</span><br></pre></td></tr></table></figure>
 
 <h2 id="完成"><a href="#完成" class="headerlink" title="完成"></a>完成</h2><h2 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h2><p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1sK4y1s7Cj">哔哩哔哩——千锋Java学习营</a><br><a target="_blank" rel="noopener" href="https://www.runoob.com/docker/docker-install-mysql.html">菜鸟笔记</a><br><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV17x4y1o75G">哔哩哔哩——云原生技术架构</a><br><a target="_blank" rel="noopener" href="https://space.bilibili.com/11981663/video">哔哩哔哩——锤子V君</a></p>
-</div></article><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/Docker/">Docker</a></div><nav id="pagination"><div class="prev-post pull-left"><a href="/2020/09/11/Homebrew%E6%8A%A5%E9%94%99%EF%BC%9AAnother-active-Homebrew/"><i class="fa fa-chevron-left">  </i><span>【踩坑】Homebrew报错：Another active Homebrew</span></a></div><div class="next-post pull-right"><a href="/2020/09/08/%E6%89%BE%E6%A0%91%E9%97%AE%E9%A2%98/"><span>【代码】找树问题</span><i class="fa fa-chevron-right"></i></a></div></nav></div></div><footer><div class="layout" id="footer"><div class="copyright">&copy;2019 - 2024 By 绯鞠</div><div class="framework-info"><span>Driven - </span><a target="_blank" rel="noopener" href="http://hexo.io"><span>Hexo</span></a><span class="footer-separator">|</span><span>Theme - </span><a target="_blank" rel="noopener" href="https://github.com/Molunerfinn/hexo-theme-melody"><span>Melody</span></a></div><div class="busuanzi"><script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><span id="busuanzi_container_site_uv"><i class="fa fa-user"></i><span id="busuanzi_value_site_uv"></span><span></span></span><span class="footer-separator">|</span><span id="busuanzi_container_site_pv"><i class="fa fa-eye"></i><span id="busuanzi_value_site_pv"></span><span></span></span></div></div></footer><i class="fa fa-arrow-up" id="go-up" aria-hidden="true"></i><script src="https://cdn.jsdelivr.net/npm/animejs@latest/lib/anime.min.js"></script><script src="https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-animate@latest/velocity.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-ui-pack@latest/velocity.ui.min.js"></script><script src="/js/utils.js?version=1.9.1"></script><script src="/js/fancybox.js?version=1.9.1"></script><script src="/js/sidebar.js?version=1.9.1"></script><script src="/js/copy.js?version=1.9.1"></script><script src="/js/fireworks.js?version=1.9.1"></script><script src="/js/transition.js?version=1.9.1"></script><script src="/js/scroll.js?version=1.9.1"></script><script src="/js/head.js?version=1.9.1"></script><script src="/js/search/local-search.js"></script><script>if(/Android|webOS|iPhone|iPod|iPad|BlackBerry/i.test(navigator.userAgent)) {
-  $('#nav').addClass('is-mobile')
-  $('footer').addClass('is-mobile')
-  $('#top-container').addClass('is-mobile')
-}</script><div class="search-dialog" id="local-search"><div class="search-dialog__title" id="local-search-title">Local search</div><div id="local-input-panel"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="Search for Posts"></div></div></div><hr><div id="local-search-results"><div id="local-hits"></div><div id="local-stats"><div class="local-search-stats__hr" id="hr"><span>Powered by</span> <a target="_blank" rel="noopener" href="https://github.com/wzpan/hexo-generator-search" style="color:#49B1F5;">hexo-generator-search</a></div></div></div><span class="search-close-button"><i class="fa fa-times"></i></span></div><div class="search-mask"></div></body></html>
+
+      
+    </div>
+
+  </div>
+
+  <div class="article-footer">
+    <div class="article-meta pull-left">
+
+    
+
+    
+    
+
+    <span class="post-tags">
+      <i class="icon-tags"></i>
+        <a href="/tags/Docker/">Docker</a>
+    </span>
+    
+
+    </div>
+
+    
+  </div>
+</article>
+
+  
+
+
+
+
+
+
+
+
+
+    </main>
+
+    <footer class="site-footer">
+  <p class="site-info">
+    Proudly powered by <a href="https://hexo.io/" target="_blank">Hexo</a> and
+    Theme by <a href="https://github.com/CodeDaraW/Hacker" target="_blank">Hacker</a>
+    </br>
+    
+    &copy; 2024 绯鞠
+    
+  </p>
+</footer>
+    
+    
+  </div>
+</div>
+</body>
+</html>
