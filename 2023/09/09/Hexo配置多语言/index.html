@@ -1,21 +1,50 @@
-
-
 <!DOCTYPE html>
-<html lang="zh-CN" data-default-color-scheme=auto>
+<html lang="zh-CN">
+    <head>
+    <meta charset="utf-8">
+
+    
+
+    <!-- 渲染优化 -->
+    <meta name="renderer" content="webkit">
+    <meta name="force-rendering" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta name="HandheldFriendly" content="True" >
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <!--icon-->
+
+    
+        <link rel="shortcut icon" href="/dist/images/favicon_package/favicon.ico">
+    
+    
+        <link rel="icon" type="image/png" sizes="16x16" href="/dist/images/favicon_package/favicon-16x16.png">
+    
+    
+        <link rel="icon" type="image/png" sizes="32x32" href="/dist/images/favicon_package/favicon-32x32.png">
+    
+    
+        <link rel="apple-touch-icon" sizes="180x180" href="/dist/images/favicon_package/apple-touch-icon.png">
+    
+    
+        <link rel="mask-icon" href="/dist/images/favicon_package/safari-pinned-tab.svg">
+    
+
+
+    <!-- meta -->
+
+
+<title>【笔记】Hexo配置多语言 | 绯鞠的博客</title>
+
+
+    <meta name="keywords" content="Hexo">
 
 
 
-<head>
-  <meta charset="UTF-8">
-  <link rel="apple-touch-icon" sizes="76x76" href="/dist/images/favicon_package/apple-touch-icon.png">
-  <link rel="icon" href="/dist/images/favicon_package/favicon.ico">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
-  <meta http-equiv="x-ua-compatible" content="ie=edge">
-  
-  <meta name="theme-color" content="#2f4154">
-  <meta name="author" content="绯鞠">
-  <meta name="keywords" content="">
-  
+
+    <!-- OpenGraph -->
+ 
     <meta name="description" content="前言Hexo 6.3 在 NexT 8.18 主题下配置多语言支持（i18n）">
 <meta property="og:type" content="article">
 <meta property="og:title" content="【笔记】Hexo配置多语言">
@@ -28,323 +57,146 @@
 <meta property="article:author" content="绯鞠">
 <meta property="article:tag" content="Hexo">
 <meta name="twitter:card" content="summary_large_image">
-  
-  
-    <meta name="referrer" content="no-referrer-when-downgrade">
-  
-  
-  <title>【笔记】Hexo配置多语言 - 绯鞠的博客</title>
-
-  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
 
+    
+<link rel="stylesheet" href="/css/style/main.css">
+ 
 
-  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+    
+    
+        <link rel="stylesheet" id="hl-default-theme" href="/css/highlight/highlight.css" media="none" onload="this.media='all'">
+        
+    
 
-  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+    
+    
 
-  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+    
 
+     
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+ 
 
+    <!-- custom head -->
 
-<!-- 主题依赖的图标库，不要自行修改 -->
-<!-- Do not modify the link that theme dependent icons -->
-
-<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
-
-
-
-<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
-
-
-<link  rel="stylesheet" href="/css/main.css" />
-
-
-  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
-  
-    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
-  
-
-
-
-
-  <script id="fluid-configs">
-    var Fluid = window.Fluid || {};
-    Fluid.ctx = Object.assign({}, Fluid.ctx)
-    var CONFIG = {"hostname":"loli.fj.cn","root":"/","version":"1.9.7","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"PLAINTEXT"},"copy_btn":true,"image_caption":{"enable":false},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":6},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml","include_content_in_search":true};
-
-    if (CONFIG.web_analytics.follow_dnt) {
-      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
-      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
-    }
-  </script>
-  <script  src="/js/utils.js" ></script>
-  <script  src="/js/color-schema.js" ></script>
-  
-
-
-  
 <meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="绯鞠的博客" type="application/atom+xml">
 </head>
 
+    <body>
+        <div id="app" tabindex="-1">
+            <header class="header">
+    <div class="header__left">
+        <a href="/" class="button">
+            <span class="logo__text">绯鞠的博客</span>
+        </a>
+    </div>
+    <div class="header__right">
+        
+            <div class="navbar__menus">
+                
+                    <a href="/" class="navbar-menu button">首页</a>
+                
+                    <a href="/about/" class="navbar-menu button">关于</a>
+                
+                    <a href="/archives/" class="navbar-menu button">归档</a>
+                
+                    <a href="/links/" class="navbar-menu button">友链</a>
+                
+                    <a href="/reward/" class="navbar-menu button">赞助</a>
+                
+                    <a href="/atom.xml" class="navbar-menu button">订阅</a>
+                
+                    <a target="_blank" rel="noopener" href="//melody.loli.fj.cn" class="navbar-menu button">主题</a>
+                
+            </div>
+        
+        
+        
 
-<body>
-  
+        
+        
 
-  <header>
+        
+            <a class="dropdown-icon button" id="btn-dropdown" tabindex="0"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" width='24' height='24' fill="none" stroke="currentColor" stroke-width="0.7" stroke-linecap="round" stroke-linejoin="round"><path fill="currentColor" d="M3.314,4.8h13.372c0.41,0,0.743-0.333,0.743-0.743c0-0.41-0.333-0.743-0.743-0.743H3.314c-0.41,0-0.743,0.333-0.743,0.743C2.571,4.467,2.904,4.8,3.314,4.8z M16.686,15.2H3.314c-0.41,0-0.743,0.333-0.743,0.743s0.333,0.743,0.743,0.743h13.372c0.41,0,0.743-0.333,0.743-0.743S17.096,15.2,16.686,15.2z M16.686,9.257H3.314c-0.41,0-0.743,0.333-0.743,0.743s0.333,0.743,0.743,0.743h13.372c0.41,0,0.743-0.333,0.743-0.743S17.096,9.257,16.686,9.257z"></path></svg></a>
+            <div class="dropdown-menus" id="dropdown-menus">
+                
+                    <a href="/" class="dropdown-menu button">首页</a>
+                
+                    <a href="/about/" class="dropdown-menu button">关于</a>
+                
+                    <a href="/archives/" class="dropdown-menu button">归档</a>
+                
+                    <a href="/links/" class="dropdown-menu button">友链</a>
+                
+                    <a href="/reward/" class="dropdown-menu button">赞助</a>
+                
+                    <a href="/atom.xml" class="dropdown-menu button">订阅</a>
+                
+                    <a target="_blank" rel="noopener" href="//melody.loli.fj.cn" class="dropdown-menu button">主题</a>
+                
+            </div>
+        
+    </div>
+</header>
+
+
+            <main class="main">
     
 
-<div class="header-inner" style="height: 70vh;">
-  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
-  <div class="container">
-    <a class="navbar-brand" href="/">
-      <strong>绯鞠的博客</strong>
-    </a>
+<div class="post-title">
+    <h1 class="post-title__text">
+        【笔记】Hexo配置多语言
+    </h1>
+    <div class="post-title__meta">
+        <a href="/archives/2023/09/" class="post-meta__date button">2023-09-09</a>
+        
+ 
+        
+    
+    
 
-    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
-            data-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <div class="animated-icon"><span></span><span></span><span></span></div>
-    </button>
 
-    <!-- Collapsible content -->
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav ml-auto text-center">
-        
-          
-          
-          
-          
-            <li class="nav-item">
-              <a class="nav-link" href="/" target="_self">
-                <i class="iconfont icon-home-fill"></i>
-                <span>首页</span>
-              </a>
-            </li>
-          
-        
-          
-          
-          
-          
-            <li class="nav-item">
-              <a class="nav-link" href="/about/" target="_self">
-                <i class="iconfont icon-user-fill"></i>
-                <span>关于</span>
-              </a>
-            </li>
-          
-        
-          
-          
-          
-          
-            <li class="nav-item">
-              <a class="nav-link" href="/tags/" target="_self">
-                <i class="iconfont icon-tags-fill"></i>
-                <span>标签</span>
-              </a>
-            </li>
-          
-        
-          
-          
-          
-          
-            <li class="nav-item">
-              <a class="nav-link" href="/categories/" target="_self">
-                <i class="iconfont icon-category-fill"></i>
-                <span>分类</span>
-              </a>
-            </li>
-          
-        
-          
-          
-          
-          
-            <li class="nav-item">
-              <a class="nav-link" href="/archives/" target="_self">
-                <i class="iconfont icon-archive-fill"></i>
-                <span>归档</span>
-              </a>
-            </li>
-          
-        
-          
-          
-          
-          
-            <li class="nav-item">
-              <a class="nav-link" href="/links/" target="_self">
-                <i class="iconfont icon-user-friends"></i>
-                <span>友链</span>
-              </a>
-            </li>
-          
-        
-          
-          
-          
-          
-            <li class="nav-item">
-              <a class="nav-link" href="/command/" target="_self">
-                <i class="iconfont icon-book"></i>
-                <span>指令</span>
-              </a>
-            </li>
-          
-        
-          
-          
-          
-          
-            <li class="nav-item">
-              <a class="nav-link" href="/atom.xml" target="_self">
-                <i class="iconfont icon-rss"></i>
-                <span>订阅</span>
-              </a>
-            </li>
-          
-        
-          
-          
-          
-          
-            <li class="nav-item">
-              <a class="nav-link" href="//redefine.loli.fj.cn" target="_self">
-                <i class="iconfont icon-th-large"></i>
-                <span>主题</span>
-              </a>
-            </li>
-          
-        
-        
-          <li class="nav-item" id="search-btn">
-            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
-              <i class="iconfont icon-search"></i>
-            </a>
-          </li>
-          
-        
-        
-          <li class="nav-item" id="color-toggle-btn">
-            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
-              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
-            </a>
-          </li>
-        
-      </ul>
+ 
+
+ 
     </div>
-  </div>
-</nav>
+</div>
 
-  
 
-<div id="banner" class="banner" parallax=true
-     style="background: url('https://game.gtimg.cn/images/yxzj/img201606/skin/hero-info/141/141-bigskin-1.jpg') no-repeat center center; background-size: cover;">
-  <div class="full-bg-img">
-    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
-      <div class="banner-text text-center fade-in-up">
-        <div class="h2">
-          
-            <span id="subtitle" data-typed-text="【笔记】Hexo配置多语言"></span>
-          
+    <aside class="post-side">
+        <div class="post-side__toc">
+            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%89%8D%E8%A8%80"><span class="toc-text">前言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%89%E8%A3%85%E6%B8%B2%E6%9F%93%E9%A6%96%E9%A1%B5%E7%9A%84%E6%8F%92%E4%BB%B6"><span class="toc-text">安装渲染首页的插件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%89%E8%A3%85%E5%85%81%E8%AE%B8%E5%A4%9A%E8%AF%AD%E8%A8%80%E7%9A%84%E6%8F%92%E4%BB%B6"><span class="toc-text">安装允许多语言的插件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%85%8D%E7%BD%AE%E5%A4%9A%E7%A7%8D%E8%AF%AD%E8%A8%80"><span class="toc-text">配置多种语言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%85%8D%E7%BD%AE%E7%BF%BB%E8%AF%91%E7%9A%84%E9%A1%B5%E9%9D%A2%EF%BC%88%E5%8F%AF%E9%80%89%EF%BC%89"><span class="toc-text">配置翻译的页面（可选）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%85%8D%E7%BD%AE%E7%BF%BB%E8%AF%91%EF%BC%88%E5%8F%AF%E9%80%89%EF%BC%89"><span class="toc-text">配置翻译（可选）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%89%E8%A3%85%E5%8D%95%E8%AF%AD%E8%A8%80%E9%A6%96%E9%A1%B5%E7%9A%84%E6%8F%92%E4%BB%B6"><span class="toc-text">安装单语言首页的插件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%85%8D%E7%BD%AE%E5%8D%95%E8%AF%AD%E8%A8%80%E4%B8%BB%E9%A1%B5"><span class="toc-text">配置单语言主页</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%87%8D%E6%96%B0%E5%AE%9A%E4%B9%89%E8%B5%84%E6%BA%90%E8%AE%BF%E9%97%AE%E8%B7%AF%E5%BE%84"><span class="toc-text">重新定义资源访问路径</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B0%86%E6%97%A7%E7%9A%84%E6%96%87%E7%AB%A0%E6%8C%89%E7%85%A7%E8%AF%AD%E8%A8%80%E9%87%8D%E6%96%B0%E5%88%92%E5%88%86"><span class="toc-text">将旧的文章按照语言重新划分</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%89%B9%E9%87%8F%E6%B7%BB%E5%8A%A0%E8%AF%AD%E8%A8%80%E6%A0%87%E7%AD%BE%E8%84%9A%E6%9C%AC"><span class="toc-text">批量添加语言标签脚本</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B0%86%E6%96%87%E7%AB%A0%E6%A0%B9%E6%8D%AE%E8%AF%AD%E8%A8%80%E5%88%86%E5%BC%80%E5%AD%98%E5%82%A8%EF%BC%88%E5%8F%AF%E9%80%89%EF%BC%89"><span class="toc-text">将文章根据语言分开存储（可选）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%BA%E6%96%B0%E6%96%87%E7%AB%A0%E9%85%8D%E7%BD%AE%E9%BB%98%E8%AE%A4%E7%9A%84lang%E6%A0%87%E7%AD%BE"><span class="toc-text">为新文章配置默认的lang标签</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%9B%E5%BB%BA%E6%96%87%E7%AB%A0%E6%97%B6%E5%AD%98%E6%94%BE%E5%88%B0%E5%AF%B9%E5%BA%94%E8%AF%AD%E8%A8%80%E7%9A%84%E7%9B%AE%E5%BD%95%EF%BC%88%E5%8F%AF%E9%80%89%EF%BC%89"><span class="toc-text">创建文章时存放到对应语言的目录（可选）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%92%88%E5%AF%B9NexT%E4%B8%BB%E9%A2%98%E4%BC%98%E5%8C%96"><span class="toc-text">针对NexT主题优化</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BC%80%E5%90%AF%E8%AF%AD%E8%A8%80%E5%88%87%E6%8D%A2%E4%B8%8B%E6%8B%89%E5%88%97%E8%A1%A8"><span class="toc-text">开启语言切换下拉列表</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BF%AE%E5%A4%8DBUG"><span class="toc-text">修复BUG</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%8C%E6%88%90"><span class="toc-text">完成</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%82%E8%80%83%E6%96%87%E7%8C%AE"><span class="toc-text">参考文献</span></a></li></ol>
         </div>
-
-        
-          
-  <div class="mt-3">
-    
-    
-      <span class="post-meta">
-        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2023-09-09 11:14" pubdate>
-          2023:09:09
-        </time>
-      </span>
-    
-  </div>
-
-  <div class="mt-1">
-    
-
-    
-
-    
-    
-  </div>
-
-
-        
-      </div>
-
-      
-    </div>
-  </div>
-</div>
-
-</div>
-
-  </header>
-
-  <main>
-    
-      
-
-<div class="container-fluid nopadding-x">
-  <div class="row nomargin-x">
-    <div class="side-col d-none d-lg-block col-lg-2">
-      
-  <aside class="sidebar category-bar" style="margin-right: -1rem">
-    
-
-
-
-
-
-<div class="category-list">
-  
-  
-</div>
-
-
-  </aside>
-
-
+    </aside>
+    <a class="btn-toc button" id="btn-toc" tabindex="0">
+        <svg viewBox="0 0 1024 1024" width="32" height="32" xmlns="http://www.w3.org/2000/svg">
+            <path d="M128 256h64V192H128zM320 256h576V192H320zM128 544h64v-64H128zM320 544h576v-64H320zM128 832h64v-64H128zM320 832h576v-64H320z" fill="currentColor"></path>
+        </svg>
+    </a>
+    <div class="toc-menus" id="toc-menus">
+        <div class="toc-title">文章目录</div>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%89%8D%E8%A8%80"><span class="toc-text">前言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%89%E8%A3%85%E6%B8%B2%E6%9F%93%E9%A6%96%E9%A1%B5%E7%9A%84%E6%8F%92%E4%BB%B6"><span class="toc-text">安装渲染首页的插件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%89%E8%A3%85%E5%85%81%E8%AE%B8%E5%A4%9A%E8%AF%AD%E8%A8%80%E7%9A%84%E6%8F%92%E4%BB%B6"><span class="toc-text">安装允许多语言的插件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%85%8D%E7%BD%AE%E5%A4%9A%E7%A7%8D%E8%AF%AD%E8%A8%80"><span class="toc-text">配置多种语言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%85%8D%E7%BD%AE%E7%BF%BB%E8%AF%91%E7%9A%84%E9%A1%B5%E9%9D%A2%EF%BC%88%E5%8F%AF%E9%80%89%EF%BC%89"><span class="toc-text">配置翻译的页面（可选）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%85%8D%E7%BD%AE%E7%BF%BB%E8%AF%91%EF%BC%88%E5%8F%AF%E9%80%89%EF%BC%89"><span class="toc-text">配置翻译（可选）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%89%E8%A3%85%E5%8D%95%E8%AF%AD%E8%A8%80%E9%A6%96%E9%A1%B5%E7%9A%84%E6%8F%92%E4%BB%B6"><span class="toc-text">安装单语言首页的插件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%85%8D%E7%BD%AE%E5%8D%95%E8%AF%AD%E8%A8%80%E4%B8%BB%E9%A1%B5"><span class="toc-text">配置单语言主页</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%87%8D%E6%96%B0%E5%AE%9A%E4%B9%89%E8%B5%84%E6%BA%90%E8%AE%BF%E9%97%AE%E8%B7%AF%E5%BE%84"><span class="toc-text">重新定义资源访问路径</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B0%86%E6%97%A7%E7%9A%84%E6%96%87%E7%AB%A0%E6%8C%89%E7%85%A7%E8%AF%AD%E8%A8%80%E9%87%8D%E6%96%B0%E5%88%92%E5%88%86"><span class="toc-text">将旧的文章按照语言重新划分</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%89%B9%E9%87%8F%E6%B7%BB%E5%8A%A0%E8%AF%AD%E8%A8%80%E6%A0%87%E7%AD%BE%E8%84%9A%E6%9C%AC"><span class="toc-text">批量添加语言标签脚本</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B0%86%E6%96%87%E7%AB%A0%E6%A0%B9%E6%8D%AE%E8%AF%AD%E8%A8%80%E5%88%86%E5%BC%80%E5%AD%98%E5%82%A8%EF%BC%88%E5%8F%AF%E9%80%89%EF%BC%89"><span class="toc-text">将文章根据语言分开存储（可选）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%BA%E6%96%B0%E6%96%87%E7%AB%A0%E9%85%8D%E7%BD%AE%E9%BB%98%E8%AE%A4%E7%9A%84lang%E6%A0%87%E7%AD%BE"><span class="toc-text">为新文章配置默认的lang标签</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%9B%E5%BB%BA%E6%96%87%E7%AB%A0%E6%97%B6%E5%AD%98%E6%94%BE%E5%88%B0%E5%AF%B9%E5%BA%94%E8%AF%AD%E8%A8%80%E7%9A%84%E7%9B%AE%E5%BD%95%EF%BC%88%E5%8F%AF%E9%80%89%EF%BC%89"><span class="toc-text">创建文章时存放到对应语言的目录（可选）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%92%88%E5%AF%B9NexT%E4%B8%BB%E9%A2%98%E4%BC%98%E5%8C%96"><span class="toc-text">针对NexT主题优化</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BC%80%E5%90%AF%E8%AF%AD%E8%A8%80%E5%88%87%E6%8D%A2%E4%B8%8B%E6%8B%89%E5%88%97%E8%A1%A8"><span class="toc-text">开启语言切换下拉列表</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BF%AE%E5%A4%8DBUG"><span class="toc-text">修复BUG</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%8C%E6%88%90"><span class="toc-text">完成</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%82%E8%80%83%E6%96%87%E7%8C%AE"><span class="toc-text">参考文献</span></a></li></ol>
     </div>
 
-    <div class="col-lg-8 nopadding-x-md">
-      <div class="container nopadding-x-md" id="board-ctn">
-        <div id="board">
-          <article class="post-content mx-auto">
-            <h1 id="seo-header">【笔记】Hexo配置多语言</h1>
-            
-              <p id="updated-time" class="note note-info" style="">
-                
-                  
-                    本文最后更新于 2024:08:06
-                  
-                
-              </p>
-            
-            
-              <div class="markdown-body">
-                
-                <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>Hexo 6.3 在 NexT 8.18 主题下配置多语言支持（i18n）</p>
+
+<article class="post post__with-toc content-card">
+    <div class="post__header"></div>
+    <div class="post__content">
+        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>Hexo 6.3 在 NexT 8.18 主题下配置多语言支持（i18n）</p>
 <span id="more"></span>
 
 <h2 id="安装渲染首页的插件"><a href="#安装渲染首页的插件" class="headerlink" title="安装渲染首页的插件"></a>安装渲染首页的插件</h2><ul>
 <li>只安装<code>hexo-generator-index</code>插件的情况下，<code>_config.yml</code>中的<code>language</code>选项无法同时配置多个值，所以无法为站点同时配置多个语言</li>
 </ul>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">yarn add hexo-generator-index<br></code></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yarn add hexo-generator-index</span><br></pre></td></tr></table></figure>
 
 <h2 id="安装允许多语言的插件"><a href="#安装允许多语言的插件" class="headerlink" title="安装允许多语言的插件"></a>安装允许多语言的插件</h2><ul>
 <li>安装了<code>hexo-generator-i18n</code>插件后，<code>_config.yml</code>中的<code>language</code>选项才允许同时配置多个值，所以可以为站点同时配置多个语言</li>
 </ul>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">yarn add hexo-generator-i18n<br></code></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yarn add hexo-generator-i18n</span><br></pre></td></tr></table></figure>
 
-<h2 id="配置多种语言"><a href="#配置多种语言" class="headerlink" title="配置多种语言"></a>配置多种语言</h2><figure class="highlight yaml"><figcaption><span>hexo/_config.yml</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs yaml"><span class="hljs-attr">language:</span><br>  <span class="hljs-bullet">-</span> <span class="hljs-string">zh-CN</span><br>  <span class="hljs-bullet">-</span> <span class="hljs-string">en</span><br></code></pre></td></tr></table></figure>
+<h2 id="配置多种语言"><a href="#配置多种语言" class="headerlink" title="配置多种语言"></a>配置多种语言</h2><figure class="highlight yaml"><figcaption><span>hexo/_config.yml</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">language:</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">zh-CN</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">en</span></span><br></pre></td></tr></table></figure>
 
 <h2 id="配置翻译的页面（可选）"><a href="#配置翻译的页面（可选）" class="headerlink" title="配置翻译的页面（可选）"></a>配置翻译的页面（可选）</h2><ul>
 <li>在安装了<code>hexo-generator-i18n</code>插件后，可以配置哪些路径的页面或者哪些类型的页面会自动翻译，如果不配置只有首页会被翻译</li>
@@ -359,28 +211,28 @@
 <p><code>index</code>：首页<br><code>archive</code>：归档页面<br><code>category</code>：分类页面<br><code>tag</code>：标签页面</p>
 </blockquote>
 </blockquote>
-<figure class="highlight yaml"><figcaption><span>hexo/_config.yml</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs yaml"><span class="hljs-attr">i18n:</span><br>  <span class="hljs-attr">type:</span><br>    <span class="hljs-bullet">-</span> <span class="hljs-string">post</span><br>    <span class="hljs-bullet">-</span> <span class="hljs-string">page</span><br>  <span class="hljs-attr">generator:</span><br>    <span class="hljs-bullet">-</span> <span class="hljs-string">index</span><br>    <span class="hljs-bullet">-</span> <span class="hljs-string">archive</span><br>    <span class="hljs-bullet">-</span> <span class="hljs-string">category</span><br>    <span class="hljs-bullet">-</span> <span class="hljs-string">tag</span><br></code></pre></td></tr></table></figure>
+<figure class="highlight yaml"><figcaption><span>hexo/_config.yml</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">i18n:</span></span><br><span class="line">  <span class="attr">type:</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">post</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">page</span></span><br><span class="line">  <span class="attr">generator:</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">index</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">archive</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">category</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">tag</span></span><br></pre></td></tr></table></figure>
 
 <h2 id="配置翻译（可选）"><a href="#配置翻译（可选）" class="headerlink" title="配置翻译（可选）"></a>配置翻译（可选）</h2><ul>
 <li>即便是不配置，NexT也提供了多语言的翻译缺省值</li>
 </ul>
 <p><a href="/302.html?target=https://github.com/next-theme/hexo-theme-next/tree/master/languages">传送门</a></p>
-<figure class="highlight yaml"><figcaption><span>hexo/source/language.yml</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs yaml"><span class="hljs-attr">zh-CN:</span><br>  <span class="hljs-attr">menu:</span><br>    <span class="hljs-attr">links:</span> <span class="hljs-string">友链</span><br><br><span class="hljs-attr">en:</span><br>  <span class="hljs-attr">menu:</span><br>    <span class="hljs-attr">links:</span> <span class="hljs-string">friends</span><br></code></pre></td></tr></table></figure>
+<figure class="highlight yaml"><figcaption><span>hexo/source/language.yml</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">zh-CN:</span></span><br><span class="line">  <span class="attr">menu:</span></span><br><span class="line">    <span class="attr">links:</span> <span class="string">友链</span></span><br><span class="line"></span><br><span class="line"><span class="attr">en:</span></span><br><span class="line">  <span class="attr">menu:</span></span><br><span class="line">    <span class="attr">links:</span> <span class="string">friends</span></span><br></pre></td></tr></table></figure>
 
 <h2 id="安装单语言首页的插件"><a href="#安装单语言首页的插件" class="headerlink" title="安装单语言首页的插件"></a>安装单语言首页的插件</h2><ul>
 <li>没有安装<code>hexo-generator-index-i18n</code>插件之前，虽然站点能同时显示两种语言的文章，但是不会将多种语言的文章分开，而是全部显示在主页</li>
 </ul>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">yarn add hexo-generator-index-i18n<br></code></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yarn add hexo-generator-index-i18n</span><br></pre></td></tr></table></figure>
 
 <h2 id="配置单语言主页"><a href="#配置单语言主页" class="headerlink" title="配置单语言主页"></a>配置单语言主页</h2><ul>
 <li>让主页只显示一种语言，从而将多种语言的文章分开为不同语言的主页</li>
 </ul>
-<figure class="highlight yaml"><figcaption><span>hexo/_config.yml</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs yaml"><span class="hljs-attr">index_generator:</span><br>  <span class="hljs-attr">single_language_index:</span> <span class="hljs-literal">true</span><br></code></pre></td></tr></table></figure>
+<figure class="highlight yaml"><figcaption><span>hexo/_config.yml</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">index_generator:</span></span><br><span class="line">  <span class="attr">single_language_index:</span> <span class="literal">true</span></span><br></pre></td></tr></table></figure>
 
 <h2 id="重新定义资源访问路径"><a href="#重新定义资源访问路径" class="headerlink" title="重新定义资源访问路径"></a>重新定义资源访问路径</h2><ul>
 <li>配置完成后，之前访问资源请求URL路径从<code>http://localhost:4000/年/月/日/文章名</code>变为<code>http://localhost:4000/语言/年/月/日/文章名</code></li>
 </ul>
-<figure class="highlight yaml"><figcaption><span>hexo/_config.yml</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs yaml"><span class="hljs-attr">permalink:</span> <span class="hljs-string">:lang/:year/:month/:day/:title/</span><br></code></pre></td></tr></table></figure>
+<figure class="highlight yaml"><figcaption><span>hexo/_config.yml</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">permalink:</span> <span class="string">:lang/:year/:month/:day/:title/</span></span><br></pre></td></tr></table></figure>
 
 <h2 id="将旧的文章按照语言重新划分"><a href="#将旧的文章按照语言重新划分" class="headerlink" title="将旧的文章按照语言重新划分"></a>将旧的文章按照语言重新划分</h2><ul>
 <li>为所有文章添加<code>lang</code>标签</li>
@@ -388,9 +240,9 @@
 <blockquote>
 <p><code>lang</code>：配置当前文章的语言，由于已经修改了<code>permalink</code>配置，所以访问资源时自动根据当前的文章语言进行划分资源路径</p>
 </blockquote>
-<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs markdown">---<br>title: 文章名<br><span class="hljs-section">lang: zh-CN</span><br><span class="hljs-section">---</span><br></code></pre></td></tr></table></figure>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">---</span><br><span class="line">title: 文章名</span><br><span class="line"><span class="section">lang: zh-CN</span></span><br><span class="line"><span class="section">---</span></span><br></pre></td></tr></table></figure>
 
-<h3 id="批量添加语言标签脚本"><a href="#批量添加语言标签脚本" class="headerlink" title="批量添加语言标签脚本"></a>批量添加语言标签脚本</h3><figure class="highlight python"><figcaption><span>hexo/source/scripts/SearchIsOrNotExistLangTagInFile.py</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">import</span> os<br><br><span class="hljs-comment"># 计数器</span><br>exec_count = <span class="hljs-number">0</span><br><br>script_src = os.getcwd()<br>os.chdir(<span class="hljs-string">&quot;../_posts&quot;</span>)<br>base_src = os.getcwd()<br>filename_list = os.listdir(<span class="hljs-string">&quot;../_posts&quot;</span>)<br><br><span class="hljs-comment"># 待处理的数据</span><br>file_src_list = []<br><br><span class="hljs-comment"># 寻找所有待处理的数据</span><br><span class="hljs-keyword">for</span> filename <span class="hljs-keyword">in</span> filename_list:<br>    <span class="hljs-keyword">if</span> filename == <span class="hljs-string">&quot;.DS_Store&quot;</span>:<br>        <span class="hljs-keyword">continue</span><br>    <span class="hljs-comment"># 获取文件绝对路径</span><br>    file_src = <span class="hljs-string">f&quot;<span class="hljs-subst">&#123;base_src&#125;</span>/<span class="hljs-subst">&#123;filename&#125;</span>&quot;</span><br>    <span class="hljs-comment"># 读取文件</span><br>    <span class="hljs-keyword">with</span> <span class="hljs-built_in">open</span>(file_src) <span class="hljs-keyword">as</span> f:<br>        content = f.read()<br>        <span class="hljs-comment"># 判定文件是否以存在lang标签</span><br>        <span class="hljs-keyword">if</span> content.find(<span class="hljs-string">&quot;lang: &quot;</span>) == -<span class="hljs-number">1</span>:<br>            <span class="hljs-comment"># 记录这个文件的绝对路径</span><br>            file_src_list.append(file_src)<br><br><br><span class="hljs-comment"># 将所有待处理的文件添加lang标签</span><br><span class="hljs-keyword">for</span> file_src <span class="hljs-keyword">in</span> file_src_list:<br>    <span class="hljs-comment"># 读取到的文件内容</span><br>    <span class="hljs-keyword">with</span> <span class="hljs-built_in">open</span>(file_src) <span class="hljs-keyword">as</span> f:<br>        content = f.read()<br>    <span class="hljs-comment"># 将文件添加lang标签，插入在date标签之前</span><br>    content = content.replace(<span class="hljs-string">&quot;\ndate: &quot;</span>, <span class="hljs-string">&quot;\nlang: zh-CN\ndate: &quot;</span>)<br>    <span class="hljs-comment"># 重新写入文件</span><br>    <span class="hljs-keyword">with</span> <span class="hljs-built_in">open</span>(file_src, mode=<span class="hljs-string">&quot;w&quot;</span>) <span class="hljs-keyword">as</span> f:<br>        f.write(content)<br>        exec_count += <span class="hljs-number">1</span><br>    <span class="hljs-comment"># DEBUG</span><br>    <span class="hljs-built_in">print</span>(<span class="hljs-string">f&quot;== 添加lang标签完成 <span class="hljs-subst">&#123;file_src&#125;</span> ==&quot;</span>)<br>    <span class="hljs-built_in">print</span>(<span class="hljs-string">f&quot;== 完成进度 <span class="hljs-subst">&#123;exec_count&#125;</span>/<span class="hljs-subst">&#123;<span class="hljs-built_in">len</span>(file_src_list)&#125;</span> ==&quot;</span>)<br></code></pre></td></tr></table></figure>
+<h3 id="批量添加语言标签脚本"><a href="#批量添加语言标签脚本" class="headerlink" title="批量添加语言标签脚本"></a>批量添加语言标签脚本</h3><figure class="highlight python"><figcaption><span>hexo/source/scripts/SearchIsOrNotExistLangTagInFile.py</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> os</span><br><span class="line"></span><br><span class="line"><span class="comment"># 计数器</span></span><br><span class="line">exec_count = <span class="number">0</span></span><br><span class="line"></span><br><span class="line">script_src = os.getcwd()</span><br><span class="line">os.chdir(<span class="string">&quot;../_posts&quot;</span>)</span><br><span class="line">base_src = os.getcwd()</span><br><span class="line">filename_list = os.listdir(<span class="string">&quot;../_posts&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 待处理的数据</span></span><br><span class="line">file_src_list = []</span><br><span class="line"></span><br><span class="line"><span class="comment"># 寻找所有待处理的数据</span></span><br><span class="line"><span class="keyword">for</span> filename <span class="keyword">in</span> filename_list:</span><br><span class="line">    <span class="keyword">if</span> filename == <span class="string">&quot;.DS_Store&quot;</span>:</span><br><span class="line">        <span class="keyword">continue</span></span><br><span class="line">    <span class="comment"># 获取文件绝对路径</span></span><br><span class="line">    file_src = <span class="string">f&quot;<span class="subst">&#123;base_src&#125;</span>/<span class="subst">&#123;filename&#125;</span>&quot;</span></span><br><span class="line">    <span class="comment"># 读取文件</span></span><br><span class="line">    <span class="keyword">with</span> <span class="built_in">open</span>(file_src) <span class="keyword">as</span> f:</span><br><span class="line">        content = f.read()</span><br><span class="line">        <span class="comment"># 判定文件是否以存在lang标签</span></span><br><span class="line">        <span class="keyword">if</span> content.find(<span class="string">&quot;lang: &quot;</span>) == -<span class="number">1</span>:</span><br><span class="line">            <span class="comment"># 记录这个文件的绝对路径</span></span><br><span class="line">            file_src_list.append(file_src)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 将所有待处理的文件添加lang标签</span></span><br><span class="line"><span class="keyword">for</span> file_src <span class="keyword">in</span> file_src_list:</span><br><span class="line">    <span class="comment"># 读取到的文件内容</span></span><br><span class="line">    <span class="keyword">with</span> <span class="built_in">open</span>(file_src) <span class="keyword">as</span> f:</span><br><span class="line">        content = f.read()</span><br><span class="line">    <span class="comment"># 将文件添加lang标签，插入在date标签之前</span></span><br><span class="line">    content = content.replace(<span class="string">&quot;\ndate: &quot;</span>, <span class="string">&quot;\nlang: zh-CN\ndate: &quot;</span>)</span><br><span class="line">    <span class="comment"># 重新写入文件</span></span><br><span class="line">    <span class="keyword">with</span> <span class="built_in">open</span>(file_src, mode=<span class="string">&quot;w&quot;</span>) <span class="keyword">as</span> f:</span><br><span class="line">        f.write(content)</span><br><span class="line">        exec_count += <span class="number">1</span></span><br><span class="line">    <span class="comment"># DEBUG</span></span><br><span class="line">    <span class="built_in">print</span>(<span class="string">f&quot;== 添加lang标签完成 <span class="subst">&#123;file_src&#125;</span> ==&quot;</span>)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">f&quot;== 完成进度 <span class="subst">&#123;exec_count&#125;</span>/<span class="subst">&#123;<span class="built_in">len</span>(file_src_list)&#125;</span> ==&quot;</span>)</span><br></pre></td></tr></table></figure>
 
 <h2 id="将文章根据语言分开存储（可选）"><a href="#将文章根据语言分开存储（可选）" class="headerlink" title="将文章根据语言分开存储（可选）"></a>将文章根据语言分开存储（可选）</h2><ul>
 <li>为配置完lang标签后，虽然可以实现资源请求URL路径的划分，但是在本地存储的文件仍旧全部在<code>hexo/source/_post</code>目录下，并没有根据语言分类</li>
@@ -399,9 +251,9 @@
 </ul>
 </li>
 </ul>
-<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs markdown"><span class="hljs-bullet">+</span> hexo<br><span class="hljs-bullet">  +</span> source<br><span class="hljs-bullet">    +</span> <span class="hljs-emphasis">_post</span><br><span class="hljs-emphasis">      + zh-CN</span><br><span class="hljs-emphasis">        - 中文文章.md</span><br><span class="hljs-emphasis">      + en</span><br><span class="hljs-emphasis">        - 英文文章.md</span><br></code></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">+ hexo</span><br><span class="line">  + source</span><br><span class="line">    + _post</span><br><span class="line">      + zh-CN</span><br><span class="line">        - 中文文章.md</span><br><span class="line">      + en</span><br><span class="line">        - 英文文章.md</span><br></pre></td></tr></table></figure>
 
-<h2 id="为新文章配置默认的lang标签"><a href="#为新文章配置默认的lang标签" class="headerlink" title="为新文章配置默认的lang标签"></a>为新文章配置默认的lang标签</h2><figure class="highlight markdown"><figcaption><span>hexo/scaffolds/post.md</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs markdown">---<br>title: &#123;&#123; title &#125;&#125;<br><span class="hljs-section">lang: zh-CN</span><br><span class="hljs-section">---</span><br></code></pre></td></tr></table></figure>
+<h2 id="为新文章配置默认的lang标签"><a href="#为新文章配置默认的lang标签" class="headerlink" title="为新文章配置默认的lang标签"></a>为新文章配置默认的lang标签</h2><figure class="highlight markdown"><figcaption><span>hexo/scaffolds/post.md</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">---</span><br><span class="line">title: &#123;&#123; title &#125;&#125;</span><br><span class="line"><span class="section">lang: zh-CN</span></span><br><span class="line"><span class="section">---</span></span><br></pre></td></tr></table></figure>
 
 <ul>
 <li>自此通过<code>hexo new</code>创建的新文章都会默认添加<code>lang</code>标签<ul>
@@ -415,24 +267,24 @@
 <li><p>通过修改配置实现新创建的文件自动存放到对应的语言目录下</p>
 </li>
 </ul>
-<figure class="highlight yaml"><figcaption><span>hexo/_config.yml</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs yaml"><span class="hljs-attr">new_post_name:</span> <span class="hljs-string">:lang/:title.md</span><br></code></pre></td></tr></table></figure>
+<figure class="highlight yaml"><figcaption><span>hexo/_config.yml</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">new_post_name:</span> <span class="string">:lang/:title.md</span></span><br></pre></td></tr></table></figure>
 
 <ul>
 <li>只是配置完成后，当使用<code>hexo new</code>创建新文章时，将自动存放到<code>hexo/source/_post/undefined</code>目录下，因为没有指定语言目录，只有在创建文章时指定文章语言的参数才能放到对应目录下</li>
 </ul>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">hexo new --lang zh-CN 文章名<br></code></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo new --lang zh-CN 文章名</span><br></pre></td></tr></table></figure>
 
-<h2 id="针对NexT主题优化"><a href="#针对NexT主题优化" class="headerlink" title="针对NexT主题优化"></a>针对NexT主题优化</h2><h3 id="开启语言切换下拉列表"><a href="#开启语言切换下拉列表" class="headerlink" title="开启语言切换下拉列表"></a>开启语言切换下拉列表</h3><figure class="highlight yaml"><figcaption><span>hexo/_config.next.yml</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs yaml"><span class="hljs-attr">language_switcher:</span> <span class="hljs-literal">true</span><br></code></pre></td></tr></table></figure>
+<h2 id="针对NexT主题优化"><a href="#针对NexT主题优化" class="headerlink" title="针对NexT主题优化"></a>针对NexT主题优化</h2><h3 id="开启语言切换下拉列表"><a href="#开启语言切换下拉列表" class="headerlink" title="开启语言切换下拉列表"></a>开启语言切换下拉列表</h3><figure class="highlight yaml"><figcaption><span>hexo/_config.next.yml</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">language_switcher:</span> <span class="literal">true</span></span><br></pre></td></tr></table></figure>
 
 <h4 id="修复BUG"><a href="#修复BUG" class="headerlink" title="修复BUG"></a>修复BUG</h4><ul>
 <li>如果切换回中文，URL中默认没有语言前缀，会跳转到无效页面</li>
 <li>手动强制添加<code>/zh-CN</code>作为URL前缀</li>
 </ul>
-<figure class="highlight javascript"><figcaption><span>hexo/source/rewrite_i18n_path.js</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">const</span> element_for_i18n = <span class="hljs-variable language_">document</span>.<span class="hljs-title function_">querySelector</span>(<span class="hljs-string">&quot;option[value=&#x27;zh-CN&#x27;]&quot;</span>);<br>element_for_i18n.<span class="hljs-title function_">setAttribute</span>(<span class="hljs-string">&quot;data-href&quot;</span>, <span class="hljs-string">&quot;/zh-CN&quot;</span> + element_for_i18n.<span class="hljs-title function_">getAttribute</span>(<span class="hljs-string">&quot;data-href&quot;</span>));<br></code></pre></td></tr></table></figure>
+<figure class="highlight javascript"><figcaption><span>hexo/source/rewrite_i18n_path.js</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> element_for_i18n = <span class="variable language_">document</span>.<span class="title function_">querySelector</span>(<span class="string">&quot;option[value=&#x27;zh-CN&#x27;]&quot;</span>);</span><br><span class="line">element_for_i18n.<span class="title function_">setAttribute</span>(<span class="string">&quot;data-href&quot;</span>, <span class="string">&quot;/zh-CN&quot;</span> + element_for_i18n.<span class="title function_">getAttribute</span>(<span class="string">&quot;data-href&quot;</span>));</span><br></pre></td></tr></table></figure>
 
-<figure class="highlight plaintext"><figcaption><span>hexo/source/_data/footer.njk</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs njk">&lt;script type=&quot;text/javascript&quot; src=&quot;/rewrite_i18n_path.js&quot; data-pjax=&quot;&quot;&gt;&lt;/script&gt;<br></code></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><figcaption><span>hexo/source/_data/footer.njk</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;script type=&quot;text/javascript&quot; src=&quot;/rewrite_i18n_path.js&quot; data-pjax=&quot;&quot;&gt;&lt;/script&gt;</span><br></pre></td></tr></table></figure>
 
-<figure class="highlight yaml"><figcaption><span>hexo/_config.next.yml</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs yaml"><span class="hljs-attr">custom_file_path:</span><br>  <span class="hljs-attr">footer:</span> <span class="hljs-string">source/_data/footer.njk</span><br></code></pre></td></tr></table></figure>
+<figure class="highlight yaml"><figcaption><span>hexo/_config.next.yml</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">custom_file_path:</span></span><br><span class="line">  <span class="attr">footer:</span> <span class="string">source/_data/footer.njk</span></span><br></pre></td></tr></table></figure>
 
 <h2 id="完成"><a href="#完成" class="headerlink" title="完成"></a>完成</h2><ul>
 <li>至此，本文完成了对Hexo站点配置多语言的介绍，与网络上其他人不同的是，其他人采用为第二语言建立额外的项目，虽然也能解决问题，但是总体来说不是很优雅</li>
@@ -442,385 +294,226 @@
 <li>完全不采用本文的案例进行部署，而是在页面添加一个翻译按钮，实现<a target="_blank" rel="noopener" href="https://gitee.com/mail_osc/translate">浏览器在线翻译</a></li>
 <li>通过脚本批量向ChatGPT发送请求进行Markdown文档翻译，在要求中如下编写</li>
 </ol>
-<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs">请帮我将如下Markdown文档翻译为英文，请不要修改任何Markdown格式，文章内容如下：<br></code></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">请帮我将如下Markdown文档翻译为英文，请不要修改任何Markdown格式，文章内容如下：</span><br></pre></td></tr></table></figure>
 
 <p>不过缺陷是ChatGPT回复的内容是限定字数的，也就是说内容较多的文章会无法翻译完全，解决方案如下（关于如何记录ChatGPT的回复内容，请参阅Openai官方API文档）</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs">请继续回复<br></code></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">请继续回复</span><br></pre></td></tr></table></figure>
 
 <h2 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h2><p><a target="_blank" rel="noopener" href="https://hexo.io/zh-cn/docs/permalinks">Hexo——永久链接</a><br><a target="_blank" rel="noopener" href="https://hexo.io/zh-cn/docs/internationalization.html">Hexo——国际化</a><br><a target="_blank" rel="noopener" href="https://blog.csdn.net/Calvin_zhou/article/details/110957632">CSDN——PGzxc</a><br><a target="_blank" rel="noopener" href="https://github.com/xcatliu/hexo-generator-index-i18n">xcatliu&#x2F;hexo-generator-index-i18n</a><br><a target="_blank" rel="noopener" href="https://wtlumos.github.io/zh-CN/2021/10/13/hexo%E5%AE%9E%E7%8E%B0%E5%8F%8C%E8%AF%AD%E8%A8%80%E7%BD%91%E7%AB%99-i18n/">W.T.的博客</a><br><a target="_blank" rel="noopener" href="https://www.ieclipse.cn/p/hexo-generator-i18n/index.html">Jamling的博客</a></p>
 
-                
-              </div>
-            
-            <hr/>
-            <div>
-              <div class="post-metas my-3">
-  
-  
-    <div class="post-meta">
-      <i class="iconfont icon-tags"></i>
-      
-        <a href="/tags/Hexo/" class="print-no-link">#Hexo</a>
-      
     </div>
-  
-</div>
+     
+    <div class="post-footer__meta"><p>更新于 2024-08-06</p></div> 
+    <div class="post-entry__tags"><a href="/tags/Hexo/" class="post-tags__link button"># Hexo</a></div> 
+</article>
 
 
-              
-
-              
-                <div class="post-prevnext my-3">
-                  <article class="post-prev col-6">
-                    
-                    
-                      <a href="/2023/09/09/Rust%E7%9A%84%E6%96%87%E4%BB%B6%E6%93%8D%E4%BD%9C/" title="【笔记】Rust的文件操作">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">【笔记】Rust的文件操作</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
-                  </article>
-                  <article class="post-next col-6">
-                    
-                    
-                      <a href="/2023/09/08/Linux%E4%BF%AE%E6%94%B9%E6%97%B6%E5%8C%BA/" title="【笔记】Linux修改时区">
-                        <span class="hidden-mobile">【笔记】Linux修改时区</span>
-                        <span class="visible-mobile">下一篇</span>
-                        <i class="iconfont icon-arrowright"></i>
-                      </a>
-                    
-                  </article>
-                </div>
-              
-            </div>
-
+    <div class="nav">
+        <div class="nav__prev">
             
-  
-  
-    <article id="comments" lazyload>
-      
-  <div id="twikoo"></div>
-  <script type="text/javascript">
-    Fluid.utils.loadComments('#comments', function() {
-      Fluid.utils.createScript('https://lib.baomitu.com/twikoo/1.6.8/twikoo.all.min.js', function() {
-        var options = Object.assign(
-          {"envId":"https://twikoo.loli.fj.cn","region":"ap-shanghai","path":"window.location.pathname"},
-          {
-            el: '#twikoo',
-            path: 'window.location.pathname',
-            onCommentLoaded: function() {
-              Fluid.utils.listenDOMLoaded(function() {
-                var imgSelector = '#twikoo .tk-content img:not(.tk-owo-emotion)';
-                Fluid.plugins.imageCaption(imgSelector);
-                Fluid.plugins.fancyBox(imgSelector);
-              });
+                <a href="/2023/09/09/Rust%E7%9A%84%E6%96%87%E4%BB%B6%E6%93%8D%E4%BD%9C/" class="nav__link">
+                    <div>
+                        <svg viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" width="24" height="24"><path d="M589.088 790.624L310.464 512l278.624-278.624 45.248 45.248L400.96 512l233.376 233.376z" fill="#808080"></path></svg>
+                    </div>
+                    <div>
+                        <div class="nav__label">
+                            上一篇
+                        </div>
+                        <div class="nav__title">
+                            【笔记】Rust的文件操作
+                        </div>
+                    </div>
+                </a>
+            
+        </div>
+        <div class="nav__next">
+            
+                <a href="/2023/09/08/Linux%E4%BF%AE%E6%94%B9%E6%97%B6%E5%8C%BA/" class="nav__link">
+                    <div>
+                        <div class="nav__label">
+                            下一篇
+                        </div>
+                        <div class="nav__title">
+                            【笔记】Linux修改时区
+                        </div>
+                    </div>
+                    <div>
+                        <svg viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" width="24" height="24"><path d="M434.944 790.624l-45.248-45.248L623.04 512l-233.376-233.376 45.248-45.248L713.568 512z" fill="#808080"></path></svg>
+                    </div>
+                </a>
+            
+        </div>
+    </div>
+
+
+
+    <div class="post__comments post__with-toc content-card" id="comment">
+        
+    <h4>评论</h4>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <div id="tcomment" class="twikoo_thread"></div>
+
+    
+
+
+
+    </div>
+
+
+
+</main>
+
+            <footer class="footer">
+     
+    <a href="#" class="button" id="b2t" aria-label="回到顶部" title="回到顶部">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" width="32" height="32">
+            <path d="M233.376 722.752L278.624 768 512 534.624 745.376 768l45.248-45.248L512 444.128zM192 352h640V288H192z" fill="currentColor"></path>
+        </svg>
+    </a>
+
+    
+
+
+    
+    
+    
+        <span id="busuanzi_container_site_uv" hidden>
+            <span></span>
+            <span id="busuanzi_value_site_uv"></span>
+            <span>Viewers</span>
+            
+                <span>&amp;nbsp;&amp;nbsp;&amp;nbsp;|</span>
+            
+        </span>
+    
+    
+        <span id="busuanzi_container_site_pv" hidden>
+            <span></span>
+            <span id="busuanzi_value_site_pv"></span>
+            <span>Views</span>
+            
+        </span>
+    
+ 
+ 
+
+ 
+    
+        
+        <p class="footer-copyright">
+            Copyright © 2024 <a href="/">绯鞠的博客</a>
+        </p>
+    
+    
+    <p>Powered by <a href="https://hexo.io" target="_blank">Hexo</a> | Theme - <a href="https://github.com/ChrAlpha/hexo-theme-cards" target="_blank">Cards</a></p>
+</footer>
+
+        </div>
+         
+
+ 
+
+ 
+
+ 
+
+ 
+
+
+
+ 
+
+
+
+ 
+
+
+    
+ 
+
+ 
+
+ 
+
+ 
+
+
+    <script src='https://cdn.jsdelivr.net/npm/mermaid@8.10.2/dist/mermaid.min.js'></script>
+    <script>
+            mermaid.initialize(JSON.stringify(''));
+    </script>
+ 
+
+ 
+
+
+    
+
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+
+    
+    
+    
+    
+    
+
+    
+    
+    
+    <script>
+        function loadComment() {
+            let e;
+            (e = document.createElement("script")).src = 'https://cdn.jsdelivr.net/npm/twikoo@0.3.2/dist/twikoo.all.min.js',
+            document.body.appendChild(e);
+            e.onload = () => {
+                twikoo.init({
+                    envId: 'https://twikoo.loli.fj.cn',
+                    el: '#tcomment'
+                });
+            };
+        }
+    
+        var runningOnBrowser = typeof window !== "undefined";
+        var isBot = runningOnBrowser && !("onscroll" in window) || typeof navigator !== "undefined" && /(gle|ing|ro|msn)bot|crawl|spider|yand|duckgo/i.test(navigator.userAgent);
+        var supportsIntersectionObserver = runningOnBrowser && "IntersectionObserver" in window;
+    
+        setTimeout(function () {
+            if (!isBot && supportsIntersectionObserver) {
+                var comment_observer = new IntersectionObserver(function(entries) {
+                    if (entries[0].isIntersecting) {
+                        loadComment();
+                        comment_observer.disconnect();
+                    }
+                }, { threshold: [0] });
+                comment_observer.observe(document.getElementById('comment'));
+            } else {
+                loadComment();
             }
-          }
-        )
-        twikoo.init(options)
-      });
-    });
-  </script>
-  <noscript>Please enable JavaScript to view the comments</noscript>
+        }, 1);
+    </script>
 
 
-    </article>
-  
 
 
-          </article>
-        </div>
-      </div>
-    </div>
-
-    <div class="side-col d-none d-lg-block col-lg-2">
-      
-  <aside class="sidebar" style="margin-left: -1rem">
-    <div id="toc">
-  <p class="toc-header">
-    <i class="iconfont icon-list"></i>
-    <span>目录</span>
-  </p>
-  <div class="toc-body" id="toc-body"></div>
-</div>
-
-
-
-  </aside>
-
-
-    </div>
-  </div>
-</div>
-
-
-
-
-
-  
-
-
-
-  
-
-
-
-  
-
-
-
-  
-
-
-
-
-
-  <script>
-  Fluid.utils.createScript('https://lib.baomitu.com/mermaid/8.14.0/mermaid.min.js', function() {
-    mermaid.initialize({"theme":"default"});
-
-    Fluid.utils.listenDOMLoaded(function() {
-      Fluid.events.registerRefreshCallback(function() {
-        if ('mermaid' in window) {
-          mermaid.init();
-        }
-      });
-    });
-  });
-</script>
-
-
-
-
-
-
-    
-
-    
-      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
-        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
-      </a>
-    
-
-    
-      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
-     aria-hidden="true">
-  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
-    <div class="modal-content">
-      <div class="modal-header text-center">
-        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
-        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body mx-3">
-        <div class="md-form mb-5">
-          <input type="text" id="local-search-input" class="form-control validate">
-          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
-        </div>
-        <div class="list-group" id="local-search-result"></div>
-      </div>
-    </div>
-  </div>
-</div>
-
-    
-
-    
-  </main>
-
-  <footer>
-    <div class="footer-inner">
-  
-    <div class="footer-content">
-       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> <br> <!-- 当前在线人数统计 --> <div>当前在线人数 <span id="current_visitors_count">0</span></div> <script src="/dist/js/current_visitors_count.js"></script> <!-- 网站运行时间统计 --> <div id="sitetime"></div> <script type="text/javascript" src="/dist/js/sitetime.js"></script> 
-    </div>
-  
-  
-    <div class="statistics">
-  
-  
-
-  
-    
-      <span id="busuanzi_container_site_pv" style="display: none">
-        总访问量 
-        <span id="busuanzi_value_site_pv"></span>
-         次
-      </span>
-    
-    
-      <span id="busuanzi_container_site_uv" style="display: none">
-        总访客数 
-        <span id="busuanzi_value_site_uv"></span>
-         人
-      </span>
-    
-    
-  
-</div>
-
-  
-  
-  
-</div>
-
-  </footer>
-
-  <!-- Scripts -->
-  
-  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
-  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
-
-  <script>
-    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
-    NProgress.start()
-    window.addEventListener('load', function() {
-      NProgress.done();
-    })
-  </script>
-
-
-<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
-<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
-<script  src="/js/events.js" ></script>
-<script  src="/js/plugins.js" ></script>
-
-
-  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
-  <script>
-    (function (window, document) {
-      var typing = Fluid.plugins.typing;
-      var subtitle = document.getElementById('subtitle');
-      if (!subtitle || !typing) {
-        return;
-      }
-      var text = subtitle.getAttribute('data-typed-text');
-      
-        typing(text);
-      
-    })(window, document);
-  </script>
-
-
-
-
-  
-    <script  src="/js/img-lazyload.js" ></script>
-  
-
-
-
-
-  
-<script>
-  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
-    var toc = jQuery('#toc');
-    if (toc.length === 0 || !window.tocbot) { return; }
-    var boardCtn = jQuery('#board-ctn');
-    var boardTop = boardCtn.offset().top;
-
-    window.tocbot.init(Object.assign({
-      tocSelector     : '#toc-body',
-      contentSelector : '.markdown-body',
-      linkClass       : 'tocbot-link',
-      activeLinkClass : 'tocbot-active-link',
-      listClass       : 'tocbot-list',
-      isCollapsedClass: 'tocbot-is-collapsed',
-      collapsibleClass: 'tocbot-is-collapsible',
-      scrollSmooth    : true,
-      includeTitleTags: true,
-      headingsOffset  : -boardTop,
-    }, CONFIG.toc));
-    if (toc.find('.toc-list-item').length > 0) {
-      toc.css('visibility', 'visible');
-    }
-
-    Fluid.events.registerRefreshCallback(function() {
-      if ('tocbot' in window) {
-        tocbot.refresh();
-        var toc = jQuery('#toc');
-        if (toc.length === 0 || !tocbot) {
-          return;
-        }
-        if (toc.find('.toc-list-item').length > 0) {
-          toc.css('visibility', 'visible');
-        }
-      }
-    });
-  });
-</script>
-
-
-  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
-
-  <script>Fluid.plugins.codeWidget();</script>
-
-
-  
-<script>
-  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
-    window.anchors.options = {
-      placement: CONFIG.anchorjs.placement,
-      visible  : CONFIG.anchorjs.visible
-    };
-    if (CONFIG.anchorjs.icon) {
-      window.anchors.options.icon = CONFIG.anchorjs.icon;
-    }
-    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
-    var res = [];
-    for (var item of el) {
-      res.push('.markdown-body > ' + item.trim());
-    }
-    if (CONFIG.anchorjs.placement === 'left') {
-      window.anchors.options.class = 'anchorjs-link-left';
-    }
-    window.anchors.add(res.join(', '));
-
-    Fluid.events.registerRefreshCallback(function() {
-      if ('anchors' in window) {
-        anchors.removeAll();
-        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
-        var res = [];
-        for (var item of el) {
-          res.push('.markdown-body > ' + item.trim());
-        }
-        if (CONFIG.anchorjs.placement === 'left') {
-          anchors.options.class = 'anchorjs-link-left';
-        }
-        anchors.add(res.join(', '));
-      }
-    });
-  });
-</script>
-
-
-  
-<script>
-  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
-    Fluid.plugins.fancyBox();
-  });
-</script>
-
-
-  <script  src="/js/local-search.js" ></script>
-
-  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
-
-
-
-
-
-<!-- 主题的启动项，将它保持在最底部 -->
-<!-- the boot of the theme, keep it at the bottom -->
-<script  src="/js/boot.js" ></script>
-
-
-  
-
-  <noscript>
-    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
-  </noscript>
-</body>
+    </body>
 </html>

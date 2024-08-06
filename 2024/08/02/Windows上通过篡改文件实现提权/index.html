@@ -1,21 +1,50 @@
-
-
 <!DOCTYPE html>
-<html lang="zh-CN" data-default-color-scheme=auto>
+<html lang="zh-CN">
+    <head>
+    <meta charset="utf-8">
+
+    
+
+    <!-- 渲染优化 -->
+    <meta name="renderer" content="webkit">
+    <meta name="force-rendering" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta name="HandheldFriendly" content="True" >
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <!--icon-->
+
+    
+        <link rel="shortcut icon" href="/dist/images/favicon_package/favicon.ico">
+    
+    
+        <link rel="icon" type="image/png" sizes="16x16" href="/dist/images/favicon_package/favicon-16x16.png">
+    
+    
+        <link rel="icon" type="image/png" sizes="32x32" href="/dist/images/favicon_package/favicon-32x32.png">
+    
+    
+        <link rel="apple-touch-icon" sizes="180x180" href="/dist/images/favicon_package/apple-touch-icon.png">
+    
+    
+        <link rel="mask-icon" href="/dist/images/favicon_package/safari-pinned-tab.svg">
+    
+
+
+    <!-- meta -->
+
+
+<title>【笔记】Windows上通过篡改文件实现提权 | 绯鞠的博客</title>
+
+
+    <meta name="keywords" content="Windows">
 
 
 
-<head>
-  <meta charset="UTF-8">
-  <link rel="apple-touch-icon" sizes="76x76" href="/dist/images/favicon_package/apple-touch-icon.png">
-  <link rel="icon" href="/dist/images/favicon_package/favicon.ico">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
-  <meta http-equiv="x-ua-compatible" content="ie=edge">
-  
-  <meta name="theme-color" content="#2f4154">
-  <meta name="author" content="绯鞠">
-  <meta name="keywords" content="">
-  
+
+    <!-- OpenGraph -->
+ 
     <meta name="description" content="前言Windows上通过篡改文件实现提权">
 <meta property="og:type" content="article">
 <meta property="og:title" content="【笔记】Windows上通过篡改文件实现提权">
@@ -28,333 +57,156 @@
 <meta property="article:author" content="绯鞠">
 <meta property="article:tag" content="Windows">
 <meta name="twitter:card" content="summary_large_image">
-  
-  
-    <meta name="referrer" content="no-referrer-when-downgrade">
-  
-  
-  <title>【笔记】Windows上通过篡改文件实现提权 - 绯鞠的博客</title>
-
-  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
 
+    
+<link rel="stylesheet" href="/css/style/main.css">
+ 
 
-  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+    
+    
+        <link rel="stylesheet" id="hl-default-theme" href="/css/highlight/highlight.css" media="none" onload="this.media='all'">
+        
+    
 
-  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+    
+    
 
-  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+    
 
+     
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+ 
 
+    <!-- custom head -->
 
-<!-- 主题依赖的图标库，不要自行修改 -->
-<!-- Do not modify the link that theme dependent icons -->
-
-<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
-
-
-
-<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
-
-
-<link  rel="stylesheet" href="/css/main.css" />
-
-
-  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
-  
-    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
-  
-
-
-
-
-  <script id="fluid-configs">
-    var Fluid = window.Fluid || {};
-    Fluid.ctx = Object.assign({}, Fluid.ctx)
-    var CONFIG = {"hostname":"loli.fj.cn","root":"/","version":"1.9.7","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"PLAINTEXT"},"copy_btn":true,"image_caption":{"enable":false},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":6},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml","include_content_in_search":true};
-
-    if (CONFIG.web_analytics.follow_dnt) {
-      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
-      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
-    }
-  </script>
-  <script  src="/js/utils.js" ></script>
-  <script  src="/js/color-schema.js" ></script>
-  
-
-
-  
 <meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="绯鞠的博客" type="application/atom+xml">
 </head>
 
+    <body>
+        <div id="app" tabindex="-1">
+            <header class="header">
+    <div class="header__left">
+        <a href="/" class="button">
+            <span class="logo__text">绯鞠的博客</span>
+        </a>
+    </div>
+    <div class="header__right">
+        
+            <div class="navbar__menus">
+                
+                    <a href="/" class="navbar-menu button">首页</a>
+                
+                    <a href="/about/" class="navbar-menu button">关于</a>
+                
+                    <a href="/archives/" class="navbar-menu button">归档</a>
+                
+                    <a href="/links/" class="navbar-menu button">友链</a>
+                
+                    <a href="/reward/" class="navbar-menu button">赞助</a>
+                
+                    <a href="/atom.xml" class="navbar-menu button">订阅</a>
+                
+                    <a target="_blank" rel="noopener" href="//melody.loli.fj.cn" class="navbar-menu button">主题</a>
+                
+            </div>
+        
+        
+        
 
-<body>
-  
+        
+        
 
-  <header>
+        
+            <a class="dropdown-icon button" id="btn-dropdown" tabindex="0"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" width='24' height='24' fill="none" stroke="currentColor" stroke-width="0.7" stroke-linecap="round" stroke-linejoin="round"><path fill="currentColor" d="M3.314,4.8h13.372c0.41,0,0.743-0.333,0.743-0.743c0-0.41-0.333-0.743-0.743-0.743H3.314c-0.41,0-0.743,0.333-0.743,0.743C2.571,4.467,2.904,4.8,3.314,4.8z M16.686,15.2H3.314c-0.41,0-0.743,0.333-0.743,0.743s0.333,0.743,0.743,0.743h13.372c0.41,0,0.743-0.333,0.743-0.743S17.096,15.2,16.686,15.2z M16.686,9.257H3.314c-0.41,0-0.743,0.333-0.743,0.743s0.333,0.743,0.743,0.743h13.372c0.41,0,0.743-0.333,0.743-0.743S17.096,9.257,16.686,9.257z"></path></svg></a>
+            <div class="dropdown-menus" id="dropdown-menus">
+                
+                    <a href="/" class="dropdown-menu button">首页</a>
+                
+                    <a href="/about/" class="dropdown-menu button">关于</a>
+                
+                    <a href="/archives/" class="dropdown-menu button">归档</a>
+                
+                    <a href="/links/" class="dropdown-menu button">友链</a>
+                
+                    <a href="/reward/" class="dropdown-menu button">赞助</a>
+                
+                    <a href="/atom.xml" class="dropdown-menu button">订阅</a>
+                
+                    <a target="_blank" rel="noopener" href="//melody.loli.fj.cn" class="dropdown-menu button">主题</a>
+                
+            </div>
+        
+    </div>
+</header>
+
+
+            <main class="main">
     
 
-<div class="header-inner" style="height: 70vh;">
-  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
-  <div class="container">
-    <a class="navbar-brand" href="/">
-      <strong>绯鞠的博客</strong>
-    </a>
+<div class="post-title">
+    <h1 class="post-title__text">
+        【笔记】Windows上通过篡改文件实现提权
+    </h1>
+    <div class="post-title__meta">
+        <a href="/archives/2024/08/" class="post-meta__date button">2024-08-02</a>
+        
+ 
+        
+    
+    
 
-    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
-            data-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <div class="animated-icon"><span></span><span></span><span></span></div>
-    </button>
 
-    <!-- Collapsible content -->
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav ml-auto text-center">
-        
-          
-          
-          
-          
-            <li class="nav-item">
-              <a class="nav-link" href="/" target="_self">
-                <i class="iconfont icon-home-fill"></i>
-                <span>首页</span>
-              </a>
-            </li>
-          
-        
-          
-          
-          
-          
-            <li class="nav-item">
-              <a class="nav-link" href="/about/" target="_self">
-                <i class="iconfont icon-user-fill"></i>
-                <span>关于</span>
-              </a>
-            </li>
-          
-        
-          
-          
-          
-          
-            <li class="nav-item">
-              <a class="nav-link" href="/tags/" target="_self">
-                <i class="iconfont icon-tags-fill"></i>
-                <span>标签</span>
-              </a>
-            </li>
-          
-        
-          
-          
-          
-          
-            <li class="nav-item">
-              <a class="nav-link" href="/categories/" target="_self">
-                <i class="iconfont icon-category-fill"></i>
-                <span>分类</span>
-              </a>
-            </li>
-          
-        
-          
-          
-          
-          
-            <li class="nav-item">
-              <a class="nav-link" href="/archives/" target="_self">
-                <i class="iconfont icon-archive-fill"></i>
-                <span>归档</span>
-              </a>
-            </li>
-          
-        
-          
-          
-          
-          
-            <li class="nav-item">
-              <a class="nav-link" href="/links/" target="_self">
-                <i class="iconfont icon-user-friends"></i>
-                <span>友链</span>
-              </a>
-            </li>
-          
-        
-          
-          
-          
-          
-            <li class="nav-item">
-              <a class="nav-link" href="/command/" target="_self">
-                <i class="iconfont icon-book"></i>
-                <span>指令</span>
-              </a>
-            </li>
-          
-        
-          
-          
-          
-          
-            <li class="nav-item">
-              <a class="nav-link" href="/atom.xml" target="_self">
-                <i class="iconfont icon-rss"></i>
-                <span>订阅</span>
-              </a>
-            </li>
-          
-        
-          
-          
-          
-          
-            <li class="nav-item">
-              <a class="nav-link" href="//redefine.loli.fj.cn" target="_self">
-                <i class="iconfont icon-th-large"></i>
-                <span>主题</span>
-              </a>
-            </li>
-          
-        
-        
-          <li class="nav-item" id="search-btn">
-            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
-              <i class="iconfont icon-search"></i>
-            </a>
-          </li>
-          
-        
-        
-          <li class="nav-item" id="color-toggle-btn">
-            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
-              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
-            </a>
-          </li>
-        
-      </ul>
+ 
+
+ 
     </div>
-  </div>
-</nav>
+</div>
 
-  
 
-<div id="banner" class="banner" parallax=true
-     style="background: url('https://game.gtimg.cn/images/yxzj/img201606/skin/hero-info/141/141-bigskin-1.jpg') no-repeat center center; background-size: cover;">
-  <div class="full-bg-img">
-    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
-      <div class="banner-text text-center fade-in-up">
-        <div class="h2">
-          
-            <span id="subtitle" data-typed-text="【笔记】Windows上通过篡改文件实现提权"></span>
-          
+    <aside class="post-side">
+        <div class="post-side__toc">
+            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%89%8D%E8%A8%80"><span class="toc-text">前言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9B%BF%E6%8D%A2%E7%A8%8B%E5%BA%8F%E7%9A%84DLL%E6%96%87%E4%BB%B6"><span class="toc-text">替换程序的DLL文件</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%80%9A%E8%BF%87ChkDllHijack%E6%A3%80%E6%B5%8BDLL%E6%96%87%E4%BB%B6%E6%98%AF%E5%90%A6%E8%A2%AB%E6%8C%87%E5%AE%9A%E7%A8%8B%E5%BA%8F%E8%B0%83%E7%94%A8"><span class="toc-text">通过ChkDllHijack检测DLL文件是否被指定程序调用</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%B8%8B%E8%BD%BD%E9%A1%B9%E7%9B%AE"><span class="toc-text">下载项目</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AF%A1%E6%94%B9%E6%9C%8D%E5%8A%A1%E8%B7%AF%E5%BE%84%E5%8C%85%E5%90%AB%E7%A9%BA%E6%A0%BC%E7%9A%84%E6%9C%8D%E5%8A%A1"><span class="toc-text">篡改服务路径包含空格的服务</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%80%9A%E8%BF%87wmic%E5%91%BD%E4%BB%A4%E6%A3%80%E6%B5%8B%E5%8F%AF%E4%BB%A5%E8%A2%AB%E7%AF%A1%E6%94%B9%E7%9A%84%E6%9C%8D%E5%8A%A1"><span class="toc-text">通过wmic命令检测可以被篡改的服务</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%80%9A%E8%BF%87JAWS%E6%A3%80%E6%B5%8B%E5%8F%AF%E4%BB%A5%E8%A2%AB%E7%AF%A1%E6%94%B9%E7%9A%84%E6%9C%8D%E5%8A%A1"><span class="toc-text">通过JAWS检测可以被篡改的服务</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%B8%8B%E8%BD%BD%E9%A1%B9%E7%9B%AE-1"><span class="toc-text">下载项目</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%BA%90%E4%BB%A3%E7%A0%81"><span class="toc-text">源代码</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%A3%80%E6%B5%8B%E5%8F%AF%E4%BB%A5%E8%A2%AB%E7%AF%A1%E6%94%B9%E7%9A%84%E6%9C%8D%E5%8A%A1"><span class="toc-text">检测可以被篡改的服务</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AF%A1%E6%94%B9%E5%8F%AF%E4%BB%A5%E8%A2%AB%E4%BB%BB%E6%84%8F%E4%BF%AE%E6%94%B9%E7%9A%84%E6%9C%8D%E5%8A%A1"><span class="toc-text">篡改可以被任意修改的服务</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%80%9A%E8%BF%87accesschk%E5%91%BD%E4%BB%A4%E6%A3%80%E6%B5%8B%E5%8F%AF%E4%BB%A5%E8%A2%AB%E7%AF%A1%E6%94%B9%E7%9A%84%E6%9C%8D%E5%8A%A1"><span class="toc-text">通过accesschk命令检测可以被篡改的服务</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%80%9A%E8%BF%87JAWS%E6%A3%80%E6%B5%8B%E5%8F%AF%E4%BB%A5%E8%A2%AB%E7%AF%A1%E6%94%B9%E7%9A%84%E6%9C%8D%E5%8A%A1-1"><span class="toc-text">通过JAWS检测可以被篡改的服务</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%8C%E6%88%90"><span class="toc-text">完成</span></a></li></ol>
         </div>
-
-        
-          
-  <div class="mt-3">
-    
-    
-      <span class="post-meta">
-        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2024-08-02 17:30" pubdate>
-          2024:08:02
-        </time>
-      </span>
-    
-  </div>
-
-  <div class="mt-1">
-    
-
-    
-
-    
-    
-  </div>
-
-
-        
-      </div>
-
-      
-    </div>
-  </div>
-</div>
-
-</div>
-
-  </header>
-
-  <main>
-    
-      
-
-<div class="container-fluid nopadding-x">
-  <div class="row nomargin-x">
-    <div class="side-col d-none d-lg-block col-lg-2">
-      
-  <aside class="sidebar category-bar" style="margin-right: -1rem">
-    
-
-
-
-
-
-<div class="category-list">
-  
-  
-</div>
-
-
-  </aside>
-
-
+    </aside>
+    <a class="btn-toc button" id="btn-toc" tabindex="0">
+        <svg viewBox="0 0 1024 1024" width="32" height="32" xmlns="http://www.w3.org/2000/svg">
+            <path d="M128 256h64V192H128zM320 256h576V192H320zM128 544h64v-64H128zM320 544h576v-64H320zM128 832h64v-64H128zM320 832h576v-64H320z" fill="currentColor"></path>
+        </svg>
+    </a>
+    <div class="toc-menus" id="toc-menus">
+        <div class="toc-title">文章目录</div>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%89%8D%E8%A8%80"><span class="toc-text">前言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9B%BF%E6%8D%A2%E7%A8%8B%E5%BA%8F%E7%9A%84DLL%E6%96%87%E4%BB%B6"><span class="toc-text">替换程序的DLL文件</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%80%9A%E8%BF%87ChkDllHijack%E6%A3%80%E6%B5%8BDLL%E6%96%87%E4%BB%B6%E6%98%AF%E5%90%A6%E8%A2%AB%E6%8C%87%E5%AE%9A%E7%A8%8B%E5%BA%8F%E8%B0%83%E7%94%A8"><span class="toc-text">通过ChkDllHijack检测DLL文件是否被指定程序调用</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%B8%8B%E8%BD%BD%E9%A1%B9%E7%9B%AE"><span class="toc-text">下载项目</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AF%A1%E6%94%B9%E6%9C%8D%E5%8A%A1%E8%B7%AF%E5%BE%84%E5%8C%85%E5%90%AB%E7%A9%BA%E6%A0%BC%E7%9A%84%E6%9C%8D%E5%8A%A1"><span class="toc-text">篡改服务路径包含空格的服务</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%80%9A%E8%BF%87wmic%E5%91%BD%E4%BB%A4%E6%A3%80%E6%B5%8B%E5%8F%AF%E4%BB%A5%E8%A2%AB%E7%AF%A1%E6%94%B9%E7%9A%84%E6%9C%8D%E5%8A%A1"><span class="toc-text">通过wmic命令检测可以被篡改的服务</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%80%9A%E8%BF%87JAWS%E6%A3%80%E6%B5%8B%E5%8F%AF%E4%BB%A5%E8%A2%AB%E7%AF%A1%E6%94%B9%E7%9A%84%E6%9C%8D%E5%8A%A1"><span class="toc-text">通过JAWS检测可以被篡改的服务</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%B8%8B%E8%BD%BD%E9%A1%B9%E7%9B%AE-1"><span class="toc-text">下载项目</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%BA%90%E4%BB%A3%E7%A0%81"><span class="toc-text">源代码</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%A3%80%E6%B5%8B%E5%8F%AF%E4%BB%A5%E8%A2%AB%E7%AF%A1%E6%94%B9%E7%9A%84%E6%9C%8D%E5%8A%A1"><span class="toc-text">检测可以被篡改的服务</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AF%A1%E6%94%B9%E5%8F%AF%E4%BB%A5%E8%A2%AB%E4%BB%BB%E6%84%8F%E4%BF%AE%E6%94%B9%E7%9A%84%E6%9C%8D%E5%8A%A1"><span class="toc-text">篡改可以被任意修改的服务</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%80%9A%E8%BF%87accesschk%E5%91%BD%E4%BB%A4%E6%A3%80%E6%B5%8B%E5%8F%AF%E4%BB%A5%E8%A2%AB%E7%AF%A1%E6%94%B9%E7%9A%84%E6%9C%8D%E5%8A%A1"><span class="toc-text">通过accesschk命令检测可以被篡改的服务</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%80%9A%E8%BF%87JAWS%E6%A3%80%E6%B5%8B%E5%8F%AF%E4%BB%A5%E8%A2%AB%E7%AF%A1%E6%94%B9%E7%9A%84%E6%9C%8D%E5%8A%A1-1"><span class="toc-text">通过JAWS检测可以被篡改的服务</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%8C%E6%88%90"><span class="toc-text">完成</span></a></li></ol>
     </div>
 
-    <div class="col-lg-8 nopadding-x-md">
-      <div class="container nopadding-x-md" id="board-ctn">
-        <div id="board">
-          <article class="post-content mx-auto">
-            <h1 id="seo-header">【笔记】Windows上通过篡改文件实现提权</h1>
-            
-              <p id="updated-time" class="note note-info" style="">
-                
-                  
-                    本文最后更新于 2024:08:06
-                  
-                
-              </p>
-            
-            
-              <div class="markdown-body">
-                
-                <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>Windows上通过篡改文件实现提权</p>
+
+<article class="post post__with-toc content-card">
+    <div class="post__header"></div>
+    <div class="post__content">
+        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>Windows上通过篡改文件实现提权</p>
 <span id="more"></span>
 
 <h2 id="替换程序的DLL文件"><a href="#替换程序的DLL文件" class="headerlink" title="替换程序的DLL文件"></a>替换程序的DLL文件</h2><ul>
 <li>在某个程序的根目录下，查找可能会被调用的DLL文件，替换为反弹Shell的DLL文件</li>
 <li>当程序被启动时，反弹Shell会被执行，此时得到的权限为启动程序时的权限</li>
 </ul>
-<h3 id="通过ChkDllHijack检测DLL文件是否被指定程序调用"><a href="#通过ChkDllHijack检测DLL文件是否被指定程序调用" class="headerlink" title="通过ChkDllHijack检测DLL文件是否被指定程序调用"></a>通过ChkDllHijack检测DLL文件是否被指定程序调用</h3><h4 id="下载项目"><a href="#下载项目" class="headerlink" title="下载项目"></a>下载项目</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs shell">wget https://raw.githubusercontent.com/anhkgg/anhkgg-tools/master/ChkDllHijack.zip<br>unzip ChkDllHijack.zip<br></code></pre></td></tr></table></figure>
+<h3 id="通过ChkDllHijack检测DLL文件是否被指定程序调用"><a href="#通过ChkDllHijack检测DLL文件是否被指定程序调用" class="headerlink" title="通过ChkDllHijack检测DLL文件是否被指定程序调用"></a>通过ChkDllHijack检测DLL文件是否被指定程序调用</h3><h4 id="下载项目"><a href="#下载项目" class="headerlink" title="下载项目"></a>下载项目</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">wget https://raw.githubusercontent.com/anhkgg/anhkgg-tools/master/ChkDllHijack.zip</span><br><span class="line">unzip ChkDllHijack.zip</span><br></pre></td></tr></table></figure>
 
 <h2 id="篡改服务路径包含空格的服务"><a href="#篡改服务路径包含空格的服务" class="headerlink" title="篡改服务路径包含空格的服务"></a>篡改服务路径包含空格的服务</h2><ul>
 <li>在服务器管理器中，找到启动服务的命令的目录路径中包含空格且不包含引号的服务，比如<code>c:\program files\xxx</code></li>
 <li>截取第一个空格之前的路径，伪造可执行文件为反弹Shell的EXE文件<code>c:\program.exe</code></li>
 <li>当服务被启动时，反弹Shell会被执行，此时得到的权限为系统权限</li>
 </ul>
-<h3 id="通过wmic命令检测可以被篡改的服务"><a href="#通过wmic命令检测可以被篡改的服务" class="headerlink" title="通过wmic命令检测可以被篡改的服务"></a>通过wmic命令检测可以被篡改的服务</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">wmic service get name,displayname,pathname,startmode | findstr /i &quot;Auto&quot; | findstr /i /v &quot;C:\Windows\\&quot; | findstr /i /v &quot;&quot;&quot;<br></code></pre></td></tr></table></figure>
+<h3 id="通过wmic命令检测可以被篡改的服务"><a href="#通过wmic命令检测可以被篡改的服务" class="headerlink" title="通过wmic命令检测可以被篡改的服务"></a>通过wmic命令检测可以被篡改的服务</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wmic service get name,displayname,pathname,startmode | findstr /i &quot;Auto&quot; | findstr /i /v &quot;C:\Windows\\&quot; | findstr /i /v &quot;&quot;&quot;</span><br></pre></td></tr></table></figure>
 
-<h3 id="通过JAWS检测可以被篡改的服务"><a href="#通过JAWS检测可以被篡改的服务" class="headerlink" title="通过JAWS检测可以被篡改的服务"></a>通过JAWS检测可以被篡改的服务</h3><h4 id="下载项目-1"><a href="#下载项目-1" class="headerlink" title="下载项目"></a>下载项目</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs shell">git clone https://github.com/411Hall/JAWS.git<br>cd JAWS<br></code></pre></td></tr></table></figure>
+<h3 id="通过JAWS检测可以被篡改的服务"><a href="#通过JAWS检测可以被篡改的服务" class="headerlink" title="通过JAWS检测可以被篡改的服务"></a>通过JAWS检测可以被篡改的服务</h3><h4 id="下载项目-1"><a href="#下载项目-1" class="headerlink" title="下载项目"></a>下载项目</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git clone https://github.com/411Hall/JAWS.git</span><br><span class="line">cd JAWS</span><br></pre></td></tr></table></figure>
 
-<h5 id="源代码"><a href="#源代码" class="headerlink" title="源代码"></a>源代码</h5><figure class="highlight powershell"><figcaption><span>jaws-enum.ps1</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br><span class="line">191</span><br><span class="line">192</span><br><span class="line">193</span><br><span class="line">194</span><br><span class="line">195</span><br><span class="line">196</span><br><span class="line">197</span><br><span class="line">198</span><br><span class="line">199</span><br><span class="line">200</span><br><span class="line">201</span><br><span class="line">202</span><br><span class="line">203</span><br><span class="line">204</span><br><span class="line">205</span><br><span class="line">206</span><br><span class="line">207</span><br><span class="line">208</span><br><span class="line">209</span><br><span class="line">210</span><br><span class="line">211</span><br><span class="line">212</span><br><span class="line">213</span><br><span class="line">214</span><br><span class="line">215</span><br><span class="line">216</span><br><span class="line">217</span><br><span class="line">218</span><br><span class="line">219</span><br><span class="line">220</span><br><span class="line">221</span><br><span class="line">222</span><br><span class="line">223</span><br><span class="line">224</span><br><span class="line">225</span><br><span class="line">226</span><br><span class="line">227</span><br><span class="line">228</span><br><span class="line">229</span><br><span class="line">230</span><br><span class="line">231</span><br><span class="line">232</span><br><span class="line">233</span><br><span class="line">234</span><br><span class="line">235</span><br><span class="line">236</span><br><span class="line">237</span><br><span class="line">238</span><br><span class="line">239</span><br><span class="line">240</span><br><span class="line">241</span><br><span class="line">242</span><br><span class="line">243</span><br><span class="line">244</span><br><span class="line">245</span><br><span class="line">246</span><br><span class="line">247</span><br><span class="line">248</span><br><span class="line">249</span><br><span class="line">250</span><br><span class="line">251</span><br><span class="line">252</span><br><span class="line">253</span><br><span class="line">254</span><br><span class="line">255</span><br><span class="line">256</span><br><span class="line">257</span><br><span class="line">258</span><br><span class="line">259</span><br><span class="line">260</span><br><span class="line">261</span><br><span class="line">262</span><br><span class="line">263</span><br><span class="line">264</span><br><span class="line">265</span><br><span class="line">266</span><br><span class="line">267</span><br><span class="line">268</span><br><span class="line">269</span><br><span class="line">270</span><br><span class="line">271</span><br><span class="line">272</span><br><span class="line">273</span><br><span class="line">274</span><br><span class="line">275</span><br><span class="line">276</span><br><span class="line">277</span><br><span class="line">278</span><br><span class="line">279</span><br><span class="line">280</span><br></pre></td><td class="code"><pre><code class="hljs powershell"><span class="hljs-comment">&lt;#</span><br><span class="hljs-comment"><span class="hljs-doctag">.SYNOPSIS</span></span><br><span class="hljs-comment">Windows enumeration script</span><br><span class="hljs-comment"><span class="hljs-doctag">.DESCRIPTION</span></span><br><span class="hljs-comment">This script is designed to be used in a penetration test or CTF</span><br><span class="hljs-comment">enviroment. It will enumerate useful information from the host</span><br><span class="hljs-comment">for privilege escalation.</span><br><span class="hljs-comment"><span class="hljs-doctag">.EXAMPLE</span></span><br><span class="hljs-comment">PS &gt; .\jaws-enum.ps1 </span><br><span class="hljs-comment">will write results out to screen.</span><br><span class="hljs-comment"><span class="hljs-doctag">.EXAMPLE</span></span><br><span class="hljs-comment">PS &gt; .\jaws-enum.ps1 -OutputFileName Jaws-Enum.txt</span><br><span class="hljs-comment">Writes out results to Jaws-Enum.txt in current directory.</span><br><span class="hljs-comment"><span class="hljs-doctag">.LINK</span></span><br><span class="hljs-comment">https://github.com/411Hall/JAWS</span><br><span class="hljs-comment">#&gt;</span><br><span class="hljs-keyword">Param</span>(<br>    [<span class="hljs-built_in">String</span>]<span class="hljs-variable">$OutputFilename</span> = <span class="hljs-string">&quot;&quot;</span><br>)<br><br><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">JAWS-ENUM</span></span> &#123;<br>    <span class="hljs-built_in">write-output</span> <span class="hljs-string">&quot;`nRunning J.A.W.S. Enumeration&quot;</span><br>    <span class="hljs-variable">$output</span> = <span class="hljs-string">&quot;&quot;</span> <br>    <span class="hljs-variable">$output</span> = <span class="hljs-variable">$output</span> +  <span class="hljs-string">&quot;############################################################`r`n&quot;</span><br>    <span class="hljs-variable">$output</span> = <span class="hljs-variable">$output</span> +  <span class="hljs-string">&quot;##     J.A.W.S. (Just Another Windows Enum Script)        ##`r`n&quot;</span><br>    <span class="hljs-variable">$output</span> = <span class="hljs-variable">$output</span> +  <span class="hljs-string">&quot;##                                                        ##`r`n&quot;</span><br>    <span class="hljs-variable">$output</span> = <span class="hljs-variable">$output</span> +  <span class="hljs-string">&quot;##           https://github.com/411Hall/JAWS              ##`r`n&quot;</span><br>    <span class="hljs-variable">$output</span> = <span class="hljs-variable">$output</span> +  <span class="hljs-string">&quot;##                                                        ##`r`n&quot;</span><br>    <span class="hljs-variable">$output</span> = <span class="hljs-variable">$output</span> +  <span class="hljs-string">&quot;############################################################`r`n&quot;</span><br>    <span class="hljs-variable">$output</span> = <span class="hljs-variable">$output</span> +  <span class="hljs-string">&quot;`r`n&quot;</span><br>    <span class="hljs-variable">$win_version</span> = (<span class="hljs-built_in">Get-WmiObject</span> <span class="hljs-literal">-class</span> Win32_OperatingSystem)<br>    <span class="hljs-variable">$output</span> = <span class="hljs-variable">$output</span> +  <span class="hljs-string">&quot;Windows Version: &quot;</span> + ((<span class="hljs-variable">$win_version</span>.caption <span class="hljs-operator">-join</span> <span class="hljs-variable">$win_version</span>.version) + <span class="hljs-string">&quot;`r`n&quot;</span>)<br>    <span class="hljs-variable">$output</span> = <span class="hljs-variable">$output</span> +  <span class="hljs-string">&quot;Architecture: &quot;</span> + ((<span class="hljs-variable">$env:processor_architecture</span>) + <span class="hljs-string">&quot;`r`n&quot;</span>)<br>    <span class="hljs-variable">$output</span> = <span class="hljs-variable">$output</span> +  <span class="hljs-string">&quot;Hostname: &quot;</span> + ((<span class="hljs-variable">$env:ComputerName</span>) + <span class="hljs-string">&quot;`r`n&quot;</span>)<br>    <span class="hljs-variable">$output</span> = <span class="hljs-variable">$output</span> +  <span class="hljs-string">&quot;Current User: &quot;</span> + ((<span class="hljs-variable">$env:username</span>) + <span class="hljs-string">&quot;`r`n&quot;</span>)<br>    <span class="hljs-variable">$output</span> = <span class="hljs-variable">$output</span> +  <span class="hljs-string">&quot;Current Time\Date: &quot;</span> + (<span class="hljs-built_in">get-date</span>)<br>    <span class="hljs-variable">$output</span> = <span class="hljs-variable">$output</span> +  <span class="hljs-string">&quot;`r`n&quot;</span><br>    <span class="hljs-variable">$output</span> = <span class="hljs-variable">$output</span> +  <span class="hljs-string">&quot;`r`n&quot;</span><br>    <span class="hljs-built_in">write-output</span> <span class="hljs-string">&quot;	- Gathering User Information&quot;</span><br>    <span class="hljs-variable">$output</span> = <span class="hljs-variable">$output</span> +  <span class="hljs-string">&quot;-----------------------------------------------------------`r`n&quot;</span><br>    <span class="hljs-variable">$output</span> = <span class="hljs-variable">$output</span> +  <span class="hljs-string">&quot; Users`r`n&quot;</span><br>    <span class="hljs-variable">$output</span> = <span class="hljs-variable">$output</span> +  <span class="hljs-string">&quot;-----------------------------------------------------------`r`n&quot;</span><br>    <span class="hljs-variable">$adsi</span> = [<span class="hljs-type">ADSI</span>]<span class="hljs-string">&quot;WinNT://<span class="hljs-variable">$env:COMPUTERNAME</span>&quot;</span><br>    <span class="hljs-variable">$adsi</span>.Children | <span class="hljs-built_in">where</span> &#123;<span class="hljs-variable">$_</span>.SchemaClassName <span class="hljs-operator">-eq</span> <span class="hljs-string">&#x27;user&#x27;</span>&#125; | <span class="hljs-built_in">Foreach-Object</span> &#123;<br>        <span class="hljs-variable">$groups</span> = <span class="hljs-variable">$_</span>.Groups() | <span class="hljs-built_in">Foreach-Object</span> &#123;<span class="hljs-variable">$_</span>.GetType().InvokeMember(<span class="hljs-string">&quot;Name&quot;</span>, <span class="hljs-string">&#x27;GetProperty&#x27;</span>, <span class="hljs-variable">$null</span>, <span class="hljs-variable">$_</span>, <span class="hljs-variable">$null</span>)&#125;<br>        <span class="hljs-variable">$output</span> = <span class="hljs-variable">$output</span> +  <span class="hljs-string">&quot;----------`r`n&quot;</span><br>        <span class="hljs-variable">$output</span> = <span class="hljs-variable">$output</span> +  <span class="hljs-string">&quot;Username: &quot;</span> + <span class="hljs-variable">$_</span>.Name +  <span class="hljs-string">&quot;`r`n&quot;</span><br>        <span class="hljs-variable">$output</span> = <span class="hljs-variable">$output</span> +  <span class="hljs-string">&quot;Groups:   &quot;</span>  + <span class="hljs-variable">$groups</span> +  <span class="hljs-string">&quot;`r`n&quot;</span><br>    &#125;<br>    <span class="hljs-variable">$output</span> = <span class="hljs-variable">$output</span> +  <span class="hljs-string">&quot;`r`n&quot;</span><br>    <span class="hljs-variable">$output</span> = <span class="hljs-variable">$output</span> +  <span class="hljs-string">&quot;-----------------------------------------------------------`r`n&quot;</span><br>    <span class="hljs-variable">$output</span> = <span class="hljs-variable">$output</span> +  <span class="hljs-string">&quot; Network Information`r`n&quot;</span><br>    <span class="hljs-variable">$output</span> = <span class="hljs-variable">$output</span> +  <span class="hljs-string">&quot;-----------------------------------------------------------`r`n&quot;</span><br>    <span class="hljs-variable">$output</span> = <span class="hljs-variable">$output</span> + (ipconfig | <span class="hljs-built_in">out-string</span>)<br>    <span class="hljs-variable">$output</span> = <span class="hljs-variable">$output</span> +  <span class="hljs-string">&quot;`r`n&quot;</span><br>    <span class="hljs-variable">$output</span> = <span class="hljs-variable">$output</span> +  <span class="hljs-string">&quot;-----------------------------------------------------------`r`n&quot;</span><br>    <span class="hljs-variable">$output</span> = <span class="hljs-variable">$output</span> +  <span class="hljs-string">&quot; Arp`r`n&quot;</span><br>    <span class="hljs-variable">$output</span> = <span class="hljs-variable">$output</span> +  <span class="hljs-string">&quot;-----------------------------------------------------------`r`n&quot;</span><br>    <span class="hljs-variable">$output</span> = <span class="hljs-variable">$output</span> + (arp <span class="hljs-literal">-a</span> | <span class="hljs-built_in">out-string</span>) <br>    <span class="hljs-variable">$output</span> = <span class="hljs-variable">$output</span> +  <span class="hljs-string">&quot;`r`n&quot;</span><br>    <span class="hljs-variable">$output</span> = <span class="hljs-variable">$output</span> +  <span class="hljs-string">&quot;`r`n&quot;</span><br>    <span class="hljs-variable">$output</span> = <span class="hljs-variable">$output</span> +  <span class="hljs-string">&quot;-----------------------------------------------------------`r`n&quot;</span><br>    <span class="hljs-variable">$output</span> = <span class="hljs-variable">$output</span> +  <span class="hljs-string">&quot; NetStat`r`n&quot;</span><br>    <span class="hljs-variable">$output</span> = <span class="hljs-variable">$output</span> +  <span class="hljs-string">&quot;-----------------------------------------------------------`r`n&quot;</span><br>    <span class="hljs-variable">$output</span> = <span class="hljs-variable">$output</span> + (netstat <span class="hljs-literal">-ano</span> | <span class="hljs-built_in">out-string</span>)<br>    <span class="hljs-variable">$output</span> = <span class="hljs-variable">$output</span> +  <span class="hljs-string">&quot;`r`n&quot;</span><br>    <span class="hljs-variable">$output</span> = <span class="hljs-variable">$output</span> +  <span class="hljs-string">&quot;`r`n&quot;</span><br>    <span class="hljs-variable">$output</span> = <span class="hljs-variable">$output</span> +  <span class="hljs-string">&quot;-----------------------------------------------------------`r`n&quot;</span><br>    <span class="hljs-variable">$output</span> = <span class="hljs-variable">$output</span> +  <span class="hljs-string">&quot; Firewall Status`r`n&quot;</span><br>    <span class="hljs-variable">$output</span> = <span class="hljs-variable">$output</span> +  <span class="hljs-string">&quot;-----------------------------------------------------------`r`n&quot;</span><br>    <span class="hljs-variable">$output</span> = <span class="hljs-variable">$output</span> +  <span class="hljs-string">&quot;`r`n&quot;</span><br>    <span class="hljs-variable">$Firewall</span> = <span class="hljs-built_in">New-Object</span> <span class="hljs-literal">-com</span> HNetCfg.FwMgr<br>    <span class="hljs-variable">$FireProfile</span> = <span class="hljs-variable">$Firewall</span>.LocalPolicy.CurrentProfile  <br>    <span class="hljs-keyword">if</span> (<span class="hljs-variable">$FireProfile</span>.FirewallEnabled <span class="hljs-operator">-eq</span> <span class="hljs-variable">$False</span>) &#123;<br>        <span class="hljs-variable">$output</span> = <span class="hljs-variable">$output</span> +  (<span class="hljs-string">&quot;Firewall is Disabled&quot;</span> + <span class="hljs-string">&quot;`r`n&quot;</span>)<br>        &#125; <span class="hljs-keyword">else</span> &#123;<br>        <span class="hljs-variable">$output</span> = <span class="hljs-variable">$output</span> +  (<span class="hljs-string">&quot;Firwall is Enabled&quot;</span> + <span class="hljs-string">&quot;`r`n&quot;</span>)<br>        &#125;<br>    <span class="hljs-variable">$output</span> = <span class="hljs-variable">$output</span> +  <span class="hljs-string">&quot;`r`n&quot;</span><br>    <span class="hljs-variable">$output</span> = <span class="hljs-variable">$output</span> +  <span class="hljs-string">&quot;-----------------------------------------------------------`r`n&quot;</span><br>    <span class="hljs-variable">$output</span> = <span class="hljs-variable">$output</span> +  <span class="hljs-string">&quot; FireWall Rules`r`n&quot;</span><br>    <span class="hljs-variable">$output</span> = <span class="hljs-variable">$output</span> +  <span class="hljs-string">&quot;-----------------------------------------------------------`r`n&quot;</span><br>    <span class="hljs-function"><span class="hljs-keyword">Function</span> <span class="hljs-title">Get-FireWallRule</span></span><br>    &#123;<span class="hljs-keyword">Param</span> (<span class="hljs-variable">$Name</span>, <span class="hljs-variable">$Direction</span>, <span class="hljs-variable">$Enabled</span>, <span class="hljs-variable">$Protocol</span>, <span class="hljs-variable">$profile</span>, <span class="hljs-variable">$action</span>, <span class="hljs-variable">$grouping</span>)<br>    <span class="hljs-variable">$Rules</span>=(<span class="hljs-built_in">New-object</span> <span class="hljs-literal">-comObject</span> HNetCfg.FwPolicy2).rules<br>    <span class="hljs-keyword">If</span> (<span class="hljs-variable">$name</span>)      &#123;<span class="hljs-variable">$rules</span>= <span class="hljs-variable">$rules</span> | <span class="hljs-built_in">where-object</span> &#123;<span class="hljs-variable">$_</span>.name     <span class="hljs-operator">-like</span> <span class="hljs-variable">$name</span>&#125;&#125;<br>    <span class="hljs-keyword">If</span> (<span class="hljs-variable">$direction</span>) &#123;<span class="hljs-variable">$rules</span>= <span class="hljs-variable">$rules</span> | <span class="hljs-built_in">where-object</span> &#123;<span class="hljs-variable">$_</span>.direction  <span class="hljs-operator">-eq</span> <span class="hljs-variable">$direction</span>&#125;&#125;<br>    <span class="hljs-keyword">If</span> (<span class="hljs-variable">$Enabled</span>)   &#123;<span class="hljs-variable">$rules</span>= <span class="hljs-variable">$rules</span> | <span class="hljs-built_in">where-object</span> &#123;<span class="hljs-variable">$_</span>.Enabled    <span class="hljs-operator">-eq</span> <span class="hljs-variable">$Enabled</span>&#125;&#125;<br>    <span class="hljs-keyword">If</span> (<span class="hljs-variable">$protocol</span>)  &#123;<span class="hljs-variable">$rules</span>= <span class="hljs-variable">$rules</span> | <span class="hljs-built_in">where-object</span> &#123;<span class="hljs-variable">$_</span>.protocol   <span class="hljs-operator">-eq</span> <span class="hljs-variable">$protocol</span>&#125;&#125;<br>    <span class="hljs-keyword">If</span> (<span class="hljs-variable">$profile</span>)   &#123;<span class="hljs-variable">$rules</span>= <span class="hljs-variable">$rules</span> | <span class="hljs-built_in">where-object</span> &#123;<span class="hljs-variable">$_</span>.Profiles <span class="hljs-operator">-bAND</span> <span class="hljs-variable">$profile</span>&#125;&#125;<br>    <span class="hljs-keyword">If</span> (<span class="hljs-variable">$Action</span>)    &#123;<span class="hljs-variable">$rules</span>= <span class="hljs-variable">$rules</span> | <span class="hljs-built_in">where-object</span> &#123;<span class="hljs-variable">$_</span>.Action     <span class="hljs-operator">-eq</span> <span class="hljs-variable">$Action</span>&#125;&#125;<br>    <span class="hljs-keyword">If</span> (<span class="hljs-variable">$Grouping</span>)  &#123;<span class="hljs-variable">$rules</span>= <span class="hljs-variable">$rules</span> | <span class="hljs-built_in">where-object</span> &#123;<span class="hljs-variable">$_</span>.Grouping <span class="hljs-operator">-like</span> <span class="hljs-variable">$Grouping</span>&#125;&#125;<br>    <span class="hljs-variable">$rules</span>&#125;<br>    <span class="hljs-variable">$output</span> = <span class="hljs-variable">$output</span> +  (<span class="hljs-built_in">Get-firewallRule</span> <span class="hljs-literal">-enabled</span> <span class="hljs-variable">$true</span> | <span class="hljs-built_in">sort</span> direction,applicationName,name | <span class="hljs-built_in">format-table</span> <span class="hljs-literal">-property</span> Name , localPorts,applicationname | <span class="hljs-built_in">out-string</span>)<br>    <span class="hljs-variable">$output</span> = <span class="hljs-variable">$output</span> +  <span class="hljs-string">&quot;-----------------------------------------------------------`r`n&quot;</span><br>    <span class="hljs-variable">$output</span> = <span class="hljs-variable">$output</span> +  <span class="hljs-string">&quot; Hosts File Content`r`n&quot;</span><br>    <span class="hljs-variable">$output</span> = <span class="hljs-variable">$output</span> +  <span class="hljs-string">&quot;-----------------------------------------------------------`r`n&quot;</span><br>    <span class="hljs-variable">$output</span> = <span class="hljs-variable">$output</span> +  <span class="hljs-string">&quot;`r`n&quot;</span><br>    <span class="hljs-variable">$output</span> = <span class="hljs-variable">$output</span> + ((<span class="hljs-built_in">get-content</span> <span class="hljs-variable">$env:windir</span>\System32\drivers\etc\hosts | <span class="hljs-built_in">out-string</span>) + <span class="hljs-string">&quot;`r`n&quot;</span>)<br>    <span class="hljs-variable">$output</span> = <span class="hljs-variable">$output</span> +  <span class="hljs-string">&quot;`r`n&quot;</span><br>    <span class="hljs-built_in">write-output</span> <span class="hljs-string">&quot;	- Gathering Processes, Services and Scheduled Tasks&quot;</span><br>    <span class="hljs-variable">$output</span> = <span class="hljs-variable">$output</span> +  <span class="hljs-string">&quot;-----------------------------------------------------------`r`n&quot;</span><br>    <span class="hljs-variable">$output</span> = <span class="hljs-variable">$output</span> +  <span class="hljs-string">&quot; Processes`r`n&quot;</span><br>    <span class="hljs-variable">$output</span> = <span class="hljs-variable">$output</span> +  <span class="hljs-string">&quot;-----------------------------------------------------------`r`n&quot;</span><br>    <span class="hljs-variable">$output</span> = <span class="hljs-variable">$output</span> +  ((<span class="hljs-built_in">Get-WmiObject</span> win32_process | <span class="hljs-built_in">Select-Object</span> Name,ProcessID,<span class="hljs-selector-tag">@</span>&#123;n=<span class="hljs-string">&#x27;Owner&#x27;</span>;e=&#123;<span class="hljs-variable">$_</span>.GetOwner().User&#125;&#125;,CommandLine | <span class="hljs-built_in">sort</span> name | <span class="hljs-built_in">format-table</span> <span class="hljs-literal">-wrap</span> <span class="hljs-literal">-autosize</span> | <span class="hljs-built_in">out-string</span>) + <span class="hljs-string">&quot;`r`n&quot;</span>)<br>    <span class="hljs-variable">$output</span> = <span class="hljs-variable">$output</span> +  <span class="hljs-string">&quot;-----------------------------------------------------------`r`n&quot;</span><br>    <span class="hljs-variable">$output</span> = <span class="hljs-variable">$output</span> +  <span class="hljs-string">&quot; Scheduled Tasks`r`n&quot;</span><br>    <span class="hljs-variable">$output</span> = <span class="hljs-variable">$output</span> +  <span class="hljs-string">&quot;-----------------------------------------------------------`r`n&quot;</span><br>    <span class="hljs-variable">$output</span> = <span class="hljs-variable">$output</span> +  <span class="hljs-string">&quot;Current System Time: &quot;</span> + (<span class="hljs-built_in">get-date</span>)<br>    <span class="hljs-variable">$output</span> = <span class="hljs-variable">$output</span> + (schtasks /query /FO CSV /v | <span class="hljs-built_in">convertfrom-csv</span> | <span class="hljs-built_in">where</span> &#123; <span class="hljs-variable">$_</span>.TaskName <span class="hljs-operator">-ne</span> <span class="hljs-string">&quot;TaskName&quot;</span> &#125; | <span class="hljs-built_in">select</span> <span class="hljs-string">&quot;TaskName&quot;</span>,<span class="hljs-string">&quot;Run As User&quot;</span>, <span class="hljs-string">&quot;Task to Run&quot;</span>  | <span class="hljs-built_in">fl</span> | <span class="hljs-built_in">out-string</span>)<br>    <span class="hljs-variable">$output</span> = <span class="hljs-variable">$output</span> +  <span class="hljs-string">&quot;`r`n&quot;</span><br>    <span class="hljs-variable">$output</span> = <span class="hljs-variable">$output</span> +  <span class="hljs-string">&quot;-----------------------------------------------------------`r`n&quot;</span><br>    <span class="hljs-variable">$output</span> = <span class="hljs-variable">$output</span> +  <span class="hljs-string">&quot; Services`r`n&quot;</span><br>    <span class="hljs-variable">$output</span> = <span class="hljs-variable">$output</span> +  <span class="hljs-string">&quot;-----------------------------------------------------------`r`n&quot;</span><br>    <span class="hljs-variable">$output</span> = <span class="hljs-variable">$output</span> + (<span class="hljs-built_in">get-service</span> | <span class="hljs-built_in">Select</span> Name,DisplayName,Status | <span class="hljs-built_in">sort</span> status | <span class="hljs-built_in">Format-Table</span> <span class="hljs-literal">-Property</span> * <span class="hljs-literal">-AutoSize</span> | <span class="hljs-built_in">Out-String</span> <span class="hljs-literal">-Width</span> <span class="hljs-number">4096</span>)<br>    <span class="hljs-variable">$output</span> = <span class="hljs-variable">$output</span> +  <span class="hljs-string">&quot;`r`n&quot;</span><br>    <span class="hljs-built_in">write-output</span> <span class="hljs-string">&quot;	- Gathering Installed Software&quot;</span><br>    <span class="hljs-variable">$output</span> = <span class="hljs-variable">$output</span> +  <span class="hljs-string">&quot;`r`n&quot;</span><br>    <span class="hljs-variable">$output</span> = <span class="hljs-variable">$output</span> +  <span class="hljs-string">&quot;-----------------------------------------------------------`r`n&quot;</span><br>    <span class="hljs-variable">$output</span> = <span class="hljs-variable">$output</span> +  <span class="hljs-string">&quot; Installed Programs`r`n&quot;</span><br>    <span class="hljs-variable">$output</span> = <span class="hljs-variable">$output</span> +  <span class="hljs-string">&quot;-----------------------------------------------------------`r`n&quot;</span><br>    <span class="hljs-variable">$output</span> = <span class="hljs-variable">$output</span> +  (<span class="hljs-built_in">get-wmiobject</span> <span class="hljs-literal">-Class</span> win32_product | <span class="hljs-built_in">select</span> Name, Version, Caption | <span class="hljs-built_in">ft</span> <span class="hljs-literal">-hidetableheaders</span> <span class="hljs-literal">-autosize</span>| <span class="hljs-built_in">out-string</span> <span class="hljs-literal">-Width</span> <span class="hljs-number">4096</span>)<br>    <span class="hljs-variable">$output</span> = <span class="hljs-variable">$output</span> +  <span class="hljs-string">&quot;`r`n&quot;</span><br>    <span class="hljs-variable">$output</span> = <span class="hljs-variable">$output</span> +  <span class="hljs-string">&quot;-----------------------------------------------------------`r`n&quot;</span><br>    <span class="hljs-variable">$output</span> = <span class="hljs-variable">$output</span> +  <span class="hljs-string">&quot; Installed Patches`r`n&quot;</span><br>    <span class="hljs-variable">$output</span> = <span class="hljs-variable">$output</span> +  <span class="hljs-string">&quot;-----------------------------------------------------------`r`n&quot;</span><br>    <span class="hljs-variable">$output</span> = <span class="hljs-variable">$output</span> +  (<span class="hljs-built_in">Get-Wmiobject</span> <span class="hljs-literal">-class</span> Win32_QuickFixEngineering <span class="hljs-literal">-namespace</span> <span class="hljs-string">&quot;root\cimv2&quot;</span> | <span class="hljs-built_in">select</span> HotFixID, InstalledOn| <span class="hljs-built_in">ft</span> <span class="hljs-literal">-autosize</span> | <span class="hljs-built_in">out-string</span> )<br>    <span class="hljs-variable">$output</span> = <span class="hljs-variable">$output</span> +  <span class="hljs-string">&quot;`r`n&quot;</span><br>    <span class="hljs-variable">$output</span> = <span class="hljs-variable">$output</span> +  <span class="hljs-string">&quot;-----------------------------------------------------------`r`n&quot;</span><br>    <span class="hljs-variable">$output</span> = <span class="hljs-variable">$output</span> +  <span class="hljs-string">&quot; Program Folders`r`n&quot;</span><br>    <span class="hljs-variable">$output</span> = <span class="hljs-variable">$output</span> +  <span class="hljs-string">&quot;-----------------------------------------------------------`r`n&quot;</span><br>    <span class="hljs-variable">$output</span> = <span class="hljs-variable">$output</span> + <span class="hljs-string">&quot;`n`rC:\Program Files`r`n&quot;</span><br>    <span class="hljs-variable">$output</span> = <span class="hljs-variable">$output</span> +  <span class="hljs-string">&quot;-------------&quot;</span><br>    <span class="hljs-variable">$output</span> = <span class="hljs-variable">$output</span> + (<span class="hljs-built_in">get-childitem</span> <span class="hljs-string">&quot;C:\Program Files&quot;</span>  <span class="hljs-literal">-EA</span> SilentlyContinue  | <span class="hljs-built_in">select</span> Name  | <span class="hljs-built_in">ft</span> <span class="hljs-literal">-hidetableheaders</span> <span class="hljs-literal">-autosize</span>| <span class="hljs-built_in">out-string</span>)<br>    <span class="hljs-variable">$output</span> = <span class="hljs-variable">$output</span> + <span class="hljs-string">&quot;C:\Program Files (x86)`r`n&quot;</span><br>    <span class="hljs-variable">$output</span> = <span class="hljs-variable">$output</span> +  <span class="hljs-string">&quot;-------------------&quot;</span><br>    <span class="hljs-variable">$output</span> = <span class="hljs-variable">$output</span> + (<span class="hljs-built_in">get-childitem</span> <span class="hljs-string">&quot;C:\Program Files (x86)&quot;</span>  <span class="hljs-literal">-EA</span> SilentlyContinue  | <span class="hljs-built_in">select</span> Name  | <span class="hljs-built_in">ft</span> <span class="hljs-literal">-hidetableheaders</span> <span class="hljs-literal">-autosize</span>| <span class="hljs-built_in">out-string</span>)<br>    <span class="hljs-variable">$output</span> = <span class="hljs-variable">$output</span> +  <span class="hljs-string">&quot;`r`n&quot;</span><br>    <span class="hljs-built_in">write-output</span> <span class="hljs-string">&quot;	- Gathering File System Information&quot;</span><br>    <span class="hljs-variable">$output</span> = <span class="hljs-variable">$output</span> +  <span class="hljs-string">&quot;-----------------------------------------------------------`r`n&quot;</span><br>    <span class="hljs-variable">$output</span> = <span class="hljs-variable">$output</span> +  <span class="hljs-string">&quot; Files with Full Control and Modify Access`r`n&quot;</span><br>    <span class="hljs-variable">$output</span> = <span class="hljs-variable">$output</span> +  <span class="hljs-string">&quot;-----------------------------------------------------------`r`n&quot;</span><br>    <span class="hljs-variable">$files</span> = <span class="hljs-built_in">get-childitem</span> C:\<br>    <span class="hljs-keyword">foreach</span> (<span class="hljs-variable">$file</span> <span class="hljs-keyword">in</span> <span class="hljs-variable">$files</span>)&#123;<br>        <span class="hljs-keyword">try</span> &#123;<br>            <span class="hljs-variable">$output</span> = <span class="hljs-variable">$output</span> +  (<span class="hljs-built_in">get-childitem</span> <span class="hljs-string">&quot;C:\<span class="hljs-variable">$file</span>&quot;</span> <span class="hljs-literal">-include</span> *.ps1,*.bat,*.com,*.vbs,*.txt,*.html,*.conf,*.rdp,.*inf,*.ini <span class="hljs-literal">-recurse</span> <span class="hljs-literal">-EA</span> SilentlyContinue | <span class="hljs-built_in">get-acl</span> <span class="hljs-literal">-EA</span> SilentlyContinue | <span class="hljs-built_in">select</span> path <span class="hljs-literal">-expand</span> access | <br>            <span class="hljs-built_in">where</span> &#123;<span class="hljs-variable">$_</span>.identityreference <span class="hljs-operator">-notmatch</span> <span class="hljs-string">&quot;BUILTIN|NT AUTHORITY|EVERYONE|CREATOR OWNER|NT SERVICE&quot;</span>&#125; | <span class="hljs-built_in">where</span> &#123;<span class="hljs-variable">$_</span>.filesystemrights <span class="hljs-operator">-match</span> <span class="hljs-string">&quot;FullControl|Modify&quot;</span>&#125; | <br>            <span class="hljs-built_in">ft</span> <span class="hljs-selector-tag">@</span>&#123;Label=<span class="hljs-string">&quot;&quot;</span>;Expression=&#123;<span class="hljs-built_in">Convert-Path</span> <span class="hljs-variable">$_</span>.Path&#125;&#125;  <span class="hljs-literal">-hidetableheaders</span> <span class="hljs-literal">-autosize</span> | <span class="hljs-built_in">out-string</span> <span class="hljs-literal">-Width</span> <span class="hljs-number">4096</span>)<br>            &#125;<br>        <span class="hljs-keyword">catch</span> &#123;<br>            <span class="hljs-variable">$output</span> = <span class="hljs-variable">$output</span> +   <span class="hljs-string">&quot;`nFailed to read more files`r`n&quot;</span><br>        &#125;<br>        &#125;<br><br>    <span class="hljs-variable">$output</span> = <span class="hljs-variable">$output</span> +  <span class="hljs-string">&quot;-----------------------------------------------------------`r`n&quot;</span><br>    <span class="hljs-variable">$output</span> = <span class="hljs-variable">$output</span> +  <span class="hljs-string">&quot; Folders with Full Control and Modify Access`r`n&quot;</span><br>    <span class="hljs-variable">$output</span> = <span class="hljs-variable">$output</span> +  <span class="hljs-string">&quot;-----------------------------------------------------------`r`n&quot;</span><br>    <span class="hljs-variable">$folders</span> = <span class="hljs-built_in">get-childitem</span> C:\<br>    <span class="hljs-keyword">foreach</span> (<span class="hljs-variable">$folder</span> <span class="hljs-keyword">in</span> <span class="hljs-variable">$folders</span>)&#123;<br>        <span class="hljs-keyword">try</span> &#123;<br>            <span class="hljs-variable">$output</span> = <span class="hljs-variable">$output</span> +  (<span class="hljs-built_in">Get-ChildItem</span> <span class="hljs-literal">-Recurse</span> <span class="hljs-string">&quot;C:\<span class="hljs-variable">$folder</span>&quot;</span> <span class="hljs-literal">-EA</span> SilentlyContinue | ?&#123; <span class="hljs-variable">$_</span>.PSIsContainer&#125; | <span class="hljs-built_in">get-acl</span>  | <span class="hljs-built_in">select</span> path <span class="hljs-literal">-expand</span> access |  <br>            <span class="hljs-built_in">where</span> &#123;<span class="hljs-variable">$_</span>.identityreference <span class="hljs-operator">-notmatch</span> <span class="hljs-string">&quot;BUILTIN|NT AUTHORITY|CREATOR OWNER|NT SERVICE&quot;</span>&#125;  | <span class="hljs-built_in">where</span> &#123;<span class="hljs-variable">$_</span>.filesystemrights <span class="hljs-operator">-match</span> <span class="hljs-string">&quot;FullControl|Modify&quot;</span>&#125; | <br>            <span class="hljs-built_in">select</span> path,filesystemrights,IdentityReference |  <span class="hljs-built_in">ft</span> <span class="hljs-selector-tag">@</span>&#123;Label=<span class="hljs-string">&quot;&quot;</span>;Expression=&#123;<span class="hljs-built_in">Convert-Path</span> <span class="hljs-variable">$_</span>.Path&#125;&#125;  <span class="hljs-literal">-hidetableheaders</span> <span class="hljs-literal">-autosize</span> | <span class="hljs-built_in">out-string</span> <span class="hljs-literal">-Width</span> <span class="hljs-number">4096</span>)<br>             &#125;<br>        <span class="hljs-keyword">catch</span> &#123;<br>            <span class="hljs-variable">$output</span> = <span class="hljs-variable">$output</span> +  <span class="hljs-string">&quot;`nFailed to read more folders`r`n&quot;</span><br>        &#125;<br>        &#125;<br>    <span class="hljs-variable">$output</span> = <span class="hljs-variable">$output</span> +  <span class="hljs-string">&quot;`r`n&quot;</span><br>    <span class="hljs-variable">$output</span> = <span class="hljs-variable">$output</span> +  <span class="hljs-string">&quot;-----------------------------------------------------------`r`n&quot;</span><br>    <span class="hljs-variable">$output</span> = <span class="hljs-variable">$output</span> +  <span class="hljs-string">&quot; Mapped Drives`r`n&quot;</span><br>    <span class="hljs-variable">$output</span> = <span class="hljs-variable">$output</span> +  <span class="hljs-string">&quot;-----------------------------------------------------------`r`n&quot;</span><br>    <span class="hljs-variable">$output</span> = <span class="hljs-variable">$output</span> +  (<span class="hljs-built_in">Get-WmiObject</span> <span class="hljs-literal">-Class</span> Win32_LogicalDisk | <span class="hljs-built_in">select</span> DeviceID, VolumeName | <span class="hljs-built_in">ft</span> <span class="hljs-literal">-hidetableheaders</span> <span class="hljs-literal">-autosize</span> | <span class="hljs-built_in">out-string</span> <span class="hljs-literal">-Width</span> <span class="hljs-number">4096</span>)<br>    <span class="hljs-variable">$output</span> = <span class="hljs-variable">$output</span> +  <span class="hljs-string">&quot;-----------------------------------------------------------`r`n&quot;</span><br>    <span class="hljs-variable">$output</span> = <span class="hljs-variable">$output</span> +  <span class="hljs-string">&quot; Unquoted Service Paths`r`n&quot;</span><br>    <span class="hljs-variable">$output</span> = <span class="hljs-variable">$output</span> +  <span class="hljs-string">&quot;-----------------------------------------------------------`r`n&quot;</span><br>    <span class="hljs-variable">$output</span> = <span class="hljs-variable">$output</span> +  (cmd /c  <span class="hljs-string">&#x27;wmic service get name,displayname,pathname,startmode |findstr /i &quot;auto&quot; |findstr /i /v &quot;c:\windows\\&quot; |findstr /i /v &quot;&quot;&quot;&#x27;</span>)<br>    <span class="hljs-variable">$output</span> = <span class="hljs-variable">$output</span> +  <span class="hljs-string">&quot;`r`n&quot;</span><br>    <span class="hljs-variable">$output</span> = <span class="hljs-variable">$output</span> +  <span class="hljs-string">&quot;-----------------------------------------------------------`r`n&quot;</span><br>    <span class="hljs-variable">$output</span> = <span class="hljs-variable">$output</span> +  <span class="hljs-string">&quot; Recent Documents`r`n&quot;</span><br>    <span class="hljs-variable">$output</span> = <span class="hljs-variable">$output</span> +  <span class="hljs-string">&quot;-----------------------------------------------------------`r`n&quot;</span><br>    <span class="hljs-variable">$output</span> = <span class="hljs-variable">$output</span> +  (<span class="hljs-built_in">get-childitem</span> <span class="hljs-string">&quot;C:\Users\<span class="hljs-variable">$env:username</span>\AppData\Roaming\Microsoft\Windows\Recent&quot;</span>  <span class="hljs-literal">-EA</span> SilentlyContinue | <span class="hljs-built_in">select</span> Name | <span class="hljs-built_in">ft</span> <span class="hljs-literal">-hidetableheaders</span> | <span class="hljs-built_in">out-string</span> )<br>    <span class="hljs-variable">$output</span> = <span class="hljs-variable">$output</span> +  <span class="hljs-string">&quot;`r`n&quot;</span><br>    <span class="hljs-variable">$output</span> = <span class="hljs-variable">$output</span> +  <span class="hljs-string">&quot;-----------------------------------------------------------`r`n&quot;</span><br>    <span class="hljs-variable">$output</span> = <span class="hljs-variable">$output</span> +  <span class="hljs-string">&quot; Potentially Interesting Files in Users Directory `r`n&quot;</span><br>    <span class="hljs-variable">$output</span> = <span class="hljs-variable">$output</span> +  <span class="hljs-string">&quot;-----------------------------------------------------------`r`n&quot;</span><br>    <span class="hljs-variable">$output</span> = <span class="hljs-variable">$output</span> +  (<span class="hljs-built_in">get-childitem</span> <span class="hljs-string">&quot;C:\Users\&quot;</span> <span class="hljs-literal">-recurse</span> <span class="hljs-literal">-Include</span> *.zip,*.rar,*.<span class="hljs-number">7</span>z,*.gz,*.conf,*.rdp,*.kdbx,*.crt,*.pem,*.ppk,*.txt,*.xml,*.vnc.*.ini,*.vbs,*.bat,*.ps1,*.cmd <span class="hljs-literal">-EA</span> SilentlyContinue | %&#123;<span class="hljs-variable">$_</span>.FullName &#125; | <span class="hljs-built_in">out-string</span>)<br>    <span class="hljs-variable">$output</span> = <span class="hljs-variable">$output</span> +  <span class="hljs-string">&quot;`r`n&quot;</span><br>    <span class="hljs-variable">$output</span> = <span class="hljs-variable">$output</span> +  <span class="hljs-string">&quot;-----------------------------------------------------------`r`n&quot;</span><br>    <span class="hljs-variable">$output</span> = <span class="hljs-variable">$output</span> +  <span class="hljs-string">&quot; 10 Last Modified Files in C:\User`r`n&quot;</span><br>    <span class="hljs-variable">$output</span> = <span class="hljs-variable">$output</span> +  <span class="hljs-string">&quot;-----------------------------------------------------------`r`n&quot;</span><br>    <span class="hljs-variable">$output</span> = <span class="hljs-variable">$output</span> + (<span class="hljs-built_in">Get-ChildItem</span> <span class="hljs-string">&#x27;C:\Users&#x27;</span> <span class="hljs-literal">-recurse</span> <span class="hljs-literal">-EA</span> SilentlyContinue | <span class="hljs-built_in">Sort</span> &#123;<span class="hljs-variable">$_</span>.LastWriteTime&#125; |  %&#123;<span class="hljs-variable">$_</span>.FullName &#125; | <span class="hljs-built_in">select</span> <span class="hljs-literal">-last</span> <span class="hljs-number">10</span> | <span class="hljs-built_in">ft</span> <span class="hljs-literal">-hidetableheaders</span> | <span class="hljs-built_in">out-string</span>)<br>    <span class="hljs-variable">$output</span> = <span class="hljs-variable">$output</span> +  <span class="hljs-string">&quot;`r`n&quot;</span><br>    <span class="hljs-variable">$output</span> = <span class="hljs-variable">$output</span> +  <span class="hljs-string">&quot;-----------------------------------------------------------`r`n&quot;</span><br>    <span class="hljs-variable">$output</span> = <span class="hljs-variable">$output</span> +  <span class="hljs-string">&quot; MUICache Files`r`n&quot;</span><br>    <span class="hljs-variable">$output</span> = <span class="hljs-variable">$output</span> +  <span class="hljs-string">&quot;-----------------------------------------------------------`r`n&quot;</span><br>    <span class="hljs-built_in">get-childitem</span> <span class="hljs-string">&quot;HKCU:\Software\Classes\Local Settings\Software\Microsoft\Windows\Shell\&quot;</span> <span class="hljs-literal">-EA</span> SilentlyContinue |<br>    <span class="hljs-keyword">foreach</span> &#123; <span class="hljs-variable">$CurrentKey</span> = (<span class="hljs-built_in">Get-ItemProperty</span> <span class="hljs-literal">-Path</span> <span class="hljs-variable">$_</span>.PsPath)<br>       <span class="hljs-keyword">if</span> (<span class="hljs-variable">$CurrentKey</span> <span class="hljs-operator">-match</span> <span class="hljs-string">&quot;C:\\&quot;</span>) &#123;<br>          <span class="hljs-variable">$output</span> = <span class="hljs-variable">$output</span> + (<span class="hljs-variable">$_</span>.Property <span class="hljs-operator">-join</span> <span class="hljs-string">&quot;`r`n&quot;</span>)<br>       &#125;<br>    &#125;<br>    <span class="hljs-variable">$output</span> = <span class="hljs-variable">$output</span> +  <span class="hljs-string">&quot;`r`n&quot;</span><br>    <span class="hljs-variable">$output</span> = <span class="hljs-variable">$output</span> +  <span class="hljs-string">&quot;`r`n&quot;</span><br>    <span class="hljs-built_in">write-output</span> <span class="hljs-string">&quot;	- Looking for Simple Priv Esc Methods&quot;</span><br>    <span class="hljs-variable">$output</span> = <span class="hljs-variable">$output</span> +  <span class="hljs-string">&quot;-----------------------------------------------------------`r`n&quot;</span><br>    <span class="hljs-variable">$output</span> = <span class="hljs-variable">$output</span> +  <span class="hljs-string">&quot; System Files with Passwords`r`n&quot;</span><br>    <span class="hljs-variable">$output</span> = <span class="hljs-variable">$output</span> +  <span class="hljs-string">&quot;-----------------------------------------------------------`r`n&quot;</span><br>    <span class="hljs-variable">$files</span> = (<span class="hljs-string">&quot;unattended.xml&quot;</span>, <span class="hljs-string">&quot;sysprep.xml&quot;</span>, <span class="hljs-string">&quot;autounattended.xml&quot;</span>,<span class="hljs-string">&quot;unattended.inf&quot;</span>, <span class="hljs-string">&quot;sysprep.inf&quot;</span>, <span class="hljs-string">&quot;autounattended.inf&quot;</span>,<span class="hljs-string">&quot;unattended.txt&quot;</span>, <span class="hljs-string">&quot;sysprep.txt&quot;</span>, <span class="hljs-string">&quot;autounattended.txt&quot;</span>)<br>    <span class="hljs-variable">$output</span> = <span class="hljs-variable">$output</span> +  (<span class="hljs-built_in">get-childitem</span> C:\ <span class="hljs-literal">-recurse</span> <span class="hljs-literal">-include</span> <span class="hljs-variable">$files</span> <span class="hljs-literal">-EA</span> SilentlyContinue  | <span class="hljs-built_in">Select-String</span> <span class="hljs-literal">-pattern</span> <span class="hljs-string">&quot;&lt;Value&gt;&quot;</span> | <span class="hljs-built_in">out-string</span>)<br>    <span class="hljs-variable">$output</span> = <span class="hljs-variable">$output</span> +  <span class="hljs-string">&quot;`r`n&quot;</span><br>    <span class="hljs-variable">$output</span> = <span class="hljs-variable">$output</span> +  <span class="hljs-string">&quot;-----------------------------------------------------------`r`n&quot;</span><br>    <span class="hljs-variable">$output</span> = <span class="hljs-variable">$output</span> +  <span class="hljs-string">&quot; AlwaysInstalledElevated Registry Key`r`n&quot;</span><br>    <span class="hljs-variable">$output</span> = <span class="hljs-variable">$output</span> +  <span class="hljs-string">&quot;-----------------------------------------------------------`r`n&quot;</span><br>    <span class="hljs-variable">$HKLM</span> = <span class="hljs-string">&quot;HKLM:\SOFTWARE\Policies\Microsoft\Windows\Installer&quot;</span><br>    <span class="hljs-variable">$HKCU</span> =  <span class="hljs-string">&quot;HKCU:\SOFTWARE\Policies\Microsoft\Windows\Installer&quot;</span><br>    <span class="hljs-keyword">if</span> ((<span class="hljs-variable">$HKLM</span> | <span class="hljs-built_in">test-path</span>) <span class="hljs-operator">-eq</span> <span class="hljs-string">&quot;True&quot;</span>) <br>    &#123;<br>        <span class="hljs-keyword">if</span> (((<span class="hljs-built_in">Get-ItemProperty</span> <span class="hljs-literal">-Path</span> <span class="hljs-variable">$HKLM</span> <span class="hljs-literal">-Name</span> AlwaysInstallElevated).AlwaysInstallElevated) <span class="hljs-operator">-eq</span> <span class="hljs-number">1</span>)<br>        &#123;<br>            <span class="hljs-variable">$output</span> = <span class="hljs-variable">$output</span> +   <span class="hljs-string">&quot;AlwaysInstallElevated enabled on this host!&quot;</span><br>        &#125;<br>    &#125;<br>    <span class="hljs-keyword">if</span> ((<span class="hljs-variable">$HKCU</span> | <span class="hljs-built_in">test-path</span>) <span class="hljs-operator">-eq</span> <span class="hljs-string">&quot;True&quot;</span>) <br>    &#123;<br>        <span class="hljs-keyword">if</span> (((<span class="hljs-built_in">Get-ItemProperty</span> <span class="hljs-literal">-Path</span> <span class="hljs-variable">$HKCU</span> <span class="hljs-literal">-Name</span> AlwaysInstallElevated).AlwaysInstallElevated) <span class="hljs-operator">-eq</span> <span class="hljs-number">1</span>)<br>        &#123;<br>            <span class="hljs-variable">$output</span> = <span class="hljs-variable">$output</span> +   <span class="hljs-string">&quot;AlwaysInstallElevated enabled on this host!&quot;</span><br>        &#125;<br>    &#125;<br>    <span class="hljs-variable">$output</span> = <span class="hljs-variable">$output</span> +  <span class="hljs-string">&quot;`r`n&quot;</span><br>    <span class="hljs-variable">$output</span> = <span class="hljs-variable">$output</span> +  <span class="hljs-string">&quot;-----------------------------------------------------------`r`n&quot;</span><br>    <span class="hljs-variable">$output</span> = <span class="hljs-variable">$output</span> +  <span class="hljs-string">&quot; Stored Credentials`r`n&quot;</span><br>    <span class="hljs-variable">$output</span> = <span class="hljs-variable">$output</span> +  <span class="hljs-string">&quot;-----------------------------------------------------------`r`n&quot;</span><br>    <span class="hljs-variable">$output</span> = <span class="hljs-variable">$output</span> + (cmdkey /list | <span class="hljs-built_in">out-string</span>)<br>    <span class="hljs-variable">$output</span> = <span class="hljs-variable">$output</span> +  <span class="hljs-string">&quot;`r`n&quot;</span><br>    <span class="hljs-variable">$output</span> = <span class="hljs-variable">$output</span> +  <span class="hljs-string">&quot;-----------------------------------------------------------`r`n&quot;</span><br>    <span class="hljs-variable">$output</span> = <span class="hljs-variable">$output</span> +  <span class="hljs-string">&quot; Checking for AutoAdminLogon `r`n&quot;</span><br>    <span class="hljs-variable">$output</span> = <span class="hljs-variable">$output</span> + <span class="hljs-string">&quot;-----------------------------------------------------------`r`n&quot;</span><br>    <span class="hljs-variable">$Winlogon</span> = <span class="hljs-string">&quot;HKLM:\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon&quot;</span><br>    <span class="hljs-keyword">if</span> (<span class="hljs-built_in">get-itemproperty</span> <span class="hljs-literal">-path</span> <span class="hljs-variable">$Winlogon</span> <span class="hljs-literal">-Name</span> AutoAdminLogon <span class="hljs-literal">-ErrorAction</span> SilentlyContinue) <br>        &#123;<br>        <span class="hljs-keyword">if</span> ((<span class="hljs-built_in">get-itemproperty</span> <span class="hljs-literal">-path</span> <span class="hljs-variable">$Winlogon</span> <span class="hljs-literal">-Name</span> AutoAdminLogon).AutoAdminLogon <span class="hljs-operator">-eq</span> <span class="hljs-number">1</span>) <br>            &#123;<br>            <span class="hljs-variable">$Username</span> = (<span class="hljs-built_in">get-itemproperty</span> <span class="hljs-literal">-path</span> <span class="hljs-variable">$Winlogon</span> <span class="hljs-literal">-Name</span> DefaultUserName).DefaultUsername<br>            <span class="hljs-variable">$output</span> = <span class="hljs-variable">$output</span> + <span class="hljs-string">&quot;The default username is <span class="hljs-variable">$Username</span> `r`n&quot;</span><br>            <span class="hljs-variable">$Password</span> = (<span class="hljs-built_in">get-itemproperty</span> <span class="hljs-literal">-path</span> <span class="hljs-variable">$Winlogon</span> <span class="hljs-literal">-Name</span> DefaultPassword).DefaultPassword<br>            <span class="hljs-variable">$output</span> = <span class="hljs-variable">$output</span> + <span class="hljs-string">&quot;The default password is <span class="hljs-variable">$Password</span> `r`n&quot;</span><br>            <span class="hljs-variable">$DefaultDomainName</span> = (<span class="hljs-built_in">get-itemproperty</span> <span class="hljs-literal">-path</span> <span class="hljs-variable">$Winlogon</span> <span class="hljs-literal">-Name</span> DefaultDomainName).DefaultDomainName<br>            <span class="hljs-variable">$output</span> = <span class="hljs-variable">$output</span> + <span class="hljs-string">&quot;The default domainname is <span class="hljs-variable">$DefaultDomainName</span> `r`n&quot;</span><br>            &#125;<br>        &#125;<br>    <span class="hljs-variable">$output</span> = <span class="hljs-variable">$output</span> +  <span class="hljs-string">&quot;`r`n&quot;</span><br>    <span class="hljs-keyword">if</span> (<span class="hljs-variable">$OutputFilename</span>.length <span class="hljs-operator">-gt</span> <span class="hljs-number">0</span>)<br>       &#123;<br>        <span class="hljs-variable">$output</span> | <span class="hljs-built_in">Out-File</span> <span class="hljs-literal">-FilePath</span> <span class="hljs-variable">$OutputFileName</span> <span class="hljs-literal">-encoding</span> utf8<br>        &#125;<br>    <span class="hljs-keyword">else</span><br>        &#123;<br>        <span class="hljs-built_in">clear-host</span><br>        <span class="hljs-built_in">write-output</span> <span class="hljs-variable">$output</span><br>        &#125;<br>&#125;<br><br><span class="hljs-keyword">if</span> (<span class="hljs-variable">$OutputFilename</span>.length <span class="hljs-operator">-gt</span> <span class="hljs-number">0</span>)<br>    &#123;<br>        <span class="hljs-keyword">Try</span> <br>            &#123; <br>                [<span class="hljs-type">io.file</span>]::OpenWrite(<span class="hljs-variable">$OutputFilename</span>).close()  <br>                JAWS<span class="hljs-literal">-ENUM</span><br>            &#125;<br>        <span class="hljs-keyword">Catch</span> <br>            &#123; <br>                <span class="hljs-built_in">Write-Warning</span> <span class="hljs-string">&quot;`nUnable to write to output file <span class="hljs-variable">$OutputFilename</span>, Check path and permissions&quot;</span> <br>            &#125;<br>    &#125; <br><span class="hljs-keyword">else</span> <br>    &#123;<br>    JAWS<span class="hljs-literal">-ENUM</span><br>    &#125;<br></code></pre></td></tr></table></figure>
+<h5 id="源代码"><a href="#源代码" class="headerlink" title="源代码"></a>源代码</h5><figure class="highlight powershell"><figcaption><span>jaws-enum.ps1</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br><span class="line">191</span><br><span class="line">192</span><br><span class="line">193</span><br><span class="line">194</span><br><span class="line">195</span><br><span class="line">196</span><br><span class="line">197</span><br><span class="line">198</span><br><span class="line">199</span><br><span class="line">200</span><br><span class="line">201</span><br><span class="line">202</span><br><span class="line">203</span><br><span class="line">204</span><br><span class="line">205</span><br><span class="line">206</span><br><span class="line">207</span><br><span class="line">208</span><br><span class="line">209</span><br><span class="line">210</span><br><span class="line">211</span><br><span class="line">212</span><br><span class="line">213</span><br><span class="line">214</span><br><span class="line">215</span><br><span class="line">216</span><br><span class="line">217</span><br><span class="line">218</span><br><span class="line">219</span><br><span class="line">220</span><br><span class="line">221</span><br><span class="line">222</span><br><span class="line">223</span><br><span class="line">224</span><br><span class="line">225</span><br><span class="line">226</span><br><span class="line">227</span><br><span class="line">228</span><br><span class="line">229</span><br><span class="line">230</span><br><span class="line">231</span><br><span class="line">232</span><br><span class="line">233</span><br><span class="line">234</span><br><span class="line">235</span><br><span class="line">236</span><br><span class="line">237</span><br><span class="line">238</span><br><span class="line">239</span><br><span class="line">240</span><br><span class="line">241</span><br><span class="line">242</span><br><span class="line">243</span><br><span class="line">244</span><br><span class="line">245</span><br><span class="line">246</span><br><span class="line">247</span><br><span class="line">248</span><br><span class="line">249</span><br><span class="line">250</span><br><span class="line">251</span><br><span class="line">252</span><br><span class="line">253</span><br><span class="line">254</span><br><span class="line">255</span><br><span class="line">256</span><br><span class="line">257</span><br><span class="line">258</span><br><span class="line">259</span><br><span class="line">260</span><br><span class="line">261</span><br><span class="line">262</span><br><span class="line">263</span><br><span class="line">264</span><br><span class="line">265</span><br><span class="line">266</span><br><span class="line">267</span><br><span class="line">268</span><br><span class="line">269</span><br><span class="line">270</span><br><span class="line">271</span><br><span class="line">272</span><br><span class="line">273</span><br><span class="line">274</span><br><span class="line">275</span><br><span class="line">276</span><br><span class="line">277</span><br><span class="line">278</span><br><span class="line">279</span><br><span class="line">280</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;#</span></span><br><span class="line"><span class="comment"><span class="doctag">.SYNOPSIS</span></span></span><br><span class="line"><span class="comment">Windows enumeration script</span></span><br><span class="line"><span class="comment"><span class="doctag">.DESCRIPTION</span></span></span><br><span class="line"><span class="comment">This script is designed to be used in a penetration test or CTF</span></span><br><span class="line"><span class="comment">enviroment. It will enumerate useful information from the host</span></span><br><span class="line"><span class="comment">for privilege escalation.</span></span><br><span class="line"><span class="comment"><span class="doctag">.EXAMPLE</span></span></span><br><span class="line"><span class="comment">PS &gt; .\jaws-enum.ps1 </span></span><br><span class="line"><span class="comment">will write results out to screen.</span></span><br><span class="line"><span class="comment"><span class="doctag">.EXAMPLE</span></span></span><br><span class="line"><span class="comment">PS &gt; .\jaws-enum.ps1 -OutputFileName Jaws-Enum.txt</span></span><br><span class="line"><span class="comment">Writes out results to Jaws-Enum.txt in current directory.</span></span><br><span class="line"><span class="comment"><span class="doctag">.LINK</span></span></span><br><span class="line"><span class="comment">https://github.com/411Hall/JAWS</span></span><br><span class="line"><span class="comment">#&gt;</span></span><br><span class="line"><span class="keyword">Param</span>(</span><br><span class="line">    [<span class="built_in">String</span>]<span class="variable">$OutputFilename</span> = <span class="string">&quot;&quot;</span></span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">JAWS-ENUM</span></span> &#123;</span><br><span class="line">    <span class="built_in">write-output</span> <span class="string">&quot;`nRunning J.A.W.S. Enumeration&quot;</span></span><br><span class="line">    <span class="variable">$output</span> = <span class="string">&quot;&quot;</span> </span><br><span class="line">    <span class="variable">$output</span> = <span class="variable">$output</span> +  <span class="string">&quot;############################################################`r`n&quot;</span></span><br><span class="line">    <span class="variable">$output</span> = <span class="variable">$output</span> +  <span class="string">&quot;##     J.A.W.S. (Just Another Windows Enum Script)        ##`r`n&quot;</span></span><br><span class="line">    <span class="variable">$output</span> = <span class="variable">$output</span> +  <span class="string">&quot;##                                                        ##`r`n&quot;</span></span><br><span class="line">    <span class="variable">$output</span> = <span class="variable">$output</span> +  <span class="string">&quot;##           https://github.com/411Hall/JAWS              ##`r`n&quot;</span></span><br><span class="line">    <span class="variable">$output</span> = <span class="variable">$output</span> +  <span class="string">&quot;##                                                        ##`r`n&quot;</span></span><br><span class="line">    <span class="variable">$output</span> = <span class="variable">$output</span> +  <span class="string">&quot;############################################################`r`n&quot;</span></span><br><span class="line">    <span class="variable">$output</span> = <span class="variable">$output</span> +  <span class="string">&quot;`r`n&quot;</span></span><br><span class="line">    <span class="variable">$win_version</span> = (<span class="built_in">Get-WmiObject</span> <span class="literal">-class</span> Win32_OperatingSystem)</span><br><span class="line">    <span class="variable">$output</span> = <span class="variable">$output</span> +  <span class="string">&quot;Windows Version: &quot;</span> + ((<span class="variable">$win_version</span>.caption <span class="operator">-join</span> <span class="variable">$win_version</span>.version) + <span class="string">&quot;`r`n&quot;</span>)</span><br><span class="line">    <span class="variable">$output</span> = <span class="variable">$output</span> +  <span class="string">&quot;Architecture: &quot;</span> + ((<span class="variable">$env:processor_architecture</span>) + <span class="string">&quot;`r`n&quot;</span>)</span><br><span class="line">    <span class="variable">$output</span> = <span class="variable">$output</span> +  <span class="string">&quot;Hostname: &quot;</span> + ((<span class="variable">$env:ComputerName</span>) + <span class="string">&quot;`r`n&quot;</span>)</span><br><span class="line">    <span class="variable">$output</span> = <span class="variable">$output</span> +  <span class="string">&quot;Current User: &quot;</span> + ((<span class="variable">$env:username</span>) + <span class="string">&quot;`r`n&quot;</span>)</span><br><span class="line">    <span class="variable">$output</span> = <span class="variable">$output</span> +  <span class="string">&quot;Current Time\Date: &quot;</span> + (<span class="built_in">get-date</span>)</span><br><span class="line">    <span class="variable">$output</span> = <span class="variable">$output</span> +  <span class="string">&quot;`r`n&quot;</span></span><br><span class="line">    <span class="variable">$output</span> = <span class="variable">$output</span> +  <span class="string">&quot;`r`n&quot;</span></span><br><span class="line">    <span class="built_in">write-output</span> <span class="string">&quot;	- Gathering User Information&quot;</span></span><br><span class="line">    <span class="variable">$output</span> = <span class="variable">$output</span> +  <span class="string">&quot;-----------------------------------------------------------`r`n&quot;</span></span><br><span class="line">    <span class="variable">$output</span> = <span class="variable">$output</span> +  <span class="string">&quot; Users`r`n&quot;</span></span><br><span class="line">    <span class="variable">$output</span> = <span class="variable">$output</span> +  <span class="string">&quot;-----------------------------------------------------------`r`n&quot;</span></span><br><span class="line">    <span class="variable">$adsi</span> = [<span class="type">ADSI</span>]<span class="string">&quot;WinNT://<span class="variable">$env:COMPUTERNAME</span>&quot;</span></span><br><span class="line">    <span class="variable">$adsi</span>.Children | <span class="built_in">where</span> &#123;<span class="variable">$_</span>.SchemaClassName <span class="operator">-eq</span> <span class="string">&#x27;user&#x27;</span>&#125; | <span class="built_in">Foreach-Object</span> &#123;</span><br><span class="line">        <span class="variable">$groups</span> = <span class="variable">$_</span>.Groups() | <span class="built_in">Foreach-Object</span> &#123;<span class="variable">$_</span>.GetType().InvokeMember(<span class="string">&quot;Name&quot;</span>, <span class="string">&#x27;GetProperty&#x27;</span>, <span class="variable">$null</span>, <span class="variable">$_</span>, <span class="variable">$null</span>)&#125;</span><br><span class="line">        <span class="variable">$output</span> = <span class="variable">$output</span> +  <span class="string">&quot;----------`r`n&quot;</span></span><br><span class="line">        <span class="variable">$output</span> = <span class="variable">$output</span> +  <span class="string">&quot;Username: &quot;</span> + <span class="variable">$_</span>.Name +  <span class="string">&quot;`r`n&quot;</span></span><br><span class="line">        <span class="variable">$output</span> = <span class="variable">$output</span> +  <span class="string">&quot;Groups:   &quot;</span>  + <span class="variable">$groups</span> +  <span class="string">&quot;`r`n&quot;</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="variable">$output</span> = <span class="variable">$output</span> +  <span class="string">&quot;`r`n&quot;</span></span><br><span class="line">    <span class="variable">$output</span> = <span class="variable">$output</span> +  <span class="string">&quot;-----------------------------------------------------------`r`n&quot;</span></span><br><span class="line">    <span class="variable">$output</span> = <span class="variable">$output</span> +  <span class="string">&quot; Network Information`r`n&quot;</span></span><br><span class="line">    <span class="variable">$output</span> = <span class="variable">$output</span> +  <span class="string">&quot;-----------------------------------------------------------`r`n&quot;</span></span><br><span class="line">    <span class="variable">$output</span> = <span class="variable">$output</span> + (ipconfig | <span class="built_in">out-string</span>)</span><br><span class="line">    <span class="variable">$output</span> = <span class="variable">$output</span> +  <span class="string">&quot;`r`n&quot;</span></span><br><span class="line">    <span class="variable">$output</span> = <span class="variable">$output</span> +  <span class="string">&quot;-----------------------------------------------------------`r`n&quot;</span></span><br><span class="line">    <span class="variable">$output</span> = <span class="variable">$output</span> +  <span class="string">&quot; Arp`r`n&quot;</span></span><br><span class="line">    <span class="variable">$output</span> = <span class="variable">$output</span> +  <span class="string">&quot;-----------------------------------------------------------`r`n&quot;</span></span><br><span class="line">    <span class="variable">$output</span> = <span class="variable">$output</span> + (arp <span class="literal">-a</span> | <span class="built_in">out-string</span>) </span><br><span class="line">    <span class="variable">$output</span> = <span class="variable">$output</span> +  <span class="string">&quot;`r`n&quot;</span></span><br><span class="line">    <span class="variable">$output</span> = <span class="variable">$output</span> +  <span class="string">&quot;`r`n&quot;</span></span><br><span class="line">    <span class="variable">$output</span> = <span class="variable">$output</span> +  <span class="string">&quot;-----------------------------------------------------------`r`n&quot;</span></span><br><span class="line">    <span class="variable">$output</span> = <span class="variable">$output</span> +  <span class="string">&quot; NetStat`r`n&quot;</span></span><br><span class="line">    <span class="variable">$output</span> = <span class="variable">$output</span> +  <span class="string">&quot;-----------------------------------------------------------`r`n&quot;</span></span><br><span class="line">    <span class="variable">$output</span> = <span class="variable">$output</span> + (netstat <span class="literal">-ano</span> | <span class="built_in">out-string</span>)</span><br><span class="line">    <span class="variable">$output</span> = <span class="variable">$output</span> +  <span class="string">&quot;`r`n&quot;</span></span><br><span class="line">    <span class="variable">$output</span> = <span class="variable">$output</span> +  <span class="string">&quot;`r`n&quot;</span></span><br><span class="line">    <span class="variable">$output</span> = <span class="variable">$output</span> +  <span class="string">&quot;-----------------------------------------------------------`r`n&quot;</span></span><br><span class="line">    <span class="variable">$output</span> = <span class="variable">$output</span> +  <span class="string">&quot; Firewall Status`r`n&quot;</span></span><br><span class="line">    <span class="variable">$output</span> = <span class="variable">$output</span> +  <span class="string">&quot;-----------------------------------------------------------`r`n&quot;</span></span><br><span class="line">    <span class="variable">$output</span> = <span class="variable">$output</span> +  <span class="string">&quot;`r`n&quot;</span></span><br><span class="line">    <span class="variable">$Firewall</span> = <span class="built_in">New-Object</span> <span class="literal">-com</span> HNetCfg.FwMgr</span><br><span class="line">    <span class="variable">$FireProfile</span> = <span class="variable">$Firewall</span>.LocalPolicy.CurrentProfile  </span><br><span class="line">    <span class="keyword">if</span> (<span class="variable">$FireProfile</span>.FirewallEnabled <span class="operator">-eq</span> <span class="variable">$False</span>) &#123;</span><br><span class="line">        <span class="variable">$output</span> = <span class="variable">$output</span> +  (<span class="string">&quot;Firewall is Disabled&quot;</span> + <span class="string">&quot;`r`n&quot;</span>)</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="variable">$output</span> = <span class="variable">$output</span> +  (<span class="string">&quot;Firwall is Enabled&quot;</span> + <span class="string">&quot;`r`n&quot;</span>)</span><br><span class="line">        &#125;</span><br><span class="line">    <span class="variable">$output</span> = <span class="variable">$output</span> +  <span class="string">&quot;`r`n&quot;</span></span><br><span class="line">    <span class="variable">$output</span> = <span class="variable">$output</span> +  <span class="string">&quot;-----------------------------------------------------------`r`n&quot;</span></span><br><span class="line">    <span class="variable">$output</span> = <span class="variable">$output</span> +  <span class="string">&quot; FireWall Rules`r`n&quot;</span></span><br><span class="line">    <span class="variable">$output</span> = <span class="variable">$output</span> +  <span class="string">&quot;-----------------------------------------------------------`r`n&quot;</span></span><br><span class="line">    <span class="function"><span class="keyword">Function</span> <span class="title">Get-FireWallRule</span></span></span><br><span class="line">    &#123;<span class="keyword">Param</span> (<span class="variable">$Name</span>, <span class="variable">$Direction</span>, <span class="variable">$Enabled</span>, <span class="variable">$Protocol</span>, <span class="variable">$profile</span>, <span class="variable">$action</span>, <span class="variable">$grouping</span>)</span><br><span class="line">    <span class="variable">$Rules</span>=(<span class="built_in">New-object</span> <span class="literal">-comObject</span> HNetCfg.FwPolicy2).rules</span><br><span class="line">    <span class="keyword">If</span> (<span class="variable">$name</span>)      &#123;<span class="variable">$rules</span>= <span class="variable">$rules</span> | <span class="built_in">where-object</span> &#123;<span class="variable">$_</span>.name     <span class="operator">-like</span> <span class="variable">$name</span>&#125;&#125;</span><br><span class="line">    <span class="keyword">If</span> (<span class="variable">$direction</span>) &#123;<span class="variable">$rules</span>= <span class="variable">$rules</span> | <span class="built_in">where-object</span> &#123;<span class="variable">$_</span>.direction  <span class="operator">-eq</span> <span class="variable">$direction</span>&#125;&#125;</span><br><span class="line">    <span class="keyword">If</span> (<span class="variable">$Enabled</span>)   &#123;<span class="variable">$rules</span>= <span class="variable">$rules</span> | <span class="built_in">where-object</span> &#123;<span class="variable">$_</span>.Enabled    <span class="operator">-eq</span> <span class="variable">$Enabled</span>&#125;&#125;</span><br><span class="line">    <span class="keyword">If</span> (<span class="variable">$protocol</span>)  &#123;<span class="variable">$rules</span>= <span class="variable">$rules</span> | <span class="built_in">where-object</span> &#123;<span class="variable">$_</span>.protocol   <span class="operator">-eq</span> <span class="variable">$protocol</span>&#125;&#125;</span><br><span class="line">    <span class="keyword">If</span> (<span class="variable">$profile</span>)   &#123;<span class="variable">$rules</span>= <span class="variable">$rules</span> | <span class="built_in">where-object</span> &#123;<span class="variable">$_</span>.Profiles <span class="operator">-bAND</span> <span class="variable">$profile</span>&#125;&#125;</span><br><span class="line">    <span class="keyword">If</span> (<span class="variable">$Action</span>)    &#123;<span class="variable">$rules</span>= <span class="variable">$rules</span> | <span class="built_in">where-object</span> &#123;<span class="variable">$_</span>.Action     <span class="operator">-eq</span> <span class="variable">$Action</span>&#125;&#125;</span><br><span class="line">    <span class="keyword">If</span> (<span class="variable">$Grouping</span>)  &#123;<span class="variable">$rules</span>= <span class="variable">$rules</span> | <span class="built_in">where-object</span> &#123;<span class="variable">$_</span>.Grouping <span class="operator">-like</span> <span class="variable">$Grouping</span>&#125;&#125;</span><br><span class="line">    <span class="variable">$rules</span>&#125;</span><br><span class="line">    <span class="variable">$output</span> = <span class="variable">$output</span> +  (<span class="built_in">Get-firewallRule</span> <span class="literal">-enabled</span> <span class="variable">$true</span> | <span class="built_in">sort</span> direction,applicationName,name | <span class="built_in">format-table</span> <span class="literal">-property</span> Name , localPorts,applicationname | <span class="built_in">out-string</span>)</span><br><span class="line">    <span class="variable">$output</span> = <span class="variable">$output</span> +  <span class="string">&quot;-----------------------------------------------------------`r`n&quot;</span></span><br><span class="line">    <span class="variable">$output</span> = <span class="variable">$output</span> +  <span class="string">&quot; Hosts File Content`r`n&quot;</span></span><br><span class="line">    <span class="variable">$output</span> = <span class="variable">$output</span> +  <span class="string">&quot;-----------------------------------------------------------`r`n&quot;</span></span><br><span class="line">    <span class="variable">$output</span> = <span class="variable">$output</span> +  <span class="string">&quot;`r`n&quot;</span></span><br><span class="line">    <span class="variable">$output</span> = <span class="variable">$output</span> + ((<span class="built_in">get-content</span> <span class="variable">$env:windir</span>\System32\drivers\etc\hosts | <span class="built_in">out-string</span>) + <span class="string">&quot;`r`n&quot;</span>)</span><br><span class="line">    <span class="variable">$output</span> = <span class="variable">$output</span> +  <span class="string">&quot;`r`n&quot;</span></span><br><span class="line">    <span class="built_in">write-output</span> <span class="string">&quot;	- Gathering Processes, Services and Scheduled Tasks&quot;</span></span><br><span class="line">    <span class="variable">$output</span> = <span class="variable">$output</span> +  <span class="string">&quot;-----------------------------------------------------------`r`n&quot;</span></span><br><span class="line">    <span class="variable">$output</span> = <span class="variable">$output</span> +  <span class="string">&quot; Processes`r`n&quot;</span></span><br><span class="line">    <span class="variable">$output</span> = <span class="variable">$output</span> +  <span class="string">&quot;-----------------------------------------------------------`r`n&quot;</span></span><br><span class="line">    <span class="variable">$output</span> = <span class="variable">$output</span> +  ((<span class="built_in">Get-WmiObject</span> win32_process | <span class="built_in">Select-Object</span> Name,ProcessID,<span class="selector-tag">@</span>&#123;n=<span class="string">&#x27;Owner&#x27;</span>;e=&#123;<span class="variable">$_</span>.GetOwner().User&#125;&#125;,CommandLine | <span class="built_in">sort</span> name | <span class="built_in">format-table</span> <span class="literal">-wrap</span> <span class="literal">-autosize</span> | <span class="built_in">out-string</span>) + <span class="string">&quot;`r`n&quot;</span>)</span><br><span class="line">    <span class="variable">$output</span> = <span class="variable">$output</span> +  <span class="string">&quot;-----------------------------------------------------------`r`n&quot;</span></span><br><span class="line">    <span class="variable">$output</span> = <span class="variable">$output</span> +  <span class="string">&quot; Scheduled Tasks`r`n&quot;</span></span><br><span class="line">    <span class="variable">$output</span> = <span class="variable">$output</span> +  <span class="string">&quot;-----------------------------------------------------------`r`n&quot;</span></span><br><span class="line">    <span class="variable">$output</span> = <span class="variable">$output</span> +  <span class="string">&quot;Current System Time: &quot;</span> + (<span class="built_in">get-date</span>)</span><br><span class="line">    <span class="variable">$output</span> = <span class="variable">$output</span> + (schtasks /query /FO CSV /v | <span class="built_in">convertfrom-csv</span> | <span class="built_in">where</span> &#123; <span class="variable">$_</span>.TaskName <span class="operator">-ne</span> <span class="string">&quot;TaskName&quot;</span> &#125; | <span class="built_in">select</span> <span class="string">&quot;TaskName&quot;</span>,<span class="string">&quot;Run As User&quot;</span>, <span class="string">&quot;Task to Run&quot;</span>  | <span class="built_in">fl</span> | <span class="built_in">out-string</span>)</span><br><span class="line">    <span class="variable">$output</span> = <span class="variable">$output</span> +  <span class="string">&quot;`r`n&quot;</span></span><br><span class="line">    <span class="variable">$output</span> = <span class="variable">$output</span> +  <span class="string">&quot;-----------------------------------------------------------`r`n&quot;</span></span><br><span class="line">    <span class="variable">$output</span> = <span class="variable">$output</span> +  <span class="string">&quot; Services`r`n&quot;</span></span><br><span class="line">    <span class="variable">$output</span> = <span class="variable">$output</span> +  <span class="string">&quot;-----------------------------------------------------------`r`n&quot;</span></span><br><span class="line">    <span class="variable">$output</span> = <span class="variable">$output</span> + (<span class="built_in">get-service</span> | <span class="built_in">Select</span> Name,DisplayName,Status | <span class="built_in">sort</span> status | <span class="built_in">Format-Table</span> <span class="literal">-Property</span> * <span class="literal">-AutoSize</span> | <span class="built_in">Out-String</span> <span class="literal">-Width</span> <span class="number">4096</span>)</span><br><span class="line">    <span class="variable">$output</span> = <span class="variable">$output</span> +  <span class="string">&quot;`r`n&quot;</span></span><br><span class="line">    <span class="built_in">write-output</span> <span class="string">&quot;	- Gathering Installed Software&quot;</span></span><br><span class="line">    <span class="variable">$output</span> = <span class="variable">$output</span> +  <span class="string">&quot;`r`n&quot;</span></span><br><span class="line">    <span class="variable">$output</span> = <span class="variable">$output</span> +  <span class="string">&quot;-----------------------------------------------------------`r`n&quot;</span></span><br><span class="line">    <span class="variable">$output</span> = <span class="variable">$output</span> +  <span class="string">&quot; Installed Programs`r`n&quot;</span></span><br><span class="line">    <span class="variable">$output</span> = <span class="variable">$output</span> +  <span class="string">&quot;-----------------------------------------------------------`r`n&quot;</span></span><br><span class="line">    <span class="variable">$output</span> = <span class="variable">$output</span> +  (<span class="built_in">get-wmiobject</span> <span class="literal">-Class</span> win32_product | <span class="built_in">select</span> Name, Version, Caption | <span class="built_in">ft</span> <span class="literal">-hidetableheaders</span> <span class="literal">-autosize</span>| <span class="built_in">out-string</span> <span class="literal">-Width</span> <span class="number">4096</span>)</span><br><span class="line">    <span class="variable">$output</span> = <span class="variable">$output</span> +  <span class="string">&quot;`r`n&quot;</span></span><br><span class="line">    <span class="variable">$output</span> = <span class="variable">$output</span> +  <span class="string">&quot;-----------------------------------------------------------`r`n&quot;</span></span><br><span class="line">    <span class="variable">$output</span> = <span class="variable">$output</span> +  <span class="string">&quot; Installed Patches`r`n&quot;</span></span><br><span class="line">    <span class="variable">$output</span> = <span class="variable">$output</span> +  <span class="string">&quot;-----------------------------------------------------------`r`n&quot;</span></span><br><span class="line">    <span class="variable">$output</span> = <span class="variable">$output</span> +  (<span class="built_in">Get-Wmiobject</span> <span class="literal">-class</span> Win32_QuickFixEngineering <span class="literal">-namespace</span> <span class="string">&quot;root\cimv2&quot;</span> | <span class="built_in">select</span> HotFixID, InstalledOn| <span class="built_in">ft</span> <span class="literal">-autosize</span> | <span class="built_in">out-string</span> )</span><br><span class="line">    <span class="variable">$output</span> = <span class="variable">$output</span> +  <span class="string">&quot;`r`n&quot;</span></span><br><span class="line">    <span class="variable">$output</span> = <span class="variable">$output</span> +  <span class="string">&quot;-----------------------------------------------------------`r`n&quot;</span></span><br><span class="line">    <span class="variable">$output</span> = <span class="variable">$output</span> +  <span class="string">&quot; Program Folders`r`n&quot;</span></span><br><span class="line">    <span class="variable">$output</span> = <span class="variable">$output</span> +  <span class="string">&quot;-----------------------------------------------------------`r`n&quot;</span></span><br><span class="line">    <span class="variable">$output</span> = <span class="variable">$output</span> + <span class="string">&quot;`n`rC:\Program Files`r`n&quot;</span></span><br><span class="line">    <span class="variable">$output</span> = <span class="variable">$output</span> +  <span class="string">&quot;-------------&quot;</span></span><br><span class="line">    <span class="variable">$output</span> = <span class="variable">$output</span> + (<span class="built_in">get-childitem</span> <span class="string">&quot;C:\Program Files&quot;</span>  <span class="literal">-EA</span> SilentlyContinue  | <span class="built_in">select</span> Name  | <span class="built_in">ft</span> <span class="literal">-hidetableheaders</span> <span class="literal">-autosize</span>| <span class="built_in">out-string</span>)</span><br><span class="line">    <span class="variable">$output</span> = <span class="variable">$output</span> + <span class="string">&quot;C:\Program Files (x86)`r`n&quot;</span></span><br><span class="line">    <span class="variable">$output</span> = <span class="variable">$output</span> +  <span class="string">&quot;-------------------&quot;</span></span><br><span class="line">    <span class="variable">$output</span> = <span class="variable">$output</span> + (<span class="built_in">get-childitem</span> <span class="string">&quot;C:\Program Files (x86)&quot;</span>  <span class="literal">-EA</span> SilentlyContinue  | <span class="built_in">select</span> Name  | <span class="built_in">ft</span> <span class="literal">-hidetableheaders</span> <span class="literal">-autosize</span>| <span class="built_in">out-string</span>)</span><br><span class="line">    <span class="variable">$output</span> = <span class="variable">$output</span> +  <span class="string">&quot;`r`n&quot;</span></span><br><span class="line">    <span class="built_in">write-output</span> <span class="string">&quot;	- Gathering File System Information&quot;</span></span><br><span class="line">    <span class="variable">$output</span> = <span class="variable">$output</span> +  <span class="string">&quot;-----------------------------------------------------------`r`n&quot;</span></span><br><span class="line">    <span class="variable">$output</span> = <span class="variable">$output</span> +  <span class="string">&quot; Files with Full Control and Modify Access`r`n&quot;</span></span><br><span class="line">    <span class="variable">$output</span> = <span class="variable">$output</span> +  <span class="string">&quot;-----------------------------------------------------------`r`n&quot;</span></span><br><span class="line">    <span class="variable">$files</span> = <span class="built_in">get-childitem</span> C:\</span><br><span class="line">    <span class="keyword">foreach</span> (<span class="variable">$file</span> <span class="keyword">in</span> <span class="variable">$files</span>)&#123;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            <span class="variable">$output</span> = <span class="variable">$output</span> +  (<span class="built_in">get-childitem</span> <span class="string">&quot;C:\<span class="variable">$file</span>&quot;</span> <span class="literal">-include</span> *.ps1,*.bat,*.com,*.vbs,*.txt,*.html,*.conf,*.rdp,.*inf,*.ini <span class="literal">-recurse</span> <span class="literal">-EA</span> SilentlyContinue | <span class="built_in">get-acl</span> <span class="literal">-EA</span> SilentlyContinue | <span class="built_in">select</span> path <span class="literal">-expand</span> access | </span><br><span class="line">            <span class="built_in">where</span> &#123;<span class="variable">$_</span>.identityreference <span class="operator">-notmatch</span> <span class="string">&quot;BUILTIN|NT AUTHORITY|EVERYONE|CREATOR OWNER|NT SERVICE&quot;</span>&#125; | <span class="built_in">where</span> &#123;<span class="variable">$_</span>.filesystemrights <span class="operator">-match</span> <span class="string">&quot;FullControl|Modify&quot;</span>&#125; | </span><br><span class="line">            <span class="built_in">ft</span> <span class="selector-tag">@</span>&#123;Label=<span class="string">&quot;&quot;</span>;Expression=&#123;<span class="built_in">Convert-Path</span> <span class="variable">$_</span>.Path&#125;&#125;  <span class="literal">-hidetableheaders</span> <span class="literal">-autosize</span> | <span class="built_in">out-string</span> <span class="literal">-Width</span> <span class="number">4096</span>)</span><br><span class="line">            &#125;</span><br><span class="line">        <span class="keyword">catch</span> &#123;</span><br><span class="line">            <span class="variable">$output</span> = <span class="variable">$output</span> +   <span class="string">&quot;`nFailed to read more files`r`n&quot;</span></span><br><span class="line">        &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    <span class="variable">$output</span> = <span class="variable">$output</span> +  <span class="string">&quot;-----------------------------------------------------------`r`n&quot;</span></span><br><span class="line">    <span class="variable">$output</span> = <span class="variable">$output</span> +  <span class="string">&quot; Folders with Full Control and Modify Access`r`n&quot;</span></span><br><span class="line">    <span class="variable">$output</span> = <span class="variable">$output</span> +  <span class="string">&quot;-----------------------------------------------------------`r`n&quot;</span></span><br><span class="line">    <span class="variable">$folders</span> = <span class="built_in">get-childitem</span> C:\</span><br><span class="line">    <span class="keyword">foreach</span> (<span class="variable">$folder</span> <span class="keyword">in</span> <span class="variable">$folders</span>)&#123;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            <span class="variable">$output</span> = <span class="variable">$output</span> +  (<span class="built_in">Get-ChildItem</span> <span class="literal">-Recurse</span> <span class="string">&quot;C:\<span class="variable">$folder</span>&quot;</span> <span class="literal">-EA</span> SilentlyContinue | ?&#123; <span class="variable">$_</span>.PSIsContainer&#125; | <span class="built_in">get-acl</span>  | <span class="built_in">select</span> path <span class="literal">-expand</span> access |  </span><br><span class="line">            <span class="built_in">where</span> &#123;<span class="variable">$_</span>.identityreference <span class="operator">-notmatch</span> <span class="string">&quot;BUILTIN|NT AUTHORITY|CREATOR OWNER|NT SERVICE&quot;</span>&#125;  | <span class="built_in">where</span> &#123;<span class="variable">$_</span>.filesystemrights <span class="operator">-match</span> <span class="string">&quot;FullControl|Modify&quot;</span>&#125; | </span><br><span class="line">            <span class="built_in">select</span> path,filesystemrights,IdentityReference |  <span class="built_in">ft</span> <span class="selector-tag">@</span>&#123;Label=<span class="string">&quot;&quot;</span>;Expression=&#123;<span class="built_in">Convert-Path</span> <span class="variable">$_</span>.Path&#125;&#125;  <span class="literal">-hidetableheaders</span> <span class="literal">-autosize</span> | <span class="built_in">out-string</span> <span class="literal">-Width</span> <span class="number">4096</span>)</span><br><span class="line">             &#125;</span><br><span class="line">        <span class="keyword">catch</span> &#123;</span><br><span class="line">            <span class="variable">$output</span> = <span class="variable">$output</span> +  <span class="string">&quot;`nFailed to read more folders`r`n&quot;</span></span><br><span class="line">        &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    <span class="variable">$output</span> = <span class="variable">$output</span> +  <span class="string">&quot;`r`n&quot;</span></span><br><span class="line">    <span class="variable">$output</span> = <span class="variable">$output</span> +  <span class="string">&quot;-----------------------------------------------------------`r`n&quot;</span></span><br><span class="line">    <span class="variable">$output</span> = <span class="variable">$output</span> +  <span class="string">&quot; Mapped Drives`r`n&quot;</span></span><br><span class="line">    <span class="variable">$output</span> = <span class="variable">$output</span> +  <span class="string">&quot;-----------------------------------------------------------`r`n&quot;</span></span><br><span class="line">    <span class="variable">$output</span> = <span class="variable">$output</span> +  (<span class="built_in">Get-WmiObject</span> <span class="literal">-Class</span> Win32_LogicalDisk | <span class="built_in">select</span> DeviceID, VolumeName | <span class="built_in">ft</span> <span class="literal">-hidetableheaders</span> <span class="literal">-autosize</span> | <span class="built_in">out-string</span> <span class="literal">-Width</span> <span class="number">4096</span>)</span><br><span class="line">    <span class="variable">$output</span> = <span class="variable">$output</span> +  <span class="string">&quot;-----------------------------------------------------------`r`n&quot;</span></span><br><span class="line">    <span class="variable">$output</span> = <span class="variable">$output</span> +  <span class="string">&quot; Unquoted Service Paths`r`n&quot;</span></span><br><span class="line">    <span class="variable">$output</span> = <span class="variable">$output</span> +  <span class="string">&quot;-----------------------------------------------------------`r`n&quot;</span></span><br><span class="line">    <span class="variable">$output</span> = <span class="variable">$output</span> +  (cmd /c  <span class="string">&#x27;wmic service get name,displayname,pathname,startmode |findstr /i &quot;auto&quot; |findstr /i /v &quot;c:\windows\\&quot; |findstr /i /v &quot;&quot;&quot;&#x27;</span>)</span><br><span class="line">    <span class="variable">$output</span> = <span class="variable">$output</span> +  <span class="string">&quot;`r`n&quot;</span></span><br><span class="line">    <span class="variable">$output</span> = <span class="variable">$output</span> +  <span class="string">&quot;-----------------------------------------------------------`r`n&quot;</span></span><br><span class="line">    <span class="variable">$output</span> = <span class="variable">$output</span> +  <span class="string">&quot; Recent Documents`r`n&quot;</span></span><br><span class="line">    <span class="variable">$output</span> = <span class="variable">$output</span> +  <span class="string">&quot;-----------------------------------------------------------`r`n&quot;</span></span><br><span class="line">    <span class="variable">$output</span> = <span class="variable">$output</span> +  (<span class="built_in">get-childitem</span> <span class="string">&quot;C:\Users\<span class="variable">$env:username</span>\AppData\Roaming\Microsoft\Windows\Recent&quot;</span>  <span class="literal">-EA</span> SilentlyContinue | <span class="built_in">select</span> Name | <span class="built_in">ft</span> <span class="literal">-hidetableheaders</span> | <span class="built_in">out-string</span> )</span><br><span class="line">    <span class="variable">$output</span> = <span class="variable">$output</span> +  <span class="string">&quot;`r`n&quot;</span></span><br><span class="line">    <span class="variable">$output</span> = <span class="variable">$output</span> +  <span class="string">&quot;-----------------------------------------------------------`r`n&quot;</span></span><br><span class="line">    <span class="variable">$output</span> = <span class="variable">$output</span> +  <span class="string">&quot; Potentially Interesting Files in Users Directory `r`n&quot;</span></span><br><span class="line">    <span class="variable">$output</span> = <span class="variable">$output</span> +  <span class="string">&quot;-----------------------------------------------------------`r`n&quot;</span></span><br><span class="line">    <span class="variable">$output</span> = <span class="variable">$output</span> +  (<span class="built_in">get-childitem</span> <span class="string">&quot;C:\Users\&quot;</span> <span class="literal">-recurse</span> <span class="literal">-Include</span> *.zip,*.rar,*.<span class="number">7</span>z,*.gz,*.conf,*.rdp,*.kdbx,*.crt,*.pem,*.ppk,*.txt,*.xml,*.vnc.*.ini,*.vbs,*.bat,*.ps1,*.cmd <span class="literal">-EA</span> SilentlyContinue | %&#123;<span class="variable">$_</span>.FullName &#125; | <span class="built_in">out-string</span>)</span><br><span class="line">    <span class="variable">$output</span> = <span class="variable">$output</span> +  <span class="string">&quot;`r`n&quot;</span></span><br><span class="line">    <span class="variable">$output</span> = <span class="variable">$output</span> +  <span class="string">&quot;-----------------------------------------------------------`r`n&quot;</span></span><br><span class="line">    <span class="variable">$output</span> = <span class="variable">$output</span> +  <span class="string">&quot; 10 Last Modified Files in C:\User`r`n&quot;</span></span><br><span class="line">    <span class="variable">$output</span> = <span class="variable">$output</span> +  <span class="string">&quot;-----------------------------------------------------------`r`n&quot;</span></span><br><span class="line">    <span class="variable">$output</span> = <span class="variable">$output</span> + (<span class="built_in">Get-ChildItem</span> <span class="string">&#x27;C:\Users&#x27;</span> <span class="literal">-recurse</span> <span class="literal">-EA</span> SilentlyContinue | <span class="built_in">Sort</span> &#123;<span class="variable">$_</span>.LastWriteTime&#125; |  %&#123;<span class="variable">$_</span>.FullName &#125; | <span class="built_in">select</span> <span class="literal">-last</span> <span class="number">10</span> | <span class="built_in">ft</span> <span class="literal">-hidetableheaders</span> | <span class="built_in">out-string</span>)</span><br><span class="line">    <span class="variable">$output</span> = <span class="variable">$output</span> +  <span class="string">&quot;`r`n&quot;</span></span><br><span class="line">    <span class="variable">$output</span> = <span class="variable">$output</span> +  <span class="string">&quot;-----------------------------------------------------------`r`n&quot;</span></span><br><span class="line">    <span class="variable">$output</span> = <span class="variable">$output</span> +  <span class="string">&quot; MUICache Files`r`n&quot;</span></span><br><span class="line">    <span class="variable">$output</span> = <span class="variable">$output</span> +  <span class="string">&quot;-----------------------------------------------------------`r`n&quot;</span></span><br><span class="line">    <span class="built_in">get-childitem</span> <span class="string">&quot;HKCU:\Software\Classes\Local Settings\Software\Microsoft\Windows\Shell\&quot;</span> <span class="literal">-EA</span> SilentlyContinue |</span><br><span class="line">    <span class="keyword">foreach</span> &#123; <span class="variable">$CurrentKey</span> = (<span class="built_in">Get-ItemProperty</span> <span class="literal">-Path</span> <span class="variable">$_</span>.PsPath)</span><br><span class="line">       <span class="keyword">if</span> (<span class="variable">$CurrentKey</span> <span class="operator">-match</span> <span class="string">&quot;C:\\&quot;</span>) &#123;</span><br><span class="line">          <span class="variable">$output</span> = <span class="variable">$output</span> + (<span class="variable">$_</span>.Property <span class="operator">-join</span> <span class="string">&quot;`r`n&quot;</span>)</span><br><span class="line">       &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="variable">$output</span> = <span class="variable">$output</span> +  <span class="string">&quot;`r`n&quot;</span></span><br><span class="line">    <span class="variable">$output</span> = <span class="variable">$output</span> +  <span class="string">&quot;`r`n&quot;</span></span><br><span class="line">    <span class="built_in">write-output</span> <span class="string">&quot;	- Looking for Simple Priv Esc Methods&quot;</span></span><br><span class="line">    <span class="variable">$output</span> = <span class="variable">$output</span> +  <span class="string">&quot;-----------------------------------------------------------`r`n&quot;</span></span><br><span class="line">    <span class="variable">$output</span> = <span class="variable">$output</span> +  <span class="string">&quot; System Files with Passwords`r`n&quot;</span></span><br><span class="line">    <span class="variable">$output</span> = <span class="variable">$output</span> +  <span class="string">&quot;-----------------------------------------------------------`r`n&quot;</span></span><br><span class="line">    <span class="variable">$files</span> = (<span class="string">&quot;unattended.xml&quot;</span>, <span class="string">&quot;sysprep.xml&quot;</span>, <span class="string">&quot;autounattended.xml&quot;</span>,<span class="string">&quot;unattended.inf&quot;</span>, <span class="string">&quot;sysprep.inf&quot;</span>, <span class="string">&quot;autounattended.inf&quot;</span>,<span class="string">&quot;unattended.txt&quot;</span>, <span class="string">&quot;sysprep.txt&quot;</span>, <span class="string">&quot;autounattended.txt&quot;</span>)</span><br><span class="line">    <span class="variable">$output</span> = <span class="variable">$output</span> +  (<span class="built_in">get-childitem</span> C:\ <span class="literal">-recurse</span> <span class="literal">-include</span> <span class="variable">$files</span> <span class="literal">-EA</span> SilentlyContinue  | <span class="built_in">Select-String</span> <span class="literal">-pattern</span> <span class="string">&quot;&lt;Value&gt;&quot;</span> | <span class="built_in">out-string</span>)</span><br><span class="line">    <span class="variable">$output</span> = <span class="variable">$output</span> +  <span class="string">&quot;`r`n&quot;</span></span><br><span class="line">    <span class="variable">$output</span> = <span class="variable">$output</span> +  <span class="string">&quot;-----------------------------------------------------------`r`n&quot;</span></span><br><span class="line">    <span class="variable">$output</span> = <span class="variable">$output</span> +  <span class="string">&quot; AlwaysInstalledElevated Registry Key`r`n&quot;</span></span><br><span class="line">    <span class="variable">$output</span> = <span class="variable">$output</span> +  <span class="string">&quot;-----------------------------------------------------------`r`n&quot;</span></span><br><span class="line">    <span class="variable">$HKLM</span> = <span class="string">&quot;HKLM:\SOFTWARE\Policies\Microsoft\Windows\Installer&quot;</span></span><br><span class="line">    <span class="variable">$HKCU</span> =  <span class="string">&quot;HKCU:\SOFTWARE\Policies\Microsoft\Windows\Installer&quot;</span></span><br><span class="line">    <span class="keyword">if</span> ((<span class="variable">$HKLM</span> | <span class="built_in">test-path</span>) <span class="operator">-eq</span> <span class="string">&quot;True&quot;</span>) </span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span> (((<span class="built_in">Get-ItemProperty</span> <span class="literal">-Path</span> <span class="variable">$HKLM</span> <span class="literal">-Name</span> AlwaysInstallElevated).AlwaysInstallElevated) <span class="operator">-eq</span> <span class="number">1</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="variable">$output</span> = <span class="variable">$output</span> +   <span class="string">&quot;AlwaysInstallElevated enabled on this host!&quot;</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> ((<span class="variable">$HKCU</span> | <span class="built_in">test-path</span>) <span class="operator">-eq</span> <span class="string">&quot;True&quot;</span>) </span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span> (((<span class="built_in">Get-ItemProperty</span> <span class="literal">-Path</span> <span class="variable">$HKCU</span> <span class="literal">-Name</span> AlwaysInstallElevated).AlwaysInstallElevated) <span class="operator">-eq</span> <span class="number">1</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="variable">$output</span> = <span class="variable">$output</span> +   <span class="string">&quot;AlwaysInstallElevated enabled on this host!&quot;</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="variable">$output</span> = <span class="variable">$output</span> +  <span class="string">&quot;`r`n&quot;</span></span><br><span class="line">    <span class="variable">$output</span> = <span class="variable">$output</span> +  <span class="string">&quot;-----------------------------------------------------------`r`n&quot;</span></span><br><span class="line">    <span class="variable">$output</span> = <span class="variable">$output</span> +  <span class="string">&quot; Stored Credentials`r`n&quot;</span></span><br><span class="line">    <span class="variable">$output</span> = <span class="variable">$output</span> +  <span class="string">&quot;-----------------------------------------------------------`r`n&quot;</span></span><br><span class="line">    <span class="variable">$output</span> = <span class="variable">$output</span> + (cmdkey /list | <span class="built_in">out-string</span>)</span><br><span class="line">    <span class="variable">$output</span> = <span class="variable">$output</span> +  <span class="string">&quot;`r`n&quot;</span></span><br><span class="line">    <span class="variable">$output</span> = <span class="variable">$output</span> +  <span class="string">&quot;-----------------------------------------------------------`r`n&quot;</span></span><br><span class="line">    <span class="variable">$output</span> = <span class="variable">$output</span> +  <span class="string">&quot; Checking for AutoAdminLogon `r`n&quot;</span></span><br><span class="line">    <span class="variable">$output</span> = <span class="variable">$output</span> + <span class="string">&quot;-----------------------------------------------------------`r`n&quot;</span></span><br><span class="line">    <span class="variable">$Winlogon</span> = <span class="string">&quot;HKLM:\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon&quot;</span></span><br><span class="line">    <span class="keyword">if</span> (<span class="built_in">get-itemproperty</span> <span class="literal">-path</span> <span class="variable">$Winlogon</span> <span class="literal">-Name</span> AutoAdminLogon <span class="literal">-ErrorAction</span> SilentlyContinue) </span><br><span class="line">        &#123;</span><br><span class="line">        <span class="keyword">if</span> ((<span class="built_in">get-itemproperty</span> <span class="literal">-path</span> <span class="variable">$Winlogon</span> <span class="literal">-Name</span> AutoAdminLogon).AutoAdminLogon <span class="operator">-eq</span> <span class="number">1</span>) </span><br><span class="line">            &#123;</span><br><span class="line">            <span class="variable">$Username</span> = (<span class="built_in">get-itemproperty</span> <span class="literal">-path</span> <span class="variable">$Winlogon</span> <span class="literal">-Name</span> DefaultUserName).DefaultUsername</span><br><span class="line">            <span class="variable">$output</span> = <span class="variable">$output</span> + <span class="string">&quot;The default username is <span class="variable">$Username</span> `r`n&quot;</span></span><br><span class="line">            <span class="variable">$Password</span> = (<span class="built_in">get-itemproperty</span> <span class="literal">-path</span> <span class="variable">$Winlogon</span> <span class="literal">-Name</span> DefaultPassword).DefaultPassword</span><br><span class="line">            <span class="variable">$output</span> = <span class="variable">$output</span> + <span class="string">&quot;The default password is <span class="variable">$Password</span> `r`n&quot;</span></span><br><span class="line">            <span class="variable">$DefaultDomainName</span> = (<span class="built_in">get-itemproperty</span> <span class="literal">-path</span> <span class="variable">$Winlogon</span> <span class="literal">-Name</span> DefaultDomainName).DefaultDomainName</span><br><span class="line">            <span class="variable">$output</span> = <span class="variable">$output</span> + <span class="string">&quot;The default domainname is <span class="variable">$DefaultDomainName</span> `r`n&quot;</span></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    <span class="variable">$output</span> = <span class="variable">$output</span> +  <span class="string">&quot;`r`n&quot;</span></span><br><span class="line">    <span class="keyword">if</span> (<span class="variable">$OutputFilename</span>.length <span class="operator">-gt</span> <span class="number">0</span>)</span><br><span class="line">       &#123;</span><br><span class="line">        <span class="variable">$output</span> | <span class="built_in">Out-File</span> <span class="literal">-FilePath</span> <span class="variable">$OutputFileName</span> <span class="literal">-encoding</span> utf8</span><br><span class="line">        &#125;</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">        &#123;</span><br><span class="line">        <span class="built_in">clear-host</span></span><br><span class="line">        <span class="built_in">write-output</span> <span class="variable">$output</span></span><br><span class="line">        &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> (<span class="variable">$OutputFilename</span>.length <span class="operator">-gt</span> <span class="number">0</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">Try</span> </span><br><span class="line">            &#123; </span><br><span class="line">                [<span class="type">io.file</span>]::OpenWrite(<span class="variable">$OutputFilename</span>).close()  </span><br><span class="line">                JAWS<span class="literal">-ENUM</span></span><br><span class="line">            &#125;</span><br><span class="line">        <span class="keyword">Catch</span> </span><br><span class="line">            &#123; </span><br><span class="line">                <span class="built_in">Write-Warning</span> <span class="string">&quot;`nUnable to write to output file <span class="variable">$OutputFilename</span>, Check path and permissions&quot;</span> </span><br><span class="line">            &#125;</span><br><span class="line">    &#125; </span><br><span class="line"><span class="keyword">else</span> </span><br><span class="line">    &#123;</span><br><span class="line">    JAWS<span class="literal">-ENUM</span></span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
 
 <h4 id="检测可以被篡改的服务"><a href="#检测可以被篡改的服务" class="headerlink" title="检测可以被篡改的服务"></a>检测可以被篡改的服务</h4><blockquote>
 <p><code>-OutputFileName &lt;file_name&gt;.txt</code>：将结果输出到文件</p>
 </blockquote>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">.\jaws-enum.ps1<br></code></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">.\jaws-enum.ps1</span><br></pre></td></tr></table></figure>
 
 <h2 id="篡改可以被任意修改的服务"><a href="#篡改可以被任意修改的服务" class="headerlink" title="篡改可以被任意修改的服务"></a>篡改可以被任意修改的服务</h2><ul>
 <li>将可以被任意修改的服务的可执行文件改为反弹Shell的EXE文件</li>
@@ -362,384 +214,225 @@
 <h3 id="通过accesschk命令检测可以被篡改的服务"><a href="#通过accesschk命令检测可以被篡改的服务" class="headerlink" title="通过accesschk命令检测可以被篡改的服务"></a>通过accesschk命令检测可以被篡改的服务</h3><ul>
 <li>篡改权限为<code>SERVICE_ALL_ACCESS</code>的服务</li>
 </ul>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">accesschk.exe -uwcqv &quot;administrators&quot; *<br></code></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">accesschk.exe -uwcqv &quot;administrators&quot; *</span><br></pre></td></tr></table></figure>
 
 <h3 id="通过JAWS检测可以被篡改的服务-1"><a href="#通过JAWS检测可以被篡改的服务-1" class="headerlink" title="通过JAWS检测可以被篡改的服务"></a>通过JAWS检测可以被篡改的服务</h3><ul>
 <li><a href="#%E9%80%9A%E8%BF%87JAWS%E6%A3%80%E6%B5%8B%E5%8F%AF%E4%BB%A5%E8%A2%AB%E7%AF%A1%E6%94%B9%E7%9A%84%E6%9C%8D%E5%8A%A1">传送门</a></li>
 </ul>
 <h2 id="完成"><a href="#完成" class="headerlink" title="完成"></a>完成</h2>
-                
-              </div>
-            
-            <hr/>
-            <div>
-              <div class="post-metas my-3">
-  
-  
-    <div class="post-meta">
-      <i class="iconfont icon-tags"></i>
-      
-        <a href="/tags/Windows/" class="print-no-link">#Windows</a>
-      
     </div>
-  
-</div>
+     
+    <div class="post-footer__meta"><p>更新于 2024-08-06</p></div> 
+    <div class="post-entry__tags"><a href="/tags/Windows/" class="post-tags__link button"># Windows</a></div> 
+</article>
 
 
-              
-
-              
-                <div class="post-prevnext my-3">
-                  <article class="post-prev col-6">
-                    
-                    
-                      <a href="/2024/08/03/Linux%E6%9F%A5%E6%89%BE%E5%8F%AF%E8%83%BD%E5%AD%98%E5%9C%A8SUID%E6%BC%8F%E6%B4%9E%E7%9A%84%E5%8F%AF%E6%89%A7%E8%A1%8C%E7%A8%8B%E5%BA%8F/" title="【笔记】Linux查找可能存在SUID漏洞的可执行程序">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">【笔记】Linux查找可能存在SUID漏洞的可执行程序</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
-                  </article>
-                  <article class="post-next col-6">
-                    
-                    
-                      <a href="/2024/08/02/UACME%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" title="【笔记】UACME学习笔记">
-                        <span class="hidden-mobile">【笔记】UACME学习笔记</span>
-                        <span class="visible-mobile">下一篇</span>
-                        <i class="iconfont icon-arrowright"></i>
-                      </a>
-                    
-                  </article>
-                </div>
-              
-            </div>
-
+    <div class="nav">
+        <div class="nav__prev">
             
-  
-  
-    <article id="comments" lazyload>
-      
-  <div id="twikoo"></div>
-  <script type="text/javascript">
-    Fluid.utils.loadComments('#comments', function() {
-      Fluid.utils.createScript('https://lib.baomitu.com/twikoo/1.6.8/twikoo.all.min.js', function() {
-        var options = Object.assign(
-          {"envId":"https://twikoo.loli.fj.cn","region":"ap-shanghai","path":"window.location.pathname"},
-          {
-            el: '#twikoo',
-            path: 'window.location.pathname',
-            onCommentLoaded: function() {
-              Fluid.utils.listenDOMLoaded(function() {
-                var imgSelector = '#twikoo .tk-content img:not(.tk-owo-emotion)';
-                Fluid.plugins.imageCaption(imgSelector);
-                Fluid.plugins.fancyBox(imgSelector);
-              });
+                <a href="/2024/08/03/Linux%E6%9F%A5%E6%89%BE%E5%8F%AF%E8%83%BD%E5%AD%98%E5%9C%A8SUID%E6%BC%8F%E6%B4%9E%E7%9A%84%E5%8F%AF%E6%89%A7%E8%A1%8C%E7%A8%8B%E5%BA%8F/" class="nav__link">
+                    <div>
+                        <svg viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" width="24" height="24"><path d="M589.088 790.624L310.464 512l278.624-278.624 45.248 45.248L400.96 512l233.376 233.376z" fill="#808080"></path></svg>
+                    </div>
+                    <div>
+                        <div class="nav__label">
+                            上一篇
+                        </div>
+                        <div class="nav__title">
+                            【笔记】Linux查找可能存在SUID漏洞的可执行程序
+                        </div>
+                    </div>
+                </a>
+            
+        </div>
+        <div class="nav__next">
+            
+                <a href="/2024/08/02/UACME%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" class="nav__link">
+                    <div>
+                        <div class="nav__label">
+                            下一篇
+                        </div>
+                        <div class="nav__title">
+                            【笔记】UACME学习笔记
+                        </div>
+                    </div>
+                    <div>
+                        <svg viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" width="24" height="24"><path d="M434.944 790.624l-45.248-45.248L623.04 512l-233.376-233.376 45.248-45.248L713.568 512z" fill="#808080"></path></svg>
+                    </div>
+                </a>
+            
+        </div>
+    </div>
+
+
+
+    <div class="post__comments post__with-toc content-card" id="comment">
+        
+    <h4>评论</h4>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <div id="tcomment" class="twikoo_thread"></div>
+
+    
+
+
+
+    </div>
+
+
+
+</main>
+
+            <footer class="footer">
+     
+    <a href="#" class="button" id="b2t" aria-label="回到顶部" title="回到顶部">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" width="32" height="32">
+            <path d="M233.376 722.752L278.624 768 512 534.624 745.376 768l45.248-45.248L512 444.128zM192 352h640V288H192z" fill="currentColor"></path>
+        </svg>
+    </a>
+
+    
+
+
+    
+    
+    
+        <span id="busuanzi_container_site_uv" hidden>
+            <span></span>
+            <span id="busuanzi_value_site_uv"></span>
+            <span>Viewers</span>
+            
+                <span>&amp;nbsp;&amp;nbsp;&amp;nbsp;|</span>
+            
+        </span>
+    
+    
+        <span id="busuanzi_container_site_pv" hidden>
+            <span></span>
+            <span id="busuanzi_value_site_pv"></span>
+            <span>Views</span>
+            
+        </span>
+    
+ 
+ 
+
+ 
+    
+        
+        <p class="footer-copyright">
+            Copyright © 2024 <a href="/">绯鞠的博客</a>
+        </p>
+    
+    
+    <p>Powered by <a href="https://hexo.io" target="_blank">Hexo</a> | Theme - <a href="https://github.com/ChrAlpha/hexo-theme-cards" target="_blank">Cards</a></p>
+</footer>
+
+        </div>
+         
+
+ 
+
+ 
+
+ 
+
+ 
+
+
+
+ 
+
+
+
+ 
+
+
+    
+ 
+
+ 
+
+ 
+
+ 
+
+
+    <script src='https://cdn.jsdelivr.net/npm/mermaid@8.10.2/dist/mermaid.min.js'></script>
+    <script>
+            mermaid.initialize(JSON.stringify(''));
+    </script>
+ 
+
+ 
+
+
+    
+
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+
+    
+    
+    
+    
+    
+
+    
+    
+    
+    <script>
+        function loadComment() {
+            let e;
+            (e = document.createElement("script")).src = 'https://cdn.jsdelivr.net/npm/twikoo@0.3.2/dist/twikoo.all.min.js',
+            document.body.appendChild(e);
+            e.onload = () => {
+                twikoo.init({
+                    envId: 'https://twikoo.loli.fj.cn',
+                    el: '#tcomment'
+                });
+            };
+        }
+    
+        var runningOnBrowser = typeof window !== "undefined";
+        var isBot = runningOnBrowser && !("onscroll" in window) || typeof navigator !== "undefined" && /(gle|ing|ro|msn)bot|crawl|spider|yand|duckgo/i.test(navigator.userAgent);
+        var supportsIntersectionObserver = runningOnBrowser && "IntersectionObserver" in window;
+    
+        setTimeout(function () {
+            if (!isBot && supportsIntersectionObserver) {
+                var comment_observer = new IntersectionObserver(function(entries) {
+                    if (entries[0].isIntersecting) {
+                        loadComment();
+                        comment_observer.disconnect();
+                    }
+                }, { threshold: [0] });
+                comment_observer.observe(document.getElementById('comment'));
+            } else {
+                loadComment();
             }
-          }
-        )
-        twikoo.init(options)
-      });
-    });
-  </script>
-  <noscript>Please enable JavaScript to view the comments</noscript>
+        }, 1);
+    </script>
 
 
-    </article>
-  
 
 
-          </article>
-        </div>
-      </div>
-    </div>
-
-    <div class="side-col d-none d-lg-block col-lg-2">
-      
-  <aside class="sidebar" style="margin-left: -1rem">
-    <div id="toc">
-  <p class="toc-header">
-    <i class="iconfont icon-list"></i>
-    <span>目录</span>
-  </p>
-  <div class="toc-body" id="toc-body"></div>
-</div>
-
-
-
-  </aside>
-
-
-    </div>
-  </div>
-</div>
-
-
-
-
-
-  
-
-
-
-  
-
-
-
-  
-
-
-
-  
-
-
-
-
-
-  <script>
-  Fluid.utils.createScript('https://lib.baomitu.com/mermaid/8.14.0/mermaid.min.js', function() {
-    mermaid.initialize({"theme":"default"});
-
-    Fluid.utils.listenDOMLoaded(function() {
-      Fluid.events.registerRefreshCallback(function() {
-        if ('mermaid' in window) {
-          mermaid.init();
-        }
-      });
-    });
-  });
-</script>
-
-
-
-
-
-
-    
-
-    
-      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
-        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
-      </a>
-    
-
-    
-      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
-     aria-hidden="true">
-  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
-    <div class="modal-content">
-      <div class="modal-header text-center">
-        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
-        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body mx-3">
-        <div class="md-form mb-5">
-          <input type="text" id="local-search-input" class="form-control validate">
-          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
-        </div>
-        <div class="list-group" id="local-search-result"></div>
-      </div>
-    </div>
-  </div>
-</div>
-
-    
-
-    
-  </main>
-
-  <footer>
-    <div class="footer-inner">
-  
-    <div class="footer-content">
-       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> <br> <!-- 当前在线人数统计 --> <div>当前在线人数 <span id="current_visitors_count">0</span></div> <script src="/dist/js/current_visitors_count.js"></script> <!-- 网站运行时间统计 --> <div id="sitetime"></div> <script type="text/javascript" src="/dist/js/sitetime.js"></script> 
-    </div>
-  
-  
-    <div class="statistics">
-  
-  
-
-  
-    
-      <span id="busuanzi_container_site_pv" style="display: none">
-        总访问量 
-        <span id="busuanzi_value_site_pv"></span>
-         次
-      </span>
-    
-    
-      <span id="busuanzi_container_site_uv" style="display: none">
-        总访客数 
-        <span id="busuanzi_value_site_uv"></span>
-         人
-      </span>
-    
-    
-  
-</div>
-
-  
-  
-  
-</div>
-
-  </footer>
-
-  <!-- Scripts -->
-  
-  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
-  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
-
-  <script>
-    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
-    NProgress.start()
-    window.addEventListener('load', function() {
-      NProgress.done();
-    })
-  </script>
-
-
-<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
-<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
-<script  src="/js/events.js" ></script>
-<script  src="/js/plugins.js" ></script>
-
-
-  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
-  <script>
-    (function (window, document) {
-      var typing = Fluid.plugins.typing;
-      var subtitle = document.getElementById('subtitle');
-      if (!subtitle || !typing) {
-        return;
-      }
-      var text = subtitle.getAttribute('data-typed-text');
-      
-        typing(text);
-      
-    })(window, document);
-  </script>
-
-
-
-
-  
-    <script  src="/js/img-lazyload.js" ></script>
-  
-
-
-
-
-  
-<script>
-  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
-    var toc = jQuery('#toc');
-    if (toc.length === 0 || !window.tocbot) { return; }
-    var boardCtn = jQuery('#board-ctn');
-    var boardTop = boardCtn.offset().top;
-
-    window.tocbot.init(Object.assign({
-      tocSelector     : '#toc-body',
-      contentSelector : '.markdown-body',
-      linkClass       : 'tocbot-link',
-      activeLinkClass : 'tocbot-active-link',
-      listClass       : 'tocbot-list',
-      isCollapsedClass: 'tocbot-is-collapsed',
-      collapsibleClass: 'tocbot-is-collapsible',
-      scrollSmooth    : true,
-      includeTitleTags: true,
-      headingsOffset  : -boardTop,
-    }, CONFIG.toc));
-    if (toc.find('.toc-list-item').length > 0) {
-      toc.css('visibility', 'visible');
-    }
-
-    Fluid.events.registerRefreshCallback(function() {
-      if ('tocbot' in window) {
-        tocbot.refresh();
-        var toc = jQuery('#toc');
-        if (toc.length === 0 || !tocbot) {
-          return;
-        }
-        if (toc.find('.toc-list-item').length > 0) {
-          toc.css('visibility', 'visible');
-        }
-      }
-    });
-  });
-</script>
-
-
-  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
-
-  <script>Fluid.plugins.codeWidget();</script>
-
-
-  
-<script>
-  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
-    window.anchors.options = {
-      placement: CONFIG.anchorjs.placement,
-      visible  : CONFIG.anchorjs.visible
-    };
-    if (CONFIG.anchorjs.icon) {
-      window.anchors.options.icon = CONFIG.anchorjs.icon;
-    }
-    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
-    var res = [];
-    for (var item of el) {
-      res.push('.markdown-body > ' + item.trim());
-    }
-    if (CONFIG.anchorjs.placement === 'left') {
-      window.anchors.options.class = 'anchorjs-link-left';
-    }
-    window.anchors.add(res.join(', '));
-
-    Fluid.events.registerRefreshCallback(function() {
-      if ('anchors' in window) {
-        anchors.removeAll();
-        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
-        var res = [];
-        for (var item of el) {
-          res.push('.markdown-body > ' + item.trim());
-        }
-        if (CONFIG.anchorjs.placement === 'left') {
-          anchors.options.class = 'anchorjs-link-left';
-        }
-        anchors.add(res.join(', '));
-      }
-    });
-  });
-</script>
-
-
-  
-<script>
-  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
-    Fluid.plugins.fancyBox();
-  });
-</script>
-
-
-  <script  src="/js/local-search.js" ></script>
-
-  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
-
-
-
-
-
-<!-- 主题的启动项，将它保持在最底部 -->
-<!-- the boot of the theme, keep it at the bottom -->
-<script  src="/js/boot.js" ></script>
-
-
-  
-
-  <noscript>
-    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
-  </noscript>
-</body>
+    </body>
 </html>
