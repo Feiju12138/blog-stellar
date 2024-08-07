@@ -1,21 +1,50 @@
-
-
 <!DOCTYPE html>
-<html lang="zh-CN" data-default-color-scheme=auto>
+<html lang="zh-CN">
+    <head>
+    <meta charset="utf-8">
+
+    
+
+    <!-- 渲染优化 -->
+    <meta name="renderer" content="webkit">
+    <meta name="force-rendering" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta name="HandheldFriendly" content="True" >
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <!--icon-->
+
+    
+        <link rel="shortcut icon" href="/dist/images/favicon_package/favicon.ico">
+    
+    
+        <link rel="icon" type="image/png" sizes="16x16" href="/dist/images/favicon_package/favicon-16x16.png">
+    
+    
+        <link rel="icon" type="image/png" sizes="32x32" href="/dist/images/favicon_package/favicon-32x32.png">
+    
+    
+        <link rel="apple-touch-icon" sizes="180x180" href="/dist/images/favicon_package/apple-touch-icon.png">
+    
+    
+        <link rel="mask-icon" href="/dist/images/favicon_package/safari-pinned-tab.svg">
+    
+
+
+    <!-- meta -->
+
+
+<title>【笔记】Go语言通过Casbin和Gorm管理权限 | 绯鞠的博客</title>
+
+
+    <meta name="keywords" content="Go, Gorm, Casbin">
 
 
 
-<head>
-  <meta charset="UTF-8">
-  <link rel="apple-touch-icon" sizes="76x76" href="/dist/images/favicon_package/apple-touch-icon.png">
-  <link rel="icon" href="/dist/images/favicon_package/favicon.ico">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
-  <meta http-equiv="x-ua-compatible" content="ie=edge">
-  
-  <meta name="theme-color" content="#2f4154">
-  <meta name="author" content="绯鞠">
-  <meta name="keywords" content="">
-  
+
+    <!-- OpenGraph -->
+ 
     <meta name="description" content="前言Go语言通过Casbin管理权限，并通过Gorm在Mysql中存储权限规则">
 <meta property="og:type" content="article">
 <meta property="og:title" content="【笔记】Go语言通过Casbin和Gorm管理权限">
@@ -30,317 +59,140 @@
 <meta property="article:tag" content="Gorm">
 <meta property="article:tag" content="Casbin">
 <meta name="twitter:card" content="summary_large_image">
-  
-  
-    <meta name="referrer" content="no-referrer-when-downgrade">
-  
-  
-  <title>【笔记】Go语言通过Casbin和Gorm管理权限 - 绯鞠的博客</title>
-
-  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
 
+    
+<link rel="stylesheet" href="/css/style/main.css">
+ 
 
-  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+    
+    
+        <link rel="stylesheet" id="hl-default-theme" href="/css/highlight/highlight.css" media="none" onload="this.media='all'">
+        
+    
 
-  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+    
+    
 
-  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+    
 
+     
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+ 
 
+    <!-- custom head -->
 
-<!-- 主题依赖的图标库，不要自行修改 -->
-<!-- Do not modify the link that theme dependent icons -->
-
-<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
-
-
-
-<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
-
-
-<link  rel="stylesheet" href="/css/main.css" />
-
-
-  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
-  
-    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
-  
-
-
-
-
-  <script id="fluid-configs">
-    var Fluid = window.Fluid || {};
-    Fluid.ctx = Object.assign({}, Fluid.ctx)
-    var CONFIG = {"hostname":"loli.fj.cn","root":"/","version":"1.9.7","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"PLAINTEXT"},"copy_btn":true,"image_caption":{"enable":false},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":6},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml","include_content_in_search":true};
-
-    if (CONFIG.web_analytics.follow_dnt) {
-      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
-      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
-    }
-  </script>
-  <script  src="/js/utils.js" ></script>
-  <script  src="/js/color-schema.js" ></script>
-  
-
-
-  
 <meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="绯鞠的博客" type="application/atom+xml">
 </head>
 
+    <body>
+        <div id="app" tabindex="-1">
+            <header class="header">
+    <div class="header__left">
+        <a href="/" class="button">
+            <span class="logo__text">绯鞠的博客</span>
+        </a>
+    </div>
+    <div class="header__right">
+        
+            <div class="navbar__menus">
+                
+                    <a href="/" class="navbar-menu button">首页</a>
+                
+                    <a href="/about/" class="navbar-menu button">关于</a>
+                
+                    <a href="/archives/" class="navbar-menu button">归档</a>
+                
+                    <a href="/links/" class="navbar-menu button">友链</a>
+                
+                    <a href="/reward/" class="navbar-menu button">赞助</a>
+                
+                    <a href="/atom.xml" class="navbar-menu button">订阅</a>
+                
+                    <a target="_blank" rel="noopener" href="//melody.loli.fj.cn" class="navbar-menu button">主题</a>
+                
+            </div>
+        
+        
+        
 
-<body>
-  
+        
+        
 
-  <header>
+        
+            <a class="dropdown-icon button" id="btn-dropdown" tabindex="0"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" width='24' height='24' fill="none" stroke="currentColor" stroke-width="0.7" stroke-linecap="round" stroke-linejoin="round"><path fill="currentColor" d="M3.314,4.8h13.372c0.41,0,0.743-0.333,0.743-0.743c0-0.41-0.333-0.743-0.743-0.743H3.314c-0.41,0-0.743,0.333-0.743,0.743C2.571,4.467,2.904,4.8,3.314,4.8z M16.686,15.2H3.314c-0.41,0-0.743,0.333-0.743,0.743s0.333,0.743,0.743,0.743h13.372c0.41,0,0.743-0.333,0.743-0.743S17.096,15.2,16.686,15.2z M16.686,9.257H3.314c-0.41,0-0.743,0.333-0.743,0.743s0.333,0.743,0.743,0.743h13.372c0.41,0,0.743-0.333,0.743-0.743S17.096,9.257,16.686,9.257z"></path></svg></a>
+            <div class="dropdown-menus" id="dropdown-menus">
+                
+                    <a href="/" class="dropdown-menu button">首页</a>
+                
+                    <a href="/about/" class="dropdown-menu button">关于</a>
+                
+                    <a href="/archives/" class="dropdown-menu button">归档</a>
+                
+                    <a href="/links/" class="dropdown-menu button">友链</a>
+                
+                    <a href="/reward/" class="dropdown-menu button">赞助</a>
+                
+                    <a href="/atom.xml" class="dropdown-menu button">订阅</a>
+                
+                    <a target="_blank" rel="noopener" href="//melody.loli.fj.cn" class="dropdown-menu button">主题</a>
+                
+            </div>
+        
+    </div>
+</header>
+
+
+            <main class="main">
     
 
-<div class="header-inner" style="height: 70vh;">
-  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
-  <div class="container">
-    <a class="navbar-brand" href="/">
-      <strong>绯鞠的博客</strong>
-    </a>
+<div class="post-title">
+    <h1 class="post-title__text">
+        【笔记】Go语言通过Casbin和Gorm管理权限
+    </h1>
+    <div class="post-title__meta">
+        <a href="/archives/2024/03/" class="post-meta__date button">2024-03-18</a>
+        
+ 
+        
+    
+    
 
-    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
-            data-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <div class="animated-icon"><span></span><span></span><span></span></div>
-    </button>
 
-    <!-- Collapsible content -->
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav ml-auto text-center">
-        
-          
-          
-          
-          
-            <li class="nav-item">
-              <a class="nav-link" href="/" target="_self">
-                <i class="iconfont icon-home-fill"></i>
-                <span>首页</span>
-              </a>
-            </li>
-          
-        
-          
-          
-          
-          
-            <li class="nav-item">
-              <a class="nav-link" href="/about/" target="_self">
-                <i class="iconfont icon-user-fill"></i>
-                <span>关于</span>
-              </a>
-            </li>
-          
-        
-          
-          
-          
-          
-            <li class="nav-item">
-              <a class="nav-link" href="/tags/" target="_self">
-                <i class="iconfont icon-tags-fill"></i>
-                <span>标签</span>
-              </a>
-            </li>
-          
-        
-          
-          
-          
-          
-            <li class="nav-item">
-              <a class="nav-link" href="/categories/" target="_self">
-                <i class="iconfont icon-category-fill"></i>
-                <span>分类</span>
-              </a>
-            </li>
-          
-        
-          
-          
-          
-          
-            <li class="nav-item">
-              <a class="nav-link" href="/archives/" target="_self">
-                <i class="iconfont icon-archive-fill"></i>
-                <span>归档</span>
-              </a>
-            </li>
-          
-        
-          
-          
-          
-          
-            <li class="nav-item">
-              <a class="nav-link" href="/links/" target="_self">
-                <i class="iconfont icon-user-friends"></i>
-                <span>友链</span>
-              </a>
-            </li>
-          
-        
-          
-          
-          
-          
-            <li class="nav-item">
-              <a class="nav-link" href="/command/" target="_self">
-                <i class="iconfont icon-book"></i>
-                <span>指令</span>
-              </a>
-            </li>
-          
-        
-          
-          
-          
-          
-            <li class="nav-item">
-              <a class="nav-link" href="/atom.xml" target="_self">
-                <i class="iconfont icon-rss"></i>
-                <span>订阅</span>
-              </a>
-            </li>
-          
-        
-          
-          
-          
-          
-            <li class="nav-item">
-              <a class="nav-link" href="//redefine.loli.fj.cn" target="_self">
-                <i class="iconfont icon-th-large"></i>
-                <span>主题</span>
-              </a>
-            </li>
-          
-        
-        
-          <li class="nav-item" id="search-btn">
-            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
-              <i class="iconfont icon-search"></i>
-            </a>
-          </li>
-          
-        
-        
-          <li class="nav-item" id="color-toggle-btn">
-            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
-              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
-            </a>
-          </li>
-        
-      </ul>
+ 
+
+ 
     </div>
-  </div>
-</nav>
+</div>
 
-  
 
-<div id="banner" class="banner" parallax=true
-     style="background: url('https://game.gtimg.cn/images/yxzj/img201606/skin/hero-info/141/141-bigskin-1.jpg') no-repeat center center; background-size: cover;">
-  <div class="full-bg-img">
-    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
-      <div class="banner-text text-center fade-in-up">
-        <div class="h2">
-          
-            <span id="subtitle" data-typed-text="【笔记】Go语言通过Casbin和Gorm管理权限"></span>
-          
+    <aside class="post-side">
+        <div class="post-side__toc">
+            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%89%8D%E8%A8%80"><span class="toc-text">前言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%8B%E8%BD%BD%E4%BE%9D%E8%B5%96"><span class="toc-text">下载依赖</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Casbin%E4%BE%9D%E8%B5%96"><span class="toc-text">Casbin依赖</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Gorm%E4%BE%9D%E8%B5%96"><span class="toc-text">Gorm依赖</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%9A%E4%B9%89%E6%A8%A1%E5%9E%8B%E9%85%8D%E7%BD%AE"><span class="toc-text">定义模型配置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%9B%E5%BB%BA%E9%80%82%E9%85%8D%E5%99%A8%E5%AF%B9%E8%B1%A1"><span class="toc-text">创建适配器对象</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%9B%E5%BB%BA%E6%96%B0%E7%9A%84Gorm%E5%AF%B9%E8%B1%A1"><span class="toc-text">创建新的Gorm对象</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8%E5%B7%B2%E7%BB%8F%E5%88%9B%E5%BB%BA%E7%9A%84Gorm%E5%AF%B9%E8%B1%A1"><span class="toc-text">使用已经创建的Gorm对象</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%89%8B%E5%8A%A8%E6%8C%87%E5%AE%9A%E6%95%B0%E6%8D%AE%E8%A1%A8%E5%90%8D"><span class="toc-text">手动指定数据表名</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%9B%E5%BB%BA%E6%89%A7%E6%B3%95%E8%80%85%E5%AF%B9%E8%B1%A1"><span class="toc-text">创建执法者对象</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%8E%E6%95%B0%E6%8D%AE%E5%BA%93%E5%8A%A0%E8%BD%BD%E8%A7%84%E5%88%99"><span class="toc-text">从数据库加载规则</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BF%9D%E5%AD%98%E8%A7%84%E5%88%99%E5%88%B0%E6%95%B0%E6%8D%AE%E5%BA%93"><span class="toc-text">保存规则到数据库</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%A7%84%E5%88%99%E5%A2%9E%E5%88%A0%E6%94%B9"><span class="toc-text">规则增删改</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B7%BB%E5%8A%A0%E8%A7%84%E5%88%99"><span class="toc-text">添加规则</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%A0%E9%99%A4%E8%A7%84%E5%88%99"><span class="toc-text">删除规则</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%A0%B9%E6%8D%AE%E8%BF%87%E6%BB%A4%E6%9D%A1%E4%BB%B6%E6%89%B9%E9%87%8F%E5%88%A0%E9%99%A4%E8%A7%84%E5%88%99"><span class="toc-text">根据过滤条件批量删除规则</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%A0%B9%E6%8D%AE%E7%94%A8%E6%88%B7%E5%90%8D%E6%88%96%E7%BB%84%E5%90%8D%E6%89%B9%E9%87%8F%E5%88%A0%E9%99%A4%E8%A7%84%E5%88%99"><span class="toc-text">根据用户名或组名批量删除规则</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%A0%B9%E6%8D%AE%E6%8E%A5%E5%8F%A3%E5%90%8D%E6%89%B9%E9%87%8F%E5%88%A0%E9%99%A4%E8%A7%84%E5%88%99"><span class="toc-text">根据接口名批量删除规则</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BB%84%E5%A2%9E%E5%88%A0%E6%94%B9"><span class="toc-text">组增删改</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%90%91%E7%BB%84%E4%B8%AD%E6%96%B0%E5%A2%9E%E7%94%A8%E6%88%B7"><span class="toc-text">向组中新增用户</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BB%8E%E7%BB%84%E4%B8%AD%E5%88%A0%E9%99%A4%E7%94%A8%E6%88%B7"><span class="toc-text">从组中删除用户</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A0%A1%E9%AA%8C%E8%A7%84%E5%88%99"><span class="toc-text">校验规则</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%87%AA%E5%AE%9A%E4%B9%89%E5%87%BD%E6%95%B0"><span class="toc-text">自定义函数</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%B6%85%E7%BA%A7%E7%AE%A1%E7%90%86%E5%91%98%E5%88%A4%E5%AE%9A"><span class="toc-text">超级管理员判定</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%8C%E6%88%90"><span class="toc-text">完成</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%82%E8%80%83%E6%96%87%E7%8C%AE"><span class="toc-text">参考文献</span></a></li></ol>
         </div>
-
-        
-          
-  <div class="mt-3">
-    
-    
-      <span class="post-meta">
-        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2024-03-18 13:47" pubdate>
-          2024:03:18
-        </time>
-      </span>
-    
-  </div>
-
-  <div class="mt-1">
-    
-
-    
-
-    
-    
-  </div>
-
-
-        
-      </div>
-
-      
-    </div>
-  </div>
-</div>
-
-</div>
-
-  </header>
-
-  <main>
-    
-      
-
-<div class="container-fluid nopadding-x">
-  <div class="row nomargin-x">
-    <div class="side-col d-none d-lg-block col-lg-2">
-      
-  <aside class="sidebar category-bar" style="margin-right: -1rem">
-    
-
-
-
-
-
-<div class="category-list">
-  
-  
-</div>
-
-
-  </aside>
-
-
+    </aside>
+    <a class="btn-toc button" id="btn-toc" tabindex="0">
+        <svg viewBox="0 0 1024 1024" width="32" height="32" xmlns="http://www.w3.org/2000/svg">
+            <path d="M128 256h64V192H128zM320 256h576V192H320zM128 544h64v-64H128zM320 544h576v-64H320zM128 832h64v-64H128zM320 832h576v-64H320z" fill="currentColor"></path>
+        </svg>
+    </a>
+    <div class="toc-menus" id="toc-menus">
+        <div class="toc-title">文章目录</div>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%89%8D%E8%A8%80"><span class="toc-text">前言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%8B%E8%BD%BD%E4%BE%9D%E8%B5%96"><span class="toc-text">下载依赖</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Casbin%E4%BE%9D%E8%B5%96"><span class="toc-text">Casbin依赖</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Gorm%E4%BE%9D%E8%B5%96"><span class="toc-text">Gorm依赖</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%9A%E4%B9%89%E6%A8%A1%E5%9E%8B%E9%85%8D%E7%BD%AE"><span class="toc-text">定义模型配置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%9B%E5%BB%BA%E9%80%82%E9%85%8D%E5%99%A8%E5%AF%B9%E8%B1%A1"><span class="toc-text">创建适配器对象</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%9B%E5%BB%BA%E6%96%B0%E7%9A%84Gorm%E5%AF%B9%E8%B1%A1"><span class="toc-text">创建新的Gorm对象</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8%E5%B7%B2%E7%BB%8F%E5%88%9B%E5%BB%BA%E7%9A%84Gorm%E5%AF%B9%E8%B1%A1"><span class="toc-text">使用已经创建的Gorm对象</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%89%8B%E5%8A%A8%E6%8C%87%E5%AE%9A%E6%95%B0%E6%8D%AE%E8%A1%A8%E5%90%8D"><span class="toc-text">手动指定数据表名</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%9B%E5%BB%BA%E6%89%A7%E6%B3%95%E8%80%85%E5%AF%B9%E8%B1%A1"><span class="toc-text">创建执法者对象</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%8E%E6%95%B0%E6%8D%AE%E5%BA%93%E5%8A%A0%E8%BD%BD%E8%A7%84%E5%88%99"><span class="toc-text">从数据库加载规则</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BF%9D%E5%AD%98%E8%A7%84%E5%88%99%E5%88%B0%E6%95%B0%E6%8D%AE%E5%BA%93"><span class="toc-text">保存规则到数据库</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%A7%84%E5%88%99%E5%A2%9E%E5%88%A0%E6%94%B9"><span class="toc-text">规则增删改</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B7%BB%E5%8A%A0%E8%A7%84%E5%88%99"><span class="toc-text">添加规则</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%A0%E9%99%A4%E8%A7%84%E5%88%99"><span class="toc-text">删除规则</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%A0%B9%E6%8D%AE%E8%BF%87%E6%BB%A4%E6%9D%A1%E4%BB%B6%E6%89%B9%E9%87%8F%E5%88%A0%E9%99%A4%E8%A7%84%E5%88%99"><span class="toc-text">根据过滤条件批量删除规则</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%A0%B9%E6%8D%AE%E7%94%A8%E6%88%B7%E5%90%8D%E6%88%96%E7%BB%84%E5%90%8D%E6%89%B9%E9%87%8F%E5%88%A0%E9%99%A4%E8%A7%84%E5%88%99"><span class="toc-text">根据用户名或组名批量删除规则</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%A0%B9%E6%8D%AE%E6%8E%A5%E5%8F%A3%E5%90%8D%E6%89%B9%E9%87%8F%E5%88%A0%E9%99%A4%E8%A7%84%E5%88%99"><span class="toc-text">根据接口名批量删除规则</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BB%84%E5%A2%9E%E5%88%A0%E6%94%B9"><span class="toc-text">组增删改</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%90%91%E7%BB%84%E4%B8%AD%E6%96%B0%E5%A2%9E%E7%94%A8%E6%88%B7"><span class="toc-text">向组中新增用户</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BB%8E%E7%BB%84%E4%B8%AD%E5%88%A0%E9%99%A4%E7%94%A8%E6%88%B7"><span class="toc-text">从组中删除用户</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A0%A1%E9%AA%8C%E8%A7%84%E5%88%99"><span class="toc-text">校验规则</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%87%AA%E5%AE%9A%E4%B9%89%E5%87%BD%E6%95%B0"><span class="toc-text">自定义函数</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%B6%85%E7%BA%A7%E7%AE%A1%E7%90%86%E5%91%98%E5%88%A4%E5%AE%9A"><span class="toc-text">超级管理员判定</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%8C%E6%88%90"><span class="toc-text">完成</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%82%E8%80%83%E6%96%87%E7%8C%AE"><span class="toc-text">参考文献</span></a></li></ol>
     </div>
 
-    <div class="col-lg-8 nopadding-x-md">
-      <div class="container nopadding-x-md" id="board-ctn">
-        <div id="board">
-          <article class="post-content mx-auto">
-            <h1 id="seo-header">【笔记】Go语言通过Casbin和Gorm管理权限</h1>
-            
-              <p id="updated-time" class="note note-info" style="">
-                
-                  
-                    本文最后更新于 2024:08:06
-                  
-                
-              </p>
-            
-            
-              <div class="markdown-body">
-                
-                <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>Go语言通过Casbin管理权限，并通过Gorm在Mysql中存储权限规则</p>
+
+<article class="post post__with-toc content-card">
+    <div class="post__header"></div>
+    <div class="post__content">
+        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>Go语言通过Casbin管理权限，并通过Gorm在Mysql中存储权限规则</p>
 <span id="more"></span>
 
-<h2 id="下载依赖"><a href="#下载依赖" class="headerlink" title="下载依赖"></a>下载依赖</h2><h3 id="Casbin依赖"><a href="#Casbin依赖" class="headerlink" title="Casbin依赖"></a>Casbin依赖</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs shell">go get github.com/casbin/casbin/v2<br>go get github.com/casbin/gorm-adapter/v3<br></code></pre></td></tr></table></figure>
+<h2 id="下载依赖"><a href="#下载依赖" class="headerlink" title="下载依赖"></a>下载依赖</h2><h3 id="Casbin依赖"><a href="#Casbin依赖" class="headerlink" title="Casbin依赖"></a>Casbin依赖</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">go get github.com/casbin/casbin/v2</span><br><span class="line">go get github.com/casbin/gorm-adapter/v3</span><br></pre></td></tr></table></figure>
 
-<h3 id="Gorm依赖"><a href="#Gorm依赖" class="headerlink" title="Gorm依赖"></a>Gorm依赖</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs shell">go get gorm.io/gorm<br>go get gorm.io/driver/mysql<br></code></pre></td></tr></table></figure>
+<h3 id="Gorm依赖"><a href="#Gorm依赖" class="headerlink" title="Gorm依赖"></a>Gorm依赖</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">go get gorm.io/gorm</span><br><span class="line">go get gorm.io/driver/mysql</span><br></pre></td></tr></table></figure>
 
-<h2 id="定义模型配置"><a href="#定义模型配置" class="headerlink" title="定义模型配置"></a>定义模型配置</h2><figure class="highlight plaintext"><figcaption><span>model.conf</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs conf">[request_definition]<br>r = sub, obj, act<br><br>[policy_definition]<br>p = sub, obj, act<br><br>[role_definition]<br>g = _, _<br><br>[policy_effect]<br>e = some(where (p.eft == allow))<br><br>[matchers]<br>m = g(r.sub, p.sub) &amp;&amp; r.obj == p.obj &amp;&amp; r.act == p.act<br></code></pre></td></tr></table></figure>
+<h2 id="定义模型配置"><a href="#定义模型配置" class="headerlink" title="定义模型配置"></a>定义模型配置</h2><figure class="highlight plaintext"><figcaption><span>model.conf</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">[request_definition]</span><br><span class="line">r = sub, obj, act</span><br><span class="line"></span><br><span class="line">[policy_definition]</span><br><span class="line">p = sub, obj, act</span><br><span class="line"></span><br><span class="line">[role_definition]</span><br><span class="line">g = _, _</span><br><span class="line"></span><br><span class="line">[policy_effect]</span><br><span class="line">e = some(where (p.eft == allow))</span><br><span class="line"></span><br><span class="line">[matchers]</span><br><span class="line">m = g(r.sub, p.sub) &amp;&amp; r.obj == p.obj &amp;&amp; r.act == p.act</span><br></pre></td></tr></table></figure>
 
 <h2 id="创建适配器对象"><a href="#创建适配器对象" class="headerlink" title="创建适配器对象"></a>创建适配器对象</h2><h3 id="创建新的Gorm对象"><a href="#创建新的Gorm对象" class="headerlink" title="创建新的Gorm对象"></a>创建新的Gorm对象</h3><ul>
 <li>连接Mysql，创建适配器对象</li>
@@ -349,12 +201,12 @@
 <blockquote>
 <p><code>&lt;username&gt;</code>：用户名<br><code>&lt;password&gt;</code>：密码<br><code>&lt;host&gt;</code>：IP地址或域名<br><code>&lt;port&gt;</code>：端口号<br><code>&lt;database&gt;</code>：数据库名</p>
 </blockquote>
-<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs go">adapter, err := gormadapter.NewAdapter(<span class="hljs-string">&quot;mysql&quot;</span>, <span class="hljs-string">&quot;&lt;username&gt;:&lt;password&gt;@tcp(&lt;host&gt;:&lt;port&gt;)/&lt;database&gt;&quot;</span>, <span class="hljs-literal">true</span>)<br></code></pre></td></tr></table></figure>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">adapter, err := gormadapter.NewAdapter(<span class="string">&quot;mysql&quot;</span>, <span class="string">&quot;&lt;username&gt;:&lt;password&gt;@tcp(&lt;host&gt;:&lt;port&gt;)/&lt;database&gt;&quot;</span>, <span class="literal">true</span>)</span><br></pre></td></tr></table></figure>
 
 <h3 id="使用已经创建的Gorm对象"><a href="#使用已经创建的Gorm对象" class="headerlink" title="使用已经创建的Gorm对象"></a>使用已经创建的Gorm对象</h3><blockquote>
 <p><code>&lt;db&gt;</code>：Gorm对象</p>
 </blockquote>
-<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs go">adapter, err := gormadapter.NewAdapterByDB(&lt;db&gt;)<br></code></pre></td></tr></table></figure>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">adapter, err := gormadapter.NewAdapterByDB(&lt;db&gt;)</span><br></pre></td></tr></table></figure>
 
 <h4 id="手动指定数据表名"><a href="#手动指定数据表名" class="headerlink" title="手动指定数据表名"></a>手动指定数据表名</h4><ul>
 <li>手动指定数据表名，而不是使用默认的<code>casbin_rule</code>数据表</li>
@@ -362,7 +214,7 @@
 <blockquote>
 <p><code>&lt;table_name&gt;</code>：数据表名</p>
 </blockquote>
-<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs go">adapter, err := gormadapter.NewAdapterByDBWithCustomTable(&lt;db&gt;, <span class="hljs-literal">nil</span>, <span class="hljs-string">&quot;&lt;table_name&gt;&quot;</span>)<br></code></pre></td></tr></table></figure>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">adapter, err := gormadapter.NewAdapterByDBWithCustomTable(&lt;db&gt;, <span class="literal">nil</span>, <span class="string">&quot;&lt;table_name&gt;&quot;</span>)</span><br></pre></td></tr></table></figure>
 
 <h2 id="创建执法者对象"><a href="#创建执法者对象" class="headerlink" title="创建执法者对象"></a>创建执法者对象</h2><ul>
 <li>通过模型配置文件和适配器对象创建执法者对象</li>
@@ -370,424 +222,261 @@
 <blockquote>
 <p><code>./model.conf</code>：定义模型配置</p>
 </blockquote>
-<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs go">enforcer, err := casbin.NewEnforcer(<span class="hljs-string">&quot;./model.conf&quot;</span>, adapter)<br></code></pre></td></tr></table></figure>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">enforcer, err := casbin.NewEnforcer(<span class="string">&quot;./model.conf&quot;</span>, adapter)</span><br></pre></td></tr></table></figure>
 
-<h2 id="从数据库加载规则"><a href="#从数据库加载规则" class="headerlink" title="从数据库加载规则"></a>从数据库加载规则</h2><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs go">err := enforcer.LoadPolicy()<br></code></pre></td></tr></table></figure>
+<h2 id="从数据库加载规则"><a href="#从数据库加载规则" class="headerlink" title="从数据库加载规则"></a>从数据库加载规则</h2><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">err := enforcer.LoadPolicy()</span><br></pre></td></tr></table></figure>
 
-<h2 id="保存规则到数据库"><a href="#保存规则到数据库" class="headerlink" title="保存规则到数据库"></a>保存规则到数据库</h2><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs go">err := enforcer.SavePolicy()<br></code></pre></td></tr></table></figure>
+<h2 id="保存规则到数据库"><a href="#保存规则到数据库" class="headerlink" title="保存规则到数据库"></a>保存规则到数据库</h2><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">err := enforcer.SavePolicy()</span><br></pre></td></tr></table></figure>
 
-<h2 id="规则增删改"><a href="#规则增删改" class="headerlink" title="规则增删改"></a>规则增删改</h2><h3 id="添加规则"><a href="#添加规则" class="headerlink" title="添加规则"></a>添加规则</h3><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs go">exist, err := enforcer.AddPolicy(<span class="hljs-string">&quot;用户名或组名&quot;</span>, <span class="hljs-string">&quot;接口名&quot;</span>, <span class="hljs-string">&quot;请求类型&quot;</span>)<br></code></pre></td></tr></table></figure>
+<h2 id="规则增删改"><a href="#规则增删改" class="headerlink" title="规则增删改"></a>规则增删改</h2><h3 id="添加规则"><a href="#添加规则" class="headerlink" title="添加规则"></a>添加规则</h3><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">exist, err := enforcer.AddPolicy(<span class="string">&quot;用户名或组名&quot;</span>, <span class="string">&quot;接口名&quot;</span>, <span class="string">&quot;请求类型&quot;</span>)</span><br></pre></td></tr></table></figure>
 
-<h3 id="删除规则"><a href="#删除规则" class="headerlink" title="删除规则"></a>删除规则</h3><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs go">ok, err := enforcer.RemovePolicy(<span class="hljs-string">&quot;用户名或组名&quot;</span>, <span class="hljs-string">&quot;接口名&quot;</span>, <span class="hljs-string">&quot;请求类型&quot;</span>)<br></code></pre></td></tr></table></figure>
+<h3 id="删除规则"><a href="#删除规则" class="headerlink" title="删除规则"></a>删除规则</h3><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ok, err := enforcer.RemovePolicy(<span class="string">&quot;用户名或组名&quot;</span>, <span class="string">&quot;接口名&quot;</span>, <span class="string">&quot;请求类型&quot;</span>)</span><br></pre></td></tr></table></figure>
 
-<h4 id="根据过滤条件批量删除规则"><a href="#根据过滤条件批量删除规则" class="headerlink" title="根据过滤条件批量删除规则"></a>根据过滤条件批量删除规则</h4><h5 id="根据用户名或组名批量删除规则"><a href="#根据用户名或组名批量删除规则" class="headerlink" title="根据用户名或组名批量删除规则"></a>根据用户名或组名批量删除规则</h5><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs go">ok, err := enforcer.RemoveFilteredPolicy(<span class="hljs-number">0</span>, <span class="hljs-string">&quot;用户名或组名&quot;</span>)<br></code></pre></td></tr></table></figure>
+<h4 id="根据过滤条件批量删除规则"><a href="#根据过滤条件批量删除规则" class="headerlink" title="根据过滤条件批量删除规则"></a>根据过滤条件批量删除规则</h4><h5 id="根据用户名或组名批量删除规则"><a href="#根据用户名或组名批量删除规则" class="headerlink" title="根据用户名或组名批量删除规则"></a>根据用户名或组名批量删除规则</h5><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ok, err := enforcer.RemoveFilteredPolicy(<span class="number">0</span>, <span class="string">&quot;用户名或组名&quot;</span>)</span><br></pre></td></tr></table></figure>
 
-<h5 id="根据接口名批量删除规则"><a href="#根据接口名批量删除规则" class="headerlink" title="根据接口名批量删除规则"></a>根据接口名批量删除规则</h5><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs go">ok, err := enforcer.RemoveFilteredPolicy(<span class="hljs-number">0</span>, <span class="hljs-string">&quot;&quot;</span>, <span class="hljs-string">&quot;接口名&quot;</span>)<br></code></pre></td></tr></table></figure>
+<h5 id="根据接口名批量删除规则"><a href="#根据接口名批量删除规则" class="headerlink" title="根据接口名批量删除规则"></a>根据接口名批量删除规则</h5><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ok, err := enforcer.RemoveFilteredPolicy(<span class="number">0</span>, <span class="string">&quot;&quot;</span>, <span class="string">&quot;接口名&quot;</span>)</span><br></pre></td></tr></table></figure>
 
-<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs go">ok, err := enforcer.RemoveFilteredPolicy(<span class="hljs-number">1</span>, <span class="hljs-string">&quot;接口名&quot;</span>)<br></code></pre></td></tr></table></figure>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ok, err := enforcer.RemoveFilteredPolicy(<span class="number">1</span>, <span class="string">&quot;接口名&quot;</span>)</span><br></pre></td></tr></table></figure>
 
-<h2 id="组增删改"><a href="#组增删改" class="headerlink" title="组增删改"></a>组增删改</h2><h3 id="向组中新增用户"><a href="#向组中新增用户" class="headerlink" title="向组中新增用户"></a>向组中新增用户</h3><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs go">exist, err := enforcer.AddRoleForUser(<span class="hljs-string">&quot;用户名&quot;</span>, <span class="hljs-string">&quot;组名&quot;</span>)<br></code></pre></td></tr></table></figure>
+<h2 id="组增删改"><a href="#组增删改" class="headerlink" title="组增删改"></a>组增删改</h2><h3 id="向组中新增用户"><a href="#向组中新增用户" class="headerlink" title="向组中新增用户"></a>向组中新增用户</h3><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">exist, err := enforcer.AddRoleForUser(<span class="string">&quot;用户名&quot;</span>, <span class="string">&quot;组名&quot;</span>)</span><br></pre></td></tr></table></figure>
 
-<h3 id="从组中删除用户"><a href="#从组中删除用户" class="headerlink" title="从组中删除用户"></a>从组中删除用户</h3><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs go">ok, err := enforcer.DeleteRoleForUser(<span class="hljs-string">&quot;用户名&quot;</span>, <span class="hljs-string">&quot;组名&quot;</span>)<br></code></pre></td></tr></table></figure>
+<h3 id="从组中删除用户"><a href="#从组中删除用户" class="headerlink" title="从组中删除用户"></a>从组中删除用户</h3><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ok, err := enforcer.DeleteRoleForUser(<span class="string">&quot;用户名&quot;</span>, <span class="string">&quot;组名&quot;</span>)</span><br></pre></td></tr></table></figure>
 
 <h2 id="校验规则"><a href="#校验规则" class="headerlink" title="校验规则"></a>校验规则</h2><ul>
 <li>返回规则判定结果布尔值</li>
 </ul>
-<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs go">allow, err := enforcer.Enforce(<span class="hljs-string">&quot;用户名或组名&quot;</span>, <span class="hljs-string">&quot;接口名&quot;</span>, <span class="hljs-string">&quot;请求类型&quot;</span>)<br></code></pre></td></tr></table></figure>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">allow, err := enforcer.Enforce(<span class="string">&quot;用户名或组名&quot;</span>, <span class="string">&quot;接口名&quot;</span>, <span class="string">&quot;请求类型&quot;</span>)</span><br></pre></td></tr></table></figure>
 
 <h2 id="自定义函数"><a href="#自定义函数" class="headerlink" title="自定义函数"></a>自定义函数</h2><h3 id="超级管理员判定"><a href="#超级管理员判定" class="headerlink" title="超级管理员判定"></a>超级管理员判定</h3><ul>
 <li>在模型中添加规则</li>
 </ul>
-<figure class="highlight plaintext"><figcaption><span>model.conf</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs conf">[request_definition]<br>r = sub, obj, act<br><br>[policy_definition]<br>p = sub, obj, act<br><br>[role_definition]<br>g = _, _<br><br>[policy_effect]<br>e = some(where (p.eft == allow))<br><br>[matchers]<br>m = g(r.sub, p.sub) &amp;&amp; r.obj == p.obj &amp;&amp; r.act == p.act || checkRoot(r.sub)<br></code></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><figcaption><span>model.conf</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">[request_definition]</span><br><span class="line">r = sub, obj, act</span><br><span class="line"></span><br><span class="line">[policy_definition]</span><br><span class="line">p = sub, obj, act</span><br><span class="line"></span><br><span class="line">[role_definition]</span><br><span class="line">g = _, _</span><br><span class="line"></span><br><span class="line">[policy_effect]</span><br><span class="line">e = some(where (p.eft == allow))</span><br><span class="line"></span><br><span class="line">[matchers]</span><br><span class="line">m = g(r.sub, p.sub) &amp;&amp; r.obj == p.obj &amp;&amp; r.act == p.act || checkRoot(r.sub)</span><br></pre></td></tr></table></figure>
 
 <ul>
 <li>自定义超级管理员判定规则</li>
 </ul>
-<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs go"><span class="hljs-comment">// 自定义超级管理员判定规则</span><br>enforcer.AddFunction(<span class="hljs-string">&quot;checkRoot&quot;</span>, <span class="hljs-function"><span class="hljs-keyword">func</span><span class="hljs-params">(arguments ...<span class="hljs-keyword">interface</span>&#123;&#125;)</span></span> (<span class="hljs-keyword">interface</span>&#123;&#125;, <span class="hljs-type">error</span>) &#123;<br>    <span class="hljs-comment">// 获取第一个参数</span><br>    sub := arguments[<span class="hljs-number">0</span>].(<span class="hljs-type">string</span>)<br>    <span class="hljs-comment">// 检查用户的是否为在root组</span><br>    <span class="hljs-keyword">return</span> enforcer.HasRoleForUser(sub, <span class="hljs-string">&quot;root&quot;</span>)<br>&#125;)<br></code></pre></td></tr></table></figure>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 自定义超级管理员判定规则</span></span><br><span class="line">enforcer.AddFunction(<span class="string">&quot;checkRoot&quot;</span>, <span class="function"><span class="keyword">func</span><span class="params">(arguments ...<span class="keyword">interface</span>&#123;&#125;)</span></span> (<span class="keyword">interface</span>&#123;&#125;, <span class="type">error</span>) &#123;</span><br><span class="line">    <span class="comment">// 获取第一个参数</span></span><br><span class="line">    sub := arguments[<span class="number">0</span>].(<span class="type">string</span>)</span><br><span class="line">    <span class="comment">// 检查用户的是否为在root组</span></span><br><span class="line">    <span class="keyword">return</span> enforcer.HasRoleForUser(sub, <span class="string">&quot;root&quot;</span>)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
 
 <ul>
 <li>将用户添加到root组</li>
 </ul>
-<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs go">ok, err := enforcer.DeleteRoleForUser(<span class="hljs-string">&quot;用户名&quot;</span>, <span class="hljs-string">&quot;root&quot;</span>)<br></code></pre></td></tr></table></figure>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ok, err := enforcer.DeleteRoleForUser(<span class="string">&quot;用户名&quot;</span>, <span class="string">&quot;root&quot;</span>)</span><br></pre></td></tr></table></figure>
 
 <h2 id="完成"><a href="#完成" class="headerlink" title="完成"></a>完成</h2><h2 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h2><p><a href="/302.html?target=https://zhuanlan.zhihu.com/p/148353743">知乎——孤雨</a><br><a target="_blank" rel="noopener" href="https://blog.csdn.net/LeoForBest/article/details/133610889">CSDN——LeoForBest</a><br><a target="_blank" rel="noopener" href="https://github.com/casbin/gorm-adapter">casbin&#x2F;gorm-adapter</a><br><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_42120178/article/details/117156766">CSDN——Dreamy_Lois</a></p>
 
-                
-              </div>
-            
-            <hr/>
-            <div>
-              <div class="post-metas my-3">
-  
-  
-    <div class="post-meta">
-      <i class="iconfont icon-tags"></i>
-      
-        <a href="/tags/Go/" class="print-no-link">#Go</a>
-      
-        <a href="/tags/Gorm/" class="print-no-link">#Gorm</a>
-      
-        <a href="/tags/Casbin/" class="print-no-link">#Casbin</a>
-      
     </div>
-  
-</div>
+     
+    <div class="post-footer__meta"><p>更新于 2024-08-06</p></div> 
+    <div class="post-entry__tags"><a href="/tags/Go/" class="post-tags__link button"># Go</a><a href="/tags/Gorm/" class="post-tags__link button"># Gorm</a><a href="/tags/Casbin/" class="post-tags__link button"># Casbin</a></div> 
+</article>
 
 
-              
-
-              
-                <div class="post-prevnext my-3">
-                  <article class="post-prev col-6">
-                    
-                    
-                      <a href="/2024/03/19/%E4%BF%AE%E6%94%B9Docker%E5%AE%B9%E5%99%A8%E5%90%AF%E5%8A%A8%E5%8F%82%E6%95%B0/" title="【笔记】修改Docker容器启动参数">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">【笔记】修改Docker容器启动参数</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
-                  </article>
-                  <article class="post-next col-6">
-                    
-                    
-                      <a href="/2024/03/18/Linux%E5%AE%89%E8%A3%85netstat/" title="【笔记】Linux安装netstat">
-                        <span class="hidden-mobile">【笔记】Linux安装netstat</span>
-                        <span class="visible-mobile">下一篇</span>
-                        <i class="iconfont icon-arrowright"></i>
-                      </a>
-                    
-                  </article>
-                </div>
-              
-            </div>
-
+    <div class="nav">
+        <div class="nav__prev">
             
-  
-  
-    <article id="comments" lazyload>
-      
-  <div id="twikoo"></div>
-  <script type="text/javascript">
-    Fluid.utils.loadComments('#comments', function() {
-      Fluid.utils.createScript('https://lib.baomitu.com/twikoo/1.6.8/twikoo.all.min.js', function() {
-        var options = Object.assign(
-          {"envId":"https://twikoo.loli.fj.cn","region":"ap-shanghai","path":"window.location.pathname"},
-          {
-            el: '#twikoo',
-            path: 'window.location.pathname',
-            onCommentLoaded: function() {
-              Fluid.utils.listenDOMLoaded(function() {
-                var imgSelector = '#twikoo .tk-content img:not(.tk-owo-emotion)';
-                Fluid.plugins.imageCaption(imgSelector);
-                Fluid.plugins.fancyBox(imgSelector);
-              });
+                <a href="/2024/03/19/%E4%BF%AE%E6%94%B9Docker%E5%AE%B9%E5%99%A8%E5%90%AF%E5%8A%A8%E5%8F%82%E6%95%B0/" class="nav__link">
+                    <div>
+                        <svg viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" width="24" height="24"><path d="M589.088 790.624L310.464 512l278.624-278.624 45.248 45.248L400.96 512l233.376 233.376z" fill="#808080"></path></svg>
+                    </div>
+                    <div>
+                        <div class="nav__label">
+                            上一篇
+                        </div>
+                        <div class="nav__title">
+                            【笔记】修改Docker容器启动参数
+                        </div>
+                    </div>
+                </a>
+            
+        </div>
+        <div class="nav__next">
+            
+                <a href="/2024/03/18/Linux%E5%AE%89%E8%A3%85netstat/" class="nav__link">
+                    <div>
+                        <div class="nav__label">
+                            下一篇
+                        </div>
+                        <div class="nav__title">
+                            【笔记】Linux安装netstat
+                        </div>
+                    </div>
+                    <div>
+                        <svg viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" width="24" height="24"><path d="M434.944 790.624l-45.248-45.248L623.04 512l-233.376-233.376 45.248-45.248L713.568 512z" fill="#808080"></path></svg>
+                    </div>
+                </a>
+            
+        </div>
+    </div>
+
+
+
+    <div class="post__comments post__with-toc content-card" id="comment">
+        
+    <h4>评论</h4>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <div id="tcomment" class="twikoo_thread"></div>
+
+    
+
+
+
+    </div>
+
+
+
+</main>
+
+            <footer class="footer">
+     
+    <a href="#" class="button" id="b2t" aria-label="回到顶部" title="回到顶部">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" width="32" height="32">
+            <path d="M233.376 722.752L278.624 768 512 534.624 745.376 768l45.248-45.248L512 444.128zM192 352h640V288H192z" fill="currentColor"></path>
+        </svg>
+    </a>
+
+    
+
+
+    
+    
+    
+        <span id="busuanzi_container_site_uv" hidden>
+            <span></span>
+            <span id="busuanzi_value_site_uv"></span>
+            <span>Viewers</span>
+            
+                <span>&amp;nbsp;&amp;nbsp;&amp;nbsp;|</span>
+            
+        </span>
+    
+    
+        <span id="busuanzi_container_site_pv" hidden>
+            <span></span>
+            <span id="busuanzi_value_site_pv"></span>
+            <span>Views</span>
+            
+        </span>
+    
+ 
+ 
+
+ 
+    
+        
+        <p class="footer-copyright">
+            Copyright © 2024 <a href="/">绯鞠的博客</a>
+        </p>
+    
+    
+    <p>Powered by <a href="https://hexo.io" target="_blank">Hexo</a> | Theme - <a href="https://github.com/ChrAlpha/hexo-theme-cards" target="_blank">Cards</a></p>
+</footer>
+
+        </div>
+         
+
+ 
+
+ 
+
+ 
+
+ 
+
+
+
+ 
+
+
+
+ 
+
+
+    
+ 
+
+ 
+
+ 
+
+ 
+
+
+    <script src='https://cdn.jsdelivr.net/npm/mermaid@8.10.2/dist/mermaid.min.js'></script>
+    <script>
+            mermaid.initialize(JSON.stringify(''));
+    </script>
+ 
+
+ 
+
+
+    
+
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+
+    
+    
+    
+    
+    
+
+    
+    
+    
+    <script>
+        function loadComment() {
+            let e;
+            (e = document.createElement("script")).src = 'https://cdn.jsdelivr.net/npm/twikoo@0.3.2/dist/twikoo.all.min.js',
+            document.body.appendChild(e);
+            e.onload = () => {
+                twikoo.init({
+                    envId: 'https://twikoo.loli.fj.cn',
+                    el: '#tcomment'
+                });
+            };
+        }
+    
+        var runningOnBrowser = typeof window !== "undefined";
+        var isBot = runningOnBrowser && !("onscroll" in window) || typeof navigator !== "undefined" && /(gle|ing|ro|msn)bot|crawl|spider|yand|duckgo/i.test(navigator.userAgent);
+        var supportsIntersectionObserver = runningOnBrowser && "IntersectionObserver" in window;
+    
+        setTimeout(function () {
+            if (!isBot && supportsIntersectionObserver) {
+                var comment_observer = new IntersectionObserver(function(entries) {
+                    if (entries[0].isIntersecting) {
+                        loadComment();
+                        comment_observer.disconnect();
+                    }
+                }, { threshold: [0] });
+                comment_observer.observe(document.getElementById('comment'));
+            } else {
+                loadComment();
             }
-          }
-        )
-        twikoo.init(options)
-      });
-    });
-  </script>
-  <noscript>Please enable JavaScript to view the comments</noscript>
+        }, 1);
+    </script>
 
 
-    </article>
-  
 
 
-          </article>
-        </div>
-      </div>
-    </div>
-
-    <div class="side-col d-none d-lg-block col-lg-2">
-      
-  <aside class="sidebar" style="margin-left: -1rem">
-    <div id="toc">
-  <p class="toc-header">
-    <i class="iconfont icon-list"></i>
-    <span>目录</span>
-  </p>
-  <div class="toc-body" id="toc-body"></div>
-</div>
-
-
-
-  </aside>
-
-
-    </div>
-  </div>
-</div>
-
-
-
-
-
-  
-
-
-
-  
-
-
-
-  
-
-
-
-  
-
-
-
-
-
-  <script>
-  Fluid.utils.createScript('https://lib.baomitu.com/mermaid/8.14.0/mermaid.min.js', function() {
-    mermaid.initialize({"theme":"default"});
-
-    Fluid.utils.listenDOMLoaded(function() {
-      Fluid.events.registerRefreshCallback(function() {
-        if ('mermaid' in window) {
-          mermaid.init();
-        }
-      });
-    });
-  });
-</script>
-
-
-
-
-
-
-    
-
-    
-      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
-        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
-      </a>
-    
-
-    
-      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
-     aria-hidden="true">
-  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
-    <div class="modal-content">
-      <div class="modal-header text-center">
-        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
-        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body mx-3">
-        <div class="md-form mb-5">
-          <input type="text" id="local-search-input" class="form-control validate">
-          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
-        </div>
-        <div class="list-group" id="local-search-result"></div>
-      </div>
-    </div>
-  </div>
-</div>
-
-    
-
-    
-  </main>
-
-  <footer>
-    <div class="footer-inner">
-  
-    <div class="footer-content">
-       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> <br> <!-- 当前在线人数统计 --> <div>当前在线人数 <span id="current_visitors_count">0</span></div> <script src="/dist/js/current_visitors_count.js"></script> <!-- 网站运行时间统计 --> <div id="sitetime"></div> <script type="text/javascript" src="/dist/js/sitetime.js"></script> 
-    </div>
-  
-  
-    <div class="statistics">
-  
-  
-
-  
-    
-      <span id="busuanzi_container_site_pv" style="display: none">
-        总访问量 
-        <span id="busuanzi_value_site_pv"></span>
-         次
-      </span>
-    
-    
-      <span id="busuanzi_container_site_uv" style="display: none">
-        总访客数 
-        <span id="busuanzi_value_site_uv"></span>
-         人
-      </span>
-    
-    
-  
-</div>
-
-  
-  
-  
-</div>
-
-  </footer>
-
-  <!-- Scripts -->
-  
-  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
-  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
-
-  <script>
-    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
-    NProgress.start()
-    window.addEventListener('load', function() {
-      NProgress.done();
-    })
-  </script>
-
-
-<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
-<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
-<script  src="/js/events.js" ></script>
-<script  src="/js/plugins.js" ></script>
-
-
-  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
-  <script>
-    (function (window, document) {
-      var typing = Fluid.plugins.typing;
-      var subtitle = document.getElementById('subtitle');
-      if (!subtitle || !typing) {
-        return;
-      }
-      var text = subtitle.getAttribute('data-typed-text');
-      
-        typing(text);
-      
-    })(window, document);
-  </script>
-
-
-
-
-  
-    <script  src="/js/img-lazyload.js" ></script>
-  
-
-
-
-
-  
-<script>
-  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
-    var toc = jQuery('#toc');
-    if (toc.length === 0 || !window.tocbot) { return; }
-    var boardCtn = jQuery('#board-ctn');
-    var boardTop = boardCtn.offset().top;
-
-    window.tocbot.init(Object.assign({
-      tocSelector     : '#toc-body',
-      contentSelector : '.markdown-body',
-      linkClass       : 'tocbot-link',
-      activeLinkClass : 'tocbot-active-link',
-      listClass       : 'tocbot-list',
-      isCollapsedClass: 'tocbot-is-collapsed',
-      collapsibleClass: 'tocbot-is-collapsible',
-      scrollSmooth    : true,
-      includeTitleTags: true,
-      headingsOffset  : -boardTop,
-    }, CONFIG.toc));
-    if (toc.find('.toc-list-item').length > 0) {
-      toc.css('visibility', 'visible');
-    }
-
-    Fluid.events.registerRefreshCallback(function() {
-      if ('tocbot' in window) {
-        tocbot.refresh();
-        var toc = jQuery('#toc');
-        if (toc.length === 0 || !tocbot) {
-          return;
-        }
-        if (toc.find('.toc-list-item').length > 0) {
-          toc.css('visibility', 'visible');
-        }
-      }
-    });
-  });
-</script>
-
-
-  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
-
-  <script>Fluid.plugins.codeWidget();</script>
-
-
-  
-<script>
-  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
-    window.anchors.options = {
-      placement: CONFIG.anchorjs.placement,
-      visible  : CONFIG.anchorjs.visible
-    };
-    if (CONFIG.anchorjs.icon) {
-      window.anchors.options.icon = CONFIG.anchorjs.icon;
-    }
-    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
-    var res = [];
-    for (var item of el) {
-      res.push('.markdown-body > ' + item.trim());
-    }
-    if (CONFIG.anchorjs.placement === 'left') {
-      window.anchors.options.class = 'anchorjs-link-left';
-    }
-    window.anchors.add(res.join(', '));
-
-    Fluid.events.registerRefreshCallback(function() {
-      if ('anchors' in window) {
-        anchors.removeAll();
-        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
-        var res = [];
-        for (var item of el) {
-          res.push('.markdown-body > ' + item.trim());
-        }
-        if (CONFIG.anchorjs.placement === 'left') {
-          anchors.options.class = 'anchorjs-link-left';
-        }
-        anchors.add(res.join(', '));
-      }
-    });
-  });
-</script>
-
-
-  
-<script>
-  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
-    Fluid.plugins.fancyBox();
-  });
-</script>
-
-
-  <script  src="/js/local-search.js" ></script>
-
-  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
-
-
-
-
-
-<!-- 主题的启动项，将它保持在最底部 -->
-<!-- the boot of the theme, keep it at the bottom -->
-<script  src="/js/boot.js" ></script>
-
-
-  
-
-  <noscript>
-    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
-  </noscript>
-</body>
+    </body>
 </html>

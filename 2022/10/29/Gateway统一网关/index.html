@@ -1,21 +1,50 @@
-
-
 <!DOCTYPE html>
-<html lang="zh-CN" data-default-color-scheme=auto>
+<html lang="zh-CN">
+    <head>
+    <meta charset="utf-8">
+
+    
+
+    <!-- 渲染优化 -->
+    <meta name="renderer" content="webkit">
+    <meta name="force-rendering" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta name="HandheldFriendly" content="True" >
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <!--icon-->
+
+    
+        <link rel="shortcut icon" href="/dist/images/favicon_package/favicon.ico">
+    
+    
+        <link rel="icon" type="image/png" sizes="16x16" href="/dist/images/favicon_package/favicon-16x16.png">
+    
+    
+        <link rel="icon" type="image/png" sizes="32x32" href="/dist/images/favicon_package/favicon-32x32.png">
+    
+    
+        <link rel="apple-touch-icon" sizes="180x180" href="/dist/images/favicon_package/apple-touch-icon.png">
+    
+    
+        <link rel="mask-icon" href="/dist/images/favicon_package/safari-pinned-tab.svg">
+    
+
+
+    <!-- meta -->
+
+
+<title>【笔记】Gateway统一网关 | 绯鞠的博客</title>
+
+
+    <meta name="keywords" content="Java, Spring, SpringCloud">
 
 
 
-<head>
-  <meta charset="UTF-8">
-  <link rel="apple-touch-icon" sizes="76x76" href="/dist/images/favicon_package/apple-touch-icon.png">
-  <link rel="icon" href="/dist/images/favicon_package/favicon.ico">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
-  <meta http-equiv="x-ua-compatible" content="ie=edge">
-  
-  <meta name="theme-color" content="#2f4154">
-  <meta name="author" content="绯鞠">
-  <meta name="keywords" content="">
-  
+
+    <!-- OpenGraph -->
+ 
     <meta name="description" content="前言This project provides a library for building an API Gateway on top of Spring WebFlux. Spring Cloud Gateway aims to provide a simple, yet effective way to route to APIs and provide cross cutting conc">
 <meta property="og:type" content="article">
 <meta property="og:title" content="【笔记】Gateway统一网关">
@@ -30,322 +59,145 @@
 <meta property="article:tag" content="Spring">
 <meta property="article:tag" content="SpringCloud">
 <meta name="twitter:card" content="summary_large_image">
-  
-  
-    <meta name="referrer" content="no-referrer-when-downgrade">
-  
-  
-  <title>【笔记】Gateway统一网关 - 绯鞠的博客</title>
-
-  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
 
+    
+<link rel="stylesheet" href="/css/style/main.css">
+ 
 
-  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+    
+    
+        <link rel="stylesheet" id="hl-default-theme" href="/css/highlight/highlight.css" media="none" onload="this.media='all'">
+        
+    
 
-  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+    
+    
 
-  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+    
 
+     
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+ 
 
+    <!-- custom head -->
 
-<!-- 主题依赖的图标库，不要自行修改 -->
-<!-- Do not modify the link that theme dependent icons -->
-
-<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
-
-
-
-<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
-
-
-<link  rel="stylesheet" href="/css/main.css" />
-
-
-  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
-  
-    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
-  
-
-
-
-
-  <script id="fluid-configs">
-    var Fluid = window.Fluid || {};
-    Fluid.ctx = Object.assign({}, Fluid.ctx)
-    var CONFIG = {"hostname":"loli.fj.cn","root":"/","version":"1.9.7","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"PLAINTEXT"},"copy_btn":true,"image_caption":{"enable":false},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":6},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml","include_content_in_search":true};
-
-    if (CONFIG.web_analytics.follow_dnt) {
-      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
-      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
-    }
-  </script>
-  <script  src="/js/utils.js" ></script>
-  <script  src="/js/color-schema.js" ></script>
-  
-
-
-  
 <meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="绯鞠的博客" type="application/atom+xml">
 </head>
 
+    <body>
+        <div id="app" tabindex="-1">
+            <header class="header">
+    <div class="header__left">
+        <a href="/" class="button">
+            <span class="logo__text">绯鞠的博客</span>
+        </a>
+    </div>
+    <div class="header__right">
+        
+            <div class="navbar__menus">
+                
+                    <a href="/" class="navbar-menu button">首页</a>
+                
+                    <a href="/about/" class="navbar-menu button">关于</a>
+                
+                    <a href="/archives/" class="navbar-menu button">归档</a>
+                
+                    <a href="/links/" class="navbar-menu button">友链</a>
+                
+                    <a href="/reward/" class="navbar-menu button">赞助</a>
+                
+                    <a href="/atom.xml" class="navbar-menu button">订阅</a>
+                
+                    <a target="_blank" rel="noopener" href="//melody.loli.fj.cn" class="navbar-menu button">主题</a>
+                
+            </div>
+        
+        
+        
 
-<body>
-  
+        
+        
 
-  <header>
+        
+            <a class="dropdown-icon button" id="btn-dropdown" tabindex="0"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" width='24' height='24' fill="none" stroke="currentColor" stroke-width="0.7" stroke-linecap="round" stroke-linejoin="round"><path fill="currentColor" d="M3.314,4.8h13.372c0.41,0,0.743-0.333,0.743-0.743c0-0.41-0.333-0.743-0.743-0.743H3.314c-0.41,0-0.743,0.333-0.743,0.743C2.571,4.467,2.904,4.8,3.314,4.8z M16.686,15.2H3.314c-0.41,0-0.743,0.333-0.743,0.743s0.333,0.743,0.743,0.743h13.372c0.41,0,0.743-0.333,0.743-0.743S17.096,15.2,16.686,15.2z M16.686,9.257H3.314c-0.41,0-0.743,0.333-0.743,0.743s0.333,0.743,0.743,0.743h13.372c0.41,0,0.743-0.333,0.743-0.743S17.096,9.257,16.686,9.257z"></path></svg></a>
+            <div class="dropdown-menus" id="dropdown-menus">
+                
+                    <a href="/" class="dropdown-menu button">首页</a>
+                
+                    <a href="/about/" class="dropdown-menu button">关于</a>
+                
+                    <a href="/archives/" class="dropdown-menu button">归档</a>
+                
+                    <a href="/links/" class="dropdown-menu button">友链</a>
+                
+                    <a href="/reward/" class="dropdown-menu button">赞助</a>
+                
+                    <a href="/atom.xml" class="dropdown-menu button">订阅</a>
+                
+                    <a target="_blank" rel="noopener" href="//melody.loli.fj.cn" class="dropdown-menu button">主题</a>
+                
+            </div>
+        
+    </div>
+</header>
+
+
+            <main class="main">
     
 
-<div class="header-inner" style="height: 70vh;">
-  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
-  <div class="container">
-    <a class="navbar-brand" href="/">
-      <strong>绯鞠的博客</strong>
-    </a>
+<div class="post-title">
+    <h1 class="post-title__text">
+        【笔记】Gateway统一网关
+    </h1>
+    <div class="post-title__meta">
+        <a href="/archives/2022/10/" class="post-meta__date button">2022-10-29</a>
+        
+ 
+        
+    
+    
 
-    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
-            data-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <div class="animated-icon"><span></span><span></span><span></span></div>
-    </button>
 
-    <!-- Collapsible content -->
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav ml-auto text-center">
-        
-          
-          
-          
-          
-            <li class="nav-item">
-              <a class="nav-link" href="/" target="_self">
-                <i class="iconfont icon-home-fill"></i>
-                <span>首页</span>
-              </a>
-            </li>
-          
-        
-          
-          
-          
-          
-            <li class="nav-item">
-              <a class="nav-link" href="/about/" target="_self">
-                <i class="iconfont icon-user-fill"></i>
-                <span>关于</span>
-              </a>
-            </li>
-          
-        
-          
-          
-          
-          
-            <li class="nav-item">
-              <a class="nav-link" href="/tags/" target="_self">
-                <i class="iconfont icon-tags-fill"></i>
-                <span>标签</span>
-              </a>
-            </li>
-          
-        
-          
-          
-          
-          
-            <li class="nav-item">
-              <a class="nav-link" href="/categories/" target="_self">
-                <i class="iconfont icon-category-fill"></i>
-                <span>分类</span>
-              </a>
-            </li>
-          
-        
-          
-          
-          
-          
-            <li class="nav-item">
-              <a class="nav-link" href="/archives/" target="_self">
-                <i class="iconfont icon-archive-fill"></i>
-                <span>归档</span>
-              </a>
-            </li>
-          
-        
-          
-          
-          
-          
-            <li class="nav-item">
-              <a class="nav-link" href="/links/" target="_self">
-                <i class="iconfont icon-user-friends"></i>
-                <span>友链</span>
-              </a>
-            </li>
-          
-        
-          
-          
-          
-          
-            <li class="nav-item">
-              <a class="nav-link" href="/command/" target="_self">
-                <i class="iconfont icon-book"></i>
-                <span>指令</span>
-              </a>
-            </li>
-          
-        
-          
-          
-          
-          
-            <li class="nav-item">
-              <a class="nav-link" href="/atom.xml" target="_self">
-                <i class="iconfont icon-rss"></i>
-                <span>订阅</span>
-              </a>
-            </li>
-          
-        
-          
-          
-          
-          
-            <li class="nav-item">
-              <a class="nav-link" href="//redefine.loli.fj.cn" target="_self">
-                <i class="iconfont icon-th-large"></i>
-                <span>主题</span>
-              </a>
-            </li>
-          
-        
-        
-          <li class="nav-item" id="search-btn">
-            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
-              <i class="iconfont icon-search"></i>
-            </a>
-          </li>
-          
-        
-        
-          <li class="nav-item" id="color-toggle-btn">
-            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
-              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
-            </a>
-          </li>
-        
-      </ul>
+ 
+
+ 
     </div>
-  </div>
-</nav>
+</div>
 
-  
 
-<div id="banner" class="banner" parallax=true
-     style="background: url('https://game.gtimg.cn/images/yxzj/img201606/skin/hero-info/141/141-bigskin-1.jpg') no-repeat center center; background-size: cover;">
-  <div class="full-bg-img">
-    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
-      <div class="banner-text text-center fade-in-up">
-        <div class="h2">
-          
-            <span id="subtitle" data-typed-text="【笔记】Gateway统一网关"></span>
-          
+    <aside class="post-side">
+        <div class="post-side__toc">
+            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%89%8D%E8%A8%80"><span class="toc-text">前言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BC%95%E5%85%A5%E4%BE%9D%E8%B5%96"><span class="toc-text">引入依赖</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B0%86%E7%BD%91%E5%85%B3%E5%8A%A0%E5%85%A5%E5%88%B0Eureka%E6%B3%A8%E5%86%8C%E4%B8%AD%E5%BF%83"><span class="toc-text">将网关加入到Eureka注册中心</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B7%BB%E5%8A%A0%E4%BE%9D%E8%B5%96"><span class="toc-text">添加依赖</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B7%BB%E5%8A%A0%E6%B3%A8%E8%A7%A3"><span class="toc-text">添加注解</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BF%AE%E6%94%B9%E9%85%8D%E7%BD%AE"><span class="toc-text">修改配置</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%9E%E7%8E%B0%E8%AF%B7%E6%B1%82%E7%9A%84%E8%B7%AF%E7%94%B1"><span class="toc-text">实现请求的路由</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B7%BB%E5%8A%A0%E9%85%8D%E7%BD%AE"><span class="toc-text">添加配置</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%B7%AF%E7%94%B1%E7%9A%84%E6%96%AD%E8%A8%80"><span class="toc-text">路由的断言</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%B7%AF%E7%94%B1%E7%9A%84%E8%BF%87%E6%BB%A4%E5%99%A8"><span class="toc-text">路由的过滤器</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%A8%E5%B1%80%E8%BF%87%E6%BB%A4%E5%99%A8%EF%BC%88GlobalFilter%EF%BC%89"><span class="toc-text">全局过滤器（GlobalFilter）</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%80%9A%E8%BF%87%E6%B3%A8%E8%A7%A3%E6%8C%87%E5%AE%9A%E4%BC%98%E5%85%88%E7%BA%A7"><span class="toc-text">通过注解指定优先级</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%80%9A%E8%BF%87%E5%AE%9E%E7%8E%B0%E6%8E%A5%E5%8F%A3%E6%8C%87%E5%AE%9A%E4%BC%98%E5%85%88%E7%BA%A7"><span class="toc-text">通过实现接口指定优先级</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%BF%87%E6%BB%A4%E5%99%A8%E7%9A%84%E6%8E%92%E5%BA%8F%E8%A7%84%E5%88%99"><span class="toc-text">过滤器的排序规则</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%B7%A8%E5%9F%9F%E5%A4%84%E7%90%86"><span class="toc-text">跨域处理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%B8%A9%E5%9D%91"><span class="toc-text">踩坑</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8E%9F%E5%9B%A0"><span class="toc-text">原因</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%A7%A3%E5%86%B3%E9%97%AE%E9%A2%98"><span class="toc-text">解决问题</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%8C%E6%88%90"><span class="toc-text">完成</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%82%E8%80%83%E6%96%87%E7%8C%AE"><span class="toc-text">参考文献</span></a></li></ol>
         </div>
-
-        
-          
-  <div class="mt-3">
-    
-    
-      <span class="post-meta">
-        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2022-10-29 01:00" pubdate>
-          2022:10:29
-        </time>
-      </span>
-    
-  </div>
-
-  <div class="mt-1">
-    
-
-    
-
-    
-    
-  </div>
-
-
-        
-      </div>
-
-      
-    </div>
-  </div>
-</div>
-
-</div>
-
-  </header>
-
-  <main>
-    
-      
-
-<div class="container-fluid nopadding-x">
-  <div class="row nomargin-x">
-    <div class="side-col d-none d-lg-block col-lg-2">
-      
-  <aside class="sidebar category-bar" style="margin-right: -1rem">
-    
-
-
-
-
-
-<div class="category-list">
-  
-  
-</div>
-
-
-  </aside>
-
-
+    </aside>
+    <a class="btn-toc button" id="btn-toc" tabindex="0">
+        <svg viewBox="0 0 1024 1024" width="32" height="32" xmlns="http://www.w3.org/2000/svg">
+            <path d="M128 256h64V192H128zM320 256h576V192H320zM128 544h64v-64H128zM320 544h576v-64H320zM128 832h64v-64H128zM320 832h576v-64H320z" fill="currentColor"></path>
+        </svg>
+    </a>
+    <div class="toc-menus" id="toc-menus">
+        <div class="toc-title">文章目录</div>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%89%8D%E8%A8%80"><span class="toc-text">前言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BC%95%E5%85%A5%E4%BE%9D%E8%B5%96"><span class="toc-text">引入依赖</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B0%86%E7%BD%91%E5%85%B3%E5%8A%A0%E5%85%A5%E5%88%B0Eureka%E6%B3%A8%E5%86%8C%E4%B8%AD%E5%BF%83"><span class="toc-text">将网关加入到Eureka注册中心</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B7%BB%E5%8A%A0%E4%BE%9D%E8%B5%96"><span class="toc-text">添加依赖</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B7%BB%E5%8A%A0%E6%B3%A8%E8%A7%A3"><span class="toc-text">添加注解</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BF%AE%E6%94%B9%E9%85%8D%E7%BD%AE"><span class="toc-text">修改配置</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%9E%E7%8E%B0%E8%AF%B7%E6%B1%82%E7%9A%84%E8%B7%AF%E7%94%B1"><span class="toc-text">实现请求的路由</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B7%BB%E5%8A%A0%E9%85%8D%E7%BD%AE"><span class="toc-text">添加配置</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%B7%AF%E7%94%B1%E7%9A%84%E6%96%AD%E8%A8%80"><span class="toc-text">路由的断言</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%B7%AF%E7%94%B1%E7%9A%84%E8%BF%87%E6%BB%A4%E5%99%A8"><span class="toc-text">路由的过滤器</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%A8%E5%B1%80%E8%BF%87%E6%BB%A4%E5%99%A8%EF%BC%88GlobalFilter%EF%BC%89"><span class="toc-text">全局过滤器（GlobalFilter）</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%80%9A%E8%BF%87%E6%B3%A8%E8%A7%A3%E6%8C%87%E5%AE%9A%E4%BC%98%E5%85%88%E7%BA%A7"><span class="toc-text">通过注解指定优先级</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%80%9A%E8%BF%87%E5%AE%9E%E7%8E%B0%E6%8E%A5%E5%8F%A3%E6%8C%87%E5%AE%9A%E4%BC%98%E5%85%88%E7%BA%A7"><span class="toc-text">通过实现接口指定优先级</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%BF%87%E6%BB%A4%E5%99%A8%E7%9A%84%E6%8E%92%E5%BA%8F%E8%A7%84%E5%88%99"><span class="toc-text">过滤器的排序规则</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%B7%A8%E5%9F%9F%E5%A4%84%E7%90%86"><span class="toc-text">跨域处理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%B8%A9%E5%9D%91"><span class="toc-text">踩坑</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8E%9F%E5%9B%A0"><span class="toc-text">原因</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%A7%A3%E5%86%B3%E9%97%AE%E9%A2%98"><span class="toc-text">解决问题</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%8C%E6%88%90"><span class="toc-text">完成</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%82%E8%80%83%E6%96%87%E7%8C%AE"><span class="toc-text">参考文献</span></a></li></ol>
     </div>
 
-    <div class="col-lg-8 nopadding-x-md">
-      <div class="container nopadding-x-md" id="board-ctn">
-        <div id="board">
-          <article class="post-content mx-auto">
-            <h1 id="seo-header">【笔记】Gateway统一网关</h1>
-            
-              <p id="updated-time" class="note note-info" style="">
-                
-                  
-                    本文最后更新于 2024:08:06
-                  
-                
-              </p>
-            
-            
-              <div class="markdown-body">
-                
-                <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>This project provides a library for building an API Gateway on top of Spring WebFlux. Spring Cloud Gateway aims to provide a simple, yet effective way to route to APIs and provide cross cutting concerns to them such as: security, monitoring&#x2F;metrics, and resiliency.（<a href="/302.html?target=https://spring.io/projects/spring-cloud-gateway">官网</a>）</p>
+
+<article class="post post__with-toc content-card">
+    <div class="post__header"></div>
+    <div class="post__content">
+        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>This project provides a library for building an API Gateway on top of Spring WebFlux. Spring Cloud Gateway aims to provide a simple, yet effective way to route to APIs and provide cross cutting concerns to them such as: security, monitoring&#x2F;metrics, and resiliency.（<a href="/302.html?target=https://spring.io/projects/spring-cloud-gateway">官网</a>）</p>
 <span id="more"></span>
 
-<h2 id="引入依赖"><a href="#引入依赖" class="headerlink" title="引入依赖"></a>引入依赖</h2><figure class="highlight xml"><figcaption><span>pom.xml</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>org.springframework.cloud<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>spring-cloud-starter-gateway<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span><br></code></pre></td></tr></table></figure>
+<h2 id="引入依赖"><a href="#引入依赖" class="headerlink" title="引入依赖"></a>引入依赖</h2><figure class="highlight xml"><figcaption><span>pom.xml</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.cloud<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-cloud-starter-gateway<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
-<h2 id="将网关加入到Eureka注册中心"><a href="#将网关加入到Eureka注册中心" class="headerlink" title="将网关加入到Eureka注册中心"></a>将网关加入到Eureka注册中心</h2><h3 id="添加依赖"><a href="#添加依赖" class="headerlink" title="添加依赖"></a>添加依赖</h3><figure class="highlight xml"><figcaption><span>pom.xml</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>org.springframework.cloud<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>spring-cloud-starter-netflix-eureka-client<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span><br></code></pre></td></tr></table></figure>
+<h2 id="将网关加入到Eureka注册中心"><a href="#将网关加入到Eureka注册中心" class="headerlink" title="将网关加入到Eureka注册中心"></a>将网关加入到Eureka注册中心</h2><h3 id="添加依赖"><a href="#添加依赖" class="headerlink" title="添加依赖"></a>添加依赖</h3><figure class="highlight xml"><figcaption><span>pom.xml</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.cloud<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-cloud-starter-netflix-eureka-client<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
 <h3 id="添加注解"><a href="#添加注解" class="headerlink" title="添加注解"></a>添加注解</h3><ul>
 <li>在主启动类添加注解，启动Eureka客户端</li>
 </ul>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">package</span> com;<br><br><span class="hljs-keyword">import</span> org.springframework.boot.SpringApplication;<br><span class="hljs-keyword">import</span> org.springframework.boot.autoconfigure.SpringBootApplication;<br><span class="hljs-keyword">import</span> org.springframework.cloud.client.discovery.EnableDiscoveryClient;<br><br><span class="hljs-meta">@EnableDiscoveryClient</span><br><span class="hljs-meta">@SpringBootApplication</span><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">GatewayApplication</span> &#123;<br><br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">main</span><span class="hljs-params">(String[] args)</span> &#123;<br>        SpringApplication.run(GatewayApplication.class, args);<br>    &#125;<br><br>&#125;<br></code></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> org.springframework.boot.SpringApplication;</span><br><span class="line"><span class="keyword">import</span> org.springframework.boot.autoconfigure.SpringBootApplication;</span><br><span class="line"><span class="keyword">import</span> org.springframework.cloud.client.discovery.EnableDiscoveryClient;</span><br><span class="line"></span><br><span class="line"><span class="meta">@EnableDiscoveryClient</span></span><br><span class="line"><span class="meta">@SpringBootApplication</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">GatewayApplication</span> &#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        SpringApplication.run(GatewayApplication.class, args);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<h3 id="修改配置"><a href="#修改配置" class="headerlink" title="修改配置"></a>修改配置</h3><figure class="highlight yaml"><figcaption><span>src/main/resources/application.yml</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs yaml"><span class="hljs-attr">server:</span><br>  <span class="hljs-attr">port:</span> <span class="hljs-number">8100</span><br><span class="hljs-attr">spring:</span><br>  <span class="hljs-attr">application:</span><br>    <span class="hljs-attr">name:</span> <span class="hljs-string">gateway</span><br><span class="hljs-attr">eureka:</span><br>  <span class="hljs-attr">client:</span><br>    <span class="hljs-attr">service-url:</span><br>      <span class="hljs-attr">defaultZone:</span> <span class="hljs-string">http://127.0.0.1:8000/eureka</span><br></code></pre></td></tr></table></figure>
+<h3 id="修改配置"><a href="#修改配置" class="headerlink" title="修改配置"></a>修改配置</h3><figure class="highlight yaml"><figcaption><span>src/main/resources/application.yml</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">server:</span></span><br><span class="line">  <span class="attr">port:</span> <span class="number">8100</span></span><br><span class="line"><span class="attr">spring:</span></span><br><span class="line">  <span class="attr">application:</span></span><br><span class="line">    <span class="attr">name:</span> <span class="string">gateway</span></span><br><span class="line"><span class="attr">eureka:</span></span><br><span class="line">  <span class="attr">client:</span></span><br><span class="line">    <span class="attr">service-url:</span></span><br><span class="line">      <span class="attr">defaultZone:</span> <span class="string">http://127.0.0.1:8000/eureka</span></span><br></pre></td></tr></table></figure>
 
 <h2 id="实现请求的路由"><a href="#实现请求的路由" class="headerlink" title="实现请求的路由"></a>实现请求的路由</h2><h3 id="添加配置"><a href="#添加配置" class="headerlink" title="添加配置"></a>添加配置</h3><ul>
 <li>当请求的路径符合路由的断言规则时，将请求转发到路由的目标路径</li>
@@ -356,7 +208,7 @@
 <p><code>lb://服务名</code>：根据服务名发送请求<br><code>http://ip地址</code>：根据ip地址发送请求<br><code>spring.cloud.gateway.routes.predicates</code>：对指定路由的断言<br><code>spring.cloud.gateway.routes.filters</code>：对指定路由的过滤器</p>
 </blockquote>
 </blockquote>
-<figure class="highlight yaml"><figcaption><span>src/main/resource/application.yml</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs yaml"><span class="hljs-attr">spring:</span><br>  <span class="hljs-attr">cloud:</span><br>    <span class="hljs-attr">gateway:</span><br>      <span class="hljs-attr">routes:</span><br>        <span class="hljs-bullet">-</span> <span class="hljs-attr">id:</span> <span class="hljs-string">eureka-service-user</span><br>          <span class="hljs-attr">uri:</span> <span class="hljs-string">lb://eureka-service-user</span><br>          <span class="hljs-attr">predicates:</span><br>            <span class="hljs-bullet">-</span> <span class="hljs-string">Path=/users/**</span><br>        <span class="hljs-bullet">-</span> <span class="hljs-attr">id:</span> <span class="hljs-string">eureka-service-user</span><br>          <span class="hljs-attr">uri:</span> <span class="hljs-string">http://127.0.0.1:8082</span><br>          <span class="hljs-attr">predicates:</span><br>            <span class="hljs-bullet">-</span> <span class="hljs-string">Path=/orders/**</span><br>          <span class="hljs-attr">filters:</span><br>            <span class="hljs-bullet">-</span> <span class="hljs-string">AddRequestHeader=key,</span> <span class="hljs-string">value</span><br>      <span class="hljs-attr">default-filters:</span><br>        <span class="hljs-bullet">-</span> <span class="hljs-string">AddRequestHeader=key,</span> <span class="hljs-string">value</span><br></code></pre></td></tr></table></figure>
+<figure class="highlight yaml"><figcaption><span>src/main/resource/application.yml</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">spring:</span></span><br><span class="line">  <span class="attr">cloud:</span></span><br><span class="line">    <span class="attr">gateway:</span></span><br><span class="line">      <span class="attr">routes:</span></span><br><span class="line">        <span class="bullet">-</span> <span class="attr">id:</span> <span class="string">eureka-service-user</span></span><br><span class="line">          <span class="attr">uri:</span> <span class="string">lb://eureka-service-user</span></span><br><span class="line">          <span class="attr">predicates:</span></span><br><span class="line">            <span class="bullet">-</span> <span class="string">Path=/users/**</span></span><br><span class="line">        <span class="bullet">-</span> <span class="attr">id:</span> <span class="string">eureka-service-user</span></span><br><span class="line">          <span class="attr">uri:</span> <span class="string">http://127.0.0.1:8082</span></span><br><span class="line">          <span class="attr">predicates:</span></span><br><span class="line">            <span class="bullet">-</span> <span class="string">Path=/orders/**</span></span><br><span class="line">          <span class="attr">filters:</span></span><br><span class="line">            <span class="bullet">-</span> <span class="string">AddRequestHeader=key,</span> <span class="string">value</span></span><br><span class="line">      <span class="attr">default-filters:</span></span><br><span class="line">        <span class="bullet">-</span> <span class="string">AddRequestHeader=key,</span> <span class="string">value</span></span><br></pre></td></tr></table></figure>
 
 <h4 id="路由的断言"><a href="#路由的断言" class="headerlink" title="路由的断言"></a>路由的断言</h4><ul>
 <li><a target="_blank" rel="noopener" href="https://docs.spring.io/spring-cloud-gateway/docs/current/reference/html/#gateway-request-predicates-factories">官方文档</a></li>
@@ -364,7 +216,7 @@
 <blockquote>
 <p><code>spring.cloud.gateway.routes.predicates.After</code>：指定时间之后<br><code>spring.cloud.gateway.routes.predicates.Before</code>：指定时间之前<br><code>spring.cloud.gateway.routes.predicates.Between</code>：指定时间之间<br><code>spring.cloud.gateway.routes.predicates.Cookie</code>：指定符合条件的Cookie<br><code>spring.cloud.gateway.routes.predicates.Header</code>：指定符合条件的Header<br><code>spring.cloud.gateway.routes.predicates.Host</code>：指定符合条件的请求域名<br><code>spring.cloud.gateway.routes.predicates.Method</code>：指定符合条件的请求方式<br><code>spring.cloud.gateway.routes.predicates.Path</code>：指定符合条件的请求地址<br><code>spring.cloud.gateway.routes.predicates.Query</code>：指定符合条件的请求参数<br><code>spring.cloud.gateway.routes.predicates.RemoteAddr</code>：指定符合条件的请求IP范围<br><code>spring.cloud.gateway.routes.predicates.Weight</code>：指定符合条件的组和权重</p>
 </blockquote>
-<figure class="highlight yaml"><figcaption><span>src/main/resource/application.yml</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs yaml"><span class="hljs-attr">spring:</span><br>  <span class="hljs-attr">cloud:</span><br>    <span class="hljs-attr">gateway:</span><br>      <span class="hljs-attr">routes:</span><br>        <span class="hljs-bullet">-</span> <span class="hljs-attr">predicates:</span><br>          <span class="hljs-bullet">-</span> <span class="hljs-string">After=2017-01-20T17:42:47.789-07:00[America/Denver]</span><br>          <span class="hljs-bullet">-</span> <span class="hljs-string">Before=2017-01-20T17:42:47.789-07:00[America/Denver]</span><br>          <span class="hljs-bullet">-</span> <span class="hljs-string">Between=2017-01-20T17:42:47.789-07:00[America/Denver],</span> <span class="hljs-number">2017-01-21T17:42:47.789-07:00</span>[<span class="hljs-string">America/Denver</span>]<br>          <span class="hljs-bullet">-</span> <span class="hljs-string">Cookie=chocolate,</span> <span class="hljs-string">ch.p</span><br>          <span class="hljs-bullet">-</span> <span class="hljs-string">Header=X-Request-Id,</span> <span class="hljs-string">\d+</span><br>          <span class="hljs-bullet">-</span> <span class="hljs-string">Host=**.somehost.org,**.anotherhost.org</span><br>          <span class="hljs-bullet">-</span> <span class="hljs-string">Method=GET,POST</span><br>          <span class="hljs-bullet">-</span> <span class="hljs-string">Path=/red/&#123;segment&#125;,/blue/&#123;segment&#125;</span><br>          <span class="hljs-bullet">-</span> <span class="hljs-string">Query=green</span><br>          <span class="hljs-bullet">-</span> <span class="hljs-string">RemoteAddr=192.168.1.1/24</span><br>          <span class="hljs-bullet">-</span> <span class="hljs-string">Weight=group1,</span> <span class="hljs-number">2</span><br></code></pre></td></tr></table></figure>
+<figure class="highlight yaml"><figcaption><span>src/main/resource/application.yml</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">spring:</span></span><br><span class="line">  <span class="attr">cloud:</span></span><br><span class="line">    <span class="attr">gateway:</span></span><br><span class="line">      <span class="attr">routes:</span></span><br><span class="line">        <span class="bullet">-</span> <span class="attr">predicates:</span></span><br><span class="line">          <span class="bullet">-</span> <span class="string">After=2017-01-20T17:42:47.789-07:00[America/Denver]</span></span><br><span class="line">          <span class="bullet">-</span> <span class="string">Before=2017-01-20T17:42:47.789-07:00[America/Denver]</span></span><br><span class="line">          <span class="bullet">-</span> <span class="string">Between=2017-01-20T17:42:47.789-07:00[America/Denver],</span> <span class="number">2017-01-21T17:42:47.789-07:00</span>[<span class="string">America/Denver</span>]</span><br><span class="line">          <span class="bullet">-</span> <span class="string">Cookie=chocolate,</span> <span class="string">ch.p</span></span><br><span class="line">          <span class="bullet">-</span> <span class="string">Header=X-Request-Id,</span> <span class="string">\d+</span></span><br><span class="line">          <span class="bullet">-</span> <span class="string">Host=**.somehost.org,**.anotherhost.org</span></span><br><span class="line">          <span class="bullet">-</span> <span class="string">Method=GET,POST</span></span><br><span class="line">          <span class="bullet">-</span> <span class="string">Path=/red/&#123;segment&#125;,/blue/&#123;segment&#125;</span></span><br><span class="line">          <span class="bullet">-</span> <span class="string">Query=green</span></span><br><span class="line">          <span class="bullet">-</span> <span class="string">RemoteAddr=192.168.1.1/24</span></span><br><span class="line">          <span class="bullet">-</span> <span class="string">Weight=group1,</span> <span class="number">2</span></span><br></pre></td></tr></table></figure>
 
 <h4 id="路由的过滤器"><a href="#路由的过滤器" class="headerlink" title="路由的过滤器"></a>路由的过滤器</h4><ul>
 <li><p>对请求或响应做处理</p>
@@ -380,17 +232,17 @@
 <p><code>spring.cloud.gateway.routes.filters.SetPath</code>：设置请求路径<br><code>spring.cloud.gateway.routes.filters.RewritePath</code>：重写请求路径</p>
 <p><code>spring.cloud.gateway.routes.filters.RequestHeaderSize</code>：请求头大小<br><code>spring.cloud.gateway.routes.filters.RedirectTo</code>：请求转发<br><code>spring.cloud.gateway.routes.filters.SaveSession</code>：保存Session<br><code>spring.cloud.gateway.routes.filters.SetStatus</code>：设置状态码</p>
 </blockquote>
-<figure class="highlight yaml"><figcaption><span>src/main/resource/application.yml</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><code class="hljs yaml"><span class="hljs-attr">spring:</span><br>  <span class="hljs-attr">cloud:</span><br>    <span class="hljs-attr">gateway:</span><br>      <span class="hljs-attr">routes:</span><br>        <span class="hljs-bullet">-</span> <span class="hljs-attr">filters:</span><br>          <span class="hljs-bullet">-</span> <span class="hljs-string">AddRequestHeader=key,</span> <span class="hljs-string">value</span><br>          <span class="hljs-bullet">-</span> <span class="hljs-string">AddRequestParameter=red,</span> <span class="hljs-string">blue</span><br>          <span class="hljs-bullet">-</span> <span class="hljs-string">AddResponseHeader=X-Response-Red,</span> <span class="hljs-string">Blue</span><br>          <span class="hljs-bullet">-</span> <span class="hljs-string">DedupeResponseHeader=Access-Control-Allow-Credentials</span> <span class="hljs-string">Access-Control-Allow-Origin</span><br>          <span class="hljs-bullet">-</span> <span class="hljs-string">PrefixPath=/mypath</span><br>          <span class="hljs-bullet">-</span> <span class="hljs-string">RedirectTo=302,</span> <span class="hljs-string">https://acme.org</span><br>          <span class="hljs-bullet">-</span> <span class="hljs-string">RemoveRequestHeader=X-Request-Foo</span><br>          <span class="hljs-bullet">-</span> <span class="hljs-string">RemoveResponseHeader=X-Response-Foo</span><br>          <span class="hljs-bullet">-</span> <span class="hljs-string">RemoveRequestParameter=red</span><br>          <span class="hljs-bullet">-</span> <span class="hljs-string">RequestHeaderSize=1000B</span><br>          <span class="hljs-bullet">-</span> <span class="hljs-string">RewritePath=/red/?(?&lt;segment&gt;.*),</span> <span class="hljs-string">/$\&#123;segment&#125;</span><br>          <span class="hljs-bullet">-</span> <span class="hljs-string">RewriteLocationResponseHeader=AS_IN_REQUEST,</span> <span class="hljs-string">Location,</span> <span class="hljs-string">,</span><br>          <span class="hljs-bullet">-</span> <span class="hljs-string">RewriteResponseHeader=X-Response-Red,</span> <span class="hljs-string">,</span> <span class="hljs-string">password=[^&amp;]+,</span> <span class="hljs-string">password=***</span><br>          <span class="hljs-bullet">-</span> <span class="hljs-string">SaveSession</span><br>          <span class="hljs-bullet">-</span> <span class="hljs-string">SetPath=/&#123;segment&#125;</span><br>          <span class="hljs-bullet">-</span> <span class="hljs-string">SetRequestHeader=X-Request-Red,</span> <span class="hljs-string">Blue</span><br>          <span class="hljs-bullet">-</span> <span class="hljs-string">SetResponseHeader=X-Response-Red,</span> <span class="hljs-string">Blue</span><br>          <span class="hljs-bullet">-</span> <span class="hljs-string">SetStatus=401</span><br>          <span class="hljs-bullet">-</span> <span class="hljs-string">StripPrefix=2</span><br></code></pre></td></tr></table></figure>
+<figure class="highlight yaml"><figcaption><span>src/main/resource/application.yml</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">spring:</span></span><br><span class="line">  <span class="attr">cloud:</span></span><br><span class="line">    <span class="attr">gateway:</span></span><br><span class="line">      <span class="attr">routes:</span></span><br><span class="line">        <span class="bullet">-</span> <span class="attr">filters:</span></span><br><span class="line">          <span class="bullet">-</span> <span class="string">AddRequestHeader=key,</span> <span class="string">value</span></span><br><span class="line">          <span class="bullet">-</span> <span class="string">AddRequestParameter=red,</span> <span class="string">blue</span></span><br><span class="line">          <span class="bullet">-</span> <span class="string">AddResponseHeader=X-Response-Red,</span> <span class="string">Blue</span></span><br><span class="line">          <span class="bullet">-</span> <span class="string">DedupeResponseHeader=Access-Control-Allow-Credentials</span> <span class="string">Access-Control-Allow-Origin</span></span><br><span class="line">          <span class="bullet">-</span> <span class="string">PrefixPath=/mypath</span></span><br><span class="line">          <span class="bullet">-</span> <span class="string">RedirectTo=302,</span> <span class="string">https://acme.org</span></span><br><span class="line">          <span class="bullet">-</span> <span class="string">RemoveRequestHeader=X-Request-Foo</span></span><br><span class="line">          <span class="bullet">-</span> <span class="string">RemoveResponseHeader=X-Response-Foo</span></span><br><span class="line">          <span class="bullet">-</span> <span class="string">RemoveRequestParameter=red</span></span><br><span class="line">          <span class="bullet">-</span> <span class="string">RequestHeaderSize=1000B</span></span><br><span class="line">          <span class="bullet">-</span> <span class="string">RewritePath=/red/?(?&lt;segment&gt;.*),</span> <span class="string">/$\&#123;segment&#125;</span></span><br><span class="line">          <span class="bullet">-</span> <span class="string">RewriteLocationResponseHeader=AS_IN_REQUEST,</span> <span class="string">Location,</span> <span class="string">,</span></span><br><span class="line">          <span class="bullet">-</span> <span class="string">RewriteResponseHeader=X-Response-Red,</span> <span class="string">,</span> <span class="string">password=[^&amp;]+,</span> <span class="string">password=***</span></span><br><span class="line">          <span class="bullet">-</span> <span class="string">SaveSession</span></span><br><span class="line">          <span class="bullet">-</span> <span class="string">SetPath=/&#123;segment&#125;</span></span><br><span class="line">          <span class="bullet">-</span> <span class="string">SetRequestHeader=X-Request-Red,</span> <span class="string">Blue</span></span><br><span class="line">          <span class="bullet">-</span> <span class="string">SetResponseHeader=X-Response-Red,</span> <span class="string">Blue</span></span><br><span class="line">          <span class="bullet">-</span> <span class="string">SetStatus=401</span></span><br><span class="line">          <span class="bullet">-</span> <span class="string">StripPrefix=2</span></span><br></pre></td></tr></table></figure>
 
 <h2 id="全局过滤器（GlobalFilter）"><a href="#全局过滤器（GlobalFilter）" class="headerlink" title="全局过滤器（GlobalFilter）"></a>全局过滤器（GlobalFilter）</h2><h3 id="通过注解指定优先级"><a href="#通过注解指定优先级" class="headerlink" title="通过注解指定优先级"></a>通过注解指定优先级</h3><blockquote>
 <p><code>@Order()</code>：指定过滤器在过滤器链上的优先级，数字越小，优先级越高，范围是[-214783647,214783647]，默认值为最大值，优先级最低</p>
 </blockquote>
-<figure class="highlight java"><figcaption><span>src/main/java/com/filter/AuthorizeFilter.java</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">package</span> com.filter;<br><br><span class="hljs-keyword">import</span> org.springframework.cloud.gateway.filter.GatewayFilterChain;<br><span class="hljs-keyword">import</span> org.springframework.cloud.gateway.filter.GlobalFilter;<br><span class="hljs-keyword">import</span> org.springframework.core.annotation.Order;<br><span class="hljs-keyword">import</span> org.springframework.http.HttpStatus;<br><span class="hljs-keyword">import</span> org.springframework.http.server.reactive.ServerHttpRequest;<br><span class="hljs-keyword">import</span> org.springframework.stereotype.Component;<br><span class="hljs-keyword">import</span> org.springframework.util.MultiValueMap;<br><span class="hljs-keyword">import</span> org.springframework.web.server.ServerWebExchange;<br><span class="hljs-keyword">import</span> reactor.core.publisher.Mono;<br><br><span class="hljs-meta">@Order(0)</span><br><span class="hljs-meta">@Component</span><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">AuthorizeFilter</span> <span class="hljs-keyword">implements</span> <span class="hljs-title class_">GlobalFilter</span> &#123;<br>    <span class="hljs-meta">@Override</span><br>    <span class="hljs-keyword">public</span> Mono&lt;Void&gt; <span class="hljs-title function_">filter</span><span class="hljs-params">(ServerWebExchange exchange, GatewayFilterChain chain)</span> &#123;<br>        <span class="hljs-comment">// 1. 获取请求参数</span><br>        <span class="hljs-type">ServerHttpRequest</span> <span class="hljs-variable">request</span> <span class="hljs-operator">=</span> exchange.getRequest();<br>        MultiValueMap&lt;String, String&gt; params = request.getQueryParams();<br>        <span class="hljs-comment">// 2. 判断请求参数是否指定参数</span><br>        <span class="hljs-type">String</span> <span class="hljs-variable">param</span> <span class="hljs-operator">=</span> params.getFirst(<span class="hljs-string">&quot;key&quot;</span>);<br>        <span class="hljs-keyword">if</span> (<span class="hljs-string">&quot;value&quot;</span>.equals(param)) &#123;<br>            <span class="hljs-comment">// 3. 通过链接下一个过滤器链，实现放行</span><br>            <span class="hljs-keyword">return</span> chain.filter(exchange);<br>        &#125;<br>        <span class="hljs-comment">// 4. 通过直接返回响应，实现拦截</span><br>        <span class="hljs-comment">// 4.1 根据业务逻辑设置响应码</span><br>        exchange.getResponse().setStatusCode(HttpStatus.UNAUTHORIZED);<br>        <span class="hljs-comment">// 4.2 返回响应</span><br>        <span class="hljs-keyword">return</span> exchange.getResponse().setComplete();<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+<figure class="highlight java"><figcaption><span>src/main/java/com/filter/AuthorizeFilter.java</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.filter;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> org.springframework.cloud.gateway.filter.GatewayFilterChain;</span><br><span class="line"><span class="keyword">import</span> org.springframework.cloud.gateway.filter.GlobalFilter;</span><br><span class="line"><span class="keyword">import</span> org.springframework.core.annotation.Order;</span><br><span class="line"><span class="keyword">import</span> org.springframework.http.HttpStatus;</span><br><span class="line"><span class="keyword">import</span> org.springframework.http.server.reactive.ServerHttpRequest;</span><br><span class="line"><span class="keyword">import</span> org.springframework.stereotype.Component;</span><br><span class="line"><span class="keyword">import</span> org.springframework.util.MultiValueMap;</span><br><span class="line"><span class="keyword">import</span> org.springframework.web.server.ServerWebExchange;</span><br><span class="line"><span class="keyword">import</span> reactor.core.publisher.Mono;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Order(0)</span></span><br><span class="line"><span class="meta">@Component</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">AuthorizeFilter</span> <span class="keyword">implements</span> <span class="title class_">GlobalFilter</span> &#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> Mono&lt;Void&gt; <span class="title function_">filter</span><span class="params">(ServerWebExchange exchange, GatewayFilterChain chain)</span> &#123;</span><br><span class="line">        <span class="comment">// 1. 获取请求参数</span></span><br><span class="line">        <span class="type">ServerHttpRequest</span> <span class="variable">request</span> <span class="operator">=</span> exchange.getRequest();</span><br><span class="line">        MultiValueMap&lt;String, String&gt; params = request.getQueryParams();</span><br><span class="line">        <span class="comment">// 2. 判断请求参数是否指定参数</span></span><br><span class="line">        <span class="type">String</span> <span class="variable">param</span> <span class="operator">=</span> params.getFirst(<span class="string">&quot;key&quot;</span>);</span><br><span class="line">        <span class="keyword">if</span> (<span class="string">&quot;value&quot;</span>.equals(param)) &#123;</span><br><span class="line">            <span class="comment">// 3. 通过链接下一个过滤器链，实现放行</span></span><br><span class="line">            <span class="keyword">return</span> chain.filter(exchange);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">// 4. 通过直接返回响应，实现拦截</span></span><br><span class="line">        <span class="comment">// 4.1 根据业务逻辑设置响应码</span></span><br><span class="line">        exchange.getResponse().setStatusCode(HttpStatus.UNAUTHORIZED);</span><br><span class="line">        <span class="comment">// 4.2 返回响应</span></span><br><span class="line">        <span class="keyword">return</span> exchange.getResponse().setComplete();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <h3 id="通过实现接口指定优先级"><a href="#通过实现接口指定优先级" class="headerlink" title="通过实现接口指定优先级"></a>通过实现接口指定优先级</h3><ul>
 <li>通过重写<code>getOrder()</code>方法指定过滤器在过滤器链上的优先级，在返回值中指定，数字越小，优先级越高</li>
 </ul>
-<figure class="highlight java"><figcaption><span>src/main/java/com/filter/AuthorizeFilter.java</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">package</span> com.filter;<br><br><span class="hljs-keyword">import</span> org.springframework.cloud.gateway.filter.GatewayFilterChain;<br><span class="hljs-keyword">import</span> org.springframework.cloud.gateway.filter.GlobalFilter;<br><span class="hljs-keyword">import</span> org.springframework.core.Ordered;<br><span class="hljs-keyword">import</span> org.springframework.http.HttpStatus;<br><span class="hljs-keyword">import</span> org.springframework.http.server.reactive.ServerHttpRequest;<br><span class="hljs-keyword">import</span> org.springframework.stereotype.Component;<br><span class="hljs-keyword">import</span> org.springframework.util.MultiValueMap;<br><span class="hljs-keyword">import</span> org.springframework.web.server.ServerWebExchange;<br><span class="hljs-keyword">import</span> reactor.core.publisher.Mono;<br><br><span class="hljs-meta">@Component</span><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">AuthorizeFilter</span> <span class="hljs-keyword">implements</span> <span class="hljs-title class_">GlobalFilter</span>, Ordered &#123;<br>    <span class="hljs-meta">@Override</span><br>    <span class="hljs-keyword">public</span> Mono&lt;Void&gt; <span class="hljs-title function_">filter</span><span class="hljs-params">(ServerWebExchange exchange, GatewayFilterChain chain)</span> &#123;<br>        <span class="hljs-comment">// 1. 获取请求参数</span><br>        <span class="hljs-type">ServerHttpRequest</span> <span class="hljs-variable">request</span> <span class="hljs-operator">=</span> exchange.getRequest();<br>        MultiValueMap&lt;String, String&gt; params = request.getQueryParams();<br>        <span class="hljs-comment">// 2. 判断请求参数是否指定参数</span><br>        <span class="hljs-type">String</span> <span class="hljs-variable">param</span> <span class="hljs-operator">=</span> params.getFirst(<span class="hljs-string">&quot;key&quot;</span>);<br>        <span class="hljs-keyword">if</span> (<span class="hljs-string">&quot;value&quot;</span>.equals(param)) &#123;<br>            <span class="hljs-comment">// 3. 通过链接下一个过滤器链，实现放行</span><br>            <span class="hljs-keyword">return</span> chain.filter(exchange);<br>        &#125;<br>        <span class="hljs-comment">// 4. 通过直接返回响应，实现拦截</span><br>        <span class="hljs-comment">// 4.1 根据业务逻辑设置响应码</span><br>        exchange.getResponse().setStatusCode(HttpStatus.UNAUTHORIZED);<br>        <span class="hljs-comment">// 4.2 返回响应</span><br>        <span class="hljs-keyword">return</span> exchange.getResponse().setComplete();<br>    &#125;<br><br>    <span class="hljs-meta">@Override</span><br>    <span class="hljs-keyword">public</span> <span class="hljs-type">int</span> <span class="hljs-title function_">getOrder</span><span class="hljs-params">()</span> &#123;<br>        <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+<figure class="highlight java"><figcaption><span>src/main/java/com/filter/AuthorizeFilter.java</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.filter;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> org.springframework.cloud.gateway.filter.GatewayFilterChain;</span><br><span class="line"><span class="keyword">import</span> org.springframework.cloud.gateway.filter.GlobalFilter;</span><br><span class="line"><span class="keyword">import</span> org.springframework.core.Ordered;</span><br><span class="line"><span class="keyword">import</span> org.springframework.http.HttpStatus;</span><br><span class="line"><span class="keyword">import</span> org.springframework.http.server.reactive.ServerHttpRequest;</span><br><span class="line"><span class="keyword">import</span> org.springframework.stereotype.Component;</span><br><span class="line"><span class="keyword">import</span> org.springframework.util.MultiValueMap;</span><br><span class="line"><span class="keyword">import</span> org.springframework.web.server.ServerWebExchange;</span><br><span class="line"><span class="keyword">import</span> reactor.core.publisher.Mono;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Component</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">AuthorizeFilter</span> <span class="keyword">implements</span> <span class="title class_">GlobalFilter</span>, Ordered &#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> Mono&lt;Void&gt; <span class="title function_">filter</span><span class="params">(ServerWebExchange exchange, GatewayFilterChain chain)</span> &#123;</span><br><span class="line">        <span class="comment">// 1. 获取请求参数</span></span><br><span class="line">        <span class="type">ServerHttpRequest</span> <span class="variable">request</span> <span class="operator">=</span> exchange.getRequest();</span><br><span class="line">        MultiValueMap&lt;String, String&gt; params = request.getQueryParams();</span><br><span class="line">        <span class="comment">// 2. 判断请求参数是否指定参数</span></span><br><span class="line">        <span class="type">String</span> <span class="variable">param</span> <span class="operator">=</span> params.getFirst(<span class="string">&quot;key&quot;</span>);</span><br><span class="line">        <span class="keyword">if</span> (<span class="string">&quot;value&quot;</span>.equals(param)) &#123;</span><br><span class="line">            <span class="comment">// 3. 通过链接下一个过滤器链，实现放行</span></span><br><span class="line">            <span class="keyword">return</span> chain.filter(exchange);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">// 4. 通过直接返回响应，实现拦截</span></span><br><span class="line">        <span class="comment">// 4.1 根据业务逻辑设置响应码</span></span><br><span class="line">        exchange.getResponse().setStatusCode(HttpStatus.UNAUTHORIZED);</span><br><span class="line">        <span class="comment">// 4.2 返回响应</span></span><br><span class="line">        <span class="keyword">return</span> exchange.getResponse().setComplete();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> <span class="type">int</span> <span class="title function_">getOrder</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <h2 id="过滤器的排序规则"><a href="#过滤器的排序规则" class="headerlink" title="过滤器的排序规则"></a>过滤器的排序规则</h2><ul>
 <li>过滤器有三种类型，分别是：全局过滤器、默认过滤器、路由过滤器</li>
@@ -399,12 +251,12 @@
 <li>相同权值的过滤器，再比较类型，类型的优先级是：<code>默认过滤器 &gt; 路由过滤器 &gt; 全局过滤器</code></li>
 </ul>
 <p>举例</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs">默认过滤器1 &gt; 路由过滤器1 &gt; 全局过滤器1 &gt; 默认过滤器2 &gt; 路由过滤器3<br></code></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">默认过滤器1 &gt; 路由过滤器1 &gt; 全局过滤器1 &gt; 默认过滤器2 &gt; 路由过滤器3</span><br></pre></td></tr></table></figure>
 
 <h2 id="跨域处理"><a href="#跨域处理" class="headerlink" title="跨域处理"></a>跨域处理</h2><blockquote>
 <p><code>spring.cloud.gateway.globalcors.add-to-simple-url-handler-mapping</code>：解决OPTIONS请求被拦截的问题<br><code>spring.cloud.gateway.globalcors.cors-configurations.&#39;&#39;</code>：指定哪些请求被跨域处理<br><code>spring.cloud.gateway.globalcors.cors-configurations.&#39;&#39;.allowedOrigins</code>：指定允许跨域请求的网站<br><code>spring.cloud.gateway.globalcors.cors-configurations.&#39;&#39;.allowedMethods</code>：指定允许跨域请求的请求类型<br><code>spring.cloud.gateway.globalcors.cors-configurations.&#39;&#39;.allowedHeaders</code>：指定允许跨域请求的请求头携带信息<br><code>spring.cloud.gateway.globalcors.cors-configurations.&#39;&#39;.allowCredentials</code>：是否允许携带Cookie<br><code>spring.cloud.gateway.globalcors.cors-configurations.&#39;&#39;.maxAge</code>：本次跨域检测的有效期</p>
 </blockquote>
-<figure class="highlight yaml"><figcaption><span>src/main/resources/application.yml</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><code class="hljs yaml"><span class="hljs-attr">spring:</span><br>  <span class="hljs-attr">cloud:</span><br>    <span class="hljs-attr">gateway:</span><br>      <span class="hljs-attr">globalcors:</span><br>        <span class="hljs-attr">add-to-simple-url-handler-mapping:</span> <span class="hljs-literal">true</span><br>        <span class="hljs-attr">cors-configurations:</span> <br>          <span class="hljs-string">&#x27;[/**]&#x27;</span><span class="hljs-string">:</span><br>            <span class="hljs-attr">allowedOrigins:</span><br>              <span class="hljs-bullet">-</span> <span class="hljs-string">&quot;http://simple.com&quot;</span><br>            <span class="hljs-attr">allowedMethods:</span><br>              <span class="hljs-bullet">-</span> <span class="hljs-string">&quot;GET&quot;</span><br>              <span class="hljs-bullet">-</span> <span class="hljs-string">&quot;POST&quot;</span><br>              <span class="hljs-bullet">-</span> <span class="hljs-string">&quot;DELETE&quot;</span><br>              <span class="hljs-bullet">-</span> <span class="hljs-string">&quot;PUT&quot;</span><br>              <span class="hljs-bullet">-</span> <span class="hljs-string">&quot;OPTIONS&quot;</span><br>            <span class="hljs-attr">allowedHeaders:</span> <span class="hljs-string">&quot;*&quot;</span><br>            <span class="hljs-attr">allowCredentials:</span> <span class="hljs-literal">true</span><br>            <span class="hljs-attr">maxAge:</span> <span class="hljs-number">360000</span><br></code></pre></td></tr></table></figure>
+<figure class="highlight yaml"><figcaption><span>src/main/resources/application.yml</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">spring:</span></span><br><span class="line">  <span class="attr">cloud:</span></span><br><span class="line">    <span class="attr">gateway:</span></span><br><span class="line">      <span class="attr">globalcors:</span></span><br><span class="line">        <span class="attr">add-to-simple-url-handler-mapping:</span> <span class="literal">true</span></span><br><span class="line">        <span class="attr">cors-configurations:</span> </span><br><span class="line">          <span class="string">&#x27;[/**]&#x27;</span><span class="string">:</span></span><br><span class="line">            <span class="attr">allowedOrigins:</span></span><br><span class="line">              <span class="bullet">-</span> <span class="string">&quot;http://simple.com&quot;</span></span><br><span class="line">            <span class="attr">allowedMethods:</span></span><br><span class="line">              <span class="bullet">-</span> <span class="string">&quot;GET&quot;</span></span><br><span class="line">              <span class="bullet">-</span> <span class="string">&quot;POST&quot;</span></span><br><span class="line">              <span class="bullet">-</span> <span class="string">&quot;DELETE&quot;</span></span><br><span class="line">              <span class="bullet">-</span> <span class="string">&quot;PUT&quot;</span></span><br><span class="line">              <span class="bullet">-</span> <span class="string">&quot;OPTIONS&quot;</span></span><br><span class="line">            <span class="attr">allowedHeaders:</span> <span class="string">&quot;*&quot;</span></span><br><span class="line">            <span class="attr">allowCredentials:</span> <span class="literal">true</span></span><br><span class="line">            <span class="attr">maxAge:</span> <span class="number">360000</span></span><br></pre></td></tr></table></figure>
 
 <h2 id="踩坑"><a href="#踩坑" class="headerlink" title="踩坑"></a>踩坑</h2><ul>
 <li>启动失败，报错：<code>Consider defining a bean of type &#39;org.springframework.http.codec.ServerCodecConfigurer&#39; in your configuration.</code></li>
@@ -417,382 +269,219 @@
 </ul>
 <h2 id="完成"><a href="#完成" class="headerlink" title="完成"></a>完成</h2><h2 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h2><p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1LQ4y127n4/">哔哩哔哩——黑马程序员</a></p>
 
-                
-              </div>
-            
-            <hr/>
-            <div>
-              <div class="post-metas my-3">
-  
-  
-    <div class="post-meta">
-      <i class="iconfont icon-tags"></i>
-      
-        <a href="/tags/Java/" class="print-no-link">#Java</a>
-      
-        <a href="/tags/Spring/" class="print-no-link">#Spring</a>
-      
-        <a href="/tags/SpringCloud/" class="print-no-link">#SpringCloud</a>
-      
     </div>
-  
-</div>
+     
+    <div class="post-footer__meta"><p>更新于 2024-08-06</p></div> 
+    <div class="post-entry__tags"><a href="/tags/Java/" class="post-tags__link button"># Java</a><a href="/tags/Spring/" class="post-tags__link button"># Spring</a><a href="/tags/SpringCloud/" class="post-tags__link button"># SpringCloud</a></div> 
+</article>
 
 
-              
-
-              
-                <div class="post-prevnext my-3">
-                  <article class="post-prev col-6">
-                    
-                    
-                      <a href="/2022/10/29/Global%E9%94%AE%E7%9A%84%E5%BF%AB%E6%8D%B7%E9%94%AE/" title="【笔记】Global键的快捷键">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">【笔记】Global键的快捷键</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
-                  </article>
-                  <article class="post-next col-6">
-                    
-                    
-                      <a href="/2022/10/28/STC12C5A60S2%E5%A4%B4%E6%96%87%E4%BB%B6%E6%BA%90%E4%BB%A3%E7%A0%81/" title="【笔记】STC12C5A60S2头文件源代码">
-                        <span class="hidden-mobile">【笔记】STC12C5A60S2头文件源代码</span>
-                        <span class="visible-mobile">下一篇</span>
-                        <i class="iconfont icon-arrowright"></i>
-                      </a>
-                    
-                  </article>
-                </div>
-              
-            </div>
-
+    <div class="nav">
+        <div class="nav__prev">
             
-  
-  
-    <article id="comments" lazyload>
-      
-  <div id="twikoo"></div>
-  <script type="text/javascript">
-    Fluid.utils.loadComments('#comments', function() {
-      Fluid.utils.createScript('https://lib.baomitu.com/twikoo/1.6.8/twikoo.all.min.js', function() {
-        var options = Object.assign(
-          {"envId":"https://twikoo.loli.fj.cn","region":"ap-shanghai","path":"window.location.pathname"},
-          {
-            el: '#twikoo',
-            path: 'window.location.pathname',
-            onCommentLoaded: function() {
-              Fluid.utils.listenDOMLoaded(function() {
-                var imgSelector = '#twikoo .tk-content img:not(.tk-owo-emotion)';
-                Fluid.plugins.imageCaption(imgSelector);
-                Fluid.plugins.fancyBox(imgSelector);
-              });
+                <a href="/2022/10/29/Global%E9%94%AE%E7%9A%84%E5%BF%AB%E6%8D%B7%E9%94%AE/" class="nav__link">
+                    <div>
+                        <svg viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" width="24" height="24"><path d="M589.088 790.624L310.464 512l278.624-278.624 45.248 45.248L400.96 512l233.376 233.376z" fill="#808080"></path></svg>
+                    </div>
+                    <div>
+                        <div class="nav__label">
+                            上一篇
+                        </div>
+                        <div class="nav__title">
+                            【笔记】Global键的快捷键
+                        </div>
+                    </div>
+                </a>
+            
+        </div>
+        <div class="nav__next">
+            
+                <a href="/2022/10/28/STC12C5A60S2%E5%A4%B4%E6%96%87%E4%BB%B6%E6%BA%90%E4%BB%A3%E7%A0%81/" class="nav__link">
+                    <div>
+                        <div class="nav__label">
+                            下一篇
+                        </div>
+                        <div class="nav__title">
+                            【笔记】STC12C5A60S2头文件源代码
+                        </div>
+                    </div>
+                    <div>
+                        <svg viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" width="24" height="24"><path d="M434.944 790.624l-45.248-45.248L623.04 512l-233.376-233.376 45.248-45.248L713.568 512z" fill="#808080"></path></svg>
+                    </div>
+                </a>
+            
+        </div>
+    </div>
+
+
+
+    <div class="post__comments post__with-toc content-card" id="comment">
+        
+    <h4>评论</h4>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <div id="tcomment" class="twikoo_thread"></div>
+
+    
+
+
+
+    </div>
+
+
+
+</main>
+
+            <footer class="footer">
+     
+    <a href="#" class="button" id="b2t" aria-label="回到顶部" title="回到顶部">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" width="32" height="32">
+            <path d="M233.376 722.752L278.624 768 512 534.624 745.376 768l45.248-45.248L512 444.128zM192 352h640V288H192z" fill="currentColor"></path>
+        </svg>
+    </a>
+
+    
+
+
+    
+    
+    
+        <span id="busuanzi_container_site_uv" hidden>
+            <span></span>
+            <span id="busuanzi_value_site_uv"></span>
+            <span>Viewers</span>
+            
+                <span>&amp;nbsp;&amp;nbsp;&amp;nbsp;|</span>
+            
+        </span>
+    
+    
+        <span id="busuanzi_container_site_pv" hidden>
+            <span></span>
+            <span id="busuanzi_value_site_pv"></span>
+            <span>Views</span>
+            
+        </span>
+    
+ 
+ 
+
+ 
+    
+        
+        <p class="footer-copyright">
+            Copyright © 2024 <a href="/">绯鞠的博客</a>
+        </p>
+    
+    
+    <p>Powered by <a href="https://hexo.io" target="_blank">Hexo</a> | Theme - <a href="https://github.com/ChrAlpha/hexo-theme-cards" target="_blank">Cards</a></p>
+</footer>
+
+        </div>
+         
+
+ 
+
+ 
+
+ 
+
+ 
+
+
+
+ 
+
+
+
+ 
+
+
+    
+ 
+
+ 
+
+ 
+
+ 
+
+
+    <script src='https://cdn.jsdelivr.net/npm/mermaid@8.10.2/dist/mermaid.min.js'></script>
+    <script>
+            mermaid.initialize(JSON.stringify(''));
+    </script>
+ 
+
+ 
+
+
+    
+
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+
+    
+    
+    
+    
+    
+
+    
+    
+    
+    <script>
+        function loadComment() {
+            let e;
+            (e = document.createElement("script")).src = 'https://cdn.jsdelivr.net/npm/twikoo@0.3.2/dist/twikoo.all.min.js',
+            document.body.appendChild(e);
+            e.onload = () => {
+                twikoo.init({
+                    envId: 'https://twikoo.loli.fj.cn',
+                    el: '#tcomment'
+                });
+            };
+        }
+    
+        var runningOnBrowser = typeof window !== "undefined";
+        var isBot = runningOnBrowser && !("onscroll" in window) || typeof navigator !== "undefined" && /(gle|ing|ro|msn)bot|crawl|spider|yand|duckgo/i.test(navigator.userAgent);
+        var supportsIntersectionObserver = runningOnBrowser && "IntersectionObserver" in window;
+    
+        setTimeout(function () {
+            if (!isBot && supportsIntersectionObserver) {
+                var comment_observer = new IntersectionObserver(function(entries) {
+                    if (entries[0].isIntersecting) {
+                        loadComment();
+                        comment_observer.disconnect();
+                    }
+                }, { threshold: [0] });
+                comment_observer.observe(document.getElementById('comment'));
+            } else {
+                loadComment();
             }
-          }
-        )
-        twikoo.init(options)
-      });
-    });
-  </script>
-  <noscript>Please enable JavaScript to view the comments</noscript>
+        }, 1);
+    </script>
 
 
-    </article>
-  
 
 
-          </article>
-        </div>
-      </div>
-    </div>
-
-    <div class="side-col d-none d-lg-block col-lg-2">
-      
-  <aside class="sidebar" style="margin-left: -1rem">
-    <div id="toc">
-  <p class="toc-header">
-    <i class="iconfont icon-list"></i>
-    <span>目录</span>
-  </p>
-  <div class="toc-body" id="toc-body"></div>
-</div>
-
-
-
-  </aside>
-
-
-    </div>
-  </div>
-</div>
-
-
-
-
-
-  
-
-
-
-  
-
-
-
-  
-
-
-
-  
-
-
-
-
-
-  <script>
-  Fluid.utils.createScript('https://lib.baomitu.com/mermaid/8.14.0/mermaid.min.js', function() {
-    mermaid.initialize({"theme":"default"});
-
-    Fluid.utils.listenDOMLoaded(function() {
-      Fluid.events.registerRefreshCallback(function() {
-        if ('mermaid' in window) {
-          mermaid.init();
-        }
-      });
-    });
-  });
-</script>
-
-
-
-
-
-
-    
-
-    
-      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
-        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
-      </a>
-    
-
-    
-      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
-     aria-hidden="true">
-  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
-    <div class="modal-content">
-      <div class="modal-header text-center">
-        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
-        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body mx-3">
-        <div class="md-form mb-5">
-          <input type="text" id="local-search-input" class="form-control validate">
-          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
-        </div>
-        <div class="list-group" id="local-search-result"></div>
-      </div>
-    </div>
-  </div>
-</div>
-
-    
-
-    
-  </main>
-
-  <footer>
-    <div class="footer-inner">
-  
-    <div class="footer-content">
-       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> <br> <!-- 当前在线人数统计 --> <div>当前在线人数 <span id="current_visitors_count">0</span></div> <script src="/dist/js/current_visitors_count.js"></script> <!-- 网站运行时间统计 --> <div id="sitetime"></div> <script type="text/javascript" src="/dist/js/sitetime.js"></script> 
-    </div>
-  
-  
-    <div class="statistics">
-  
-  
-
-  
-    
-      <span id="busuanzi_container_site_pv" style="display: none">
-        总访问量 
-        <span id="busuanzi_value_site_pv"></span>
-         次
-      </span>
-    
-    
-      <span id="busuanzi_container_site_uv" style="display: none">
-        总访客数 
-        <span id="busuanzi_value_site_uv"></span>
-         人
-      </span>
-    
-    
-  
-</div>
-
-  
-  
-  
-</div>
-
-  </footer>
-
-  <!-- Scripts -->
-  
-  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
-  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
-
-  <script>
-    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
-    NProgress.start()
-    window.addEventListener('load', function() {
-      NProgress.done();
-    })
-  </script>
-
-
-<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
-<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
-<script  src="/js/events.js" ></script>
-<script  src="/js/plugins.js" ></script>
-
-
-  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
-  <script>
-    (function (window, document) {
-      var typing = Fluid.plugins.typing;
-      var subtitle = document.getElementById('subtitle');
-      if (!subtitle || !typing) {
-        return;
-      }
-      var text = subtitle.getAttribute('data-typed-text');
-      
-        typing(text);
-      
-    })(window, document);
-  </script>
-
-
-
-
-  
-    <script  src="/js/img-lazyload.js" ></script>
-  
-
-
-
-
-  
-<script>
-  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
-    var toc = jQuery('#toc');
-    if (toc.length === 0 || !window.tocbot) { return; }
-    var boardCtn = jQuery('#board-ctn');
-    var boardTop = boardCtn.offset().top;
-
-    window.tocbot.init(Object.assign({
-      tocSelector     : '#toc-body',
-      contentSelector : '.markdown-body',
-      linkClass       : 'tocbot-link',
-      activeLinkClass : 'tocbot-active-link',
-      listClass       : 'tocbot-list',
-      isCollapsedClass: 'tocbot-is-collapsed',
-      collapsibleClass: 'tocbot-is-collapsible',
-      scrollSmooth    : true,
-      includeTitleTags: true,
-      headingsOffset  : -boardTop,
-    }, CONFIG.toc));
-    if (toc.find('.toc-list-item').length > 0) {
-      toc.css('visibility', 'visible');
-    }
-
-    Fluid.events.registerRefreshCallback(function() {
-      if ('tocbot' in window) {
-        tocbot.refresh();
-        var toc = jQuery('#toc');
-        if (toc.length === 0 || !tocbot) {
-          return;
-        }
-        if (toc.find('.toc-list-item').length > 0) {
-          toc.css('visibility', 'visible');
-        }
-      }
-    });
-  });
-</script>
-
-
-  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
-
-  <script>Fluid.plugins.codeWidget();</script>
-
-
-  
-<script>
-  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
-    window.anchors.options = {
-      placement: CONFIG.anchorjs.placement,
-      visible  : CONFIG.anchorjs.visible
-    };
-    if (CONFIG.anchorjs.icon) {
-      window.anchors.options.icon = CONFIG.anchorjs.icon;
-    }
-    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
-    var res = [];
-    for (var item of el) {
-      res.push('.markdown-body > ' + item.trim());
-    }
-    if (CONFIG.anchorjs.placement === 'left') {
-      window.anchors.options.class = 'anchorjs-link-left';
-    }
-    window.anchors.add(res.join(', '));
-
-    Fluid.events.registerRefreshCallback(function() {
-      if ('anchors' in window) {
-        anchors.removeAll();
-        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
-        var res = [];
-        for (var item of el) {
-          res.push('.markdown-body > ' + item.trim());
-        }
-        if (CONFIG.anchorjs.placement === 'left') {
-          anchors.options.class = 'anchorjs-link-left';
-        }
-        anchors.add(res.join(', '));
-      }
-    });
-  });
-</script>
-
-
-  
-<script>
-  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
-    Fluid.plugins.fancyBox();
-  });
-</script>
-
-
-  <script  src="/js/local-search.js" ></script>
-
-  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
-
-
-
-
-
-<!-- 主题的启动项，将它保持在最底部 -->
-<!-- the boot of the theme, keep it at the bottom -->
-<script  src="/js/boot.js" ></script>
-
-
-  
-
-  <noscript>
-    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
-  </noscript>
-</body>
+    </body>
 </html>

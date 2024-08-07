@@ -1,21 +1,50 @@
-
-
 <!DOCTYPE html>
-<html lang="zh-CN" data-default-color-scheme=auto>
+<html lang="zh-CN">
+    <head>
+    <meta charset="utf-8">
+
+    
+
+    <!-- 渲染优化 -->
+    <meta name="renderer" content="webkit">
+    <meta name="force-rendering" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta name="HandheldFriendly" content="True" >
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <!--icon-->
+
+    
+        <link rel="shortcut icon" href="/dist/images/favicon_package/favicon.ico">
+    
+    
+        <link rel="icon" type="image/png" sizes="16x16" href="/dist/images/favicon_package/favicon-16x16.png">
+    
+    
+        <link rel="icon" type="image/png" sizes="32x32" href="/dist/images/favicon_package/favicon-32x32.png">
+    
+    
+        <link rel="apple-touch-icon" sizes="180x180" href="/dist/images/favicon_package/apple-touch-icon.png">
+    
+    
+        <link rel="mask-icon" href="/dist/images/favicon_package/safari-pinned-tab.svg">
+    
+
+
+    <!-- meta -->
+
+
+<title>【笔记】STC12C5A60S2头文件源代码 | 绯鞠的博客</title>
+
+
+    <meta name="keywords" content="Microcontroller">
 
 
 
-<head>
-  <meta charset="UTF-8">
-  <link rel="apple-touch-icon" sizes="76x76" href="/dist/images/favicon_package/apple-touch-icon.png">
-  <link rel="icon" href="/dist/images/favicon_package/favicon.ico">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
-  <meta http-equiv="x-ua-compatible" content="ie=edge">
-  
-  <meta name="theme-color" content="#2f4154">
-  <meta name="author" content="绯鞠">
-  <meta name="keywords" content="">
-  
+
+    <!-- OpenGraph -->
+ 
     <meta name="description" content="前言STC12C5A60S2头文件源代码">
 <meta property="og:type" content="article">
 <meta property="og:title" content="【笔记】STC12C5A60S2头文件源代码">
@@ -28,689 +57,353 @@
 <meta property="article:author" content="绯鞠">
 <meta property="article:tag" content="Microcontroller">
 <meta name="twitter:card" content="summary_large_image">
-  
-  
-    <meta name="referrer" content="no-referrer-when-downgrade">
-  
-  
-  <title>【笔记】STC12C5A60S2头文件源代码 - 绯鞠的博客</title>
-
-  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
 
+    
+<link rel="stylesheet" href="/css/style/main.css">
+ 
 
-  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+    
+    
+        <link rel="stylesheet" id="hl-default-theme" href="/css/highlight/highlight.css" media="none" onload="this.media='all'">
+        
+    
 
-  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+    
+    
 
-  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+    
 
+     
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+ 
 
+    <!-- custom head -->
 
-<!-- 主题依赖的图标库，不要自行修改 -->
-<!-- Do not modify the link that theme dependent icons -->
-
-<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
-
-
-
-<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
-
-
-<link  rel="stylesheet" href="/css/main.css" />
-
-
-  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
-  
-    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
-  
-
-
-
-
-  <script id="fluid-configs">
-    var Fluid = window.Fluid || {};
-    Fluid.ctx = Object.assign({}, Fluid.ctx)
-    var CONFIG = {"hostname":"loli.fj.cn","root":"/","version":"1.9.7","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"PLAINTEXT"},"copy_btn":true,"image_caption":{"enable":false},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":6},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml","include_content_in_search":true};
-
-    if (CONFIG.web_analytics.follow_dnt) {
-      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
-      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
-    }
-  </script>
-  <script  src="/js/utils.js" ></script>
-  <script  src="/js/color-schema.js" ></script>
-  
-
-
-  
 <meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="绯鞠的博客" type="application/atom+xml">
 </head>
 
+    <body>
+        <div id="app" tabindex="-1">
+            <header class="header">
+    <div class="header__left">
+        <a href="/" class="button">
+            <span class="logo__text">绯鞠的博客</span>
+        </a>
+    </div>
+    <div class="header__right">
+        
+            <div class="navbar__menus">
+                
+                    <a href="/" class="navbar-menu button">首页</a>
+                
+                    <a href="/about/" class="navbar-menu button">关于</a>
+                
+                    <a href="/archives/" class="navbar-menu button">归档</a>
+                
+                    <a href="/links/" class="navbar-menu button">友链</a>
+                
+                    <a href="/reward/" class="navbar-menu button">赞助</a>
+                
+                    <a href="/atom.xml" class="navbar-menu button">订阅</a>
+                
+                    <a target="_blank" rel="noopener" href="//melody.loli.fj.cn" class="navbar-menu button">主题</a>
+                
+            </div>
+        
+        
+        
 
-<body>
-  
+        
+        
 
-  <header>
+        
+            <a class="dropdown-icon button" id="btn-dropdown" tabindex="0"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" width='24' height='24' fill="none" stroke="currentColor" stroke-width="0.7" stroke-linecap="round" stroke-linejoin="round"><path fill="currentColor" d="M3.314,4.8h13.372c0.41,0,0.743-0.333,0.743-0.743c0-0.41-0.333-0.743-0.743-0.743H3.314c-0.41,0-0.743,0.333-0.743,0.743C2.571,4.467,2.904,4.8,3.314,4.8z M16.686,15.2H3.314c-0.41,0-0.743,0.333-0.743,0.743s0.333,0.743,0.743,0.743h13.372c0.41,0,0.743-0.333,0.743-0.743S17.096,15.2,16.686,15.2z M16.686,9.257H3.314c-0.41,0-0.743,0.333-0.743,0.743s0.333,0.743,0.743,0.743h13.372c0.41,0,0.743-0.333,0.743-0.743S17.096,9.257,16.686,9.257z"></path></svg></a>
+            <div class="dropdown-menus" id="dropdown-menus">
+                
+                    <a href="/" class="dropdown-menu button">首页</a>
+                
+                    <a href="/about/" class="dropdown-menu button">关于</a>
+                
+                    <a href="/archives/" class="dropdown-menu button">归档</a>
+                
+                    <a href="/links/" class="dropdown-menu button">友链</a>
+                
+                    <a href="/reward/" class="dropdown-menu button">赞助</a>
+                
+                    <a href="/atom.xml" class="dropdown-menu button">订阅</a>
+                
+                    <a target="_blank" rel="noopener" href="//melody.loli.fj.cn" class="dropdown-menu button">主题</a>
+                
+            </div>
+        
+    </div>
+</header>
+
+
+            <main class="main">
     
 
-<div class="header-inner" style="height: 70vh;">
-  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
-  <div class="container">
-    <a class="navbar-brand" href="/">
-      <strong>绯鞠的博客</strong>
-    </a>
+<div class="post-title">
+    <h1 class="post-title__text">
+        【笔记】STC12C5A60S2头文件源代码
+    </h1>
+    <div class="post-title__meta">
+        <a href="/archives/2022/10/" class="post-meta__date button">2022-10-28</a>
+        
+ 
+        
+    
+    
 
-    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
-            data-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <div class="animated-icon"><span></span><span></span><span></span></div>
-    </button>
 
-    <!-- Collapsible content -->
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav ml-auto text-center">
-        
-          
-          
-          
-          
-            <li class="nav-item">
-              <a class="nav-link" href="/" target="_self">
-                <i class="iconfont icon-home-fill"></i>
-                <span>首页</span>
-              </a>
-            </li>
-          
-        
-          
-          
-          
-          
-            <li class="nav-item">
-              <a class="nav-link" href="/about/" target="_self">
-                <i class="iconfont icon-user-fill"></i>
-                <span>关于</span>
-              </a>
-            </li>
-          
-        
-          
-          
-          
-          
-            <li class="nav-item">
-              <a class="nav-link" href="/tags/" target="_self">
-                <i class="iconfont icon-tags-fill"></i>
-                <span>标签</span>
-              </a>
-            </li>
-          
-        
-          
-          
-          
-          
-            <li class="nav-item">
-              <a class="nav-link" href="/categories/" target="_self">
-                <i class="iconfont icon-category-fill"></i>
-                <span>分类</span>
-              </a>
-            </li>
-          
-        
-          
-          
-          
-          
-            <li class="nav-item">
-              <a class="nav-link" href="/archives/" target="_self">
-                <i class="iconfont icon-archive-fill"></i>
-                <span>归档</span>
-              </a>
-            </li>
-          
-        
-          
-          
-          
-          
-            <li class="nav-item">
-              <a class="nav-link" href="/links/" target="_self">
-                <i class="iconfont icon-user-friends"></i>
-                <span>友链</span>
-              </a>
-            </li>
-          
-        
-          
-          
-          
-          
-            <li class="nav-item">
-              <a class="nav-link" href="/command/" target="_self">
-                <i class="iconfont icon-book"></i>
-                <span>指令</span>
-              </a>
-            </li>
-          
-        
-          
-          
-          
-          
-            <li class="nav-item">
-              <a class="nav-link" href="/atom.xml" target="_self">
-                <i class="iconfont icon-rss"></i>
-                <span>订阅</span>
-              </a>
-            </li>
-          
-        
-          
-          
-          
-          
-            <li class="nav-item">
-              <a class="nav-link" href="//redefine.loli.fj.cn" target="_self">
-                <i class="iconfont icon-th-large"></i>
-                <span>主题</span>
-              </a>
-            </li>
-          
-        
-        
-          <li class="nav-item" id="search-btn">
-            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
-              <i class="iconfont icon-search"></i>
-            </a>
-          </li>
-          
-        
-        
-          <li class="nav-item" id="color-toggle-btn">
-            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
-              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
-            </a>
-          </li>
-        
-      </ul>
+ 
+
+ 
     </div>
-  </div>
-</nav>
+</div>
 
-  
 
-<div id="banner" class="banner" parallax=true
-     style="background: url('https://game.gtimg.cn/images/yxzj/img201606/skin/hero-info/141/141-bigskin-1.jpg') no-repeat center center; background-size: cover;">
-  <div class="full-bg-img">
-    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
-      <div class="banner-text text-center fade-in-up">
-        <div class="h2">
-          
-            <span id="subtitle" data-typed-text="【笔记】STC12C5A60S2头文件源代码"></span>
-          
+    <aside class="post-side">
+        <div class="post-side__toc">
+            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%89%8D%E8%A8%80"><span class="toc-text">前言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Keil%E7%BC%96%E8%AF%91%E5%99%A8"><span class="toc-text">Keil编译器</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#sdcc%E7%BC%96%E8%AF%91%E5%99%A8"><span class="toc-text">sdcc编译器</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%8C%E6%88%90"><span class="toc-text">完成</span></a></li></ol>
         </div>
-
-        
-          
-  <div class="mt-3">
-    
-    
-      <span class="post-meta">
-        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2022-10-28 20:58" pubdate>
-          2022:10:28
-        </time>
-      </span>
-    
-  </div>
-
-  <div class="mt-1">
-    
-
-    
-
-    
-    
-  </div>
-
-
-        
-      </div>
-
-      
-    </div>
-  </div>
-</div>
-
-</div>
-
-  </header>
-
-  <main>
-    
-      
-
-<div class="container-fluid nopadding-x">
-  <div class="row nomargin-x">
-    <div class="side-col d-none d-lg-block col-lg-2">
-      
-  <aside class="sidebar category-bar" style="margin-right: -1rem">
-    
-
-
-
-
-
-<div class="category-list">
-  
-  
-</div>
-
-
-  </aside>
-
-
+    </aside>
+    <a class="btn-toc button" id="btn-toc" tabindex="0">
+        <svg viewBox="0 0 1024 1024" width="32" height="32" xmlns="http://www.w3.org/2000/svg">
+            <path d="M128 256h64V192H128zM320 256h576V192H320zM128 544h64v-64H128zM320 544h576v-64H320zM128 832h64v-64H128zM320 832h576v-64H320z" fill="currentColor"></path>
+        </svg>
+    </a>
+    <div class="toc-menus" id="toc-menus">
+        <div class="toc-title">文章目录</div>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%89%8D%E8%A8%80"><span class="toc-text">前言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Keil%E7%BC%96%E8%AF%91%E5%99%A8"><span class="toc-text">Keil编译器</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#sdcc%E7%BC%96%E8%AF%91%E5%99%A8"><span class="toc-text">sdcc编译器</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%8C%E6%88%90"><span class="toc-text">完成</span></a></li></ol>
     </div>
 
-    <div class="col-lg-8 nopadding-x-md">
-      <div class="container nopadding-x-md" id="board-ctn">
-        <div id="board">
-          <article class="post-content mx-auto">
-            <h1 id="seo-header">【笔记】STC12C5A60S2头文件源代码</h1>
-            
-              <p id="updated-time" class="note note-info" style="">
-                
-                  
-                    本文最后更新于 2024:08:06
-                  
-                
-              </p>
-            
-            
-              <div class="markdown-body">
-                
-                <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>STC12C5A60S2头文件源代码</p>
+
+<article class="post post__with-toc content-card">
+    <div class="post__header"></div>
+    <div class="post__content">
+        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>STC12C5A60S2头文件源代码</p>
 <span id="more"></span>
 
-<h2 id="Keil编译器"><a href="#Keil编译器" class="headerlink" title="Keil编译器"></a>Keil编译器</h2><figure class="highlight c"><figcaption><span>STC12C5A60S2.h</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br></pre></td><td class="code"><pre><code class="hljs c">sfr  ACC       = <span class="hljs-number">0xE0</span>;<br>sfr  B         = <span class="hljs-number">0xF0</span>;<br>sfr  PSW       = <span class="hljs-number">0xD0</span>;<br>sbit CY        = PSW^<span class="hljs-number">7</span>;<br>sbit AC        = PSW^<span class="hljs-number">6</span>;<br>sbit F0        = PSW^<span class="hljs-number">5</span>;<br>sbit RS1       = PSW^<span class="hljs-number">4</span>;<br>sbit RS0       = PSW^<span class="hljs-number">3</span>;<br>sbit OV        = PSW^<span class="hljs-number">2</span>;<br>sbit P         = PSW^<span class="hljs-number">0</span>;<br>sfr  SP        = <span class="hljs-number">0x81</span>;<br>sfr  DPL       = <span class="hljs-number">0x82</span>;<br>sfr  DPH       = <span class="hljs-number">0x83</span>;<br>sfr  PCON      = <span class="hljs-number">0x87</span>;<br>sfr  AUXR      = <span class="hljs-number">0x8E</span>;<br>sfr  AUXR1     = <span class="hljs-number">0xA2</span>;<br>sfr  WAKE_CLKO = <span class="hljs-number">0x8F</span>;<br>sfr  CLK_DIV   = <span class="hljs-number">0x97</span>;<br>sfr  BUS_SPEED = <span class="hljs-number">0xA1</span>;<br>sfr  IE        = <span class="hljs-number">0xA8</span>;<br>sbit EA        = IE^<span class="hljs-number">7</span>;<br>sbit ELVD      = IE^<span class="hljs-number">6</span>;<br>sbit EADC      = IE^<span class="hljs-number">5</span>;<br>sbit ES        = IE^<span class="hljs-number">4</span>;<br>sbit ET1       = IE^<span class="hljs-number">3</span>;<br>sbit EX1       = IE^<span class="hljs-number">2</span>;<br>sbit ET0       = IE^<span class="hljs-number">1</span>;<br>sbit EX0       = IE^<span class="hljs-number">0</span>;<br>sfr  IE2       = <span class="hljs-number">0xAF</span>;<br>sfr  IP        = <span class="hljs-number">0xB8</span>;<br>sbit PPCA      = IP^<span class="hljs-number">7</span>;<br>sbit PLVD      = IP^<span class="hljs-number">6</span>;<br>sbit PADC      = IP^<span class="hljs-number">5</span>;<br>sbit PS        = IP^<span class="hljs-number">4</span>;<br>sbit PT1       = IP^<span class="hljs-number">3</span>;<br>sbit PX1       = IP^<span class="hljs-number">2</span>;<br>sbit PT0       = IP^<span class="hljs-number">1</span>;<br>sbit PX0       = IP^<span class="hljs-number">0</span>;<br>sfr  IPH       = <span class="hljs-number">0xB7</span>;<br>sfr  IP2       = <span class="hljs-number">0xB5</span>;<br>sfr  IPH2      = <span class="hljs-number">0xB6</span>;<br>sfr  P0        = <span class="hljs-number">0x80</span>;<br>sfr  P0M0      = <span class="hljs-number">0x94</span>;<br>sfr  P0M1      = <span class="hljs-number">0x93</span>;<br>sfr  P1        = <span class="hljs-number">0x90</span>;<br>sfr  P1M0      = <span class="hljs-number">0x92</span>;<br>sfr  P1M1      = <span class="hljs-number">0x91</span>;<br>sfr  P1ASF     = <span class="hljs-number">0x9D</span>;<br>sfr  P2        = <span class="hljs-number">0xA0</span>;<br>sfr  P2M0      = <span class="hljs-number">0x96</span>;<br>sfr  P2M1      = <span class="hljs-number">0x95</span>;<br>sfr  P3        = <span class="hljs-number">0xB0</span>;<br>sfr  P3M0      = <span class="hljs-number">0xB2</span>;<br>sfr  P3M1      = <span class="hljs-number">0xB1</span>;<br>sfr  P4        = <span class="hljs-number">0xC0</span>;<br>sfr  P4M0      = <span class="hljs-number">0xB4</span>;<br>sfr  P4M1      = <span class="hljs-number">0xB3</span>;<br>sfr  P4SW      = <span class="hljs-number">0xBB</span>;<br>sfr  P5        = <span class="hljs-number">0xC8</span>;<br>sfr  P5M0      = <span class="hljs-number">0xCA</span>;<br>sfr  P5M1      = <span class="hljs-number">0xC9</span>;<br>sfr  TCON      = <span class="hljs-number">0x88</span>;<br>sbit TF1       = TCON^<span class="hljs-number">7</span>;<br>sbit TR1       = TCON^<span class="hljs-number">6</span>;<br>sbit TF0       = TCON^<span class="hljs-number">5</span>;<br>sbit TR0       = TCON^<span class="hljs-number">4</span>;<br>sbit IE1       = TCON^<span class="hljs-number">3</span>;<br>sbit IT1       = TCON^<span class="hljs-number">2</span>;<br>sbit IE0       = TCON^<span class="hljs-number">1</span>;<br>sbit IT0       = TCON^<span class="hljs-number">0</span>;<br>sfr  TMOD      = <span class="hljs-number">0x89</span>;<br>sfr  TL0       = <span class="hljs-number">0x8A</span>;<br>sfr  TH0       = <span class="hljs-number">0x8C</span>;<br>sfr  TL1       = <span class="hljs-number">0x8B</span>;<br>sfr  TH1       = <span class="hljs-number">0x8D</span>;<br>sfr  SCON      = <span class="hljs-number">0x98</span>;<br>sbit SM0       = SCON^<span class="hljs-number">7</span>;<br>sbit SM1       = SCON^<span class="hljs-number">6</span>;<br>sbit SM2       = SCON^<span class="hljs-number">5</span>;<br>sbit REN       = SCON^<span class="hljs-number">4</span>;<br>sbit TB8       = SCON^<span class="hljs-number">3</span>;<br>sbit RB8       = SCON^<span class="hljs-number">2</span>;<br>sbit TI        = SCON^<span class="hljs-number">1</span>;<br>sbit RI        = SCON^<span class="hljs-number">0</span>;<br>sfr  SBUF      = <span class="hljs-number">0x99</span>;<br>sfr  SADEN     = <span class="hljs-number">0xB9</span>;<br>sfr  SADDR     = <span class="hljs-number">0xA9</span>;<br>sfr  S2CON     = <span class="hljs-number">0x9A</span>;<br>sfr  S2BUF     = <span class="hljs-number">0x9B</span>;<br>sfr  BRT       = <span class="hljs-number">0x9C</span>;<br>sfr  WDT_CONTR = <span class="hljs-number">0xC1</span>;<br>sfr  CCON      = <span class="hljs-number">0xD8</span>;<br>sbit CF        = CCON^<span class="hljs-number">7</span>;<br>sbit CR        = CCON^<span class="hljs-number">6</span>;<br>sbit CCF1      = CCON^<span class="hljs-number">1</span>;<br>sbit CCF0      = CCON^<span class="hljs-number">0</span>;<br>sfr  CMOD      = <span class="hljs-number">0xD9</span>;<br>sfr  CL        = <span class="hljs-number">0xE9</span>;<br>sfr  CH        = <span class="hljs-number">0xF9</span>;<br>sfr  CCAPM0    = <span class="hljs-number">0xDA</span>;<br>sfr  CCAPM1    = <span class="hljs-number">0xDB</span>;<br>sfr  CCAP0L    = <span class="hljs-number">0xEA</span>;<br>sfr  CCAP0H    = <span class="hljs-number">0xFA</span>;<br>sfr  CCAP1L    = <span class="hljs-number">0xEB</span>;<br>sfr  CCAP1H    = <span class="hljs-number">0xFB</span>;<br>sfr  PCA_PWM0  = <span class="hljs-number">0xF2</span>;<br>sfr  PCA_PWM1  = <span class="hljs-number">0xF3</span>;<br>sfr  ADC_CONTR = <span class="hljs-number">0xBC</span>;<br>sfr  ADC_RES   = <span class="hljs-number">0xBD</span>;<br>sfr  ADC_RESL  = <span class="hljs-number">0xBE</span>;<br>sfr  SPCTL     = <span class="hljs-number">0xCE</span>;<br>sfr  SPSTAT    = <span class="hljs-number">0xCD</span>;<br>sfr  SPDAT     = <span class="hljs-number">0xCF</span>;<br>sfr  IAP_DATA  = <span class="hljs-number">0xC2</span>;<br>sfr  IAP_ADDRH = <span class="hljs-number">0xC3</span>;<br>sfr  IAP_ADDRL = <span class="hljs-number">0xC4</span>;<br>sfr  IAP_CMD   = <span class="hljs-number">0xC5</span>;<br>sfr  IAP_TRIG  = <span class="hljs-number">0xC6</span>;<br>sfr  IAP_CONTR = <span class="hljs-number">0xC7</span>;<br></code></pre></td></tr></table></figure>
+<h2 id="Keil编译器"><a href="#Keil编译器" class="headerlink" title="Keil编译器"></a>Keil编译器</h2><figure class="highlight c"><figcaption><span>STC12C5A60S2.h</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br></pre></td><td class="code"><pre><span class="line">sfr  ACC       = <span class="number">0xE0</span>;</span><br><span class="line">sfr  B         = <span class="number">0xF0</span>;</span><br><span class="line">sfr  PSW       = <span class="number">0xD0</span>;</span><br><span class="line">sbit CY        = PSW^<span class="number">7</span>;</span><br><span class="line">sbit AC        = PSW^<span class="number">6</span>;</span><br><span class="line">sbit F0        = PSW^<span class="number">5</span>;</span><br><span class="line">sbit RS1       = PSW^<span class="number">4</span>;</span><br><span class="line">sbit RS0       = PSW^<span class="number">3</span>;</span><br><span class="line">sbit OV        = PSW^<span class="number">2</span>;</span><br><span class="line">sbit P         = PSW^<span class="number">0</span>;</span><br><span class="line">sfr  SP        = <span class="number">0x81</span>;</span><br><span class="line">sfr  DPL       = <span class="number">0x82</span>;</span><br><span class="line">sfr  DPH       = <span class="number">0x83</span>;</span><br><span class="line">sfr  PCON      = <span class="number">0x87</span>;</span><br><span class="line">sfr  AUXR      = <span class="number">0x8E</span>;</span><br><span class="line">sfr  AUXR1     = <span class="number">0xA2</span>;</span><br><span class="line">sfr  WAKE_CLKO = <span class="number">0x8F</span>;</span><br><span class="line">sfr  CLK_DIV   = <span class="number">0x97</span>;</span><br><span class="line">sfr  BUS_SPEED = <span class="number">0xA1</span>;</span><br><span class="line">sfr  IE        = <span class="number">0xA8</span>;</span><br><span class="line">sbit EA        = IE^<span class="number">7</span>;</span><br><span class="line">sbit ELVD      = IE^<span class="number">6</span>;</span><br><span class="line">sbit EADC      = IE^<span class="number">5</span>;</span><br><span class="line">sbit ES        = IE^<span class="number">4</span>;</span><br><span class="line">sbit ET1       = IE^<span class="number">3</span>;</span><br><span class="line">sbit EX1       = IE^<span class="number">2</span>;</span><br><span class="line">sbit ET0       = IE^<span class="number">1</span>;</span><br><span class="line">sbit EX0       = IE^<span class="number">0</span>;</span><br><span class="line">sfr  IE2       = <span class="number">0xAF</span>;</span><br><span class="line">sfr  IP        = <span class="number">0xB8</span>;</span><br><span class="line">sbit PPCA      = IP^<span class="number">7</span>;</span><br><span class="line">sbit PLVD      = IP^<span class="number">6</span>;</span><br><span class="line">sbit PADC      = IP^<span class="number">5</span>;</span><br><span class="line">sbit PS        = IP^<span class="number">4</span>;</span><br><span class="line">sbit PT1       = IP^<span class="number">3</span>;</span><br><span class="line">sbit PX1       = IP^<span class="number">2</span>;</span><br><span class="line">sbit PT0       = IP^<span class="number">1</span>;</span><br><span class="line">sbit PX0       = IP^<span class="number">0</span>;</span><br><span class="line">sfr  IPH       = <span class="number">0xB7</span>;</span><br><span class="line">sfr  IP2       = <span class="number">0xB5</span>;</span><br><span class="line">sfr  IPH2      = <span class="number">0xB6</span>;</span><br><span class="line">sfr  P0        = <span class="number">0x80</span>;</span><br><span class="line">sfr  P0M0      = <span class="number">0x94</span>;</span><br><span class="line">sfr  P0M1      = <span class="number">0x93</span>;</span><br><span class="line">sfr  P1        = <span class="number">0x90</span>;</span><br><span class="line">sfr  P1M0      = <span class="number">0x92</span>;</span><br><span class="line">sfr  P1M1      = <span class="number">0x91</span>;</span><br><span class="line">sfr  P1ASF     = <span class="number">0x9D</span>;</span><br><span class="line">sfr  P2        = <span class="number">0xA0</span>;</span><br><span class="line">sfr  P2M0      = <span class="number">0x96</span>;</span><br><span class="line">sfr  P2M1      = <span class="number">0x95</span>;</span><br><span class="line">sfr  P3        = <span class="number">0xB0</span>;</span><br><span class="line">sfr  P3M0      = <span class="number">0xB2</span>;</span><br><span class="line">sfr  P3M1      = <span class="number">0xB1</span>;</span><br><span class="line">sfr  P4        = <span class="number">0xC0</span>;</span><br><span class="line">sfr  P4M0      = <span class="number">0xB4</span>;</span><br><span class="line">sfr  P4M1      = <span class="number">0xB3</span>;</span><br><span class="line">sfr  P4SW      = <span class="number">0xBB</span>;</span><br><span class="line">sfr  P5        = <span class="number">0xC8</span>;</span><br><span class="line">sfr  P5M0      = <span class="number">0xCA</span>;</span><br><span class="line">sfr  P5M1      = <span class="number">0xC9</span>;</span><br><span class="line">sfr  TCON      = <span class="number">0x88</span>;</span><br><span class="line">sbit TF1       = TCON^<span class="number">7</span>;</span><br><span class="line">sbit TR1       = TCON^<span class="number">6</span>;</span><br><span class="line">sbit TF0       = TCON^<span class="number">5</span>;</span><br><span class="line">sbit TR0       = TCON^<span class="number">4</span>;</span><br><span class="line">sbit IE1       = TCON^<span class="number">3</span>;</span><br><span class="line">sbit IT1       = TCON^<span class="number">2</span>;</span><br><span class="line">sbit IE0       = TCON^<span class="number">1</span>;</span><br><span class="line">sbit IT0       = TCON^<span class="number">0</span>;</span><br><span class="line">sfr  TMOD      = <span class="number">0x89</span>;</span><br><span class="line">sfr  TL0       = <span class="number">0x8A</span>;</span><br><span class="line">sfr  TH0       = <span class="number">0x8C</span>;</span><br><span class="line">sfr  TL1       = <span class="number">0x8B</span>;</span><br><span class="line">sfr  TH1       = <span class="number">0x8D</span>;</span><br><span class="line">sfr  SCON      = <span class="number">0x98</span>;</span><br><span class="line">sbit SM0       = SCON^<span class="number">7</span>;</span><br><span class="line">sbit SM1       = SCON^<span class="number">6</span>;</span><br><span class="line">sbit SM2       = SCON^<span class="number">5</span>;</span><br><span class="line">sbit REN       = SCON^<span class="number">4</span>;</span><br><span class="line">sbit TB8       = SCON^<span class="number">3</span>;</span><br><span class="line">sbit RB8       = SCON^<span class="number">2</span>;</span><br><span class="line">sbit TI        = SCON^<span class="number">1</span>;</span><br><span class="line">sbit RI        = SCON^<span class="number">0</span>;</span><br><span class="line">sfr  SBUF      = <span class="number">0x99</span>;</span><br><span class="line">sfr  SADEN     = <span class="number">0xB9</span>;</span><br><span class="line">sfr  SADDR     = <span class="number">0xA9</span>;</span><br><span class="line">sfr  S2CON     = <span class="number">0x9A</span>;</span><br><span class="line">sfr  S2BUF     = <span class="number">0x9B</span>;</span><br><span class="line">sfr  BRT       = <span class="number">0x9C</span>;</span><br><span class="line">sfr  WDT_CONTR = <span class="number">0xC1</span>;</span><br><span class="line">sfr  CCON      = <span class="number">0xD8</span>;</span><br><span class="line">sbit CF        = CCON^<span class="number">7</span>;</span><br><span class="line">sbit CR        = CCON^<span class="number">6</span>;</span><br><span class="line">sbit CCF1      = CCON^<span class="number">1</span>;</span><br><span class="line">sbit CCF0      = CCON^<span class="number">0</span>;</span><br><span class="line">sfr  CMOD      = <span class="number">0xD9</span>;</span><br><span class="line">sfr  CL        = <span class="number">0xE9</span>;</span><br><span class="line">sfr  CH        = <span class="number">0xF9</span>;</span><br><span class="line">sfr  CCAPM0    = <span class="number">0xDA</span>;</span><br><span class="line">sfr  CCAPM1    = <span class="number">0xDB</span>;</span><br><span class="line">sfr  CCAP0L    = <span class="number">0xEA</span>;</span><br><span class="line">sfr  CCAP0H    = <span class="number">0xFA</span>;</span><br><span class="line">sfr  CCAP1L    = <span class="number">0xEB</span>;</span><br><span class="line">sfr  CCAP1H    = <span class="number">0xFB</span>;</span><br><span class="line">sfr  PCA_PWM0  = <span class="number">0xF2</span>;</span><br><span class="line">sfr  PCA_PWM1  = <span class="number">0xF3</span>;</span><br><span class="line">sfr  ADC_CONTR = <span class="number">0xBC</span>;</span><br><span class="line">sfr  ADC_RES   = <span class="number">0xBD</span>;</span><br><span class="line">sfr  ADC_RESL  = <span class="number">0xBE</span>;</span><br><span class="line">sfr  SPCTL     = <span class="number">0xCE</span>;</span><br><span class="line">sfr  SPSTAT    = <span class="number">0xCD</span>;</span><br><span class="line">sfr  SPDAT     = <span class="number">0xCF</span>;</span><br><span class="line">sfr  IAP_DATA  = <span class="number">0xC2</span>;</span><br><span class="line">sfr  IAP_ADDRH = <span class="number">0xC3</span>;</span><br><span class="line">sfr  IAP_ADDRL = <span class="number">0xC4</span>;</span><br><span class="line">sfr  IAP_CMD   = <span class="number">0xC5</span>;</span><br><span class="line">sfr  IAP_TRIG  = <span class="number">0xC6</span>;</span><br><span class="line">sfr  IAP_CONTR = <span class="number">0xC7</span>;</span><br></pre></td></tr></table></figure>
 
-<h2 id="sdcc编译器"><a href="#sdcc编译器" class="headerlink" title="sdcc编译器"></a>sdcc编译器</h2><figure class="highlight c"><figcaption><span>STC12C5A60S2.h</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br></pre></td><td class="code"><pre><code class="hljs c">__sfr  __at (<span class="hljs-number">0xE0</span>) ACC;<br>__sfr  __at (<span class="hljs-number">0xF0</span>) B;<br>__sfr  __at (<span class="hljs-number">0xD0</span>) PSW;<br>__sbit __at (<span class="hljs-number">0xD7</span>) CY;<br>__sbit __at (<span class="hljs-number">0xD6</span>) AC;<br>__sbit __at (<span class="hljs-number">0xD5</span>) F0;<br>__sbit __at (<span class="hljs-number">0xD4</span>) RS1;<br>__sbit __at (<span class="hljs-number">0xD3</span>) RS0;<br>__sbit __at (<span class="hljs-number">0xD2</span>) OV;<br>__sbit __at (<span class="hljs-number">0xD0</span>) P;<br>__sfr  __at (<span class="hljs-number">0x81</span>) SP;<br>__sfr  __at (<span class="hljs-number">0x82</span>) DPL;<br>__sfr  __at (<span class="hljs-number">0x83</span>) DPH;<br>__sfr  __at (<span class="hljs-number">0x87</span>) PCON;<br>__sfr  __at (<span class="hljs-number">0x8E</span>) AUXR;<br>__sfr  __at (<span class="hljs-number">0xA2</span>) AUXR1;<br>__sfr  __at (<span class="hljs-number">0x8F</span>) WAKE_CLKO;<br>__sfr  __at (<span class="hljs-number">0x97</span>) CLK_DIV;<br>__sfr  __at (<span class="hljs-number">0xA1</span>) BUS_SPEED;<br>__sfr  __at (<span class="hljs-number">0xA8</span>) IE;<br>__sbit __at (<span class="hljs-number">0xAF</span>) EA;<br>__sbit __at (<span class="hljs-number">0xAE</span>) ELVD;<br>__sbit __at (<span class="hljs-number">0xAD</span>) EADC;<br>__sbit __at (<span class="hljs-number">0xAC</span>) ES;<br>__sbit __at (<span class="hljs-number">0xAB</span>) ET1;<br>__sbit __at (<span class="hljs-number">0xAA</span>) EX1;<br>__sbit __at (<span class="hljs-number">0xA9</span>) ET0;<br>__sbit __at (<span class="hljs-number">0xA8</span>) EX0;<br>__sfr  __at (<span class="hljs-number">0xAF</span>) IE2;<br>__sfr  __at (<span class="hljs-number">0xB8</span>) IP;<br>__sbit __at (<span class="hljs-number">0xBF</span>) PPCA;<br>__sbit __at (<span class="hljs-number">0xBE</span>) PLVD;<br>__sbit __at (<span class="hljs-number">0xBD</span>) PADC;<br>__sbit __at (<span class="hljs-number">0xBC</span>) PS;<br>__sbit __at (<span class="hljs-number">0xBB</span>) PT1;<br>__sbit __at (<span class="hljs-number">0xBA</span>) PX1;<br>__sbit __at (<span class="hljs-number">0xB9</span>) PT0;<br>__sbit __at (<span class="hljs-number">0xB8</span>) PX0;<br>__sfr  __at (<span class="hljs-number">0xB7</span>) IPH;<br>__sfr  __at (<span class="hljs-number">0xB5</span>) IP2;<br>__sfr  __at (<span class="hljs-number">0xB6</span>) IPH2;<br>__sfr  __at (<span class="hljs-number">0x80</span>) P0;<br>__sfr  __at (<span class="hljs-number">0x94</span>) P0M0;<br>__sfr  __at (<span class="hljs-number">0x93</span>) P0M1;<br>__sfr  __at (<span class="hljs-number">0x90</span>) P1;<br>__sfr  __at (<span class="hljs-number">0x92</span>) P1M0;<br>__sfr  __at (<span class="hljs-number">0x91</span>) P1M1;<br>__sfr  __at (<span class="hljs-number">0x9D</span>) P1ASF;<br>__sfr  __at (<span class="hljs-number">0xA0</span>) P2;<br>__sfr  __at (<span class="hljs-number">0x96</span>) P2M0;<br>__sfr  __at (<span class="hljs-number">0x95</span>) P2M1;<br>__sfr  __at (<span class="hljs-number">0xB0</span>) P3;<br>__sfr  __at (<span class="hljs-number">0xB2</span>) P3M0;<br>__sfr  __at (<span class="hljs-number">0xB1</span>) P3M1;<br>__sfr  __at (<span class="hljs-number">0xC0</span>) P4;<br>__sfr  __at (<span class="hljs-number">0xB4</span>) P4M0;<br>__sfr  __at (<span class="hljs-number">0xB3</span>) P4M1;<br>__sfr  __at (<span class="hljs-number">0xBB</span>) P4SW;<br>__sfr  __at (<span class="hljs-number">0xC8</span>) P5;<br>__sfr  __at (<span class="hljs-number">0xCA</span>) P5M0;<br>__sfr  __at (<span class="hljs-number">0xC9</span>) P5M1;<br>__sfr  __at (<span class="hljs-number">0x88</span>) TCON;<br>__sbit __at (<span class="hljs-number">0x8F</span>) TF1;<br>__sbit __at (<span class="hljs-number">0x8E</span>) TR1;<br>__sbit __at (<span class="hljs-number">0x8D</span>) TF0;<br>__sbit __at (<span class="hljs-number">0x8C</span>) TR0;<br>__sbit __at (<span class="hljs-number">0x8B</span>) IE1;<br>__sbit __at (<span class="hljs-number">0x8A</span>) IT1;<br>__sbit __at (<span class="hljs-number">0x89</span>) IE0;<br>__sbit __at (<span class="hljs-number">0x88</span>) IT0;<br>__sfr  __at (<span class="hljs-number">0x89</span>) TMOD;<br>__sfr  __at (<span class="hljs-number">0x8A</span>) TL0;<br>__sfr  __at (<span class="hljs-number">0x8C</span>) TH0;<br>__sfr  __at (<span class="hljs-number">0x8B</span>) TL1;<br>__sfr  __at (<span class="hljs-number">0x8D</span>) TH1;<br>__sfr  __at (<span class="hljs-number">0x98</span>) SCON;<br>__sbit __at (<span class="hljs-number">0x9F</span>) SM0;<br>__sbit __at (<span class="hljs-number">0x9E</span>) SM1;<br>__sbit __at (<span class="hljs-number">0x9D</span>) SM2;<br>__sbit __at (<span class="hljs-number">0x9C</span>) REN;<br>__sbit __at (<span class="hljs-number">0x9B</span>) TB8;<br>__sbit __at (<span class="hljs-number">0x9A</span>) RB8;<br>__sbit __at (<span class="hljs-number">0x99</span>) TI;<br>__sbit __at (<span class="hljs-number">0x98</span>) RI;<br>__sfr  __at (<span class="hljs-number">0x99</span>) SBUF;<br>__sfr  __at (<span class="hljs-number">0xB9</span>) SADEN;<br>__sfr  __at (<span class="hljs-number">0xA9</span>) SADDR;<br>__sfr  __at (<span class="hljs-number">0x9A</span>) S2CON;<br>__sfr  __at (<span class="hljs-number">0x9B</span>) S2BUF;<br>__sfr  __at (<span class="hljs-number">0x9C</span>) BRT;<br>__sfr  __at (<span class="hljs-number">0xC1</span>) WDT_CONTR;<br>__sfr  __at (<span class="hljs-number">0xD8</span>) CCON;<br>__sbit __at (<span class="hljs-number">0xDB</span>) CF;<br>__sbit __at (<span class="hljs-number">0xDA</span>) CR;<br>__sbit __at (<span class="hljs-number">0xD9</span>) CCF1;<br>__sbit __at (<span class="hljs-number">0xD8</span>) CCF0;<br>__sfr  __at (<span class="hljs-number">0xD9</span>) CMOD;<br>__sfr  __at (<span class="hljs-number">0xE9</span>) CL;<br>__sfr  __at (<span class="hljs-number">0xF9</span>) CH;<br>__sfr  __at (<span class="hljs-number">0xDA</span>) CCAPM0;<br>__sfr  __at (<span class="hljs-number">0xDB</span>) CCAPM1;<br>__sfr  __at (<span class="hljs-number">0xEA</span>) CCAP0L;<br>__sfr  __at (<span class="hljs-number">0xFA</span>) CCAP0H;<br>__sfr  __at (<span class="hljs-number">0xEB</span>) CCAP1L;<br>__sfr  __at (<span class="hljs-number">0xFB</span>) CCAP1H;<br>__sfr  __at (<span class="hljs-number">0xF2</span>) PCA_PWM0;<br>__sfr  __at (<span class="hljs-number">0xF3</span>) PCA_PWM1;<br>__sfr  __at (<span class="hljs-number">0xBC</span>) ADC_CONTR;<br>__sfr  __at (<span class="hljs-number">0xBD</span>) ADC_RES;<br>__sfr  __at (<span class="hljs-number">0xBE</span>) ADC_RESL;<br>__sfr  __at (<span class="hljs-number">0xCE</span>) SPCTL;<br>__sfr  __at (<span class="hljs-number">0xCD</span>) SPSTAT;<br>__sfr  __at (<span class="hljs-number">0xCF</span>) SPDAT;<br>__sfr  __at (<span class="hljs-number">0xC2</span>) IAP_DATA;<br>__sfr  __at (<span class="hljs-number">0xC3</span>) IAP_ADDRH;<br>__sfr  __at (<span class="hljs-number">0xC4</span>) IAP_ADDRL;<br>__sfr  __at (<span class="hljs-number">0xC5</span>) IAP_CMD;<br>__sfr  __at (<span class="hljs-number">0xC6</span>) IAP_TRIG;<br>__sfr  __at (<span class="hljs-number">0xC7</span>) IAP_CONTR;<br></code></pre></td></tr></table></figure>
+<h2 id="sdcc编译器"><a href="#sdcc编译器" class="headerlink" title="sdcc编译器"></a>sdcc编译器</h2><figure class="highlight c"><figcaption><span>STC12C5A60S2.h</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br></pre></td><td class="code"><pre><span class="line">__sfr  __at (<span class="number">0xE0</span>) ACC;</span><br><span class="line">__sfr  __at (<span class="number">0xF0</span>) B;</span><br><span class="line">__sfr  __at (<span class="number">0xD0</span>) PSW;</span><br><span class="line">__sbit __at (<span class="number">0xD7</span>) CY;</span><br><span class="line">__sbit __at (<span class="number">0xD6</span>) AC;</span><br><span class="line">__sbit __at (<span class="number">0xD5</span>) F0;</span><br><span class="line">__sbit __at (<span class="number">0xD4</span>) RS1;</span><br><span class="line">__sbit __at (<span class="number">0xD3</span>) RS0;</span><br><span class="line">__sbit __at (<span class="number">0xD2</span>) OV;</span><br><span class="line">__sbit __at (<span class="number">0xD0</span>) P;</span><br><span class="line">__sfr  __at (<span class="number">0x81</span>) SP;</span><br><span class="line">__sfr  __at (<span class="number">0x82</span>) DPL;</span><br><span class="line">__sfr  __at (<span class="number">0x83</span>) DPH;</span><br><span class="line">__sfr  __at (<span class="number">0x87</span>) PCON;</span><br><span class="line">__sfr  __at (<span class="number">0x8E</span>) AUXR;</span><br><span class="line">__sfr  __at (<span class="number">0xA2</span>) AUXR1;</span><br><span class="line">__sfr  __at (<span class="number">0x8F</span>) WAKE_CLKO;</span><br><span class="line">__sfr  __at (<span class="number">0x97</span>) CLK_DIV;</span><br><span class="line">__sfr  __at (<span class="number">0xA1</span>) BUS_SPEED;</span><br><span class="line">__sfr  __at (<span class="number">0xA8</span>) IE;</span><br><span class="line">__sbit __at (<span class="number">0xAF</span>) EA;</span><br><span class="line">__sbit __at (<span class="number">0xAE</span>) ELVD;</span><br><span class="line">__sbit __at (<span class="number">0xAD</span>) EADC;</span><br><span class="line">__sbit __at (<span class="number">0xAC</span>) ES;</span><br><span class="line">__sbit __at (<span class="number">0xAB</span>) ET1;</span><br><span class="line">__sbit __at (<span class="number">0xAA</span>) EX1;</span><br><span class="line">__sbit __at (<span class="number">0xA9</span>) ET0;</span><br><span class="line">__sbit __at (<span class="number">0xA8</span>) EX0;</span><br><span class="line">__sfr  __at (<span class="number">0xAF</span>) IE2;</span><br><span class="line">__sfr  __at (<span class="number">0xB8</span>) IP;</span><br><span class="line">__sbit __at (<span class="number">0xBF</span>) PPCA;</span><br><span class="line">__sbit __at (<span class="number">0xBE</span>) PLVD;</span><br><span class="line">__sbit __at (<span class="number">0xBD</span>) PADC;</span><br><span class="line">__sbit __at (<span class="number">0xBC</span>) PS;</span><br><span class="line">__sbit __at (<span class="number">0xBB</span>) PT1;</span><br><span class="line">__sbit __at (<span class="number">0xBA</span>) PX1;</span><br><span class="line">__sbit __at (<span class="number">0xB9</span>) PT0;</span><br><span class="line">__sbit __at (<span class="number">0xB8</span>) PX0;</span><br><span class="line">__sfr  __at (<span class="number">0xB7</span>) IPH;</span><br><span class="line">__sfr  __at (<span class="number">0xB5</span>) IP2;</span><br><span class="line">__sfr  __at (<span class="number">0xB6</span>) IPH2;</span><br><span class="line">__sfr  __at (<span class="number">0x80</span>) P0;</span><br><span class="line">__sfr  __at (<span class="number">0x94</span>) P0M0;</span><br><span class="line">__sfr  __at (<span class="number">0x93</span>) P0M1;</span><br><span class="line">__sfr  __at (<span class="number">0x90</span>) P1;</span><br><span class="line">__sfr  __at (<span class="number">0x92</span>) P1M0;</span><br><span class="line">__sfr  __at (<span class="number">0x91</span>) P1M1;</span><br><span class="line">__sfr  __at (<span class="number">0x9D</span>) P1ASF;</span><br><span class="line">__sfr  __at (<span class="number">0xA0</span>) P2;</span><br><span class="line">__sfr  __at (<span class="number">0x96</span>) P2M0;</span><br><span class="line">__sfr  __at (<span class="number">0x95</span>) P2M1;</span><br><span class="line">__sfr  __at (<span class="number">0xB0</span>) P3;</span><br><span class="line">__sfr  __at (<span class="number">0xB2</span>) P3M0;</span><br><span class="line">__sfr  __at (<span class="number">0xB1</span>) P3M1;</span><br><span class="line">__sfr  __at (<span class="number">0xC0</span>) P4;</span><br><span class="line">__sfr  __at (<span class="number">0xB4</span>) P4M0;</span><br><span class="line">__sfr  __at (<span class="number">0xB3</span>) P4M1;</span><br><span class="line">__sfr  __at (<span class="number">0xBB</span>) P4SW;</span><br><span class="line">__sfr  __at (<span class="number">0xC8</span>) P5;</span><br><span class="line">__sfr  __at (<span class="number">0xCA</span>) P5M0;</span><br><span class="line">__sfr  __at (<span class="number">0xC9</span>) P5M1;</span><br><span class="line">__sfr  __at (<span class="number">0x88</span>) TCON;</span><br><span class="line">__sbit __at (<span class="number">0x8F</span>) TF1;</span><br><span class="line">__sbit __at (<span class="number">0x8E</span>) TR1;</span><br><span class="line">__sbit __at (<span class="number">0x8D</span>) TF0;</span><br><span class="line">__sbit __at (<span class="number">0x8C</span>) TR0;</span><br><span class="line">__sbit __at (<span class="number">0x8B</span>) IE1;</span><br><span class="line">__sbit __at (<span class="number">0x8A</span>) IT1;</span><br><span class="line">__sbit __at (<span class="number">0x89</span>) IE0;</span><br><span class="line">__sbit __at (<span class="number">0x88</span>) IT0;</span><br><span class="line">__sfr  __at (<span class="number">0x89</span>) TMOD;</span><br><span class="line">__sfr  __at (<span class="number">0x8A</span>) TL0;</span><br><span class="line">__sfr  __at (<span class="number">0x8C</span>) TH0;</span><br><span class="line">__sfr  __at (<span class="number">0x8B</span>) TL1;</span><br><span class="line">__sfr  __at (<span class="number">0x8D</span>) TH1;</span><br><span class="line">__sfr  __at (<span class="number">0x98</span>) SCON;</span><br><span class="line">__sbit __at (<span class="number">0x9F</span>) SM0;</span><br><span class="line">__sbit __at (<span class="number">0x9E</span>) SM1;</span><br><span class="line">__sbit __at (<span class="number">0x9D</span>) SM2;</span><br><span class="line">__sbit __at (<span class="number">0x9C</span>) REN;</span><br><span class="line">__sbit __at (<span class="number">0x9B</span>) TB8;</span><br><span class="line">__sbit __at (<span class="number">0x9A</span>) RB8;</span><br><span class="line">__sbit __at (<span class="number">0x99</span>) TI;</span><br><span class="line">__sbit __at (<span class="number">0x98</span>) RI;</span><br><span class="line">__sfr  __at (<span class="number">0x99</span>) SBUF;</span><br><span class="line">__sfr  __at (<span class="number">0xB9</span>) SADEN;</span><br><span class="line">__sfr  __at (<span class="number">0xA9</span>) SADDR;</span><br><span class="line">__sfr  __at (<span class="number">0x9A</span>) S2CON;</span><br><span class="line">__sfr  __at (<span class="number">0x9B</span>) S2BUF;</span><br><span class="line">__sfr  __at (<span class="number">0x9C</span>) BRT;</span><br><span class="line">__sfr  __at (<span class="number">0xC1</span>) WDT_CONTR;</span><br><span class="line">__sfr  __at (<span class="number">0xD8</span>) CCON;</span><br><span class="line">__sbit __at (<span class="number">0xDB</span>) CF;</span><br><span class="line">__sbit __at (<span class="number">0xDA</span>) CR;</span><br><span class="line">__sbit __at (<span class="number">0xD9</span>) CCF1;</span><br><span class="line">__sbit __at (<span class="number">0xD8</span>) CCF0;</span><br><span class="line">__sfr  __at (<span class="number">0xD9</span>) CMOD;</span><br><span class="line">__sfr  __at (<span class="number">0xE9</span>) CL;</span><br><span class="line">__sfr  __at (<span class="number">0xF9</span>) CH;</span><br><span class="line">__sfr  __at (<span class="number">0xDA</span>) CCAPM0;</span><br><span class="line">__sfr  __at (<span class="number">0xDB</span>) CCAPM1;</span><br><span class="line">__sfr  __at (<span class="number">0xEA</span>) CCAP0L;</span><br><span class="line">__sfr  __at (<span class="number">0xFA</span>) CCAP0H;</span><br><span class="line">__sfr  __at (<span class="number">0xEB</span>) CCAP1L;</span><br><span class="line">__sfr  __at (<span class="number">0xFB</span>) CCAP1H;</span><br><span class="line">__sfr  __at (<span class="number">0xF2</span>) PCA_PWM0;</span><br><span class="line">__sfr  __at (<span class="number">0xF3</span>) PCA_PWM1;</span><br><span class="line">__sfr  __at (<span class="number">0xBC</span>) ADC_CONTR;</span><br><span class="line">__sfr  __at (<span class="number">0xBD</span>) ADC_RES;</span><br><span class="line">__sfr  __at (<span class="number">0xBE</span>) ADC_RESL;</span><br><span class="line">__sfr  __at (<span class="number">0xCE</span>) SPCTL;</span><br><span class="line">__sfr  __at (<span class="number">0xCD</span>) SPSTAT;</span><br><span class="line">__sfr  __at (<span class="number">0xCF</span>) SPDAT;</span><br><span class="line">__sfr  __at (<span class="number">0xC2</span>) IAP_DATA;</span><br><span class="line">__sfr  __at (<span class="number">0xC3</span>) IAP_ADDRH;</span><br><span class="line">__sfr  __at (<span class="number">0xC4</span>) IAP_ADDRL;</span><br><span class="line">__sfr  __at (<span class="number">0xC5</span>) IAP_CMD;</span><br><span class="line">__sfr  __at (<span class="number">0xC6</span>) IAP_TRIG;</span><br><span class="line">__sfr  __at (<span class="number">0xC7</span>) IAP_CONTR;</span><br></pre></td></tr></table></figure>
 
 <h2 id="完成"><a href="#完成" class="headerlink" title="完成"></a>完成</h2>
-                
-              </div>
-            
-            <hr/>
-            <div>
-              <div class="post-metas my-3">
-  
-  
-    <div class="post-meta">
-      <i class="iconfont icon-tags"></i>
-      
-        <a href="/tags/Microcontroller/" class="print-no-link">#Microcontroller</a>
-      
     </div>
-  
-</div>
+     
+    <div class="post-footer__meta"><p>更新于 2024-08-06</p></div> 
+    <div class="post-entry__tags"><a href="/tags/Microcontroller/" class="post-tags__link button"># Microcontroller</a></div> 
+</article>
 
 
-              
-
-              
-                <div class="post-prevnext my-3">
-                  <article class="post-prev col-6">
-                    
-                    
-                      <a href="/2022/10/29/Gateway%E7%BB%9F%E4%B8%80%E7%BD%91%E5%85%B3/" title="【笔记】Gateway统一网关">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">【笔记】Gateway统一网关</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
-                  </article>
-                  <article class="post-next col-6">
-                    
-                    
-                      <a href="/2022/10/26/Clash%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6/" title="【笔记】Clash配置文件">
-                        <span class="hidden-mobile">【笔记】Clash配置文件</span>
-                        <span class="visible-mobile">下一篇</span>
-                        <i class="iconfont icon-arrowright"></i>
-                      </a>
-                    
-                  </article>
-                </div>
-              
-            </div>
-
+    <div class="nav">
+        <div class="nav__prev">
             
-  
-  
-    <article id="comments" lazyload>
-      
-  <div id="twikoo"></div>
-  <script type="text/javascript">
-    Fluid.utils.loadComments('#comments', function() {
-      Fluid.utils.createScript('https://lib.baomitu.com/twikoo/1.6.8/twikoo.all.min.js', function() {
-        var options = Object.assign(
-          {"envId":"https://twikoo.loli.fj.cn","region":"ap-shanghai","path":"window.location.pathname"},
-          {
-            el: '#twikoo',
-            path: 'window.location.pathname',
-            onCommentLoaded: function() {
-              Fluid.utils.listenDOMLoaded(function() {
-                var imgSelector = '#twikoo .tk-content img:not(.tk-owo-emotion)';
-                Fluid.plugins.imageCaption(imgSelector);
-                Fluid.plugins.fancyBox(imgSelector);
-              });
+                <a href="/2022/10/29/Gateway%E7%BB%9F%E4%B8%80%E7%BD%91%E5%85%B3/" class="nav__link">
+                    <div>
+                        <svg viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" width="24" height="24"><path d="M589.088 790.624L310.464 512l278.624-278.624 45.248 45.248L400.96 512l233.376 233.376z" fill="#808080"></path></svg>
+                    </div>
+                    <div>
+                        <div class="nav__label">
+                            上一篇
+                        </div>
+                        <div class="nav__title">
+                            【笔记】Gateway统一网关
+                        </div>
+                    </div>
+                </a>
+            
+        </div>
+        <div class="nav__next">
+            
+                <a href="/2022/10/26/Clash%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6/" class="nav__link">
+                    <div>
+                        <div class="nav__label">
+                            下一篇
+                        </div>
+                        <div class="nav__title">
+                            【笔记】Clash配置文件
+                        </div>
+                    </div>
+                    <div>
+                        <svg viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" width="24" height="24"><path d="M434.944 790.624l-45.248-45.248L623.04 512l-233.376-233.376 45.248-45.248L713.568 512z" fill="#808080"></path></svg>
+                    </div>
+                </a>
+            
+        </div>
+    </div>
+
+
+
+    <div class="post__comments post__with-toc content-card" id="comment">
+        
+    <h4>评论</h4>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <div id="tcomment" class="twikoo_thread"></div>
+
+    
+
+
+
+    </div>
+
+
+
+</main>
+
+            <footer class="footer">
+     
+    <a href="#" class="button" id="b2t" aria-label="回到顶部" title="回到顶部">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" width="32" height="32">
+            <path d="M233.376 722.752L278.624 768 512 534.624 745.376 768l45.248-45.248L512 444.128zM192 352h640V288H192z" fill="currentColor"></path>
+        </svg>
+    </a>
+
+    
+
+
+    
+    
+    
+        <span id="busuanzi_container_site_uv" hidden>
+            <span></span>
+            <span id="busuanzi_value_site_uv"></span>
+            <span>Viewers</span>
+            
+                <span>&amp;nbsp;&amp;nbsp;&amp;nbsp;|</span>
+            
+        </span>
+    
+    
+        <span id="busuanzi_container_site_pv" hidden>
+            <span></span>
+            <span id="busuanzi_value_site_pv"></span>
+            <span>Views</span>
+            
+        </span>
+    
+ 
+ 
+
+ 
+    
+        
+        <p class="footer-copyright">
+            Copyright © 2024 <a href="/">绯鞠的博客</a>
+        </p>
+    
+    
+    <p>Powered by <a href="https://hexo.io" target="_blank">Hexo</a> | Theme - <a href="https://github.com/ChrAlpha/hexo-theme-cards" target="_blank">Cards</a></p>
+</footer>
+
+        </div>
+         
+
+ 
+
+ 
+
+ 
+
+ 
+
+
+
+ 
+
+
+
+ 
+
+
+    
+ 
+
+ 
+
+ 
+
+ 
+
+
+    <script src='https://cdn.jsdelivr.net/npm/mermaid@8.10.2/dist/mermaid.min.js'></script>
+    <script>
+            mermaid.initialize(JSON.stringify(''));
+    </script>
+ 
+
+ 
+
+
+    
+
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+
+    
+    
+    
+    
+    
+
+    
+    
+    
+    <script>
+        function loadComment() {
+            let e;
+            (e = document.createElement("script")).src = 'https://cdn.jsdelivr.net/npm/twikoo@0.3.2/dist/twikoo.all.min.js',
+            document.body.appendChild(e);
+            e.onload = () => {
+                twikoo.init({
+                    envId: 'https://twikoo.loli.fj.cn',
+                    el: '#tcomment'
+                });
+            };
+        }
+    
+        var runningOnBrowser = typeof window !== "undefined";
+        var isBot = runningOnBrowser && !("onscroll" in window) || typeof navigator !== "undefined" && /(gle|ing|ro|msn)bot|crawl|spider|yand|duckgo/i.test(navigator.userAgent);
+        var supportsIntersectionObserver = runningOnBrowser && "IntersectionObserver" in window;
+    
+        setTimeout(function () {
+            if (!isBot && supportsIntersectionObserver) {
+                var comment_observer = new IntersectionObserver(function(entries) {
+                    if (entries[0].isIntersecting) {
+                        loadComment();
+                        comment_observer.disconnect();
+                    }
+                }, { threshold: [0] });
+                comment_observer.observe(document.getElementById('comment'));
+            } else {
+                loadComment();
             }
-          }
-        )
-        twikoo.init(options)
-      });
-    });
-  </script>
-  <noscript>Please enable JavaScript to view the comments</noscript>
+        }, 1);
+    </script>
 
 
-    </article>
-  
 
 
-          </article>
-        </div>
-      </div>
-    </div>
-
-    <div class="side-col d-none d-lg-block col-lg-2">
-      
-  <aside class="sidebar" style="margin-left: -1rem">
-    <div id="toc">
-  <p class="toc-header">
-    <i class="iconfont icon-list"></i>
-    <span>目录</span>
-  </p>
-  <div class="toc-body" id="toc-body"></div>
-</div>
-
-
-
-  </aside>
-
-
-    </div>
-  </div>
-</div>
-
-
-
-
-
-  
-
-
-
-  
-
-
-
-  
-
-
-
-  
-
-
-
-
-
-  <script>
-  Fluid.utils.createScript('https://lib.baomitu.com/mermaid/8.14.0/mermaid.min.js', function() {
-    mermaid.initialize({"theme":"default"});
-
-    Fluid.utils.listenDOMLoaded(function() {
-      Fluid.events.registerRefreshCallback(function() {
-        if ('mermaid' in window) {
-          mermaid.init();
-        }
-      });
-    });
-  });
-</script>
-
-
-
-
-
-
-    
-
-    
-      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
-        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
-      </a>
-    
-
-    
-      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
-     aria-hidden="true">
-  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
-    <div class="modal-content">
-      <div class="modal-header text-center">
-        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
-        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body mx-3">
-        <div class="md-form mb-5">
-          <input type="text" id="local-search-input" class="form-control validate">
-          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
-        </div>
-        <div class="list-group" id="local-search-result"></div>
-      </div>
-    </div>
-  </div>
-</div>
-
-    
-
-    
-  </main>
-
-  <footer>
-    <div class="footer-inner">
-  
-    <div class="footer-content">
-       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> <br> <!-- 当前在线人数统计 --> <div>当前在线人数 <span id="current_visitors_count">0</span></div> <script src="/dist/js/current_visitors_count.js"></script> <!-- 网站运行时间统计 --> <div id="sitetime"></div> <script type="text/javascript" src="/dist/js/sitetime.js"></script> 
-    </div>
-  
-  
-    <div class="statistics">
-  
-  
-
-  
-    
-      <span id="busuanzi_container_site_pv" style="display: none">
-        总访问量 
-        <span id="busuanzi_value_site_pv"></span>
-         次
-      </span>
-    
-    
-      <span id="busuanzi_container_site_uv" style="display: none">
-        总访客数 
-        <span id="busuanzi_value_site_uv"></span>
-         人
-      </span>
-    
-    
-  
-</div>
-
-  
-  
-  
-</div>
-
-  </footer>
-
-  <!-- Scripts -->
-  
-  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
-  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
-
-  <script>
-    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
-    NProgress.start()
-    window.addEventListener('load', function() {
-      NProgress.done();
-    })
-  </script>
-
-
-<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
-<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
-<script  src="/js/events.js" ></script>
-<script  src="/js/plugins.js" ></script>
-
-
-  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
-  <script>
-    (function (window, document) {
-      var typing = Fluid.plugins.typing;
-      var subtitle = document.getElementById('subtitle');
-      if (!subtitle || !typing) {
-        return;
-      }
-      var text = subtitle.getAttribute('data-typed-text');
-      
-        typing(text);
-      
-    })(window, document);
-  </script>
-
-
-
-
-  
-    <script  src="/js/img-lazyload.js" ></script>
-  
-
-
-
-
-  
-<script>
-  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
-    var toc = jQuery('#toc');
-    if (toc.length === 0 || !window.tocbot) { return; }
-    var boardCtn = jQuery('#board-ctn');
-    var boardTop = boardCtn.offset().top;
-
-    window.tocbot.init(Object.assign({
-      tocSelector     : '#toc-body',
-      contentSelector : '.markdown-body',
-      linkClass       : 'tocbot-link',
-      activeLinkClass : 'tocbot-active-link',
-      listClass       : 'tocbot-list',
-      isCollapsedClass: 'tocbot-is-collapsed',
-      collapsibleClass: 'tocbot-is-collapsible',
-      scrollSmooth    : true,
-      includeTitleTags: true,
-      headingsOffset  : -boardTop,
-    }, CONFIG.toc));
-    if (toc.find('.toc-list-item').length > 0) {
-      toc.css('visibility', 'visible');
-    }
-
-    Fluid.events.registerRefreshCallback(function() {
-      if ('tocbot' in window) {
-        tocbot.refresh();
-        var toc = jQuery('#toc');
-        if (toc.length === 0 || !tocbot) {
-          return;
-        }
-        if (toc.find('.toc-list-item').length > 0) {
-          toc.css('visibility', 'visible');
-        }
-      }
-    });
-  });
-</script>
-
-
-  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
-
-  <script>Fluid.plugins.codeWidget();</script>
-
-
-  
-<script>
-  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
-    window.anchors.options = {
-      placement: CONFIG.anchorjs.placement,
-      visible  : CONFIG.anchorjs.visible
-    };
-    if (CONFIG.anchorjs.icon) {
-      window.anchors.options.icon = CONFIG.anchorjs.icon;
-    }
-    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
-    var res = [];
-    for (var item of el) {
-      res.push('.markdown-body > ' + item.trim());
-    }
-    if (CONFIG.anchorjs.placement === 'left') {
-      window.anchors.options.class = 'anchorjs-link-left';
-    }
-    window.anchors.add(res.join(', '));
-
-    Fluid.events.registerRefreshCallback(function() {
-      if ('anchors' in window) {
-        anchors.removeAll();
-        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
-        var res = [];
-        for (var item of el) {
-          res.push('.markdown-body > ' + item.trim());
-        }
-        if (CONFIG.anchorjs.placement === 'left') {
-          anchors.options.class = 'anchorjs-link-left';
-        }
-        anchors.add(res.join(', '));
-      }
-    });
-  });
-</script>
-
-
-  
-<script>
-  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
-    Fluid.plugins.fancyBox();
-  });
-</script>
-
-
-  <script  src="/js/local-search.js" ></script>
-
-  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
-
-
-
-
-
-<!-- 主题的启动项，将它保持在最底部 -->
-<!-- the boot of the theme, keep it at the bottom -->
-<script  src="/js/boot.js" ></script>
-
-
-  
-
-  <noscript>
-    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
-  </noscript>
-</body>
+    </body>
 </html>

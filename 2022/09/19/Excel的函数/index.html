@@ -1,21 +1,50 @@
-
-
 <!DOCTYPE html>
-<html lang="zh-CN" data-default-color-scheme=auto>
+<html lang="zh-CN">
+    <head>
+    <meta charset="utf-8">
+
+    
+
+    <!-- 渲染优化 -->
+    <meta name="renderer" content="webkit">
+    <meta name="force-rendering" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta name="HandheldFriendly" content="True" >
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <!--icon-->
+
+    
+        <link rel="shortcut icon" href="/dist/images/favicon_package/favicon.ico">
+    
+    
+        <link rel="icon" type="image/png" sizes="16x16" href="/dist/images/favicon_package/favicon-16x16.png">
+    
+    
+        <link rel="icon" type="image/png" sizes="32x32" href="/dist/images/favicon_package/favicon-32x32.png">
+    
+    
+        <link rel="apple-touch-icon" sizes="180x180" href="/dist/images/favicon_package/apple-touch-icon.png">
+    
+    
+        <link rel="mask-icon" href="/dist/images/favicon_package/safari-pinned-tab.svg">
+    
+
+
+    <!-- meta -->
+
+
+<title>【笔记】Excel的函数 | 绯鞠的博客</title>
+
+
+    <meta name="keywords" content="Office">
 
 
 
-<head>
-  <meta charset="UTF-8">
-  <link rel="apple-touch-icon" sizes="76x76" href="/dist/images/favicon_package/apple-touch-icon.png">
-  <link rel="icon" href="/dist/images/favicon_package/favicon.ico">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
-  <meta http-equiv="x-ua-compatible" content="ie=edge">
-  
-  <meta name="theme-color" content="#2f4154">
-  <meta name="author" content="绯鞠">
-  <meta name="keywords" content="">
-  
+
+    <!-- OpenGraph -->
+ 
     <meta name="description" content="前言Excel的函数学习笔记">
 <meta property="og:type" content="article">
 <meta property="og:title" content="【笔记】Excel的函数">
@@ -32,315 +61,138 @@
 <meta property="article:tag" content="Office">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="https://loli.fj.cn/images/20220919162314/01.webp">
-  
-  
-    <meta name="referrer" content="no-referrer-when-downgrade">
-  
-  
-  <title>【笔记】Excel的函数 - 绯鞠的博客</title>
-
-  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
 
+    
+<link rel="stylesheet" href="/css/style/main.css">
+ 
 
-  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+    
+    
+        <link rel="stylesheet" id="hl-default-theme" href="/css/highlight/highlight.css" media="none" onload="this.media='all'">
+        
+    
 
-  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+    
+    
 
-  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+    
 
+     
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+ 
 
+    <!-- custom head -->
 
-<!-- 主题依赖的图标库，不要自行修改 -->
-<!-- Do not modify the link that theme dependent icons -->
-
-<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
-
-
-
-<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
-
-
-<link  rel="stylesheet" href="/css/main.css" />
-
-
-  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
-  
-    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
-  
-
-
-
-
-  <script id="fluid-configs">
-    var Fluid = window.Fluid || {};
-    Fluid.ctx = Object.assign({}, Fluid.ctx)
-    var CONFIG = {"hostname":"loli.fj.cn","root":"/","version":"1.9.7","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"PLAINTEXT"},"copy_btn":true,"image_caption":{"enable":false},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":6},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml","include_content_in_search":true};
-
-    if (CONFIG.web_analytics.follow_dnt) {
-      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
-      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
-    }
-  </script>
-  <script  src="/js/utils.js" ></script>
-  <script  src="/js/color-schema.js" ></script>
-  
-
-
-  
 <meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="绯鞠的博客" type="application/atom+xml">
 </head>
 
+    <body>
+        <div id="app" tabindex="-1">
+            <header class="header">
+    <div class="header__left">
+        <a href="/" class="button">
+            <span class="logo__text">绯鞠的博客</span>
+        </a>
+    </div>
+    <div class="header__right">
+        
+            <div class="navbar__menus">
+                
+                    <a href="/" class="navbar-menu button">首页</a>
+                
+                    <a href="/about/" class="navbar-menu button">关于</a>
+                
+                    <a href="/archives/" class="navbar-menu button">归档</a>
+                
+                    <a href="/links/" class="navbar-menu button">友链</a>
+                
+                    <a href="/reward/" class="navbar-menu button">赞助</a>
+                
+                    <a href="/atom.xml" class="navbar-menu button">订阅</a>
+                
+                    <a target="_blank" rel="noopener" href="//melody.loli.fj.cn" class="navbar-menu button">主题</a>
+                
+            </div>
+        
+        
+        
 
-<body>
-  
+        
+        
 
-  <header>
+        
+            <a class="dropdown-icon button" id="btn-dropdown" tabindex="0"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" width='24' height='24' fill="none" stroke="currentColor" stroke-width="0.7" stroke-linecap="round" stroke-linejoin="round"><path fill="currentColor" d="M3.314,4.8h13.372c0.41,0,0.743-0.333,0.743-0.743c0-0.41-0.333-0.743-0.743-0.743H3.314c-0.41,0-0.743,0.333-0.743,0.743C2.571,4.467,2.904,4.8,3.314,4.8z M16.686,15.2H3.314c-0.41,0-0.743,0.333-0.743,0.743s0.333,0.743,0.743,0.743h13.372c0.41,0,0.743-0.333,0.743-0.743S17.096,15.2,16.686,15.2z M16.686,9.257H3.314c-0.41,0-0.743,0.333-0.743,0.743s0.333,0.743,0.743,0.743h13.372c0.41,0,0.743-0.333,0.743-0.743S17.096,9.257,16.686,9.257z"></path></svg></a>
+            <div class="dropdown-menus" id="dropdown-menus">
+                
+                    <a href="/" class="dropdown-menu button">首页</a>
+                
+                    <a href="/about/" class="dropdown-menu button">关于</a>
+                
+                    <a href="/archives/" class="dropdown-menu button">归档</a>
+                
+                    <a href="/links/" class="dropdown-menu button">友链</a>
+                
+                    <a href="/reward/" class="dropdown-menu button">赞助</a>
+                
+                    <a href="/atom.xml" class="dropdown-menu button">订阅</a>
+                
+                    <a target="_blank" rel="noopener" href="//melody.loli.fj.cn" class="dropdown-menu button">主题</a>
+                
+            </div>
+        
+    </div>
+</header>
+
+
+            <main class="main">
     
 
-<div class="header-inner" style="height: 70vh;">
-  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
-  <div class="container">
-    <a class="navbar-brand" href="/">
-      <strong>绯鞠的博客</strong>
-    </a>
+<div class="post-title">
+    <h1 class="post-title__text">
+        【笔记】Excel的函数
+    </h1>
+    <div class="post-title__meta">
+        <a href="/archives/2022/09/" class="post-meta__date button">2022-09-19</a>
+        
+ 
+        
+    
+    
 
-    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
-            data-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <div class="animated-icon"><span></span><span></span><span></span></div>
-    </button>
 
-    <!-- Collapsible content -->
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav ml-auto text-center">
-        
-          
-          
-          
-          
-            <li class="nav-item">
-              <a class="nav-link" href="/" target="_self">
-                <i class="iconfont icon-home-fill"></i>
-                <span>首页</span>
-              </a>
-            </li>
-          
-        
-          
-          
-          
-          
-            <li class="nav-item">
-              <a class="nav-link" href="/about/" target="_self">
-                <i class="iconfont icon-user-fill"></i>
-                <span>关于</span>
-              </a>
-            </li>
-          
-        
-          
-          
-          
-          
-            <li class="nav-item">
-              <a class="nav-link" href="/tags/" target="_self">
-                <i class="iconfont icon-tags-fill"></i>
-                <span>标签</span>
-              </a>
-            </li>
-          
-        
-          
-          
-          
-          
-            <li class="nav-item">
-              <a class="nav-link" href="/categories/" target="_self">
-                <i class="iconfont icon-category-fill"></i>
-                <span>分类</span>
-              </a>
-            </li>
-          
-        
-          
-          
-          
-          
-            <li class="nav-item">
-              <a class="nav-link" href="/archives/" target="_self">
-                <i class="iconfont icon-archive-fill"></i>
-                <span>归档</span>
-              </a>
-            </li>
-          
-        
-          
-          
-          
-          
-            <li class="nav-item">
-              <a class="nav-link" href="/links/" target="_self">
-                <i class="iconfont icon-user-friends"></i>
-                <span>友链</span>
-              </a>
-            </li>
-          
-        
-          
-          
-          
-          
-            <li class="nav-item">
-              <a class="nav-link" href="/command/" target="_self">
-                <i class="iconfont icon-book"></i>
-                <span>指令</span>
-              </a>
-            </li>
-          
-        
-          
-          
-          
-          
-            <li class="nav-item">
-              <a class="nav-link" href="/atom.xml" target="_self">
-                <i class="iconfont icon-rss"></i>
-                <span>订阅</span>
-              </a>
-            </li>
-          
-        
-          
-          
-          
-          
-            <li class="nav-item">
-              <a class="nav-link" href="//redefine.loli.fj.cn" target="_self">
-                <i class="iconfont icon-th-large"></i>
-                <span>主题</span>
-              </a>
-            </li>
-          
-        
-        
-          <li class="nav-item" id="search-btn">
-            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
-              <i class="iconfont icon-search"></i>
-            </a>
-          </li>
-          
-        
-        
-          <li class="nav-item" id="color-toggle-btn">
-            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
-              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
-            </a>
-          </li>
-        
-      </ul>
+ 
+
+ 
     </div>
-  </div>
-</nav>
+</div>
 
-  
 
-<div id="banner" class="banner" parallax=true
-     style="background: url('https://game.gtimg.cn/images/yxzj/img201606/skin/hero-info/141/141-bigskin-1.jpg') no-repeat center center; background-size: cover;">
-  <div class="full-bg-img">
-    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
-      <div class="banner-text text-center fade-in-up">
-        <div class="h2">
-          
-            <span id="subtitle" data-typed-text="【笔记】Excel的函数"></span>
-          
+    <aside class="post-side">
+        <div class="post-side__toc">
+            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%89%8D%E8%A8%80"><span class="toc-text">前言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%87%BD%E6%95%B0%E7%9A%84%E6%9E%84%E6%88%90"><span class="toc-text">函数的构成</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B8%B8%E9%87%8F"><span class="toc-text">常量</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%98%E9%87%8F"><span class="toc-text">变量</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8D%95%E5%85%83%E6%A0%BC%E5%8F%98%E9%87%8F"><span class="toc-text">单元格变量</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%9B%B8%E5%AF%B9%E5%BC%95%E7%94%A8"><span class="toc-text">相对引用</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%BB%9D%E5%AF%B9%E5%BC%95%E7%94%A8"><span class="toc-text">绝对引用</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%B7%B7%E5%90%88%E5%BC%95%E7%94%A8"><span class="toc-text">混合引用</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%95%B4%E4%B8%AA%E5%8C%BA%E5%9F%9F%E7%9A%84%E5%BC%95%E7%94%A8"><span class="toc-text">整个区域的引用</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%95%B4%E5%88%97%E7%9A%84%E5%BC%95%E7%94%A8"><span class="toc-text">整列的引用</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%BF%90%E7%AE%97%E7%AC%A6"><span class="toc-text">运算符</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AE%97%E6%95%B0%E8%BF%90%E7%AE%97%E7%AC%A6"><span class="toc-text">算数运算符</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%AF%94%E8%BE%83%E8%BF%90%E7%AE%97%E7%AC%A6"><span class="toc-text">比较运算符</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%96%87%E6%9C%AC%E9%93%BE%E6%8E%A5%E7%AC%A6"><span class="toc-text">文本链接符</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BC%95%E7%94%A8%E8%BF%90%E7%AE%97%E7%AC%A6"><span class="toc-text">引用运算符</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%87%BD%E6%95%B0"><span class="toc-text">函数</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%95%B0%E5%80%BC%E5%A4%84%E7%90%86%E5%87%BD%E6%95%B0"><span class="toc-text">数值处理函数</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%B1%82%E5%92%8C"><span class="toc-text">求和</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%8C%89%E6%9D%A1%E4%BB%B6%E6%B1%82%E5%92%8C"><span class="toc-text">按条件求和</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%B1%82%E4%B9%98%E7%A7%AF"><span class="toc-text">求乘积</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%B9%98%E7%A7%AF%E4%B9%8B%E5%92%8C"><span class="toc-text">乘积之和</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%B1%82%E5%B9%B3%E5%9D%87%E6%95%B0"><span class="toc-text">求平均数</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%8C%89%E6%9D%A1%E4%BB%B6%E6%B1%82%E5%B9%B3%E5%9D%87%E5%80%BC"><span class="toc-text">按条件求平均值</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BF%9D%E7%95%99%E5%B0%8F%E6%95%B0"><span class="toc-text">保留小数</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%B1%82%E6%9C%80%E5%A4%A7%E5%80%BC"><span class="toc-text">求最大值</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%B1%82%E6%9C%80%E5%B0%8F%E5%80%BC"><span class="toc-text">求最小值</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%B1%82%E5%87%BA%E7%8E%B0%E6%AC%A1%E6%95%B0%E6%9C%80%E5%A4%9A%E7%9A%84%E5%80%BC"><span class="toc-text">求出现次数最多的值</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%B1%82%E6%95%B0%E6%8D%AE%E7%9A%84%E4%B8%AA%E6%95%B0"><span class="toc-text">求数据的个数</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%8C%89%E6%9D%A1%E4%BB%B6%E6%B1%82%E6%95%B0%E6%8D%AE%E7%9A%84%E4%B8%AA%E6%95%B0"><span class="toc-text">按条件求数据的个数</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%B1%82%E9%9D%9E%E7%A9%BA%E5%8D%95%E5%85%83%E6%A0%BC%E4%B8%AA%E6%95%B0"><span class="toc-text">求非空单元格个数</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%B1%82%E4%B8%80%E4%B8%AA%E6%95%B0%E5%80%BC%E5%9C%A8%E5%88%97%E8%A1%A8%E4%B8%AD%E7%9A%84%E6%8E%92%E4%BD%8D"><span class="toc-text">求一个数值在列表中的排位</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%96%87%E6%9C%AC%E5%A4%84%E7%90%86%E5%87%BD%E6%95%B0"><span class="toc-text">文本处理函数</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%96%87%E6%9C%AC%E5%90%88%E5%B9%B6"><span class="toc-text">文本合并</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%89%8B%E5%8A%A8%E9%80%89%E5%8F%96%E6%95%B0%E6%8D%AE"><span class="toc-text">手动选取数据</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%89%B9%E9%87%8F%E9%80%89%E5%8F%96%E6%95%B0%E6%8D%AE"><span class="toc-text">批量选取数据</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#%E6%B7%BB%E5%8A%A0%E5%88%86%E9%9A%94%E7%AC%A6"><span class="toc-text">添加分隔符</span></a></li></ol></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%B8%85%E9%99%A4%E7%A9%BA%E6%A0%BC"><span class="toc-text">清除空格</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%96%87%E6%9C%AC%E6%8F%90%E5%8F%96"><span class="toc-text">文本提取</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E4%BB%8E%E5%A4%B4%E5%BC%80%E5%A7%8B"><span class="toc-text">从头开始</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E4%BB%8E%E5%B0%BE%E5%BC%80%E5%A7%8B"><span class="toc-text">从尾开始</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%8C%87%E5%AE%9A%E5%BC%80%E5%A7%8B%E4%BD%8D%E7%BD%AE%E5%92%8C%E9%95%BF%E5%BA%A6"><span class="toc-text">指定开始位置和长度</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%A4%E6%96%AD%E5%87%BD%E6%95%B0"><span class="toc-text">判断函数</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%9D%A1%E4%BB%B6%E5%88%A4%E6%96%AD"><span class="toc-text">条件判断</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%B5%8C%E5%A5%97%E6%9D%A1%E4%BB%B6%E5%88%A4%E6%96%AD"><span class="toc-text">嵌套条件判断</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%A4%9A%E4%B8%AA%E6%9D%A1%E4%BB%B6%E7%9A%84%E5%88%A4%E6%96%AD"><span class="toc-text">多个条件的判断</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%8A%A5%E9%94%99%E5%88%A4%E6%96%AD"><span class="toc-text">报错判断</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%80%BB%E8%BE%91%E5%87%BD%E6%95%B0"><span class="toc-text">逻辑函数</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%80%BB%E8%BE%91%E4%B8%8E"><span class="toc-text">逻辑与</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%80%BB%E8%BE%91%E6%88%96"><span class="toc-text">逻辑或</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9F%A5%E6%89%BE%E5%87%BD%E6%95%B0"><span class="toc-text">查找函数</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%A0%B9%E6%8D%AE%E5%85%B3%E9%94%AE%E5%AD%97%E6%9F%A5%E6%89%BE%E6%95%B0%E6%8D%AE"><span class="toc-text">根据关键字查找数据</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%8C%89%E8%A1%8C%E6%9F%A5%E6%89%BE"><span class="toc-text">按行查找</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%8C%89%E5%88%97%E6%9F%A5%E6%89%BE"><span class="toc-text">按列查找</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%A0%B9%E6%8D%AE%E8%A1%8C%E5%92%8C%E5%88%97%E6%9F%A5%E6%89%BE%E6%95%B0%E6%8D%AE"><span class="toc-text">根据行和列查找数据</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%A0%B9%E6%8D%AE%E5%85%B3%E9%94%AE%E5%AD%97%E8%8E%B7%E5%8F%96%E8%A1%8C%E5%81%8F%E7%A7%BB%E9%87%8F"><span class="toc-text">根据关键字获取行偏移量</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%97%B6%E9%97%B4%E6%97%A5%E6%9C%9F%E5%87%BD%E6%95%B0"><span class="toc-text">时间日期函数</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%8E%B7%E5%8F%96%E5%BD%93%E5%89%8D%E7%B3%BB%E7%BB%9F%E6%97%B6%E9%97%B4"><span class="toc-text">获取当前系统时间</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E8%8E%B7%E5%8F%96%E5%BD%93%E5%89%8D%E5%B9%B4%E6%9C%88%E6%97%A5"><span class="toc-text">获取当前年月日</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#%E5%8F%AF%E4%BB%A5%E5%A2%9E%E5%8A%A0%E5%81%8F%E7%A7%BB%E9%87%8F"><span class="toc-text">可以增加偏移量</span></a></li></ol></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E8%8E%B7%E5%8F%96%E5%BD%93%E5%89%8D%E5%B9%B4%E6%9C%88%E6%97%A5%E6%97%B6%E5%88%86%E7%A7%92"><span class="toc-text">获取当前年月日时分秒</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%8E%B7%E5%8F%96%E6%8C%87%E5%AE%9A%E6%97%A5%E6%9C%9F%E6%A0%BC%E5%BC%8F%E7%9A%84%E5%AD%97%E7%AC%A6%E4%B8%B2"><span class="toc-text">获取指定日期格式的字符串</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%A0%B9%E6%8D%AE%E5%B9%B4%E6%9C%88%E6%97%A5%E8%8E%B7%E5%8F%96%E6%97%B6%E9%97%B4%E6%A0%BC%E5%BC%8F%E5%AD%97%E7%AC%A6%E4%B8%B2"><span class="toc-text">根据年月日获取时间格式字符串</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%A0%B9%E6%8D%AE%E6%97%B6%E5%88%86%E7%A7%92%E8%8E%B7%E5%8F%96%E6%97%B6%E9%97%B4%E6%A0%BC%E5%BC%8F%E7%9A%84%E5%AD%97%E7%AC%A6%E4%B8%B2"><span class="toc-text">根据时分秒获取时间格式的字符串</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%8E%B7%E5%8F%96%E6%97%A5%E6%9C%9F%E7%9A%84%E6%9F%90%E4%B8%80%E9%83%A8%E5%88%86"><span class="toc-text">获取日期的某一部分</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E8%8E%B7%E5%8F%96%E5%B9%B4"><span class="toc-text">获取年</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E8%8E%B7%E5%8F%96%E6%9C%88"><span class="toc-text">获取月</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E8%8E%B7%E5%8F%96%E6%97%A5"><span class="toc-text">获取日</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E8%8E%B7%E5%8F%96%E6%98%9F%E6%9C%9F"><span class="toc-text">获取星期</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E8%8E%B7%E5%8F%96%E6%97%B6"><span class="toc-text">获取时</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E8%8E%B7%E5%8F%96%E5%88%86"><span class="toc-text">获取分</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E8%8E%B7%E5%8F%96%E7%A7%92"><span class="toc-text">获取秒</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%87%8D%E6%96%B0%E6%A0%BC%E5%BC%8F%E5%8C%96%E6%95%B0%E6%8D%AE"><span class="toc-text">重新格式化数据</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%8E%B7%E5%8F%96%E6%8C%87%E5%AE%9A%E5%8D%95%E5%85%83%E6%A0%BC%E7%9A%84%E5%88%97"><span class="toc-text">获取指定单元格的列</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%94%9F%E6%88%90%E9%9A%8F%E6%9C%BA%E6%95%B0"><span class="toc-text">生成随机数</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%8C%E6%88%90"><span class="toc-text">完成</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%82%E8%80%83%E6%96%87%E7%8C%AE"><span class="toc-text">参考文献</span></a></li></ol>
         </div>
-
-        
-          
-  <div class="mt-3">
-    
-    
-      <span class="post-meta">
-        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2022-09-19 16:23" pubdate>
-          2022:09:19
-        </time>
-      </span>
-    
-  </div>
-
-  <div class="mt-1">
-    
-
-    
-
-    
-    
-  </div>
-
-
-        
-      </div>
-
-      
-    </div>
-  </div>
-</div>
-
-</div>
-
-  </header>
-
-  <main>
-    
-      
-
-<div class="container-fluid nopadding-x">
-  <div class="row nomargin-x">
-    <div class="side-col d-none d-lg-block col-lg-2">
-      
-  <aside class="sidebar category-bar" style="margin-right: -1rem">
-    
-
-
-
-
-
-<div class="category-list">
-  
-  
-</div>
-
-
-  </aside>
-
-
+    </aside>
+    <a class="btn-toc button" id="btn-toc" tabindex="0">
+        <svg viewBox="0 0 1024 1024" width="32" height="32" xmlns="http://www.w3.org/2000/svg">
+            <path d="M128 256h64V192H128zM320 256h576V192H320zM128 544h64v-64H128zM320 544h576v-64H320zM128 832h64v-64H128zM320 832h576v-64H320z" fill="currentColor"></path>
+        </svg>
+    </a>
+    <div class="toc-menus" id="toc-menus">
+        <div class="toc-title">文章目录</div>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%89%8D%E8%A8%80"><span class="toc-text">前言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%87%BD%E6%95%B0%E7%9A%84%E6%9E%84%E6%88%90"><span class="toc-text">函数的构成</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B8%B8%E9%87%8F"><span class="toc-text">常量</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%98%E9%87%8F"><span class="toc-text">变量</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8D%95%E5%85%83%E6%A0%BC%E5%8F%98%E9%87%8F"><span class="toc-text">单元格变量</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%9B%B8%E5%AF%B9%E5%BC%95%E7%94%A8"><span class="toc-text">相对引用</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%BB%9D%E5%AF%B9%E5%BC%95%E7%94%A8"><span class="toc-text">绝对引用</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%B7%B7%E5%90%88%E5%BC%95%E7%94%A8"><span class="toc-text">混合引用</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%95%B4%E4%B8%AA%E5%8C%BA%E5%9F%9F%E7%9A%84%E5%BC%95%E7%94%A8"><span class="toc-text">整个区域的引用</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%95%B4%E5%88%97%E7%9A%84%E5%BC%95%E7%94%A8"><span class="toc-text">整列的引用</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%BF%90%E7%AE%97%E7%AC%A6"><span class="toc-text">运算符</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AE%97%E6%95%B0%E8%BF%90%E7%AE%97%E7%AC%A6"><span class="toc-text">算数运算符</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%AF%94%E8%BE%83%E8%BF%90%E7%AE%97%E7%AC%A6"><span class="toc-text">比较运算符</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%96%87%E6%9C%AC%E9%93%BE%E6%8E%A5%E7%AC%A6"><span class="toc-text">文本链接符</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BC%95%E7%94%A8%E8%BF%90%E7%AE%97%E7%AC%A6"><span class="toc-text">引用运算符</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%87%BD%E6%95%B0"><span class="toc-text">函数</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%95%B0%E5%80%BC%E5%A4%84%E7%90%86%E5%87%BD%E6%95%B0"><span class="toc-text">数值处理函数</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%B1%82%E5%92%8C"><span class="toc-text">求和</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%8C%89%E6%9D%A1%E4%BB%B6%E6%B1%82%E5%92%8C"><span class="toc-text">按条件求和</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%B1%82%E4%B9%98%E7%A7%AF"><span class="toc-text">求乘积</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%B9%98%E7%A7%AF%E4%B9%8B%E5%92%8C"><span class="toc-text">乘积之和</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%B1%82%E5%B9%B3%E5%9D%87%E6%95%B0"><span class="toc-text">求平均数</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%8C%89%E6%9D%A1%E4%BB%B6%E6%B1%82%E5%B9%B3%E5%9D%87%E5%80%BC"><span class="toc-text">按条件求平均值</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BF%9D%E7%95%99%E5%B0%8F%E6%95%B0"><span class="toc-text">保留小数</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%B1%82%E6%9C%80%E5%A4%A7%E5%80%BC"><span class="toc-text">求最大值</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%B1%82%E6%9C%80%E5%B0%8F%E5%80%BC"><span class="toc-text">求最小值</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%B1%82%E5%87%BA%E7%8E%B0%E6%AC%A1%E6%95%B0%E6%9C%80%E5%A4%9A%E7%9A%84%E5%80%BC"><span class="toc-text">求出现次数最多的值</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%B1%82%E6%95%B0%E6%8D%AE%E7%9A%84%E4%B8%AA%E6%95%B0"><span class="toc-text">求数据的个数</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%8C%89%E6%9D%A1%E4%BB%B6%E6%B1%82%E6%95%B0%E6%8D%AE%E7%9A%84%E4%B8%AA%E6%95%B0"><span class="toc-text">按条件求数据的个数</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%B1%82%E9%9D%9E%E7%A9%BA%E5%8D%95%E5%85%83%E6%A0%BC%E4%B8%AA%E6%95%B0"><span class="toc-text">求非空单元格个数</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%B1%82%E4%B8%80%E4%B8%AA%E6%95%B0%E5%80%BC%E5%9C%A8%E5%88%97%E8%A1%A8%E4%B8%AD%E7%9A%84%E6%8E%92%E4%BD%8D"><span class="toc-text">求一个数值在列表中的排位</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%96%87%E6%9C%AC%E5%A4%84%E7%90%86%E5%87%BD%E6%95%B0"><span class="toc-text">文本处理函数</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%96%87%E6%9C%AC%E5%90%88%E5%B9%B6"><span class="toc-text">文本合并</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%89%8B%E5%8A%A8%E9%80%89%E5%8F%96%E6%95%B0%E6%8D%AE"><span class="toc-text">手动选取数据</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%89%B9%E9%87%8F%E9%80%89%E5%8F%96%E6%95%B0%E6%8D%AE"><span class="toc-text">批量选取数据</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#%E6%B7%BB%E5%8A%A0%E5%88%86%E9%9A%94%E7%AC%A6"><span class="toc-text">添加分隔符</span></a></li></ol></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%B8%85%E9%99%A4%E7%A9%BA%E6%A0%BC"><span class="toc-text">清除空格</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%96%87%E6%9C%AC%E6%8F%90%E5%8F%96"><span class="toc-text">文本提取</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E4%BB%8E%E5%A4%B4%E5%BC%80%E5%A7%8B"><span class="toc-text">从头开始</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E4%BB%8E%E5%B0%BE%E5%BC%80%E5%A7%8B"><span class="toc-text">从尾开始</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%8C%87%E5%AE%9A%E5%BC%80%E5%A7%8B%E4%BD%8D%E7%BD%AE%E5%92%8C%E9%95%BF%E5%BA%A6"><span class="toc-text">指定开始位置和长度</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%A4%E6%96%AD%E5%87%BD%E6%95%B0"><span class="toc-text">判断函数</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%9D%A1%E4%BB%B6%E5%88%A4%E6%96%AD"><span class="toc-text">条件判断</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%B5%8C%E5%A5%97%E6%9D%A1%E4%BB%B6%E5%88%A4%E6%96%AD"><span class="toc-text">嵌套条件判断</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%A4%9A%E4%B8%AA%E6%9D%A1%E4%BB%B6%E7%9A%84%E5%88%A4%E6%96%AD"><span class="toc-text">多个条件的判断</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%8A%A5%E9%94%99%E5%88%A4%E6%96%AD"><span class="toc-text">报错判断</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%80%BB%E8%BE%91%E5%87%BD%E6%95%B0"><span class="toc-text">逻辑函数</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%80%BB%E8%BE%91%E4%B8%8E"><span class="toc-text">逻辑与</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%80%BB%E8%BE%91%E6%88%96"><span class="toc-text">逻辑或</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9F%A5%E6%89%BE%E5%87%BD%E6%95%B0"><span class="toc-text">查找函数</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%A0%B9%E6%8D%AE%E5%85%B3%E9%94%AE%E5%AD%97%E6%9F%A5%E6%89%BE%E6%95%B0%E6%8D%AE"><span class="toc-text">根据关键字查找数据</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%8C%89%E8%A1%8C%E6%9F%A5%E6%89%BE"><span class="toc-text">按行查找</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%8C%89%E5%88%97%E6%9F%A5%E6%89%BE"><span class="toc-text">按列查找</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%A0%B9%E6%8D%AE%E8%A1%8C%E5%92%8C%E5%88%97%E6%9F%A5%E6%89%BE%E6%95%B0%E6%8D%AE"><span class="toc-text">根据行和列查找数据</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%A0%B9%E6%8D%AE%E5%85%B3%E9%94%AE%E5%AD%97%E8%8E%B7%E5%8F%96%E8%A1%8C%E5%81%8F%E7%A7%BB%E9%87%8F"><span class="toc-text">根据关键字获取行偏移量</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%97%B6%E9%97%B4%E6%97%A5%E6%9C%9F%E5%87%BD%E6%95%B0"><span class="toc-text">时间日期函数</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%8E%B7%E5%8F%96%E5%BD%93%E5%89%8D%E7%B3%BB%E7%BB%9F%E6%97%B6%E9%97%B4"><span class="toc-text">获取当前系统时间</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E8%8E%B7%E5%8F%96%E5%BD%93%E5%89%8D%E5%B9%B4%E6%9C%88%E6%97%A5"><span class="toc-text">获取当前年月日</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#%E5%8F%AF%E4%BB%A5%E5%A2%9E%E5%8A%A0%E5%81%8F%E7%A7%BB%E9%87%8F"><span class="toc-text">可以增加偏移量</span></a></li></ol></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E8%8E%B7%E5%8F%96%E5%BD%93%E5%89%8D%E5%B9%B4%E6%9C%88%E6%97%A5%E6%97%B6%E5%88%86%E7%A7%92"><span class="toc-text">获取当前年月日时分秒</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%8E%B7%E5%8F%96%E6%8C%87%E5%AE%9A%E6%97%A5%E6%9C%9F%E6%A0%BC%E5%BC%8F%E7%9A%84%E5%AD%97%E7%AC%A6%E4%B8%B2"><span class="toc-text">获取指定日期格式的字符串</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%A0%B9%E6%8D%AE%E5%B9%B4%E6%9C%88%E6%97%A5%E8%8E%B7%E5%8F%96%E6%97%B6%E9%97%B4%E6%A0%BC%E5%BC%8F%E5%AD%97%E7%AC%A6%E4%B8%B2"><span class="toc-text">根据年月日获取时间格式字符串</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%A0%B9%E6%8D%AE%E6%97%B6%E5%88%86%E7%A7%92%E8%8E%B7%E5%8F%96%E6%97%B6%E9%97%B4%E6%A0%BC%E5%BC%8F%E7%9A%84%E5%AD%97%E7%AC%A6%E4%B8%B2"><span class="toc-text">根据时分秒获取时间格式的字符串</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%8E%B7%E5%8F%96%E6%97%A5%E6%9C%9F%E7%9A%84%E6%9F%90%E4%B8%80%E9%83%A8%E5%88%86"><span class="toc-text">获取日期的某一部分</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E8%8E%B7%E5%8F%96%E5%B9%B4"><span class="toc-text">获取年</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E8%8E%B7%E5%8F%96%E6%9C%88"><span class="toc-text">获取月</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E8%8E%B7%E5%8F%96%E6%97%A5"><span class="toc-text">获取日</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E8%8E%B7%E5%8F%96%E6%98%9F%E6%9C%9F"><span class="toc-text">获取星期</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E8%8E%B7%E5%8F%96%E6%97%B6"><span class="toc-text">获取时</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E8%8E%B7%E5%8F%96%E5%88%86"><span class="toc-text">获取分</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E8%8E%B7%E5%8F%96%E7%A7%92"><span class="toc-text">获取秒</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%87%8D%E6%96%B0%E6%A0%BC%E5%BC%8F%E5%8C%96%E6%95%B0%E6%8D%AE"><span class="toc-text">重新格式化数据</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%8E%B7%E5%8F%96%E6%8C%87%E5%AE%9A%E5%8D%95%E5%85%83%E6%A0%BC%E7%9A%84%E5%88%97"><span class="toc-text">获取指定单元格的列</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%94%9F%E6%88%90%E9%9A%8F%E6%9C%BA%E6%95%B0"><span class="toc-text">生成随机数</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%8C%E6%88%90"><span class="toc-text">完成</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%82%E8%80%83%E6%96%87%E7%8C%AE"><span class="toc-text">参考文献</span></a></li></ol>
     </div>
 
-    <div class="col-lg-8 nopadding-x-md">
-      <div class="container nopadding-x-md" id="board-ctn">
-        <div id="board">
-          <article class="post-content mx-auto">
-            <h1 id="seo-header">【笔记】Excel的函数</h1>
-            
-              <p id="updated-time" class="note note-info" style="">
-                
-                  
-                    本文最后更新于 2024:08:06
-                  
-                
-              </p>
-            
-            
-              <div class="markdown-body">
-                
-                <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>Excel的函数学习笔记</p>
+
+<article class="post post__with-toc content-card">
+    <div class="post__header"></div>
+    <div class="post__content">
+        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>Excel的函数学习笔记</p>
 <span id="more"></span>
 
-<h2 id="函数的构成"><a href="#函数的构成" class="headerlink" title="函数的构成"></a>函数的构成</h2><figure class="highlight excel"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs excel">=函数名(参数列表)<br></code></pre></td></tr></table></figure>
+<h2 id="函数的构成"><a href="#函数的构成" class="headerlink" title="函数的构成"></a>函数的构成</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">=函数名(参数列表)</span><br></pre></td></tr></table></figure>
 
-<figure class="highlight excel"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs excel">=常量 运算符 变量<br></code></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">=常量 运算符 变量</span><br></pre></td></tr></table></figure>
 
 <h2 id="常量"><a href="#常量" class="headerlink" title="常量"></a>常量</h2><ul>
 <li>由数字直接构成</li>
@@ -352,13 +204,13 @@
 <li>由列编号和行编号组合构成</li>
 <li>相对引用在单元格自动填充时会自动改变</li>
 </ul>
-<figure class="highlight mipsasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs mipsasm"><span class="hljs-built_in">A1</span><br></code></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">A1</span><br></pre></td></tr></table></figure>
 
 <h4 id="绝对引用"><a href="#绝对引用" class="headerlink" title="绝对引用"></a>绝对引用</h4><ul>
 <li>在列编号前或行编号前添加<code>$</code>符号</li>
 <li>绝对引用在单元格自动填充时不会改变</li>
 </ul>
-<figure class="highlight autoit"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs autoit">$A$1<br></code></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$A$1</span><br></pre></td></tr></table></figure>
 
 <h4 id="混合引用"><a href="#混合引用" class="headerlink" title="混合引用"></a>混合引用</h4><ul>
 <li><p>同时包含相对引用和绝对引用的变量</p>
@@ -369,7 +221,7 @@
 </ul>
 </li>
 </ul>
-<figure class="highlight gams"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs gams"><span class="hljs-meta"><span class="hljs-keyword">$A1</span></span><br></code></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$A1</span><br></pre></td></tr></table></figure>
 
 <ul>
 <li>自动填充时，只有列自动改变<ul>
@@ -377,18 +229,18 @@
 </ul>
 </li>
 </ul>
-<figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs apache"><span class="hljs-attribute">A</span>$<span class="hljs-number">1</span><br></code></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">A$1</span><br></pre></td></tr></table></figure>
 
 <h4 id="整个区域的引用"><a href="#整个区域的引用" class="headerlink" title="整个区域的引用"></a>整个区域的引用</h4><ul>
 <li>在<code>:</code>前后指定选择的区域一组对角</li>
 </ul>
-<figure class="highlight avrasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs avrasm"><span class="hljs-symbol">A1:</span>B2<br></code></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">A1:B2</span><br></pre></td></tr></table></figure>
 
 <h4 id="整列的引用"><a href="#整列的引用" class="headerlink" title="整列的引用"></a>整列的引用</h4><ul>
 <li>如果加上了<code>@</code>，在单元格自动填充时会自动改变为当前行</li>
 <li>省略表名表示当前表</li>
 </ul>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs css"><span class="hljs-selector-attr">[表头名]</span><br><span class="hljs-selector-attr">[@表头名]</span><br><br>表名<span class="hljs-selector-attr">[表头名]</span><br>表名<span class="hljs-selector-attr">[@表头名]</span><br></code></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">[表头名]</span><br><span class="line">[@表头名]</span><br><span class="line"></span><br><span class="line">表名[表头名]</span><br><span class="line">表名[@表头名]</span><br></pre></td></tr></table></figure>
 
 <ul>
 <li>也可以用<code>:</code>手动选择整列</li>
@@ -492,55 +344,55 @@
 <h2 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h2><h3 id="数值处理函数"><a href="#数值处理函数" class="headerlink" title="数值处理函数"></a>数值处理函数</h3><h4 id="求和"><a href="#求和" class="headerlink" title="求和"></a>求和</h4><ul>
 <li>可以选择单元格，也可以选择连续的一组单元格</li>
 </ul>
-<figure class="highlight excel"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs excel">=<span class="hljs-built_in">SUM</span>(<span class="hljs-symbol">A1</span>,<span class="hljs-symbol">B1</span>,...)<br></code></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">=SUM(A1,B1,...)</span><br></pre></td></tr></table></figure>
 
 <h5 id="按条件求和"><a href="#按条件求和" class="headerlink" title="按条件求和"></a>按条件求和</h5><ul>
 <li>如果指定的整列，既是用作判断的单元格，又是需要计算的数据，那么可以传递2个参数</li>
 </ul>
-<figure class="highlight excel"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs excel">=<span class="hljs-built_in">SUMIF</span>(同时用作判断的单元格和用于计算的单元格,<span class="hljs-string">&quot;判断条件&quot;</span>)<br></code></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">=SUMIF(同时用作判断的单元格和用于计算的单元格,&quot;判断条件&quot;)</span><br></pre></td></tr></table></figure>
 
 <ul>
 <li>如果指定的整列，仅是用作判断的单元格，需要计算的数据在其他列，那么可以传递3个参数</li>
 </ul>
-<figure class="highlight excel"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs excel">=<span class="hljs-built_in">SUMIF</span>(用作判断的单元格,<span class="hljs-string">&quot;判断条件&quot;</span>,用于计算的单元格)<br></code></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">=SUMIF(用作判断的单元格,&quot;判断条件&quot;,用于计算的单元格)</span><br></pre></td></tr></table></figure>
 
-<h4 id="求乘积"><a href="#求乘积" class="headerlink" title="求乘积"></a>求乘积</h4><figure class="highlight excel"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs excel">=<span class="hljs-built_in">PRODUCT</span>(<span class="hljs-symbol">A1</span>,<span class="hljs-symbol">A2</span>,...)<br></code></pre></td></tr></table></figure>
+<h4 id="求乘积"><a href="#求乘积" class="headerlink" title="求乘积"></a>求乘积</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">=PRODUCT(A1,A2,...)</span><br></pre></td></tr></table></figure>
 
 <h4 id="乘积之和"><a href="#乘积之和" class="headerlink" title="乘积之和"></a>乘积之和</h4><ul>
 <li>将数组中的数值乘积，将所有乘积求和</li>
 </ul>
-<figure class="highlight excel"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs excel">=<span class="hljs-built_in">SUMPRODUCT</span>()<br></code></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">=SUMPRODUCT()</span><br></pre></td></tr></table></figure>
 
 <h4 id="求平均数"><a href="#求平均数" class="headerlink" title="求平均数"></a>求平均数</h4><ul>
 <li>可以选择单元格，也可以选择连续的一组单元格</li>
 </ul>
-<figure class="highlight excel"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs excel">=<span class="hljs-built_in">AVERAGE</span>(<span class="hljs-symbol">A1</span>,<span class="hljs-symbol">B1</span>,...)<br></code></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">=AVERAGE(A1,B1,...)</span><br></pre></td></tr></table></figure>
 
-<h5 id="按条件求平均值"><a href="#按条件求平均值" class="headerlink" title="按条件求平均值"></a>按条件求平均值</h5><figure class="highlight excel"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs excel">=<span class="hljs-built_in">AVERAGEIF</span>(<span class="hljs-symbol">A1</span>:<span class="hljs-symbol">B2</span>,<span class="hljs-string">&quot;判断条件&quot;</span>)<br></code></pre></td></tr></table></figure>
+<h5 id="按条件求平均值"><a href="#按条件求平均值" class="headerlink" title="按条件求平均值"></a>按条件求平均值</h5><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">=AVERAGEIF(A1:B2,&quot;判断条件&quot;)</span><br></pre></td></tr></table></figure>
 
 <h4 id="保留小数"><a href="#保留小数" class="headerlink" title="保留小数"></a>保留小数</h4><ul>
 <li>如果保留的位数为0，那么就是不保留小数</li>
 </ul>
-<figure class="highlight excel"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs excel">=<span class="hljs-built_in">ROUND</span>(单元格,保留的位数)<br></code></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">=ROUND(单元格,保留的位数)</span><br></pre></td></tr></table></figure>
 
-<h4 id="求最大值"><a href="#求最大值" class="headerlink" title="求最大值"></a>求最大值</h4><figure class="highlight excel"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs excel">=<span class="hljs-built_in">MAX</span>(<span class="hljs-symbol">A1</span>,<span class="hljs-symbol">B1</span>,...)<br></code></pre></td></tr></table></figure>
+<h4 id="求最大值"><a href="#求最大值" class="headerlink" title="求最大值"></a>求最大值</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">=MAX(A1,B1,...)</span><br></pre></td></tr></table></figure>
 
-<h4 id="求最小值"><a href="#求最小值" class="headerlink" title="求最小值"></a>求最小值</h4><figure class="highlight excel"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs excel">=<span class="hljs-built_in">MIN</span>(<span class="hljs-symbol">A1</span>,<span class="hljs-symbol">B1</span>,...)<br></code></pre></td></tr></table></figure>
+<h4 id="求最小值"><a href="#求最小值" class="headerlink" title="求最小值"></a>求最小值</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">=MIN(A1,B1,...)</span><br></pre></td></tr></table></figure>
 
-<h4 id="求出现次数最多的值"><a href="#求出现次数最多的值" class="headerlink" title="求出现次数最多的值"></a>求出现次数最多的值</h4><figure class="highlight excel"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs excel">=<span class="hljs-built_in">MODE</span>(<span class="hljs-symbol">A1</span>,<span class="hljs-symbol">B1</span>,...)<br></code></pre></td></tr></table></figure>
+<h4 id="求出现次数最多的值"><a href="#求出现次数最多的值" class="headerlink" title="求出现次数最多的值"></a>求出现次数最多的值</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">=MODE(A1,B1,...)</span><br></pre></td></tr></table></figure>
 
 <h4 id="求数据的个数"><a href="#求数据的个数" class="headerlink" title="求数据的个数"></a>求数据的个数</h4><ul>
 <li>求包含数字的单元格的个数</li>
 </ul>
-<figure class="highlight excel"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs excel">=<span class="hljs-built_in">COUNT</span>(<span class="hljs-symbol">A1</span>:<span class="hljs-symbol">B2</span>)<br></code></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">=COUNT(A1:B2)</span><br></pre></td></tr></table></figure>
 
 <h5 id="按条件求数据的个数"><a href="#按条件求数据的个数" class="headerlink" title="按条件求数据的个数"></a>按条件求数据的个数</h5><ul>
 <li>求满足条件的单元格的个数</li>
 <li>如果想要获取指定字符串的数据个数，只需要将判断条件配置为需要计数的字符串既可</li>
 </ul>
-<figure class="highlight excel"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs excel">=<span class="hljs-built_in">COUNTIF</span>(<span class="hljs-symbol">A1</span>:<span class="hljs-symbol">B2</span>,<span class="hljs-string">&quot;判断条件&quot;</span>)<br></code></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">=COUNTIF(A1:B2,&quot;判断条件&quot;)</span><br></pre></td></tr></table></figure>
 
-<h5 id="求非空单元格个数"><a href="#求非空单元格个数" class="headerlink" title="求非空单元格个数"></a>求非空单元格个数</h5><figure class="highlight excel"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs excel">=<span class="hljs-built_in">COUNTA</span>(<span class="hljs-symbol">A1</span>:<span class="hljs-symbol">B2</span>)<br></code></pre></td></tr></table></figure>
+<h5 id="求非空单元格个数"><a href="#求非空单元格个数" class="headerlink" title="求非空单元格个数"></a>求非空单元格个数</h5><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">=COUNTA(A1:B2)</span><br></pre></td></tr></table></figure>
 
 <h4 id="求一个数值在列表中的排位"><a href="#求一个数值在列表中的排位" class="headerlink" title="求一个数值在列表中的排位"></a>求一个数值在列表中的排位</h4><ul>
 <li>获取一个数据在一组数据中的顺序</li>
@@ -551,28 +403,28 @@
 <p><code>1</code>：升序<br><code>0</code>：降序</p>
 </blockquote>
 </blockquote>
-<figure class="highlight excel"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs excel">=<span class="hljs-built_in">RANK</span>(需要排位的数据,所有数据,排序规则)<br></code></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">=RANK(需要排位的数据,所有数据,排序规则)</span><br></pre></td></tr></table></figure>
 
-<h3 id="文本处理函数"><a href="#文本处理函数" class="headerlink" title="文本处理函数"></a>文本处理函数</h3><h4 id="文本合并"><a href="#文本合并" class="headerlink" title="文本合并"></a>文本合并</h4><h5 id="手动选取数据"><a href="#手动选取数据" class="headerlink" title="手动选取数据"></a>手动选取数据</h5><figure class="highlight excel"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs excel">=<span class="hljs-built_in">CONCATENATE</span>(<span class="hljs-symbol">A1</span>,<span class="hljs-symbol">B1</span>,...)<br></code></pre></td></tr></table></figure>
+<h3 id="文本处理函数"><a href="#文本处理函数" class="headerlink" title="文本处理函数"></a>文本处理函数</h3><h4 id="文本合并"><a href="#文本合并" class="headerlink" title="文本合并"></a>文本合并</h4><h5 id="手动选取数据"><a href="#手动选取数据" class="headerlink" title="手动选取数据"></a>手动选取数据</h5><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">=CONCATENATE(A1,B1,...)</span><br></pre></td></tr></table></figure>
 
 <h5 id="批量选取数据"><a href="#批量选取数据" class="headerlink" title="批量选取数据"></a>批量选取数据</h5><ul>
 <li>Office2019&#x2F;Office365支持新的文本连接函数，可以通过选取一个区域的数据进行文本合并</li>
 </ul>
-<figure class="highlight excel"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs excel">=<span class="hljs-built_in">CONCAT</span>(<span class="hljs-symbol">A1</span>:<span class="hljs-symbol">B2</span>)<br></code></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">=CONCAT(A1:B2)</span><br></pre></td></tr></table></figure>
 
-<h6 id="添加分隔符"><a href="#添加分隔符" class="headerlink" title="添加分隔符"></a>添加分隔符</h6><figure class="highlight excel"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs excel">=<span class="hljs-built_in">CONCAT</span>(<span class="hljs-symbol">A1</span>:<span class="hljs-symbol">B2</span>&amp;<span class="hljs-string">&quot; &quot;</span>)<br></code></pre></td></tr></table></figure>
+<h6 id="添加分隔符"><a href="#添加分隔符" class="headerlink" title="添加分隔符"></a>添加分隔符</h6><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">=CONCAT(A1:B2&amp;&quot; &quot;)</span><br></pre></td></tr></table></figure>
 
 <h4 id="清除空格"><a href="#清除空格" class="headerlink" title="清除空格"></a>清除空格</h4><ul>
 <li>清楚所有换行符</li>
 <li>清除前、后所有的空格，字符串与字符串之间只保留1个空格</li>
 </ul>
-<figure class="highlight excel"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs excel">=<span class="hljs-built_in">TRIM</span>(<span class="hljs-symbol">A1</span>)<br></code></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">=TRIM(A1)</span><br></pre></td></tr></table></figure>
 
 <ul>
 <li>清楚所有换行符</li>
 <li>清楚由不同操作系统生成的，不能被Excl打印的空字符</li>
 </ul>
-<figure class="highlight excel"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs excel">=<span class="hljs-built_in">CLEAN</span>(<span class="hljs-symbol">A1</span>)<br></code></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">=CLEAN(A1)</span><br></pre></td></tr></table></figure>
 
 <h4 id="文本提取"><a href="#文本提取" class="headerlink" title="文本提取"></a>文本提取</h4><h5 id="从头开始"><a href="#从头开始" class="headerlink" title="从头开始"></a>从头开始</h5><ul>
 <li>从头开始截取，指定截取长度向右截取</li>
@@ -580,7 +432,7 @@
 <blockquote>
 <p><code>&lt;num&gt;</code>：截取的字符个数</p>
 </blockquote>
-<figure class="highlight excel"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs excel">=<span class="hljs-built_in">LEFT</span>(<span class="hljs-symbol">A1</span>,&lt;num&gt;)<br></code></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">=LEFT(A1,&lt;num&gt;)</span><br></pre></td></tr></table></figure>
 
 <h5 id="从尾开始"><a href="#从尾开始" class="headerlink" title="从尾开始"></a>从尾开始</h5><ul>
 <li>从尾开始截取，指定截取长度向左截取</li>
@@ -588,7 +440,7 @@
 <blockquote>
 <p><code>&lt;num&gt;</code>：截取的字符个数</p>
 </blockquote>
-<figure class="highlight excel"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs excel">=<span class="hljs-built_in">RIGHT</span>(<span class="hljs-symbol">A1</span>,&lt;num&gt;)<br></code></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">=RIGHT(A1,&lt;num&gt;)</span><br></pre></td></tr></table></figure>
 
 <h5 id="指定开始位置和长度"><a href="#指定开始位置和长度" class="headerlink" title="指定开始位置和长度"></a>指定开始位置和长度</h5><ul>
 <li>从指定位置开始，截取到指定长度</li>
@@ -596,28 +448,28 @@
 <blockquote>
 <p><code>&lt;index&gt;</code>：开始位置索引，第一个字符索引为1<br><code>&lt;num&gt;</code>：截取的字符个数</p>
 </blockquote>
-<figure class="highlight excel"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs excel">=<span class="hljs-built_in">MID</span>(<span class="hljs-symbol">A1</span>,&lt;<span class="hljs-built_in">index</span>&gt;,&lt;num&gt;)<br></code></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">=MID(A1,&lt;index&gt;,&lt;num&gt;)</span><br></pre></td></tr></table></figure>
 
-<h3 id="判断函数"><a href="#判断函数" class="headerlink" title="判断函数"></a>判断函数</h3><h4 id="条件判断"><a href="#条件判断" class="headerlink" title="条件判断"></a>条件判断</h4><figure class="highlight excel"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs excel">=<span class="hljs-built_in">IF</span>(判断条件,正确时返回的结果,错误时返回的结果)<br></code></pre></td></tr></table></figure>
+<h3 id="判断函数"><a href="#判断函数" class="headerlink" title="判断函数"></a>判断函数</h3><h4 id="条件判断"><a href="#条件判断" class="headerlink" title="条件判断"></a>条件判断</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">=IF(判断条件,正确时返回的结果,错误时返回的结果)</span><br></pre></td></tr></table></figure>
 
-<h5 id="嵌套条件判断"><a href="#嵌套条件判断" class="headerlink" title="嵌套条件判断"></a>嵌套条件判断</h5><figure class="highlight excel"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs excel">=<span class="hljs-built_in">IF</span>(判断条件,<span class="hljs-built_in">IF</span>(判断条件,正确时返回的结果,错误时返回的结果),<span class="hljs-built_in">IF</span>(判断条件,正确时返回的结果,错误时返回的结果))<br></code></pre></td></tr></table></figure>
+<h5 id="嵌套条件判断"><a href="#嵌套条件判断" class="headerlink" title="嵌套条件判断"></a>嵌套条件判断</h5><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">=IF(判断条件,IF(判断条件,正确时返回的结果,错误时返回的结果),IF(判断条件,正确时返回的结果,错误时返回的结果))</span><br></pre></td></tr></table></figure>
 
 <h4 id="多个条件的判断"><a href="#多个条件的判断" class="headerlink" title="多个条件的判断"></a>多个条件的判断</h4><ul>
 <li>仅Office2019&#x2F;Office365支持</li>
 </ul>
-<figure class="highlight excel"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs excel">=<span class="hljs-built_in">IFS</span>(判断条件<span class="hljs-number">1</span>,判断条件<span class="hljs-number">1</span>满足的时返回的结果,判断条件<span class="hljs-number">2</span>,判断条件<span class="hljs-number">2</span>满足的时返回的结果,...)<br><br>=<span class="hljs-built_in">IFS</span>(判断条件<span class="hljs-number">1</span>,判断条件<span class="hljs-number">1</span>满足的时返回的结果,判断条件<span class="hljs-number">2</span>,判断条件<span class="hljs-number">2</span>满足的时返回的结果,<span class="hljs-built_in">TRUE</span>,以上条件都不满足时返回的结果)<br></code></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">=IFS(判断条件1,判断条件1满足的时返回的结果,判断条件2,判断条件2满足的时返回的结果,...)</span><br><span class="line"></span><br><span class="line">=IFS(判断条件1,判断条件1满足的时返回的结果,判断条件2,判断条件2满足的时返回的结果,TRUE,以上条件都不满足时返回的结果)</span><br></pre></td></tr></table></figure>
 
 <h4 id="报错判断"><a href="#报错判断" class="headerlink" title="报错判断"></a>报错判断</h4><ul>
 <li>当指定的函数有可能报错时，可以在报错的情况下指定一种显示的数据</li>
 </ul>
-<figure class="highlight excel"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs excel">=<span class="hljs-built_in">IFERROR</span>(可能会出错的值,出错后返回的值)<br></code></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">=IFERROR(可能会出错的值,出错后返回的值)</span><br></pre></td></tr></table></figure>
 
 <h3 id="逻辑函数"><a href="#逻辑函数" class="headerlink" title="逻辑函数"></a>逻辑函数</h3><ul>
 <li>返回布尔值<code>TRUE</code>或<code>FALSE</code></li>
 </ul>
-<h4 id="逻辑与"><a href="#逻辑与" class="headerlink" title="逻辑与"></a>逻辑与</h4><figure class="highlight gams"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs gams"><span class="hljs-function"><span class="hljs-title">AND</span>(<span class="hljs-params">A1,B1,...</span>)</span><br></code></pre></td></tr></table></figure>
+<h4 id="逻辑与"><a href="#逻辑与" class="headerlink" title="逻辑与"></a>逻辑与</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">AND(A1,B1,...)</span><br></pre></td></tr></table></figure>
 
-<h4 id="逻辑或"><a href="#逻辑或" class="headerlink" title="逻辑或"></a>逻辑或</h4><figure class="highlight gams"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs gams"><span class="hljs-function"><span class="hljs-title">OR</span>(<span class="hljs-params">A1,B1,...</span>)</span><br></code></pre></td></tr></table></figure>
+<h4 id="逻辑或"><a href="#逻辑或" class="headerlink" title="逻辑或"></a>逻辑或</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">OR(A1,B1,...)</span><br></pre></td></tr></table></figure>
 
 <h3 id="查找函数"><a href="#查找函数" class="headerlink" title="查找函数"></a>查找函数</h3><h4 id="根据关键字查找数据"><a href="#根据关键字查找数据" class="headerlink" title="根据关键字查找数据"></a>根据关键字查找数据</h4><h5 id="按行查找"><a href="#按行查找" class="headerlink" title="按行查找"></a>按行查找</h5><ul>
 <li>通过关键字，查找符合关键字条件的行，将那一行的其他列数据返回</li>
@@ -628,12 +480,12 @@
 <p><code>0</code>、<code>True</code>：精确查找<br><code>1</code>、<code>False</code>：模糊查找</p>
 </blockquote>
 </blockquote>
-<figure class="highlight excel"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs excel">=<span class="hljs-built_in">VLOOKUP</span>(关键字,查找范围,返回结果的列偏移量,匹配条件)<br></code></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">=VLOOKUP(关键字,查找范围,返回结果的列偏移量,匹配条件)</span><br></pre></td></tr></table></figure>
 
 <p><strong>精确查找案例</strong></p>
-<p><img src="/images/20220919162314/01.webp" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/images/20220919162314/01.webp"></p>
 <p><strong>模糊查找案例</strong></p>
-<p><img src="/images/20220919162314/02.webp" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/images/20220919162314/02.webp"></p>
 <h5 id="按列查找"><a href="#按列查找" class="headerlink" title="按列查找"></a>按列查找</h5><ul>
 <li>通过关键字，查找符合关键字条件的列，将那一列的其他行数据返回</li>
 </ul>
@@ -643,14 +495,14 @@
 <p><code>0</code>、<code>True</code>：精确查找<br><code>1</code>、<code>False</code>：模糊查找</p>
 </blockquote>
 </blockquote>
-<figure class="highlight excel"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs excel">=<span class="hljs-built_in">HLOOKUP</span>(关键字,查找范围,返回结果的行偏移量,匹配条件)<br></code></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">=HLOOKUP(关键字,查找范围,返回结果的行偏移量,匹配条件)</span><br></pre></td></tr></table></figure>
 
 <p><strong>精确查找案例</strong></p>
-<p><img src="/images/20220919162314/03.webp" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/images/20220919162314/03.webp"></p>
 <h4 id="根据行和列查找数据"><a href="#根据行和列查找数据" class="headerlink" title="根据行和列查找数据"></a>根据行和列查找数据</h4><blockquote>
 <p><code>查找范围</code>：选择一个区域的单元格，作为查找范围<br><code>行偏移量</code>：从查找范围中偏移指定行数<br><code>列偏移量</code>：从查找范围中偏移指定列数</p>
 </blockquote>
-<figure class="highlight excel"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs excel">=<span class="hljs-built_in">INDEX</span>(查找范围,行偏移量)<br><br>=<span class="hljs-built_in">INDEX</span>(查找范围,行偏移量,列偏移量)<br></code></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">=INDEX(查找范围,行偏移量)</span><br><span class="line"></span><br><span class="line">=INDEX(查找范围,行偏移量,列偏移量)</span><br></pre></td></tr></table></figure>
 
 <h4 id="根据关键字获取行偏移量"><a href="#根据关键字获取行偏移量" class="headerlink" title="根据关键字获取行偏移量"></a>根据关键字获取行偏移量</h4><blockquote>
 <p><code>查找范围</code>：选择一个列区域的单元格，作为查找范围<br><code>关键字</code>：选择一个单元格，作为查找的关键字<br><code>匹配条件</code></p>
@@ -658,7 +510,7 @@
 <p><code>0</code>、<code>True</code>：精确查找<br><code>1</code>、<code>False</code>：模糊查找</p>
 </blockquote>
 </blockquote>
-<figure class="highlight excel"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs excel">=<span class="hljs-built_in">MATCH</span>(关键字,查找范围,匹配条件)<br></code></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">=MATCH(关键字,查找范围,匹配条件)</span><br></pre></td></tr></table></figure>
 
 <ul>
 <li>只能选择一列区域作为查找范围，如果指定了多个列会报错</li>
@@ -666,18 +518,18 @@
 <h3 id="时间日期函数"><a href="#时间日期函数" class="headerlink" title="时间日期函数"></a>时间日期函数</h3><h4 id="获取当前系统时间"><a href="#获取当前系统时间" class="headerlink" title="获取当前系统时间"></a>获取当前系统时间</h4><h5 id="获取当前年月日"><a href="#获取当前年月日" class="headerlink" title="获取当前年月日"></a>获取当前年月日</h5><ul>
 <li>得到的年月日是一个变量，如果当前日期发生改变会自动变化</li>
 </ul>
-<figure class="highlight excel"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs excel">=<span class="hljs-built_in">TODAY</span>()<br></code></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">=TODAY()</span><br></pre></td></tr></table></figure>
 
 <ul>
 <li>如果只是要获取当前日期<strong>常量</strong>，也可以使用<code>ctrl</code>+<code>;</code>生成当前日期</li>
 <li>如果需要同时获取当前日期和当前时间<strong>常量</strong>，可以先使用<code>ctrl</code>+<code>;</code>生成当前日期，然后添加一个空格，最后用<code>ctrl</code>+<code>shift</code>+<code>;</code>生成当前时间</li>
 </ul>
-<h6 id="可以增加偏移量"><a href="#可以增加偏移量" class="headerlink" title="可以增加偏移量"></a>可以增加偏移量</h6><figure class="highlight excel"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs excel">=<span class="hljs-built_in">TODAY</span>()+<span class="hljs-number">1</span><br>=<span class="hljs-built_in">TODAY</span>()-<span class="hljs-number">1</span><br></code></pre></td></tr></table></figure>
+<h6 id="可以增加偏移量"><a href="#可以增加偏移量" class="headerlink" title="可以增加偏移量"></a>可以增加偏移量</h6><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">=TODAY()+1</span><br><span class="line">=TODAY()-1</span><br></pre></td></tr></table></figure>
 
 <h5 id="获取当前年月日时分秒"><a href="#获取当前年月日时分秒" class="headerlink" title="获取当前年月日时分秒"></a>获取当前年月日时分秒</h5><ul>
 <li>得到的年月日时分秒是一个变量，如果当前时间发生改变会自动变化</li>
 </ul>
-<figure class="highlight excel"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs excel">=<span class="hljs-built_in">NOW</span>()<br></code></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">=NOW()</span><br></pre></td></tr></table></figure>
 
 <ul>
 <li>如果只是要获取当前时分秒<strong>常量</strong>，也可以使用<code>ctrl</code>+<code>shift</code>+<code>;</code>生成当前时分秒</li>
@@ -686,7 +538,7 @@
 <h4 id="获取指定日期格式的字符串"><a href="#获取指定日期格式的字符串" class="headerlink" title="获取指定日期格式的字符串"></a>获取指定日期格式的字符串</h4><ul>
 <li>通常用于，两个不统一的时间格式之间的计算时，将两个时间格式进行统一</li>
 </ul>
-<h5 id="根据年月日获取时间格式字符串"><a href="#根据年月日获取时间格式字符串" class="headerlink" title="根据年月日获取时间格式字符串"></a>根据年月日获取时间格式字符串</h5><figure class="highlight excel"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs excel">=<span class="hljs-built_in">DATE</span>(年,月,日)<br></code></pre></td></tr></table></figure>
+<h5 id="根据年月日获取时间格式字符串"><a href="#根据年月日获取时间格式字符串" class="headerlink" title="根据年月日获取时间格式字符串"></a>根据年月日获取时间格式字符串</h5><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">=DATE(年,月,日)</span><br></pre></td></tr></table></figure>
 
 <ul>
 <li>如果年小于0或大于100000会报错</li>
@@ -695,7 +547,7 @@
 </ul>
 </li>
 </ul>
-<h5 id="根据时分秒获取时间格式的字符串"><a href="#根据时分秒获取时间格式的字符串" class="headerlink" title="根据时分秒获取时间格式的字符串"></a>根据时分秒获取时间格式的字符串</h5><figure class="highlight excel"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs excel">=<span class="hljs-built_in">TIME</span>(时,分,秒)<br></code></pre></td></tr></table></figure>
+<h5 id="根据时分秒获取时间格式的字符串"><a href="#根据时分秒获取时间格式的字符串" class="headerlink" title="根据时分秒获取时间格式的字符串"></a>根据时分秒获取时间格式的字符串</h5><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">=TIME(时,分,秒)</span><br></pre></td></tr></table></figure>
 
 <ul>
 <li>如果与年月日计算时，TIME的到的时分秒超过了24小时，需要<code>/24</code><ul>
@@ -706,11 +558,11 @@
 <h4 id="获取日期的某一部分"><a href="#获取日期的某一部分" class="headerlink" title="获取日期的某一部分"></a>获取日期的某一部分</h4><ul>
 <li>传递的参数必须是日期格式的字符串</li>
 </ul>
-<h5 id="获取年"><a href="#获取年" class="headerlink" title="获取年"></a>获取年</h5><figure class="highlight excel"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs excel">=<span class="hljs-built_in">YEAR</span>(<span class="hljs-string">&quot;2018/1/1&quot;</span>)<br></code></pre></td></tr></table></figure>
+<h5 id="获取年"><a href="#获取年" class="headerlink" title="获取年"></a>获取年</h5><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">=YEAR(&quot;2018/1/1&quot;)</span><br></pre></td></tr></table></figure>
 
-<h5 id="获取月"><a href="#获取月" class="headerlink" title="获取月"></a>获取月</h5><figure class="highlight excel"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs excel">=<span class="hljs-built_in">MONTH</span>(<span class="hljs-string">&quot;2018/1/1&quot;</span>)<br></code></pre></td></tr></table></figure>
+<h5 id="获取月"><a href="#获取月" class="headerlink" title="获取月"></a>获取月</h5><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">=MONTH(&quot;2018/1/1&quot;)</span><br></pre></td></tr></table></figure>
 
-<h5 id="获取日"><a href="#获取日" class="headerlink" title="获取日"></a>获取日</h5><figure class="highlight excel"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs excel">=<span class="hljs-built_in">DAY</span>(<span class="hljs-string">&quot;2018/1/1&quot;</span>)<br></code></pre></td></tr></table></figure>
+<h5 id="获取日"><a href="#获取日" class="headerlink" title="获取日"></a>获取日</h5><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">=DAY(&quot;2018/1/1&quot;)</span><br></pre></td></tr></table></figure>
 
 <h5 id="获取星期"><a href="#获取星期" class="headerlink" title="获取星期"></a>获取星期</h5><blockquote>
 <p><code>日期显示类型</code></p>
@@ -718,401 +570,242 @@
 <p><code>1</code>：（缺省值）返回区间为<code>[1,7]</code>的数值，1表示星期日<br><code>2</code>：返回区间为<code>[1,7]</code>的数值，1表示星期一<br><code>3</code>：返回区间为<code>[0,6]</code>的数值，0表示星期一<br><code>11</code>：返回区间为<code>[1,7]</code>的数值，1表示星期一<br><code>12</code>：返回区间为<code>[1,7]</code>的数值，1表示星期二<br><code>13</code>：返回区间为<code>[1,7]</code>的数值，1表示星期三<br><code>14</code>：返回区间为<code>[1,7]</code>的数值，1表示星期四<br><code>15</code>：返回区间为<code>[1,7]</code>的数值，1表示星期五<br><code>16</code>：返回区间为<code>[1,7]</code>的数值，1表示星期六<br><code>17</code>：返回区间为<code>[1,7]</code>的数值，1表示星期日</p>
 </blockquote>
 </blockquote>
-<figure class="highlight excel"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs excel">=<span class="hljs-built_in">WEEKDAY</span>(<span class="hljs-string">&quot;2018/1/1&quot;</span>)<br><br>=<span class="hljs-built_in">WEEKDAY</span>(<span class="hljs-string">&quot;2018/1/1&quot;</span>,日期显示类型)<br></code></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">=WEEKDAY(&quot;2018/1/1&quot;)</span><br><span class="line"></span><br><span class="line">=WEEKDAY(&quot;2018/1/1&quot;,日期显示类型)</span><br></pre></td></tr></table></figure>
 
-<h5 id="获取时"><a href="#获取时" class="headerlink" title="获取时"></a>获取时</h5><figure class="highlight excel"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs excel">=<span class="hljs-built_in">HOUR</span>(<span class="hljs-string">&quot;12:00:00&quot;</span>)<br><br>=<span class="hljs-built_in">HOUR</span>(<span class="hljs-string">&quot;2018/1/1 12:00:00&quot;</span>)<br></code></pre></td></tr></table></figure>
+<h5 id="获取时"><a href="#获取时" class="headerlink" title="获取时"></a>获取时</h5><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">=HOUR(&quot;12:00:00&quot;)</span><br><span class="line"></span><br><span class="line">=HOUR(&quot;2018/1/1 12:00:00&quot;)</span><br></pre></td></tr></table></figure>
 
-<h5 id="获取分"><a href="#获取分" class="headerlink" title="获取分"></a>获取分</h5><figure class="highlight excel"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs excel">=<span class="hljs-built_in">MINUTE</span>(<span class="hljs-string">&quot;12:00:00&quot;</span>)<br><br>=<span class="hljs-built_in">MINUTE</span>(<span class="hljs-string">&quot;2018/1/1 12:00:00&quot;</span>)<br></code></pre></td></tr></table></figure>
+<h5 id="获取分"><a href="#获取分" class="headerlink" title="获取分"></a>获取分</h5><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">=MINUTE(&quot;12:00:00&quot;)</span><br><span class="line"></span><br><span class="line">=MINUTE(&quot;2018/1/1 12:00:00&quot;)</span><br></pre></td></tr></table></figure>
 
-<h5 id="获取秒"><a href="#获取秒" class="headerlink" title="获取秒"></a>获取秒</h5><figure class="highlight excel"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs excel">=<span class="hljs-built_in">SECOND</span>(<span class="hljs-string">&quot;12:00:00&quot;</span>)<br><br>=<span class="hljs-built_in">SECOND</span>(<span class="hljs-string">&quot;2018/1/1 12:00:00&quot;</span>)<br></code></pre></td></tr></table></figure>
+<h5 id="获取秒"><a href="#获取秒" class="headerlink" title="获取秒"></a>获取秒</h5><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">=SECOND(&quot;12:00:00&quot;)</span><br><span class="line"></span><br><span class="line">=SECOND(&quot;2018/1/1 12:00:00&quot;)</span><br></pre></td></tr></table></figure>
 
 <h3 id="重新格式化数据"><a href="#重新格式化数据" class="headerlink" title="重新格式化数据"></a>重新格式化数据</h3><ul>
 <li>指定格式，重新格式化数据，返回字符串类型数据</li>
 </ul>
 <p><a href="/2022/09/17/Excl%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/#%E8%87%AA%E5%AE%9A%E4%B9%89%E6%A0%BC%E5%BC%8F">传送门</a></p>
-<figure class="highlight excel"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs excel">=<span class="hljs-built_in">TEXT</span>(<span class="hljs-symbol">A1</span>,<span class="hljs-string">&quot;yyyy-mm-dd&quot;</span>)<br></code></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">=TEXT(A1,&quot;yyyy-mm-dd&quot;)</span><br></pre></td></tr></table></figure>
 
 <h3 id="获取指定单元格的列"><a href="#获取指定单元格的列" class="headerlink" title="获取指定单元格的列"></a>获取指定单元格的列</h3><ul>
 <li>可以用于控制可自动填充的变量</li>
 </ul>
-<figure class="highlight excel"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs excel">=<span class="hljs-built_in">COLUMN</span>(<span class="hljs-symbol">A1</span>)<br></code></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">=COLUMN(A1)</span><br></pre></td></tr></table></figure>
 
-<h3 id="生成随机数"><a href="#生成随机数" class="headerlink" title="生成随机数"></a>生成随机数</h3><figure class="highlight excel"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs excel">=<span class="hljs-built_in">RANDBETWEEN</span>(最小值,最大值)<br></code></pre></td></tr></table></figure>
+<h3 id="生成随机数"><a href="#生成随机数" class="headerlink" title="生成随机数"></a>生成随机数</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">=RANDBETWEEN(最小值,最大值)</span><br></pre></td></tr></table></figure>
 
 <h2 id="完成"><a href="#完成" class="headerlink" title="完成"></a>完成</h2><h2 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h2><p><a href="/302.html?target=https://www.bilibili.com/video/BV1Th411W7bo">哔哩哔哩——千锋教育</a><br><a target="_blank" rel="noopener" href="https://jingyan.baidu.com/article/b24f6c82c79ed886bfe5daa7.html">百度经验——shaowu459</a><br><a target="_blank" rel="noopener" href="https://support.microsoft.com/zh-cn/office/if-%E5%87%BD%E6%95%B0-69aed7c9-4e8a-4755-a9bc-aa8bbff73be2">Microsoft支持</a><br><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/387830213">知乎——百川资源库</a><br><a target="_blank" rel="noopener" href="https://jingyan.baidu.com/article/a681b0de3f077f7a184346fc.html">百度经验——小树知识</a></p>
 
-                
-              </div>
-            
-            <hr/>
-            <div>
-              <div class="post-metas my-3">
-  
-  
-    <div class="post-meta">
-      <i class="iconfont icon-tags"></i>
-      
-        <a href="/tags/Office/" class="print-no-link">#Office</a>
-      
     </div>
-  
-</div>
+     
+    <div class="post-footer__meta"><p>更新于 2024-08-06</p></div> 
+    <div class="post-entry__tags"><a href="/tags/Office/" class="post-tags__link button"># Office</a></div> 
+</article>
 
 
-              
-
-              
-                <div class="post-prevnext my-3">
-                  <article class="post-prev col-6">
-                    
-                    
-                      <a href="/2022/09/20/Powercfg%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" title="【笔记】Powercfg学习笔记">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">【笔记】Powercfg学习笔记</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
-                  </article>
-                  <article class="post-next col-6">
-                    
-                    
-                      <a href="/2022/09/19/Excel%E5%88%86%E7%B1%BB%E6%B1%87%E6%80%BB/" title="【笔记】Excel分类汇总">
-                        <span class="hidden-mobile">【笔记】Excel分类汇总</span>
-                        <span class="visible-mobile">下一篇</span>
-                        <i class="iconfont icon-arrowright"></i>
-                      </a>
-                    
-                  </article>
-                </div>
-              
-            </div>
-
+    <div class="nav">
+        <div class="nav__prev">
             
-  
-  
-    <article id="comments" lazyload>
-      
-  <div id="twikoo"></div>
-  <script type="text/javascript">
-    Fluid.utils.loadComments('#comments', function() {
-      Fluid.utils.createScript('https://lib.baomitu.com/twikoo/1.6.8/twikoo.all.min.js', function() {
-        var options = Object.assign(
-          {"envId":"https://twikoo.loli.fj.cn","region":"ap-shanghai","path":"window.location.pathname"},
-          {
-            el: '#twikoo',
-            path: 'window.location.pathname',
-            onCommentLoaded: function() {
-              Fluid.utils.listenDOMLoaded(function() {
-                var imgSelector = '#twikoo .tk-content img:not(.tk-owo-emotion)';
-                Fluid.plugins.imageCaption(imgSelector);
-                Fluid.plugins.fancyBox(imgSelector);
-              });
+                <a href="/2022/09/20/Powercfg%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" class="nav__link">
+                    <div>
+                        <svg viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" width="24" height="24"><path d="M589.088 790.624L310.464 512l278.624-278.624 45.248 45.248L400.96 512l233.376 233.376z" fill="#808080"></path></svg>
+                    </div>
+                    <div>
+                        <div class="nav__label">
+                            上一篇
+                        </div>
+                        <div class="nav__title">
+                            【笔记】Powercfg学习笔记
+                        </div>
+                    </div>
+                </a>
+            
+        </div>
+        <div class="nav__next">
+            
+                <a href="/2022/09/19/Excel%E5%88%86%E7%B1%BB%E6%B1%87%E6%80%BB/" class="nav__link">
+                    <div>
+                        <div class="nav__label">
+                            下一篇
+                        </div>
+                        <div class="nav__title">
+                            【笔记】Excel分类汇总
+                        </div>
+                    </div>
+                    <div>
+                        <svg viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" width="24" height="24"><path d="M434.944 790.624l-45.248-45.248L623.04 512l-233.376-233.376 45.248-45.248L713.568 512z" fill="#808080"></path></svg>
+                    </div>
+                </a>
+            
+        </div>
+    </div>
+
+
+
+    <div class="post__comments post__with-toc content-card" id="comment">
+        
+    <h4>评论</h4>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <div id="tcomment" class="twikoo_thread"></div>
+
+    
+
+
+
+    </div>
+
+
+
+</main>
+
+            <footer class="footer">
+     
+    <a href="#" class="button" id="b2t" aria-label="回到顶部" title="回到顶部">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" width="32" height="32">
+            <path d="M233.376 722.752L278.624 768 512 534.624 745.376 768l45.248-45.248L512 444.128zM192 352h640V288H192z" fill="currentColor"></path>
+        </svg>
+    </a>
+
+    
+
+
+    
+    
+    
+        <span id="busuanzi_container_site_uv" hidden>
+            <span></span>
+            <span id="busuanzi_value_site_uv"></span>
+            <span>Viewers</span>
+            
+                <span>&amp;nbsp;&amp;nbsp;&amp;nbsp;|</span>
+            
+        </span>
+    
+    
+        <span id="busuanzi_container_site_pv" hidden>
+            <span></span>
+            <span id="busuanzi_value_site_pv"></span>
+            <span>Views</span>
+            
+        </span>
+    
+ 
+ 
+
+ 
+    
+        
+        <p class="footer-copyright">
+            Copyright © 2024 <a href="/">绯鞠的博客</a>
+        </p>
+    
+    
+    <p>Powered by <a href="https://hexo.io" target="_blank">Hexo</a> | Theme - <a href="https://github.com/ChrAlpha/hexo-theme-cards" target="_blank">Cards</a></p>
+</footer>
+
+        </div>
+         
+
+ 
+
+ 
+
+ 
+
+ 
+
+
+
+ 
+
+
+
+ 
+
+
+    
+ 
+
+ 
+
+ 
+
+ 
+
+
+    <script src='https://cdn.jsdelivr.net/npm/mermaid@8.10.2/dist/mermaid.min.js'></script>
+    <script>
+            mermaid.initialize(JSON.stringify(''));
+    </script>
+ 
+
+ 
+
+
+    
+
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+
+    
+    
+    
+    
+    
+
+    
+    
+    
+    <script>
+        function loadComment() {
+            let e;
+            (e = document.createElement("script")).src = 'https://cdn.jsdelivr.net/npm/twikoo@0.3.2/dist/twikoo.all.min.js',
+            document.body.appendChild(e);
+            e.onload = () => {
+                twikoo.init({
+                    envId: 'https://twikoo.loli.fj.cn',
+                    el: '#tcomment'
+                });
+            };
+        }
+    
+        var runningOnBrowser = typeof window !== "undefined";
+        var isBot = runningOnBrowser && !("onscroll" in window) || typeof navigator !== "undefined" && /(gle|ing|ro|msn)bot|crawl|spider|yand|duckgo/i.test(navigator.userAgent);
+        var supportsIntersectionObserver = runningOnBrowser && "IntersectionObserver" in window;
+    
+        setTimeout(function () {
+            if (!isBot && supportsIntersectionObserver) {
+                var comment_observer = new IntersectionObserver(function(entries) {
+                    if (entries[0].isIntersecting) {
+                        loadComment();
+                        comment_observer.disconnect();
+                    }
+                }, { threshold: [0] });
+                comment_observer.observe(document.getElementById('comment'));
+            } else {
+                loadComment();
             }
-          }
-        )
-        twikoo.init(options)
-      });
-    });
-  </script>
-  <noscript>Please enable JavaScript to view the comments</noscript>
+        }, 1);
+    </script>
 
 
-    </article>
-  
 
 
-          </article>
-        </div>
-      </div>
-    </div>
-
-    <div class="side-col d-none d-lg-block col-lg-2">
-      
-  <aside class="sidebar" style="margin-left: -1rem">
-    <div id="toc">
-  <p class="toc-header">
-    <i class="iconfont icon-list"></i>
-    <span>目录</span>
-  </p>
-  <div class="toc-body" id="toc-body"></div>
-</div>
-
-
-
-  </aside>
-
-
-    </div>
-  </div>
-</div>
-
-
-
-
-
-  
-
-
-
-  
-
-
-
-  
-
-
-
-  
-
-
-
-
-
-  <script>
-  Fluid.utils.createScript('https://lib.baomitu.com/mermaid/8.14.0/mermaid.min.js', function() {
-    mermaid.initialize({"theme":"default"});
-
-    Fluid.utils.listenDOMLoaded(function() {
-      Fluid.events.registerRefreshCallback(function() {
-        if ('mermaid' in window) {
-          mermaid.init();
-        }
-      });
-    });
-  });
-</script>
-
-
-
-
-
-
-    
-
-    
-      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
-        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
-      </a>
-    
-
-    
-      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
-     aria-hidden="true">
-  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
-    <div class="modal-content">
-      <div class="modal-header text-center">
-        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
-        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body mx-3">
-        <div class="md-form mb-5">
-          <input type="text" id="local-search-input" class="form-control validate">
-          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
-        </div>
-        <div class="list-group" id="local-search-result"></div>
-      </div>
-    </div>
-  </div>
-</div>
-
-    
-
-    
-  </main>
-
-  <footer>
-    <div class="footer-inner">
-  
-    <div class="footer-content">
-       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> <br> <!-- 当前在线人数统计 --> <div>当前在线人数 <span id="current_visitors_count">0</span></div> <script src="/dist/js/current_visitors_count.js"></script> <!-- 网站运行时间统计 --> <div id="sitetime"></div> <script type="text/javascript" src="/dist/js/sitetime.js"></script> 
-    </div>
-  
-  
-    <div class="statistics">
-  
-  
-
-  
-    
-      <span id="busuanzi_container_site_pv" style="display: none">
-        总访问量 
-        <span id="busuanzi_value_site_pv"></span>
-         次
-      </span>
-    
-    
-      <span id="busuanzi_container_site_uv" style="display: none">
-        总访客数 
-        <span id="busuanzi_value_site_uv"></span>
-         人
-      </span>
-    
-    
-  
-</div>
-
-  
-  
-  
-</div>
-
-  </footer>
-
-  <!-- Scripts -->
-  
-  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
-  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
-
-  <script>
-    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
-    NProgress.start()
-    window.addEventListener('load', function() {
-      NProgress.done();
-    })
-  </script>
-
-
-<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
-<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
-<script  src="/js/events.js" ></script>
-<script  src="/js/plugins.js" ></script>
-
-
-  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
-  <script>
-    (function (window, document) {
-      var typing = Fluid.plugins.typing;
-      var subtitle = document.getElementById('subtitle');
-      if (!subtitle || !typing) {
-        return;
-      }
-      var text = subtitle.getAttribute('data-typed-text');
-      
-        typing(text);
-      
-    })(window, document);
-  </script>
-
-
-
-
-  
-    <script  src="/js/img-lazyload.js" ></script>
-  
-
-
-
-
-  
-<script>
-  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
-    var toc = jQuery('#toc');
-    if (toc.length === 0 || !window.tocbot) { return; }
-    var boardCtn = jQuery('#board-ctn');
-    var boardTop = boardCtn.offset().top;
-
-    window.tocbot.init(Object.assign({
-      tocSelector     : '#toc-body',
-      contentSelector : '.markdown-body',
-      linkClass       : 'tocbot-link',
-      activeLinkClass : 'tocbot-active-link',
-      listClass       : 'tocbot-list',
-      isCollapsedClass: 'tocbot-is-collapsed',
-      collapsibleClass: 'tocbot-is-collapsible',
-      scrollSmooth    : true,
-      includeTitleTags: true,
-      headingsOffset  : -boardTop,
-    }, CONFIG.toc));
-    if (toc.find('.toc-list-item').length > 0) {
-      toc.css('visibility', 'visible');
-    }
-
-    Fluid.events.registerRefreshCallback(function() {
-      if ('tocbot' in window) {
-        tocbot.refresh();
-        var toc = jQuery('#toc');
-        if (toc.length === 0 || !tocbot) {
-          return;
-        }
-        if (toc.find('.toc-list-item').length > 0) {
-          toc.css('visibility', 'visible');
-        }
-      }
-    });
-  });
-</script>
-
-
-  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
-
-  <script>Fluid.plugins.codeWidget();</script>
-
-
-  
-<script>
-  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
-    window.anchors.options = {
-      placement: CONFIG.anchorjs.placement,
-      visible  : CONFIG.anchorjs.visible
-    };
-    if (CONFIG.anchorjs.icon) {
-      window.anchors.options.icon = CONFIG.anchorjs.icon;
-    }
-    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
-    var res = [];
-    for (var item of el) {
-      res.push('.markdown-body > ' + item.trim());
-    }
-    if (CONFIG.anchorjs.placement === 'left') {
-      window.anchors.options.class = 'anchorjs-link-left';
-    }
-    window.anchors.add(res.join(', '));
-
-    Fluid.events.registerRefreshCallback(function() {
-      if ('anchors' in window) {
-        anchors.removeAll();
-        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
-        var res = [];
-        for (var item of el) {
-          res.push('.markdown-body > ' + item.trim());
-        }
-        if (CONFIG.anchorjs.placement === 'left') {
-          anchors.options.class = 'anchorjs-link-left';
-        }
-        anchors.add(res.join(', '));
-      }
-    });
-  });
-</script>
-
-
-  
-<script>
-  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
-    Fluid.plugins.fancyBox();
-  });
-</script>
-
-
-  <script  src="/js/local-search.js" ></script>
-
-  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
-
-
-
-
-
-<!-- 主题的启动项，将它保持在最底部 -->
-<!-- the boot of the theme, keep it at the bottom -->
-<script  src="/js/boot.js" ></script>
-
-
-  
-
-  <noscript>
-    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
-  </noscript>
-</body>
+    </body>
 </html>
