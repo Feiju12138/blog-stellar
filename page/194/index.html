@@ -1,469 +1,1151 @@
-<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>绯鞠的博客 - 连蜜统治世界!!!💕</title><meta name="author" content="绯鞠"><meta name="copyright" content="绯鞠"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="捕捉一只爱折腾的绯鞠">
-<meta property="og:type" content="website">
-<meta property="og:title" content="绯鞠的博客">
-<meta property="og:url" content="https://loli.fj.cn/page/194/index.html">
-<meta property="og:site_name" content="绯鞠的博客">
-<meta property="og:description" content="捕捉一只爱折腾的绯鞠">
-<meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://loli.fj.cn/dist/images/avatar.jpg">
-<meta property="article:author" content="绯鞠">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://loli.fj.cn/dist/images/avatar.jpg"><link rel="shortcut icon" href="/dist/images/favicon_package/favicon-32x32.png"><link rel="canonical" href="https://loli.fj.cn/page/194/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css?v=4.13.0"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.1/css/all.min.css"><script>const GLOBAL_CONFIG = {
-  root: '/',
-  algolia: undefined,
-  localSearch: {"path":"/search.xml","preload":false,"top_n_per_article":1,"unescape":false,"languages":{"hits_empty":"找不到您查询的内容：${query}","hits_stats":"共找到 ${hits} 篇文章"}},
-  translate: {"defaultEncoding":2,"translateDelay":0,"msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"簡"},
-  noticeOutdate: undefined,
-  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
-  copy: {
-    success: '复制成功',
-    error: '复制错误',
-    noSupport: '浏览器不支持'
-  },
-  relativeDate: {
-    homepage: false,
-    post: false
-  },
-  runtime: '天',
-  dateSuffix: {
-    just: '刚刚',
-    min: '分钟前',
-    hour: '小时前',
-    day: '天前',
-    month: '个月前'
-  },
-  copyright: undefined,
-  lightbox: 'mediumZoom',
-  Snackbar: undefined,
-  infinitegrid: {
-    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid@4.11.1/dist/infinitegrid.min.js',
-    buttonText: '加载更多'
-  },
-  isPhotoFigcaption: false,
-  islazyload: false,
-  isAnchor: false,
-  percent: {
-    toc: true,
-    rightside: true,
-  },
-  autoDarkmode: false
-}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
-  title: '绯鞠的博客',
-  isPost: false,
-  isHome: true,
-  isHighlightShrink: true,
-  isToc: false,
-  postUpdate: '2024-08-07 12:44:14'
-}</script><script>(win=>{
-      win.saveToLocal = {
-        set: (key, value, ttl) => {
-          if (ttl === 0) return
-          const now = Date.now()
-          const expiry = now + ttl * 86400000
-          const item = {
-            value,
-            expiry
-          }
-          localStorage.setItem(key, JSON.stringify(item))
-        },
-      
-        get: key => {
-          const itemStr = localStorage.getItem(key)
-      
-          if (!itemStr) {
-            return undefined
-          }
-          const item = JSON.parse(itemStr)
-          const now = Date.now()
-      
-          if (now > item.expiry) {
-            localStorage.removeItem(key)
-            return undefined
-          }
-          return item.value
-        }
-      }
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="keywords" content="Hexo Theme Keep">
+    <meta name="description" content="捕捉一只爱折腾的绯鞠">
+    <meta name="author" content="绯鞠">
     
-      win.getScript = (url, attr = {}) => new Promise((resolve, reject) => {
-        const script = document.createElement('script')
-        script.src = url
-        script.async = true
-        script.onerror = reject
-        script.onload = script.onreadystatechange = function() {
-          const loadState = this.readyState
-          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
-          script.onload = script.onreadystatechange = null
-          resolve()
-        }
-
-        Object.keys(attr).forEach(key => {
-          script.setAttribute(key, attr[key])
-        })
-
-        document.head.appendChild(script)
-      })
+    <title>
+        
+        绯鞠的博客
+    </title>
     
-      win.getCSS = (url, id = false) => new Promise((resolve, reject) => {
-        const link = document.createElement('link')
-        link.rel = 'stylesheet'
-        link.href = url
-        if (id) link.id = id
-        link.onerror = reject
-        link.onload = link.onreadystatechange = function() {
-          const loadState = this.readyState
-          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
-          link.onload = link.onreadystatechange = null
-          resolve()
-        }
-        document.head.appendChild(link)
-      })
+<link rel="stylesheet" href="/css/style.css">
+
     
-      win.activateDarkMode = () => {
-        document.documentElement.setAttribute('data-theme', 'dark')
-        if (document.querySelector('meta[name="theme-color"]') !== null) {
-          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
-        }
-      }
-      win.activateLightMode = () => {
-        document.documentElement.setAttribute('data-theme', 'light')
-        if (document.querySelector('meta[name="theme-color"]') !== null) {
-          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
-        }
-      }
-      const t = saveToLocal.get('theme')
+        <link rel="shortcut icon" href="/dist/images/favicon_package/favicon.ico">
     
-        if (t === 'dark') activateDarkMode()
-        else if (t === 'light') activateLightMode()
-      
-      const asideStatus = saveToLocal.get('aside-status')
-      if (asideStatus !== undefined) {
-        if (asideStatus === 'hide') {
-          document.documentElement.classList.add('hide-aside')
-        } else {
-          document.documentElement.classList.remove('hide-aside')
-        }
-      }
     
-      const detectApple = () => {
-        if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
-          document.documentElement.classList.add('apple')
-        }
-      }
-      detectApple()
-    })(window)</script><meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="绯鞠的博客" type="application/atom+xml">
-</head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/dist/images/avatar.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">2915</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">115</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">17</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 更多</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/links/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></li><li><a class="site-page child" href="/reward/"><i class="fa-fw fa fa-hand-holding-heart"></i><span> 赞助</span></a></li><li><a class="site-page child" href="/atom.xml"><i class="fa-fw fa fa-rss"></i><span> 订阅</span></a></li><li><a class="site-page child" target="_blank" rel="noopener" href="//keep.loli.fj.cn"><i class="fa-fw fa fa-arrow-right"></i><span> 主题</span></a></li></ul></div></div></div></div><div class="page" id="body-wrap"><header class="not-top-img" id="page-header"><nav id="nav"><span id="blog-info"><a href="/" title="绯鞠的博客"><img class="site-icon" src="/dist/images/avatar.gif"/><span class="site-name">绯鞠的博客</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 更多</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/links/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></li><li><a class="site-page child" href="/reward/"><i class="fa-fw fa fa-hand-holding-heart"></i><span> 赞助</span></a></li><li><a class="site-page child" href="/atom.xml"><i class="fa-fw fa fa-rss"></i><span> 订阅</span></a></li><li><a class="site-page child" target="_blank" rel="noopener" href="//keep.loli.fj.cn"><i class="fa-fw fa fa-arrow-right"></i><span> 主题</span></a></li></ul></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav></header><main class="layout" id="content-inner"><div class="recent-posts" id="recent-posts"><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2022/02/25/Android%E9%A1%B9%E7%9B%AE%E7%BB%93%E6%9E%84/" title="【笔记】Android项目结构">【笔记】Android项目结构</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2022-02-25T06:04:10.000Z" title="发表于 2022-02-25 14:04:10">2022-02-25</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/Android%E5%AD%A6%E4%B9%A0%E6%8C%87%E5%8C%97/">Android学习指北</a></span><span class="article-meta tags"><span class="article-meta-separator">|</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/Android/">Android</a></span></div><div class="content">前言Android项目结构学习笔记
-
-
-项目结构
-使用IDEA创建的Android项目的项目结构
-
-123456789101112131415161718192021222324+ app // 项目代码  + build // 构建后的文件  + libs // Java依赖  + src // 源代码    + androidTest // 安卓测试    + main // 主代码      + java // Java源代码      + res // 资源文件        + drawable 图片资源        + layout 布局资源        + mipmap 应用图标资源        + values 颜色字符串主题资源      - AndroidMainfest.xml // 签单文件    + test // 单元测试    - build.gradle // 模块gradle构建脚本    - proguard-reles.pro // 模块混淆规则+ gradle // gradle  + wrapper // gradle版本- build. ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2022/02/24/Java%E6%9E%9A%E4%B8%BE%E7%B1%BB%E5%9E%8B/" title="【笔记】Java枚举类型">【笔记】Java枚举类型</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2022-02-24T06:34:21.000Z" title="发表于 2022-02-24 14:34:21">2022-02-24</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/Java%E5%90%8E%E7%AB%AF%E5%AD%A6%E4%B9%A0%E6%8C%87%E5%8C%97/">Java后端学习指北</a></span><span class="article-meta tags"><span class="article-meta-separator">|</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/Java/">Java</a></span></div><div class="content">前言Java枚举类型学习笔记
-
-
-枚举类型的定义与对象创建有參构造枚举与无參构造枚举
-枚举名首字母大写，相当于一个特殊的类
-枚举值全大写，相当于一个常量
-
-定义无參构造的枚举类型123enum 枚举名 &#123;    枚举值, 枚举值, ...;&#125;
-
-
-无參构造的枚举类中，定义枚举值结尾的分号可以省略
-
-123enum 枚举名 &#123;    枚举值, 枚举值, ...&#125;
-
-定义有參构造的枚举类型
-如果定义有參构造的枚举类型，需要在定义枚举值时候根据构造方法传递参数
-只有定义了get和set方法，才可以操作枚举值的属性
-
-123456789101112131415161718enum 枚举名 &#123;    枚举值(&quot;&quot;), 枚举值(&quot;&quot;), ...;    private String value;    枚举名(String value) &#123;        this.value = value;    &#125;        public String getValue() &#123;      ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2022/02/24/%E5%AF%84%E5%AD%98%E5%99%A8/" title="【笔记】寄存器">【笔记】寄存器</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2022-02-24T05:29:00.000Z" title="发表于 2022-02-24 13:29:00">2022-02-24</time></span><span class="article-meta tags"><span class="article-meta-separator">|</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/Assembly/">Assembly</a></span></div><div class="content">前言汇编语言寄存器学习笔记
-
-
-8086CPU的14个寄存器
-AX、BX、CX、DX、SU、DI、SP、BP、IP、CS、SS、DS、ES、PSW
-
-所有的寄存器都是16位的，可以存放两个字节
-
-
-通用寄存器
-AX、BX、CX、DX
-
-高位和低位
-为了兼顾上一代CPU，将寄存器分为高位和低位，此时高位全0表示8位寄存器
-
-AX分为AH（High，高位）和AL（Low，低位）
-BX分为BH（High，高位）和BL（Low，低位）
-CX分为CH（High，高位）和CL（Low，低位）
-DX分为DH（High，高位）和DL（Low，低位）
-
-
-
-AH和AL寄存器是可以独立使用的8位寄存器
-完成参考文献哔哩哔哩——鱼C-小甲鱼
-</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2022/02/11/msf%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" title="【笔记】msf学习笔记">【笔记】msf学习笔记</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2022-02-11T03:18:00.000Z" title="发表于 2022-02-11 11:18:00">2022-02-11</time></span><span class="article-meta tags"><span class="article-meta-separator">|</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/Metasploit/">Metasploit</a></span></div><div class="content">前言Metasploit项目是一个旨在提供安全漏洞信息计算机安全项目，可以协助安全工程师进行渗透测试（penetration testing）及入侵检测系统签名开发。（维基百科）
-本文仅用于网络信息防御学习
-
-
-发展历史
-2003年10月 HD Moore 使用 Perl语言 开发了 Metasploit v1.0
-2004年4月 在 Spoonm 的帮助下，完全重写了 Metasploit 的代码。主要更新：18个攻击模块和27个攻击载荷，并提供了控制台终端、命令行、Web三个使用接口
-2004年8月 HD 和 Spoonm 带着最新发布的 Metasploit v2.0 在拉斯维加斯举办的BlackHat全球开发者大会上进行了演讲
-2005年 在CanSecWest和黑客会议上，HD 和 Spoonm 指出Perl版本的Metasploit有很多问题，经历了18个月之后，Metasploit团队使用Ruby语言完全重写了Metasploit，发布了Metasploit v3.0。主要更新：177个攻击模块、104个攻击载荷、30个辅助模块
-2009年10月 Metasploit被R ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2022/02/08/%E6%95%B4%E5%90%88Windows%E5%AE%89%E8%A3%85%E9%95%9C%E5%83%8F/" title="【笔记】整合Windows安装镜像">【笔记】整合Windows安装镜像</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2022-02-07T16:26:55.000Z" title="发表于 2022-02-08 00:26:55">2022-02-08</time></span><span class="article-meta tags"><span class="article-meta-separator">|</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/Windows/">Windows</a></span></div><div class="content">前言整合Windows安装镜像
-
-
-准备工作
-想要整合的多个Windows系统安装镜像
-
-软碟通
-
-
-安装工具包
-下载并安装 Windows ADK
-
-双击打开adksetup.exe，选择将Windows评估和部署工具包 - Windows 10 安装到此计算机上-&gt;下一步
-
-
-
-
-选择是否发送匿名数据-&gt;下一步
-
-
-
-接受许可条款
-
-
-
-勾选部署工具、图像处理和配置设计器、配置设计器、用户状态迁移工具-&gt;安装
-
-
-
-等待安装完成-&gt;关闭
-
-配置环境变量
-右键此电脑-&gt;属性
-
-
-
-高级系统设置
-
-
-
-环境变量
-
-
-
-选择系统变量的Path-&gt;编辑
-
-
-
-新建两条环境变量，把下载好的工具包的dism.exe和imagex.exe所在的目录加入到环境变量-&gt;确定
-
-环境变量因人而异，如果像我一样在安装工具包时没有修改安装的位置，使用的默认位置，可以参考我的环境变量配置
-
-C:\Program Files (x86)\Windows Kits\10\Assessment and Deployment Kit\Deployment Tools\amd ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2022/02/05/%E9%80%9A%E8%BF%87UUP%E7%9A%84%E6%96%B9%E5%BC%8F%E4%B8%8B%E8%BD%BDWindows%E5%AE%98%E6%96%B9%E5%AE%89%E8%A3%85%E9%95%9C%E5%83%8F/" title="【笔记】通过UUP的方式下载Windows官方安装镜像">【笔记】通过UUP的方式下载Windows官方安装镜像</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2022-02-05T15:18:29.000Z" title="发表于 2022-02-05 23:18:29">2022-02-05</time></span><span class="article-meta tags"><span class="article-meta-separator">|</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/Windows/">Windows</a></span></div><div class="content">前言通过UUP（Unified Update Platform）的方式下载Windows官方安装镜像UUP是微软在Windows10上引用系统更新方式，采用增量更新的方法，以减少文件下载量
-
-
-准备工作在Mac上所需的依赖12345678910brew install aria2brew install cabextractbrew install wimlibbrew install cdrtoolscurl -LO https://gist.github.com/minacle/e9dedb8c17025a23a453f8f30eced3da/raw/908b944b3fe2e9f348fbe8b8800daebd87b5966c/openssl@1.0.rbcurl -LO https://gist.github.com/minacle/e9dedb8c17025a23a453f8f30eced3da/raw/908b944b3fe2e9f348fbe8b8800daebd87b5966c/chntpw.rbbrew install --formula --build-from- ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2022/02/05/%E4%B8%BAWindows11%E6%B7%BB%E5%8A%A0%E4%BF%AE%E5%A4%8D%E6%A8%A1%E5%BC%8F/" title="【笔记】为Windows11添加修复模式">【笔记】为Windows11添加修复模式</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2022-02-05T09:08:09.000Z" title="发表于 2022-02-05 17:08:09">2022-02-05</time></span><span class="article-meta tags"><span class="article-meta-separator">|</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/Windows/">Windows</a></span></div><div class="content">前言Windows11安装包删减了原本Windows10的修复模式，通过复制Windows10的修复模式来给Windows11添加修复模式
-
-
-准备工作
-从Windows10提取修复模式文件C:\Windows\System32\Recovery\Winre.wim
-从Windows10提取修复模式文件C:\Windows\System32\Recovery\ReAgent.xml
-
-启动修复模式
-以管理员身份启动命令提示符
-
-12reagentc /setreimage /path C:\Windows\System32\Recovery\Winre.wimreagentc /enable
-
-查看修复模式状态1reagentc /info
-
-完成
-按住Shift键重启电脑，进入高级启动模式
-
-参考文献西瓜视频——爱比较
-</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2022/02/04/%E5%88%9B%E5%BB%BA%E4%B8%80%E4%B8%AAApplications%E6%96%87%E4%BB%B6%E5%A4%B9/" title="【笔记】创建一个Applications文件夹">【笔记】创建一个Applications文件夹</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2022-02-04T07:28:23.000Z" title="发表于 2022-02-04 15:28:23">2022-02-04</time></span><span class="article-meta tags"><span class="article-meta-separator">|</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/Windows/">Windows</a></span></div><div class="content">前言在Windows上创建一个类似MacOS上Applications目录的文件夹，用于展示所有已安装应用程序列表
-
-
-创建一个Applications文件夹
-右键-&gt;新建-&gt;快捷方式
-
-请键入对象的位置填写%windir%\explorer.exe shell:::&#123;4234d49b-0245-4df3-b780-3893943456e1&#125;-&gt;下一步
-
-键入该快捷方式的名称可任意填写，例如：应用程序、Applications-&gt;完成
-
-
-完成参考文献西瓜视频——爱比较
-</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2022/02/04/Windows%E7%B3%BB%E7%BB%9F%E8%87%AA%E5%B8%A6%E6%88%AA%E5%9B%BE%E5%B7%A5%E5%85%B7/" title="【笔记】Windows系统自带截图工具">【笔记】Windows系统自带截图工具</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2022-02-04T07:21:17.000Z" title="发表于 2022-02-04 15:21:17">2022-02-04</time></span><span class="article-meta tags"><span class="article-meta-separator">|</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/Windows/">Windows</a></span></div><div class="content">前言使用Windows系统自带截图工具的快捷键进行快速截图
-
-
-全屏截图
-win+print
-
-全屏截图并编辑
-win+w
-
-选择截图
-win+shift+s
-
-完成参考文献西瓜视频——爱比较
-</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2022/02/04/%E5%8D%87%E7%BA%A7Windows10%E7%B3%BB%E7%BB%9F%E7%89%88%E6%9C%AC/" title="【笔记】升级Windows10系统版本">【笔记】升级Windows10系统版本</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2022-02-03T17:58:59.000Z" title="发表于 2022-02-04 01:58:59">2022-02-04</time></span><span class="article-meta tags"><span class="article-meta-separator">|</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/Windows/">Windows</a></span></div><div class="content">前言升级Windows10系统版本注意：升级版本类型后的系统激活可能会失效
-
-
-不升级位数
-以管理员身份启动一个命令提示
-
-查看所有可以升级列表
-
-
-1dism /online /get-targetedtions
-
-
-只有列表中列出的版本可以升级，准备一个想要升级的系统版本的的密钥，然后开始升级
-
-
-&lt;key&gt;：其他版本系统激活密钥
-
-1changepk.exe /productkey &lt;key&gt;
-
-从32位到64位
-首先保证系统盘的可用空间大于50%，否则可能会出现错误
-
-准备工作
-一个32位的Windows10操作系统镜像
-一个64位的Windows10操作系统镜像
-
-装载系统镜像
-双击装载两个系统镜像，并记住盘符
-
-开始升级
-以管理员身份启动一个命令提示
-
-
-D:：32位操作系统镜像的盘符号E:：64位操作系统镜像的盘符号
-
-1D:\SETUP.EXE /INSTALLFROM:E:\SOURCES\INSTALL.WIM
-
-
-不，谢谢
-
-选择安装的系统版本
-
-勾选我接受许可条款-&gt;下一步
-
-自定义：仅安装Windows（高级）
-
-选择系统分区-& ...</div></div></div><nav id="pagination"><div class="pagination"><a class="extend prev" rel="prev" href="/page/193/#content-inner"><i class="fas fa-chevron-left fa-fw"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/193/#content-inner">193</a><span class="page-number current">194</span><a class="page-number" href="/page/195/#content-inner">195</a><span class="space">&hellip;</span><a class="page-number" href="/page/292/#content-inner">292</a><a class="extend next" rel="next" href="/page/195/#content-inner"><i class="fas fa-chevron-right fa-fw"></i></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/dist/images/avatar.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">绯鞠</div><div class="author-info__description">捕捉一只爱折腾的绯鞠</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">2915</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">115</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">17</div></a></div><div class="card-info-social-icons is-center"><a class="social-icon" href="mailto:00-isomer-cabbies@icloud.com" target="_blank" title="Email"><i class="fas fa-envelope" style="color: #000000;"></i></a><a class="social-icon" href="https://t.me/LittleSweetCookie" target="_blank" title="Telegram"><i class="fab fa-telegram" style="color: #000000;"></i></a></div></div><div class="sticky_layout"><div class="card-widget card-categories"><div class="item-headline">
-            <i class="fas fa-folder-open"></i>
-            <span>分类</span>
-            <a class="card-more-btn" href="/categories/" title="查看更多">
-    <i class="fas fa-angle-right"></i></a>
+<link rel="stylesheet" href="/font/css/fontawesome.min.css">
+
+    
+<link rel="stylesheet" href="/font/css/regular.min.css">
+
+    
+<link rel="stylesheet" href="/font/css/solid.min.css">
+
+    
+<link rel="stylesheet" href="/font/css/brands.min.css">
+
+    
+    <script class="keep-theme-configurations">
+    const KEEP = window.KEEP || {}
+    KEEP.hexo_config = {"hostname":"loli.fj.cn","root":"/","language":"zh-CN","path":"search.xml"}
+    KEEP.theme_config = {"base_info":{"primary_color":"#F6CDE1","title":"绯鞠的博客","author":"绯鞠","avatar":"/dist/images/avatar.jpg","logo":"/dist/images/avatar.gif","favicon":"/dist/images/favicon_package/favicon.ico"},"menu":{"home":"/","archives":"/archives/","about":"/about/","tags":"/tags/","categories":"/categories/","links":"/links/","赞助":"/reward/","订阅":"/atom.xml","主题":"//fluid.loli.fj.cn || fa fa-arrow-right"},"first_screen":{"enable":false,"background_img":"/images/bg.svg","background_img_dark":"/images/bg.svg","description":"Keep writing and Keep loving.","hitokoto":true},"social_contact":{"enable":true,"links":{"github":null,"weixin":null,"qq":null,"weibo":null,"zhihu":null,"twitter":null,"x":null,"facebook":null,"email":"mailto:00-isomer-cabbies@icloud.com","telegram":"https://t.me/LittleSweetCookie"}},"scroll":{"progress_bar":true,"percent":true,"hide_header":false},"home":{"announcement":null,"category":true,"tag":true,"post_datetime":"created","post_datetime_format":"YYYY-MM-DD"},"post":{"author_badge":{"enable":true,"level_badge":true,"custom_badge":["One","Two","Three"]},"word_count":{"wordcount":false,"min2read":false},"datetime_format":"YYYY-MM-DD","copyright_info":false,"share":false,"reward":{"enable":false,"img_link":null,"text":null},"img_align":"center"},"code_block":{"tools":{"enable":true,"style":"mac"},"highlight_theme":"default"},"toc":{"enable":true,"number":true,"expand_all":true,"init_open":true,"layout":"right"},"website_count":{"busuanzi_count":{"enable":true,"site_uv":true,"site_pv":true,"page_pv":false}},"local_search":{"enable":true,"preload":true},"comment":{"enable":true,"use":"twikoo","valine":{"appid":null,"appkey":null,"server_urls":null,"placeholder":null},"gitalk":{"github_id":null,"github_admins":null,"repository":null,"client_id":null,"client_secret":null,"proxy":null},"twikoo":{"env_id":"https://twikoo.loli.fj.cn","region":"ap-guangzhou","version":"1.6.36"},"waline":{"server_url":null,"reaction":false,"version":"3.2.1"},"giscus":{"repo":null,"repo_id":null,"category":"Announcements","category_id":null,"reactions_enabled":false},"artalk":{"server":null},"disqus":{"shortname":null}},"rss":{"enable":true},"lazyload":{"enable":false},"cdn":{"enable":false,"provider":"cdnjs"},"pjax":{"enable":true},"footer":{"since":2019,"word_count":false,"site_deploy":{"enable":false,"provider":"github","url":null},"record":{"enable":false,"list":[{"code":"蒙ICP备2022003684号","link":"https://beian.miit.gov.cn"},{"code":"蒙公网安备15220102010165号","link":"https://beian.mps.gov.cn"}]}},"inject":{"enable":false,"css":[null],"js":[null]},"root":"","source_data":{},"version":"4.1.4"}
+    KEEP.language_ago = {"second":"%s 秒前","minute":"%s 分钟前","hour":"%s 小时前","day":"%s 天前","week":"%s 周前","month":"%s 个月前","year":"%s 年前"}
+    KEEP.language_code_block = {"copy":"复制代码","copied":"已复制","fold":"折叠代码块","folded":"已折叠"}
+    KEEP.language_copy_copyright = {"copy":"复制版权信息","copied":"已复制","title":"原文标题","author":"原文作者","link":"原文链接"}
+  </script>
+<meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="绯鞠的博客" type="application/atom+xml">
+</head>
+
+
+<body>
+<div class="progress-bar-container">
+    
+        <span class="scroll-progress-bar"></span>
+    
+
+    
+        <span class="pjax-progress-bar"></span>
+        <i class="pjax-progress-icon fas fa-circle-notch fa-spin"></i>
+    
+</div>
+
+
+
+<main class="page-container border-box">
+    <!-- home first screen  -->
+    
+
+    <!-- page content -->
+    <div class="page-main-content border-box is-home">
+        <div class="page-main-content-top">
+            
+<header class="header-wrapper">
+
+    <div class="border-box header-content">
+        <div class="left border-box">
+            
+                <a class="logo-image border-box" href="/">
+                    <img src="/dist/images/avatar.gif">
+                </a>
+            
+            <a class="site-name border-box" href="/">
+               绯鞠的博客
+            </a>
+        </div>
+
+        <div class="right border-box">
+            <div class="pc">
+                <ul class="menu-list">
+                    
+                        
+                        <li class="menu-item">
+                            <a class=""
+                               href="/"
+                            >
+                                
+                                首页
+                            </a>
+                        </li>
+                    
+                        
+                        <li class="menu-item">
+                            <a class=""
+                               href="/archives/"
+                            >
+                                
+                                归档
+                            </a>
+                        </li>
+                    
+                        
+                        <li class="menu-item">
+                            <a class=""
+                               href="/about/"
+                            >
+                                
+                                关于
+                            </a>
+                        </li>
+                    
+                        
+                        <li class="menu-item">
+                            <a class=""
+                               href="/tags/"
+                            >
+                                
+                                标签
+                            </a>
+                        </li>
+                    
+                        
+                        <li class="menu-item">
+                            <a class=""
+                               href="/categories/"
+                            >
+                                
+                                分类
+                            </a>
+                        </li>
+                    
+                        
+                        <li class="menu-item">
+                            <a class=""
+                               href="/links/"
+                            >
+                                
+                                友链
+                            </a>
+                        </li>
+                    
+                        
+                        <li class="menu-item">
+                            <a class=""
+                               href="/reward/"
+                            >
+                                
+                                赞助
+                            </a>
+                        </li>
+                    
+                        
+                        <li class="menu-item">
+                            <a class=""
+                               href="/atom.xml"
+                            >
+                                
+                                订阅
+                            </a>
+                        </li>
+                    
+                        
+                        <li class="menu-item">
+                            <a class=""
+                               target="_blank" rel="noopener" href="//fluid.loli.fj.cn"
+                            >
+                                
+                                    <i class="menu-icon fa fa-arrow-right"></i>
+                                
+                                主题
+                            </a>
+                        </li>
+                    
+                    
+                        <li class="menu-item search search-popup-trigger">
+                            <i class="fas search fa-search"></i>
+                        </li>
+                    
+                </ul>
             </div>
-            <ul class="card-category-list" id="aside-cat-list">
-            <li class="card-category-list-item "><a class="card-category-list-link" href="/categories/Android%E5%AD%A6%E4%B9%A0%E6%8C%87%E5%8C%97/"><span class="card-category-list-name">Android学习指北</span><span class="card-category-list-count">25</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/C-%E5%AD%A6%E4%B9%A0%E6%8C%87%E5%8C%97/"><span class="card-category-list-name">C++学习指北</span><span class="card-category-list-count">21</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/C%E8%AF%AD%E8%A8%80%E5%AD%A6%E4%B9%A0%E6%8C%87%E5%8C%97/"><span class="card-category-list-name">C语言学习指北</span><span class="card-category-list-count">25</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/Flutter%E5%AD%A6%E4%B9%A0%E6%8C%87%E5%8C%97/"><span class="card-category-list-name">Flutter学习指北</span><span class="card-category-list-count">36</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/Go%E8%AF%AD%E8%A8%80%E5%AD%A6%E4%B9%A0%E6%8C%87%E5%8C%97/"><span class="card-category-list-name">Go语言学习指北</span><span class="card-category-list-count">40</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/Java%E5%90%8E%E7%AB%AF%E5%AD%A6%E4%B9%A0%E6%8C%87%E5%8C%97/"><span class="card-category-list-name">Java后端学习指北</span><span class="card-category-list-count">147</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/MacOS%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8C%97/"><span class="card-category-list-name">MacOS使用指北</span><span class="card-category-list-count">4</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/Nodejs%E5%AD%A6%E4%B9%A0%E6%8C%87%E5%8C%97/"><span class="card-category-list-name">Nodejs学习指北</span><span class="card-category-list-count">6</span></a></li>
-            </ul></div><div class="card-widget card-tags"><div class="item-headline"><i class="fas fa-tags"></i><span>标签</span></div><div class="card-tag-cloud"><a href="/tags/Shell/" style="font-size: 1.4em; color: #99a5b5">Shell</a> <a href="/tags/Harbor/" style="font-size: 1.1em; color: #999">Harbor</a> <a href="/tags/JDBC/" style="font-size: 1.17em; color: #999ca0">JDBC</a> <a href="/tags/Hadoop/" style="font-size: 1.29em; color: #99a1ab">Hadoop</a> <a href="/tags/Gin/" style="font-size: 1.22em; color: #999ea5">Gin</a> <a href="/tags/Less/" style="font-size: 1.12em; color: #999a9b">Less</a> <a href="/tags/Git/" style="font-size: 1.33em; color: #99a2ae">Git</a> <a href="/tags/BlockChain/" style="font-size: 1.17em; color: #999ca0">BlockChain</a> <a href="/tags/Linux/" style="font-size: 1.48em; color: #99a8bd">Linux</a> <a href="/tags/Android/" style="font-size: 1.45em; color: #99a7ba">Android</a> <a href="/tags/WebVulnerabilities/" style="font-size: 1.22em; color: #999ea5">WebVulnerabilities</a> <a href="/tags/MyBatis/" style="font-size: 1.31em; color: #99a1ad">MyBatis</a> <a href="/tags/LeetCode/" style="font-size: 1.24em; color: #999fa6">LeetCode</a> <a href="/tags/Homeassistant/" style="font-size: 1.27em; color: #99a0aa">Homeassistant</a> <a href="/tags/Visual-Basic/" style="font-size: 1.27em; color: #99a0aa">Visual Basic</a> <a href="/tags/SSH/" style="font-size: 1.27em; color: #99a0aa">SSH</a> <a href="/tags/Java/" style="font-size: 1.5em; color: #99a9bf">Java</a> <a href="/tags/DOS/" style="font-size: 1.34em; color: #99a3b0">DOS</a> <a href="/tags/SpringFamily/" style="font-size: 1.1em; color: #999">SpringFamily</a> <a href="/tags/C/" style="font-size: 1.38em; color: #99a4b3">C</a> <a href="/tags/Database/" style="font-size: 1.47em; color: #99a8bc">Database</a> <a href="/tags/Express/" style="font-size: 1.1em; color: #999">Express</a> <a href="/tags/Servlet/" style="font-size: 1.29em; color: #99a1ab">Servlet</a> <a href="/tags/ArtificialIntelligence/" style="font-size: 1.13em; color: #999a9c">ArtificialIntelligence</a> <a href="/tags/Flask/" style="font-size: 1.13em; color: #999a9c">Flask</a> <a href="/tags/Zookeeper/" style="font-size: 1.15em; color: #999b9e">Zookeeper</a> <a href="/tags/Python3/" style="font-size: 1.1em; color: #999">Python3</a> <a href="/tags/SmartHome/" style="font-size: 1.34em; color: #99a3b0">SmartHome</a> <a href="/tags/Homebrew/" style="font-size: 1.12em; color: #999a9b">Homebrew</a> <a href="/tags/Kali/" style="font-size: 1.36em; color: #99a3b2">Kali</a> <a href="/tags/Sass/" style="font-size: 1.19em; color: #999ca1">Sass</a> <a href="/tags/Microcontroller/" style="font-size: 1.26em; color: #999fa8">Microcontroller</a> <a href="/tags/Flutter/" style="font-size: 1.41em; color: #99a6b7">Flutter</a> <a href="/tags/Arduino/" style="font-size: 1.1em; color: #999">Arduino</a> <a href="/tags/Gorm/" style="font-size: 1.2em; color: #999da3">Gorm</a> <a href="/tags/Bootstrap/" style="font-size: 1.15em; color: #999b9e">Bootstrap</a> <a href="/tags/MessageQueue/" style="font-size: 1.17em; color: #999ca0">MessageQueue</a> <a href="/tags/SVN/" style="font-size: 1.1em; color: #999">SVN</a> <a href="/tags/JSP/" style="font-size: 1.17em; color: #999ca0">JSP</a> <a href="/tags/Mysql/" style="font-size: 1.43em; color: #99a6b8">Mysql</a></div></div><div class="card-widget card-webinfo"><div class="item-headline"><i class="fas fa-chart-line"></i><span>网站资讯</span></div><div class="webinfo"><div class="webinfo-item"><div class="item-name">文章数目 :</div><div class="item-count">2915</div></div><div class="webinfo-item"><div class="item-name">已运行时间 :</div><div class="item-count" id="runtimeshow" data-publishDate="2019-11-22T07:53:18.000Z"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">本站访客数 :</div><div class="item-count" id="busuanzi_value_site_uv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">本站总访问量 :</div><div class="item-count" id="busuanzi_value_site_pv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">最后更新时间 :</div><div class="item-count" id="last-push-date" data-lastPushDate="2024-08-07T04:43:44.293Z"><i class="fa-solid fa-spinner fa-spin"></i></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="translateLink" type="button" title="简繁转换">繁</button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js?v=4.13.0"></script><script src="/js/main.js?v=4.13.0"></script><script src="/js/tw_cn.js?v=4.13.0"></script><script src="https://cdn.jsdelivr.net/npm/medium-zoom@1.1.0/dist/medium-zoom.min.js"></script><div class="js-pjax"><script>(() => {
-  const $mermaid = document.querySelectorAll('#article-container .mermaid-wrap')
-  if ($mermaid.length === 0) return
-  const runMermaid = () => {
-    window.loadMermaid = true
-    const theme = document.documentElement.getAttribute('data-theme') === 'dark' ? 'dark' : 'default'
+            <div class="mobile">
+                
+                    <div class="icon-item search search-popup-trigger"><i class="fas fa-search"></i></div>
+                
+                <div class="icon-item menu-bar">
+                    <div class="menu-bar-middle"></div>
+                </div>
+            </div>
+        </div>
+    </div>
 
-    Array.from($mermaid).forEach((item, index) => {
-      const mermaidSrc = item.firstElementChild
-      const mermaidThemeConfig = '%%{init:{ \'theme\':\'' + theme + '\'}}%%\n'
-      const mermaidID = 'mermaid-' + index
-      const mermaidDefinition = mermaidThemeConfig + mermaidSrc.textContent
+    <div class="header-drawer">
+        <ul class="drawer-menu-list">
+            
+                
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/"
+                    >首页</a>
+                </li>
+            
+                
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/archives/"
+                    >归档</a>
+                </li>
+            
+                
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/about/"
+                    >关于</a>
+                </li>
+            
+                
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/tags/"
+                    >标签</a>
+                </li>
+            
+                
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/categories/"
+                    >分类</a>
+                </li>
+            
+                
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/links/"
+                    >友链</a>
+                </li>
+            
+                
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/reward/"
+                    >赞助</a>
+                </li>
+            
+                
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/atom.xml"
+                    >订阅</a>
+                </li>
+            
+                
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       target="_blank" rel="noopener" href="//fluid.loli.fj.cn"
+                    >主题</a>
+                </li>
+            
+        </ul>
+    </div>
 
-      const renderFn = mermaid.render(mermaidID, mermaidDefinition)
+    <div class="window-mask"></div>
 
-      const renderV10 = () => {
-        renderFn.then(({svg}) => {
-          mermaidSrc.insertAdjacentHTML('afterend', svg)
-        })
-      }
+</header>
 
-      const renderV9 = svg => {
-        mermaidSrc.insertAdjacentHTML('afterend', svg)
-      }
 
-      typeof renderFn === 'string' ? renderV9(renderFn) : renderV10()
-    })
-  }
+        </div>
 
-  const loadMermaid = () => {
-    window.loadMermaid ? runMermaid() : getScript('https://cdn.jsdelivr.net/npm/mermaid@10.8.0/dist/mermaid.min.js').then(runMermaid)
-  }
+        <div class="page-main-content-middle border-box">
 
-  btf.addGlobalFn('themeChange', runMermaid, 'mermaid')
+            <div class="main-content border-box">
+                
 
-  window.pjax ? loadMermaid() : document.addEventListener('DOMContentLoaded', loadMermaid)
-})()</script></div><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/dist/activate-power-mode.min.js"></script><script>POWERMODE.colorful = true;
-POWERMODE.shake = false;
-POWERMODE.mobile = false;
-document.body.addEventListener('input', POWERMODE);
-</script><script src="https://cdn.jsdelivr.net/npm/pjax@0.2.8/pjax.min.js"></script><script>let pjaxSelectors = ["head > title","#config-diff","#body-wrap","#rightside-config-hide","#rightside-config-show",".js-pjax"]
+                    <div class="home-content-container fade-in-down-animation">
+    
+    <ul class="home-post-list border-box">
+        
+            <li class="home-post-item">
 
-var pjax = new Pjax({
-  elements: 'a:not([target="_blank"])',
-  selectors: pjaxSelectors,
-  cacheBust: false,
-  analytics: false,
-  scrollRestoration: false
-})
+                
 
-document.addEventListener('pjax:send', function () {
+                <div class="home-post-item-bottom border-box">
+                    
+                    <h3 class="home-post-title border-box">
+                        <a href="/2022/02/25/Android%E9%A1%B9%E7%9B%AE%E7%BB%93%E6%9E%84/">
+                            【笔记】Android项目结构
+                        </a>
+                    </h3>
 
-  // removeEventListener
-  btf.removeGlobalFnEvent('pjax')
-  btf.removeGlobalFnEvent('themeChange')
+                    <div class="home-post-content keep-markdown-body">
+                        
+                            <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>Android项目结构学习笔记</p>
+                        
+                    </div>
 
-  document.getElementById('rightside').classList.remove('rightside-show')
-  
-  if (window.aplayers) {
-    for (let i = 0; i < window.aplayers.length; i++) {
-      if (!window.aplayers[i].options.fixed) {
-        window.aplayers[i].destroy()
-      }
-    }
-  }
+                    
 
-  typeof typed === 'object' && typed.destroy()
+<div class="post-meta-info-container border-box home">
+    <div class="post-meta-info border-box">
+        
+            <span class="meta-info-item border-box">
+                <i class="icon fa-solid fa-file-circle-plus"></i>&nbsp;<span class="home-post-history"
+                                                                                data-updated="Fri Feb 25 2022 14:04:10 GMT+0800"
+                >2022-02-25</span>
+            </span>
+        
 
-  //reset readmode
-  const $bodyClassList = document.body.classList
-  $bodyClassList.contains('read-mode') && $bodyClassList.remove('read-mode')
+        
 
-  typeof disqusjs === 'object' && disqusjs.destroy()
-})
+        
+            <span class="meta-info-item post-category border-box"><i class="icon fas fa-folder"></i>&nbsp;
+                <ul class="post-category-ul">
+                    
+                            <li class="category-item"><a href="/categories/Android%E5%AD%A6%E4%B9%A0%E6%8C%87%E5%8C%97/">Android学习指北</a></li>
+                        
+                    
+                </ul>
+            </span>
+        
 
-document.addEventListener('pjax:complete', function () {
-  window.refreshFn()
+        
+            <span class="post-tag meta-info-item border-box">
+                <ul class="post-tag-ul">
+                    
+                            <li class="tag-item"><span class="tag-separator"><i class="icon fas fa-hashtag"></i></span><a href="/tags/Android/">Android</a></li>
+                        
+                    
+                </ul>
+            </span>
+        
 
-  document.querySelectorAll('script[data-pjax]').forEach(item => {
-    const newScript = document.createElement('script')
-    const content = item.text || item.textContent || item.innerHTML || ""
-    Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
-    newScript.appendChild(document.createTextNode(content))
-    item.parentNode.replaceChild(newScript, item)
-  })
+        
+        
+        
+        
+    </div>
 
-  GLOBAL_CONFIG.islazyload && window.lazyLoadInstance.update()
+    
+        <a class="home-read-more" href="/2022/02/25/Android%E9%A1%B9%E7%9B%AE%E7%BB%93%E6%9E%84/">阅读全文&nbsp;<i class="icon fas fa-angle-right"></i></a>
+    
+</div>
 
-  typeof panguInit === 'function' && panguInit()
+                </div>
+            </li>
+        
+            <li class="home-post-item">
 
-  // google analytics
-  typeof gtag === 'function' && gtag('config', '', {'page_path': window.location.pathname});
+                
 
-  // baidu analytics
-  typeof _hmt === 'object' && _hmt.push(['_trackPageview',window.location.pathname]);
+                <div class="home-post-item-bottom border-box">
+                    
+                    <h3 class="home-post-title border-box">
+                        <a href="/2022/02/24/Java%E6%9E%9A%E4%B8%BE%E7%B1%BB%E5%9E%8B/">
+                            【笔记】Java枚举类型
+                        </a>
+                    </h3>
 
-  typeof loadMeting === 'function' && document.getElementsByClassName('aplayer').length && loadMeting()
+                    <div class="home-post-content keep-markdown-body">
+                        
+                            <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>Java枚举类型学习笔记</p>
+                        
+                    </div>
 
-  // prismjs
-  typeof Prism === 'object' && Prism.highlightAll()
-})
+                    
 
-document.addEventListener('pjax:error', e => {
-  if (e.request.status === 404) {
-    pjax.loadUrl('/404.html')
-  }
-})</script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据库加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div id="local-search-results"></div><div id="local-search-stats-wrap"></div></div></div><div id="search-mask"></div><script src="/js/search/local-search.js?v=4.13.0"></script></div></div></body></html>
+<div class="post-meta-info-container border-box home">
+    <div class="post-meta-info border-box">
+        
+            <span class="meta-info-item border-box">
+                <i class="icon fa-solid fa-file-circle-plus"></i>&nbsp;<span class="home-post-history"
+                                                                                data-updated="Thu Feb 24 2022 14:34:21 GMT+0800"
+                >2022-02-24</span>
+            </span>
+        
+
+        
+
+        
+            <span class="meta-info-item post-category border-box"><i class="icon fas fa-folder"></i>&nbsp;
+                <ul class="post-category-ul">
+                    
+                            <li class="category-item"><a href="/categories/Java%E5%90%8E%E7%AB%AF%E5%AD%A6%E4%B9%A0%E6%8C%87%E5%8C%97/">Java后端学习指北</a></li>
+                        
+                    
+                </ul>
+            </span>
+        
+
+        
+            <span class="post-tag meta-info-item border-box">
+                <ul class="post-tag-ul">
+                    
+                            <li class="tag-item"><span class="tag-separator"><i class="icon fas fa-hashtag"></i></span><a href="/tags/Java/">Java</a></li>
+                        
+                    
+                </ul>
+            </span>
+        
+
+        
+        
+        
+        
+    </div>
+
+    
+        <a class="home-read-more" href="/2022/02/24/Java%E6%9E%9A%E4%B8%BE%E7%B1%BB%E5%9E%8B/">阅读全文&nbsp;<i class="icon fas fa-angle-right"></i></a>
+    
+</div>
+
+                </div>
+            </li>
+        
+            <li class="home-post-item">
+
+                
+
+                <div class="home-post-item-bottom border-box">
+                    
+                    <h3 class="home-post-title border-box">
+                        <a href="/2022/02/24/%E5%AF%84%E5%AD%98%E5%99%A8/">
+                            【笔记】寄存器
+                        </a>
+                    </h3>
+
+                    <div class="home-post-content keep-markdown-body">
+                        
+                            <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>汇编语言寄存器学习笔记</p>
+                        
+                    </div>
+
+                    
+
+<div class="post-meta-info-container border-box home">
+    <div class="post-meta-info border-box">
+        
+            <span class="meta-info-item border-box">
+                <i class="icon fa-solid fa-file-circle-plus"></i>&nbsp;<span class="home-post-history"
+                                                                                data-updated="Thu Feb 24 2022 13:29:00 GMT+0800"
+                >2022-02-24</span>
+            </span>
+        
+
+        
+
+        
+
+        
+            <span class="post-tag meta-info-item border-box">
+                <ul class="post-tag-ul">
+                    
+                            <li class="tag-item"><span class="tag-separator"><i class="icon fas fa-hashtag"></i></span><a href="/tags/Assembly/">Assembly</a></li>
+                        
+                    
+                </ul>
+            </span>
+        
+
+        
+        
+        
+        
+    </div>
+
+    
+        <a class="home-read-more" href="/2022/02/24/%E5%AF%84%E5%AD%98%E5%99%A8/">阅读全文&nbsp;<i class="icon fas fa-angle-right"></i></a>
+    
+</div>
+
+                </div>
+            </li>
+        
+            <li class="home-post-item">
+
+                
+
+                <div class="home-post-item-bottom border-box">
+                    
+                    <h3 class="home-post-title border-box">
+                        <a href="/2022/02/11/msf%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">
+                            【笔记】msf学习笔记
+                        </a>
+                    </h3>
+
+                    <div class="home-post-content keep-markdown-body">
+                        
+                            <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>Metasploit项目是一个旨在提供安全漏洞信息计算机安全项目，可以协助安全工程师进行渗透测试（penetration testing）及入侵检测系统签名开发。（<a href="/302.html?target=https://zh.wikipedia.org/zh-cn/Metasploit">维基百科</a>）</p>
+<p><font color="red">本文仅用于网络信息防御学习</font></p>
+                        
+                    </div>
+
+                    
+
+<div class="post-meta-info-container border-box home">
+    <div class="post-meta-info border-box">
+        
+            <span class="meta-info-item border-box">
+                <i class="icon fa-solid fa-file-circle-plus"></i>&nbsp;<span class="home-post-history"
+                                                                                data-updated="Fri Feb 11 2022 11:18:00 GMT+0800"
+                >2022-02-11</span>
+            </span>
+        
+
+        
+
+        
+
+        
+            <span class="post-tag meta-info-item border-box">
+                <ul class="post-tag-ul">
+                    
+                            <li class="tag-item"><span class="tag-separator"><i class="icon fas fa-hashtag"></i></span><a href="/tags/Metasploit/">Metasploit</a></li>
+                        
+                    
+                </ul>
+            </span>
+        
+
+        
+        
+        
+        
+    </div>
+
+    
+        <a class="home-read-more" href="/2022/02/11/msf%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">阅读全文&nbsp;<i class="icon fas fa-angle-right"></i></a>
+    
+</div>
+
+                </div>
+            </li>
+        
+            <li class="home-post-item">
+
+                
+
+                <div class="home-post-item-bottom border-box">
+                    
+                    <h3 class="home-post-title border-box">
+                        <a href="/2022/02/08/%E6%95%B4%E5%90%88Windows%E5%AE%89%E8%A3%85%E9%95%9C%E5%83%8F/">
+                            【笔记】整合Windows安装镜像
+                        </a>
+                    </h3>
+
+                    <div class="home-post-content keep-markdown-body">
+                        
+                            <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>整合Windows安装镜像</p>
+                        
+                    </div>
+
+                    
+
+<div class="post-meta-info-container border-box home">
+    <div class="post-meta-info border-box">
+        
+            <span class="meta-info-item border-box">
+                <i class="icon fa-solid fa-file-circle-plus"></i>&nbsp;<span class="home-post-history"
+                                                                                data-updated="Tue Feb 08 2022 00:26:55 GMT+0800"
+                >2022-02-08</span>
+            </span>
+        
+
+        
+
+        
+
+        
+            <span class="post-tag meta-info-item border-box">
+                <ul class="post-tag-ul">
+                    
+                            <li class="tag-item"><span class="tag-separator"><i class="icon fas fa-hashtag"></i></span><a href="/tags/Windows/">Windows</a></li>
+                        
+                    
+                </ul>
+            </span>
+        
+
+        
+        
+        
+        
+    </div>
+
+    
+        <a class="home-read-more" href="/2022/02/08/%E6%95%B4%E5%90%88Windows%E5%AE%89%E8%A3%85%E9%95%9C%E5%83%8F/">阅读全文&nbsp;<i class="icon fas fa-angle-right"></i></a>
+    
+</div>
+
+                </div>
+            </li>
+        
+            <li class="home-post-item">
+
+                
+
+                <div class="home-post-item-bottom border-box">
+                    
+                    <h3 class="home-post-title border-box">
+                        <a href="/2022/02/05/%E9%80%9A%E8%BF%87UUP%E7%9A%84%E6%96%B9%E5%BC%8F%E4%B8%8B%E8%BD%BDWindows%E5%AE%98%E6%96%B9%E5%AE%89%E8%A3%85%E9%95%9C%E5%83%8F/">
+                            【笔记】通过UUP的方式下载Windows官方安装镜像
+                        </a>
+                    </h3>
+
+                    <div class="home-post-content keep-markdown-body">
+                        
+                            <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>通过UUP（Unified Update Platform）的方式下载Windows官方安装镜像<br>UUP是微软在Windows10上引用系统更新方式，采用增量更新的方法，以减少文件下载量</p>
+                        
+                    </div>
+
+                    
+
+<div class="post-meta-info-container border-box home">
+    <div class="post-meta-info border-box">
+        
+            <span class="meta-info-item border-box">
+                <i class="icon fa-solid fa-file-circle-plus"></i>&nbsp;<span class="home-post-history"
+                                                                                data-updated="Sat Feb 05 2022 23:18:29 GMT+0800"
+                >2022-02-05</span>
+            </span>
+        
+
+        
+
+        
+
+        
+            <span class="post-tag meta-info-item border-box">
+                <ul class="post-tag-ul">
+                    
+                            <li class="tag-item"><span class="tag-separator"><i class="icon fas fa-hashtag"></i></span><a href="/tags/Windows/">Windows</a></li>
+                        
+                    
+                </ul>
+            </span>
+        
+
+        
+        
+        
+        
+    </div>
+
+    
+        <a class="home-read-more" href="/2022/02/05/%E9%80%9A%E8%BF%87UUP%E7%9A%84%E6%96%B9%E5%BC%8F%E4%B8%8B%E8%BD%BDWindows%E5%AE%98%E6%96%B9%E5%AE%89%E8%A3%85%E9%95%9C%E5%83%8F/">阅读全文&nbsp;<i class="icon fas fa-angle-right"></i></a>
+    
+</div>
+
+                </div>
+            </li>
+        
+            <li class="home-post-item">
+
+                
+
+                <div class="home-post-item-bottom border-box">
+                    
+                    <h3 class="home-post-title border-box">
+                        <a href="/2022/02/05/%E4%B8%BAWindows11%E6%B7%BB%E5%8A%A0%E4%BF%AE%E5%A4%8D%E6%A8%A1%E5%BC%8F/">
+                            【笔记】为Windows11添加修复模式
+                        </a>
+                    </h3>
+
+                    <div class="home-post-content keep-markdown-body">
+                        
+                            <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>Windows11安装包删减了原本Windows10的修复模式，通过复制Windows10的修复模式来给Windows11添加修复模式</p>
+                        
+                    </div>
+
+                    
+
+<div class="post-meta-info-container border-box home">
+    <div class="post-meta-info border-box">
+        
+            <span class="meta-info-item border-box">
+                <i class="icon fa-solid fa-file-circle-plus"></i>&nbsp;<span class="home-post-history"
+                                                                                data-updated="Sat Feb 05 2022 17:08:09 GMT+0800"
+                >2022-02-05</span>
+            </span>
+        
+
+        
+
+        
+
+        
+            <span class="post-tag meta-info-item border-box">
+                <ul class="post-tag-ul">
+                    
+                            <li class="tag-item"><span class="tag-separator"><i class="icon fas fa-hashtag"></i></span><a href="/tags/Windows/">Windows</a></li>
+                        
+                    
+                </ul>
+            </span>
+        
+
+        
+        
+        
+        
+    </div>
+
+    
+        <a class="home-read-more" href="/2022/02/05/%E4%B8%BAWindows11%E6%B7%BB%E5%8A%A0%E4%BF%AE%E5%A4%8D%E6%A8%A1%E5%BC%8F/">阅读全文&nbsp;<i class="icon fas fa-angle-right"></i></a>
+    
+</div>
+
+                </div>
+            </li>
+        
+            <li class="home-post-item">
+
+                
+
+                <div class="home-post-item-bottom border-box">
+                    
+                    <h3 class="home-post-title border-box">
+                        <a href="/2022/02/04/%E5%88%9B%E5%BB%BA%E4%B8%80%E4%B8%AAApplications%E6%96%87%E4%BB%B6%E5%A4%B9/">
+                            【笔记】创建一个Applications文件夹
+                        </a>
+                    </h3>
+
+                    <div class="home-post-content keep-markdown-body">
+                        
+                            <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>在Windows上创建一个类似MacOS上Applications目录的文件夹，用于展示所有已安装应用程序列表</p>
+                        
+                    </div>
+
+                    
+
+<div class="post-meta-info-container border-box home">
+    <div class="post-meta-info border-box">
+        
+            <span class="meta-info-item border-box">
+                <i class="icon fa-solid fa-file-circle-plus"></i>&nbsp;<span class="home-post-history"
+                                                                                data-updated="Fri Feb 04 2022 15:28:23 GMT+0800"
+                >2022-02-04</span>
+            </span>
+        
+
+        
+
+        
+
+        
+            <span class="post-tag meta-info-item border-box">
+                <ul class="post-tag-ul">
+                    
+                            <li class="tag-item"><span class="tag-separator"><i class="icon fas fa-hashtag"></i></span><a href="/tags/Windows/">Windows</a></li>
+                        
+                    
+                </ul>
+            </span>
+        
+
+        
+        
+        
+        
+    </div>
+
+    
+        <a class="home-read-more" href="/2022/02/04/%E5%88%9B%E5%BB%BA%E4%B8%80%E4%B8%AAApplications%E6%96%87%E4%BB%B6%E5%A4%B9/">阅读全文&nbsp;<i class="icon fas fa-angle-right"></i></a>
+    
+</div>
+
+                </div>
+            </li>
+        
+            <li class="home-post-item">
+
+                
+
+                <div class="home-post-item-bottom border-box">
+                    
+                    <h3 class="home-post-title border-box">
+                        <a href="/2022/02/04/Windows%E7%B3%BB%E7%BB%9F%E8%87%AA%E5%B8%A6%E6%88%AA%E5%9B%BE%E5%B7%A5%E5%85%B7/">
+                            【笔记】Windows系统自带截图工具
+                        </a>
+                    </h3>
+
+                    <div class="home-post-content keep-markdown-body">
+                        
+                            <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>使用Windows系统自带截图工具的快捷键进行快速截图</p>
+                        
+                    </div>
+
+                    
+
+<div class="post-meta-info-container border-box home">
+    <div class="post-meta-info border-box">
+        
+            <span class="meta-info-item border-box">
+                <i class="icon fa-solid fa-file-circle-plus"></i>&nbsp;<span class="home-post-history"
+                                                                                data-updated="Fri Feb 04 2022 15:21:17 GMT+0800"
+                >2022-02-04</span>
+            </span>
+        
+
+        
+
+        
+
+        
+            <span class="post-tag meta-info-item border-box">
+                <ul class="post-tag-ul">
+                    
+                            <li class="tag-item"><span class="tag-separator"><i class="icon fas fa-hashtag"></i></span><a href="/tags/Windows/">Windows</a></li>
+                        
+                    
+                </ul>
+            </span>
+        
+
+        
+        
+        
+        
+    </div>
+
+    
+        <a class="home-read-more" href="/2022/02/04/Windows%E7%B3%BB%E7%BB%9F%E8%87%AA%E5%B8%A6%E6%88%AA%E5%9B%BE%E5%B7%A5%E5%85%B7/">阅读全文&nbsp;<i class="icon fas fa-angle-right"></i></a>
+    
+</div>
+
+                </div>
+            </li>
+        
+            <li class="home-post-item">
+
+                
+
+                <div class="home-post-item-bottom border-box">
+                    
+                    <h3 class="home-post-title border-box">
+                        <a href="/2022/02/04/%E5%8D%87%E7%BA%A7Windows10%E7%B3%BB%E7%BB%9F%E7%89%88%E6%9C%AC/">
+                            【笔记】升级Windows10系统版本
+                        </a>
+                    </h3>
+
+                    <div class="home-post-content keep-markdown-body">
+                        
+                            <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>升级Windows10系统版本<br>注意：升级版本类型后的系统激活可能会失效</p>
+                        
+                    </div>
+
+                    
+
+<div class="post-meta-info-container border-box home">
+    <div class="post-meta-info border-box">
+        
+            <span class="meta-info-item border-box">
+                <i class="icon fa-solid fa-file-circle-plus"></i>&nbsp;<span class="home-post-history"
+                                                                                data-updated="Fri Feb 04 2022 01:58:59 GMT+0800"
+                >2022-02-04</span>
+            </span>
+        
+
+        
+
+        
+
+        
+            <span class="post-tag meta-info-item border-box">
+                <ul class="post-tag-ul">
+                    
+                            <li class="tag-item"><span class="tag-separator"><i class="icon fas fa-hashtag"></i></span><a href="/tags/Windows/">Windows</a></li>
+                        
+                    
+                </ul>
+            </span>
+        
+
+        
+        
+        
+        
+    </div>
+
+    
+        <a class="home-read-more" href="/2022/02/04/%E5%8D%87%E7%BA%A7Windows10%E7%B3%BB%E7%BB%9F%E7%89%88%E6%9C%AC/">阅读全文&nbsp;<i class="icon fas fa-angle-right"></i></a>
+    
+</div>
+
+                </div>
+            </li>
+        
+    </ul>
+    
+    <div class="paginator border-box flex-center">
+        <div class="btn-wrap allowed">
+            <a class="jump-btn"
+               href="/page/193/"
+            ><i class="fa-solid fa-chevron-left"></i></a>
+        </div>
+
+
+        <div class="page-number-box border-box flex-center">
+            <input class="page-number-input border-box base-color-size"
+                   type="number"
+                   value="194"
+                   min="1"
+                   max="292"
+            ><span class="delimiter base-color-size">/</span><span class="base-color-size">292</span>
+        </div>
+
+
+        <div class="btn-wrap allowed">
+            <a class="jump-btn"
+               href="/page/195/"
+            ><i class="fa-solid fa-chevron-right"></i></a>
+        </div>
+    </div>
+
+
+
+
+</div>
+
+
+                
+            </div>
+        </div>
+
+        <div class="page-main-content-bottom border-box">
+            
+<footer class="footer border-box">
+    <div class="copyright-info info-item">
+        &copy;&nbsp;<span>2019</span>&nbsp;-&nbsp;2024
+        
+            &nbsp;<i class="fas fa-heart icon-animate"></i>&nbsp;&nbsp;<a href="/">绯鞠</a>
+        
+    </div>
+
+    <div class="theme-info info-item">
+        由&nbsp;<a target="_blank" href="https://hexo.io">Hexo</a>&nbsp;驱动&nbsp;&&nbsp;主题&nbsp;<a class="keep-version" target="_blank" href="https://github.com/XPoet/hexo-theme-keep">Keep</a>
+    </div>
+
+    
+
+    
+        <div class="count-info info-item">
+            
+
+            
+                <span class="count-item border-box uv">
+                    <span class="item-type border-box">访客数</span>
+                    <span class="item-value border-box uv" id="busuanzi_value_site_uv"></span>
+                </span>
+            
+
+            
+                <span class="count-item border-box pv">
+                    <span class="item-type border-box">访问量</span>
+                    <span class="item-value border-box pv" id="busuanzi_value_site_pv"></span>
+                </span>
+            
+        </div>
+    
+
+    
+</footer>
+
+        </div>
+    </div>
+
+    <!-- post tools -->
+    
+
+    <!-- side tools -->
+    <div class="side-tools">
+        <div class="side-tools-container border-box side-tools-show-handle">
+    <ul class="side-tools-list side-tools-show-handle border-box">
+        <li class="tools-item tool-font-adjust-plus flex-center">
+            <i class="fas fa-search-plus"></i>
+        </li>
+
+        <li class="tools-item tool-font-adjust-minus flex-center">
+            <i class="fas fa-search-minus"></i>
+        </li>
+
+        <li class="tools-item tool-toggle-theme-mode flex-center">
+            <i class="fas fa-moon"></i>
+        </li>
+
+        <!-- rss -->
+        
+            <li class="tools-item rss flex-center">
+                <a class="flex-center"
+                   href="/atom.xml"
+                   target="_blank"
+                >
+                    <i class="fas fa-rss"></i>
+                </a>
+            </li>
+        
+
+        <li class="tools-item tool-scroll-to-bottom flex-center">
+            <i class="fas fa-arrow-down"></i>
+        </li>
+    </ul>
+
+    <ul class="exposed-tools-list border-box">
+        
+
+        
+
+        <li class="tools-item tool-toggle-show flex-center">
+            <i class="fas fa-cog fa-spin"></i>
+        </li>
+
+        <li class="tools-item tool-scroll-to-top flex-center show-arrow">
+            <i class="arrow fas fa-arrow-up"></i>
+            <span class="percent"></span>
+        </li>
+    </ul>
+</div>
+
+    </div>
+
+    <!-- image mask -->
+    <div class="zoom-in-image-mask">
+    <img class="zoom-in-image">
+</div>
+
+
+    <!-- local search -->
+    
+        <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+          <span class="search-input-field-pre">
+            <i class="fas fa-keyboard"></i>
+          </span>
+            <div class="search-input-container">
+                <input autocomplete="off"
+                       autocorrect="off"
+                       autocapitalize="off"
+                       placeholder="搜索..."
+                       spellcheck="false"
+                       type="search"
+                       class="search-input"
+                >
+            </div>
+            <span class="close-popup-btn">
+                <i class="fas fa-times"></i>
+            </span>
+        </div>
+        <div id="search-result">
+            <div id="no-result">
+                <i class="fas fa-spinner fa-pulse fa-5x fa-fw"></i>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+
+    <!-- tablet toc -->
+    
+</main>
+
+
+
+
+<!-- common -->
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/header-shrink.js"></script>
+
+<script src="/js/back2top.js"></script>
+
+<script src="/js/toggle-theme.js"></script>
+
+<script src="/js/code-block.js"></script>
+
+<script src="/js/main.js"></script>
+
+<script src="/js/libs/anime.min.js"></script>
+
+
+<!-- local-search -->
+
+    
+<script src="/js/local-search.js"></script>
+
+
+
+<!-- lazyload -->
+
+
+<div class="pjax">
+    
+
+    <!-- categories page -->
+    
+
+    <!-- links page -->
+    
+
+    <!-- photos page -->
+    
+
+    <!-- tools page -->
+    
+</div>
+
+<!-- mermaid -->
+
+
+<!-- pjax -->
+
+    
+<script src="/js/libs/pjax.min.js"></script>
+
+<script>
+    window.addEventListener('DOMContentLoaded', () => {
+        window.pjax = new Pjax({
+            selectors: [
+                'head title',
+                '.page-container',
+                '.pjax'
+            ],
+            history: true,
+            debug: false,
+            cacheBust: false,
+            timeout: 0,
+            analytics: false,
+            currentUrlFullReload: false,
+            scrollRestoration: false,
+        });
+
+        document.addEventListener('pjax:send', () => {
+            KEEP.utils.pjaxProgressBarStart()
+        });
+
+        document.addEventListener('pjax:complete', () => {
+            KEEP.utils.pjaxProgressBarEnd()
+            window.pjax.executeScripts(document.querySelectorAll('script[data-pjax], .pjax script'))
+            KEEP.initExecute()
+        });
+    });
+</script>
+
+
+
+
+</body>
+</html>
