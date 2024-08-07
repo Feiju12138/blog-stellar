@@ -1,0 +1,757 @@
+
+<!DOCTYPE html><html lang="zh-CN">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="hexo-theme" content="https://github.com/xaoxuu/hexo-theme-stellar/tree/1.29.0" theme-name="Stellar" theme-version="1.29.0">
+  
+  <meta name="generator" content="Hexo 6.3.0">
+  <meta http-equiv='x-dns-prefetch-control' content='on' />
+  
+  <meta name="renderer" content="webkit">
+  <meta name="force-rendering" content="webkit">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+  <meta name="HandheldFriendly" content="True" >
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#000">
+  <meta name="theme-color" content="#f9fafb">
+  
+  <title>【笔记】Hexo配置多语言 - 绯鞠的博客</title>
+
+  
+    <meta name="description" content="前言Hexo 6.3 在 NexT 8.18 主题下配置多语言支持（i18n）">
+<meta property="og:type" content="article">
+<meta property="og:title" content="【笔记】Hexo配置多语言">
+<meta property="og:url" content="https://loli.fj.cn/2023/09/09/Hexo%E9%85%8D%E7%BD%AE%E5%A4%9A%E8%AF%AD%E8%A8%80/index.html">
+<meta property="og:site_name" content="绯鞠的博客">
+<meta property="og:description" content="前言Hexo 6.3 在 NexT 8.18 主题下配置多语言支持（i18n）">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2023-09-09T03:14:45.000Z">
+<meta property="article:modified_time" content="2024-08-06T02:31:29.810Z">
+<meta property="article:author" content="绯鞠">
+<meta property="article:tag" content="Hexo">
+<meta name="twitter:card" content="summary">
+  
+  
+  
+  <meta name="keywords" content="Hexo">
+
+  <!-- feed -->
+  
+    <link rel="alternate" href="/atom.xml" title="绯鞠的博客" type="application/atom+xml">
+  
+
+  <link rel="stylesheet" href="/css/main.css?v=1.29.0">
+
+  
+
+  
+
+  
+</head>
+<body>
+
+<div class="l_body s:aa content tech" id="start" layout="post" ><aside class="l_left"><div class="leftbar-container">
+
+
+<header class="header"><div class="logo-wrap"><a class="avatar" href="/about/"><div class="bg" style="opacity:0;background-image:url(https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/avatar/round/rainbow64@3x.webp);"></div><img no-lazy class="avatar" src="/dist/images/avatar.gif" onerror="javascript:this.classList.add('error');this.src='https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/image/2659360.svg';"></a><a class="title" href="/"><div class="main" ff="title">绯鞠的博客</div><div class="sub cap">连蜜统治世界!!!💕</div></a></div></header>
+
+<div class="nav-area">
+<div class="search-wrapper" id="search-wrapper"><form class="search-form"><a class="search-button" onclick="document.getElementById(&quot;search-input&quot;).focus();"><svg t="1705074644177" viewBox="0 0 1025 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="1560" width="200" height="200"><path d="M1008.839137 935.96571L792.364903 719.491476a56.783488 56.783488 0 0 0-80.152866 0 358.53545 358.53545 0 1 1 100.857314-335.166073 362.840335 362.840335 0 0 1-3.689902 170.145468 51.248635 51.248635 0 1 0 99.217358 26.444296 462.057693 462.057693 0 1 0-158.255785 242.303546l185.930047 185.725053a51.248635 51.248635 0 0 0 72.568068 0 51.248635 51.248635 0 0 0 0-72.978056z" p-id="1561"></path><path d="M616.479587 615.969233a50.428657 50.428657 0 0 0-61.498362-5.534852 174.655348 174.655348 0 0 1-177.525271 3.484907 49.403684 49.403684 0 0 0-58.833433 6.76482l-3.074918 2.869923a49.403684 49.403684 0 0 0 8.609771 78.10292 277.767601 277.767601 0 0 0 286.992355-5.739847 49.403684 49.403684 0 0 0 8.404776-76.667958z" p-id="1562"></path></svg></a><input type="text" class="search-input" id="search-input" placeholder="站内搜索"></form><div id="search-result"></div><div class="search-no-result">没有找到内容！</div></div>
+
+
+<nav class="menu dis-select"><a class="nav-item" title="友链" href="/links/"><link rel="stylesheet" href="https://unpkg.com/font-awesome@4.7.0/css/font-awesome.min.css"><i class="fa fa-link"></i></a><a class="nav-item" title="赞助" href="/reward/"><i class="fa fa-heart"></i></a><a class="nav-item" title="订阅" href="/atom.xml"><i class="fa fa-rss"></i></a><a class="nav-item" title="主题" href="//loli.fj.cn"><i class="fa fa-arrow-right"></i></a></nav>
+</div>
+<div class="widgets">
+
+
+<widget class="widget-wrapper post-list"><div class="widget-header dis-select"><span class="name">最近更新</span></div><div class="widget-body fs14"><a class="item title" href="/2024/08/06/Mysql%E7%9A%84UDF%E6%8F%90%E6%9D%83/"><span class="title">【笔记】Mysql的UDF提权</span></a><a class="item title" href="/2024/08/06/PowerShell%E5%8E%8B%E7%BC%A9%E5%92%8C%E8%A7%A3%E5%8E%8B%E7%BC%A9zip%E6%96%87%E4%BB%B6/"><span class="title">【笔记】PowerShell压缩和解压缩zip文件</span></a><a class="item title" href="/2022/09/22/Winget%E5%AE%89%E8%A3%85%E7%AC%94%E8%AE%B0/"><span class="title">【笔记】Winget安装笔记</span></a><a class="item title" href="/2024/07/30/msf%E5%AE%9E%E7%8E%B0Mysql%E6%8F%90%E6%9D%83/"><span class="title">【笔记】msf实现Mysql提权</span></a><a class="item title" href="/2024/08/06/%E5%B0%86WindowsTerminal%E4%BD%9C%E4%B8%BAWindows%E9%BB%98%E8%AE%A4%E7%BB%88%E7%AB%AF/"><span class="title">【笔记】将WindowsTerminal作为Windows默认终端</span></a><a class="item title" href="/2022/06/25/%E6%9F%A5%E7%9C%8B%E7%AB%AF%E5%8F%A3%E5%8F%B7%E5%BC%80%E6%94%BE%E6%83%85%E5%86%B5/"><span class="title">【笔记】查看端口号开放情况</span></a><a class="item title" href="/2020/02/12/%E9%A1%BA%E5%BA%8F%E6%A0%88/"><span class="title">【代码】顺序栈</span></a><a class="item title" href="/2019/11/18/%E9%AA%87%E5%AE%A2%E6%8A%80%E6%9C%AF%E8%A7%A3%E5%86%B3%E6%B5%8F%E8%A7%88%E5%99%A8%E5%85%BC%E5%AE%B9%E6%80%A7%E9%97%AE%E9%A2%98/"><span class="title">【笔记】骇客技术解决浏览器兼容性问题（Javascript篇）</span></a><a class="item title" href="/2024/02/08/%E9%AA%8C%E8%AF%81JSON%E6%96%87%E4%BB%B6%E5%86%85%E5%AE%B9/"><span class="title">【笔记】验证JSON文件内容</span></a><a class="item title" href="/2020/07/04/%E9%AA%8C%E8%AF%81%E5%9B%9E%E6%96%87%E4%B8%B2/"><span class="title">【代码】验证回文串</span></a></div></widget>
+</div>
+<footer class="footer dis-select"><div class="social-wrap"><a class="social" href="/links/#comments" rel="noopener noreferrer"><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/social/942ebbf1a4b91.svg"/></a><a class="social" onclick="switchTheme()"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024"><path fill="currentColor" fill-rule="evenodd" d="M582.4 326.4c-140.8 0-256 115.2-256 256s115.2 256 256 256 256-115.2 256-256-115.2-256-256-256z m0 448c-70.4 0-131.2-36.8-164.8-92.8 12.8 3.2 27.2 4.8 40 4.8 121.6 0 219.2-99.2 219.2-219.2 0-17.6-1.6-35.2-6.4-52.8 60.8 32 102.4 96 102.4 169.6 1.6 104-84.8 190.4-190.4 190.4zM582.4 262.4c17.6 0 32-14.4 32-32v-128c0-17.6-14.4-32-32-32s-32 14.4-32 32v128c0 17.6 14.4 32 32 32zM262.4 582.4c0-17.6-14.4-32-32-32h-128c-17.6 0-32 14.4-32 32s14.4 32 32 32h128c17.6 0 32-14.4 32-32zM310.4 356.8c6.4 6.4 14.4 9.6 22.4 9.6 8 0 16-3.2 22.4-9.6 12.8-12.8 12.8-32 0-44.8l-91.2-91.2c-12.8-12.8-32-12.8-44.8 0-12.8 12.8-12.8 32 0 44.8l91.2 91.2zM944 220.8c-12.8-12.8-32-12.8-44.8 0l-91.2 91.2c-12.8 12.8-12.8 32 0 44.8 6.4 6.4 14.4 9.6 22.4 9.6 8 0 16-3.2 22.4-9.6l91.2-91.2c12.8-12.8 12.8-33.6 0-44.8zM310.4 808l-91.2 91.2c-12.8 12.8-12.8 32 0 44.8 6.4 6.4 14.4 9.6 22.4 9.6 8 0 16-3.2 22.4-9.6l91.2-91.2c12.8-12.8 12.8-32 0-44.8-11.2-11.2-32-11.2-44.8 0z"></path></svg></a></div></footer>
+</div></aside><div class="l_main" id="main">
+
+
+
+
+
+<div class="article banner top">
+  <div class="content">
+    <div class="top bread-nav footnote"><div class="left"><div class="flex-row" id="breadcrumb"><a class="cap breadcrumb" href="/">主页</a>
+<span class="sep"></span><a class="cap breadcrumb" href="/">文章</a></div>
+<div class="flex-row" id="post-meta"><span class="text created">发布于：<time datetime="2023-09-09T03:14:45.000Z">2023-09-09</time></span><span class="sep updated"></span><span class="text updated">更新于：<time datetime="2024-08-06T02:31:29.810Z">2024-08-06</time></span></div></div></div>
+    
+    <div class="bottom only-title">
+      
+      <div class="text-area">
+        <h1 class="text title"><span>【笔记】Hexo配置多语言</span></h1>
+        
+      </div>
+    </div>
+    
+  </div>
+  </div><article class="md-text content"><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>Hexo 6.3 在 NexT 8.18 主题下配置多语言支持（i18n）</p>
+<span id="more"></span>
+
+<h2 id="安装渲染首页的插件"><a href="#安装渲染首页的插件" class="headerlink" title="安装渲染首页的插件"></a>安装渲染首页的插件</h2><ul>
+<li>只安装<code>hexo-generator-index</code>插件的情况下，<code>_config.yml</code>中的<code>language</code>选项无法同时配置多个值，所以无法为站点同时配置多个语言</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yarn add hexo-generator-index</span><br></pre></td></tr></table></figure>
+
+<h2 id="安装允许多语言的插件"><a href="#安装允许多语言的插件" class="headerlink" title="安装允许多语言的插件"></a>安装允许多语言的插件</h2><ul>
+<li>安装了<code>hexo-generator-i18n</code>插件后，<code>_config.yml</code>中的<code>language</code>选项才允许同时配置多个值，所以可以为站点同时配置多个语言</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yarn add hexo-generator-i18n</span><br></pre></td></tr></table></figure>
+
+<h2 id="配置多种语言"><a href="#配置多种语言" class="headerlink" title="配置多种语言"></a>配置多种语言</h2><figure class="highlight yaml"><figcaption><span>hexo/_config.yml</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">language:</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">zh-CN</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">en</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="配置翻译的页面（可选）"><a href="#配置翻译的页面（可选）" class="headerlink" title="配置翻译的页面（可选）"></a>配置翻译的页面（可选）</h2><ul>
+<li>在安装了<code>hexo-generator-i18n</code>插件后，可以配置哪些路径的页面或者哪些类型的页面会自动翻译，如果不配置只有首页会被翻译</li>
+</ul>
+<blockquote>
+<p><code>i18n.type</code>：指定哪些类型的文件会自动翻译</p>
+<blockquote>
+<p><code>post</code>：所有文章页面<br><code>page</code>：所有非文章页面</p>
+</blockquote>
+<p><code>i18n.generator</code>：指定哪些路径的文件会自动翻译</p>
+<blockquote>
+<p><code>index</code>：首页<br><code>archive</code>：归档页面<br><code>category</code>：分类页面<br><code>tag</code>：标签页面</p>
+</blockquote>
+</blockquote>
+<figure class="highlight yaml"><figcaption><span>hexo/_config.yml</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">i18n:</span></span><br><span class="line">  <span class="attr">type:</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">post</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">page</span></span><br><span class="line">  <span class="attr">generator:</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">index</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">archive</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">category</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">tag</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="配置翻译（可选）"><a href="#配置翻译（可选）" class="headerlink" title="配置翻译（可选）"></a>配置翻译（可选）</h2><ul>
+<li>即便是不配置，NexT也提供了多语言的翻译缺省值</li>
+</ul>
+<p><a href="/302.html?target=https://github.com/next-theme/hexo-theme-next/tree/master/languages">传送门</a></p>
+<figure class="highlight yaml"><figcaption><span>hexo/source/language.yml</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">zh-CN:</span></span><br><span class="line">  <span class="attr">menu:</span></span><br><span class="line">    <span class="attr">links:</span> <span class="string">友链</span></span><br><span class="line"></span><br><span class="line"><span class="attr">en:</span></span><br><span class="line">  <span class="attr">menu:</span></span><br><span class="line">    <span class="attr">links:</span> <span class="string">friends</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="安装单语言首页的插件"><a href="#安装单语言首页的插件" class="headerlink" title="安装单语言首页的插件"></a>安装单语言首页的插件</h2><ul>
+<li>没有安装<code>hexo-generator-index-i18n</code>插件之前，虽然站点能同时显示两种语言的文章，但是不会将多种语言的文章分开，而是全部显示在主页</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yarn add hexo-generator-index-i18n</span><br></pre></td></tr></table></figure>
+
+<h2 id="配置单语言主页"><a href="#配置单语言主页" class="headerlink" title="配置单语言主页"></a>配置单语言主页</h2><ul>
+<li>让主页只显示一种语言，从而将多种语言的文章分开为不同语言的主页</li>
+</ul>
+<figure class="highlight yaml"><figcaption><span>hexo/_config.yml</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">index_generator:</span></span><br><span class="line">  <span class="attr">single_language_index:</span> <span class="literal">true</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="重新定义资源访问路径"><a href="#重新定义资源访问路径" class="headerlink" title="重新定义资源访问路径"></a>重新定义资源访问路径</h2><ul>
+<li>配置完成后，之前访问资源请求URL路径从<code>http://localhost:4000/年/月/日/文章名</code>变为<code>http://localhost:4000/语言/年/月/日/文章名</code></li>
+</ul>
+<figure class="highlight yaml"><figcaption><span>hexo/_config.yml</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">permalink:</span> <span class="string">:lang/:year/:month/:day/:title/</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="将旧的文章按照语言重新划分"><a href="#将旧的文章按照语言重新划分" class="headerlink" title="将旧的文章按照语言重新划分"></a>将旧的文章按照语言重新划分</h2><ul>
+<li>为所有文章添加<code>lang</code>标签</li>
+</ul>
+<blockquote>
+<p><code>lang</code>：配置当前文章的语言，由于已经修改了<code>permalink</code>配置，所以访问资源时自动根据当前的文章语言进行划分资源路径</p>
+</blockquote>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">---</span><br><span class="line">title: 文章名</span><br><span class="line"><span class="section">lang: zh-CN</span></span><br><span class="line"><span class="section">---</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="批量添加语言标签脚本"><a href="#批量添加语言标签脚本" class="headerlink" title="批量添加语言标签脚本"></a>批量添加语言标签脚本</h3><figure class="highlight python"><figcaption><span>hexo/source/scripts/SearchIsOrNotExistLangTagInFile.py</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> os</span><br><span class="line"></span><br><span class="line"><span class="comment"># 计数器</span></span><br><span class="line">exec_count = <span class="number">0</span></span><br><span class="line"></span><br><span class="line">script_src = os.getcwd()</span><br><span class="line">os.chdir(<span class="string">&quot;../_posts&quot;</span>)</span><br><span class="line">base_src = os.getcwd()</span><br><span class="line">filename_list = os.listdir(<span class="string">&quot;../_posts&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 待处理的数据</span></span><br><span class="line">file_src_list = []</span><br><span class="line"></span><br><span class="line"><span class="comment"># 寻找所有待处理的数据</span></span><br><span class="line"><span class="keyword">for</span> filename <span class="keyword">in</span> filename_list:</span><br><span class="line">    <span class="keyword">if</span> filename == <span class="string">&quot;.DS_Store&quot;</span>:</span><br><span class="line">        <span class="keyword">continue</span></span><br><span class="line">    <span class="comment"># 获取文件绝对路径</span></span><br><span class="line">    file_src = <span class="string">f&quot;<span class="subst">&#123;base_src&#125;</span>/<span class="subst">&#123;filename&#125;</span>&quot;</span></span><br><span class="line">    <span class="comment"># 读取文件</span></span><br><span class="line">    <span class="keyword">with</span> <span class="built_in">open</span>(file_src) <span class="keyword">as</span> f:</span><br><span class="line">        content = f.read()</span><br><span class="line">        <span class="comment"># 判定文件是否以存在lang标签</span></span><br><span class="line">        <span class="keyword">if</span> content.find(<span class="string">&quot;lang: &quot;</span>) == -<span class="number">1</span>:</span><br><span class="line">            <span class="comment"># 记录这个文件的绝对路径</span></span><br><span class="line">            file_src_list.append(file_src)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 将所有待处理的文件添加lang标签</span></span><br><span class="line"><span class="keyword">for</span> file_src <span class="keyword">in</span> file_src_list:</span><br><span class="line">    <span class="comment"># 读取到的文件内容</span></span><br><span class="line">    <span class="keyword">with</span> <span class="built_in">open</span>(file_src) <span class="keyword">as</span> f:</span><br><span class="line">        content = f.read()</span><br><span class="line">    <span class="comment"># 将文件添加lang标签，插入在date标签之前</span></span><br><span class="line">    content = content.replace(<span class="string">&quot;\ndate: &quot;</span>, <span class="string">&quot;\nlang: zh-CN\ndate: &quot;</span>)</span><br><span class="line">    <span class="comment"># 重新写入文件</span></span><br><span class="line">    <span class="keyword">with</span> <span class="built_in">open</span>(file_src, mode=<span class="string">&quot;w&quot;</span>) <span class="keyword">as</span> f:</span><br><span class="line">        f.write(content)</span><br><span class="line">        exec_count += <span class="number">1</span></span><br><span class="line">    <span class="comment"># DEBUG</span></span><br><span class="line">    <span class="built_in">print</span>(<span class="string">f&quot;== 添加lang标签完成 <span class="subst">&#123;file_src&#125;</span> ==&quot;</span>)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">f&quot;== 完成进度 <span class="subst">&#123;exec_count&#125;</span>/<span class="subst">&#123;<span class="built_in">len</span>(file_src_list)&#125;</span> ==&quot;</span>)</span><br></pre></td></tr></table></figure>
+
+<h2 id="将文章根据语言分开存储（可选）"><a href="#将文章根据语言分开存储（可选）" class="headerlink" title="将文章根据语言分开存储（可选）"></a>将文章根据语言分开存储（可选）</h2><ul>
+<li>为配置完lang标签后，虽然可以实现资源请求URL路径的划分，但是在本地存储的文件仍旧全部在<code>hexo/source/_post</code>目录下，并没有根据语言分类</li>
+<li>手动将不同语言的文章文件放到对应语言目录下<ul>
+<li>改操作并不会改变资源请求URL路径，只是方便管理，实际资源请求URL路径中的语言以文章内的<code>lang</code>标签为准</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">+ hexo</span><br><span class="line">  + source</span><br><span class="line">    + _post</span><br><span class="line">      + zh-CN</span><br><span class="line">        - 中文文章.md</span><br><span class="line">      + en</span><br><span class="line">        - 英文文章.md</span><br></pre></td></tr></table></figure>
+
+<h2 id="为新文章配置默认的lang标签"><a href="#为新文章配置默认的lang标签" class="headerlink" title="为新文章配置默认的lang标签"></a>为新文章配置默认的lang标签</h2><figure class="highlight markdown"><figcaption><span>hexo/scaffolds/post.md</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">---</span><br><span class="line">title: &#123;&#123; title &#125;&#125;</span><br><span class="line"><span class="section">lang: zh-CN</span></span><br><span class="line"><span class="section">---</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>自此通过<code>hexo new</code>创建的新文章都会默认添加<code>lang</code>标签<ul>
+<li>由于默认指定的是<code>zh-CN</code>，所以当创建文章后默认就是中文文章，想要改变为英文文章，只需要将<code>zh-CN</code>改为<code>en</code>即可</li>
+</ul>
+</li>
+</ul>
+<h2 id="创建文章时存放到对应语言的目录（可选）"><a href="#创建文章时存放到对应语言的目录（可选）" class="headerlink" title="创建文章时存放到对应语言的目录（可选）"></a>创建文章时存放到对应语言的目录（可选）</h2><ul>
+<li><p>配置完默认的lang标签后，虽然可以实现资源请求URL路径的划分，但是还是不能自动将新创建的文章移动到对应的目录下，<code>hexo new</code>创建文章时还是会在<code>hexo/source/_post</code>目录下</p>
+</li>
+<li><p>通过修改配置实现新创建的文件自动存放到对应的语言目录下</p>
+</li>
+</ul>
+<figure class="highlight yaml"><figcaption><span>hexo/_config.yml</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">new_post_name:</span> <span class="string">:lang/:title.md</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>只是配置完成后，当使用<code>hexo new</code>创建新文章时，将自动存放到<code>hexo/source/_post/undefined</code>目录下，因为没有指定语言目录，只有在创建文章时指定文章语言的参数才能放到对应目录下</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo new --lang zh-CN 文章名</span><br></pre></td></tr></table></figure>
+
+<h2 id="针对NexT主题优化"><a href="#针对NexT主题优化" class="headerlink" title="针对NexT主题优化"></a>针对NexT主题优化</h2><h3 id="开启语言切换下拉列表"><a href="#开启语言切换下拉列表" class="headerlink" title="开启语言切换下拉列表"></a>开启语言切换下拉列表</h3><figure class="highlight yaml"><figcaption><span>hexo/_config.next.yml</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">language_switcher:</span> <span class="literal">true</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="修复BUG"><a href="#修复BUG" class="headerlink" title="修复BUG"></a>修复BUG</h4><ul>
+<li>如果切换回中文，URL中默认没有语言前缀，会跳转到无效页面</li>
+<li>手动强制添加<code>/zh-CN</code>作为URL前缀</li>
+</ul>
+<figure class="highlight javascript"><figcaption><span>hexo/source/rewrite_i18n_path.js</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> element_for_i18n = <span class="variable language_">document</span>.<span class="title function_">querySelector</span>(<span class="string">&quot;option[value=&#x27;zh-CN&#x27;]&quot;</span>);</span><br><span class="line">element_for_i18n.<span class="title function_">setAttribute</span>(<span class="string">&quot;data-href&quot;</span>, <span class="string">&quot;/zh-CN&quot;</span> + element_for_i18n.<span class="title function_">getAttribute</span>(<span class="string">&quot;data-href&quot;</span>));</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><figcaption><span>hexo/source/_data/footer.njk</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;script type=&quot;text/javascript&quot; src=&quot;/rewrite_i18n_path.js&quot; data-pjax=&quot;&quot;&gt;&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight yaml"><figcaption><span>hexo/_config.next.yml</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">custom_file_path:</span></span><br><span class="line">  <span class="attr">footer:</span> <span class="string">source/_data/footer.njk</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="完成"><a href="#完成" class="headerlink" title="完成"></a>完成</h2><ul>
+<li>至此，本文完成了对Hexo站点配置多语言的介绍，与网络上其他人不同的是，其他人采用为第二语言建立额外的项目，虽然也能解决问题，但是总体来说不是很优雅</li>
+<li>不过本案例也有不太完美的地方，例如英文文章需要手写，在这里提供两种解决方案，感兴趣的小伙伴请自己挖坑自己填</li>
+</ul>
+<ol>
+<li>完全不采用本文的案例进行部署，而是在页面添加一个翻译按钮，实现<a target="_blank" rel="noopener" href="https://gitee.com/mail_osc/translate">浏览器在线翻译</a></li>
+<li>通过脚本批量向ChatGPT发送请求进行Markdown文档翻译，在要求中如下编写</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">请帮我将如下Markdown文档翻译为英文，请不要修改任何Markdown格式，文章内容如下：</span><br></pre></td></tr></table></figure>
+
+<p>不过缺陷是ChatGPT回复的内容是限定字数的，也就是说内容较多的文章会无法翻译完全，解决方案如下（关于如何记录ChatGPT的回复内容，请参阅Openai官方API文档）</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">请继续回复</span><br></pre></td></tr></table></figure>
+
+<h2 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h2><p><a target="_blank" rel="noopener" href="https://hexo.io/zh-cn/docs/permalinks">Hexo——永久链接</a><br><a target="_blank" rel="noopener" href="https://hexo.io/zh-cn/docs/internationalization.html">Hexo——国际化</a><br><a target="_blank" rel="noopener" href="https://blog.csdn.net/Calvin_zhou/article/details/110957632">CSDN——PGzxc</a><br><a target="_blank" rel="noopener" href="https://github.com/xcatliu/hexo-generator-index-i18n">xcatliu&#x2F;hexo-generator-index-i18n</a><br><a target="_blank" rel="noopener" href="https://wtlumos.github.io/zh-CN/2021/10/13/hexo%E5%AE%9E%E7%8E%B0%E5%8F%8C%E8%AF%AD%E8%A8%80%E7%BD%91%E7%AB%99-i18n/">W.T.的博客</a><br><a target="_blank" rel="noopener" href="https://www.ieclipse.cn/p/hexo-generator-i18n/index.html">Jamling的博客</a></p>
+
+<div class="article-footer fs14">
+    <section id="license">
+      <div class="header"><span>许可协议</span></div>
+      <div class="body"><p>本文采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">署名-非商业性使用-相同方式共享 4.0 国际</a> 许可协议，转载请注明出处。</p>
+</div>
+    </section>
+    </div>
+</article>
+<div class="related-wrap" id="read-next"><section class="body"><div class="item" id="prev"><div class="note">较新文章</div><a href="/2023/09/09/Rust%E7%9A%84%E6%96%87%E4%BB%B6%E6%93%8D%E4%BD%9C/">【笔记】Rust的文件操作</a></div><div class="item" id="next"><div class="note">较早文章</div><a href="/2023/09/08/Linux%E4%BF%AE%E6%94%B9%E6%97%B6%E5%8C%BA/">【笔记】Linux修改时区</a></div></section></div>
+
+
+
+
+  <div class="related-wrap md-text" id="comments">
+    <section class='header cmt-title cap theme'>
+      <p>快来参与讨论吧~</p>
+
+    </section>
+    <section class='body cmt-body twikoo'>
+      
+
+<div id="twikoo_container"><svg class="loading" style="vertical-align:middle;fill:currentColor;overflow:hidden;" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="2709"><path d="M832 512c0-176-144-320-320-320V128c211.2 0 384 172.8 384 384h-64zM192 512c0 176 144 320 320 320v64C300.8 896 128 723.2 128 512h64z" p-id="2710"></path></svg></div>
+    </section>
+  </div>
+
+
+
+<footer class="page-footer footnote"><hr><div class="text"><p>本站由 <a href="/">绯鞠</a> 使用 <a target="_blank" rel="noopener" href="https://github.com/xaoxuu/hexo-theme-stellar/tree/1.29.0">Stellar 1.29.0</a> 主题创建。<br>本博客所有文章除特别声明外，均采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> 许可协议，转载请注明出处。</p>
+</div></footer>
+<div class="main-mask" onclick="sidebar.dismiss()"></div></div><aside class="l_right">
+<div class="widgets">
+
+
+
+<widget class="widget-wrapper toc" id="data-toc" collapse="false"><div class="widget-header dis-select"><span class="name">本文目录</span><a class="cap-action" onclick="sidebar.toggleTOC()" ><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6h11m-11 6h11m-11 6h11M4 6h1v4m-1 0h2m0 8H4c0-1 2-2 2-3s-1-1.5-2-1"/></svg></a></div><div class="widget-body"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%89%8D%E8%A8%80"><span class="toc-text">前言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%89%E8%A3%85%E6%B8%B2%E6%9F%93%E9%A6%96%E9%A1%B5%E7%9A%84%E6%8F%92%E4%BB%B6"><span class="toc-text">安装渲染首页的插件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%89%E8%A3%85%E5%85%81%E8%AE%B8%E5%A4%9A%E8%AF%AD%E8%A8%80%E7%9A%84%E6%8F%92%E4%BB%B6"><span class="toc-text">安装允许多语言的插件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%85%8D%E7%BD%AE%E5%A4%9A%E7%A7%8D%E8%AF%AD%E8%A8%80"><span class="toc-text">配置多种语言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%85%8D%E7%BD%AE%E7%BF%BB%E8%AF%91%E7%9A%84%E9%A1%B5%E9%9D%A2%EF%BC%88%E5%8F%AF%E9%80%89%EF%BC%89"><span class="toc-text">配置翻译的页面（可选）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%85%8D%E7%BD%AE%E7%BF%BB%E8%AF%91%EF%BC%88%E5%8F%AF%E9%80%89%EF%BC%89"><span class="toc-text">配置翻译（可选）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%89%E8%A3%85%E5%8D%95%E8%AF%AD%E8%A8%80%E9%A6%96%E9%A1%B5%E7%9A%84%E6%8F%92%E4%BB%B6"><span class="toc-text">安装单语言首页的插件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%85%8D%E7%BD%AE%E5%8D%95%E8%AF%AD%E8%A8%80%E4%B8%BB%E9%A1%B5"><span class="toc-text">配置单语言主页</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%87%8D%E6%96%B0%E5%AE%9A%E4%B9%89%E8%B5%84%E6%BA%90%E8%AE%BF%E9%97%AE%E8%B7%AF%E5%BE%84"><span class="toc-text">重新定义资源访问路径</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B0%86%E6%97%A7%E7%9A%84%E6%96%87%E7%AB%A0%E6%8C%89%E7%85%A7%E8%AF%AD%E8%A8%80%E9%87%8D%E6%96%B0%E5%88%92%E5%88%86"><span class="toc-text">将旧的文章按照语言重新划分</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%89%B9%E9%87%8F%E6%B7%BB%E5%8A%A0%E8%AF%AD%E8%A8%80%E6%A0%87%E7%AD%BE%E8%84%9A%E6%9C%AC"><span class="toc-text">批量添加语言标签脚本</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B0%86%E6%96%87%E7%AB%A0%E6%A0%B9%E6%8D%AE%E8%AF%AD%E8%A8%80%E5%88%86%E5%BC%80%E5%AD%98%E5%82%A8%EF%BC%88%E5%8F%AF%E9%80%89%EF%BC%89"><span class="toc-text">将文章根据语言分开存储（可选）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%BA%E6%96%B0%E6%96%87%E7%AB%A0%E9%85%8D%E7%BD%AE%E9%BB%98%E8%AE%A4%E7%9A%84lang%E6%A0%87%E7%AD%BE"><span class="toc-text">为新文章配置默认的lang标签</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%9B%E5%BB%BA%E6%96%87%E7%AB%A0%E6%97%B6%E5%AD%98%E6%94%BE%E5%88%B0%E5%AF%B9%E5%BA%94%E8%AF%AD%E8%A8%80%E7%9A%84%E7%9B%AE%E5%BD%95%EF%BC%88%E5%8F%AF%E9%80%89%EF%BC%89"><span class="toc-text">创建文章时存放到对应语言的目录（可选）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%92%88%E5%AF%B9NexT%E4%B8%BB%E9%A2%98%E4%BC%98%E5%8C%96"><span class="toc-text">针对NexT主题优化</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BC%80%E5%90%AF%E8%AF%AD%E8%A8%80%E5%88%87%E6%8D%A2%E4%B8%8B%E6%8B%89%E5%88%97%E8%A1%A8"><span class="toc-text">开启语言切换下拉列表</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BF%AE%E5%A4%8DBUG"><span class="toc-text">修复BUG</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%8C%E6%88%90"><span class="toc-text">完成</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%82%E8%80%83%E6%96%87%E7%8C%AE"><span class="toc-text">参考文献</span></a></li></ol></div><div class="widget-footer">
+
+<a class="top" onclick="util.scrollTop()"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 12c0-4.714 0-7.071 1.464-8.536C4.93 2 7.286 2 12 2c4.714 0 7.071 0 8.535 1.464C22 4.93 22 7.286 22 12c0 4.714 0 7.071-1.465 8.535C19.072 22 16.714 22 12 22s-7.071 0-8.536-1.465C2 19.072 2 16.714 2 12Z"/><path stroke-linecap="round" stroke-linejoin="round" d="m9 15.5l3-3l3 3m-6-4l3-3l3 3"/></g></svg><span>回到顶部</span></a><a class="buttom" onclick="util.scrollComment()"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="currentColor" fill-rule="evenodd" d="M10.46 1.25h3.08c1.603 0 2.86 0 3.864.095c1.023.098 1.861.3 2.6.752a5.75 5.75 0 0 1 1.899 1.899c.452.738.654 1.577.752 2.6c.095 1.004.095 2.261.095 3.865v1.067c0 1.141 0 2.036-.05 2.759c-.05.735-.153 1.347-.388 1.913a5.75 5.75 0 0 1-3.112 3.112c-.805.334-1.721.408-2.977.43a10.81 10.81 0 0 0-.929.036c-.198.022-.275.054-.32.08c-.047.028-.112.078-.224.232c-.121.166-.258.396-.476.764l-.542.916c-.773 1.307-2.69 1.307-3.464 0l-.542-.916a10.605 10.605 0 0 0-.476-.764c-.112-.154-.177-.204-.224-.232c-.045-.026-.122-.058-.32-.08c-.212-.023-.49-.03-.93-.037c-1.255-.021-2.171-.095-2.976-.429A5.75 5.75 0 0 1 1.688 16.2c-.235-.566-.338-1.178-.389-1.913c-.049-.723-.049-1.618-.049-2.76v-1.066c0-1.604 0-2.86.095-3.865c.098-1.023.3-1.862.752-2.6a5.75 5.75 0 0 1 1.899-1.899c.738-.452 1.577-.654 2.6-.752C7.6 1.25 8.857 1.25 10.461 1.25M6.739 2.839c-.914.087-1.495.253-1.959.537A4.25 4.25 0 0 0 3.376 4.78c-.284.464-.45 1.045-.537 1.96c-.088.924-.089 2.11-.089 3.761v1c0 1.175 0 2.019.046 2.685c.045.659.131 1.089.278 1.441a4.25 4.25 0 0 0 2.3 2.3c.515.214 1.173.294 2.429.316h.031c.398.007.747.013 1.037.045c.311.035.616.104.909.274c.29.17.5.395.682.645c.169.232.342.525.538.856l.559.944a.52.52 0 0 0 .882 0l.559-.944c.196-.331.37-.624.538-.856c.182-.25.392-.476.682-.645c.293-.17.598-.24.909-.274c.29-.032.639-.038 1.037-.045h.032c1.255-.022 1.913-.102 2.428-.316a4.25 4.25 0 0 0 2.3-2.3c.147-.352.233-.782.278-1.441c.046-.666.046-1.51.046-2.685v-1c0-1.651 0-2.837-.089-3.762c-.087-.914-.253-1.495-.537-1.959a4.25 4.25 0 0 0-1.403-1.403c-.464-.284-1.045-.45-1.96-.537c-.924-.088-2.11-.089-3.761-.089h-3c-1.651 0-2.837 0-3.762.089" clip-rule="evenodd"/><path fill="currentColor" d="M9 11a1 1 0 1 1-2 0a1 1 0 0 1 2 0m4 0a1 1 0 1 1-2 0a1 1 0 0 1 2 0m4 0a1 1 0 1 1-2 0a1 1 0 0 1 2 0"/></svg><span>参与讨论</span></a></div></widget>
+</div></aside><div class='float-panel blur'>
+  <button type='button' style='display:none' class='laptop-only rightbar-toggle mobile' onclick='sidebar.rightbar()'>
+    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6h11m-11 6h11m-11 6h11M4 6h1v4m-1 0h2m0 8H4c0-1 2-2 2-3s-1-1.5-2-1"/></svg>
+  </button>
+  <button type='button' style='display:none' class='mobile-only leftbar-toggle mobile' onclick='sidebar.leftbar()'>
+    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 11c0-3.771 0-5.657 1.172-6.828C4.343 3 6.229 3 10 3h4c3.771 0 5.657 0 6.828 1.172C22 5.343 22 7.229 22 11v2c0 3.771 0 5.657-1.172 6.828C19.657 21 17.771 21 14 21h-4c-3.771 0-5.657 0-6.828-1.172C2 18.657 2 16.771 2 13z"/><path id="sep" stroke-linecap="round" d="M5.5 10h6m-5 4h4m4.5 7V3"/></g></svg>
+  </button>
+</div>
+</div><div class="scripts">
+<script type="text/javascript">
+  const ctx = {
+    date_suffix: {
+      just: `刚刚`,
+      min: `分钟前`,
+      hour: `小时前`,
+      day: `天前`,
+    },
+    root : `/`,
+  };
+
+  // required plugins (only load if needs)
+  if (`local_search`) {
+    ctx.search = {};
+    ctx.search.service = `local_search`;
+    if (ctx.search.service == 'local_search') {
+      let service_obj = Object.assign({}, `{"field":"post","path":"/db.json","content":true,"sort":"-date"}`);
+      ctx.search[ctx.search.service] = service_obj;
+    }
+  }
+  const def = {
+    avatar: `https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/avatar/round/3442075.svg`,
+    cover: `https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/cover/76b86c0226ffd.svg`,
+  };
+  const deps = {
+    jquery: `https://cdn.bootcdn.net/ajax/libs/jquery/3.7.1/jquery.min.js`,
+    marked: `https://cdn.bootcdn.net/ajax/libs/marked/4.0.18/marked.min.js`
+  }
+  
+
+</script>
+
+<script type="text/javascript">
+  const utils = {
+    // 懒加载 css https://github.com/filamentgroup/loadCSS
+    css: (href, before, media, attributes) => {
+      var doc = window.document;
+      var ss = doc.createElement("link");
+      var ref;
+      if (before) {
+        ref = before;
+      } else {
+        var refs = (doc.body || doc.getElementsByTagName("head")[0]).childNodes;
+        ref = refs[refs.length - 1];
+      }
+      var sheets = doc.styleSheets;
+      if (attributes) {
+        for (var attributeName in attributes) {
+          if (attributes.hasOwnProperty(attributeName)) {
+            ss.setAttribute(attributeName, attributes[attributeName]);
+          }
+        }
+      }
+      ss.rel = "stylesheet";
+      ss.href = href;
+      ss.media = "only x";
+      function ready(cb) {
+        if (doc.body) {
+          return cb();
+        }
+        setTimeout(function () {
+          ready(cb);
+        });
+      }
+      ready(function () {
+        ref.parentNode.insertBefore(ss, before ? ref : ref.nextSibling);
+      });
+      var onloadcssdefined = function (cb) {
+        var resolvedHref = ss.href;
+        var i = sheets.length;
+        while (i--) {
+          if (sheets[i].href === resolvedHref) {
+            return cb();
+          }
+        }
+        setTimeout(function () {
+          onloadcssdefined(cb);
+        });
+      };
+      function loadCB() {
+        if (ss.addEventListener) {
+          ss.removeEventListener("load", loadCB);
+        }
+        ss.media = media || "all";
+      }
+      if (ss.addEventListener) {
+        ss.addEventListener("load", loadCB);
+      }
+      ss.onloadcssdefined = onloadcssdefined;
+      onloadcssdefined(loadCB);
+      return ss;
+    },
+
+    js: (src, opt) => new Promise((resolve, reject) => {
+      var script = document.createElement('script');
+      if (src.startsWith('/')){
+        src = ctx.root + src.substring(1);
+      }
+      script.src = src;
+      if (opt) {
+        for (let key of Object.keys(opt)) {
+          script[key] = opt[key]
+        }
+      } else {
+        // 默认异步，如果需要同步，第二个参数传入 {} 即可
+        script.async = true
+      }
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    }),
+
+    jq: (fn) => {
+      if (typeof jQuery === 'undefined') {
+        utils.js(deps.jquery).then(fn)
+      } else {
+        fn()
+      }
+    },
+    
+    onLoading: (el) => {
+      if (el) {
+        $(el).append('<div class="loading-wrap"><svg xmlns="http://www.w3.org/2000/svg" width="2em" height="2em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="2"><path stroke-dasharray="60" stroke-dashoffset="60" stroke-opacity=".3" d="M12 3C16.9706 3 21 7.02944 21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3Z"><animate fill="freeze" attributeName="stroke-dashoffset" dur="1.3s" values="60;0"/></path><path stroke-dasharray="15" stroke-dashoffset="15" d="M12 3C16.9706 3 21 7.02944 21 12"><animate fill="freeze" attributeName="stroke-dashoffset" dur="0.3s" values="15;0"/><animateTransform attributeName="transform" dur="1.5s" repeatCount="indefinite" type="rotate" values="0 12 12;360 12 12"/></path></g></svg></div>');
+      }
+    },
+    onLoadSuccess: (el) => {
+      if (el) {
+        $(el).find('.loading-wrap').remove();
+      }
+    },
+    onLoadFailure: (el) => {
+      if (el) {
+        $(el).find('.loading-wrap svg').remove();
+        $(el).find('.loading-wrap').append('<svg xmlns="http://www.w3.org/2000/svg" width="2em" height="2em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><path stroke-dasharray="60" stroke-dashoffset="60" d="M12 3L21 20H3L12 3Z"><animate fill="freeze" attributeName="stroke-dashoffset" dur="0.5s" values="60;0"/></path><path stroke-dasharray="6" stroke-dashoffset="6" d="M12 10V14"><animate fill="freeze" attributeName="stroke-dashoffset" begin="0.6s" dur="0.2s" values="6;0"/></path></g><circle cx="12" cy="17" r="1" fill="currentColor" fill-opacity="0"><animate fill="freeze" attributeName="fill-opacity" begin="0.8s" dur="0.4s" values="0;1"/></circle></svg>');
+        $(el).find('.loading-wrap').addClass('error');
+      }
+    },
+    request: (el, url, callback, onFailure) => {
+      let retryTimes = 3;
+      utils.onLoading(el);
+      function req() {
+        return new Promise((resolve, reject) => {
+          let status = 0; // 0 等待 1 完成 2 超时
+          let timer = setTimeout(() => {
+            if (status === 0) {
+              status = 2;
+              timer = null;
+              reject('请求超时');
+              if (retryTimes == 0) {
+                onFailure();
+              }
+            }
+          }, 5000);
+          fetch(url).then(function(response) {
+            if (status !== 2) {
+              clearTimeout(timer);
+              resolve(response);
+              timer = null;
+              status = 1;
+            }
+            if (response.ok) {
+              return response.json();
+            }
+            throw new Error('Network response was not ok.');
+          }).then(function(data) {
+            retryTimes = 0;
+            utils.onLoadSuccess(el);
+            callback(data);
+          }).catch(function(error) {
+            if (retryTimes > 0) {
+              retryTimes -= 1;
+              setTimeout(() => {
+                req();
+              }, 5000);
+            } else {
+              utils.onLoadFailure(el);
+              onFailure();
+            }
+          });
+        });
+      }
+      req();
+    },
+  };
+</script>
+
+<script>
+  const sidebar = {
+    leftbar: () => {
+      if (l_body) {
+        l_body.toggleAttribute('leftbar');
+        l_body.removeAttribute('rightbar');
+      }
+    },
+    rightbar: () => {
+      if (l_body) {
+        l_body.toggleAttribute('rightbar');
+        l_body.removeAttribute('leftbar');
+      }
+    },
+    dismiss: () => {
+      if (l_body) {
+        l_body.removeAttribute('leftbar');
+        l_body.removeAttribute('rightbar');
+      }
+    },
+    toggleTOC: () => {
+      document.querySelector('#data-toc').classList.toggle('collapse');
+    }
+  }
+</script>
+<script type="text/javascript">
+  (() => {
+    const tagSwitchers = document.querySelectorAll('.tag-subtree.parent-tag > a > .tag-switcher-wrapper')
+    for (const tagSwitcher of tagSwitchers) {
+      tagSwitcher.addEventListener('click', (e) => {
+        const parent = e.target.closest('.tag-subtree.parent-tag')
+        parent.classList.toggle('expanded')
+        e.preventDefault()
+      })
+    }
+
+    // Get active tag from query string, then activate it.
+    const urlParams = new URLSearchParams(window.location.search)
+    const activeTag = urlParams.get('tag')
+    if (activeTag) {
+      let tag = document.querySelector(`.tag-subtree[data-tag="${activeTag}"]`)
+      if (tag) {
+        tag.querySelector('a').classList.add('active')
+        
+        while (tag) {
+          tag.classList.add('expanded')
+          tag = tag.parentElement.closest('.tag-subtree.parent-tag')
+        }
+      }
+    }
+  })()
+</script>
+
+
+<!-- required -->
+<script src="/js/main.js?v=1.29.0" defer></script>
+
+<script type="text/javascript">
+  const applyTheme = (theme) => {
+    if (theme === 'auto') {
+      document.documentElement.removeAttribute('data-theme')
+    } else {
+      document.documentElement.setAttribute('data-theme', theme)
+    }
+
+    applyThemeToGiscus(theme)
+  }
+
+  const applyThemeToGiscus = (theme) => {
+    theme = theme === 'auto' ? 'preferred_color_scheme' : theme
+
+    const cmt = document.getElementById('giscus')
+    if (cmt) {
+      // This works before giscus load.
+      cmt.setAttribute('data-theme', theme)
+    }
+
+    const iframe = document.querySelector('#comments > section.giscus > iframe')
+    if (iframe) {
+      // This works after giscus loaded.
+      const src = iframe.src
+      const newSrc = src.replace(/theme=[\w]+/, `theme=${theme}`)
+      iframe.src = newSrc
+    }
+  }
+
+  const switchTheme = () => {
+    // light -> dark -> auto -> light -> ...
+    const currentTheme = document.documentElement.getAttribute('data-theme')
+    let newTheme;
+    switch (currentTheme) {
+      case 'light':
+        newTheme = 'dark'
+        break
+      case 'dark':
+        newTheme = 'auto'
+        break
+      default:
+        newTheme = 'light'
+    }
+    applyTheme(newTheme)
+    window.localStorage.setItem('Stellar.theme', newTheme)
+
+    const messages = {
+      light: `切换到浅色模式`,
+      dark: `切换到深色模式`,
+      auto: `切换到跟随系统配色`,
+    }
+    hud?.toast?.(messages[newTheme])
+  }
+
+  (() => {
+    // Apply user's preferred theme, if any.
+    const theme = window.localStorage.getItem('Stellar.theme')
+    if (theme !== null) {
+      applyTheme(theme)
+    }
+  })()
+</script>
+
+
+<!-- optional -->
+
+  <script type="module">
+  const el = document.getElementById('twikoo_container');
+  util.viewportLazyload(el, load_twikoo, false);
+
+  function load_twikoo() {
+    if (!el) return;
+    utils.js('https://gcore.jsdelivr.net/npm/twikoo@1.6.8/dist/twikoo.all.min.js', {defer: true}).then(function () {
+      const path = el.getAttribute('comment_id') ?? decodeURI(window.location.pathname);
+      twikoo.init(Object.assign({"js":"https://gcore.jsdelivr.net/npm/twikoo@1.6.8/dist/twikoo.all.min.js","envId":"https://twikoo.loli.fj.cn"}, {
+        el: '#twikoo_container',
+        path: path,
+      }));
+    });
+  }
+</script>
+
+
+
+<script defer>
+  window.addEventListener('DOMContentLoaded', (event) => {
+    ctx.services = Object.assign({}, JSON.parse(`{"mdrender":{"js":"/js/services/mdrender.js"},"siteinfo":{"js":"/js/services/siteinfo.js","api":null},"ghinfo":{"js":"/js/services/ghinfo.js"},"sites":{"js":"/js/services/sites.js"},"friends":{"js":"/js/services/friends.js"},"timeline":{"js":"/js/services/timeline.js"},"fcircle":{"js":"/js/services/fcircle.js"},"weibo":{"js":"/js/services/weibo.js"},"memos":{"js":"/js/services/memos.js"}}`));
+    for (let id of Object.keys(ctx.services)) {
+      const js = ctx.services[id].js;
+      if (id == 'siteinfo') {
+        ctx.cardlinks = document.querySelectorAll('a.link-card[cardlink]');
+        if (ctx.cardlinks?.length > 0) {
+          utils.js(js, { defer: true }).then(function () {
+            setCardLink(ctx.cardlinks);
+          });
+        }
+      } else {
+        const els = document.getElementsByClassName(`ds-${id}`);
+        if (els?.length > 0) {
+          utils.jq(() => {
+            if (id == 'timeline' || 'memos' || 'marked') {
+              utils.js(deps.marked).then(function () {
+                utils.js(js, { defer: true });
+              });
+            } else {
+              utils.js(js, { defer: true });
+            }
+          });
+        }
+      }
+    }
+  });
+</script>
+
+<script>
+  window.addEventListener('DOMContentLoaded', (event) => {
+    ctx.search = {
+      path: `/db.json`,
+    }
+    utils.js('/js/search/local-search.js', { defer: true });
+  });
+</script><script>
+  window.FPConfig = {
+    delay: 0,
+    ignoreKeywords: [],
+    maxRPS: 5,
+    hoverDelay: 25
+  };
+</script>
+<script defer src="https://cdn.bootcdn.net/ajax/libs/flying-pages/2.1.2/flying-pages.min.js"></script><script defer src="https://cdn.bootcdn.net/ajax/libs/vanilla-lazyload/17.8.4/lazyload.min.js"></script>
+<script>
+  // https://www.npmjs.com/package/vanilla-lazyload
+  // Set the options globally
+  // to make LazyLoad self-initialize
+  window.lazyLoadOptions = {
+    elements_selector: ".lazy",
+  };
+  // Listen to the initialization event
+  // and get the instance of LazyLoad
+  window.addEventListener(
+    "LazyLoad::Initialized",
+    function (event) {
+      window.lazyLoadInstance = event.detail.instance;
+    },
+    false
+  );
+  document.addEventListener('DOMContentLoaded', function () {
+    window.lazyLoadInstance?.update();
+  });
+</script><script>
+  ctx.fancybox = {
+    selector: `.timenode p>img`,
+    css: `https://cdn.bootcdn.net/ajax/libs/fancyapps-ui/5.0.22/fancybox/fancybox.min.css`,
+    js: `https://cdn.bootcdn.net/ajax/libs/fancyapps-ui/5.0.22/fancybox/fancybox.umd.min.js`
+  };
+  var selector = '[data-fancybox]:not(.error)';
+  if (ctx.fancybox.selector) {
+    selector += `, ${ctx.fancybox.selector}`
+  }
+  var needFancybox = document.querySelectorAll(selector).length !== 0;
+  if (!needFancybox) {
+    const els = document.getElementsByClassName('ds-memos');
+    if (els != undefined && els.length > 0) {
+      needFancybox = true;
+    }
+  }
+  if (needFancybox) {
+    utils.css(ctx.fancybox.css);
+    utils.js(ctx.fancybox.js, { defer: true }).then(function () {
+      Fancybox.bind(selector, {
+        hideScrollbar: false,
+        Thumbs: {
+          autoStart: false,
+        },
+        caption: (fancybox, slide) => {
+          return slide.triggerEl.alt || slide.triggerEl.dataset.caption || null
+        }
+      });
+    })
+  }
+</script>
+<script>
+  window.addEventListener('DOMContentLoaded', (event) => {
+    const swiper_api = document.getElementById('swiper-api');
+    if (swiper_api != undefined) {
+      utils.css(`https://unpkg.com/swiper@10.3.1/swiper-bundle.min.css`);
+      utils.js(`https://unpkg.com/swiper@10.3.1/swiper-bundle.min.js`, { defer: true }).then(function () {
+        const effect = swiper_api.getAttribute('effect') || '';
+        var swiper = new Swiper('.swiper#swiper-api', {
+          slidesPerView: 'auto',
+          spaceBetween: 8,
+          centeredSlides: true,
+          effect: effect,
+          rewind: true,
+          pagination: {
+            el: '.swiper-pagination',
+            clickable: true,
+          },
+          navigation: {
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
+          },
+        });
+      })
+    }
+  });
+</script>
+<script defer type="text/javascript" src="https://cdn.jsdelivr.net/npm/mermaid@v9/dist/mermaid.min.js"></script>
+<script>
+  window.addEventListener('DOMContentLoaded', (event) => {
+    var mermaid_config = {
+      startOnLoad: true,
+      theme:
+        "" == "auto" &&
+          window.matchMedia("(prefers-color-scheme: dark)").matches
+          ? "dark"
+          : "neutral",
+      logLevel: 3,
+      themeVariables: {
+        darkMode: true
+      },
+      flowchart: {
+        useMaxWidth: false,
+        htmlLabels: true,
+        curve: "linear"
+      },
+      gantt: {
+        axisFormat: "%Y/%m/%d"
+      },
+      sequence: {
+        actorMargin: 50
+      }
+    }
+    mermaid.initialize(mermaid_config);
+  });
+</script><script>
+  document.addEventListener('DOMContentLoaded', function () {
+    window.codeElements = document.querySelectorAll('.code');
+    if (window.codeElements.length > 0) {
+      ctx.copycode = {
+        default_text: `Copy`,
+        success_text: `Copied`,
+        toast: `复制成功`,
+      };
+      utils.js('/js/plugins/copycode.js');
+    }
+  });
+</script>
+
+
+<!-- inject -->
+
+</div></body></html>

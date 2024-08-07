@@ -1,0 +1,1190 @@
+
+<!DOCTYPE html><html lang="zh-CN">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="hexo-theme" content="https://github.com/xaoxuu/hexo-theme-stellar/tree/1.29.0" theme-name="Stellar" theme-version="1.29.0">
+  
+  <meta name="generator" content="Hexo 6.3.0">
+  <meta http-equiv='x-dns-prefetch-control' content='on' />
+  
+  <meta name="renderer" content="webkit">
+  <meta name="force-rendering" content="webkit">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+  <meta name="HandheldFriendly" content="True" >
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#000">
+  <meta name="theme-color" content="#f9fafb">
+  
+  <title>【笔记】计算机组成原理知识点 - 绯鞠的博客</title>
+
+  
+    <meta name="description" content="前言计算机组成原理知识点">
+<meta property="og:type" content="article">
+<meta property="og:title" content="【笔记】计算机组成原理知识点">
+<meta property="og:url" content="https://loli.fj.cn/2022/01/03/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E7%9F%A5%E8%AF%86%E7%82%B9/index.html">
+<meta property="og:site_name" content="绯鞠的博客">
+<meta property="og:description" content="前言计算机组成原理知识点">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2022-01-03T08:33:35.000Z">
+<meta property="article:modified_time" content="2024-08-06T02:31:29.998Z">
+<meta property="article:author" content="绯鞠">
+<meta name="twitter:card" content="summary">
+  
+  
+  
+  
+
+  <!-- feed -->
+  
+    <link rel="alternate" href="/atom.xml" title="绯鞠的博客" type="application/atom+xml">
+  
+
+  <link rel="stylesheet" href="/css/main.css?v=1.29.0">
+
+  
+
+  
+
+  
+</head>
+<body>
+
+<div class="l_body s:aa content tech" id="start" layout="post" ><aside class="l_left"><div class="leftbar-container">
+
+
+<header class="header"><div class="logo-wrap"><a class="avatar" href="/about/"><div class="bg" style="opacity:0;background-image:url(https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/avatar/round/rainbow64@3x.webp);"></div><img no-lazy class="avatar" src="/dist/images/avatar.gif" onerror="javascript:this.classList.add('error');this.src='https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/image/2659360.svg';"></a><a class="title" href="/"><div class="main" ff="title">绯鞠的博客</div><div class="sub cap">连蜜统治世界!!!💕</div></a></div></header>
+
+<div class="nav-area">
+<div class="search-wrapper" id="search-wrapper"><form class="search-form"><a class="search-button" onclick="document.getElementById(&quot;search-input&quot;).focus();"><svg t="1705074644177" viewBox="0 0 1025 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="1560" width="200" height="200"><path d="M1008.839137 935.96571L792.364903 719.491476a56.783488 56.783488 0 0 0-80.152866 0 358.53545 358.53545 0 1 1 100.857314-335.166073 362.840335 362.840335 0 0 1-3.689902 170.145468 51.248635 51.248635 0 1 0 99.217358 26.444296 462.057693 462.057693 0 1 0-158.255785 242.303546l185.930047 185.725053a51.248635 51.248635 0 0 0 72.568068 0 51.248635 51.248635 0 0 0 0-72.978056z" p-id="1561"></path><path d="M616.479587 615.969233a50.428657 50.428657 0 0 0-61.498362-5.534852 174.655348 174.655348 0 0 1-177.525271 3.484907 49.403684 49.403684 0 0 0-58.833433 6.76482l-3.074918 2.869923a49.403684 49.403684 0 0 0 8.609771 78.10292 277.767601 277.767601 0 0 0 286.992355-5.739847 49.403684 49.403684 0 0 0 8.404776-76.667958z" p-id="1562"></path></svg></a><input type="text" class="search-input" id="search-input" placeholder="站内搜索"></form><div id="search-result"></div><div class="search-no-result">没有找到内容！</div></div>
+
+
+<nav class="menu dis-select"><a class="nav-item" title="友链" href="/links/"><link rel="stylesheet" href="https://unpkg.com/font-awesome@4.7.0/css/font-awesome.min.css"><i class="fa fa-link"></i></a><a class="nav-item" title="赞助" href="/reward/"><i class="fa fa-heart"></i></a><a class="nav-item" title="订阅" href="/atom.xml"><i class="fa fa-rss"></i></a><a class="nav-item" title="主题" href="//loli.fj.cn"><i class="fa fa-arrow-right"></i></a></nav>
+</div>
+<div class="widgets">
+
+
+<widget class="widget-wrapper post-list"><div class="widget-header dis-select"><span class="name">最近更新</span></div><div class="widget-body fs14"><a class="item title" href="/2024/08/06/Mysql%E7%9A%84UDF%E6%8F%90%E6%9D%83/"><span class="title">【笔记】Mysql的UDF提权</span></a><a class="item title" href="/2024/08/06/PowerShell%E5%8E%8B%E7%BC%A9%E5%92%8C%E8%A7%A3%E5%8E%8B%E7%BC%A9zip%E6%96%87%E4%BB%B6/"><span class="title">【笔记】PowerShell压缩和解压缩zip文件</span></a><a class="item title" href="/2022/09/22/Winget%E5%AE%89%E8%A3%85%E7%AC%94%E8%AE%B0/"><span class="title">【笔记】Winget安装笔记</span></a><a class="item title" href="/2024/07/30/msf%E5%AE%9E%E7%8E%B0Mysql%E6%8F%90%E6%9D%83/"><span class="title">【笔记】msf实现Mysql提权</span></a><a class="item title" href="/2024/08/06/%E5%B0%86WindowsTerminal%E4%BD%9C%E4%B8%BAWindows%E9%BB%98%E8%AE%A4%E7%BB%88%E7%AB%AF/"><span class="title">【笔记】将WindowsTerminal作为Windows默认终端</span></a><a class="item title" href="/2022/06/25/%E6%9F%A5%E7%9C%8B%E7%AB%AF%E5%8F%A3%E5%8F%B7%E5%BC%80%E6%94%BE%E6%83%85%E5%86%B5/"><span class="title">【笔记】查看端口号开放情况</span></a><a class="item title" href="/2020/02/12/%E9%A1%BA%E5%BA%8F%E6%A0%88/"><span class="title">【代码】顺序栈</span></a><a class="item title" href="/2019/11/18/%E9%AA%87%E5%AE%A2%E6%8A%80%E6%9C%AF%E8%A7%A3%E5%86%B3%E6%B5%8F%E8%A7%88%E5%99%A8%E5%85%BC%E5%AE%B9%E6%80%A7%E9%97%AE%E9%A2%98/"><span class="title">【笔记】骇客技术解决浏览器兼容性问题（Javascript篇）</span></a><a class="item title" href="/2024/02/08/%E9%AA%8C%E8%AF%81JSON%E6%96%87%E4%BB%B6%E5%86%85%E5%AE%B9/"><span class="title">【笔记】验证JSON文件内容</span></a><a class="item title" href="/2020/07/04/%E9%AA%8C%E8%AF%81%E5%9B%9E%E6%96%87%E4%B8%B2/"><span class="title">【代码】验证回文串</span></a></div></widget>
+</div>
+<footer class="footer dis-select"><div class="social-wrap"><a class="social" href="/links/#comments" rel="noopener noreferrer"><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/social/942ebbf1a4b91.svg"/></a><a class="social" onclick="switchTheme()"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024"><path fill="currentColor" fill-rule="evenodd" d="M582.4 326.4c-140.8 0-256 115.2-256 256s115.2 256 256 256 256-115.2 256-256-115.2-256-256-256z m0 448c-70.4 0-131.2-36.8-164.8-92.8 12.8 3.2 27.2 4.8 40 4.8 121.6 0 219.2-99.2 219.2-219.2 0-17.6-1.6-35.2-6.4-52.8 60.8 32 102.4 96 102.4 169.6 1.6 104-84.8 190.4-190.4 190.4zM582.4 262.4c17.6 0 32-14.4 32-32v-128c0-17.6-14.4-32-32-32s-32 14.4-32 32v128c0 17.6 14.4 32 32 32zM262.4 582.4c0-17.6-14.4-32-32-32h-128c-17.6 0-32 14.4-32 32s14.4 32 32 32h128c17.6 0 32-14.4 32-32zM310.4 356.8c6.4 6.4 14.4 9.6 22.4 9.6 8 0 16-3.2 22.4-9.6 12.8-12.8 12.8-32 0-44.8l-91.2-91.2c-12.8-12.8-32-12.8-44.8 0-12.8 12.8-12.8 32 0 44.8l91.2 91.2zM944 220.8c-12.8-12.8-32-12.8-44.8 0l-91.2 91.2c-12.8 12.8-12.8 32 0 44.8 6.4 6.4 14.4 9.6 22.4 9.6 8 0 16-3.2 22.4-9.6l91.2-91.2c12.8-12.8 12.8-33.6 0-44.8zM310.4 808l-91.2 91.2c-12.8 12.8-12.8 32 0 44.8 6.4 6.4 14.4 9.6 22.4 9.6 8 0 16-3.2 22.4-9.6l91.2-91.2c12.8-12.8 12.8-32 0-44.8-11.2-11.2-32-11.2-44.8 0z"></path></svg></a></div></footer>
+</div></aside><div class="l_main" id="main">
+
+
+
+
+
+<div class="article banner top">
+  <div class="content">
+    <div class="top bread-nav footnote"><div class="left"><div class="flex-row" id="breadcrumb"><a class="cap breadcrumb" href="/">主页</a>
+<span class="sep"></span><a class="cap breadcrumb" href="/">文章</a></div>
+<div class="flex-row" id="post-meta"><span class="text created">发布于：<time datetime="2022-01-03T08:33:35.000Z">2022-01-03</time></span><span class="sep updated"></span><span class="text updated">更新于：<time datetime="2024-08-06T02:31:29.998Z">2024-08-06</time></span></div></div></div>
+    
+    <div class="bottom only-title">
+      
+      <div class="text-area">
+        <h1 class="text title"><span>【笔记】计算机组成原理知识点</span></h1>
+        
+      </div>
+    </div>
+    
+  </div>
+  </div><article class="md-text content"><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>计算机组成原理知识点</p>
+<span id="more"></span>
+
+<h2 id="计算机的发展"><a href="#计算机的发展" class="headerlink" title="计算机的发展"></a>计算机的发展</h2><h3 id="计算机包括"><a href="#计算机包括" class="headerlink" title="计算机包括"></a>计算机包括</h3><ul>
+<li><p>输入设备：将信息转换成机器能识别的形式</p>
+</li>
+<li><p>运算器：算术运算和逻辑运算</p>
+</li>
+<li><p>存储器：存放数据和程序</p>
+</li>
+<li><p>控制器：指挥程序运行</p>
+</li>
+<li><p>输出设备：将结果转换成人们熟悉的形式</p>
+</li>
+<li><p>其中：主存储器、运算器、控制器组成了CPU</p>
+</li>
+</ul>
+<h3 id="早期冯诺依曼机"><a href="#早期冯诺依曼机" class="headerlink" title="早期冯诺依曼机"></a>早期冯诺依曼机</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">软件：</span><br><span class="line"></span><br><span class="line">由软件提供数据传递给硬件进行运算</span><br><span class="line"></span><br><span class="line">---</span><br><span class="line"></span><br><span class="line">硬件：</span><br><span class="line"></span><br><span class="line">输入设备-&gt;运算器</span><br><span class="line"></span><br><span class="line">运算器&lt;-&gt;存储器</span><br><span class="line">运算器&lt;-&gt;控制器</span><br><span class="line"></span><br><span class="line">运算器-&gt;输出设备</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>在计算机系统值，软件和硬件在逻辑上是等效的</li>
+</ul>
+<h4 id="特点"><a href="#特点" class="headerlink" title="特点"></a>特点</h4><ul>
+<li>计算机由五大部件组成</li>
+<li>指令和数据以同等地位存于存储器，可按地址访问</li>
+<li>指令和数据用二进制表示</li>
+<li>指令由操作码和地址码组成</li>
+</ul>
+<h3 id="现代计算机的结构"><a href="#现代计算机的结构" class="headerlink" title="现代计算机的结构"></a>现代计算机的结构</h3><ul>
+<li>现代计算机以存储器为中心</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">软件：</span><br><span class="line"></span><br><span class="line">由软件提供数据传递给硬件进行运算</span><br><span class="line"></span><br><span class="line">---</span><br><span class="line"></span><br><span class="line">硬件：</span><br><span class="line"></span><br><span class="line">输入设备-&gt;存储器</span><br><span class="line"></span><br><span class="line">存储器&lt;-&gt;运算器</span><br><span class="line">存储器-&gt;控制器</span><br><span class="line"></span><br><span class="line">存储器-&gt;输出设备</span><br></pre></td></tr></table></figure>
+
+<h2 id="各个硬件的工作原理"><a href="#各个硬件的工作原理" class="headerlink" title="各个硬件的工作原理"></a>各个硬件的工作原理</h2><h3 id="主体存储器"><a href="#主体存储器" class="headerlink" title="主体存储器"></a>主体存储器</h3><ul>
+<li><p>主体存储器包括：存储体、MAR（Memory Address Register）、MDP（Memory Data Register）</p>
+</li>
+<li><p>MAR：存储地址寄存器</p>
+</li>
+<li><p>MDR：存储数据寄存器</p>
+</li>
+</ul>
+<h4 id="主存储器的基本组成"><a href="#主存储器的基本组成" class="headerlink" title="主存储器的基本组成"></a>主存储器的基本组成</h4><ul>
+<li>存储单元：每个存储单元存放一串二进制代码</li>
+<li>存储字：存储单元中二进制代码的组合</li>
+<li>存储字长：存储单元中二进制代码的位数</li>
+<li>存储元：即存储二进制的电子元件，每个存储元可以存1bit数据</li>
+</ul>
+<h3 id="运算器"><a href="#运算器" class="headerlink" title="运算器"></a>运算器</h3><h4 id="运算器的组成"><a href="#运算器的组成" class="headerlink" title="运算器的组成"></a>运算器的组成</h4><ul>
+<li>ACC（Accumulator）：累加器。用于存放操作数或运算结果</li>
+<li>MQ（Multiple-Quotient Register）：乘商寄存器。在乘、除运算时，用于存放操作数或运算结果</li>
+<li>X：通用的操作数寄存器。用于存放操作数</li>
+<li>ALU（Arithmetic and Logic Unit）：算术逻辑单元。通过内部复杂电路实现算数运算、逻辑运算</li>
+</ul>
+<h3 id="控制器"><a href="#控制器" class="headerlink" title="控制器"></a>控制器</h3><h4 id="控制器的组成"><a href="#控制器的组成" class="headerlink" title="控制器的组成"></a>控制器的组成</h4><ul>
+<li>CU（Control Unit）：控制单元。分析指令，给出控制信号</li>
+<li>IR（Instruction Register）：指令寄存器。存放当前执行的指令</li>
+<li>PC（Program Counter）：程序计数器。存放下一跳指令地址，有自动加1功能</li>
+</ul>
+<h4 id="完成一条指令的过程"><a href="#完成一条指令的过程" class="headerlink" title="完成一条指令的过程"></a>完成一条指令的过程</h4><ul>
+<li>通过PC取指令-&gt;通过IR分析指令-&gt;通过CU执行指令</li>
+</ul>
+<h3 id="计算机的性能指标"><a href="#计算机的性能指标" class="headerlink" title="计算机的性能指标"></a>计算机的性能指标</h3><h4 id="存储器的性能指标"><a href="#存储器的性能指标" class="headerlink" title="存储器的性能指标"></a>存储器的性能指标</h4><ul>
+<li>B、KB、MB、GB、TB、EB、PB</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">K - 2^10</span><br><span class="line">M - 2^20</span><br><span class="line">G - 2^30</span><br><span class="line">T - 2^40</span><br><span class="line">P - 2^50</span><br><span class="line">E - 2^60</span><br></pre></td></tr></table></figure>
+
+
+<h4 id="CPU的性能指标"><a href="#CPU的性能指标" class="headerlink" title="CPU的性能指标"></a>CPU的性能指标</h4><ul>
+<li><p>GHz：CPU的主频。CPU内数字脉冲信号震荡的频率</p>
+</li>
+<li><p>CPU主频（时钟频率） &#x3D; 1 &#x2F; CPU时钟周期</p>
+</li>
+<li><p>CPI（Clock cycle Per Instruction）：执行每一条指令所需的时钟周期</p>
+</li>
+<li><p>执行一条指令的耗时 &#x3D; CPI * CPU时钟周期</p>
+</li>
+<li><p>IPS（Instructions Per Second）：每秒执行多少条指令</p>
+</li>
+<li><p>FLOPS（Floating-point Operations Per Second）：每秒执行多少次浮点运算</p>
+</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">K - 10^3</span><br><span class="line">M - 10^6</span><br><span class="line">G - 10^9</span><br><span class="line">T - 10^12</span><br></pre></td></tr></table></figure>
+
+<h3 id="系统整体的性能指标"><a href="#系统整体的性能指标" class="headerlink" title="系统整体的性能指标"></a>系统整体的性能指标</h3><ul>
+<li>数据通路带宽：数据总线一次所能并行传送信息的位数</li>
+<li>吞吐量：指系统在单位时间内处理请求的数量</li>
+<li>响应时间：指从用户计算机发送一个请求，到系统对该请求作出响应并获得它所需要的结果的等待时间</li>
+</ul>
+<h2 id="BCD码（数字在计算机中的表示方式）"><a href="#BCD码（数字在计算机中的表示方式）" class="headerlink" title="BCD码（数字在计算机中的表示方式）"></a>BCD码（数字在计算机中的表示方式）</h2><ul>
+<li>使用二进制来进行编码的十进制数表示方式</li>
+</ul>
+<h3 id="8421码"><a href="#8421码" class="headerlink" title="8421码"></a>8421码</h3><ul>
+<li>一组4位的8421码的二进制数各位上的权值分别是8、4、2、1，所以8421码属于有权码</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>0</th>
+<th>1</th>
+<th>2</th>
+<th>3</th>
+<th>4</th>
+<th>5</th>
+<th>6</th>
+<th>7</th>
+<th>8</th>
+<th>9</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>0000</td>
+<td>0001</td>
+<td>0010</td>
+<td>0011</td>
+<td>0100</td>
+<td>0101</td>
+<td>0110</td>
+<td>0111</td>
+<td>1000</td>
+<td>1001</td>
+</tr>
+</tbody></table>
+<h4 id="加法运算"><a href="#加法运算" class="headerlink" title="加法运算"></a>加法运算</h4><ul>
+<li><p>例如十进制的5+8运算</p>
+</li>
+<li><p>如果二进制的加法结果不在8421码的合法区间内，需要加十进制的6（二进制的0110）来修正</p>
+</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">5 + 8 = 13 =&gt; 1 3</span><br><span class="line">0101 + 1000 = 1101 =&gt; 0001 0011</span><br></pre></td></tr></table></figure>
+
+<h3 id="余3码"><a href="#余3码" class="headerlink" title="余3码"></a>余3码</h3><ul>
+<li>在8421码的基础上加十进制的3（二进制的0011）</li>
+<li>余3码各位上没有固定的权值，所以余3码属于无权码</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>0</th>
+<th>1</th>
+<th>2</th>
+<th>3</th>
+<th>4</th>
+<th>5</th>
+<th>6</th>
+<th>7</th>
+<th>8</th>
+<th>9</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>0011</td>
+<td>0100</td>
+<td>0101</td>
+<td>0110</td>
+<td>0111</td>
+<td>1000</td>
+<td>1001</td>
+<td>1010</td>
+<td>1011</td>
+<td>1100</td>
+</tr>
+</tbody></table>
+<h3 id="2421码"><a href="#2421码" class="headerlink" title="2421码"></a>2421码</h3><ul>
+<li><p>一组4位的2421码的二进制数各位上的权值分别是2、4、2、1，所以2421码属于有权码</p>
+</li>
+<li><p>2421码的规定（特点）：2421码表示的0<del>4，第一位都是0；2421码表示的5</del>9，第一位都是1</p>
+</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>0</th>
+<th>1</th>
+<th>2</th>
+<th>3</th>
+<th>4</th>
+<th>5</th>
+<th>6</th>
+<th>7</th>
+<th>8</th>
+<th>9</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>0000</td>
+<td>0001</td>
+<td>0010</td>
+<td>0011</td>
+<td>0100</td>
+<td>1011</td>
+<td>1100</td>
+<td>1101</td>
+<td>1110</td>
+<td>1111</td>
+</tr>
+</tbody></table>
+<h2 id="字符与字符串（字符和字符串在计算机中的表示方式）"><a href="#字符与字符串（字符和字符串在计算机中的表示方式）" class="headerlink" title="字符与字符串（字符和字符串在计算机中的表示方式）"></a>字符与字符串（字符和字符串在计算机中的表示方式）</h2><h3 id="英文"><a href="#英文" class="headerlink" title="英文"></a>英文</h3><ul>
+<li>英文及英文格式的特殊符号加起来不超过128个，所以用七进制的ASCII编码来表示足够用，为了存入计算机，通常在最高位补一个0凑齐8bit，也就是1Byte</li>
+</ul>
+<p><a href="/2019/11/24/ASCII%E7%A0%81%E8%A1%A8/">ASCII码表</a></p>
+<ul>
+<li>在ASCII码中：0~31属于通信字符；32、127属于控制字符；33~126属于印刷字符</li>
+</ul>
+<h4 id="数字字符的规律"><a href="#数字字符的规律" class="headerlink" title="数字字符的规律"></a>数字字符的规律</h4><ul>
+<li><p>48（0011 0000）~57（0011 1001）为数字字符，分别对应数字0~9</p>
+<ul>
+<li>规律：可以发现，所有数字字符前4位都是0011，而后四位都对应8421码的十进制数字0~9</li>
+</ul>
+</li>
+</ul>
+<h4 id="大写字母字符的规律"><a href="#大写字母字符的规律" class="headerlink" title="大写字母字符的规律"></a>大写字母字符的规律</h4><ul>
+<li><p>65（010 00001）~90（010 11010）为大写字母，分别对应大写字母A~Z</p>
+<ul>
+<li>规律：可以发现，所有大写字母字符前3位都是010，而后5位都对应8421码的十进制数字0~26</li>
+</ul>
+</li>
+</ul>
+<h4 id="小写字母字符的规律"><a href="#小写字母字符的规律" class="headerlink" title="小写字母字符的规律"></a>小写字母字符的规律</h4><ul>
+<li><p>97（011 00001）~122（011 11010）为小写字母，分别对应小写字母a~z</p>
+<ul>
+<li>规律：可以发现，所有小写字母字符前3位都是011，而后5位都对应8421码的十进制数字0~26</li>
+</ul>
+</li>
+</ul>
+<h3 id="中文"><a href="#中文" class="headerlink" title="中文"></a>中文</h3><h4 id="GB2312"><a href="#GB2312" class="headerlink" title="GB2312"></a>GB2312</h4><ul>
+<li>GB2312是中国80年代开发的一种编码机制，中文和中文符号一共7445个</li>
+<li>GB2312的编码方式采用2个Byte表示1个中文，这2个Byte的数据其实就是区位码<ul>
+<li>第1个Byte是区码，第2个Byte是位码，这两个字节的数据分别映射为区位码表（一个放有中文字符的二维表）的横坐标和纵坐标</li>
+<li>得到的区位码分别将第1个Byte和第2个字节分别加上32（20H）从而得到国标码<ul>
+<li>这样做是为了避开ASCII码中的通讯字符</li>
+</ul>
+</li>
+<li>再在国标码的基础上别将第1个Byte和第2个字节分别加上128（80H）从而得到汉字机内码<ul>
+<li>这样做是为了避开ASCII码中的英文及符号字符</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="校验"><a href="#校验" class="headerlink" title="校验"></a>校验</h2><ul>
+<li>为了防止传输时出错，在每个字符前端增加一个字节作为校验码</li>
+<li>由合法的校验码和数据组成的字叫码字</li>
+<li>将两个码字逐位进行对比，具有不同的位的个数称为两个码字之间的距离</li>
+<li>一种编码方案可能有若干个合法码字，各合法码字间的最小距离成为码距</li>
+</ul>
+<h3 id="奇偶校验码"><a href="#奇偶校验码" class="headerlink" title="奇偶校验码"></a>奇偶校验码</h3><ul>
+<li><p>奇校验码：整个校验码中<code>1</code>的个数为奇数</p>
+</li>
+<li><p>偶校验码：整个校验码中<code>1</code>的个数为偶数</p>
+</li>
+<li><p>如果有偶数个位发生跳变，奇偶校验码是被办法发现错误的</p>
+</li>
+<li><p>硬件实现偶校验：各字节进行异或运算，结果得到校验位即为正确</p>
+</li>
+</ul>
+<h3 id="海明校验码"><a href="#海明校验码" class="headerlink" title="海明校验码"></a>海明校验码</h3><ul>
+<li>海明码校验位的个数满足：2^k &gt;&#x3D; n+k+1，其中n为信息位个数，k为校验位个数</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>n</th>
+<th>1</th>
+<th>2-4</th>
+<th>5-11</th>
+<th>12-26</th>
+<th>27-57</th>
+<th>58-120</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>k</td>
+<td>2</td>
+<td>3</td>
+<td>4</td>
+<td>5</td>
+<td>6</td>
+<td>7</td>
+</tr>
+</tbody></table>
+<ul>
+<li><p>海明码的校验位应放在2^(i-1)位置上</p>
+</li>
+<li><p>海明码在最前面加了一个字节作为全校验位，用于校验整个海明码</p>
+</li>
+<li><p>海明码具有1位纠错和2位检错能力</p>
+</li>
+</ul>
+<h3 id="循环冗余校验码（CRC码）"><a href="#循环冗余校验码（CRC码）" class="headerlink" title="循环冗余校验码（CRC码）"></a>循环冗余校验码（CRC码）</h3><ul>
+<li>传输前通过约定一个除数，在接收的时候检查余数是否发生了改变，从而实现了校验</li>
+</ul>
+<h2 id="定点数与浮点数"><a href="#定点数与浮点数" class="headerlink" title="定点数与浮点数"></a>定点数与浮点数</h2><ul>
+<li><p>定点数与浮点数都是小数的表示方法</p>
+</li>
+<li><p>定点数的小数点位置固定</p>
+</li>
+<li><p>浮点数的小数点位置不固定</p>
+</li>
+</ul>
+<h2 id="数字的编码方式"><a href="#数字的编码方式" class="headerlink" title="数字的编码方式"></a>数字的编码方式</h2><h3 id="原码"><a href="#原码" class="headerlink" title="原码"></a>原码</h3><ul>
+<li>原本的二进制表示的十进制数</li>
+</ul>
+<h3 id="反码"><a href="#反码" class="headerlink" title="反码"></a>反码</h3><ul>
+<li>将原码中的各位取反就得到了反码</li>
+<li>反码是用来将原码转换为补码的中间值</li>
+</ul>
+<h3 id="补码"><a href="#补码" class="headerlink" title="补码"></a>补码</h3><ul>
+<li>在反码的基础上加1就可以得到补码</li>
+<li>补码用作使用加法来运算减法</li>
+</ul>
+<h3 id="移码"><a href="#移码" class="headerlink" title="移码"></a>移码</h3><ul>
+<li>将补码的符号位取反就得到了移码</li>
+<li>移码用作正负数的大小比较</li>
+</ul>
+<h2 id="算数运算"><a href="#算数运算" class="headerlink" title="算数运算"></a>算数运算</h2><h3 id="算数移位"><a href="#算数移位" class="headerlink" title="算数移位"></a>算数移位</h3><h4 id="原码的算数移位"><a href="#原码的算数移位" class="headerlink" title="原码的算数移位"></a>原码的算数移位</h4><ul>
+<li>原码的算数移位，符号位保持不变，仅对数值位进行位移<ul>
+<li>右移：高位补0，低位舍弃（若舍弃的位为0，则相当于除以2；若舍弃的位不为0，则会丢失精度）</li>
+<li>左移：低位补0，高位舍弃（若舍弃的位为0，则相当于乘2；若舍弃的位不为0，则会出现严重误差）</li>
+</ul>
+</li>
+</ul>
+<h4 id="反码的算数移位"><a href="#反码的算数移位" class="headerlink" title="反码的算数移位"></a>反码的算数移位</h4><ul>
+<li><p>反码正数的算数移位与原码的算数移位相同</p>
+<ul>
+<li>右移：高位补0，低位舍弃</li>
+<li>左移：低位补0，高位舍弃</li>
+</ul>
+</li>
+<li><p>反码负数的算数移位与原码相反</p>
+<ul>
+<li>右移：高位补1，低位舍弃</li>
+<li>左移：低位补1，高位舍弃</li>
+</ul>
+</li>
+</ul>
+<h4 id="补码的算数移位"><a href="#补码的算数移位" class="headerlink" title="补码的算数移位"></a>补码的算数移位</h4><ul>
+<li><p>补码正数的算数移位与原码的算数移位相同</p>
+<ul>
+<li>右移：高位补0，低位舍弃</li>
+<li>左移：低位补0，高位舍弃</li>
+</ul>
+</li>
+<li><p>补码负数的算数移位末尾+1。补码负数中：最右边的1及其右边同原码相同；最右边的1的左边同反码相同</p>
+<ul>
+<li>左移（同反码）：高位补1，低位舍弃</li>
+<li>右移（同原码）：低位补0，高位舍弃</li>
+</ul>
+</li>
+</ul>
+<h3 id="逻辑移位"><a href="#逻辑移位" class="headerlink" title="逻辑移位"></a>逻辑移位</h3><ul>
+<li><p>逻辑移位可以被看作是无符号数的算数移位</p>
+</li>
+<li><p>逻辑右移：高位补0，低位舍弃</p>
+</li>
+<li><p>逻辑左移：低位补0，高位舍弃</p>
+</li>
+</ul>
+<h3 id="循环移位"><a href="#循环移位" class="headerlink" title="循环移位"></a>循环移位</h3><ul>
+<li>循环左移：会把最左边的数值放到最右边，其他位向左移</li>
+<li>循环右移：会把最右边的数值放到最左边，其他位向右移</li>
+</ul>
+<h4 id="带进位位的循环移位"><a href="#带进位位的循环移位" class="headerlink" title="带进位位的循环移位"></a>带进位位的循环移位</h4><ul>
+<li>循环左移：会把进位位的数值放到最右边，其他位向左移</li>
+<li>循环右移：会把最右边的数值放到进位位，其他位向右移</li>
+</ul>
+<h2 id="加减运算"><a href="#加减运算" class="headerlink" title="加减运算"></a>加减运算</h2><h3 id="原码的加减运算"><a href="#原码的加减运算" class="headerlink" title="原码的加减运算"></a>原码的加减运算</h3><h4 id="原码的加法运算"><a href="#原码的加法运算" class="headerlink" title="原码的加法运算"></a>原码的加法运算</h4><ul>
+<li><code>正+正</code>：绝对值做加法，结果为正</li>
+<li><code>负+负</code>：绝对值做加法，结果为负</li>
+<li><code>正+负</code>、<code>负+正</code>：绝对值大的减绝对值小的，符号同绝对值大的数</li>
+</ul>
+<h4 id="原码的减法运算"><a href="#原码的减法运算" class="headerlink" title="原码的减法运算"></a>原码的减法运算</h4><ul>
+<li>先将减法转化为加法运算，再进行加法运算</li>
+</ul>
+<h3 id="补码的加减运算"><a href="#补码的加减运算" class="headerlink" title="补码的加减运算"></a>补码的加减运算</h3><h4 id="补码的加法运算"><a href="#补码的加法运算" class="headerlink" title="补码的加法运算"></a>补码的加法运算</h4><ul>
+<li>先将原码转换为补码，再用补码直接运算，最后将结果转化为原码</li>
+<li>这样的好处是可以直接让符号位参与运算</li>
+</ul>
+<h3 id="溢出"><a href="#溢出" class="headerlink" title="溢出"></a>溢出</h3><ul>
+<li>上溢：运算的结果超过正整数的最大值<ul>
+<li>只有<code>正整数+正整数</code>才会造成上溢，所以当<code>正整数+正整数=负整数</code>时就造成了上溢</li>
+</ul>
+</li>
+<li>下溢：运算的结果低于负整数的最小值<ul>
+<li>只有<code>负整数+负整数</code>才会造成下溢，所以当<code>负整数+负整数=正整数</code>时就造成了下溢</li>
+</ul>
+</li>
+</ul>
+<h4 id="判断溢出"><a href="#判断溢出" class="headerlink" title="判断溢出"></a>判断溢出</h4><h5 id="方法一"><a href="#方法一" class="headerlink" title="方法一"></a>方法一</h5><blockquote>
+<p><code>AS</code>：第一个数<br><code>BS</code>：第二个数<br><code>SS</code>：两个数的和<br><code>&amp;</code>：与运算<br><code>|</code>：或运算<br><code>!</code>：非运算</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">V=(AS &amp; BS &amp; !SS) | (!AS &amp; !BS &amp; SS)</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>当V&#x3D;0时，表示无溢出；当V&#x3D;1时，表示有溢出</li>
+</ul>
+<h5 id="方法二"><a href="#方法二" class="headerlink" title="方法二"></a>方法二</h5><ul>
+<li>当两个数求和，进位位和符号位求异或运算<ul>
+<li>如果结果为0，表示无溢出；如果结果为1，表示有溢出</li>
+</ul>
+</li>
+</ul>
+<h5 id="方法三"><a href="#方法三" class="headerlink" title="方法三"></a>方法三</h5><ul>
+<li>将一个符号为改为两个符号位，正数为00，负数为11<ul>
+<li>当就和结果的符号位为01时，表示发生了上溢；当求和结果的符号为为10时，表示发生了下溢</li>
+</ul>
+</li>
+</ul>
+<h3 id="避免溢出"><a href="#避免溢出" class="headerlink" title="避免溢出"></a>避免溢出</h3><ul>
+<li>通过符号扩展的方式来解决溢出问题</li>
+<li>当扩展数据类型的大小时，扩增空间的补位规则如下</li>
+</ul>
+<h4 id="整数"><a href="#整数" class="headerlink" title="整数"></a>整数</h4><ul>
+<li><p>扩增空间在符号位的下一位开始</p>
+</li>
+<li><p>原码：扩增空间全部用0补位</p>
+</li>
+<li><p>反码：扩增空间全部用1补位</p>
+</li>
+<li><p>补码：扩增空间全部用1补位，末尾加1</p>
+</li>
+</ul>
+<h4 id="小数"><a href="#小数" class="headerlink" title="小数"></a>小数</h4><ul>
+<li>扩增空间在末位下一位开始</li>
+</ul>
+<h5 id="正小数"><a href="#正小数" class="headerlink" title="正小数"></a>正小数</h5><ul>
+<li>原码、反码、补码：扩增空间全部用0补位</li>
+</ul>
+<h5 id="负小数"><a href="#负小数" class="headerlink" title="负小数"></a>负小数</h5><ul>
+<li>原码：扩增空间全部用0补位</li>
+<li>反码：扩增空间全部用1补位</li>
+<li>补码：扩增空间全部用1补位，末尾加1</li>
+</ul>
+<h2 id="乘法运算"><a href="#乘法运算" class="headerlink" title="乘法运算"></a>乘法运算</h2><h3 id="原码一位乘法"><a href="#原码一位乘法" class="headerlink" title="原码一位乘法"></a>原码一位乘法</h3><ul>
+<li>原码运算时，符号位不参与运算</li>
+<li>每次运算时，判断乘数的最低位<ul>
+<li>如果最低位为1，则将被乘数累加；如果最低位为0，则不累加被乘数</li>
+</ul>
+</li>
+<li>累加后，将乘数和累加和右移1位<ul>
+<li>原码的右移是逻辑右移，符号位也向右移，高位用0补位，低位舍弃</li>
+</ul>
+</li>
+<li>然后进入下一次循环</li>
+<li>最终结果就是两数相乘的乘积</li>
+</ul>
+<h3 id="补码一位乘法"><a href="#补码一位乘法" class="headerlink" title="补码一位乘法"></a>补码一位乘法</h3><ul>
+<li>补码运算时，符号位也参与运算</li>
+<li>将乘数末尾多扩增1位，这个位叫辅助位</li>
+<li>副主委初始值为0，每次右移时会被辅助位（最低位）前一位顶替辅助位</li>
+<li>因为乘数扩增了1位，被乘数也扩增1位，但是是在最高位扩增1位，此时被乘数采用双符号位</li>
+<li>每次运算时，用<code>辅助位 - 辅助位前一位</code><ul>
+<li>当<code>辅助位 - 辅助位前一位 = 1时</code>，再次累加乘数</li>
+<li>当<code>辅助位 - 辅助位前一位 = 0时</code>，不累加乘数</li>
+<li>当<code>辅助位 - 辅助位前一位 = -1时</code>，再次累加负的乘数</li>
+</ul>
+</li>
+<li>累加后，将乘数和累加和右移1位<ul>
+<li>补码的右移是算数右移，符号为不移位，高位补位时：如果是正数用0补位；如果是负数用1补位，低位舍弃</li>
+</ul>
+</li>
+<li>然后再来一次加法，然后再进入下一次循环</li>
+<li>最终结果就是两数相乘的乘积</li>
+</ul>
+<h2 id="除法运算"><a href="#除法运算" class="headerlink" title="除法运算"></a>除法运算</h2><h3 id="原码的除法"><a href="#原码的除法" class="headerlink" title="原码的除法"></a>原码的除法</h3><h4 id="恢复余数法"><a href="#恢复余数法" class="headerlink" title="恢复余数法"></a>恢复余数法</h4><ul>
+<li>原码运算时，先将商的末位改成1</li>
+<li>然后将除数与当前的余数求差（由于运算器无法计算减法，所以将除数与当前余数补码的相反数求和），将结果放到当前的余数<ul>
+<li>如果得到的结果是正数，则继续下一步运算</li>
+<li>如果得到的结果是负数，则将商的末位改回0，再重新将除数与当前的余数求和，得到求差之前的结果，存到当前的余数</li>
+</ul>
+</li>
+<li>当前的余数确定结果后，将商和当前的余数都逻辑左移一位，低位补0，然后进入下一次计算</li>
+<li>计算完结果后，判断符号位<ul>
+<li>将两个数进行异或运算</li>
+</ul>
+</li>
+<li>最终结果就是两数相除的商</li>
+</ul>
+<h4 id="加减交替法（不恢复余数法）"><a href="#加减交替法（不恢复余数法）" class="headerlink" title="加减交替法（不恢复余数法）"></a>加减交替法（不恢复余数法）</h4><ul>
+<li>原码运算时，先将商的末位改成1</li>
+<li>然后将除数与当前的余数求差（由于运算器无法计算减法，所以将除数与当前余数补码的相反数求和），将结果放到&gt;<br>当前的余数<ul>
+<li>如果得到的结果是正数，则将商和当前的余数都逻辑左移一位，低位补0，然后进入下一次计算</li>
+<li>如果得到的结果是负数，则将商的末位改回0，将余数逻辑左移一位，低位补0，再加上除数的绝对值，然后进入下一次计算</li>
+<li>如果最后一次运算后，得到的结果为负数，则将商的末位改回0，再重新将除数与当前的余数求和，得到求差之前的结果，存到当前的余数</li>
+</ul>
+</li>
+<li>计算完结果后，判断符号位<ul>
+<li>将两个数进行异或运算</li>
+</ul>
+</li>
+<li>最终结果就是两数相除的商</li>
+</ul>
+<h3 id="补码的除法运算"><a href="#补码的除法运算" class="headerlink" title="补码的除法运算"></a>补码的除法运算</h3><h4 id="加减交替法"><a href="#加减交替法" class="headerlink" title="加减交替法"></a>加减交替法</h4><ul>
+<li>补码运算时，符号位也参与运算</li>
+<li>补码运算时，余数与除数采用双符号位</li>
+<li>首先判断余数与除数是否同号<ul>
+<li>如果同号，则将商的末位改为1，余数左移一位，余数减去除数</li>
+<li>如果异号，则将商的末位改为0，余数左移一位，余数加上除数</li>
+</ul>
+</li>
+<li>最终结果就是两数相除的商</li>
+</ul>
+<h2 id="C语言中的强制类型转换"><a href="#C语言中的强制类型转换" class="headerlink" title="C语言中的强制类型转换"></a>C语言中的强制类型转换</h2><ul>
+<li>无符号数与有符号数转换时，不改变数据内容，只改变解释方式</li>
+<li>长整数变短整数时，高位截断，保留低位</li>
+<li>短整数变长整数时，符号扩展</li>
+</ul>
+<h2 id="浮点数"><a href="#浮点数" class="headerlink" title="浮点数"></a>浮点数</h2><h3 id="浮点数的表示"><a href="#浮点数的表示" class="headerlink" title="浮点数的表示"></a>浮点数的表示</h3><ul>
+<li><p><code>+阶码+尾数</code></p>
+</li>
+<li><p>阶码：常用补码或移码表示的定点整数</p>
+</li>
+<li><p>尾数：常用原码或补码表示的定点小数</p>
+</li>
+<li><p>阶码反应浮点数表示范围及小数点的实际位置</p>
+</li>
+<li><p>尾数的数值部分的位数反应浮点数的精度</p>
+</li>
+</ul>
+<h3 id="浮点数的规格化"><a href="#浮点数的规格化" class="headerlink" title="浮点数的规格化"></a>浮点数的规格化</h3><ul>
+<li><p>规格化浮点数规定：尾数的最高位必须是一个有效值</p>
+</li>
+<li><p>左规：当浮点数运算的结果为非规格化时，要进行规格化处理，将尾数算数左移1位，阶码减1</p>
+</li>
+<li><p>右规：当浮点数运算的结果为非规格化时，要进行规格化处理，将尾数算数右移1位，阶码加1</p>
+</li>
+<li><p>采用双符号位，当溢出发生时，可以挽救（更高的符号位是正确的符号位）</p>
+</li>
+</ul>
+<h4 id="用原码表示尾数进行规格化"><a href="#用原码表示尾数进行规格化" class="headerlink" title="用原码表示尾数进行规格化"></a>用原码表示尾数进行规格化</h4><ul>
+<li>规格化的原码尾数，最高数值位一定是1</li>
+</ul>
+<h5 id="正数"><a href="#正数" class="headerlink" title="正数"></a>正数</h5><ul>
+<li>0.1xxx</li>
+<li>最小值为0.100…0</li>
+</ul>
+<h5 id="负数"><a href="#负数" class="headerlink" title="负数"></a>负数</h5><ul>
+<li>1.1xxx</li>
+<li>最小值为1.111…1</li>
+</ul>
+<h4 id="用原码表示尾数进行规格化-1"><a href="#用原码表示尾数进行规格化-1" class="headerlink" title="用原码表示尾数进行规格化"></a>用原码表示尾数进行规格化</h4><ul>
+<li>规格化的补码尾数，符号位与最高数值位一定相反</li>
+</ul>
+<h5 id="正数-1"><a href="#正数-1" class="headerlink" title="正数"></a>正数</h5><ul>
+<li>0.1xxx</li>
+<li>最小值为0.100…0</li>
+</ul>
+<h5 id="负数-1"><a href="#负数-1" class="headerlink" title="负数"></a>负数</h5><ul>
+<li>1.0xxx</li>
+<li>最小值为1.000…0</li>
+</ul>
+<h2 id="完成"><a href="#完成" class="headerlink" title="完成"></a>完成</h2><h2 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h2><p><a href="/302.html?target=https://www.bilibili.com/video/BV1BE411D7ii">哔哩哔哩——王道论坛</a></p>
+
+<div class="article-footer fs14">
+    <section id="license">
+      <div class="header"><span>许可协议</span></div>
+      <div class="body"><p>本文采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">署名-非商业性使用-相同方式共享 4.0 国际</a> 许可协议，转载请注明出处。</p>
+</div>
+    </section>
+    </div>
+</article>
+<div class="related-wrap" id="read-next"><section class="body"><div class="item" id="prev"><div class="note">较新文章</div><a href="/2022/01/03/MacOS%E5%85%B3%E6%9C%BA%E7%9A%84%E5%BF%AB%E6%8D%B7%E9%94%AE/">【笔记】MacOS关机的快捷键</a></div><div class="item" id="next"><div class="note">较早文章</div><a href="/2021/12/28/CPP%E4%B8%AD%E5%AE%9A%E4%B9%89%E5%BD%A2%E5%8F%82%E7%9A%84%E7%BC%BA%E7%9C%81%E5%80%BC/">【笔记】C++中定义形参的缺省值</a></div></section></div>
+
+
+
+
+  <div class="related-wrap md-text" id="comments">
+    <section class='header cmt-title cap theme'>
+      <p>快来参与讨论吧~</p>
+
+    </section>
+    <section class='body cmt-body twikoo'>
+      
+
+<div id="twikoo_container"><svg class="loading" style="vertical-align:middle;fill:currentColor;overflow:hidden;" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="2709"><path d="M832 512c0-176-144-320-320-320V128c211.2 0 384 172.8 384 384h-64zM192 512c0 176 144 320 320 320v64C300.8 896 128 723.2 128 512h64z" p-id="2710"></path></svg></div>
+    </section>
+  </div>
+
+
+
+<footer class="page-footer footnote"><hr><div class="text"><p>本站由 <a href="/">绯鞠</a> 使用 <a target="_blank" rel="noopener" href="https://github.com/xaoxuu/hexo-theme-stellar/tree/1.29.0">Stellar 1.29.0</a> 主题创建。<br>本博客所有文章除特别声明外，均采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> 许可协议，转载请注明出处。</p>
+</div></footer>
+<div class="main-mask" onclick="sidebar.dismiss()"></div></div><aside class="l_right">
+<div class="widgets">
+
+
+
+<widget class="widget-wrapper toc" id="data-toc" collapse="false"><div class="widget-header dis-select"><span class="name">本文目录</span><a class="cap-action" onclick="sidebar.toggleTOC()" ><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6h11m-11 6h11m-11 6h11M4 6h1v4m-1 0h2m0 8H4c0-1 2-2 2-3s-1-1.5-2-1"/></svg></a></div><div class="widget-body"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%89%8D%E8%A8%80"><span class="toc-text">前言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%9A%84%E5%8F%91%E5%B1%95"><span class="toc-text">计算机的发展</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%8C%85%E6%8B%AC"><span class="toc-text">计算机包括</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%97%A9%E6%9C%9F%E5%86%AF%E8%AF%BA%E4%BE%9D%E6%9B%BC%E6%9C%BA"><span class="toc-text">早期冯诺依曼机</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%89%B9%E7%82%B9"><span class="toc-text">特点</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%8E%B0%E4%BB%A3%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%9A%84%E7%BB%93%E6%9E%84"><span class="toc-text">现代计算机的结构</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%90%84%E4%B8%AA%E7%A1%AC%E4%BB%B6%E7%9A%84%E5%B7%A5%E4%BD%9C%E5%8E%9F%E7%90%86"><span class="toc-text">各个硬件的工作原理</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%BB%E4%BD%93%E5%AD%98%E5%82%A8%E5%99%A8"><span class="toc-text">主体存储器</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%B8%BB%E5%AD%98%E5%82%A8%E5%99%A8%E7%9A%84%E5%9F%BA%E6%9C%AC%E7%BB%84%E6%88%90"><span class="toc-text">主存储器的基本组成</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%BF%90%E7%AE%97%E5%99%A8"><span class="toc-text">运算器</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%BF%90%E7%AE%97%E5%99%A8%E7%9A%84%E7%BB%84%E6%88%90"><span class="toc-text">运算器的组成</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8E%A7%E5%88%B6%E5%99%A8"><span class="toc-text">控制器</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%8E%A7%E5%88%B6%E5%99%A8%E7%9A%84%E7%BB%84%E6%88%90"><span class="toc-text">控制器的组成</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%AE%8C%E6%88%90%E4%B8%80%E6%9D%A1%E6%8C%87%E4%BB%A4%E7%9A%84%E8%BF%87%E7%A8%8B"><span class="toc-text">完成一条指令的过程</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%9A%84%E6%80%A7%E8%83%BD%E6%8C%87%E6%A0%87"><span class="toc-text">计算机的性能指标</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%AD%98%E5%82%A8%E5%99%A8%E7%9A%84%E6%80%A7%E8%83%BD%E6%8C%87%E6%A0%87"><span class="toc-text">存储器的性能指标</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#CPU%E7%9A%84%E6%80%A7%E8%83%BD%E6%8C%87%E6%A0%87"><span class="toc-text">CPU的性能指标</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%B3%BB%E7%BB%9F%E6%95%B4%E4%BD%93%E7%9A%84%E6%80%A7%E8%83%BD%E6%8C%87%E6%A0%87"><span class="toc-text">系统整体的性能指标</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#BCD%E7%A0%81%EF%BC%88%E6%95%B0%E5%AD%97%E5%9C%A8%E8%AE%A1%E7%AE%97%E6%9C%BA%E4%B8%AD%E7%9A%84%E8%A1%A8%E7%A4%BA%E6%96%B9%E5%BC%8F%EF%BC%89"><span class="toc-text">BCD码（数字在计算机中的表示方式）</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#8421%E7%A0%81"><span class="toc-text">8421码</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8A%A0%E6%B3%95%E8%BF%90%E7%AE%97"><span class="toc-text">加法运算</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BD%993%E7%A0%81"><span class="toc-text">余3码</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2421%E7%A0%81"><span class="toc-text">2421码</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AD%97%E7%AC%A6%E4%B8%8E%E5%AD%97%E7%AC%A6%E4%B8%B2%EF%BC%88%E5%AD%97%E7%AC%A6%E5%92%8C%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%9C%A8%E8%AE%A1%E7%AE%97%E6%9C%BA%E4%B8%AD%E7%9A%84%E8%A1%A8%E7%A4%BA%E6%96%B9%E5%BC%8F%EF%BC%89"><span class="toc-text">字符与字符串（字符和字符串在计算机中的表示方式）</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%8B%B1%E6%96%87"><span class="toc-text">英文</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%95%B0%E5%AD%97%E5%AD%97%E7%AC%A6%E7%9A%84%E8%A7%84%E5%BE%8B"><span class="toc-text">数字字符的规律</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%A4%A7%E5%86%99%E5%AD%97%E6%AF%8D%E5%AD%97%E7%AC%A6%E7%9A%84%E8%A7%84%E5%BE%8B"><span class="toc-text">大写字母字符的规律</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%B0%8F%E5%86%99%E5%AD%97%E6%AF%8D%E5%AD%97%E7%AC%A6%E7%9A%84%E8%A7%84%E5%BE%8B"><span class="toc-text">小写字母字符的规律</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%AD%E6%96%87"><span class="toc-text">中文</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#GB2312"><span class="toc-text">GB2312</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A0%A1%E9%AA%8C"><span class="toc-text">校验</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A5%87%E5%81%B6%E6%A0%A1%E9%AA%8C%E7%A0%81"><span class="toc-text">奇偶校验码</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B5%B7%E6%98%8E%E6%A0%A1%E9%AA%8C%E7%A0%81"><span class="toc-text">海明校验码</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BE%AA%E7%8E%AF%E5%86%97%E4%BD%99%E6%A0%A1%E9%AA%8C%E7%A0%81%EF%BC%88CRC%E7%A0%81%EF%BC%89"><span class="toc-text">循环冗余校验码（CRC码）</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%9A%E7%82%B9%E6%95%B0%E4%B8%8E%E6%B5%AE%E7%82%B9%E6%95%B0"><span class="toc-text">定点数与浮点数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%95%B0%E5%AD%97%E7%9A%84%E7%BC%96%E7%A0%81%E6%96%B9%E5%BC%8F"><span class="toc-text">数字的编码方式</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8E%9F%E7%A0%81"><span class="toc-text">原码</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8F%8D%E7%A0%81"><span class="toc-text">反码</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%A1%A5%E7%A0%81"><span class="toc-text">补码</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%A7%BB%E7%A0%81"><span class="toc-text">移码</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AE%97%E6%95%B0%E8%BF%90%E7%AE%97"><span class="toc-text">算数运算</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AE%97%E6%95%B0%E7%A7%BB%E4%BD%8D"><span class="toc-text">算数移位</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8E%9F%E7%A0%81%E7%9A%84%E7%AE%97%E6%95%B0%E7%A7%BB%E4%BD%8D"><span class="toc-text">原码的算数移位</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8F%8D%E7%A0%81%E7%9A%84%E7%AE%97%E6%95%B0%E7%A7%BB%E4%BD%8D"><span class="toc-text">反码的算数移位</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%A1%A5%E7%A0%81%E7%9A%84%E7%AE%97%E6%95%B0%E7%A7%BB%E4%BD%8D"><span class="toc-text">补码的算数移位</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%80%BB%E8%BE%91%E7%A7%BB%E4%BD%8D"><span class="toc-text">逻辑移位</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BE%AA%E7%8E%AF%E7%A7%BB%E4%BD%8D"><span class="toc-text">循环移位</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%B8%A6%E8%BF%9B%E4%BD%8D%E4%BD%8D%E7%9A%84%E5%BE%AA%E7%8E%AF%E7%A7%BB%E4%BD%8D"><span class="toc-text">带进位位的循环移位</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8A%A0%E5%87%8F%E8%BF%90%E7%AE%97"><span class="toc-text">加减运算</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8E%9F%E7%A0%81%E7%9A%84%E5%8A%A0%E5%87%8F%E8%BF%90%E7%AE%97"><span class="toc-text">原码的加减运算</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8E%9F%E7%A0%81%E7%9A%84%E5%8A%A0%E6%B3%95%E8%BF%90%E7%AE%97"><span class="toc-text">原码的加法运算</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8E%9F%E7%A0%81%E7%9A%84%E5%87%8F%E6%B3%95%E8%BF%90%E7%AE%97"><span class="toc-text">原码的减法运算</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%A1%A5%E7%A0%81%E7%9A%84%E5%8A%A0%E5%87%8F%E8%BF%90%E7%AE%97"><span class="toc-text">补码的加减运算</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%A1%A5%E7%A0%81%E7%9A%84%E5%8A%A0%E6%B3%95%E8%BF%90%E7%AE%97"><span class="toc-text">补码的加法运算</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%BA%A2%E5%87%BA"><span class="toc-text">溢出</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%88%A4%E6%96%AD%E6%BA%A2%E5%87%BA"><span class="toc-text">判断溢出</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%96%B9%E6%B3%95%E4%B8%80"><span class="toc-text">方法一</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%96%B9%E6%B3%95%E4%BA%8C"><span class="toc-text">方法二</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%96%B9%E6%B3%95%E4%B8%89"><span class="toc-text">方法三</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%81%BF%E5%85%8D%E6%BA%A2%E5%87%BA"><span class="toc-text">避免溢出</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%95%B4%E6%95%B0"><span class="toc-text">整数</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%B0%8F%E6%95%B0"><span class="toc-text">小数</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%AD%A3%E5%B0%8F%E6%95%B0"><span class="toc-text">正小数</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E8%B4%9F%E5%B0%8F%E6%95%B0"><span class="toc-text">负小数</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B9%98%E6%B3%95%E8%BF%90%E7%AE%97"><span class="toc-text">乘法运算</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8E%9F%E7%A0%81%E4%B8%80%E4%BD%8D%E4%B9%98%E6%B3%95"><span class="toc-text">原码一位乘法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%A1%A5%E7%A0%81%E4%B8%80%E4%BD%8D%E4%B9%98%E6%B3%95"><span class="toc-text">补码一位乘法</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%99%A4%E6%B3%95%E8%BF%90%E7%AE%97"><span class="toc-text">除法运算</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8E%9F%E7%A0%81%E7%9A%84%E9%99%A4%E6%B3%95"><span class="toc-text">原码的除法</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%81%A2%E5%A4%8D%E4%BD%99%E6%95%B0%E6%B3%95"><span class="toc-text">恢复余数法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8A%A0%E5%87%8F%E4%BA%A4%E6%9B%BF%E6%B3%95%EF%BC%88%E4%B8%8D%E6%81%A2%E5%A4%8D%E4%BD%99%E6%95%B0%E6%B3%95%EF%BC%89"><span class="toc-text">加减交替法（不恢复余数法）</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%A1%A5%E7%A0%81%E7%9A%84%E9%99%A4%E6%B3%95%E8%BF%90%E7%AE%97"><span class="toc-text">补码的除法运算</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8A%A0%E5%87%8F%E4%BA%A4%E6%9B%BF%E6%B3%95"><span class="toc-text">加减交替法</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#C%E8%AF%AD%E8%A8%80%E4%B8%AD%E7%9A%84%E5%BC%BA%E5%88%B6%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2"><span class="toc-text">C语言中的强制类型转换</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B5%AE%E7%82%B9%E6%95%B0"><span class="toc-text">浮点数</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B5%AE%E7%82%B9%E6%95%B0%E7%9A%84%E8%A1%A8%E7%A4%BA"><span class="toc-text">浮点数的表示</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B5%AE%E7%82%B9%E6%95%B0%E7%9A%84%E8%A7%84%E6%A0%BC%E5%8C%96"><span class="toc-text">浮点数的规格化</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%94%A8%E5%8E%9F%E7%A0%81%E8%A1%A8%E7%A4%BA%E5%B0%BE%E6%95%B0%E8%BF%9B%E8%A1%8C%E8%A7%84%E6%A0%BC%E5%8C%96"><span class="toc-text">用原码表示尾数进行规格化</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%AD%A3%E6%95%B0"><span class="toc-text">正数</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E8%B4%9F%E6%95%B0"><span class="toc-text">负数</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%94%A8%E5%8E%9F%E7%A0%81%E8%A1%A8%E7%A4%BA%E5%B0%BE%E6%95%B0%E8%BF%9B%E8%A1%8C%E8%A7%84%E6%A0%BC%E5%8C%96-1"><span class="toc-text">用原码表示尾数进行规格化</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%AD%A3%E6%95%B0-1"><span class="toc-text">正数</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E8%B4%9F%E6%95%B0-1"><span class="toc-text">负数</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%8C%E6%88%90"><span class="toc-text">完成</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%82%E8%80%83%E6%96%87%E7%8C%AE"><span class="toc-text">参考文献</span></a></li></ol></div><div class="widget-footer">
+
+<a class="top" onclick="util.scrollTop()"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 12c0-4.714 0-7.071 1.464-8.536C4.93 2 7.286 2 12 2c4.714 0 7.071 0 8.535 1.464C22 4.93 22 7.286 22 12c0 4.714 0 7.071-1.465 8.535C19.072 22 16.714 22 12 22s-7.071 0-8.536-1.465C2 19.072 2 16.714 2 12Z"/><path stroke-linecap="round" stroke-linejoin="round" d="m9 15.5l3-3l3 3m-6-4l3-3l3 3"/></g></svg><span>回到顶部</span></a><a class="buttom" onclick="util.scrollComment()"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="currentColor" fill-rule="evenodd" d="M10.46 1.25h3.08c1.603 0 2.86 0 3.864.095c1.023.098 1.861.3 2.6.752a5.75 5.75 0 0 1 1.899 1.899c.452.738.654 1.577.752 2.6c.095 1.004.095 2.261.095 3.865v1.067c0 1.141 0 2.036-.05 2.759c-.05.735-.153 1.347-.388 1.913a5.75 5.75 0 0 1-3.112 3.112c-.805.334-1.721.408-2.977.43a10.81 10.81 0 0 0-.929.036c-.198.022-.275.054-.32.08c-.047.028-.112.078-.224.232c-.121.166-.258.396-.476.764l-.542.916c-.773 1.307-2.69 1.307-3.464 0l-.542-.916a10.605 10.605 0 0 0-.476-.764c-.112-.154-.177-.204-.224-.232c-.045-.026-.122-.058-.32-.08c-.212-.023-.49-.03-.93-.037c-1.255-.021-2.171-.095-2.976-.429A5.75 5.75 0 0 1 1.688 16.2c-.235-.566-.338-1.178-.389-1.913c-.049-.723-.049-1.618-.049-2.76v-1.066c0-1.604 0-2.86.095-3.865c.098-1.023.3-1.862.752-2.6a5.75 5.75 0 0 1 1.899-1.899c.738-.452 1.577-.654 2.6-.752C7.6 1.25 8.857 1.25 10.461 1.25M6.739 2.839c-.914.087-1.495.253-1.959.537A4.25 4.25 0 0 0 3.376 4.78c-.284.464-.45 1.045-.537 1.96c-.088.924-.089 2.11-.089 3.761v1c0 1.175 0 2.019.046 2.685c.045.659.131 1.089.278 1.441a4.25 4.25 0 0 0 2.3 2.3c.515.214 1.173.294 2.429.316h.031c.398.007.747.013 1.037.045c.311.035.616.104.909.274c.29.17.5.395.682.645c.169.232.342.525.538.856l.559.944a.52.52 0 0 0 .882 0l.559-.944c.196-.331.37-.624.538-.856c.182-.25.392-.476.682-.645c.293-.17.598-.24.909-.274c.29-.032.639-.038 1.037-.045h.032c1.255-.022 1.913-.102 2.428-.316a4.25 4.25 0 0 0 2.3-2.3c.147-.352.233-.782.278-1.441c.046-.666.046-1.51.046-2.685v-1c0-1.651 0-2.837-.089-3.762c-.087-.914-.253-1.495-.537-1.959a4.25 4.25 0 0 0-1.403-1.403c-.464-.284-1.045-.45-1.96-.537c-.924-.088-2.11-.089-3.761-.089h-3c-1.651 0-2.837 0-3.762.089" clip-rule="evenodd"/><path fill="currentColor" d="M9 11a1 1 0 1 1-2 0a1 1 0 0 1 2 0m4 0a1 1 0 1 1-2 0a1 1 0 0 1 2 0m4 0a1 1 0 1 1-2 0a1 1 0 0 1 2 0"/></svg><span>参与讨论</span></a></div></widget>
+</div></aside><div class='float-panel blur'>
+  <button type='button' style='display:none' class='laptop-only rightbar-toggle mobile' onclick='sidebar.rightbar()'>
+    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6h11m-11 6h11m-11 6h11M4 6h1v4m-1 0h2m0 8H4c0-1 2-2 2-3s-1-1.5-2-1"/></svg>
+  </button>
+  <button type='button' style='display:none' class='mobile-only leftbar-toggle mobile' onclick='sidebar.leftbar()'>
+    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 11c0-3.771 0-5.657 1.172-6.828C4.343 3 6.229 3 10 3h4c3.771 0 5.657 0 6.828 1.172C22 5.343 22 7.229 22 11v2c0 3.771 0 5.657-1.172 6.828C19.657 21 17.771 21 14 21h-4c-3.771 0-5.657 0-6.828-1.172C2 18.657 2 16.771 2 13z"/><path id="sep" stroke-linecap="round" d="M5.5 10h6m-5 4h4m4.5 7V3"/></g></svg>
+  </button>
+</div>
+</div><div class="scripts">
+<script type="text/javascript">
+  const ctx = {
+    date_suffix: {
+      just: `刚刚`,
+      min: `分钟前`,
+      hour: `小时前`,
+      day: `天前`,
+    },
+    root : `/`,
+  };
+
+  // required plugins (only load if needs)
+  if (`local_search`) {
+    ctx.search = {};
+    ctx.search.service = `local_search`;
+    if (ctx.search.service == 'local_search') {
+      let service_obj = Object.assign({}, `{"field":"post","path":"/db.json","content":true,"sort":"-date"}`);
+      ctx.search[ctx.search.service] = service_obj;
+    }
+  }
+  const def = {
+    avatar: `https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/avatar/round/3442075.svg`,
+    cover: `https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/cover/76b86c0226ffd.svg`,
+  };
+  const deps = {
+    jquery: `https://cdn.bootcdn.net/ajax/libs/jquery/3.7.1/jquery.min.js`,
+    marked: `https://cdn.bootcdn.net/ajax/libs/marked/4.0.18/marked.min.js`
+  }
+  
+
+</script>
+
+<script type="text/javascript">
+  const utils = {
+    // 懒加载 css https://github.com/filamentgroup/loadCSS
+    css: (href, before, media, attributes) => {
+      var doc = window.document;
+      var ss = doc.createElement("link");
+      var ref;
+      if (before) {
+        ref = before;
+      } else {
+        var refs = (doc.body || doc.getElementsByTagName("head")[0]).childNodes;
+        ref = refs[refs.length - 1];
+      }
+      var sheets = doc.styleSheets;
+      if (attributes) {
+        for (var attributeName in attributes) {
+          if (attributes.hasOwnProperty(attributeName)) {
+            ss.setAttribute(attributeName, attributes[attributeName]);
+          }
+        }
+      }
+      ss.rel = "stylesheet";
+      ss.href = href;
+      ss.media = "only x";
+      function ready(cb) {
+        if (doc.body) {
+          return cb();
+        }
+        setTimeout(function () {
+          ready(cb);
+        });
+      }
+      ready(function () {
+        ref.parentNode.insertBefore(ss, before ? ref : ref.nextSibling);
+      });
+      var onloadcssdefined = function (cb) {
+        var resolvedHref = ss.href;
+        var i = sheets.length;
+        while (i--) {
+          if (sheets[i].href === resolvedHref) {
+            return cb();
+          }
+        }
+        setTimeout(function () {
+          onloadcssdefined(cb);
+        });
+      };
+      function loadCB() {
+        if (ss.addEventListener) {
+          ss.removeEventListener("load", loadCB);
+        }
+        ss.media = media || "all";
+      }
+      if (ss.addEventListener) {
+        ss.addEventListener("load", loadCB);
+      }
+      ss.onloadcssdefined = onloadcssdefined;
+      onloadcssdefined(loadCB);
+      return ss;
+    },
+
+    js: (src, opt) => new Promise((resolve, reject) => {
+      var script = document.createElement('script');
+      if (src.startsWith('/')){
+        src = ctx.root + src.substring(1);
+      }
+      script.src = src;
+      if (opt) {
+        for (let key of Object.keys(opt)) {
+          script[key] = opt[key]
+        }
+      } else {
+        // 默认异步，如果需要同步，第二个参数传入 {} 即可
+        script.async = true
+      }
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    }),
+
+    jq: (fn) => {
+      if (typeof jQuery === 'undefined') {
+        utils.js(deps.jquery).then(fn)
+      } else {
+        fn()
+      }
+    },
+    
+    onLoading: (el) => {
+      if (el) {
+        $(el).append('<div class="loading-wrap"><svg xmlns="http://www.w3.org/2000/svg" width="2em" height="2em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="2"><path stroke-dasharray="60" stroke-dashoffset="60" stroke-opacity=".3" d="M12 3C16.9706 3 21 7.02944 21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3Z"><animate fill="freeze" attributeName="stroke-dashoffset" dur="1.3s" values="60;0"/></path><path stroke-dasharray="15" stroke-dashoffset="15" d="M12 3C16.9706 3 21 7.02944 21 12"><animate fill="freeze" attributeName="stroke-dashoffset" dur="0.3s" values="15;0"/><animateTransform attributeName="transform" dur="1.5s" repeatCount="indefinite" type="rotate" values="0 12 12;360 12 12"/></path></g></svg></div>');
+      }
+    },
+    onLoadSuccess: (el) => {
+      if (el) {
+        $(el).find('.loading-wrap').remove();
+      }
+    },
+    onLoadFailure: (el) => {
+      if (el) {
+        $(el).find('.loading-wrap svg').remove();
+        $(el).find('.loading-wrap').append('<svg xmlns="http://www.w3.org/2000/svg" width="2em" height="2em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><path stroke-dasharray="60" stroke-dashoffset="60" d="M12 3L21 20H3L12 3Z"><animate fill="freeze" attributeName="stroke-dashoffset" dur="0.5s" values="60;0"/></path><path stroke-dasharray="6" stroke-dashoffset="6" d="M12 10V14"><animate fill="freeze" attributeName="stroke-dashoffset" begin="0.6s" dur="0.2s" values="6;0"/></path></g><circle cx="12" cy="17" r="1" fill="currentColor" fill-opacity="0"><animate fill="freeze" attributeName="fill-opacity" begin="0.8s" dur="0.4s" values="0;1"/></circle></svg>');
+        $(el).find('.loading-wrap').addClass('error');
+      }
+    },
+    request: (el, url, callback, onFailure) => {
+      let retryTimes = 3;
+      utils.onLoading(el);
+      function req() {
+        return new Promise((resolve, reject) => {
+          let status = 0; // 0 等待 1 完成 2 超时
+          let timer = setTimeout(() => {
+            if (status === 0) {
+              status = 2;
+              timer = null;
+              reject('请求超时');
+              if (retryTimes == 0) {
+                onFailure();
+              }
+            }
+          }, 5000);
+          fetch(url).then(function(response) {
+            if (status !== 2) {
+              clearTimeout(timer);
+              resolve(response);
+              timer = null;
+              status = 1;
+            }
+            if (response.ok) {
+              return response.json();
+            }
+            throw new Error('Network response was not ok.');
+          }).then(function(data) {
+            retryTimes = 0;
+            utils.onLoadSuccess(el);
+            callback(data);
+          }).catch(function(error) {
+            if (retryTimes > 0) {
+              retryTimes -= 1;
+              setTimeout(() => {
+                req();
+              }, 5000);
+            } else {
+              utils.onLoadFailure(el);
+              onFailure();
+            }
+          });
+        });
+      }
+      req();
+    },
+  };
+</script>
+
+<script>
+  const sidebar = {
+    leftbar: () => {
+      if (l_body) {
+        l_body.toggleAttribute('leftbar');
+        l_body.removeAttribute('rightbar');
+      }
+    },
+    rightbar: () => {
+      if (l_body) {
+        l_body.toggleAttribute('rightbar');
+        l_body.removeAttribute('leftbar');
+      }
+    },
+    dismiss: () => {
+      if (l_body) {
+        l_body.removeAttribute('leftbar');
+        l_body.removeAttribute('rightbar');
+      }
+    },
+    toggleTOC: () => {
+      document.querySelector('#data-toc').classList.toggle('collapse');
+    }
+  }
+</script>
+<script type="text/javascript">
+  (() => {
+    const tagSwitchers = document.querySelectorAll('.tag-subtree.parent-tag > a > .tag-switcher-wrapper')
+    for (const tagSwitcher of tagSwitchers) {
+      tagSwitcher.addEventListener('click', (e) => {
+        const parent = e.target.closest('.tag-subtree.parent-tag')
+        parent.classList.toggle('expanded')
+        e.preventDefault()
+      })
+    }
+
+    // Get active tag from query string, then activate it.
+    const urlParams = new URLSearchParams(window.location.search)
+    const activeTag = urlParams.get('tag')
+    if (activeTag) {
+      let tag = document.querySelector(`.tag-subtree[data-tag="${activeTag}"]`)
+      if (tag) {
+        tag.querySelector('a').classList.add('active')
+        
+        while (tag) {
+          tag.classList.add('expanded')
+          tag = tag.parentElement.closest('.tag-subtree.parent-tag')
+        }
+      }
+    }
+  })()
+</script>
+
+
+<!-- required -->
+<script src="/js/main.js?v=1.29.0" defer></script>
+
+<script type="text/javascript">
+  const applyTheme = (theme) => {
+    if (theme === 'auto') {
+      document.documentElement.removeAttribute('data-theme')
+    } else {
+      document.documentElement.setAttribute('data-theme', theme)
+    }
+
+    applyThemeToGiscus(theme)
+  }
+
+  const applyThemeToGiscus = (theme) => {
+    theme = theme === 'auto' ? 'preferred_color_scheme' : theme
+
+    const cmt = document.getElementById('giscus')
+    if (cmt) {
+      // This works before giscus load.
+      cmt.setAttribute('data-theme', theme)
+    }
+
+    const iframe = document.querySelector('#comments > section.giscus > iframe')
+    if (iframe) {
+      // This works after giscus loaded.
+      const src = iframe.src
+      const newSrc = src.replace(/theme=[\w]+/, `theme=${theme}`)
+      iframe.src = newSrc
+    }
+  }
+
+  const switchTheme = () => {
+    // light -> dark -> auto -> light -> ...
+    const currentTheme = document.documentElement.getAttribute('data-theme')
+    let newTheme;
+    switch (currentTheme) {
+      case 'light':
+        newTheme = 'dark'
+        break
+      case 'dark':
+        newTheme = 'auto'
+        break
+      default:
+        newTheme = 'light'
+    }
+    applyTheme(newTheme)
+    window.localStorage.setItem('Stellar.theme', newTheme)
+
+    const messages = {
+      light: `切换到浅色模式`,
+      dark: `切换到深色模式`,
+      auto: `切换到跟随系统配色`,
+    }
+    hud?.toast?.(messages[newTheme])
+  }
+
+  (() => {
+    // Apply user's preferred theme, if any.
+    const theme = window.localStorage.getItem('Stellar.theme')
+    if (theme !== null) {
+      applyTheme(theme)
+    }
+  })()
+</script>
+
+
+<!-- optional -->
+
+  <script type="module">
+  const el = document.getElementById('twikoo_container');
+  util.viewportLazyload(el, load_twikoo, false);
+
+  function load_twikoo() {
+    if (!el) return;
+    utils.js('https://gcore.jsdelivr.net/npm/twikoo@1.6.8/dist/twikoo.all.min.js', {defer: true}).then(function () {
+      const path = el.getAttribute('comment_id') ?? decodeURI(window.location.pathname);
+      twikoo.init(Object.assign({"js":"https://gcore.jsdelivr.net/npm/twikoo@1.6.8/dist/twikoo.all.min.js","envId":"https://twikoo.loli.fj.cn"}, {
+        el: '#twikoo_container',
+        path: path,
+      }));
+    });
+  }
+</script>
+
+
+
+<script defer>
+  window.addEventListener('DOMContentLoaded', (event) => {
+    ctx.services = Object.assign({}, JSON.parse(`{"mdrender":{"js":"/js/services/mdrender.js"},"siteinfo":{"js":"/js/services/siteinfo.js","api":null},"ghinfo":{"js":"/js/services/ghinfo.js"},"sites":{"js":"/js/services/sites.js"},"friends":{"js":"/js/services/friends.js"},"timeline":{"js":"/js/services/timeline.js"},"fcircle":{"js":"/js/services/fcircle.js"},"weibo":{"js":"/js/services/weibo.js"},"memos":{"js":"/js/services/memos.js"}}`));
+    for (let id of Object.keys(ctx.services)) {
+      const js = ctx.services[id].js;
+      if (id == 'siteinfo') {
+        ctx.cardlinks = document.querySelectorAll('a.link-card[cardlink]');
+        if (ctx.cardlinks?.length > 0) {
+          utils.js(js, { defer: true }).then(function () {
+            setCardLink(ctx.cardlinks);
+          });
+        }
+      } else {
+        const els = document.getElementsByClassName(`ds-${id}`);
+        if (els?.length > 0) {
+          utils.jq(() => {
+            if (id == 'timeline' || 'memos' || 'marked') {
+              utils.js(deps.marked).then(function () {
+                utils.js(js, { defer: true });
+              });
+            } else {
+              utils.js(js, { defer: true });
+            }
+          });
+        }
+      }
+    }
+  });
+</script>
+
+<script>
+  window.addEventListener('DOMContentLoaded', (event) => {
+    ctx.search = {
+      path: `/db.json`,
+    }
+    utils.js('/js/search/local-search.js', { defer: true });
+  });
+</script><script>
+  window.FPConfig = {
+    delay: 0,
+    ignoreKeywords: [],
+    maxRPS: 5,
+    hoverDelay: 25
+  };
+</script>
+<script defer src="https://cdn.bootcdn.net/ajax/libs/flying-pages/2.1.2/flying-pages.min.js"></script><script defer src="https://cdn.bootcdn.net/ajax/libs/vanilla-lazyload/17.8.4/lazyload.min.js"></script>
+<script>
+  // https://www.npmjs.com/package/vanilla-lazyload
+  // Set the options globally
+  // to make LazyLoad self-initialize
+  window.lazyLoadOptions = {
+    elements_selector: ".lazy",
+  };
+  // Listen to the initialization event
+  // and get the instance of LazyLoad
+  window.addEventListener(
+    "LazyLoad::Initialized",
+    function (event) {
+      window.lazyLoadInstance = event.detail.instance;
+    },
+    false
+  );
+  document.addEventListener('DOMContentLoaded', function () {
+    window.lazyLoadInstance?.update();
+  });
+</script><script>
+  ctx.fancybox = {
+    selector: `.timenode p>img`,
+    css: `https://cdn.bootcdn.net/ajax/libs/fancyapps-ui/5.0.22/fancybox/fancybox.min.css`,
+    js: `https://cdn.bootcdn.net/ajax/libs/fancyapps-ui/5.0.22/fancybox/fancybox.umd.min.js`
+  };
+  var selector = '[data-fancybox]:not(.error)';
+  if (ctx.fancybox.selector) {
+    selector += `, ${ctx.fancybox.selector}`
+  }
+  var needFancybox = document.querySelectorAll(selector).length !== 0;
+  if (!needFancybox) {
+    const els = document.getElementsByClassName('ds-memos');
+    if (els != undefined && els.length > 0) {
+      needFancybox = true;
+    }
+  }
+  if (needFancybox) {
+    utils.css(ctx.fancybox.css);
+    utils.js(ctx.fancybox.js, { defer: true }).then(function () {
+      Fancybox.bind(selector, {
+        hideScrollbar: false,
+        Thumbs: {
+          autoStart: false,
+        },
+        caption: (fancybox, slide) => {
+          return slide.triggerEl.alt || slide.triggerEl.dataset.caption || null
+        }
+      });
+    })
+  }
+</script>
+<script>
+  window.addEventListener('DOMContentLoaded', (event) => {
+    const swiper_api = document.getElementById('swiper-api');
+    if (swiper_api != undefined) {
+      utils.css(`https://unpkg.com/swiper@10.3.1/swiper-bundle.min.css`);
+      utils.js(`https://unpkg.com/swiper@10.3.1/swiper-bundle.min.js`, { defer: true }).then(function () {
+        const effect = swiper_api.getAttribute('effect') || '';
+        var swiper = new Swiper('.swiper#swiper-api', {
+          slidesPerView: 'auto',
+          spaceBetween: 8,
+          centeredSlides: true,
+          effect: effect,
+          rewind: true,
+          pagination: {
+            el: '.swiper-pagination',
+            clickable: true,
+          },
+          navigation: {
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
+          },
+        });
+      })
+    }
+  });
+</script>
+<script defer type="text/javascript" src="https://cdn.jsdelivr.net/npm/mermaid@v9/dist/mermaid.min.js"></script>
+<script>
+  window.addEventListener('DOMContentLoaded', (event) => {
+    var mermaid_config = {
+      startOnLoad: true,
+      theme:
+        "" == "auto" &&
+          window.matchMedia("(prefers-color-scheme: dark)").matches
+          ? "dark"
+          : "neutral",
+      logLevel: 3,
+      themeVariables: {
+        darkMode: true
+      },
+      flowchart: {
+        useMaxWidth: false,
+        htmlLabels: true,
+        curve: "linear"
+      },
+      gantt: {
+        axisFormat: "%Y/%m/%d"
+      },
+      sequence: {
+        actorMargin: 50
+      }
+    }
+    mermaid.initialize(mermaid_config);
+  });
+</script><script>
+  document.addEventListener('DOMContentLoaded', function () {
+    window.codeElements = document.querySelectorAll('.code');
+    if (window.codeElements.length > 0) {
+      ctx.copycode = {
+        default_text: `Copy`,
+        success_text: `Copied`,
+        toast: `复制成功`,
+      };
+      utils.js('/js/plugins/copycode.js');
+    }
+  });
+</script>
+
+
+<!-- inject -->
+
+</div></body></html>

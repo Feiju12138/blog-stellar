@@ -1,0 +1,1127 @@
+
+<!DOCTYPE html><html lang="zh-CN">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="hexo-theme" content="https://github.com/xaoxuu/hexo-theme-stellar/tree/1.29.0" theme-name="Stellar" theme-version="1.29.0">
+  
+  <meta name="generator" content="Hexo 6.3.0">
+  <meta http-equiv='x-dns-prefetch-control' content='on' />
+  
+  <meta name="renderer" content="webkit">
+  <meta name="force-rendering" content="webkit">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+  <meta name="HandheldFriendly" content="True" >
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#000">
+  <meta name="theme-color" content="#f9fafb">
+  
+  <title>【笔记】Django学习笔记 - 绯鞠的博客</title>
+
+  
+    <meta name="description" content="前言Django学习笔记">
+<meta property="og:type" content="article">
+<meta property="og:title" content="【笔记】Django学习笔记">
+<meta property="og:url" content="https://loli.fj.cn/2022/12/24/Django%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/index.html">
+<meta property="og:site_name" content="绯鞠的博客">
+<meta property="og:description" content="前言Django学习笔记">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2022-12-24T03:56:15.000Z">
+<meta property="article:modified_time" content="2024-08-06T02:31:29.770Z">
+<meta property="article:author" content="绯鞠">
+<meta property="article:tag" content="Python">
+<meta name="twitter:card" content="summary">
+  
+  
+  
+  <meta name="keywords" content="Python">
+
+  <!-- feed -->
+  
+    <link rel="alternate" href="/atom.xml" title="绯鞠的博客" type="application/atom+xml">
+  
+
+  <link rel="stylesheet" href="/css/main.css?v=1.29.0">
+
+  
+
+  
+
+  
+</head>
+<body>
+
+<div class="l_body s:aa content tech" id="start" layout="post" ><aside class="l_left"><div class="leftbar-container">
+
+
+<header class="header"><div class="logo-wrap"><a class="avatar" href="/about/"><div class="bg" style="opacity:0;background-image:url(https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/avatar/round/rainbow64@3x.webp);"></div><img no-lazy class="avatar" src="/dist/images/avatar.gif" onerror="javascript:this.classList.add('error');this.src='https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/image/2659360.svg';"></a><a class="title" href="/"><div class="main" ff="title">绯鞠的博客</div><div class="sub cap">连蜜统治世界!!!💕</div></a></div></header>
+
+<div class="nav-area">
+<div class="search-wrapper" id="search-wrapper"><form class="search-form"><a class="search-button" onclick="document.getElementById(&quot;search-input&quot;).focus();"><svg t="1705074644177" viewBox="0 0 1025 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="1560" width="200" height="200"><path d="M1008.839137 935.96571L792.364903 719.491476a56.783488 56.783488 0 0 0-80.152866 0 358.53545 358.53545 0 1 1 100.857314-335.166073 362.840335 362.840335 0 0 1-3.689902 170.145468 51.248635 51.248635 0 1 0 99.217358 26.444296 462.057693 462.057693 0 1 0-158.255785 242.303546l185.930047 185.725053a51.248635 51.248635 0 0 0 72.568068 0 51.248635 51.248635 0 0 0 0-72.978056z" p-id="1561"></path><path d="M616.479587 615.969233a50.428657 50.428657 0 0 0-61.498362-5.534852 174.655348 174.655348 0 0 1-177.525271 3.484907 49.403684 49.403684 0 0 0-58.833433 6.76482l-3.074918 2.869923a49.403684 49.403684 0 0 0 8.609771 78.10292 277.767601 277.767601 0 0 0 286.992355-5.739847 49.403684 49.403684 0 0 0 8.404776-76.667958z" p-id="1562"></path></svg></a><input type="text" class="search-input" id="search-input" placeholder="站内搜索"></form><div id="search-result"></div><div class="search-no-result">没有找到内容！</div></div>
+
+
+<nav class="menu dis-select"><a class="nav-item" title="友链" href="/links/"><link rel="stylesheet" href="https://unpkg.com/font-awesome@4.7.0/css/font-awesome.min.css"><i class="fa fa-link"></i></a><a class="nav-item" title="赞助" href="/reward/"><i class="fa fa-heart"></i></a><a class="nav-item" title="订阅" href="/atom.xml"><i class="fa fa-rss"></i></a><a class="nav-item" title="主题" href="//loli.fj.cn"><i class="fa fa-arrow-right"></i></a></nav>
+</div>
+<div class="widgets">
+
+
+<widget class="widget-wrapper post-list"><div class="widget-header dis-select"><span class="name">最近更新</span></div><div class="widget-body fs14"><a class="item title" href="/2024/08/06/Mysql%E7%9A%84UDF%E6%8F%90%E6%9D%83/"><span class="title">【笔记】Mysql的UDF提权</span></a><a class="item title" href="/2024/08/06/PowerShell%E5%8E%8B%E7%BC%A9%E5%92%8C%E8%A7%A3%E5%8E%8B%E7%BC%A9zip%E6%96%87%E4%BB%B6/"><span class="title">【笔记】PowerShell压缩和解压缩zip文件</span></a><a class="item title" href="/2022/09/22/Winget%E5%AE%89%E8%A3%85%E7%AC%94%E8%AE%B0/"><span class="title">【笔记】Winget安装笔记</span></a><a class="item title" href="/2024/07/30/msf%E5%AE%9E%E7%8E%B0Mysql%E6%8F%90%E6%9D%83/"><span class="title">【笔记】msf实现Mysql提权</span></a><a class="item title" href="/2024/08/06/%E5%B0%86WindowsTerminal%E4%BD%9C%E4%B8%BAWindows%E9%BB%98%E8%AE%A4%E7%BB%88%E7%AB%AF/"><span class="title">【笔记】将WindowsTerminal作为Windows默认终端</span></a><a class="item title" href="/2022/06/25/%E6%9F%A5%E7%9C%8B%E7%AB%AF%E5%8F%A3%E5%8F%B7%E5%BC%80%E6%94%BE%E6%83%85%E5%86%B5/"><span class="title">【笔记】查看端口号开放情况</span></a><a class="item title" href="/2020/02/12/%E9%A1%BA%E5%BA%8F%E6%A0%88/"><span class="title">【代码】顺序栈</span></a><a class="item title" href="/2019/11/18/%E9%AA%87%E5%AE%A2%E6%8A%80%E6%9C%AF%E8%A7%A3%E5%86%B3%E6%B5%8F%E8%A7%88%E5%99%A8%E5%85%BC%E5%AE%B9%E6%80%A7%E9%97%AE%E9%A2%98/"><span class="title">【笔记】骇客技术解决浏览器兼容性问题（Javascript篇）</span></a><a class="item title" href="/2024/02/08/%E9%AA%8C%E8%AF%81JSON%E6%96%87%E4%BB%B6%E5%86%85%E5%AE%B9/"><span class="title">【笔记】验证JSON文件内容</span></a><a class="item title" href="/2020/07/04/%E9%AA%8C%E8%AF%81%E5%9B%9E%E6%96%87%E4%B8%B2/"><span class="title">【代码】验证回文串</span></a></div></widget>
+</div>
+<footer class="footer dis-select"><div class="social-wrap"><a class="social" href="/links/#comments" rel="noopener noreferrer"><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/social/942ebbf1a4b91.svg"/></a><a class="social" onclick="switchTheme()"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024"><path fill="currentColor" fill-rule="evenodd" d="M582.4 326.4c-140.8 0-256 115.2-256 256s115.2 256 256 256 256-115.2 256-256-115.2-256-256-256z m0 448c-70.4 0-131.2-36.8-164.8-92.8 12.8 3.2 27.2 4.8 40 4.8 121.6 0 219.2-99.2 219.2-219.2 0-17.6-1.6-35.2-6.4-52.8 60.8 32 102.4 96 102.4 169.6 1.6 104-84.8 190.4-190.4 190.4zM582.4 262.4c17.6 0 32-14.4 32-32v-128c0-17.6-14.4-32-32-32s-32 14.4-32 32v128c0 17.6 14.4 32 32 32zM262.4 582.4c0-17.6-14.4-32-32-32h-128c-17.6 0-32 14.4-32 32s14.4 32 32 32h128c17.6 0 32-14.4 32-32zM310.4 356.8c6.4 6.4 14.4 9.6 22.4 9.6 8 0 16-3.2 22.4-9.6 12.8-12.8 12.8-32 0-44.8l-91.2-91.2c-12.8-12.8-32-12.8-44.8 0-12.8 12.8-12.8 32 0 44.8l91.2 91.2zM944 220.8c-12.8-12.8-32-12.8-44.8 0l-91.2 91.2c-12.8 12.8-12.8 32 0 44.8 6.4 6.4 14.4 9.6 22.4 9.6 8 0 16-3.2 22.4-9.6l91.2-91.2c12.8-12.8 12.8-33.6 0-44.8zM310.4 808l-91.2 91.2c-12.8 12.8-12.8 32 0 44.8 6.4 6.4 14.4 9.6 22.4 9.6 8 0 16-3.2 22.4-9.6l91.2-91.2c12.8-12.8 12.8-32 0-44.8-11.2-11.2-32-11.2-44.8 0z"></path></svg></a></div></footer>
+</div></aside><div class="l_main" id="main">
+
+
+
+
+
+<div class="article banner top">
+  <div class="content">
+    <div class="top bread-nav footnote"><div class="left"><div class="flex-row" id="breadcrumb"><a class="cap breadcrumb" href="/">主页</a>
+<span class="sep"></span><a class="cap breadcrumb" href="/">文章</a><span class="sep"></span><a class="cap breadcrumb-link" href="/categories/Python%E5%90%8E%E7%AB%AF%E5%AD%A6%E4%B9%A0%E6%8C%87%E5%8C%97/">Python后端学习指北</a></div>
+<div class="flex-row" id="post-meta"><span class="text created">发布于：<time datetime="2022-12-24T03:56:15.000Z">2022-12-24</time></span><span class="sep updated"></span><span class="text updated">更新于：<time datetime="2024-08-06T02:31:29.770Z">2024-08-06</time></span></div></div></div>
+    
+    <div class="bottom only-title">
+      
+      <div class="text-area">
+        <h1 class="text title"><span>【笔记】Django学习笔记</span></h1>
+        
+      </div>
+    </div>
+    
+  </div>
+  </div><article class="md-text content"><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>Django学习笔记</p>
+<span id="more"></span>
+
+<h2 id="安装Django模块"><a href="#安装Django模块" class="headerlink" title="安装Django模块"></a>安装Django模块</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install django</span><br></pre></td></tr></table></figure>
+
+<h2 id="Django的命令"><a href="#Django的命令" class="headerlink" title="Django的命令"></a>Django的命令</h2><h3 id="初始化项目"><a href="#初始化项目" class="headerlink" title="初始化项目"></a>初始化项目</h3><blockquote>
+<p><code>&lt;project_name&gt;</code>：项目名称</p>
+</blockquote>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">django-admin startproject &lt;project_name&gt;</span><br><span class="line">cd &lt;project_name&gt;</span><br></pre></td></tr></table></figure>
+
+<h4 id="目录结构"><a href="#目录结构" class="headerlink" title="目录结构"></a>目录结构</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">+ &lt;project_name&gt; 外层项目目录</span><br><span class="line">  + &lt;project_name&gt; 内层项目目录</span><br><span class="line">    - __init__.py 一个模块</span><br><span class="line">    - settings.py 配置文件</span><br><span class="line">    - urls.py 路由文件</span><br><span class="line">    - wsgi.py 部署时的网关</span><br><span class="line">  - manage.py Python可执行文件，内置了一些Django命令</span><br></pre></td></tr></table></figure>
+
+<h3 id="启动项目（开发阶段）"><a href="#启动项目（开发阶段）" class="headerlink" title="启动项目（开发阶段）"></a>启动项目（开发阶段）</h3><ul>
+<li>默认端口为<code>8000</code></li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python manage.py runserver</span><br></pre></td></tr></table></figure>
+
+<h4 id="指定IP和端口"><a href="#指定IP和端口" class="headerlink" title="指定IP和端口"></a>指定IP和端口</h4><ul>
+<li>缺省值为<code>127.0.0.1:8000</code></li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python manage.py runserver 127.0.0.1:8000</span><br></pre></td></tr></table></figure>
+
+<h5 id="允许局域网访问"><a href="#允许局域网访问" class="headerlink" title="允许局域网访问"></a>允许局域网访问</h5><ul>
+<li>IP为<code>0.0.0.0</code>表示局域网中的任何IP都可以访问</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python manage.py runserver 0.0.0.0:8000</span><br></pre></td></tr></table></figure>
+
+<h6 id="踩坑"><a href="#踩坑" class="headerlink" title="踩坑"></a>踩坑</h6><ul>
+<li>报错：<code>django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: &#39;&#39;. You may need to add &#39;&#39; to ALLOWED_HOSTS.</code></li>
+<li>原因：没有配置允许请求的主机</li>
+<li>解决问题：配置允许请求的主机</li>
+</ul>
+<figure class="highlight python"><figcaption><span>&lt;project_name&gt;/&lt;project_name&gt;/setting.py</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ALLOWED_HOSTS = [<span class="string">&#x27;*&#x27;</span>]</span><br></pre></td></tr></table></figure>
+
+<h3 id="创建子应用"><a href="#创建子应用" class="headerlink" title="创建子应用"></a>创建子应用</h3><blockquote>
+<p><code>&lt;app_name&gt;</code>：子应用名称</p>
+</blockquote>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python manage.py startapp &lt;app_name&gt;</span><br></pre></td></tr></table></figure>
+
+<h4 id="目录结构-1"><a href="#目录结构-1" class="headerlink" title="目录结构"></a>目录结构</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">+ &lt;project_name&gt;</span><br><span class="line">  + &lt;project_name&gt;</span><br><span class="line">    - __init__.py</span><br><span class="line">    - settings.py</span><br><span class="line">    - urls.py</span><br><span class="line">    - wsgi.py</span><br><span class="line">  - manage.py</span><br><span class="line">  - db.sqlite3</span><br><span class="line">  + &lt;app_name&gt;</span><br><span class="line">    - __init__.py</span><br><span class="line">    - admin.py 后台管理站点的配置</span><br><span class="line">    - apps.py 当前子应用的相关信息</span><br><span class="line">    + migrations 数据库迁移历史文件</span><br><span class="line">      - __init__.py</span><br><span class="line">    - models.py 保存数据库模型类</span><br><span class="line">    - tests.py 单元测试</span><br><span class="line">    - views.py Web应用视图</span><br></pre></td></tr></table></figure>
+
+<h3 id="查看帮助"><a href="#查看帮助" class="headerlink" title="查看帮助"></a>查看帮助</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python manage.py</span><br></pre></td></tr></table></figure>
+
+<h3 id="进入调试模式"><a href="#进入调试模式" class="headerlink" title="进入调试模式"></a>进入调试模式</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python manage.py shell</span><br></pre></td></tr></table></figure>
+
+<h3 id="数据库创建更改文件"><a href="#数据库创建更改文件" class="headerlink" title="数据库创建更改文件"></a>数据库创建更改文件</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python manage.py makemigrations</span><br></pre></td></tr></table></figure>
+
+<h3 id="同步到数据库进行更新"><a href="#同步到数据库进行更新" class="headerlink" title="同步到数据库进行更新"></a>同步到数据库进行更新</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python manage.py migrate</span><br></pre></td></tr></table></figure>
+
+<h3 id="清空数据库"><a href="#清空数据库" class="headerlink" title="清空数据库"></a>清空数据库</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python manage.py flush</span><br></pre></td></tr></table></figure>
+
+<h3 id="在Shell中开发"><a href="#在Shell中开发" class="headerlink" title="在Shell中开发"></a>在Shell中开发</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python manage.py shell</span><br></pre></td></tr></table></figure>
+
+<h2 id="Django中的模块"><a href="#Django中的模块" class="headerlink" title="Django中的模块"></a>Django中的模块</h2><ul>
+<li>模型（Model）：数据层，处理与数据相关的所有事物</li>
+<li>视图（View）：视图层，用来处理用户发出的请求</li>
+<li>模版（Template）：模版层，通过视图函数渲染HTML模版，得到动态的前端页面</li>
+<li>路由（Url）：网站的入口，关联到对应的视图函数，将访问网址映射为函数</li>
+<li>表单（Forms）：表单，用在浏览器输入数据的提交，并对这些数据进行验证</li>
+<li>后台（Admin）：Django自带一个管理后台，对提交的数据进行管理</li>
+<li>配置（Settings）：Django的配置文件</li>
+</ul>
+<h2 id="Django的全局配置"><a href="#Django的全局配置" class="headerlink" title="Django的全局配置"></a>Django的全局配置</h2><ul>
+<li><code>&lt;project_name&gt;/&lt;project_name&gt;/settings.py</code></li>
+</ul>
+<blockquote>
+<p><code>BASE_DIR</code>：返回项目目录所在的绝对路径<br><code>SECRET_KEY</code>：数据加密的密钥，防止被跨域攻击<br><code>DEBUG</code>：网站是否处于开发模式，默认为<code>True</code>，网站上线前应当改成<code>False</code><br><code>ALLOWED_HOSTS</code>：网站访问白名单，如果允许任何网站，可以设置为<code>[&#39;*&#39;]</code><br><code>INSTALLED_APPS</code>：应用注册<br><code>MIDDLEWARE</code>：中间件<br><code>ROOT_URLCONF</code>：网站入口跟路由配置<br><code>TEMPLATES</code>：配置HTML静态文件<br><code>WSGI_APPLICATION</code>：配置开发服务器<br><code>DATABASES</code>：配置数据库<br><code>AUTH_PASSWORD_VALIDATORS</code>：用户密码加密<br><code>LANGUAGE_CODE</code>：网站默认语言</p>
+<blockquote>
+<p><code>en-us</code>：缺省值，英文<br><code>zh-hans</code>：简体中文</p>
+</blockquote>
+<p><code>TIME_ZONE</code>：默认时间</p>
+<blockquote>
+<p><code>UTC</code>：缺省值，国际标准时间<br><code>Asia/Shanghai</code>：上海时间</p>
+</blockquote>
+<p><code>USE_I18N</code>：是否开启多语言支持<br><code>USE_TZ</code>：改成False<br><code>STATIC_URL</code>：静态资源路径</p>
+</blockquote>
+<h2 id="子应用"><a href="#子应用" class="headerlink" title="子应用"></a>子应用</h2><h3 id="创建子应用-1"><a href="#创建子应用-1" class="headerlink" title="创建子应用"></a>创建子应用</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python manage.py startapp &lt;app_name&gt;</span><br></pre></td></tr></table></figure>
+
+<h3 id="修改全局配置"><a href="#修改全局配置" class="headerlink" title="修改全局配置"></a>修改全局配置</h3><ul>
+<li>在配置文件的<code>INSTALLED_APPS</code>列表末尾追加子应用名作为列表的元素，注册子应用到全局配置</li>
+</ul>
+<figure class="highlight python"><figcaption><span>&lt;project_name&gt;/&lt;project_name&gt;/settings.py</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">INSTALLED_APPS = [</span><br><span class="line">    <span class="string">&#x27;django.contrib.admin&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;django.contrib.auth&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;django.contrib.contenttypes&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;django.contrib.sessions&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;django.contrib.messages&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;django.contrib.staticfiles&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;&lt;app_name&gt;&#x27;</span>,</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
+
+<h3 id="在子应用中创建一个页面"><a href="#在子应用中创建一个页面" class="headerlink" title="在子应用中创建一个页面"></a>在子应用中创建一个页面</h3><h4 id="通过函数渲染数据"><a href="#通过函数渲染数据" class="headerlink" title="通过函数渲染数据"></a>通过函数渲染数据</h4><h5 id="在视图响应一些数据"><a href="#在视图响应一些数据" class="headerlink" title="在视图响应一些数据"></a>在视图响应一些数据</h5><ul>
+<li>定义一个函数，响应一些数据</li>
+</ul>
+<figure class="highlight python"><figcaption><span>&lt;project_name&gt;/&lt;app_name&gt;/views.py</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> django.shortcuts <span class="keyword">import</span> render</span><br><span class="line"><span class="keyword">from</span> django.http <span class="keyword">import</span> HttpResponse</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">index</span>(<span class="params">request</span>):</span><br><span class="line">    <span class="keyword">return</span> HttpResponse(<span class="string">&quot;hello word !&quot;</span>)</span><br></pre></td></tr></table></figure>
+
+<h5 id="在子应用中创建一个路由"><a href="#在子应用中创建一个路由" class="headerlink" title="在子应用中创建一个路由"></a>在子应用中创建一个路由</h5><blockquote>
+<p><code>index</code>：视图层定义的函数名</p>
+</blockquote>
+<figure class="highlight python"><figcaption><span>&lt;project_name&gt;/&lt;app_name&gt;/urls.py</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> django.urls <span class="keyword">import</span> path</span><br><span class="line"><span class="keyword">from</span> .views <span class="keyword">import</span> index</span><br><span class="line"></span><br><span class="line">urlpatterns = [</span><br><span class="line">    path(<span class="string">&#x27;&#x27;</span>, index),</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
+
+<h5 id="将子路由绑定到跟路由"><a href="#将子路由绑定到跟路由" class="headerlink" title="将子路由绑定到跟路由"></a>将子路由绑定到跟路由</h5><ul>
+<li>引入<code>include</code>模块</li>
+<li>通过<code>include()</code>引入子路由</li>
+</ul>
+<figure class="highlight python"><figcaption><span>&lt;project_name&gt;/&lt;project_name&gt;/urls.py</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> django.contrib <span class="keyword">import</span> admin</span><br><span class="line"><span class="keyword">from</span> django.urls <span class="keyword">import</span> path, include</span><br><span class="line"></span><br><span class="line">urlpatterns = [</span><br><span class="line">    path(<span class="string">&#x27;admin/&#x27;</span>, admin.site.urls),</span><br><span class="line">    path(<span class="string">&#x27;&#x27;</span>, include(<span class="string">&#x27;&lt;app_name&gt;.urls&#x27;</span>)),</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
+
+<h4 id="通过Message类渲染数据"><a href="#通过Message类渲染数据" class="headerlink" title="通过Message类渲染数据"></a>通过Message类渲染数据</h4><h5 id="在视图响应一些数据-1"><a href="#在视图响应一些数据-1" class="headerlink" title="在视图响应一些数据"></a>在视图响应一些数据</h5><ul>
+<li>定义一个函数，响应一些数据</li>
+</ul>
+<figure class="highlight python"><figcaption><span>&lt;project_name&gt;/&lt;app_name&gt;/views.py</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> django.views.generic <span class="keyword">import</span> View</span><br><span class="line"><span class="keyword">from</span> django.http <span class="keyword">import</span> HttpResponse</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Message</span>(<span class="title class_ inherited__">View</span>):</span><br><span class="line">  <span class="keyword">def</span> <span class="title function_">get</span>(<span class="params">self, request</span>):</span><br><span class="line">    <span class="keyword">return</span> HttpResponse(<span class="string">&quot;hello word !&quot;</span>)</span><br></pre></td></tr></table></figure>
+
+<h5 id="在子应用中创建一个路由-1"><a href="#在子应用中创建一个路由-1" class="headerlink" title="在子应用中创建一个路由"></a>在子应用中创建一个路由</h5><blockquote>
+<p><code>index</code>：视图层定义的函数名</p>
+</blockquote>
+<figure class="highlight python"><figcaption><span>&lt;project_name&gt;/&lt;app_name&gt;/urls.py</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> django.urls <span class="keyword">import</span> path</span><br><span class="line"><span class="keyword">from</span> .views <span class="keyword">import</span> Message</span><br><span class="line"></span><br><span class="line">urlpatterns = [</span><br><span class="line">    path(<span class="string">&#x27;&#x27;</span>, Message.as_view()),</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
+
+<h5 id="将子路由绑定到跟路由-1"><a href="#将子路由绑定到跟路由-1" class="headerlink" title="将子路由绑定到跟路由"></a>将子路由绑定到跟路由</h5><ul>
+<li>引入<code>include</code>模块</li>
+<li>通过<code>include()</code>引入子路由</li>
+</ul>
+<figure class="highlight python"><figcaption><span>&lt;project_name&gt;/&lt;project_name&gt;/urls.py</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> django.contrib <span class="keyword">import</span> admin</span><br><span class="line"><span class="keyword">from</span> django.urls <span class="keyword">import</span> path, include</span><br><span class="line"></span><br><span class="line">urlpatterns = [</span><br><span class="line">    path(<span class="string">&#x27;admin/&#x27;</span>, admin.site.urls),</span><br><span class="line">    path(<span class="string">&#x27;&#x27;</span>, include(<span class="string">&#x27;&lt;app_name&gt;.urls&#x27;</span>)),</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
+
+<h2 id="处理请求参数"><a href="#处理请求参数" class="headerlink" title="处理请求参数"></a>处理请求参数</h2><h3 id="处理GET请求请求参数"><a href="#处理GET请求请求参数" class="headerlink" title="处理GET请求请求参数"></a>处理GET请求请求参数</h3><h4 id="普通传递参数方式"><a href="#普通传递参数方式" class="headerlink" title="普通传递参数方式"></a>普通传递参数方式</h4><p><a target="_blank" rel="noopener" href="http://127.0.0.1:8000/index?key=value">http://127.0.0.1:8000/index?key=value</a></p>
+<figure class="highlight python"><figcaption><span>&lt;project_name&gt;/&lt;app_name&gt;/urls.py</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> django.urls <span class="keyword">import</span> path</span><br><span class="line"><span class="keyword">from</span> .views <span class="keyword">import</span> index</span><br><span class="line"></span><br><span class="line">urlpatterns = [</span><br><span class="line">    path(<span class="string">&#x27;index&#x27;</span>, index),</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p><code>key</code>：参数键<br><code>value</code>：得到的参数值<br><code>default</code>：如果没有指定键时的默认值</p>
+</blockquote>
+<figure class="highlight python"><figcaption><span>&lt;project_name&gt;/&lt;app_name&gt;/views.py</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> django.shortcuts <span class="keyword">import</span> render</span><br><span class="line"><span class="keyword">from</span> django.http <span class="keyword">import</span> HttpResponse</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">index</span>(<span class="params">request</span>):</span><br><span class="line">    value = request.GET.get(<span class="string">&quot;key&quot;</span>, <span class="string">&quot;default&quot;</span>)</span><br><span class="line">    <span class="built_in">print</span>(value)</span><br><span class="line">    <span class="keyword">return</span> HttpResponse(<span class="string">&quot;hello word !&quot;</span>)</span><br></pre></td></tr></table></figure>
+
+<h4 id="RUSTful风格的传递参数方式"><a href="#RUSTful风格的传递参数方式" class="headerlink" title="RUSTful风格的传递参数方式"></a>RUSTful风格的传递参数方式</h4><p><a target="_blank" rel="noopener" href="http://127.0.0.1:8000/index/value">http://127.0.0.1:8000/index/value</a></p>
+<ul>
+<li>在子路由中定义接收请求参数的占位符<code>&lt;str:param&gt;</code>，其中<code>:</code>前部分表示数据类型，<code>:</code>后部分表示形参名</li>
+</ul>
+<blockquote>
+<p>支持的类型</p>
+<blockquote>
+<p><code>str</code>：字符串<br><code>int</code>：整型<br><code>slug</code>：任何类型都可获取<br><code>uuid</code>：形似xxx-xx-xx</p>
+</blockquote>
+</blockquote>
+<figure class="highlight python"><figcaption><span>&lt;project_name&gt;/&lt;app_name&gt;/urls.py</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> django.urls <span class="keyword">import</span> path</span><br><span class="line"><span class="keyword">from</span> .views <span class="keyword">import</span> index</span><br><span class="line"></span><br><span class="line">urlpatterns = [</span><br><span class="line">    path(<span class="string">&#x27;index/&lt;str:param&gt;&#x27;</span>, index),</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>通过形参传递给视图的函数</li>
+</ul>
+<figure class="highlight python"><figcaption><span>&lt;project_name&gt;/&lt;app_name&gt;/views.py</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> django.shortcuts <span class="keyword">import</span> render</span><br><span class="line"><span class="keyword">from</span> django.http <span class="keyword">import</span> HttpResponse</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">index</span>(<span class="params">request, param</span>):</span><br><span class="line">    <span class="built_in">print</span>(param)</span><br><span class="line">    <span class="keyword">return</span> HttpResponse(<span class="string">&quot;hello word !&quot;</span>)</span><br></pre></td></tr></table></figure>
+
+<h3 id="处理POST请求请求参数"><a href="#处理POST请求请求参数" class="headerlink" title="处理POST请求请求参数"></a>处理POST请求请求参数</h3><h4 id="关闭CSRFToken验证"><a href="#关闭CSRFToken验证" class="headerlink" title="关闭CSRFToken验证"></a>关闭CSRFToken验证</h4><ul>
+<li>将<code>django.middleware.csrf.CsrfViewMiddleware</code>中间件注释</li>
+</ul>
+<figure class="highlight python"><figcaption><span>&lt;project_name&gt;/&lt;project_name&gt;/setting.py</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">MIDDLEWARE = [</span><br><span class="line">    <span class="string">&#x27;django.middleware.security.SecurityMiddleware&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;django.contrib.sessions.middleware.SessionMiddleware&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;django.middleware.common.CommonMiddleware&#x27;</span>,</span><br><span class="line">    <span class="comment"># &#x27;django.middleware.csrf.CsrfViewMiddleware&#x27;,</span></span><br><span class="line">    <span class="string">&#x27;django.contrib.auth.middleware.AuthenticationMiddleware&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;django.contrib.messages.middleware.MessageMiddleware&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;django.middleware.clickjacking.XFrameOptionsMiddleware&#x27;</span>,</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
+
+<h4 id="Form表单传递参数方式"><a href="#Form表单传递参数方式" class="headerlink" title="Form表单传递参数方式"></a>Form表单传递参数方式</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">index</span>(<span class="params">request</span>):</span><br><span class="line">    <span class="keyword">if</span> request.method == <span class="string">&quot;POST&quot;</span>:</span><br><span class="line">        value = request.POST.getlist(<span class="string">&#x27;key&#x27;</span>)</span><br><span class="line">        </span><br><span class="line">        ...</span><br></pre></td></tr></table></figure>
+
+<h4 id="JSON传递参数方式"><a href="#JSON传递参数方式" class="headerlink" title="JSON传递参数方式"></a>JSON传递参数方式</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">index</span>(<span class="params">request</span>):</span><br><span class="line">    <span class="keyword">if</span> request.method == <span class="string">&quot;POST&quot;</span>:</span><br><span class="line">        json_param = json.loads(request.body.decode())</span><br><span class="line">        value = json_param.get(<span class="string">&quot;key&quot;</span>, <span class="string">&quot;default&quot;</span>)</span><br><span class="line">        </span><br><span class="line">        ...</span><br></pre></td></tr></table></figure>
+
+<h2 id="请求对象"><a href="#请求对象" class="headerlink" title="请求对象"></a>请求对象</h2><blockquote>
+<p>request对象</p>
+<blockquote>
+<p><code>request.GET</code>：处理GET请求提交的数据<br><code>request.POST</code>：处理POST请求提交的数据<br><code>request.path</code>：获取请求路径<br><code>request.method</code>：获取请求方式<br><code>request.COOKIES</code>：获取请求时携带的Cookie信息<br><code>request.user</code>：请求的用户对象，用来判断用户是否登录，并用来获取用户信息<br><code>request.session</code>：获取Session信息<br><code>request.META</code>：一个标准的Python字典，包含所有的HTTP首部</p>
+</blockquote>
+</blockquote>
+<h2 id="响应对象"><a href="#响应对象" class="headerlink" title="响应对象"></a>响应对象</h2><blockquote>
+<p>HttpResponse响应对象：直接返回字符串<br>render：将数据在模版中渲染并显示<br>JsonResponse：返回JSON格式的字符串</p>
+</blockquote>
+<h2 id="渲染模版"><a href="#渲染模版" class="headerlink" title="渲染模版"></a>渲染模版</h2><ul>
+<li>通过渲染模版，在HTML动态展现页面中的数据</li>
+</ul>
+<h3 id="创建templates目录"><a href="#创建templates目录" class="headerlink" title="创建templates目录"></a>创建templates目录</h3><ul>
+<li>在项目根目录创建<code>templates</code>目录，用于存放模版</li>
+<li>在templates目录下创建一个<code>index.html</code>文件</li>
+</ul>
+<figure class="highlight html"><figcaption><span>&lt;project_name&gt;/templates/index.html</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">&quot;en&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">&quot;UTF-8&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">title</span>&gt;</span>Title<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="修改全局配置-1"><a href="#修改全局配置-1" class="headerlink" title="修改全局配置"></a>修改全局配置</h3><ul>
+<li>在配置文件的<code>TEMPLATES[0].DIRS</code>列表添加配置</li>
+</ul>
+<figure class="highlight python"><figcaption><span>&lt;project_name&gt;/&lt;project_name&gt;/settings.py</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">TEMPLATES = [</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="string">&#x27;BACKEND&#x27;</span>: <span class="string">&#x27;django.template.backends.django.DjangoTemplates&#x27;</span>,</span><br><span class="line">        <span class="string">&#x27;DIRS&#x27;</span>: [os.path.join(BASE_DIR, <span class="string">&#x27;templates&#x27;</span>)],</span><br><span class="line">        <span class="string">&#x27;APP_DIRS&#x27;</span>: <span class="literal">True</span>,</span><br><span class="line">        <span class="string">&#x27;OPTIONS&#x27;</span>: &#123;</span><br><span class="line">            <span class="string">&#x27;context_processors&#x27;</span>: [</span><br><span class="line">                <span class="string">&#x27;django.template.context_processors.debug&#x27;</span>,</span><br><span class="line">                <span class="string">&#x27;django.template.context_processors.request&#x27;</span>,</span><br><span class="line">                <span class="string">&#x27;django.contrib.auth.context_processors.auth&#x27;</span>,</span><br><span class="line">                <span class="string">&#x27;django.contrib.messages.context_processors.messages&#x27;</span>,</span><br><span class="line">            ],</span><br><span class="line">        &#125;,</span><br><span class="line">    &#125;,</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
+
+<h3 id="在子应用视图层渲染HTML文件"><a href="#在子应用视图层渲染HTML文件" class="headerlink" title="在子应用视图层渲染HTML文件"></a>在子应用视图层渲染HTML文件</h3><h4 id="不传递数据给页面"><a href="#不传递数据给页面" class="headerlink" title="不传递数据给页面"></a>不传递数据给页面</h4><figure class="highlight python"><figcaption><span>&lt;project_name&gt;/&lt;app_name&gt;/views.py</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> django.shortcuts <span class="keyword">import</span> render</span><br><span class="line"><span class="keyword">from</span> django.views.generic <span class="keyword">import</span> View</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Index</span>(<span class="title class_ inherited__">View</span>):</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">get</span>(<span class="params">self, request</span>):</span><br><span class="line">        <span class="keyword">return</span> render(request, <span class="string">&#x27;index.html&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
+<h4 id="传递数据给页面"><a href="#传递数据给页面" class="headerlink" title="传递数据给页面"></a>传递数据给页面</h4><blockquote>
+<p><code>&#123;&#39;key&#39;: &#39;value&#39;&#125;</code>：通过字典的形式传递给页面</p>
+</blockquote>
+<figure class="highlight python"><figcaption><span>&lt;project_name&gt;/&lt;app_name&gt;/views.py</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> django.shortcuts <span class="keyword">import</span> render</span><br><span class="line"><span class="keyword">from</span> django.views.generic <span class="keyword">import</span> View</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Index</span>(<span class="title class_ inherited__">View</span>):</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">get</span>(<span class="params">self, request</span>):</span><br><span class="line">        <span class="keyword">return</span> render(request, <span class="string">&#x27;index.html&#x27;</span>, &#123;<span class="string">&#x27;key&#x27;</span>: <span class="string">&#x27;value&#x27;</span>&#125;)</span><br></pre></td></tr></table></figure>
+
+<h5 id="页面中使用传递的数据"><a href="#页面中使用传递的数据" class="headerlink" title="页面中使用传递的数据"></a>页面中使用传递的数据</h5><ul>
+<li>通过<code>&#123;&#123;&#125;&#125;</code>使用传递的数据</li>
+</ul>
+<figure class="highlight html"><figcaption><span>&lt;project_name&gt;/templates/index.html</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">&quot;en&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">&quot;UTF-8&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">title</span>&gt;</span>Title<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">h1</span>&gt;</span>Hello &#123;&#123; key &#125;&#125;<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="在子应用中创建一个路由-2"><a href="#在子应用中创建一个路由-2" class="headerlink" title="在子应用中创建一个路由"></a>在子应用中创建一个路由</h3><blockquote>
+<p><code>index</code>：视图层定义的函数名</p>
+</blockquote>
+<figure class="highlight python"><figcaption><span>&lt;project_name&gt;/&lt;app_name&gt;/urls.py</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> django.urls <span class="keyword">import</span> path</span><br><span class="line"><span class="keyword">from</span> .views <span class="keyword">import</span> Index</span><br><span class="line"></span><br><span class="line">urlpatterns = [</span><br><span class="line">    path(<span class="string">&#x27;&#x27;</span>, Index.as_view()),</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
+
+<h3 id="将子路由绑定到跟路由-2"><a href="#将子路由绑定到跟路由-2" class="headerlink" title="将子路由绑定到跟路由"></a>将子路由绑定到跟路由</h3><ul>
+<li>引入<code>include</code>模块</li>
+<li>通过<code>include()</code>引入子路由</li>
+</ul>
+<figure class="highlight python"><figcaption><span>&lt;project_name&gt;/&lt;project_name&gt;/urls.py</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> django.contrib <span class="keyword">import</span> admin</span><br><span class="line"><span class="keyword">from</span> django.urls <span class="keyword">import</span> path, include</span><br><span class="line"></span><br><span class="line">urlpatterns = [</span><br><span class="line">    path(<span class="string">&#x27;admin/&#x27;</span>, admin.site.urls),</span><br><span class="line">    path(<span class="string">&#x27;&#x27;</span>, include(<span class="string">&#x27;&lt;app_name&gt;.urls&#x27;</span>)),</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
+
+<h2 id="静态文件"><a href="#静态文件" class="headerlink" title="静态文件"></a>静态文件</h2><h3 id="创建static目录"><a href="#创建static目录" class="headerlink" title="创建static目录"></a>创建static目录</h3><ul>
+<li>在项目根目录创建<code>static</code>目录用于存放静态文件</li>
+</ul>
+<h3 id="修改全局配置-2"><a href="#修改全局配置-2" class="headerlink" title="修改全局配置"></a>修改全局配置</h3><ul>
+<li>在全局配置文件末尾添加<code>STATICFILES_DIRS</code>配置</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">STATICFILES_DIRS = [</span><br><span class="line">    os.path.join(BASE_DIR, <span class="string">&#x27;static&#x27;</span>)</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
+
+<h3 id="使用静态文件"><a href="#使用静态文件" class="headerlink" title="使用静态文件"></a>使用静态文件</h3><p><a href="/2022/12/24/Django%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/#%E5%8A%A0%E8%BD%BD%E9%9D%99%E6%80%81%E6%96%87%E4%BB%B6">传送门</a></p>
+<h2 id="模版中的内置标签"><a href="#模版中的内置标签" class="headerlink" title="模版中的内置标签"></a>模版中的内置标签</h2><h3 id="获取传递过来的数据"><a href="#获取传递过来的数据" class="headerlink" title="获取传递过来的数据"></a>获取传递过来的数据</h3><ul>
+<li>将传递过来的字典中的数据展现在页面上</li>
+</ul>
+<blockquote>
+<p><code>key</code>：根据字典的键，获取对应的值</p>
+</blockquote>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;&#123; key &#125;&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="分支语句"><a href="#分支语句" class="headerlink" title="分支语句"></a>分支语句</h3><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&#123;% if 条件 %&#125;</span><br><span class="line"></span><br><span class="line">&#123;% elif 条件 %&#125;</span><br><span class="line"></span><br><span class="line">&#123;% endif %&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="循环语句"><a href="#循环语句" class="headerlink" title="循环语句"></a>循环语句</h3><h4 id="遍历数据"><a href="#遍历数据" class="headerlink" title="遍历数据"></a>遍历数据</h4><ul>
+<li>如果在字典中传递了一个列表，可以通过<code>for...in</code>进行循环遍历</li>
+</ul>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&#123;% for item in 可遍历数据 %&#125;</span><br><span class="line"></span><br><span class="line">&#123;&#123; item &#125;&#125;</span><br><span class="line"></span><br><span class="line">&#123;% endfor %&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="遍历索引值"><a href="#遍历索引值" class="headerlink" title="遍历索引值"></a>遍历索引值</h4><h5 id="从0开始"><a href="#从0开始" class="headerlink" title="从0开始"></a>从0开始</h5><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&#123;% for item in 可遍历数据 %&#125;</span><br><span class="line"></span><br><span class="line">&#123;&#123; forloop.counter0 &#125;&#125;</span><br><span class="line"></span><br><span class="line">&#123;% endfor %&#125;</span><br></pre></td></tr></table></figure>
+
+<h5 id="从1开始"><a href="#从1开始" class="headerlink" title="从1开始"></a>从1开始</h5><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&#123;% for item in 可遍历数据 %&#125;</span><br><span class="line"></span><br><span class="line">&#123;&#123; forloop.counter &#125;&#125;</span><br><span class="line"></span><br><span class="line">&#123;% endfor %&#125;</span><br></pre></td></tr></table></figure>
+
+<h5 id="从结尾开始直到0"><a href="#从结尾开始直到0" class="headerlink" title="从结尾开始直到0"></a>从结尾开始直到0</h5><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&#123;% for item in 可遍历数据 %&#125;</span><br><span class="line"></span><br><span class="line">&#123;&#123; forloop.revcounter0 &#125;&#125;</span><br><span class="line"></span><br><span class="line">&#123;% endfor %&#125;</span><br></pre></td></tr></table></figure>
+
+<h5 id="从结尾开始直到1"><a href="#从结尾开始直到1" class="headerlink" title="从结尾开始直到1"></a>从结尾开始直到1</h5><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&#123;% for item in 可遍历数据 %&#125;</span><br><span class="line"></span><br><span class="line">&#123;&#123; forloop.revcounter &#125;&#125;</span><br><span class="line"></span><br><span class="line">&#123;% endfor %&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="判断数据"><a href="#判断数据" class="headerlink" title="判断数据"></a>判断数据</h4><h5 id="是否是第一个值"><a href="#是否是第一个值" class="headerlink" title="是否是第一个值"></a>是否是第一个值</h5><ul>
+<li>通过<code>forloop.first</code>判断是否是第一个值</li>
+</ul>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&#123;% for item in 可遍历数据 %&#125;</span><br><span class="line"></span><br><span class="line">&#123;% if forloop.first %&#125;</span><br><span class="line"></span><br><span class="line">&#123;% endif %&#125;</span><br><span class="line"></span><br><span class="line">&#123;% endfor %&#125;</span><br></pre></td></tr></table></figure>
+
+<h5 id="是否是最后一个值"><a href="#是否是最后一个值" class="headerlink" title="是否是最后一个值"></a>是否是最后一个值</h5><ul>
+<li>通过<code>forloop.last</code>判断是否是最后一个值</li>
+</ul>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&#123;% for item in 可遍历数据 %&#125;</span><br><span class="line"></span><br><span class="line">&#123;% if forloop.last %&#125;</span><br><span class="line"></span><br><span class="line">&#123;% endif %&#125;</span><br><span class="line"></span><br><span class="line">&#123;% endfor %&#125;</span><br></pre></td></tr></table></figure>
+
+<h5 id="是否是空列表"><a href="#是否是空列表" class="headerlink" title="是否是空列表"></a>是否是空列表</h5><ul>
+<li>通常将<code>&#123;% empty %&#125;</code>语句放在循环语句末尾，如果遍历的是一个空列表，那么在<code>&#123;% empty %&#125;</code>后的语句将会被执行</li>
+</ul>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&#123;% for item in 可遍历数据 %&#125;</span><br><span class="line"></span><br><span class="line">&#123;% empty %&#125;</span><br><span class="line"></span><br><span class="line">当前列表为空</span><br><span class="line"></span><br><span class="line">&#123;% endfor %&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="加载静态文件"><a href="#加载静态文件" class="headerlink" title="加载静态文件"></a>加载静态文件</h3><ul>
+<li>在模版头部加载Django的标签库<code>staticfiles</code></li>
+</ul>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;% load staticfiles %&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>在模版中获取静态资源的路径</li>
+</ul>
+<blockquote>
+<p><code>img/picture.jpg</code>：静态资源在<code>static</code>目录下的相对路径</p>
+</blockquote>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">&quot;&#123;% static &#x27;img/picture.jpg&#x27; %&#125;&quot;</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="继承和重写"><a href="#继承和重写" class="headerlink" title="继承和重写"></a>继承和重写</h3><h4 id="子模版继承父模版"><a href="#子模版继承父模版" class="headerlink" title="子模版继承父模版"></a>子模版继承父模版</h4><blockquote>
+<p><code>&lt;father&gt;</code>：父模版</p>
+</blockquote>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;% extends <span class="tag">&lt;<span class="name">father</span>&gt;</span> %&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="子模版重写父模版"><a href="#子模版重写父模版" class="headerlink" title="子模版重写父模版"></a>子模版重写父模版</h4><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&#123;% block data %&#125;</span><br><span class="line">&#123;% endblock %&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="跨域密钥"><a href="#跨域密钥" class="headerlink" title="跨域密钥"></a>跨域密钥</h3><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;% csrt_token %&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="模版中的过滤器"><a href="#模版中的过滤器" class="headerlink" title="模版中的过滤器"></a>模版中的过滤器</h2><h3 id="过滤器的基本语法"><a href="#过滤器的基本语法" class="headerlink" title="过滤器的基本语法"></a>过滤器的基本语法</h3><ul>
+<li>将传递到模版的数据通过计算后再展现在页面上</li>
+<li>竖线左右不能包含空格</li>
+</ul>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;&#123; 变量名|过滤器:参数 &#125;&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="内置过滤器"><a href="#内置过滤器" class="headerlink" title="内置过滤器"></a>内置过滤器</h3><h4 id="加"><a href="#加" class="headerlink" title="加"></a>加</h4><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;&#123; 变量名|add:数值 &#125;&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="日期格式化"><a href="#日期格式化" class="headerlink" title="日期格式化"></a>日期格式化</h4><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;&#123; 变量名|date:&quot;Y-m-d H:i:s&quot; &#125;&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="去除字符串中的所有指定字符"><a href="#去除字符串中的所有指定字符" class="headerlink" title="去除字符串中的所有指定字符"></a>去除字符串中的所有指定字符</h4><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;&#123; 变量名|cut:&quot;字符&quot; &#125;&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="首字母大写"><a href="#首字母大写" class="headerlink" title="首字母大写"></a>首字母大写</h4><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;&#123; 变量名|capfirst &#125;&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="判断值是否存在"><a href="#判断值是否存在" class="headerlink" title="判断值是否存在"></a>判断值是否存在</h4><ul>
+<li>如果存在或为True，则显示原本值</li>
+<li>如果不存在或为False，则显示默认值</li>
+</ul>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;&#123; 变量名|default:&quot;默认值&quot; &#125;&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="判断值是否为None"><a href="#判断值是否为None" class="headerlink" title="判断值是否为None"></a>判断值是否为None</h4><ul>
+<li>如果不为None，则显示原本值</li>
+<li>如果为None，则显示默认值</li>
+</ul>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;&#123; 变量名|default_if_none:&quot;默认值&quot; &#125;&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="列表排序"><a href="#列表排序" class="headerlink" title="列表排序"></a>列表排序</h4><ul>
+<li>如果传递的值是一个包含多个字典的列表，可以将列表根据字典的指定属性的值排序</li>
+</ul>
+<h5 id="正序"><a href="#正序" class="headerlink" title="正序"></a>正序</h5><ul>
+<li>缺省值，从小到大</li>
+</ul>
+<p><code>[&#123;key1: value1, key2: value2&#125;, &#123;key1: value1, key2: value2&#125;]</code></p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;&#123; 变量名|dictsort:&quot;key1&quot; &#125;&#125;</span><br></pre></td></tr></table></figure>
+
+<h5 id="倒序"><a href="#倒序" class="headerlink" title="倒序"></a>倒序</h5><ul>
+<li>从大到小</li>
+</ul>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;&#123; 变量名|dictsortreversed:&quot;key1&quot; &#125;&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="获取列表中的第一个值"><a href="#获取列表中的第一个值" class="headerlink" title="获取列表中的第一个值"></a>获取列表中的第一个值</h4><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;&#123; 变量名|first &#125;&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="获取列表中的最后一个值"><a href="#获取列表中的最后一个值" class="headerlink" title="获取列表中的最后一个值"></a>获取列表中的最后一个值</h4><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;&#123; 变量名|last &#125;&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="保留2位小数"><a href="#保留2位小数" class="headerlink" title="保留2位小数"></a>保留2位小数</h4><ul>
+<li>如果传递的值是浮点数，可以保留指定位的小数</li>
+</ul>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;&#123; 变量名|floatformat:2 &#125;&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="将列表用指定字符拼接"><a href="#将列表用指定字符拼接" class="headerlink" title="将列表用指定字符拼接"></a>将列表用指定字符拼接</h4><ul>
+<li>将指定字符作为列表元素之间的分隔符</li>
+</ul>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;&#123; 变量名|join:&quot;字符&quot; &#125;&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="获取值的长度"><a href="#获取值的长度" class="headerlink" title="获取值的长度"></a>获取值的长度</h4><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;&#123; 变量名|length &#125;&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="判断值的长度"><a href="#判断值的长度" class="headerlink" title="判断值的长度"></a>判断值的长度</h4><ul>
+<li>如果值的长度等于指定数字，则为True</li>
+<li>如果值的长度不等于指定数字，则为False</li>
+</ul>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;&#123; 变量名|length_is:数字 &#125;&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="判断是否可以被整除"><a href="#判断是否可以被整除" class="headerlink" title="判断是否可以被整除"></a>判断是否可以被整除</h4><ul>
+<li>将获取的值与指定数字整除<ul>
+<li>如果能整除则为True</li>
+<li>如果不能整除则为False</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;&#123; 变量名|divisibleby:数字 &#125;&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="将值作为前端代码解析"><a href="#将值作为前端代码解析" class="headerlink" title="将值作为前端代码解析"></a>将值作为前端代码解析</h4><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;&#123; 变量名|safe &#125;&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="随机返回列表中的一个元素"><a href="#随机返回列表中的一个元素" class="headerlink" title="随机返回列表中的一个元素"></a>随机返回列表中的一个元素</h4><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;&#123; 变量名|random &#125;&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="字符串切片"><a href="#字符串切片" class="headerlink" title="字符串切片"></a>字符串切片</h4><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;&#123; 变量名|slice:&quot;0:1&quot; &#125;&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="分隔单词"><a href="#分隔单词" class="headerlink" title="分隔单词"></a>分隔单词</h4><ul>
+<li>将字符串中所有的符号删除，将单词与单词之间用<code>-</code>分隔</li>
+</ul>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;&#123; 变量名|slugify &#125;&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="单词全部大写"><a href="#单词全部大写" class="headerlink" title="单词全部大写"></a>单词全部大写</h4><ul>
+<li>将字符串中的所有字母全部大写</li>
+</ul>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;&#123; 变量名|upper &#125;&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="将链接自动变成超链接"><a href="#将链接自动变成超链接" class="headerlink" title="将链接自动变成超链接"></a>将链接自动变成超链接</h4><ul>
+<li>如果一个字符串中包含URL，则URL自动转换成可点击的超链接</li>
+</ul>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;&#123; 变量名|urlize &#125;&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="单词计数"><a href="#单词计数" class="headerlink" title="单词计数"></a>单词计数</h4><ul>
+<li>获取字符串中单词的个数</li>
+</ul>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;&#123; 变量名|wordcount &#125;&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="计算时间差"><a href="#计算时间差" class="headerlink" title="计算时间差"></a>计算时间差</h4><ul>
+<li>传递一个未来时间作为值，获取未来时间与当前时间的时间差</li>
+</ul>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;&#123; 变量名|tileuntil &#125;&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="自定义过滤器"><a href="#自定义过滤器" class="headerlink" title="自定义过滤器"></a>自定义过滤器</h3><h4 id="创建自定义过滤器"><a href="#创建自定义过滤器" class="headerlink" title="创建自定义过滤器"></a>创建自定义过滤器</h4><ul>
+<li>在当前子应用下创建一个Python的包，包名为<code>templatetags</code>，在包内创建Python文件作为自定义的过滤器，文件名自定义</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">+ &lt;project_name&gt;</span><br><span class="line">  + &lt;app_name&gt;</span><br><span class="line">    + templatetags</span><br><span class="line">      - __init__.py</span><br><span class="line">      - 自定义过滤器名.py</span><br></pre></td></tr></table></figure>
+
+<p><em>&lt;project_name&gt;&#x2F;&lt;app_name&gt;&#x2F;templatetags&#x2F;自定义过滤器名.py</em></p>
+<blockquote>
+<p><code>value</code>：传递到模版的值<br><code>args</code>：参数</p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> django <span class="keyword">import</span> template</span><br><span class="line"></span><br><span class="line">register = template.Library()</span><br><span class="line"></span><br><span class="line"><span class="meta">@register.filter</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">test_filter</span>(<span class="params">value, args</span>):</span><br><span class="line">    <span class="comment"># 根据业务，定义返回值</span></span><br><span class="line">    <span class="keyword">return</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="使用自定义过滤器"><a href="#使用自定义过滤器" class="headerlink" title="使用自定义过滤器"></a>使用自定义过滤器</h4><ul>
+<li>在模版头部加载自定义过滤器</li>
+</ul>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;% load 自定义过滤器名 %&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>在模版中使用自定义过滤器</li>
+</ul>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;&#123; 变量名|自定义过滤器名:参数 &#125;&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="第三方模版"><a href="#第三方模版" class="headerlink" title="第三方模版"></a>第三方模版</h2><h3 id="JinJa2"><a href="#JinJa2" class="headerlink" title="JinJa2"></a>JinJa2</h3><h4 id="下载依赖"><a href="#下载依赖" class="headerlink" title="下载依赖"></a>下载依赖</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install jinja2</span><br></pre></td></tr></table></figure>
+
+<h4 id="创建配置文件"><a href="#创建配置文件" class="headerlink" title="创建配置文件"></a>创建配置文件</h4><ul>
+<li>在当前子应用下创建一个Python文件作为jinja2的配置，文件名为<code>base_jinja2.py</code></li>
+</ul>
+<figure class="highlight python"><figcaption><span>&lt;project_name&gt;/&lt;app_name&gt;/base_jinja2.py</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> jinja2 <span class="keyword">import</span> Environment</span><br><span class="line"><span class="keyword">from</span> django.contrib.staticfiles.storage <span class="keyword">import</span> staticfiles_storage</span><br><span class="line"><span class="keyword">from</span> django.urls <span class="keyword">import</span> reverse</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">environment</span>(<span class="params">**options</span>):</span><br><span class="line">  env = Environment(**options)</span><br><span class="line">  env.<span class="built_in">globals</span>.update(&#123;</span><br><span class="line">    <span class="string">&#x27;static&#x27;</span>: staticfiles_storage.url,</span><br><span class="line">    <span class="string">&#x27;url&#x27;</span>: reverse</span><br><span class="line">  &#125;)</span><br><span class="line">  <span class="keyword">return</span> env</span><br></pre></td></tr></table></figure>
+
+<h4 id="修改全局配置-3"><a href="#修改全局配置-3" class="headerlink" title="修改全局配置"></a>修改全局配置</h4><ul>
+<li>全局配置中默认的过滤器<code>BACKEND</code>是内置过滤器，需要添加JinJa2的过滤器<ul>
+<li>在<code>TEMPLATES</code>数组中添加一个过滤器配置</li>
+<li>将<code>BACKEND</code>设置为<code>django.template.backends.jinja2.Jinja2</code></li>
+<li>将<code>OPTIONS</code>添加<code>environment</code>配置</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight python"><figcaption><span>&lt;project_name&gt;/&lt;project_name&gt;/settings.py</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">TEMPLATES = [</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="string">&#x27;BACKEND&#x27;</span>: <span class="string">&#x27;django.template.backends.jinja2.Jinja2&#x27;</span>,</span><br><span class="line">        <span class="string">&#x27;DIRS&#x27;</span>: [os.path.join(BASE_DIR, <span class="string">&#x27;templates&#x27;</span>)],</span><br><span class="line">        <span class="string">&#x27;APP_DIRS&#x27;</span>: <span class="literal">True</span>,</span><br><span class="line">        <span class="string">&#x27;OPTIONS&#x27;</span>: &#123;</span><br><span class="line">            <span class="string">&#x27;context_processors&#x27;</span>: [</span><br><span class="line">                <span class="string">&#x27;django.template.context_processors.debug&#x27;</span>,</span><br><span class="line">                <span class="string">&#x27;django.template.context_processors.request&#x27;</span>,</span><br><span class="line">                <span class="string">&#x27;django.contrib.auth.context_processors.auth&#x27;</span>,</span><br><span class="line">                <span class="string">&#x27;django.contrib.messages.context_processors.messages&#x27;</span>,</span><br><span class="line">            ],</span><br><span class="line">            <span class="string">&#x27;environment&#x27;</span>: <span class="string">&#x27;index.base_jinja2.environment&#x27;</span>,</span><br><span class="line">        &#125;,</span><br><span class="line">    &#125;,</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="string">&#x27;BACKEND&#x27;</span>: <span class="string">&#x27;django.template.backends.django.DjangoTemplates&#x27;</span>,</span><br><span class="line">        <span class="string">&#x27;DIRS&#x27;</span>: [os.path.join(BASE_DIR, <span class="string">&#x27;templates&#x27;</span>)],</span><br><span class="line">        <span class="string">&#x27;APP_DIRS&#x27;</span>: <span class="literal">True</span>,</span><br><span class="line">        <span class="string">&#x27;OPTIONS&#x27;</span>: &#123;</span><br><span class="line">            <span class="string">&#x27;context_processors&#x27;</span>: [</span><br><span class="line">                <span class="string">&#x27;django.template.context_processors.debug&#x27;</span>,</span><br><span class="line">                <span class="string">&#x27;django.template.context_processors.request&#x27;</span>,</span><br><span class="line">                <span class="string">&#x27;django.contrib.auth.context_processors.auth&#x27;</span>,</span><br><span class="line">                <span class="string">&#x27;django.contrib.messages.context_processors.messages&#x27;</span>,</span><br><span class="line">            ],</span><br><span class="line">        &#125;,</span><br><span class="line">    &#125;,</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
+
+<h4 id="在子应用视图层渲染HTML文件-1"><a href="#在子应用视图层渲染HTML文件-1" class="headerlink" title="在子应用视图层渲染HTML文件"></a>在子应用视图层渲染HTML文件</h4><h5 id="不传递数据给页面-1"><a href="#不传递数据给页面-1" class="headerlink" title="不传递数据给页面"></a>不传递数据给页面</h5><figure class="highlight python"><figcaption><span>&lt;project_name&gt;/&lt;app_name&gt;/views.py</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> django.shortcuts <span class="keyword">import</span> render</span><br><span class="line"><span class="keyword">from</span> django.views.generic <span class="keyword">import</span> View</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Index</span>(<span class="title class_ inherited__">View</span>):</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">get</span>(<span class="params">self, request</span>):</span><br><span class="line">        <span class="keyword">return</span> render(request, <span class="string">&#x27;index.html&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
+<h5 id="传递数据给页面-1"><a href="#传递数据给页面-1" class="headerlink" title="传递数据给页面"></a>传递数据给页面</h5><blockquote>
+<p><code>&#123;&#39;key&#39;: &#39;value&#39;&#125;</code>：通过字典的形式传递给页面</p>
+</blockquote>
+<figure class="highlight python"><figcaption><span>&lt;project_name&gt;/&lt;app_name&gt;/views.py</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> django.shortcuts <span class="keyword">import</span> render</span><br><span class="line"><span class="keyword">from</span> django.views.generic <span class="keyword">import</span> View</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Index</span>(<span class="title class_ inherited__">View</span>):</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">get</span>(<span class="params">self, request</span>):</span><br><span class="line">        <span class="keyword">return</span> render(request, <span class="string">&#x27;index.html&#x27;</span>, &#123;<span class="string">&#x27;key&#x27;</span>: <span class="string">&#x27;value&#x27;</span>&#125;)</span><br></pre></td></tr></table></figure>
+
+<h6 id="页面中使用传递的数据-1"><a href="#页面中使用传递的数据-1" class="headerlink" title="页面中使用传递的数据"></a>页面中使用传递的数据</h6><ul>
+<li>通过<code>&#123;&#123;&#125;&#125;</code>使用传递的数据</li>
+</ul>
+<figure class="highlight html"><figcaption><span>&lt;project_name&gt;/templates/index.html</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">&quot;en&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">&quot;UTF-8&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">title</span>&gt;</span>Title<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">h1</span>&gt;</span>Hello &#123;&#123; key &#125;&#125;<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="在子应用中创建一个路由-3"><a href="#在子应用中创建一个路由-3" class="headerlink" title="在子应用中创建一个路由"></a>在子应用中创建一个路由</h4><blockquote>
+<p><code>index</code>：视图层定义的函数名</p>
+</blockquote>
+<figure class="highlight python"><figcaption><span>&lt;project_name&gt;/&lt;app_name&gt;/urls.py</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> django.urls <span class="keyword">import</span> path</span><br><span class="line"><span class="keyword">from</span> .views <span class="keyword">import</span> Index</span><br><span class="line"></span><br><span class="line">urlpatterns = [</span><br><span class="line">    path(<span class="string">&#x27;&#x27;</span>, Index.as_view()),</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
+
+<h4 id="将子路由绑定到跟路由-3"><a href="#将子路由绑定到跟路由-3" class="headerlink" title="将子路由绑定到跟路由"></a>将子路由绑定到跟路由</h4><ul>
+<li>引入<code>include</code>模块</li>
+<li>通过<code>include()</code>引入子路由</li>
+</ul>
+<figure class="highlight python"><figcaption><span>&lt;project_name&gt;/&lt;project_name&gt;/urls.py</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> django.contrib <span class="keyword">import</span> admin</span><br><span class="line"><span class="keyword">from</span> django.urls <span class="keyword">import</span> path, include</span><br><span class="line"></span><br><span class="line">urlpatterns = [</span><br><span class="line">    path(<span class="string">&#x27;admin/&#x27;</span>, admin.site.urls),</span><br><span class="line">    path(<span class="string">&#x27;&#x27;</span>, include(<span class="string">&#x27;&lt;app_name&gt;.urls&#x27;</span>)),</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
+
+<h4 id="过滤器"><a href="#过滤器" class="headerlink" title="过滤器"></a>过滤器</h4><h5 id="过滤器的基本语法-1"><a href="#过滤器的基本语法-1" class="headerlink" title="过滤器的基本语法"></a>过滤器的基本语法</h5><ul>
+<li>JinJa2过滤器语法与内置过滤器语法不同</li>
+</ul>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;&#123; 变量名|过滤器(参数) &#125;&#125;</span><br></pre></td></tr></table></figure>
+
+<h5 id="JinJa2内置过滤器"><a href="#JinJa2内置过滤器" class="headerlink" title="JinJa2内置过滤器"></a>JinJa2内置过滤器</h5><h6 id="首字母大写-1"><a href="#首字母大写-1" class="headerlink" title="首字母大写"></a>首字母大写</h6><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;&#123; 变量名|title &#125;&#125;</span><br></pre></td></tr></table></figure>
+
+<h5 id="自定义过滤器-1"><a href="#自定义过滤器-1" class="headerlink" title="自定义过滤器"></a>自定义过滤器</h5><h6 id="创建自定义过滤器-1"><a href="#创建自定义过滤器-1" class="headerlink" title="创建自定义过滤器"></a>创建自定义过滤器</h6><ul>
+<li>直接在子应用根目录下创建一个Python文件作为自定义过滤器，文件名自定义</li>
+</ul>
+<figure class="highlight python"><figcaption><span>&lt;project_name&gt;/&lt;app_name&gt;/自定义过滤器名.py</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">自定义过滤器函数名</span>(<span class="params">value, args</span>):</span><br><span class="line">    <span class="comment"># 根据业务，定义返回值</span></span><br><span class="line">    <span class="keyword">return</span></span><br></pre></td></tr></table></figure>
+
+<h6 id="在jinja2配置文件中添加配置"><a href="#在jinja2配置文件中添加配置" class="headerlink" title="在jinja2配置文件中添加配置"></a>在jinja2配置文件中添加配置</h6><figure class="highlight python"><figcaption><span>&lt;project_name&gt;/&lt;app_name&gt;/base_jinja2.py</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> jinja2 <span class="keyword">import</span> Environment</span><br><span class="line"><span class="keyword">from</span> django.contrib.staticfiles.storage <span class="keyword">import</span> staticfiles_storage</span><br><span class="line"><span class="keyword">from</span> django.urls <span class="keyword">import</span> reverse</span><br><span class="line"><span class="comment"># 引入自定义过滤器</span></span><br><span class="line"><span class="keyword">from</span> .自定义过滤器名 <span class="keyword">import</span> 自定义过滤器函数名</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">environment</span>(<span class="params">**options</span>):</span><br><span class="line">  env = Environment(**options)</span><br><span class="line">  env.<span class="built_in">globals</span>.update(&#123;</span><br><span class="line">    <span class="string">&#x27;static&#x27;</span>: staticfiles_storage.url,</span><br><span class="line">    <span class="string">&#x27;url&#x27;</span>: reverse</span><br><span class="line">  &#125;)</span><br><span class="line">  <span class="comment"># 添加自定义过滤器的配置</span></span><br><span class="line">  env.filters[<span class="string">&#x27;自定义过滤器名&#x27;</span>] = 自定义过滤器函数名</span><br><span class="line">  <span class="keyword">return</span> env</span><br></pre></td></tr></table></figure>
+
+<h6 id="使用自定义过滤器-1"><a href="#使用自定义过滤器-1" class="headerlink" title="使用自定义过滤器"></a>使用自定义过滤器</h6><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;&#123; 变量名|自定义过滤器名(参数) &#125;&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="静态文件-1"><a href="#静态文件-1" class="headerlink" title="静态文件"></a>静态文件</h4><h5 id="创建static目录-1"><a href="#创建static目录-1" class="headerlink" title="创建static目录"></a>创建static目录</h5><ul>
+<li>在项目根目录创建<code>static</code>目录用于存放静态文件</li>
+</ul>
+<h5 id="使用静态文件-1"><a href="#使用静态文件-1" class="headerlink" title="使用静态文件"></a>使用静态文件</h5><ul>
+<li>当使用JinJa2作为第三方模版后，在模版内可以直接使用<code>&lt;project_name&gt;/static</code>目录下的静态文件</li>
+</ul>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">&quot;img/picture.jpg&quot;</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="mako"><a href="#mako" class="headerlink" title="mako"></a>mako</h3><h4 id="下载依赖-1"><a href="#下载依赖-1" class="headerlink" title="下载依赖"></a>下载依赖</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install mako</span><br></pre></td></tr></table></figure>
+
+<h4 id="创建配置文件-1"><a href="#创建配置文件-1" class="headerlink" title="创建配置文件"></a>创建配置文件</h4><ul>
+<li>在当前子应用下创建一个Python文件作为mako的配置，文件名为<code>base_render.py</code></li>
+</ul>
+<figure class="highlight python"><figcaption><span>&lt;project_name&gt;/&lt;app_name&gt;/base_render.py</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> mako.lookup <span class="keyword">import</span> TemplateLookup</span><br><span class="line"><span class="keyword">from</span> django.conf <span class="keyword">import</span> settings</span><br><span class="line"><span class="keyword">from</span> django.http <span class="keyword">import</span> HttpResponse</span><br><span class="line"><span class="keyword">from</span> django.template <span class="keyword">import</span> RequestContext</span><br><span class="line"><span class="keyword">from</span> django.template.context <span class="keyword">import</span> Context</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">render_to_response</span>(<span class="params">request, template, data=<span class="literal">None</span></span>):</span><br><span class="line">    context_instance = RequestContext(request)</span><br><span class="line">    path = settings.TEMPLATES[<span class="number">0</span>][<span class="string">&#x27;DIRS&#x27;</span>][<span class="number">0</span>]</span><br><span class="line">    lookup = TemplateLookup(</span><br><span class="line">        directories=[path],</span><br><span class="line">        input_encoding=<span class="string">&#x27;utf-8&#x27;</span>,</span><br><span class="line">        output_encoding=<span class="string">&#x27;utf-8&#x27;</span>,</span><br><span class="line">    )</span><br><span class="line">    mako_template = lookup.get_template(template)</span><br><span class="line">    <span class="keyword">if</span> <span class="keyword">not</span> data:</span><br><span class="line">        data = &#123;&#125;</span><br><span class="line">    <span class="keyword">if</span> context_instance:</span><br><span class="line">        context_instance.update(data)</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        context_instance = Context(data)</span><br><span class="line">    result = &#123;&#125;</span><br><span class="line">    <span class="keyword">for</span> item <span class="keyword">in</span> context_instance:</span><br><span class="line">        result.update(item)</span><br><span class="line">    result[<span class="string">&#x27;csrf_token&#x27;</span>] = <span class="string">&#x27;&lt;input type=&quot;hidden&quot; name=&quot;csrfmiddlewaretoken&quot; value=&quot;&#123;&#125;&quot; /&gt;&#x27;</span>.<span class="built_in">format</span>(request.META.get(<span class="string">&#x27;CSRF_COOKIE&#x27;</span>, <span class="string">&#x27;&#x27;</span>))</span><br><span class="line">    <span class="keyword">return</span> HttpResponse(mako_template.render(**result))</span><br></pre></td></tr></table></figure>
+
+<h4 id="在子应用视图层渲染HTML文件-2"><a href="#在子应用视图层渲染HTML文件-2" class="headerlink" title="在子应用视图层渲染HTML文件"></a>在子应用视图层渲染HTML文件</h4><h5 id="不传递数据给页面-2"><a href="#不传递数据给页面-2" class="headerlink" title="不传递数据给页面"></a>不传递数据给页面</h5><figure class="highlight python"><figcaption><span>&lt;project_name&gt;/&lt;app_name&gt;/views.py</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> .base_render <span class="keyword">import</span> render_to_response</span><br><span class="line"><span class="keyword">from</span> django.views.generic <span class="keyword">import</span> View</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Index</span>(<span class="title class_ inherited__">View</span>):</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">get</span>(<span class="params">self, request</span>):</span><br><span class="line">        <span class="keyword">return</span> render_to_response(request, <span class="string">&#x27;index.html&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
+<h5 id="传递数据给页面-2"><a href="#传递数据给页面-2" class="headerlink" title="传递数据给页面"></a>传递数据给页面</h5><blockquote>
+<p><code>&#123;&#39;key&#39;: &#39;value&#39;&#125;</code>：通过字典的形式传递给页面</p>
+</blockquote>
+<figure class="highlight python"><figcaption><span>&lt;project_name&gt;/&lt;app_name&gt;/views.py</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> .base_render <span class="keyword">import</span> render_to_response</span><br><span class="line"><span class="keyword">from</span> django.views.generic <span class="keyword">import</span> View</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Index</span>(<span class="title class_ inherited__">View</span>):</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">get</span>(<span class="params">self, request</span>):</span><br><span class="line">        <span class="keyword">return</span> render_to_response(request, <span class="string">&#x27;index.html&#x27;</span>, data=&#123;<span class="string">&#x27;key&#x27;</span>: <span class="string">&#x27;value&#x27;</span>&#125;)</span><br></pre></td></tr></table></figure>
+
+<h6 id="页面中使用传递的数据-2"><a href="#页面中使用传递的数据-2" class="headerlink" title="页面中使用传递的数据"></a>页面中使用传递的数据</h6><ul>
+<li>mako页面中传递数据方式与内置模版传递数据方式不同，通过<code>$&#123;&#125;</code>使用传递的数据</li>
+</ul>
+<figure class="highlight html"><figcaption><span>&lt;project_name&gt;/templates/index.html</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">&quot;en&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">&quot;UTF-8&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">title</span>&gt;</span>Title<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">h1</span>&gt;</span>Hello $&#123;key&#125;<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="在子应用中创建一个路由-4"><a href="#在子应用中创建一个路由-4" class="headerlink" title="在子应用中创建一个路由"></a>在子应用中创建一个路由</h4><blockquote>
+<p><code>index</code>：视图层定义的函数名</p>
+</blockquote>
+<figure class="highlight python"><figcaption><span>&lt;project_name&gt;/&lt;app_name&gt;/urls.py</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> django.urls <span class="keyword">import</span> path</span><br><span class="line"><span class="keyword">from</span> .views <span class="keyword">import</span> Index</span><br><span class="line"></span><br><span class="line">urlpatterns = [</span><br><span class="line">    path(<span class="string">&#x27;&#x27;</span>, Index.as_view()),</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
+
+<h4 id="将子路由绑定到跟路由-4"><a href="#将子路由绑定到跟路由-4" class="headerlink" title="将子路由绑定到跟路由"></a>将子路由绑定到跟路由</h4><ul>
+<li>引入<code>include</code>模块</li>
+<li>通过<code>include()</code>引入子路由</li>
+</ul>
+<figure class="highlight python"><figcaption><span>&lt;project_name&gt;/&lt;project_name&gt;/urls.py</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> django.contrib <span class="keyword">import</span> admin</span><br><span class="line"><span class="keyword">from</span> django.urls <span class="keyword">import</span> path, include</span><br><span class="line"></span><br><span class="line">urlpatterns = [</span><br><span class="line">    path(<span class="string">&#x27;admin/&#x27;</span>, admin.site.urls),</span><br><span class="line">    path(<span class="string">&#x27;&#x27;</span>, include(<span class="string">&#x27;&lt;app_name&gt;.urls&#x27;</span>)),</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
+
+<h4 id="在模版中直接写Python代码"><a href="#在模版中直接写Python代码" class="headerlink" title="在模版中直接写Python代码"></a>在模版中直接写Python代码</h4><ul>
+<li><code>$&#123;&#125;</code>不仅可以在页面显示传递过来的数据，还可以在页面显示当前页面的Python变量</li>
+</ul>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;%!</span><br><span class="line">  from django.conf import settings</span><br><span class="line">%&gt;</span><br><span class="line">$&#123;settings.TEMPLATES[0][&#x27;DIRS&#x27;][0]&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="完成"><a href="#完成" class="headerlink" title="完成"></a>完成</h2><h2 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h2><p><a href="/302.html?target=https://www.bilibili.com/video/BV1gg411U7Rp/">哔哩哔哩——图灵学院教程</a><br><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_33537936/article/details/125070359">CSDN——测开小菜鸟</a><br><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_43515464/article/details/103985715">CSDN——stay down</a><br><a target="_blank" rel="noopener" href="https://blog.csdn.net/will5451/article/details/53861092">CSDN——Ethanhuyi</a><br><a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_44617722/article/details/107065868">CSDN——风情小皮球</a></p>
+
+<div class="article-footer fs14">
+    <section id="license">
+      <div class="header"><span>许可协议</span></div>
+      <div class="body"><p>本文采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">署名-非商业性使用-相同方式共享 4.0 国际</a> 许可协议，转载请注明出处。</p>
+</div>
+    </section>
+    </div>
+</article>
+<div class="related-wrap" id="read-next"><section class="body"><div class="item" id="prev"><div class="note">较新文章</div><a href="/2022/12/26/Python3%E7%9A%84%E6%9E%9A%E4%B8%BE/">【笔记】Python3的枚举</a></div><div class="item" id="next"><div class="note">较早文章</div><a href="/2022/12/24/%E6%9B%B4%E6%8D%A2pip%E9%95%9C%E5%83%8F%E6%BA%90/">【笔记】更换pip镜像源</a></div></section></div>
+
+
+
+
+  <div class="related-wrap md-text" id="comments">
+    <section class='header cmt-title cap theme'>
+      <p>快来参与讨论吧~</p>
+
+    </section>
+    <section class='body cmt-body twikoo'>
+      
+
+<div id="twikoo_container"><svg class="loading" style="vertical-align:middle;fill:currentColor;overflow:hidden;" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="2709"><path d="M832 512c0-176-144-320-320-320V128c211.2 0 384 172.8 384 384h-64zM192 512c0 176 144 320 320 320v64C300.8 896 128 723.2 128 512h64z" p-id="2710"></path></svg></div>
+    </section>
+  </div>
+
+
+
+<footer class="page-footer footnote"><hr><div class="text"><p>本站由 <a href="/">绯鞠</a> 使用 <a target="_blank" rel="noopener" href="https://github.com/xaoxuu/hexo-theme-stellar/tree/1.29.0">Stellar 1.29.0</a> 主题创建。<br>本博客所有文章除特别声明外，均采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> 许可协议，转载请注明出处。</p>
+</div></footer>
+<div class="main-mask" onclick="sidebar.dismiss()"></div></div><aside class="l_right">
+<div class="widgets">
+
+
+
+<widget class="widget-wrapper toc" id="data-toc" collapse="false"><div class="widget-header dis-select"><span class="name">本文目录</span><a class="cap-action" onclick="sidebar.toggleTOC()" ><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6h11m-11 6h11m-11 6h11M4 6h1v4m-1 0h2m0 8H4c0-1 2-2 2-3s-1-1.5-2-1"/></svg></a></div><div class="widget-body"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%89%8D%E8%A8%80"><span class="toc-text">前言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%89%E8%A3%85Django%E6%A8%A1%E5%9D%97"><span class="toc-text">安装Django模块</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Django%E7%9A%84%E5%91%BD%E4%BB%A4"><span class="toc-text">Django的命令</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%9D%E5%A7%8B%E5%8C%96%E9%A1%B9%E7%9B%AE"><span class="toc-text">初始化项目</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%9B%AE%E5%BD%95%E7%BB%93%E6%9E%84"><span class="toc-text">目录结构</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%90%AF%E5%8A%A8%E9%A1%B9%E7%9B%AE%EF%BC%88%E5%BC%80%E5%8F%91%E9%98%B6%E6%AE%B5%EF%BC%89"><span class="toc-text">启动项目（开发阶段）</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%8C%87%E5%AE%9AIP%E5%92%8C%E7%AB%AF%E5%8F%A3"><span class="toc-text">指定IP和端口</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%85%81%E8%AE%B8%E5%B1%80%E5%9F%9F%E7%BD%91%E8%AE%BF%E9%97%AE"><span class="toc-text">允许局域网访问</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#%E8%B8%A9%E5%9D%91"><span class="toc-text">踩坑</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%9B%E5%BB%BA%E5%AD%90%E5%BA%94%E7%94%A8"><span class="toc-text">创建子应用</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%9B%AE%E5%BD%95%E7%BB%93%E6%9E%84-1"><span class="toc-text">目录结构</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9F%A5%E7%9C%8B%E5%B8%AE%E5%8A%A9"><span class="toc-text">查看帮助</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%BF%9B%E5%85%A5%E8%B0%83%E8%AF%95%E6%A8%A1%E5%BC%8F"><span class="toc-text">进入调试模式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E5%BA%93%E5%88%9B%E5%BB%BA%E6%9B%B4%E6%94%B9%E6%96%87%E4%BB%B6"><span class="toc-text">数据库创建更改文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%90%8C%E6%AD%A5%E5%88%B0%E6%95%B0%E6%8D%AE%E5%BA%93%E8%BF%9B%E8%A1%8C%E6%9B%B4%E6%96%B0"><span class="toc-text">同步到数据库进行更新</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B8%85%E7%A9%BA%E6%95%B0%E6%8D%AE%E5%BA%93"><span class="toc-text">清空数据库</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9C%A8Shell%E4%B8%AD%E5%BC%80%E5%8F%91"><span class="toc-text">在Shell中开发</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Django%E4%B8%AD%E7%9A%84%E6%A8%A1%E5%9D%97"><span class="toc-text">Django中的模块</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Django%E7%9A%84%E5%85%A8%E5%B1%80%E9%85%8D%E7%BD%AE"><span class="toc-text">Django的全局配置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AD%90%E5%BA%94%E7%94%A8"><span class="toc-text">子应用</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%9B%E5%BB%BA%E5%AD%90%E5%BA%94%E7%94%A8-1"><span class="toc-text">创建子应用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BF%AE%E6%94%B9%E5%85%A8%E5%B1%80%E9%85%8D%E7%BD%AE"><span class="toc-text">修改全局配置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9C%A8%E5%AD%90%E5%BA%94%E7%94%A8%E4%B8%AD%E5%88%9B%E5%BB%BA%E4%B8%80%E4%B8%AA%E9%A1%B5%E9%9D%A2"><span class="toc-text">在子应用中创建一个页面</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%80%9A%E8%BF%87%E5%87%BD%E6%95%B0%E6%B8%B2%E6%9F%93%E6%95%B0%E6%8D%AE"><span class="toc-text">通过函数渲染数据</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%9C%A8%E8%A7%86%E5%9B%BE%E5%93%8D%E5%BA%94%E4%B8%80%E4%BA%9B%E6%95%B0%E6%8D%AE"><span class="toc-text">在视图响应一些数据</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%9C%A8%E5%AD%90%E5%BA%94%E7%94%A8%E4%B8%AD%E5%88%9B%E5%BB%BA%E4%B8%80%E4%B8%AA%E8%B7%AF%E7%94%B1"><span class="toc-text">在子应用中创建一个路由</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%B0%86%E5%AD%90%E8%B7%AF%E7%94%B1%E7%BB%91%E5%AE%9A%E5%88%B0%E8%B7%9F%E8%B7%AF%E7%94%B1"><span class="toc-text">将子路由绑定到跟路由</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%80%9A%E8%BF%87Message%E7%B1%BB%E6%B8%B2%E6%9F%93%E6%95%B0%E6%8D%AE"><span class="toc-text">通过Message类渲染数据</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%9C%A8%E8%A7%86%E5%9B%BE%E5%93%8D%E5%BA%94%E4%B8%80%E4%BA%9B%E6%95%B0%E6%8D%AE-1"><span class="toc-text">在视图响应一些数据</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%9C%A8%E5%AD%90%E5%BA%94%E7%94%A8%E4%B8%AD%E5%88%9B%E5%BB%BA%E4%B8%80%E4%B8%AA%E8%B7%AF%E7%94%B1-1"><span class="toc-text">在子应用中创建一个路由</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%B0%86%E5%AD%90%E8%B7%AF%E7%94%B1%E7%BB%91%E5%AE%9A%E5%88%B0%E8%B7%9F%E8%B7%AF%E7%94%B1-1"><span class="toc-text">将子路由绑定到跟路由</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%A4%84%E7%90%86%E8%AF%B7%E6%B1%82%E5%8F%82%E6%95%B0"><span class="toc-text">处理请求参数</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A4%84%E7%90%86GET%E8%AF%B7%E6%B1%82%E8%AF%B7%E6%B1%82%E5%8F%82%E6%95%B0"><span class="toc-text">处理GET请求请求参数</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%99%AE%E9%80%9A%E4%BC%A0%E9%80%92%E5%8F%82%E6%95%B0%E6%96%B9%E5%BC%8F"><span class="toc-text">普通传递参数方式</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#RUSTful%E9%A3%8E%E6%A0%BC%E7%9A%84%E4%BC%A0%E9%80%92%E5%8F%82%E6%95%B0%E6%96%B9%E5%BC%8F"><span class="toc-text">RUSTful风格的传递参数方式</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A4%84%E7%90%86POST%E8%AF%B7%E6%B1%82%E8%AF%B7%E6%B1%82%E5%8F%82%E6%95%B0"><span class="toc-text">处理POST请求请求参数</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%85%B3%E9%97%ADCSRFToken%E9%AA%8C%E8%AF%81"><span class="toc-text">关闭CSRFToken验证</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Form%E8%A1%A8%E5%8D%95%E4%BC%A0%E9%80%92%E5%8F%82%E6%95%B0%E6%96%B9%E5%BC%8F"><span class="toc-text">Form表单传递参数方式</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#JSON%E4%BC%A0%E9%80%92%E5%8F%82%E6%95%B0%E6%96%B9%E5%BC%8F"><span class="toc-text">JSON传递参数方式</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%AF%B7%E6%B1%82%E5%AF%B9%E8%B1%A1"><span class="toc-text">请求对象</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%93%8D%E5%BA%94%E5%AF%B9%E8%B1%A1"><span class="toc-text">响应对象</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B8%B2%E6%9F%93%E6%A8%A1%E7%89%88"><span class="toc-text">渲染模版</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%9B%E5%BB%BAtemplates%E7%9B%AE%E5%BD%95"><span class="toc-text">创建templates目录</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BF%AE%E6%94%B9%E5%85%A8%E5%B1%80%E9%85%8D%E7%BD%AE-1"><span class="toc-text">修改全局配置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9C%A8%E5%AD%90%E5%BA%94%E7%94%A8%E8%A7%86%E5%9B%BE%E5%B1%82%E6%B8%B2%E6%9F%93HTML%E6%96%87%E4%BB%B6"><span class="toc-text">在子应用视图层渲染HTML文件</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%B8%8D%E4%BC%A0%E9%80%92%E6%95%B0%E6%8D%AE%E7%BB%99%E9%A1%B5%E9%9D%A2"><span class="toc-text">不传递数据给页面</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BC%A0%E9%80%92%E6%95%B0%E6%8D%AE%E7%BB%99%E9%A1%B5%E9%9D%A2"><span class="toc-text">传递数据给页面</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E9%A1%B5%E9%9D%A2%E4%B8%AD%E4%BD%BF%E7%94%A8%E4%BC%A0%E9%80%92%E7%9A%84%E6%95%B0%E6%8D%AE"><span class="toc-text">页面中使用传递的数据</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9C%A8%E5%AD%90%E5%BA%94%E7%94%A8%E4%B8%AD%E5%88%9B%E5%BB%BA%E4%B8%80%E4%B8%AA%E8%B7%AF%E7%94%B1-2"><span class="toc-text">在子应用中创建一个路由</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B0%86%E5%AD%90%E8%B7%AF%E7%94%B1%E7%BB%91%E5%AE%9A%E5%88%B0%E8%B7%9F%E8%B7%AF%E7%94%B1-2"><span class="toc-text">将子路由绑定到跟路由</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%9D%99%E6%80%81%E6%96%87%E4%BB%B6"><span class="toc-text">静态文件</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%9B%E5%BB%BAstatic%E7%9B%AE%E5%BD%95"><span class="toc-text">创建static目录</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BF%AE%E6%94%B9%E5%85%A8%E5%B1%80%E9%85%8D%E7%BD%AE-2"><span class="toc-text">修改全局配置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8%E9%9D%99%E6%80%81%E6%96%87%E4%BB%B6"><span class="toc-text">使用静态文件</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A8%A1%E7%89%88%E4%B8%AD%E7%9A%84%E5%86%85%E7%BD%AE%E6%A0%87%E7%AD%BE"><span class="toc-text">模版中的内置标签</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%8E%B7%E5%8F%96%E4%BC%A0%E9%80%92%E8%BF%87%E6%9D%A5%E7%9A%84%E6%95%B0%E6%8D%AE"><span class="toc-text">获取传递过来的数据</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%86%E6%94%AF%E8%AF%AD%E5%8F%A5"><span class="toc-text">分支语句</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BE%AA%E7%8E%AF%E8%AF%AD%E5%8F%A5"><span class="toc-text">循环语句</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%81%8D%E5%8E%86%E6%95%B0%E6%8D%AE"><span class="toc-text">遍历数据</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%81%8D%E5%8E%86%E7%B4%A2%E5%BC%95%E5%80%BC"><span class="toc-text">遍历索引值</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E4%BB%8E0%E5%BC%80%E5%A7%8B"><span class="toc-text">从0开始</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E4%BB%8E1%E5%BC%80%E5%A7%8B"><span class="toc-text">从1开始</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E4%BB%8E%E7%BB%93%E5%B0%BE%E5%BC%80%E5%A7%8B%E7%9B%B4%E5%88%B00"><span class="toc-text">从结尾开始直到0</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E4%BB%8E%E7%BB%93%E5%B0%BE%E5%BC%80%E5%A7%8B%E7%9B%B4%E5%88%B01"><span class="toc-text">从结尾开始直到1</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%88%A4%E6%96%AD%E6%95%B0%E6%8D%AE"><span class="toc-text">判断数据</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%98%AF%E5%90%A6%E6%98%AF%E7%AC%AC%E4%B8%80%E4%B8%AA%E5%80%BC"><span class="toc-text">是否是第一个值</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%98%AF%E5%90%A6%E6%98%AF%E6%9C%80%E5%90%8E%E4%B8%80%E4%B8%AA%E5%80%BC"><span class="toc-text">是否是最后一个值</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%98%AF%E5%90%A6%E6%98%AF%E7%A9%BA%E5%88%97%E8%A1%A8"><span class="toc-text">是否是空列表</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8A%A0%E8%BD%BD%E9%9D%99%E6%80%81%E6%96%87%E4%BB%B6"><span class="toc-text">加载静态文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BB%A7%E6%89%BF%E5%92%8C%E9%87%8D%E5%86%99"><span class="toc-text">继承和重写</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%AD%90%E6%A8%A1%E7%89%88%E7%BB%A7%E6%89%BF%E7%88%B6%E6%A8%A1%E7%89%88"><span class="toc-text">子模版继承父模版</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%AD%90%E6%A8%A1%E7%89%88%E9%87%8D%E5%86%99%E7%88%B6%E6%A8%A1%E7%89%88"><span class="toc-text">子模版重写父模版</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%B7%A8%E5%9F%9F%E5%AF%86%E9%92%A5"><span class="toc-text">跨域密钥</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A8%A1%E7%89%88%E4%B8%AD%E7%9A%84%E8%BF%87%E6%BB%A4%E5%99%A8"><span class="toc-text">模版中的过滤器</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%BF%87%E6%BB%A4%E5%99%A8%E7%9A%84%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95"><span class="toc-text">过滤器的基本语法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%86%85%E7%BD%AE%E8%BF%87%E6%BB%A4%E5%99%A8"><span class="toc-text">内置过滤器</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8A%A0"><span class="toc-text">加</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%97%A5%E6%9C%9F%E6%A0%BC%E5%BC%8F%E5%8C%96"><span class="toc-text">日期格式化</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8E%BB%E9%99%A4%E5%AD%97%E7%AC%A6%E4%B8%B2%E4%B8%AD%E7%9A%84%E6%89%80%E6%9C%89%E6%8C%87%E5%AE%9A%E5%AD%97%E7%AC%A6"><span class="toc-text">去除字符串中的所有指定字符</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%A6%96%E5%AD%97%E6%AF%8D%E5%A4%A7%E5%86%99"><span class="toc-text">首字母大写</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%88%A4%E6%96%AD%E5%80%BC%E6%98%AF%E5%90%A6%E5%AD%98%E5%9C%A8"><span class="toc-text">判断值是否存在</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%88%A4%E6%96%AD%E5%80%BC%E6%98%AF%E5%90%A6%E4%B8%BANone"><span class="toc-text">判断值是否为None</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%88%97%E8%A1%A8%E6%8E%92%E5%BA%8F"><span class="toc-text">列表排序</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%AD%A3%E5%BA%8F"><span class="toc-text">正序</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%80%92%E5%BA%8F"><span class="toc-text">倒序</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%8E%B7%E5%8F%96%E5%88%97%E8%A1%A8%E4%B8%AD%E7%9A%84%E7%AC%AC%E4%B8%80%E4%B8%AA%E5%80%BC"><span class="toc-text">获取列表中的第一个值</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%8E%B7%E5%8F%96%E5%88%97%E8%A1%A8%E4%B8%AD%E7%9A%84%E6%9C%80%E5%90%8E%E4%B8%80%E4%B8%AA%E5%80%BC"><span class="toc-text">获取列表中的最后一个值</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BF%9D%E7%95%992%E4%BD%8D%E5%B0%8F%E6%95%B0"><span class="toc-text">保留2位小数</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%B0%86%E5%88%97%E8%A1%A8%E7%94%A8%E6%8C%87%E5%AE%9A%E5%AD%97%E7%AC%A6%E6%8B%BC%E6%8E%A5"><span class="toc-text">将列表用指定字符拼接</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%8E%B7%E5%8F%96%E5%80%BC%E7%9A%84%E9%95%BF%E5%BA%A6"><span class="toc-text">获取值的长度</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%88%A4%E6%96%AD%E5%80%BC%E7%9A%84%E9%95%BF%E5%BA%A6"><span class="toc-text">判断值的长度</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%88%A4%E6%96%AD%E6%98%AF%E5%90%A6%E5%8F%AF%E4%BB%A5%E8%A2%AB%E6%95%B4%E9%99%A4"><span class="toc-text">判断是否可以被整除</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%B0%86%E5%80%BC%E4%BD%9C%E4%B8%BA%E5%89%8D%E7%AB%AF%E4%BB%A3%E7%A0%81%E8%A7%A3%E6%9E%90"><span class="toc-text">将值作为前端代码解析</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%9A%8F%E6%9C%BA%E8%BF%94%E5%9B%9E%E5%88%97%E8%A1%A8%E4%B8%AD%E7%9A%84%E4%B8%80%E4%B8%AA%E5%85%83%E7%B4%A0"><span class="toc-text">随机返回列表中的一个元素</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%88%87%E7%89%87"><span class="toc-text">字符串切片</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%88%86%E9%9A%94%E5%8D%95%E8%AF%8D"><span class="toc-text">分隔单词</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8D%95%E8%AF%8D%E5%85%A8%E9%83%A8%E5%A4%A7%E5%86%99"><span class="toc-text">单词全部大写</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%B0%86%E9%93%BE%E6%8E%A5%E8%87%AA%E5%8A%A8%E5%8F%98%E6%88%90%E8%B6%85%E9%93%BE%E6%8E%A5"><span class="toc-text">将链接自动变成超链接</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8D%95%E8%AF%8D%E8%AE%A1%E6%95%B0"><span class="toc-text">单词计数</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%AE%A1%E7%AE%97%E6%97%B6%E9%97%B4%E5%B7%AE"><span class="toc-text">计算时间差</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%87%AA%E5%AE%9A%E4%B9%89%E8%BF%87%E6%BB%A4%E5%99%A8"><span class="toc-text">自定义过滤器</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%88%9B%E5%BB%BA%E8%87%AA%E5%AE%9A%E4%B9%89%E8%BF%87%E6%BB%A4%E5%99%A8"><span class="toc-text">创建自定义过滤器</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8%E8%87%AA%E5%AE%9A%E4%B9%89%E8%BF%87%E6%BB%A4%E5%99%A8"><span class="toc-text">使用自定义过滤器</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E4%B8%89%E6%96%B9%E6%A8%A1%E7%89%88"><span class="toc-text">第三方模版</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#JinJa2"><span class="toc-text">JinJa2</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%B8%8B%E8%BD%BD%E4%BE%9D%E8%B5%96"><span class="toc-text">下载依赖</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%88%9B%E5%BB%BA%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6"><span class="toc-text">创建配置文件</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BF%AE%E6%94%B9%E5%85%A8%E5%B1%80%E9%85%8D%E7%BD%AE-3"><span class="toc-text">修改全局配置</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%9C%A8%E5%AD%90%E5%BA%94%E7%94%A8%E8%A7%86%E5%9B%BE%E5%B1%82%E6%B8%B2%E6%9F%93HTML%E6%96%87%E4%BB%B6-1"><span class="toc-text">在子应用视图层渲染HTML文件</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E4%B8%8D%E4%BC%A0%E9%80%92%E6%95%B0%E6%8D%AE%E7%BB%99%E9%A1%B5%E9%9D%A2-1"><span class="toc-text">不传递数据给页面</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E4%BC%A0%E9%80%92%E6%95%B0%E6%8D%AE%E7%BB%99%E9%A1%B5%E9%9D%A2-1"><span class="toc-text">传递数据给页面</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#%E9%A1%B5%E9%9D%A2%E4%B8%AD%E4%BD%BF%E7%94%A8%E4%BC%A0%E9%80%92%E7%9A%84%E6%95%B0%E6%8D%AE-1"><span class="toc-text">页面中使用传递的数据</span></a></li></ol></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%9C%A8%E5%AD%90%E5%BA%94%E7%94%A8%E4%B8%AD%E5%88%9B%E5%BB%BA%E4%B8%80%E4%B8%AA%E8%B7%AF%E7%94%B1-3"><span class="toc-text">在子应用中创建一个路由</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%B0%86%E5%AD%90%E8%B7%AF%E7%94%B1%E7%BB%91%E5%AE%9A%E5%88%B0%E8%B7%9F%E8%B7%AF%E7%94%B1-3"><span class="toc-text">将子路由绑定到跟路由</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%BF%87%E6%BB%A4%E5%99%A8"><span class="toc-text">过滤器</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E8%BF%87%E6%BB%A4%E5%99%A8%E7%9A%84%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95-1"><span class="toc-text">过滤器的基本语法</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#JinJa2%E5%86%85%E7%BD%AE%E8%BF%87%E6%BB%A4%E5%99%A8"><span class="toc-text">JinJa2内置过滤器</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#%E9%A6%96%E5%AD%97%E6%AF%8D%E5%A4%A7%E5%86%99-1"><span class="toc-text">首字母大写</span></a></li></ol></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E8%87%AA%E5%AE%9A%E4%B9%89%E8%BF%87%E6%BB%A4%E5%99%A8-1"><span class="toc-text">自定义过滤器</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#%E5%88%9B%E5%BB%BA%E8%87%AA%E5%AE%9A%E4%B9%89%E8%BF%87%E6%BB%A4%E5%99%A8-1"><span class="toc-text">创建自定义过滤器</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#%E5%9C%A8jinja2%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%E4%B8%AD%E6%B7%BB%E5%8A%A0%E9%85%8D%E7%BD%AE"><span class="toc-text">在jinja2配置文件中添加配置</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8%E8%87%AA%E5%AE%9A%E4%B9%89%E8%BF%87%E6%BB%A4%E5%99%A8-1"><span class="toc-text">使用自定义过滤器</span></a></li></ol></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%9D%99%E6%80%81%E6%96%87%E4%BB%B6-1"><span class="toc-text">静态文件</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%88%9B%E5%BB%BAstatic%E7%9B%AE%E5%BD%95-1"><span class="toc-text">创建static目录</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8%E9%9D%99%E6%80%81%E6%96%87%E4%BB%B6-1"><span class="toc-text">使用静态文件</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#mako"><span class="toc-text">mako</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%B8%8B%E8%BD%BD%E4%BE%9D%E8%B5%96-1"><span class="toc-text">下载依赖</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%88%9B%E5%BB%BA%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6-1"><span class="toc-text">创建配置文件</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%9C%A8%E5%AD%90%E5%BA%94%E7%94%A8%E8%A7%86%E5%9B%BE%E5%B1%82%E6%B8%B2%E6%9F%93HTML%E6%96%87%E4%BB%B6-2"><span class="toc-text">在子应用视图层渲染HTML文件</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E4%B8%8D%E4%BC%A0%E9%80%92%E6%95%B0%E6%8D%AE%E7%BB%99%E9%A1%B5%E9%9D%A2-2"><span class="toc-text">不传递数据给页面</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E4%BC%A0%E9%80%92%E6%95%B0%E6%8D%AE%E7%BB%99%E9%A1%B5%E9%9D%A2-2"><span class="toc-text">传递数据给页面</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#%E9%A1%B5%E9%9D%A2%E4%B8%AD%E4%BD%BF%E7%94%A8%E4%BC%A0%E9%80%92%E7%9A%84%E6%95%B0%E6%8D%AE-2"><span class="toc-text">页面中使用传递的数据</span></a></li></ol></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%9C%A8%E5%AD%90%E5%BA%94%E7%94%A8%E4%B8%AD%E5%88%9B%E5%BB%BA%E4%B8%80%E4%B8%AA%E8%B7%AF%E7%94%B1-4"><span class="toc-text">在子应用中创建一个路由</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%B0%86%E5%AD%90%E8%B7%AF%E7%94%B1%E7%BB%91%E5%AE%9A%E5%88%B0%E8%B7%9F%E8%B7%AF%E7%94%B1-4"><span class="toc-text">将子路由绑定到跟路由</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%9C%A8%E6%A8%A1%E7%89%88%E4%B8%AD%E7%9B%B4%E6%8E%A5%E5%86%99Python%E4%BB%A3%E7%A0%81"><span class="toc-text">在模版中直接写Python代码</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%8C%E6%88%90"><span class="toc-text">完成</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%82%E8%80%83%E6%96%87%E7%8C%AE"><span class="toc-text">参考文献</span></a></li></ol></div><div class="widget-footer">
+
+<a class="top" onclick="util.scrollTop()"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 12c0-4.714 0-7.071 1.464-8.536C4.93 2 7.286 2 12 2c4.714 0 7.071 0 8.535 1.464C22 4.93 22 7.286 22 12c0 4.714 0 7.071-1.465 8.535C19.072 22 16.714 22 12 22s-7.071 0-8.536-1.465C2 19.072 2 16.714 2 12Z"/><path stroke-linecap="round" stroke-linejoin="round" d="m9 15.5l3-3l3 3m-6-4l3-3l3 3"/></g></svg><span>回到顶部</span></a><a class="buttom" onclick="util.scrollComment()"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="currentColor" fill-rule="evenodd" d="M10.46 1.25h3.08c1.603 0 2.86 0 3.864.095c1.023.098 1.861.3 2.6.752a5.75 5.75 0 0 1 1.899 1.899c.452.738.654 1.577.752 2.6c.095 1.004.095 2.261.095 3.865v1.067c0 1.141 0 2.036-.05 2.759c-.05.735-.153 1.347-.388 1.913a5.75 5.75 0 0 1-3.112 3.112c-.805.334-1.721.408-2.977.43a10.81 10.81 0 0 0-.929.036c-.198.022-.275.054-.32.08c-.047.028-.112.078-.224.232c-.121.166-.258.396-.476.764l-.542.916c-.773 1.307-2.69 1.307-3.464 0l-.542-.916a10.605 10.605 0 0 0-.476-.764c-.112-.154-.177-.204-.224-.232c-.045-.026-.122-.058-.32-.08c-.212-.023-.49-.03-.93-.037c-1.255-.021-2.171-.095-2.976-.429A5.75 5.75 0 0 1 1.688 16.2c-.235-.566-.338-1.178-.389-1.913c-.049-.723-.049-1.618-.049-2.76v-1.066c0-1.604 0-2.86.095-3.865c.098-1.023.3-1.862.752-2.6a5.75 5.75 0 0 1 1.899-1.899c.738-.452 1.577-.654 2.6-.752C7.6 1.25 8.857 1.25 10.461 1.25M6.739 2.839c-.914.087-1.495.253-1.959.537A4.25 4.25 0 0 0 3.376 4.78c-.284.464-.45 1.045-.537 1.96c-.088.924-.089 2.11-.089 3.761v1c0 1.175 0 2.019.046 2.685c.045.659.131 1.089.278 1.441a4.25 4.25 0 0 0 2.3 2.3c.515.214 1.173.294 2.429.316h.031c.398.007.747.013 1.037.045c.311.035.616.104.909.274c.29.17.5.395.682.645c.169.232.342.525.538.856l.559.944a.52.52 0 0 0 .882 0l.559-.944c.196-.331.37-.624.538-.856c.182-.25.392-.476.682-.645c.293-.17.598-.24.909-.274c.29-.032.639-.038 1.037-.045h.032c1.255-.022 1.913-.102 2.428-.316a4.25 4.25 0 0 0 2.3-2.3c.147-.352.233-.782.278-1.441c.046-.666.046-1.51.046-2.685v-1c0-1.651 0-2.837-.089-3.762c-.087-.914-.253-1.495-.537-1.959a4.25 4.25 0 0 0-1.403-1.403c-.464-.284-1.045-.45-1.96-.537c-.924-.088-2.11-.089-3.761-.089h-3c-1.651 0-2.837 0-3.762.089" clip-rule="evenodd"/><path fill="currentColor" d="M9 11a1 1 0 1 1-2 0a1 1 0 0 1 2 0m4 0a1 1 0 1 1-2 0a1 1 0 0 1 2 0m4 0a1 1 0 1 1-2 0a1 1 0 0 1 2 0"/></svg><span>参与讨论</span></a></div></widget>
+</div></aside><div class='float-panel blur'>
+  <button type='button' style='display:none' class='laptop-only rightbar-toggle mobile' onclick='sidebar.rightbar()'>
+    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6h11m-11 6h11m-11 6h11M4 6h1v4m-1 0h2m0 8H4c0-1 2-2 2-3s-1-1.5-2-1"/></svg>
+  </button>
+  <button type='button' style='display:none' class='mobile-only leftbar-toggle mobile' onclick='sidebar.leftbar()'>
+    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 11c0-3.771 0-5.657 1.172-6.828C4.343 3 6.229 3 10 3h4c3.771 0 5.657 0 6.828 1.172C22 5.343 22 7.229 22 11v2c0 3.771 0 5.657-1.172 6.828C19.657 21 17.771 21 14 21h-4c-3.771 0-5.657 0-6.828-1.172C2 18.657 2 16.771 2 13z"/><path id="sep" stroke-linecap="round" d="M5.5 10h6m-5 4h4m4.5 7V3"/></g></svg>
+  </button>
+</div>
+</div><div class="scripts">
+<script type="text/javascript">
+  const ctx = {
+    date_suffix: {
+      just: `刚刚`,
+      min: `分钟前`,
+      hour: `小时前`,
+      day: `天前`,
+    },
+    root : `/`,
+  };
+
+  // required plugins (only load if needs)
+  if (`local_search`) {
+    ctx.search = {};
+    ctx.search.service = `local_search`;
+    if (ctx.search.service == 'local_search') {
+      let service_obj = Object.assign({}, `{"field":"post","path":"/db.json","content":true,"sort":"-date"}`);
+      ctx.search[ctx.search.service] = service_obj;
+    }
+  }
+  const def = {
+    avatar: `https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/avatar/round/3442075.svg`,
+    cover: `https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/cover/76b86c0226ffd.svg`,
+  };
+  const deps = {
+    jquery: `https://cdn.bootcdn.net/ajax/libs/jquery/3.7.1/jquery.min.js`,
+    marked: `https://cdn.bootcdn.net/ajax/libs/marked/4.0.18/marked.min.js`
+  }
+  
+
+</script>
+
+<script type="text/javascript">
+  const utils = {
+    // 懒加载 css https://github.com/filamentgroup/loadCSS
+    css: (href, before, media, attributes) => {
+      var doc = window.document;
+      var ss = doc.createElement("link");
+      var ref;
+      if (before) {
+        ref = before;
+      } else {
+        var refs = (doc.body || doc.getElementsByTagName("head")[0]).childNodes;
+        ref = refs[refs.length - 1];
+      }
+      var sheets = doc.styleSheets;
+      if (attributes) {
+        for (var attributeName in attributes) {
+          if (attributes.hasOwnProperty(attributeName)) {
+            ss.setAttribute(attributeName, attributes[attributeName]);
+          }
+        }
+      }
+      ss.rel = "stylesheet";
+      ss.href = href;
+      ss.media = "only x";
+      function ready(cb) {
+        if (doc.body) {
+          return cb();
+        }
+        setTimeout(function () {
+          ready(cb);
+        });
+      }
+      ready(function () {
+        ref.parentNode.insertBefore(ss, before ? ref : ref.nextSibling);
+      });
+      var onloadcssdefined = function (cb) {
+        var resolvedHref = ss.href;
+        var i = sheets.length;
+        while (i--) {
+          if (sheets[i].href === resolvedHref) {
+            return cb();
+          }
+        }
+        setTimeout(function () {
+          onloadcssdefined(cb);
+        });
+      };
+      function loadCB() {
+        if (ss.addEventListener) {
+          ss.removeEventListener("load", loadCB);
+        }
+        ss.media = media || "all";
+      }
+      if (ss.addEventListener) {
+        ss.addEventListener("load", loadCB);
+      }
+      ss.onloadcssdefined = onloadcssdefined;
+      onloadcssdefined(loadCB);
+      return ss;
+    },
+
+    js: (src, opt) => new Promise((resolve, reject) => {
+      var script = document.createElement('script');
+      if (src.startsWith('/')){
+        src = ctx.root + src.substring(1);
+      }
+      script.src = src;
+      if (opt) {
+        for (let key of Object.keys(opt)) {
+          script[key] = opt[key]
+        }
+      } else {
+        // 默认异步，如果需要同步，第二个参数传入 {} 即可
+        script.async = true
+      }
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    }),
+
+    jq: (fn) => {
+      if (typeof jQuery === 'undefined') {
+        utils.js(deps.jquery).then(fn)
+      } else {
+        fn()
+      }
+    },
+    
+    onLoading: (el) => {
+      if (el) {
+        $(el).append('<div class="loading-wrap"><svg xmlns="http://www.w3.org/2000/svg" width="2em" height="2em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="2"><path stroke-dasharray="60" stroke-dashoffset="60" stroke-opacity=".3" d="M12 3C16.9706 3 21 7.02944 21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3Z"><animate fill="freeze" attributeName="stroke-dashoffset" dur="1.3s" values="60;0"/></path><path stroke-dasharray="15" stroke-dashoffset="15" d="M12 3C16.9706 3 21 7.02944 21 12"><animate fill="freeze" attributeName="stroke-dashoffset" dur="0.3s" values="15;0"/><animateTransform attributeName="transform" dur="1.5s" repeatCount="indefinite" type="rotate" values="0 12 12;360 12 12"/></path></g></svg></div>');
+      }
+    },
+    onLoadSuccess: (el) => {
+      if (el) {
+        $(el).find('.loading-wrap').remove();
+      }
+    },
+    onLoadFailure: (el) => {
+      if (el) {
+        $(el).find('.loading-wrap svg').remove();
+        $(el).find('.loading-wrap').append('<svg xmlns="http://www.w3.org/2000/svg" width="2em" height="2em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><path stroke-dasharray="60" stroke-dashoffset="60" d="M12 3L21 20H3L12 3Z"><animate fill="freeze" attributeName="stroke-dashoffset" dur="0.5s" values="60;0"/></path><path stroke-dasharray="6" stroke-dashoffset="6" d="M12 10V14"><animate fill="freeze" attributeName="stroke-dashoffset" begin="0.6s" dur="0.2s" values="6;0"/></path></g><circle cx="12" cy="17" r="1" fill="currentColor" fill-opacity="0"><animate fill="freeze" attributeName="fill-opacity" begin="0.8s" dur="0.4s" values="0;1"/></circle></svg>');
+        $(el).find('.loading-wrap').addClass('error');
+      }
+    },
+    request: (el, url, callback, onFailure) => {
+      let retryTimes = 3;
+      utils.onLoading(el);
+      function req() {
+        return new Promise((resolve, reject) => {
+          let status = 0; // 0 等待 1 完成 2 超时
+          let timer = setTimeout(() => {
+            if (status === 0) {
+              status = 2;
+              timer = null;
+              reject('请求超时');
+              if (retryTimes == 0) {
+                onFailure();
+              }
+            }
+          }, 5000);
+          fetch(url).then(function(response) {
+            if (status !== 2) {
+              clearTimeout(timer);
+              resolve(response);
+              timer = null;
+              status = 1;
+            }
+            if (response.ok) {
+              return response.json();
+            }
+            throw new Error('Network response was not ok.');
+          }).then(function(data) {
+            retryTimes = 0;
+            utils.onLoadSuccess(el);
+            callback(data);
+          }).catch(function(error) {
+            if (retryTimes > 0) {
+              retryTimes -= 1;
+              setTimeout(() => {
+                req();
+              }, 5000);
+            } else {
+              utils.onLoadFailure(el);
+              onFailure();
+            }
+          });
+        });
+      }
+      req();
+    },
+  };
+</script>
+
+<script>
+  const sidebar = {
+    leftbar: () => {
+      if (l_body) {
+        l_body.toggleAttribute('leftbar');
+        l_body.removeAttribute('rightbar');
+      }
+    },
+    rightbar: () => {
+      if (l_body) {
+        l_body.toggleAttribute('rightbar');
+        l_body.removeAttribute('leftbar');
+      }
+    },
+    dismiss: () => {
+      if (l_body) {
+        l_body.removeAttribute('leftbar');
+        l_body.removeAttribute('rightbar');
+      }
+    },
+    toggleTOC: () => {
+      document.querySelector('#data-toc').classList.toggle('collapse');
+    }
+  }
+</script>
+<script type="text/javascript">
+  (() => {
+    const tagSwitchers = document.querySelectorAll('.tag-subtree.parent-tag > a > .tag-switcher-wrapper')
+    for (const tagSwitcher of tagSwitchers) {
+      tagSwitcher.addEventListener('click', (e) => {
+        const parent = e.target.closest('.tag-subtree.parent-tag')
+        parent.classList.toggle('expanded')
+        e.preventDefault()
+      })
+    }
+
+    // Get active tag from query string, then activate it.
+    const urlParams = new URLSearchParams(window.location.search)
+    const activeTag = urlParams.get('tag')
+    if (activeTag) {
+      let tag = document.querySelector(`.tag-subtree[data-tag="${activeTag}"]`)
+      if (tag) {
+        tag.querySelector('a').classList.add('active')
+        
+        while (tag) {
+          tag.classList.add('expanded')
+          tag = tag.parentElement.closest('.tag-subtree.parent-tag')
+        }
+      }
+    }
+  })()
+</script>
+
+
+<!-- required -->
+<script src="/js/main.js?v=1.29.0" defer></script>
+
+<script type="text/javascript">
+  const applyTheme = (theme) => {
+    if (theme === 'auto') {
+      document.documentElement.removeAttribute('data-theme')
+    } else {
+      document.documentElement.setAttribute('data-theme', theme)
+    }
+
+    applyThemeToGiscus(theme)
+  }
+
+  const applyThemeToGiscus = (theme) => {
+    theme = theme === 'auto' ? 'preferred_color_scheme' : theme
+
+    const cmt = document.getElementById('giscus')
+    if (cmt) {
+      // This works before giscus load.
+      cmt.setAttribute('data-theme', theme)
+    }
+
+    const iframe = document.querySelector('#comments > section.giscus > iframe')
+    if (iframe) {
+      // This works after giscus loaded.
+      const src = iframe.src
+      const newSrc = src.replace(/theme=[\w]+/, `theme=${theme}`)
+      iframe.src = newSrc
+    }
+  }
+
+  const switchTheme = () => {
+    // light -> dark -> auto -> light -> ...
+    const currentTheme = document.documentElement.getAttribute('data-theme')
+    let newTheme;
+    switch (currentTheme) {
+      case 'light':
+        newTheme = 'dark'
+        break
+      case 'dark':
+        newTheme = 'auto'
+        break
+      default:
+        newTheme = 'light'
+    }
+    applyTheme(newTheme)
+    window.localStorage.setItem('Stellar.theme', newTheme)
+
+    const messages = {
+      light: `切换到浅色模式`,
+      dark: `切换到深色模式`,
+      auto: `切换到跟随系统配色`,
+    }
+    hud?.toast?.(messages[newTheme])
+  }
+
+  (() => {
+    // Apply user's preferred theme, if any.
+    const theme = window.localStorage.getItem('Stellar.theme')
+    if (theme !== null) {
+      applyTheme(theme)
+    }
+  })()
+</script>
+
+
+<!-- optional -->
+
+  <script type="module">
+  const el = document.getElementById('twikoo_container');
+  util.viewportLazyload(el, load_twikoo, false);
+
+  function load_twikoo() {
+    if (!el) return;
+    utils.js('https://gcore.jsdelivr.net/npm/twikoo@1.6.8/dist/twikoo.all.min.js', {defer: true}).then(function () {
+      const path = el.getAttribute('comment_id') ?? decodeURI(window.location.pathname);
+      twikoo.init(Object.assign({"js":"https://gcore.jsdelivr.net/npm/twikoo@1.6.8/dist/twikoo.all.min.js","envId":"https://twikoo.loli.fj.cn"}, {
+        el: '#twikoo_container',
+        path: path,
+      }));
+    });
+  }
+</script>
+
+
+
+<script defer>
+  window.addEventListener('DOMContentLoaded', (event) => {
+    ctx.services = Object.assign({}, JSON.parse(`{"mdrender":{"js":"/js/services/mdrender.js"},"siteinfo":{"js":"/js/services/siteinfo.js","api":null},"ghinfo":{"js":"/js/services/ghinfo.js"},"sites":{"js":"/js/services/sites.js"},"friends":{"js":"/js/services/friends.js"},"timeline":{"js":"/js/services/timeline.js"},"fcircle":{"js":"/js/services/fcircle.js"},"weibo":{"js":"/js/services/weibo.js"},"memos":{"js":"/js/services/memos.js"}}`));
+    for (let id of Object.keys(ctx.services)) {
+      const js = ctx.services[id].js;
+      if (id == 'siteinfo') {
+        ctx.cardlinks = document.querySelectorAll('a.link-card[cardlink]');
+        if (ctx.cardlinks?.length > 0) {
+          utils.js(js, { defer: true }).then(function () {
+            setCardLink(ctx.cardlinks);
+          });
+        }
+      } else {
+        const els = document.getElementsByClassName(`ds-${id}`);
+        if (els?.length > 0) {
+          utils.jq(() => {
+            if (id == 'timeline' || 'memos' || 'marked') {
+              utils.js(deps.marked).then(function () {
+                utils.js(js, { defer: true });
+              });
+            } else {
+              utils.js(js, { defer: true });
+            }
+          });
+        }
+      }
+    }
+  });
+</script>
+
+<script>
+  window.addEventListener('DOMContentLoaded', (event) => {
+    ctx.search = {
+      path: `/db.json`,
+    }
+    utils.js('/js/search/local-search.js', { defer: true });
+  });
+</script><script>
+  window.FPConfig = {
+    delay: 0,
+    ignoreKeywords: [],
+    maxRPS: 5,
+    hoverDelay: 25
+  };
+</script>
+<script defer src="https://cdn.bootcdn.net/ajax/libs/flying-pages/2.1.2/flying-pages.min.js"></script><script defer src="https://cdn.bootcdn.net/ajax/libs/vanilla-lazyload/17.8.4/lazyload.min.js"></script>
+<script>
+  // https://www.npmjs.com/package/vanilla-lazyload
+  // Set the options globally
+  // to make LazyLoad self-initialize
+  window.lazyLoadOptions = {
+    elements_selector: ".lazy",
+  };
+  // Listen to the initialization event
+  // and get the instance of LazyLoad
+  window.addEventListener(
+    "LazyLoad::Initialized",
+    function (event) {
+      window.lazyLoadInstance = event.detail.instance;
+    },
+    false
+  );
+  document.addEventListener('DOMContentLoaded', function () {
+    window.lazyLoadInstance?.update();
+  });
+</script><script>
+  ctx.fancybox = {
+    selector: `.timenode p>img`,
+    css: `https://cdn.bootcdn.net/ajax/libs/fancyapps-ui/5.0.22/fancybox/fancybox.min.css`,
+    js: `https://cdn.bootcdn.net/ajax/libs/fancyapps-ui/5.0.22/fancybox/fancybox.umd.min.js`
+  };
+  var selector = '[data-fancybox]:not(.error)';
+  if (ctx.fancybox.selector) {
+    selector += `, ${ctx.fancybox.selector}`
+  }
+  var needFancybox = document.querySelectorAll(selector).length !== 0;
+  if (!needFancybox) {
+    const els = document.getElementsByClassName('ds-memos');
+    if (els != undefined && els.length > 0) {
+      needFancybox = true;
+    }
+  }
+  if (needFancybox) {
+    utils.css(ctx.fancybox.css);
+    utils.js(ctx.fancybox.js, { defer: true }).then(function () {
+      Fancybox.bind(selector, {
+        hideScrollbar: false,
+        Thumbs: {
+          autoStart: false,
+        },
+        caption: (fancybox, slide) => {
+          return slide.triggerEl.alt || slide.triggerEl.dataset.caption || null
+        }
+      });
+    })
+  }
+</script>
+<script>
+  window.addEventListener('DOMContentLoaded', (event) => {
+    const swiper_api = document.getElementById('swiper-api');
+    if (swiper_api != undefined) {
+      utils.css(`https://unpkg.com/swiper@10.3.1/swiper-bundle.min.css`);
+      utils.js(`https://unpkg.com/swiper@10.3.1/swiper-bundle.min.js`, { defer: true }).then(function () {
+        const effect = swiper_api.getAttribute('effect') || '';
+        var swiper = new Swiper('.swiper#swiper-api', {
+          slidesPerView: 'auto',
+          spaceBetween: 8,
+          centeredSlides: true,
+          effect: effect,
+          rewind: true,
+          pagination: {
+            el: '.swiper-pagination',
+            clickable: true,
+          },
+          navigation: {
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
+          },
+        });
+      })
+    }
+  });
+</script>
+<script defer type="text/javascript" src="https://cdn.jsdelivr.net/npm/mermaid@v9/dist/mermaid.min.js"></script>
+<script>
+  window.addEventListener('DOMContentLoaded', (event) => {
+    var mermaid_config = {
+      startOnLoad: true,
+      theme:
+        "" == "auto" &&
+          window.matchMedia("(prefers-color-scheme: dark)").matches
+          ? "dark"
+          : "neutral",
+      logLevel: 3,
+      themeVariables: {
+        darkMode: true
+      },
+      flowchart: {
+        useMaxWidth: false,
+        htmlLabels: true,
+        curve: "linear"
+      },
+      gantt: {
+        axisFormat: "%Y/%m/%d"
+      },
+      sequence: {
+        actorMargin: 50
+      }
+    }
+    mermaid.initialize(mermaid_config);
+  });
+</script><script>
+  document.addEventListener('DOMContentLoaded', function () {
+    window.codeElements = document.querySelectorAll('.code');
+    if (window.codeElements.length > 0) {
+      ctx.copycode = {
+        default_text: `Copy`,
+        success_text: `Copied`,
+        toast: `复制成功`,
+      };
+      utils.js('/js/plugins/copycode.js');
+    }
+  });
+</script>
+
+
+<!-- inject -->
+
+</div></body></html>

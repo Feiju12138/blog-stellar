@@ -1,0 +1,1040 @@
+
+<!DOCTYPE html><html lang="zh-CN">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="hexo-theme" content="https://github.com/xaoxuu/hexo-theme-stellar/tree/1.29.0" theme-name="Stellar" theme-version="1.29.0">
+  
+  <meta name="generator" content="Hexo 6.3.0">
+  <meta http-equiv='x-dns-prefetch-control' content='on' />
+  
+  <meta name="renderer" content="webkit">
+  <meta name="force-rendering" content="webkit">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+  <meta name="HandheldFriendly" content="True" >
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#000">
+  <meta name="theme-color" content="#f9fafb">
+  
+  <title>【笔记】按键精灵2014 - 绯鞠的博客</title>
+
+  
+    <meta name="description" content="前言按键精灵2014学习笔记按键精灵2014的脚本是基于VB开发的，可以使用部分VB内置命令；按键精灵X的脚本是基于Lua开发的源码的后缀名为.Q，但是文件中不仅包含了源码，还包含了文件属性，可以通过按键精灵2014的编辑器来修改和调试源码">
+<meta property="og:type" content="article">
+<meta property="og:title" content="【笔记】按键精灵2014">
+<meta property="og:url" content="https://loli.fj.cn/2023/06/21/%E6%8C%89%E9%94%AE%E7%B2%BE%E7%81%B52014/index.html">
+<meta property="og:site_name" content="绯鞠的博客">
+<meta property="og:description" content="前言按键精灵2014学习笔记按键精灵2014的脚本是基于VB开发的，可以使用部分VB内置命令；按键精灵X的脚本是基于Lua开发的源码的后缀名为.Q，但是文件中不仅包含了源码，还包含了文件属性，可以通过按键精灵2014的编辑器来修改和调试源码">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2023-06-21T08:31:25.000Z">
+<meta property="article:modified_time" content="2024-08-06T02:31:29.974Z">
+<meta property="article:author" content="绯鞠">
+<meta name="twitter:card" content="summary">
+  
+  
+  
+  
+
+  <!-- feed -->
+  
+    <link rel="alternate" href="/atom.xml" title="绯鞠的博客" type="application/atom+xml">
+  
+
+  <link rel="stylesheet" href="/css/main.css?v=1.29.0">
+
+  
+
+  
+
+  
+</head>
+<body>
+
+<div class="l_body s:aa content tech" id="start" layout="post" ><aside class="l_left"><div class="leftbar-container">
+
+
+<header class="header"><div class="logo-wrap"><a class="avatar" href="/about/"><div class="bg" style="opacity:0;background-image:url(https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/avatar/round/rainbow64@3x.webp);"></div><img no-lazy class="avatar" src="/dist/images/avatar.gif" onerror="javascript:this.classList.add('error');this.src='https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/image/2659360.svg';"></a><a class="title" href="/"><div class="main" ff="title">绯鞠的博客</div><div class="sub cap">连蜜统治世界!!!💕</div></a></div></header>
+
+<div class="nav-area">
+<div class="search-wrapper" id="search-wrapper"><form class="search-form"><a class="search-button" onclick="document.getElementById(&quot;search-input&quot;).focus();"><svg t="1705074644177" viewBox="0 0 1025 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="1560" width="200" height="200"><path d="M1008.839137 935.96571L792.364903 719.491476a56.783488 56.783488 0 0 0-80.152866 0 358.53545 358.53545 0 1 1 100.857314-335.166073 362.840335 362.840335 0 0 1-3.689902 170.145468 51.248635 51.248635 0 1 0 99.217358 26.444296 462.057693 462.057693 0 1 0-158.255785 242.303546l185.930047 185.725053a51.248635 51.248635 0 0 0 72.568068 0 51.248635 51.248635 0 0 0 0-72.978056z" p-id="1561"></path><path d="M616.479587 615.969233a50.428657 50.428657 0 0 0-61.498362-5.534852 174.655348 174.655348 0 0 1-177.525271 3.484907 49.403684 49.403684 0 0 0-58.833433 6.76482l-3.074918 2.869923a49.403684 49.403684 0 0 0 8.609771 78.10292 277.767601 277.767601 0 0 0 286.992355-5.739847 49.403684 49.403684 0 0 0 8.404776-76.667958z" p-id="1562"></path></svg></a><input type="text" class="search-input" id="search-input" placeholder="站内搜索"></form><div id="search-result"></div><div class="search-no-result">没有找到内容！</div></div>
+
+
+<nav class="menu dis-select"><a class="nav-item" title="友链" href="/links/"><link rel="stylesheet" href="https://unpkg.com/font-awesome@4.7.0/css/font-awesome.min.css"><i class="fa fa-link"></i></a><a class="nav-item" title="赞助" href="/reward/"><i class="fa fa-heart"></i></a><a class="nav-item" title="订阅" href="/atom.xml"><i class="fa fa-rss"></i></a><a class="nav-item" title="主题" href="//loli.fj.cn"><i class="fa fa-arrow-right"></i></a></nav>
+</div>
+<div class="widgets">
+
+
+<widget class="widget-wrapper post-list"><div class="widget-header dis-select"><span class="name">最近更新</span></div><div class="widget-body fs14"><a class="item title" href="/2024/08/06/Mysql%E7%9A%84UDF%E6%8F%90%E6%9D%83/"><span class="title">【笔记】Mysql的UDF提权</span></a><a class="item title" href="/2024/08/06/PowerShell%E5%8E%8B%E7%BC%A9%E5%92%8C%E8%A7%A3%E5%8E%8B%E7%BC%A9zip%E6%96%87%E4%BB%B6/"><span class="title">【笔记】PowerShell压缩和解压缩zip文件</span></a><a class="item title" href="/2022/09/22/Winget%E5%AE%89%E8%A3%85%E7%AC%94%E8%AE%B0/"><span class="title">【笔记】Winget安装笔记</span></a><a class="item title" href="/2024/07/30/msf%E5%AE%9E%E7%8E%B0Mysql%E6%8F%90%E6%9D%83/"><span class="title">【笔记】msf实现Mysql提权</span></a><a class="item title" href="/2024/08/06/%E5%B0%86WindowsTerminal%E4%BD%9C%E4%B8%BAWindows%E9%BB%98%E8%AE%A4%E7%BB%88%E7%AB%AF/"><span class="title">【笔记】将WindowsTerminal作为Windows默认终端</span></a><a class="item title" href="/2022/06/25/%E6%9F%A5%E7%9C%8B%E7%AB%AF%E5%8F%A3%E5%8F%B7%E5%BC%80%E6%94%BE%E6%83%85%E5%86%B5/"><span class="title">【笔记】查看端口号开放情况</span></a><a class="item title" href="/2020/02/12/%E9%A1%BA%E5%BA%8F%E6%A0%88/"><span class="title">【代码】顺序栈</span></a><a class="item title" href="/2019/11/18/%E9%AA%87%E5%AE%A2%E6%8A%80%E6%9C%AF%E8%A7%A3%E5%86%B3%E6%B5%8F%E8%A7%88%E5%99%A8%E5%85%BC%E5%AE%B9%E6%80%A7%E9%97%AE%E9%A2%98/"><span class="title">【笔记】骇客技术解决浏览器兼容性问题（Javascript篇）</span></a><a class="item title" href="/2024/02/08/%E9%AA%8C%E8%AF%81JSON%E6%96%87%E4%BB%B6%E5%86%85%E5%AE%B9/"><span class="title">【笔记】验证JSON文件内容</span></a><a class="item title" href="/2020/07/04/%E9%AA%8C%E8%AF%81%E5%9B%9E%E6%96%87%E4%B8%B2/"><span class="title">【代码】验证回文串</span></a></div></widget>
+</div>
+<footer class="footer dis-select"><div class="social-wrap"><a class="social" href="/links/#comments" rel="noopener noreferrer"><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/social/942ebbf1a4b91.svg"/></a><a class="social" onclick="switchTheme()"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024"><path fill="currentColor" fill-rule="evenodd" d="M582.4 326.4c-140.8 0-256 115.2-256 256s115.2 256 256 256 256-115.2 256-256-115.2-256-256-256z m0 448c-70.4 0-131.2-36.8-164.8-92.8 12.8 3.2 27.2 4.8 40 4.8 121.6 0 219.2-99.2 219.2-219.2 0-17.6-1.6-35.2-6.4-52.8 60.8 32 102.4 96 102.4 169.6 1.6 104-84.8 190.4-190.4 190.4zM582.4 262.4c17.6 0 32-14.4 32-32v-128c0-17.6-14.4-32-32-32s-32 14.4-32 32v128c0 17.6 14.4 32 32 32zM262.4 582.4c0-17.6-14.4-32-32-32h-128c-17.6 0-32 14.4-32 32s14.4 32 32 32h128c17.6 0 32-14.4 32-32zM310.4 356.8c6.4 6.4 14.4 9.6 22.4 9.6 8 0 16-3.2 22.4-9.6 12.8-12.8 12.8-32 0-44.8l-91.2-91.2c-12.8-12.8-32-12.8-44.8 0-12.8 12.8-12.8 32 0 44.8l91.2 91.2zM944 220.8c-12.8-12.8-32-12.8-44.8 0l-91.2 91.2c-12.8 12.8-12.8 32 0 44.8 6.4 6.4 14.4 9.6 22.4 9.6 8 0 16-3.2 22.4-9.6l91.2-91.2c12.8-12.8 12.8-33.6 0-44.8zM310.4 808l-91.2 91.2c-12.8 12.8-12.8 32 0 44.8 6.4 6.4 14.4 9.6 22.4 9.6 8 0 16-3.2 22.4-9.6l91.2-91.2c12.8-12.8 12.8-32 0-44.8-11.2-11.2-32-11.2-44.8 0z"></path></svg></a></div></footer>
+</div></aside><div class="l_main" id="main">
+
+
+
+
+
+<div class="article banner top">
+  <div class="content">
+    <div class="top bread-nav footnote"><div class="left"><div class="flex-row" id="breadcrumb"><a class="cap breadcrumb" href="/">主页</a>
+<span class="sep"></span><a class="cap breadcrumb" href="/">文章</a></div>
+<div class="flex-row" id="post-meta"><span class="text created">发布于：<time datetime="2023-06-21T08:31:25.000Z">2023-06-21</time></span><span class="sep updated"></span><span class="text updated">更新于：<time datetime="2024-08-06T02:31:29.974Z">2024-08-06</time></span></div></div></div>
+    
+    <div class="bottom only-title">
+      
+      <div class="text-area">
+        <h1 class="text title"><span>【笔记】按键精灵2014</span></h1>
+        
+      </div>
+    </div>
+    
+  </div>
+  </div><article class="md-text content"><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>按键精灵2014学习笔记<br>按键精灵2014的脚本是基于VB开发的，可以使用部分VB内置命令；按键精灵X的脚本是基于Lua开发的<br>源码的后缀名为<code>.Q</code>，但是文件中不仅包含了源码，还包含了文件属性，可以通过按键精灵2014的编辑器来修改和调试源码</p>
+<span id="more"></span>
+
+<h2 id="注释"><a href="#注释" class="headerlink" title="注释"></a>注释</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">// 注释内容</span><br><span class="line"></span><br><span class="line">&#x27; 注释内容</span><br></pre></td></tr></table></figure>
+
+<h2 id="延时"><a href="#延时" class="headerlink" title="延时"></a>延时</h2><blockquote>
+<p><code>&lt;num&gt;</code>：延迟的时间，单位毫秒</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Delay &lt;num&gt;</span><br></pre></td></tr></table></figure>
+
+<h2 id="声明变量"><a href="#声明变量" class="headerlink" title="声明变量"></a>声明变量</h2><ul>
+<li>按键精灵2014的变量名可以是中文</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Dim 变量名</span><br></pre></td></tr></table></figure>
+
+<h2 id="声明全局变量"><a href="#声明全局变量" class="headerlink" title="声明全局变量"></a>声明全局变量</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">DimEnv 变量名</span><br></pre></td></tr></table></figure>
+
+<h2 id="定义变量"><a href="#定义变量" class="headerlink" title="定义变量"></a>定义变量</h2><ul>
+<li>为变量赋值</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">变量名 = 变量值</span><br></pre></td></tr></table></figure>
+
+<h2 id="定义用户变量"><a href="#定义用户变量" class="headerlink" title="定义用户变量"></a>定义用户变量</h2><ul>
+<li>用于可以传递参数的小精灵传来的参数</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">UserVar 变量名 = &quot;参数默认值&quot; &quot;提示信息&quot;</span><br></pre></td></tr></table></figure>
+
+<h2 id="输出到控制台"><a href="#输出到控制台" class="headerlink" title="输出到控制台"></a>输出到控制台</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">TracePrint 变量名</span><br></pre></td></tr></table></figure>
+
+<h2 id="数据类型"><a href="#数据类型" class="headerlink" title="数据类型"></a>数据类型</h2><h3 id="字符串"><a href="#字符串" class="headerlink" title="字符串"></a>字符串</h3><h4 id="字符串拼接"><a href="#字符串拼接" class="headerlink" title="字符串拼接"></a>字符串拼接</h4><ul>
+<li>通过<code>&amp;</code>进行字符串拼接</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&quot;文本内容&quot;&amp;&quot;文本内容&quot;</span><br></pre></td></tr></table></figure>
+
+<h4 id="字符串分割"><a href="#字符串分割" class="headerlink" title="字符串分割"></a>字符串分割</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">字符串数组变量名 = Split(字符串, &quot;分割符&quot;)</span><br><span class="line"></span><br><span class="line">字符串数组第一个值 = 字符串数组变量名(0)</span><br></pre></td></tr></table></figure>
+
+<h5 id="查找子字符串"><a href="#查找子字符串" class="headerlink" title="查找子字符串"></a>查找子字符串</h5><ul>
+<li>查找子字符串在父字符串中的位置，如果没有找到返回0</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">InStr(&quot;父字符串&quot;, &quot;子字符串&quot;)</span><br></pre></td></tr></table></figure>
+
+<h5 id="替换子字符串"><a href="#替换子字符串" class="headerlink" title="替换子字符串"></a>替换子字符串</h5><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Replace(&quot;父字符串&quot;, &quot;旧的子字符串&quot;, &quot;新的子字符串&quot;)</span><br></pre></td></tr></table></figure>
+
+<h5 id="倒置字符串中的字符顺序"><a href="#倒置字符串中的字符顺序" class="headerlink" title="倒置字符串中的字符顺序"></a>倒置字符串中的字符顺序</h5><ul>
+<li>返回倒置后的新字符串</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">变量 = StrReverse(&quot;字符串&quot;)</span><br></pre></td></tr></table></figure>
+
+<h5 id="截取字符串"><a href="#截取字符串" class="headerlink" title="截取字符串"></a>截取字符串</h5><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Mid(字符串, 开始截取下标, 步长)</span><br></pre></td></tr></table></figure>
+
+<h3 id="转义字符"><a href="#转义字符" class="headerlink" title="转义字符"></a>转义字符</h3><h4 id="换行符"><a href="#换行符" class="headerlink" title="换行符"></a>换行符</h4><ul>
+<li>光标移到下一行</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Chr(10)</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>光标移到下一行开头</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Chr(13)</span><br></pre></td></tr></table></figure>
+
+<h3 id="数组"><a href="#数组" class="headerlink" title="数组"></a>数组</h3><h4 id="定义数组"><a href="#定义数组" class="headerlink" title="定义数组"></a>定义数组</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">数组名 = Array(值, 值)</span><br></pre></td></tr></table></figure>
+
+<h4 id="获取数组长度"><a href="#获取数组长度" class="headerlink" title="获取数组长度"></a>获取数组长度</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Ubound(数组名)</span><br></pre></td></tr></table></figure>
+
+<h2 id="运算符"><a href="#运算符" class="headerlink" title="运算符"></a>运算符</h2><h3 id="比较运算符"><a href="#比较运算符" class="headerlink" title="比较运算符"></a>比较运算符</h3><ul>
+<li><code>&lt;&gt;</code></li>
+</ul>
+<h3 id="逻辑运算符"><a href="#逻辑运算符" class="headerlink" title="逻辑运算符"></a>逻辑运算符</h3><ul>
+<li><code>And</code>、<code>Or</code>、<code>Not</code></li>
+</ul>
+<h2 id="循环语句"><a href="#循环语句" class="headerlink" title="循环语句"></a>循环语句</h2><h3 id="Where循环"><a href="#Where循环" class="headerlink" title="Where循环"></a>Where循环</h3><ul>
+<li>如果无限循环，循环条件设置为<code>True</code></li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">While 循环条件</span><br><span class="line">    ...</span><br><span class="line">Wend</span><br></pre></td></tr></table></figure>
+
+<h3 id="For循环"><a href="#For循环" class="headerlink" title="For循环"></a>For循环</h3><blockquote>
+<p><code>&lt;num&gt;</code>：循环次数</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">For &lt;num&gt;</span><br><span class="line">    ...</span><br><span class="line">Next</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">For 0 To 1</span><br><span class="line">    ...</span><br><span class="line">Next</span><br></pre></td></tr></table></figure>
+
+<h2 id="条件语句"><a href="#条件语句" class="headerlink" title="条件语句"></a>条件语句</h2><h3 id="数值判断"><a href="#数值判断" class="headerlink" title="数值判断"></a>数值判断</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">IF 条件 Then</span><br><span class="line">    ...</span><br><span class="line">ElseIf 条件</span><br><span class="line">    ...</span><br><span class="line">End If</span><br></pre></td></tr></table></figure>
+
+<h3 id="颜色判断"><a href="#颜色判断" class="headerlink" title="颜色判断"></a>颜色判断</h3><h4 id="获取鼠标当前位置的颜色值"><a href="#获取鼠标当前位置的颜色值" class="headerlink" title="获取鼠标当前位置的颜色值"></a>获取鼠标当前位置的颜色值</h4><ul>
+<li>获取鼠标当前位置的6位十六进制颜色值</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">变量名 = GetPixelColor(像素点横坐标, 像素点纵坐标)</span><br></pre></td></tr></table></figure>
+
+<h4 id="定位找色"><a href="#定位找色" class="headerlink" title="定位找色"></a>定位找色</h4><blockquote>
+<p><code>&lt;x&gt;</code>：x轴坐标<br><code>&lt;y&gt;</code>：y轴坐标<br><code>FFFFFF</code>：十六进制颜色值<br>0表示相同，1表示不相同，2表示相似</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">IfColor &lt;x&gt;,&lt;y&gt;,&quot;FFFFFF&quot;,0 Then</span><br><span class="line">    ...</span><br><span class="line">Else</span><br><span class="line">    ...</span><br><span class="line">End If</span><br></pre></td></tr></table></figure>
+
+<h4 id="区域找色"><a href="#区域找色" class="headerlink" title="区域找色"></a>区域找色</h4><ul>
+<li>在一个区域内从左上角开始找色，按照先从左再到右、先从上再到下的顺序</li>
+</ul>
+<blockquote>
+<p><code>&lt;x_start&gt;,&lt;y_start&gt;</code>：选区左上角的横纵坐标<br><code>&lt;x_end&gt;,&lt;y_end&gt;</code>：选区右下角的横纵坐标<br><code>intX</code>：返回值，找到的结果x坐标，如果找不到就返回小于1的数<br><code>intY</code>：返回值，找到的结果y坐标，如果找不到就返回小于1的数 </p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">FindColor &lt;x_start&gt;,&lt;y_start&gt;,&lt;x_end&gt;,&lt;y_end&gt;,&quot;FFFFFF&quot;,intX,intY</span><br><span class="line">If intX &gt; 0 And intY &gt; 0 Then</span><br><span class="line">    ...</span><br><span class="line">End If</span><br></pre></td></tr></table></figure>
+
+<h5 id="更多配置"><a href="#更多配置" class="headerlink" title="更多配置"></a>更多配置</h5><blockquote>
+<p><code>&lt;mod&gt;</code>：指定找色模式</p>
+<blockquote>
+<p><code>0</code>：从左上到右下<br><code>1</code>：从中心开始<br><code>2</code>：从右下到左上</p>
+</blockquote>
+<p><code>&lt;similarity&gt;</code>：指定颜色相似度，范围[0,1]</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">FindColorEx &lt;x_start&gt;,&lt;y_start&gt;,&lt;x_end&gt;,&lt;y_end&gt;,&quot;FFFFFF&quot;,&lt;mod&gt;,&lt;similarity&gt;,intX,intY</span><br><span class="line">If intX &gt; 0 And intY &gt; 0 Then</span><br><span class="line">    ...</span><br><span class="line">End If</span><br></pre></td></tr></table></figure>
+
+<h3 id="图片判断"><a href="#图片判断" class="headerlink" title="图片判断"></a>图片判断</h3><ul>
+<li>先将图片添加到附件</li>
+</ul>
+<p>按键精灵只能识别<code>.bmp</code>格式的位图<br>不能找单色图片<br>如果图片的四个角的像素点的颜色一样，则该图片中存在的所有该颜色都视为透明</p>
+<ul>
+<li>再在代码中引用图片</li>
+</ul>
+<blockquote>
+<p><code>&lt;file_name&gt;.bmp</code>：附件中的图片名</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">FindPic &lt;x_start&gt;,&lt;y_start&gt;,&lt;x_end&gt;,&lt;y_end&gt;,&quot;&lt;file_name&gt;.bmp&quot;,&lt;similarity&gt;,intX,intY</span><br><span class="line">If intX &gt; 0 And intY &gt; 0 Then</span><br><span class="line">    ...</span><br><span class="line">End If</span><br></pre></td></tr></table></figure>
+
+<h4 id="查找标准色块数量"><a href="#查找标准色块数量" class="headerlink" title="查找标准色块数量"></a>查找标准色块数量</h4><blockquote>
+<p>相似度：取值范围为[0,1]<br>颜色值：6位的十六进制颜色值，顺序是BGR</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">变量名 = Plugin.Color.CountBlockNum(左上角横坐标, 左上角纵坐标, 右下角横坐标, 右下角纵坐标, 颜色值, 相似度)</span><br></pre></td></tr></table></figure>
+
+<h5 id="后台查找标准色块数量"><a href="#后台查找标准色块数量" class="headerlink" title="后台查找标准色块数量"></a>后台查找标准色块数量</h5><ul>
+<li>同一种颜色形成的整体就是一个色块</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">变量名 = Plugin.Bkgnd.CountBlockNum(窗口句柄, 左上角横坐标, 左上角纵坐标, 右下角横坐标, 右下角纵坐标, 颜色值, 相似度)</span><br></pre></td></tr></table></figure>
+
+<h5 id="后台查找标准色块位置"><a href="#后台查找标准色块位置" class="headerlink" title="后台查找标准色块位置"></a>后台查找标准色块位置</h5><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">变量名 = Plugin.Bkgnd.GetBlockRange(窗口句柄, 左上角横坐标, 左上角纵坐标, 右下角横坐标, 右下角纵坐标, 颜色值, 相似度)</span><br></pre></td></tr></table></figure>
+
+<h2 id="操作鼠标"><a href="#操作鼠标" class="headerlink" title="操作鼠标"></a>操作鼠标</h2><h3 id="获取鼠标当前位置的坐标"><a href="#获取鼠标当前位置的坐标" class="headerlink" title="获取鼠标当前位置的坐标"></a>获取鼠标当前位置的坐标</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">GetCursorPos x, y</span><br></pre></td></tr></table></figure>
+
+<h3 id="移动鼠标"><a href="#移动鼠标" class="headerlink" title="移动鼠标"></a>移动鼠标</h3><h4 id="绝对定位移动"><a href="#绝对定位移动" class="headerlink" title="绝对定位移动"></a>绝对定位移动</h4><ul>
+<li>屏幕坐标系的原点为屏幕左上角，向右为x轴的正方向，向下为y轴的正方向</li>
+</ul>
+<blockquote>
+<p><code>&lt;x&gt;</code>：x轴坐标<br><code>&lt;y&gt;</code>：y轴坐标</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">MoveTo &lt;x&gt;,&lt;y&gt;</span><br></pre></td></tr></table></figure>
+
+<h4 id="相对定位移动"><a href="#相对定位移动" class="headerlink" title="相对定位移动"></a>相对定位移动</h4><blockquote>
+<p><code>&lt;x&gt;</code>：横坐标的增量，正数为向右，负数为向左<br><code>&lt;y&gt;</code>：纵坐标的增量，正数为向下，负数为向上</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">MoveR &lt;x&gt;,&lt;y&gt;</span><br></pre></td></tr></table></figure>
+
+<h3 id="左键单机"><a href="#左键单机" class="headerlink" title="左键单机"></a>左键单机</h3><blockquote>
+<p><code>&lt;num&gt;</code>：单机次数</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">LeftClick &lt;num&gt;</span><br></pre></td></tr></table></figure>
+
+<h2 id="操作键盘"><a href="#操作键盘" class="headerlink" title="操作键盘"></a>操作键盘</h2><h3 id="程序暂停等待按键"><a href="#程序暂停等待按键" class="headerlink" title="程序暂停等待按键"></a>程序暂停等待按键</h3><ul>
+<li>按下非终止程序快捷键以外的键，程序才会继续运行</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">WaitKey</span><br></pre></td></tr></table></figure>
+
+<h4 id="获取按下的键码值"><a href="#获取按下的键码值" class="headerlink" title="获取按下的键码值"></a>获取按下的键码值</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">变量名 = WaitKey()</span><br></pre></td></tr></table></figure>
+
+<h3 id="检测上次按过的键"><a href="#检测上次按过的键" class="headerlink" title="检测上次按过的键"></a>检测上次按过的键</h3><ul>
+<li>获取键盘上一次按下的键码值，包括程序未运行时按下的按键</li>
+<li>默认没有按键按下时得到的值为0</li>
+<li>检测到按键后会立即将键码值赋值给变量，如果之后没有按键继续按下，变量值会恢复为0</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">变量名 = GetLastKey()</span><br></pre></td></tr></table></figure>
+
+<h3 id="输出字符串"><a href="#输出字符串" class="headerlink" title="输出字符串"></a>输出字符串</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SayString &quot;文本内容&quot;</span><br></pre></td></tr></table></figure>
+
+<h4 id="后台输出字符串"><a href="#后台输出字符串" class="headerlink" title="后台输出字符串"></a>后台输出字符串</h4><ul>
+<li>后台按下回车</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Call Plugin.Bkgnd.SendString(句柄变量名, &quot;文本内容&quot;)</span><br></pre></td></tr></table></figure>
+
+<h3 id="按下指定按键"><a href="#按下指定按键" class="headerlink" title="按下指定按键"></a>按下指定按键</h3><ul>
+<li>按下回车</li>
+</ul>
+<blockquote>
+<p><code>&lt;num&gt;</code>：按键按下次数</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">KeyPress &quot;Enter&quot;, &lt;num&gt;</span><br></pre></td></tr></table></figure>
+
+<h4 id="后台按下指定按键"><a href="#后台按下指定按键" class="headerlink" title="后台按下指定按键"></a>后台按下指定按键</h4><ul>
+<li>后台按下回车</li>
+</ul>
+<blockquote>
+<p>键码值</p>
+<blockquote>
+<p><code>13</code>：回车键</p>
+</blockquote>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Call Plugin.Bkgnd.KeyPress(句柄变量名, 键码值)</span><br></pre></td></tr></table></figure>
+
+<h4 id="字符转键码值"><a href="#字符转键码值" class="headerlink" title="字符转键码值"></a>字符转键码值</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Asc(&quot;字符&quot;)</span><br></pre></td></tr></table></figure>
+
+<h2 id="弹出消息窗"><a href="#弹出消息窗" class="headerlink" title="弹出消息窗"></a>弹出消息窗</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">MessageBox &quot;文本内容&quot;</span><br></pre></td></tr></table></figure>
+
+<h2 id="屏幕输出文本框"><a href="#屏幕输出文本框" class="headerlink" title="屏幕输出文本框"></a>屏幕输出文本框</h2><ul>
+<li>文本字号为16像素</li>
+<li>文本框的颜色为白底</li>
+<li>超出文本框的文字会被隐藏</li>
+</ul>
+<blockquote>
+<p>颜色值：6位的十六进制颜色值，顺序是BGR</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Call Plugin.Msg.ShowScrTXT(文本框左上角横坐标, 文本框左上角纵坐标, 文本框右下角横坐标, 文本框右下角纵坐标, &quot;文本内容&quot;, 颜色值)</span><br></pre></td></tr></table></figure>
+
+<h3 id="清除文本框"><a href="#清除文本框" class="headerlink" title="清除文本框"></a>清除文本框</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Plugin.Msg.HideSrcTXT</span><br></pre></td></tr></table></figure>
+
+<h2 id="状态栏图标气泡"><a href="#状态栏图标气泡" class="headerlink" title="状态栏图标气泡"></a>状态栏图标气泡</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Call Plugin.Msg.Tips(&quot;文本内容&quot;)</span><br></pre></td></tr></table></figure>
+
+<h2 id="子程序"><a href="#子程序" class="headerlink" title="子程序"></a>子程序</h2><h3 id="定义子程序"><a href="#定义子程序" class="headerlink" title="定义子程序"></a>定义子程序</h3><ul>
+<li>子程序名可以是中文</li>
+</ul>
+<h4 id="无参"><a href="#无参" class="headerlink" title="无参"></a>无参</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Sub 子程序名</span><br><span class="line"></span><br><span class="line">...</span><br><span class="line"></span><br><span class="line">End Sub</span><br></pre></td></tr></table></figure>
+
+<h4 id="有参"><a href="#有参" class="headerlink" title="有参"></a>有参</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Sub 子程序名(形参名, 形参名)</span><br><span class="line"></span><br><span class="line">...</span><br><span class="line"></span><br><span class="line">End Sub</span><br></pre></td></tr></table></figure>
+
+<h3 id="调用子程序"><a href="#调用子程序" class="headerlink" title="调用子程序"></a>调用子程序</h3><h4 id="无参-1"><a href="#无参-1" class="headerlink" title="无参"></a>无参</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Call 子程序名</span><br></pre></td></tr></table></figure>
+
+<h4 id="有参-1"><a href="#有参-1" class="headerlink" title="有参"></a>有参</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Call 子程序名(值, 值)</span><br></pre></td></tr></table></figure>
+
+<h2 id="窗口句柄"><a href="#窗口句柄" class="headerlink" title="窗口句柄"></a>窗口句柄</h2><h3 id="获取窗口句柄"><a href="#获取窗口句柄" class="headerlink" title="获取窗口句柄"></a>获取窗口句柄</h3><h4 id="通过鼠标的位置获取窗口句柄"><a href="#通过鼠标的位置获取窗口句柄" class="headerlink" title="通过鼠标的位置获取窗口句柄"></a>通过鼠标的位置获取窗口句柄</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">句柄变量名 = Plugin.Window.MousePoit()</span><br></pre></td></tr></table></figure>
+
+<h4 id="通过类名获取窗口句柄"><a href="#通过类名获取窗口句柄" class="headerlink" title="通过类名获取窗口句柄"></a>通过类名获取窗口句柄</h4><h5 id="获取根级的窗口句柄"><a href="#获取根级的窗口句柄" class="headerlink" title="获取根级的窗口句柄"></a>获取根级的窗口句柄</h5><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">句柄变量名 = Plugin.Window.Find(&quot;窗口类名&quot;, &quot;窗口标题&quot;)</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>如果模糊查找，可以不给窗口标题参数</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">句柄变量名 = Plugin.Window.Find(&quot;窗口类名&quot;, 0)</span><br></pre></td></tr></table></figure>
+
+<h5 id="获取子级的窗口句柄"><a href="#获取子级的窗口句柄" class="headerlink" title="获取子级的窗口句柄"></a>获取子级的窗口句柄</h5><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">子窗口句柄变量名 = Plugin.Window.FindEx(句柄变量名, 0, 0, 0)</span><br></pre></td></tr></table></figure>
+
+<h3 id="通过窗口句柄获取窗口位置"><a href="#通过窗口句柄获取窗口位置" class="headerlink" title="通过窗口句柄获取窗口位置"></a>通过窗口句柄获取窗口位置</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">窗口位置变量 = Plugin.Window.GetWindowRect(句柄变量名)</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">左上角横坐标|左上角纵坐标|右下角横坐标|右下角纵坐标</span><br></pre></td></tr></table></figure>
+
+<h3 id="通过窗口句柄操作鼠标"><a href="#通过窗口句柄操作鼠标" class="headerlink" title="通过窗口句柄操作鼠标"></a>通过窗口句柄操作鼠标</h3><h4 id="单机左键"><a href="#单机左键" class="headerlink" title="单机左键"></a>单机左键</h4><ul>
+<li>这种方式操作鼠标时，无论是否在屏幕内，无论是否在前台，都可以正常执行点击</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Call Plugin.Bkgnd.LeftClick(句柄变量名, 相对于窗口左上角的横坐标, 相对于窗口左上角的纵坐标)</span><br></pre></td></tr></table></figure>
+
+<h2 id="生成随机数"><a href="#生成随机数" class="headerlink" title="生成随机数"></a>生成随机数</h2><ul>
+<li>生成随机数范围为[0,1)的随机数</li>
+</ul>
+<blockquote>
+<p><code>&lt;seed&gt;</code>：随机数种子类型</p>
+<blockquote>
+<p>大于0、省略：将生成的随机数列表中的下一个随机数作为随机数种子<br>小于0：使用该值作为随机数种子，每次都相同<br><code>0</code>：使用最近生成的数作为随机数种子</p>
+</blockquote>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Rnd()</span><br></pre></td></tr></table></figure>
+
+<h3 id="生成指定范围的随机数"><a href="#生成指定范围的随机数" class="headerlink" title="生成指定范围的随机数"></a>生成指定范围的随机数</h3><blockquote>
+<p><code>&lt;max&gt;</code>：最大值<br><code>&lt;min&gt;</code>：最小值</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Int((&lt;max&gt; - &lt;min&gt; + 1) * Rnd + &lt;min&gt;)</span><br></pre></td></tr></table></figure>
+
+<h3 id="重置随机数种子"><a href="#重置随机数种子" class="headerlink" title="重置随机数种子"></a>重置随机数种子</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Randomize</span><br></pre></td></tr></table></figure>
+
+<h2 id="事件"><a href="#事件" class="headerlink" title="事件"></a>事件</h2><h3 id="脚本停止运行事件"><a href="#脚本停止运行事件" class="headerlink" title="脚本停止运行事件"></a>脚本停止运行事件</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Sub OnScriptExit()</span><br><span class="line"></span><br><span class="line">End Sub</span><br></pre></td></tr></table></figure>
+
+<h3 id="点击事件"><a href="#点击事件" class="headerlink" title="点击事件"></a>点击事件</h3><blockquote>
+<p><code>Form1</code>：第一个窗口<br><code>Button1</code>：第一个按钮</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Event Form1.Button1.Click</span><br><span class="line">    ...</span><br><span class="line">End Event</span><br></pre></td></tr></table></figure>
+
+<h3 id="窗体加载事件"><a href="#窗体加载事件" class="headerlink" title="窗体加载事件"></a>窗体加载事件</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Event Form1.Load</span><br><span class="line">    ...</span><br><span class="line">End Event</span><br></pre></td></tr></table></figure>
+
+<h2 id="QUI组件"><a href="#QUI组件" class="headerlink" title="QUI组件"></a>QUI组件</h2><h3 id="文本框"><a href="#文本框" class="headerlink" title="文本框"></a>文本框</h3><h4 id="获取文本框内容"><a href="#获取文本框内容" class="headerlink" title="获取文本框内容"></a>获取文本框内容</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Form1.ImpotBox.Text</span><br></pre></td></tr></table></figure>
+
+<h5 id="转换为整型"><a href="#转换为整型" class="headerlink" title="转换为整型"></a>转换为整型</h5><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Int(Form1.ImpotBox.Text)</span><br></pre></td></tr></table></figure>
+
+<h4 id="修改文本框内容"><a href="#修改文本框内容" class="headerlink" title="修改文本框内容"></a>修改文本框内容</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Form1.ImpotBox.Text = &quot;文本内容&quot;</span><br></pre></td></tr></table></figure>
+
+<h3 id="下拉列表"><a href="#下拉列表" class="headerlink" title="下拉列表"></a>下拉列表</h3><h4 id="定义所有选项"><a href="#定义所有选项" class="headerlink" title="定义所有选项"></a>定义所有选项</h4><h5 id="前端显示"><a href="#前端显示" class="headerlink" title="前端显示"></a>前端显示</h5><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Form1.ComboBox1.List = &quot;是|否&quot;</span><br></pre></td></tr></table></figure>
+
+<h5 id="后段实际数据"><a href="#后段实际数据" class="headerlink" title="后段实际数据"></a>后段实际数据</h5><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">subfix = Array(true, false)</span><br><span class="line">If subfix(Form1.ComboBox1.ListIndex) == true Then</span><br><span class="line"></span><br><span class="line">End If</span><br></pre></td></tr></table></figure>
+
+<h4 id="定义默认选项"><a href="#定义默认选项" class="headerlink" title="定义默认选项"></a>定义默认选项</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Form1.ComboBox1.ListIndex = 0</span><br></pre></td></tr></table></figure>
+
+<h3 id="文件选择"><a href="#文件选择" class="headerlink" title="文件选择"></a>文件选择</h3><ul>
+<li>弹出一个文件选择窗口</li>
+<li>返回选择的文件的绝对路径</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">变量名 = Plugin.File.SelectFile()</span><br></pre></td></tr></table></figure>
+
+<h2 id="运行程序"><a href="#运行程序" class="headerlink" title="运行程序"></a>运行程序</h2><blockquote>
+<p><code>&lt;file&gt;</code>：文件绝对路径</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">RunApp &lt;file&gt;</span><br></pre></td></tr></table></figure>
+
+<h2 id="多线程"><a href="#多线程" class="headerlink" title="多线程"></a>多线程</h2><h3 id="启动线程"><a href="#启动线程" class="headerlink" title="启动线程"></a>启动线程</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">BeginThread 子程序名1</span><br><span class="line">BeginThread 子程序名2</span><br><span class="line"></span><br><span class="line">Sub 子程序名1</span><br><span class="line">    ...</span><br><span class="line">End Sub</span><br><span class="line"></span><br><span class="line">Sub 子程序名2</span><br><span class="line">    ...</span><br><span class="line">End Sub</span><br></pre></td></tr></table></figure>
+
+<h4 id="获取线程ID"><a href="#获取线程ID" class="headerlink" title="获取线程ID"></a>获取线程ID</h4><ul>
+<li>启动线程后会返回线程ID</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">线程ID = BeginThread 子程序名</span><br></pre></td></tr></table></figure>
+
+<h3 id="停止指定线程"><a href="#停止指定线程" class="headerlink" title="停止指定线程"></a>停止指定线程</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">StopThread 线程ID</span><br></pre></td></tr></table></figure>
+
+<h3 id="继续线程"><a href="#继续线程" class="headerlink" title="继续线程"></a>继续线程</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ContinueThread 线程ID</span><br></pre></td></tr></table></figure>
+
+<h2 id="配置文件"><a href="#配置文件" class="headerlink" title="配置文件"></a>配置文件</h2><h3 id="小精灵配置文件"><a href="#小精灵配置文件" class="headerlink" title="小精灵配置文件"></a>小精灵配置文件</h3><ul>
+<li>在小精灵同级目录下创建<code>uservar.ini</code>配置文件</li>
+</ul>
+<blockquote>
+<p><code>&lt;uuid&gt;</code>：UUID<br><code>&lt;value&gt;</code>：值</p>
+</blockquote>
+<figure class="highlight ini"><figcaption><span>uservar.ini</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="section">[&lt;uuid&gt;]</span></span><br><span class="line"><span class="attr">Form1.InputBox1.Text</span>=&lt;value&gt;</span><br></pre></td></tr></table></figure>
+
+<h3 id="写入自定义配置文件"><a href="#写入自定义配置文件" class="headerlink" title="写入自定义配置文件"></a>写入自定义配置文件</h3><ul>
+<li>配置文件不存在则会自动创建</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Call Plugin.File.WriteINI(&quot;小节&quot;, &quot;键&quot;, &quot;值&quot;, &quot;C:\Config.ini&quot;)</span><br></pre></td></tr></table></figure>
+
+<h3 id="读取自定义配置文件"><a href="#读取自定义配置文件" class="headerlink" title="读取自定义配置文件"></a>读取自定义配置文件</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">变量名 = Plugin.File.ReadINI(&quot;小节&quot;, &quot;键&quot;, &quot;C:\Config.ini&quot;)</span><br></pre></td></tr></table></figure>
+
+<h2 id="获取当前时间"><a href="#获取当前时间" class="headerlink" title="获取当前时间"></a>获取当前时间</h2><h3 id="从当前系统获取时间"><a href="#从当前系统获取时间" class="headerlink" title="从当前系统获取时间"></a>从当前系统获取时间</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">变量名 = Plugin.Sys.GetDateTime()</span><br></pre></td></tr></table></figure>
+
+<h3 id="从网络获取时间"><a href="#从网络获取时间" class="headerlink" title="从网络获取时间"></a>从网络获取时间</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">变量名 = lib.网络.获取网络时间()</span><br></pre></td></tr></table></figure>
+
+<h2 id="字符串作为命令执行"><a href="#字符串作为命令执行" class="headerlink" title="字符串作为命令执行"></a>字符串作为命令执行</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Execute(&quot;文本内容&quot;)</span><br></pre></td></tr></table></figure>
+
+<h2 id="读写文件"><a href="#读写文件" class="headerlink" title="读写文件"></a>读写文件</h2><h3 id="打开文件"><a href="#打开文件" class="headerlink" title="打开文件"></a>打开文件</h3><ul>
+<li>如果打开成功会返回文件句柄</li>
+<li>如果打开失败会返回-1</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">文件句柄 = Plugin.File.Open(&quot;文件路径&quot;)</span><br></pre></td></tr></table></figure>
+
+<h3 id="关闭文件"><a href="#关闭文件" class="headerlink" title="关闭文件"></a>关闭文件</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Call Plugin.File.Close(文件句柄)</span><br></pre></td></tr></table></figure>
+
+<h3 id="读取文件"><a href="#读取文件" class="headerlink" title="读取文件"></a>读取文件</h3><h4 id="按行读取文件"><a href="#按行读取文件" class="headerlink" title="按行读取文件"></a>按行读取文件</h4><ul>
+<li>行首可能会包含上一行末尾的换行符</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">变量名 = Plugin.File.ReadLine(文件句柄)</span><br><span class="line">While 句柄变量名 &lt;&gt; &quot;&quot;</span><br><span class="line">    变量名 = Plugin.File.ReadLine(文件句柄)</span><br><span class="line">Wend</span><br></pre></td></tr></table></figure>
+
+<h3 id="设置文件读写位置"><a href="#设置文件读写位置" class="headerlink" title="设置文件读写位置"></a>设置文件读写位置</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Call Plugin.File.SeekFile(文件句柄, 位置)</span><br></pre></td></tr></table></figure>
+
+<h3 id="获取文件内容长度"><a href="#获取文件内容长度" class="headerlink" title="获取文件内容长度"></a>获取文件内容长度</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">变量名 = Plugin.File.GetFileLength(&quot;文件路径&quot;)</span><br></pre></td></tr></table></figure>
+
+<h3 id="写入文件"><a href="#写入文件" class="headerlink" title="写入文件"></a>写入文件</h3><h4 id="文件末尾追加一行文本"><a href="#文件末尾追加一行文本" class="headerlink" title="文件末尾追加一行文本"></a>文件末尾追加一行文本</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Call Plugin.File.WriteFileFx(&quot;文件路径&quot;, &quot;文本内容&quot;)</span><br></pre></td></tr></table></figure>
+
+<h4 id="在当前光标处写入文本"><a href="#在当前光标处写入文本" class="headerlink" title="在当前光标处写入文本"></a>在当前光标处写入文本</h4><ul>
+<li>写入时会进行覆盖操作，且只覆盖新的数据的长度</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Call Plugin.File.WriteFile(&quot;文本内容&quot;)</span><br></pre></td></tr></table></figure>
+
+<h5 id="在文件末尾追加写入"><a href="#在文件末尾追加写入" class="headerlink" title="在文件末尾追加写入"></a>在文件末尾追加写入</h5><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">文件内容长度 = Plugin.File.GetFileLength(&quot;文件路径&quot;)</span><br><span class="line">Call Plugin.File.SeekFile(文件句柄, 文件内容长度)</span><br><span class="line">Call Plugin.File.WriteFile(&quot;文本内容&quot;)</span><br></pre></td></tr></table></figure>
+
+<h4 id="在当前光标处写入一行文本"><a href="#在当前光标处写入一行文本" class="headerlink" title="在当前光标处写入一行文本"></a>在当前光标处写入一行文本</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Call Plugin.File.WriteLine(&quot;文本内容&quot;)</span><br></pre></td></tr></table></figure>
+
+<h5 id="在文件末尾追加写入-1"><a href="#在文件末尾追加写入-1" class="headerlink" title="在文件末尾追加写入"></a>在文件末尾追加写入</h5><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">文件内容长度 = Plugin.File.GetFileLength(&quot;文件路径&quot;)</span><br><span class="line">Call Plugin.File.SeekFile(文件句柄, 文件内容长度)</span><br><span class="line">Call Plugin.File.WriteLine(Chr(13) &amp; &quot;文本内容&quot;)</span><br></pre></td></tr></table></figure>
+
+<h2 id="读写Excel文件"><a href="#读写Excel文件" class="headerlink" title="读写Excel文件"></a>读写Excel文件</h2><h3 id="打开Excel文件"><a href="#打开Excel文件" class="headerlink" title="打开Excel文件"></a>打开Excel文件</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Call Plugin.Office.OpenXls(&quot;文件路径&quot;)</span><br></pre></td></tr></table></figure>
+
+<h3 id="关闭文件-1"><a href="#关闭文件-1" class="headerlink" title="关闭文件"></a>关闭文件</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Call Plugin.Office.CloseXls()</span><br></pre></td></tr></table></figure>
+
+<h3 id="写入文件-1"><a href="#写入文件-1" class="headerlink" title="写入文件"></a>写入文件</h3><blockquote>
+<p><code>工作簿下标</code>：从1开始<br><code>单元格行的下标</code>：从1开始<br><code>单元格列的下标</code>：从1开始</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Plugin.Office.Write(工作簿下标, 单元格行的下标, 单元格列的下标, &quot;文本内容&quot;)</span><br></pre></td></tr></table></figure>
+
+<h2 id="发送HTTP请求"><a href="#发送HTTP请求" class="headerlink" title="发送HTTP请求"></a>发送HTTP请求</h2><h3 id="Get"><a href="#Get" class="headerlink" title="Get"></a>Get</h3><blockquote>
+<p><code>False</code>：是否是异步请求</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">Set xPost = createObject(&quot;Msxml2.ServerXMLHTTP3.0&quot;)</span><br><span class="line">xPost.Open &quot;Get&quot;, &quot;http://127.0.0.1:80/?key=value&quot;, False</span><br><span class="line">xPost.Send</span><br><span class="line">Delay 10</span><br><span class="line">If xPost.readyState = 4 Then</span><br><span class="line">    变量名 = xPost.responsetext</span><br><span class="line">End If</span><br><span class="line">xPost.abort</span><br><span class="line">Set xPost = Notbing</span><br></pre></td></tr></table></figure>
+
+<h3 id="Post"><a href="#Post" class="headerlink" title="Post"></a>Post</h3><blockquote>
+<p><code>False</code>：是否是异步请求</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">Set xPost = createObject(&quot;Msxml2.ServerXMLHTTP3.0&quot;)</span><br><span class="line">xPost.Open &quot;Post&quot;, &quot;http://127.0.0.1:80/&quot;, False</span><br><span class="line">xPost.Send(&quot;key=value&quot;)</span><br><span class="line">Delay 10</span><br><span class="line">If xPost.readyState = 4 Then</span><br><span class="line">    变量名 = xPost.responsetext</span><br><span class="line">End If</span><br><span class="line">xPost.abort</span><br><span class="line">Set xPost = Notbing</span><br></pre></td></tr></table></figure>
+
+<h2 id="保存截图"><a href="#保存截图" class="headerlink" title="保存截图"></a>保存截图</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Plugin.Pic.PrintScreen(左上角横坐标, 左上角纵坐标, 右下角横坐标, 右下角纵坐标, 图片保存路径)</span><br></pre></td></tr></table></figure>
+
+<h2 id="操作剪贴板"><a href="#操作剪贴板" class="headerlink" title="操作剪贴板"></a>操作剪贴板</h2><h3 id="获取剪贴板内容"><a href="#获取剪贴板内容" class="headerlink" title="获取剪贴板内容"></a>获取剪贴板内容</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">变量名 = Plugin.Sys.GetCLB()</span><br></pre></td></tr></table></figure>
+
+<h2 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h2><ul>
+<li>函数和子程序基本相同</li>
+<li>函数可以有返回值，子程序没有返回值</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Function 函数名</span><br><span class="line">    ...</span><br><span class="line">End Function</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>为函数名同名的变量名赋值，即可赋值给返回值</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Function 函数名</span><br><span class="line">    函数名 = 返回值</span><br><span class="line">End Function</span><br></pre></td></tr></table></figure>
+
+<h2 id="命令库"><a href="#命令库" class="headerlink" title="命令库"></a>命令库</h2><ul>
+<li><p>在命令库右键-&gt;<code>新建</code>-&gt;定义命令名称-&gt;<code>确定</code></p>
+</li>
+<li><p>在命令代码区中添加多个子程序或函数</p>
+</li>
+<li><p>调用命令</p>
+</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Lib.命令库名.命令名(参数列表)</span><br></pre></td></tr></table></figure>
+
+<h2 id="完成"><a href="#完成" class="headerlink" title="完成"></a>完成</h2><h2 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h2><p><a href="/302.html?target=https://www.bilibili.com/video/BV11x411a7Hw/">哔哩哔哩——酷玩蚊仔</a><br><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1S34y1a75p/">哔哩哔哩——沧桑大侠</a></p>
+
+<div class="article-footer fs14">
+    <section id="license">
+      <div class="header"><span>许可协议</span></div>
+      <div class="body"><p>本文采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">署名-非商业性使用-相同方式共享 4.0 国际</a> 许可协议，转载请注明出处。</p>
+</div>
+    </section>
+    </div>
+</article>
+<div class="related-wrap" id="read-next"><section class="body"><div class="item" id="prev"><div class="note">较新文章</div><a href="/2023/06/22/%E9%80%9A%E8%BF%87Docker%E9%83%A8%E7%BD%B2Alist/">【笔记】通过Docker部署Alist</a></div><div class="item" id="next"><div class="note">较早文章</div><a href="/2023/06/20/Go%E8%AF%AD%E8%A8%80%E5%B0%86Markdown%E8%BD%AC%E6%8D%A2%E4%B8%BAHTML/">【笔记】Go语言将Markdown转换为HTML</a></div></section></div>
+
+
+
+
+  <div class="related-wrap md-text" id="comments">
+    <section class='header cmt-title cap theme'>
+      <p>快来参与讨论吧~</p>
+
+    </section>
+    <section class='body cmt-body twikoo'>
+      
+
+<div id="twikoo_container"><svg class="loading" style="vertical-align:middle;fill:currentColor;overflow:hidden;" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="2709"><path d="M832 512c0-176-144-320-320-320V128c211.2 0 384 172.8 384 384h-64zM192 512c0 176 144 320 320 320v64C300.8 896 128 723.2 128 512h64z" p-id="2710"></path></svg></div>
+    </section>
+  </div>
+
+
+
+<footer class="page-footer footnote"><hr><div class="text"><p>本站由 <a href="/">绯鞠</a> 使用 <a target="_blank" rel="noopener" href="https://github.com/xaoxuu/hexo-theme-stellar/tree/1.29.0">Stellar 1.29.0</a> 主题创建。<br>本博客所有文章除特别声明外，均采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> 许可协议，转载请注明出处。</p>
+</div></footer>
+<div class="main-mask" onclick="sidebar.dismiss()"></div></div><aside class="l_right">
+<div class="widgets">
+
+
+
+<widget class="widget-wrapper toc" id="data-toc" collapse="false"><div class="widget-header dis-select"><span class="name">本文目录</span><a class="cap-action" onclick="sidebar.toggleTOC()" ><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6h11m-11 6h11m-11 6h11M4 6h1v4m-1 0h2m0 8H4c0-1 2-2 2-3s-1-1.5-2-1"/></svg></a></div><div class="widget-body"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%89%8D%E8%A8%80"><span class="toc-text">前言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B3%A8%E9%87%8A"><span class="toc-text">注释</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BB%B6%E6%97%B6"><span class="toc-text">延时</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%A3%B0%E6%98%8E%E5%8F%98%E9%87%8F"><span class="toc-text">声明变量</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%A3%B0%E6%98%8E%E5%85%A8%E5%B1%80%E5%8F%98%E9%87%8F"><span class="toc-text">声明全局变量</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%9A%E4%B9%89%E5%8F%98%E9%87%8F"><span class="toc-text">定义变量</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%9A%E4%B9%89%E7%94%A8%E6%88%B7%E5%8F%98%E9%87%8F"><span class="toc-text">定义用户变量</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%BE%93%E5%87%BA%E5%88%B0%E6%8E%A7%E5%88%B6%E5%8F%B0"><span class="toc-text">输出到控制台</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B"><span class="toc-text">数据类型</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AD%97%E7%AC%A6%E4%B8%B2"><span class="toc-text">字符串</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%AD%97%E7%AC%A6%E4%B8%B2%E6%8B%BC%E6%8E%A5"><span class="toc-text">字符串拼接</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%88%86%E5%89%B2"><span class="toc-text">字符串分割</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%9F%A5%E6%89%BE%E5%AD%90%E5%AD%97%E7%AC%A6%E4%B8%B2"><span class="toc-text">查找子字符串</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%9B%BF%E6%8D%A2%E5%AD%90%E5%AD%97%E7%AC%A6%E4%B8%B2"><span class="toc-text">替换子字符串</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%80%92%E7%BD%AE%E5%AD%97%E7%AC%A6%E4%B8%B2%E4%B8%AD%E7%9A%84%E5%AD%97%E7%AC%A6%E9%A1%BA%E5%BA%8F"><span class="toc-text">倒置字符串中的字符顺序</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%88%AA%E5%8F%96%E5%AD%97%E7%AC%A6%E4%B8%B2"><span class="toc-text">截取字符串</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%BD%AC%E4%B9%89%E5%AD%97%E7%AC%A6"><span class="toc-text">转义字符</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%8D%A2%E8%A1%8C%E7%AC%A6"><span class="toc-text">换行符</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%95%B0%E7%BB%84"><span class="toc-text">数组</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%AE%9A%E4%B9%89%E6%95%B0%E7%BB%84"><span class="toc-text">定义数组</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%8E%B7%E5%8F%96%E6%95%B0%E7%BB%84%E9%95%BF%E5%BA%A6"><span class="toc-text">获取数组长度</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%BF%90%E7%AE%97%E7%AC%A6"><span class="toc-text">运算符</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%AF%94%E8%BE%83%E8%BF%90%E7%AE%97%E7%AC%A6"><span class="toc-text">比较运算符</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%80%BB%E8%BE%91%E8%BF%90%E7%AE%97%E7%AC%A6"><span class="toc-text">逻辑运算符</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BE%AA%E7%8E%AF%E8%AF%AD%E5%8F%A5"><span class="toc-text">循环语句</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Where%E5%BE%AA%E7%8E%AF"><span class="toc-text">Where循环</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#For%E5%BE%AA%E7%8E%AF"><span class="toc-text">For循环</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9D%A1%E4%BB%B6%E8%AF%AD%E5%8F%A5"><span class="toc-text">条件语句</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%95%B0%E5%80%BC%E5%88%A4%E6%96%AD"><span class="toc-text">数值判断</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%A2%9C%E8%89%B2%E5%88%A4%E6%96%AD"><span class="toc-text">颜色判断</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%8E%B7%E5%8F%96%E9%BC%A0%E6%A0%87%E5%BD%93%E5%89%8D%E4%BD%8D%E7%BD%AE%E7%9A%84%E9%A2%9C%E8%89%B2%E5%80%BC"><span class="toc-text">获取鼠标当前位置的颜色值</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%AE%9A%E4%BD%8D%E6%89%BE%E8%89%B2"><span class="toc-text">定位找色</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8C%BA%E5%9F%9F%E6%89%BE%E8%89%B2"><span class="toc-text">区域找色</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%9B%B4%E5%A4%9A%E9%85%8D%E7%BD%AE"><span class="toc-text">更多配置</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9B%BE%E7%89%87%E5%88%A4%E6%96%AD"><span class="toc-text">图片判断</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%9F%A5%E6%89%BE%E6%A0%87%E5%87%86%E8%89%B2%E5%9D%97%E6%95%B0%E9%87%8F"><span class="toc-text">查找标准色块数量</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%90%8E%E5%8F%B0%E6%9F%A5%E6%89%BE%E6%A0%87%E5%87%86%E8%89%B2%E5%9D%97%E6%95%B0%E9%87%8F"><span class="toc-text">后台查找标准色块数量</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%90%8E%E5%8F%B0%E6%9F%A5%E6%89%BE%E6%A0%87%E5%87%86%E8%89%B2%E5%9D%97%E4%BD%8D%E7%BD%AE"><span class="toc-text">后台查找标准色块位置</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%93%8D%E4%BD%9C%E9%BC%A0%E6%A0%87"><span class="toc-text">操作鼠标</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%8E%B7%E5%8F%96%E9%BC%A0%E6%A0%87%E5%BD%93%E5%89%8D%E4%BD%8D%E7%BD%AE%E7%9A%84%E5%9D%90%E6%A0%87"><span class="toc-text">获取鼠标当前位置的坐标</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%A7%BB%E5%8A%A8%E9%BC%A0%E6%A0%87"><span class="toc-text">移动鼠标</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%BB%9D%E5%AF%B9%E5%AE%9A%E4%BD%8D%E7%A7%BB%E5%8A%A8"><span class="toc-text">绝对定位移动</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%9B%B8%E5%AF%B9%E5%AE%9A%E4%BD%8D%E7%A7%BB%E5%8A%A8"><span class="toc-text">相对定位移动</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B7%A6%E9%94%AE%E5%8D%95%E6%9C%BA"><span class="toc-text">左键单机</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%93%8D%E4%BD%9C%E9%94%AE%E7%9B%98"><span class="toc-text">操作键盘</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%A8%8B%E5%BA%8F%E6%9A%82%E5%81%9C%E7%AD%89%E5%BE%85%E6%8C%89%E9%94%AE"><span class="toc-text">程序暂停等待按键</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%8E%B7%E5%8F%96%E6%8C%89%E4%B8%8B%E7%9A%84%E9%94%AE%E7%A0%81%E5%80%BC"><span class="toc-text">获取按下的键码值</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%A3%80%E6%B5%8B%E4%B8%8A%E6%AC%A1%E6%8C%89%E8%BF%87%E7%9A%84%E9%94%AE"><span class="toc-text">检测上次按过的键</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%BE%93%E5%87%BA%E5%AD%97%E7%AC%A6%E4%B8%B2"><span class="toc-text">输出字符串</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%90%8E%E5%8F%B0%E8%BE%93%E5%87%BA%E5%AD%97%E7%AC%A6%E4%B8%B2"><span class="toc-text">后台输出字符串</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8C%89%E4%B8%8B%E6%8C%87%E5%AE%9A%E6%8C%89%E9%94%AE"><span class="toc-text">按下指定按键</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%90%8E%E5%8F%B0%E6%8C%89%E4%B8%8B%E6%8C%87%E5%AE%9A%E6%8C%89%E9%94%AE"><span class="toc-text">后台按下指定按键</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%AD%97%E7%AC%A6%E8%BD%AC%E9%94%AE%E7%A0%81%E5%80%BC"><span class="toc-text">字符转键码值</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BC%B9%E5%87%BA%E6%B6%88%E6%81%AF%E7%AA%97"><span class="toc-text">弹出消息窗</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B1%8F%E5%B9%95%E8%BE%93%E5%87%BA%E6%96%87%E6%9C%AC%E6%A1%86"><span class="toc-text">屏幕输出文本框</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B8%85%E9%99%A4%E6%96%87%E6%9C%AC%E6%A1%86"><span class="toc-text">清除文本框</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%8A%B6%E6%80%81%E6%A0%8F%E5%9B%BE%E6%A0%87%E6%B0%94%E6%B3%A1"><span class="toc-text">状态栏图标气泡</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AD%90%E7%A8%8B%E5%BA%8F"><span class="toc-text">子程序</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%9A%E4%B9%89%E5%AD%90%E7%A8%8B%E5%BA%8F"><span class="toc-text">定义子程序</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%97%A0%E5%8F%82"><span class="toc-text">无参</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%9C%89%E5%8F%82"><span class="toc-text">有参</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%B0%83%E7%94%A8%E5%AD%90%E7%A8%8B%E5%BA%8F"><span class="toc-text">调用子程序</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%97%A0%E5%8F%82-1"><span class="toc-text">无参</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%9C%89%E5%8F%82-1"><span class="toc-text">有参</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AA%97%E5%8F%A3%E5%8F%A5%E6%9F%84"><span class="toc-text">窗口句柄</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%8E%B7%E5%8F%96%E7%AA%97%E5%8F%A3%E5%8F%A5%E6%9F%84"><span class="toc-text">获取窗口句柄</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%80%9A%E8%BF%87%E9%BC%A0%E6%A0%87%E7%9A%84%E4%BD%8D%E7%BD%AE%E8%8E%B7%E5%8F%96%E7%AA%97%E5%8F%A3%E5%8F%A5%E6%9F%84"><span class="toc-text">通过鼠标的位置获取窗口句柄</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%80%9A%E8%BF%87%E7%B1%BB%E5%90%8D%E8%8E%B7%E5%8F%96%E7%AA%97%E5%8F%A3%E5%8F%A5%E6%9F%84"><span class="toc-text">通过类名获取窗口句柄</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E8%8E%B7%E5%8F%96%E6%A0%B9%E7%BA%A7%E7%9A%84%E7%AA%97%E5%8F%A3%E5%8F%A5%E6%9F%84"><span class="toc-text">获取根级的窗口句柄</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E8%8E%B7%E5%8F%96%E5%AD%90%E7%BA%A7%E7%9A%84%E7%AA%97%E5%8F%A3%E5%8F%A5%E6%9F%84"><span class="toc-text">获取子级的窗口句柄</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%80%9A%E8%BF%87%E7%AA%97%E5%8F%A3%E5%8F%A5%E6%9F%84%E8%8E%B7%E5%8F%96%E7%AA%97%E5%8F%A3%E4%BD%8D%E7%BD%AE"><span class="toc-text">通过窗口句柄获取窗口位置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%80%9A%E8%BF%87%E7%AA%97%E5%8F%A3%E5%8F%A5%E6%9F%84%E6%93%8D%E4%BD%9C%E9%BC%A0%E6%A0%87"><span class="toc-text">通过窗口句柄操作鼠标</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8D%95%E6%9C%BA%E5%B7%A6%E9%94%AE"><span class="toc-text">单机左键</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%94%9F%E6%88%90%E9%9A%8F%E6%9C%BA%E6%95%B0"><span class="toc-text">生成随机数</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%94%9F%E6%88%90%E6%8C%87%E5%AE%9A%E8%8C%83%E5%9B%B4%E7%9A%84%E9%9A%8F%E6%9C%BA%E6%95%B0"><span class="toc-text">生成指定范围的随机数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%87%8D%E7%BD%AE%E9%9A%8F%E6%9C%BA%E6%95%B0%E7%A7%8D%E5%AD%90"><span class="toc-text">重置随机数种子</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8B%E4%BB%B6"><span class="toc-text">事件</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%84%9A%E6%9C%AC%E5%81%9C%E6%AD%A2%E8%BF%90%E8%A1%8C%E4%BA%8B%E4%BB%B6"><span class="toc-text">脚本停止运行事件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%82%B9%E5%87%BB%E4%BA%8B%E4%BB%B6"><span class="toc-text">点击事件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AA%97%E4%BD%93%E5%8A%A0%E8%BD%BD%E4%BA%8B%E4%BB%B6"><span class="toc-text">窗体加载事件</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#QUI%E7%BB%84%E4%BB%B6"><span class="toc-text">QUI组件</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%96%87%E6%9C%AC%E6%A1%86"><span class="toc-text">文本框</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%8E%B7%E5%8F%96%E6%96%87%E6%9C%AC%E6%A1%86%E5%86%85%E5%AE%B9"><span class="toc-text">获取文本框内容</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E8%BD%AC%E6%8D%A2%E4%B8%BA%E6%95%B4%E5%9E%8B"><span class="toc-text">转换为整型</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BF%AE%E6%94%B9%E6%96%87%E6%9C%AC%E6%A1%86%E5%86%85%E5%AE%B9"><span class="toc-text">修改文本框内容</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%8B%E6%8B%89%E5%88%97%E8%A1%A8"><span class="toc-text">下拉列表</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%AE%9A%E4%B9%89%E6%89%80%E6%9C%89%E9%80%89%E9%A1%B9"><span class="toc-text">定义所有选项</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%89%8D%E7%AB%AF%E6%98%BE%E7%A4%BA"><span class="toc-text">前端显示</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%90%8E%E6%AE%B5%E5%AE%9E%E9%99%85%E6%95%B0%E6%8D%AE"><span class="toc-text">后段实际数据</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%AE%9A%E4%B9%89%E9%BB%98%E8%AE%A4%E9%80%89%E9%A1%B9"><span class="toc-text">定义默认选项</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%96%87%E4%BB%B6%E9%80%89%E6%8B%A9"><span class="toc-text">文件选择</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%BF%90%E8%A1%8C%E7%A8%8B%E5%BA%8F"><span class="toc-text">运行程序</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%A4%9A%E7%BA%BF%E7%A8%8B"><span class="toc-text">多线程</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%90%AF%E5%8A%A8%E7%BA%BF%E7%A8%8B"><span class="toc-text">启动线程</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%8E%B7%E5%8F%96%E7%BA%BF%E7%A8%8BID"><span class="toc-text">获取线程ID</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%81%9C%E6%AD%A2%E6%8C%87%E5%AE%9A%E7%BA%BF%E7%A8%8B"><span class="toc-text">停止指定线程</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BB%A7%E7%BB%AD%E7%BA%BF%E7%A8%8B"><span class="toc-text">继续线程</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6"><span class="toc-text">配置文件</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B0%8F%E7%B2%BE%E7%81%B5%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6"><span class="toc-text">小精灵配置文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%86%99%E5%85%A5%E8%87%AA%E5%AE%9A%E4%B9%89%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6"><span class="toc-text">写入自定义配置文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AF%BB%E5%8F%96%E8%87%AA%E5%AE%9A%E4%B9%89%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6"><span class="toc-text">读取自定义配置文件</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%8E%B7%E5%8F%96%E5%BD%93%E5%89%8D%E6%97%B6%E9%97%B4"><span class="toc-text">获取当前时间</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BB%8E%E5%BD%93%E5%89%8D%E7%B3%BB%E7%BB%9F%E8%8E%B7%E5%8F%96%E6%97%B6%E9%97%B4"><span class="toc-text">从当前系统获取时间</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BB%8E%E7%BD%91%E7%BB%9C%E8%8E%B7%E5%8F%96%E6%97%B6%E9%97%B4"><span class="toc-text">从网络获取时间</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AD%97%E7%AC%A6%E4%B8%B2%E4%BD%9C%E4%B8%BA%E5%91%BD%E4%BB%A4%E6%89%A7%E8%A1%8C"><span class="toc-text">字符串作为命令执行</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%AF%BB%E5%86%99%E6%96%87%E4%BB%B6"><span class="toc-text">读写文件</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%89%93%E5%BC%80%E6%96%87%E4%BB%B6"><span class="toc-text">打开文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%85%B3%E9%97%AD%E6%96%87%E4%BB%B6"><span class="toc-text">关闭文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AF%BB%E5%8F%96%E6%96%87%E4%BB%B6"><span class="toc-text">读取文件</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%8C%89%E8%A1%8C%E8%AF%BB%E5%8F%96%E6%96%87%E4%BB%B6"><span class="toc-text">按行读取文件</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AE%BE%E7%BD%AE%E6%96%87%E4%BB%B6%E8%AF%BB%E5%86%99%E4%BD%8D%E7%BD%AE"><span class="toc-text">设置文件读写位置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%8E%B7%E5%8F%96%E6%96%87%E4%BB%B6%E5%86%85%E5%AE%B9%E9%95%BF%E5%BA%A6"><span class="toc-text">获取文件内容长度</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%86%99%E5%85%A5%E6%96%87%E4%BB%B6"><span class="toc-text">写入文件</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%96%87%E4%BB%B6%E6%9C%AB%E5%B0%BE%E8%BF%BD%E5%8A%A0%E4%B8%80%E8%A1%8C%E6%96%87%E6%9C%AC"><span class="toc-text">文件末尾追加一行文本</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%9C%A8%E5%BD%93%E5%89%8D%E5%85%89%E6%A0%87%E5%A4%84%E5%86%99%E5%85%A5%E6%96%87%E6%9C%AC"><span class="toc-text">在当前光标处写入文本</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%9C%A8%E6%96%87%E4%BB%B6%E6%9C%AB%E5%B0%BE%E8%BF%BD%E5%8A%A0%E5%86%99%E5%85%A5"><span class="toc-text">在文件末尾追加写入</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%9C%A8%E5%BD%93%E5%89%8D%E5%85%89%E6%A0%87%E5%A4%84%E5%86%99%E5%85%A5%E4%B8%80%E8%A1%8C%E6%96%87%E6%9C%AC"><span class="toc-text">在当前光标处写入一行文本</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%9C%A8%E6%96%87%E4%BB%B6%E6%9C%AB%E5%B0%BE%E8%BF%BD%E5%8A%A0%E5%86%99%E5%85%A5-1"><span class="toc-text">在文件末尾追加写入</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%AF%BB%E5%86%99Excel%E6%96%87%E4%BB%B6"><span class="toc-text">读写Excel文件</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%89%93%E5%BC%80Excel%E6%96%87%E4%BB%B6"><span class="toc-text">打开Excel文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%85%B3%E9%97%AD%E6%96%87%E4%BB%B6-1"><span class="toc-text">关闭文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%86%99%E5%85%A5%E6%96%87%E4%BB%B6-1"><span class="toc-text">写入文件</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%91%E9%80%81HTTP%E8%AF%B7%E6%B1%82"><span class="toc-text">发送HTTP请求</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Get"><span class="toc-text">Get</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Post"><span class="toc-text">Post</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BF%9D%E5%AD%98%E6%88%AA%E5%9B%BE"><span class="toc-text">保存截图</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%93%8D%E4%BD%9C%E5%89%AA%E8%B4%B4%E6%9D%BF"><span class="toc-text">操作剪贴板</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%8E%B7%E5%8F%96%E5%89%AA%E8%B4%B4%E6%9D%BF%E5%86%85%E5%AE%B9"><span class="toc-text">获取剪贴板内容</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%87%BD%E6%95%B0"><span class="toc-text">函数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%91%BD%E4%BB%A4%E5%BA%93"><span class="toc-text">命令库</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%8C%E6%88%90"><span class="toc-text">完成</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%82%E8%80%83%E6%96%87%E7%8C%AE"><span class="toc-text">参考文献</span></a></li></ol></div><div class="widget-footer">
+
+<a class="top" onclick="util.scrollTop()"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 12c0-4.714 0-7.071 1.464-8.536C4.93 2 7.286 2 12 2c4.714 0 7.071 0 8.535 1.464C22 4.93 22 7.286 22 12c0 4.714 0 7.071-1.465 8.535C19.072 22 16.714 22 12 22s-7.071 0-8.536-1.465C2 19.072 2 16.714 2 12Z"/><path stroke-linecap="round" stroke-linejoin="round" d="m9 15.5l3-3l3 3m-6-4l3-3l3 3"/></g></svg><span>回到顶部</span></a><a class="buttom" onclick="util.scrollComment()"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="currentColor" fill-rule="evenodd" d="M10.46 1.25h3.08c1.603 0 2.86 0 3.864.095c1.023.098 1.861.3 2.6.752a5.75 5.75 0 0 1 1.899 1.899c.452.738.654 1.577.752 2.6c.095 1.004.095 2.261.095 3.865v1.067c0 1.141 0 2.036-.05 2.759c-.05.735-.153 1.347-.388 1.913a5.75 5.75 0 0 1-3.112 3.112c-.805.334-1.721.408-2.977.43a10.81 10.81 0 0 0-.929.036c-.198.022-.275.054-.32.08c-.047.028-.112.078-.224.232c-.121.166-.258.396-.476.764l-.542.916c-.773 1.307-2.69 1.307-3.464 0l-.542-.916a10.605 10.605 0 0 0-.476-.764c-.112-.154-.177-.204-.224-.232c-.045-.026-.122-.058-.32-.08c-.212-.023-.49-.03-.93-.037c-1.255-.021-2.171-.095-2.976-.429A5.75 5.75 0 0 1 1.688 16.2c-.235-.566-.338-1.178-.389-1.913c-.049-.723-.049-1.618-.049-2.76v-1.066c0-1.604 0-2.86.095-3.865c.098-1.023.3-1.862.752-2.6a5.75 5.75 0 0 1 1.899-1.899c.738-.452 1.577-.654 2.6-.752C7.6 1.25 8.857 1.25 10.461 1.25M6.739 2.839c-.914.087-1.495.253-1.959.537A4.25 4.25 0 0 0 3.376 4.78c-.284.464-.45 1.045-.537 1.96c-.088.924-.089 2.11-.089 3.761v1c0 1.175 0 2.019.046 2.685c.045.659.131 1.089.278 1.441a4.25 4.25 0 0 0 2.3 2.3c.515.214 1.173.294 2.429.316h.031c.398.007.747.013 1.037.045c.311.035.616.104.909.274c.29.17.5.395.682.645c.169.232.342.525.538.856l.559.944a.52.52 0 0 0 .882 0l.559-.944c.196-.331.37-.624.538-.856c.182-.25.392-.476.682-.645c.293-.17.598-.24.909-.274c.29-.032.639-.038 1.037-.045h.032c1.255-.022 1.913-.102 2.428-.316a4.25 4.25 0 0 0 2.3-2.3c.147-.352.233-.782.278-1.441c.046-.666.046-1.51.046-2.685v-1c0-1.651 0-2.837-.089-3.762c-.087-.914-.253-1.495-.537-1.959a4.25 4.25 0 0 0-1.403-1.403c-.464-.284-1.045-.45-1.96-.537c-.924-.088-2.11-.089-3.761-.089h-3c-1.651 0-2.837 0-3.762.089" clip-rule="evenodd"/><path fill="currentColor" d="M9 11a1 1 0 1 1-2 0a1 1 0 0 1 2 0m4 0a1 1 0 1 1-2 0a1 1 0 0 1 2 0m4 0a1 1 0 1 1-2 0a1 1 0 0 1 2 0"/></svg><span>参与讨论</span></a></div></widget>
+</div></aside><div class='float-panel blur'>
+  <button type='button' style='display:none' class='laptop-only rightbar-toggle mobile' onclick='sidebar.rightbar()'>
+    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6h11m-11 6h11m-11 6h11M4 6h1v4m-1 0h2m0 8H4c0-1 2-2 2-3s-1-1.5-2-1"/></svg>
+  </button>
+  <button type='button' style='display:none' class='mobile-only leftbar-toggle mobile' onclick='sidebar.leftbar()'>
+    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 11c0-3.771 0-5.657 1.172-6.828C4.343 3 6.229 3 10 3h4c3.771 0 5.657 0 6.828 1.172C22 5.343 22 7.229 22 11v2c0 3.771 0 5.657-1.172 6.828C19.657 21 17.771 21 14 21h-4c-3.771 0-5.657 0-6.828-1.172C2 18.657 2 16.771 2 13z"/><path id="sep" stroke-linecap="round" d="M5.5 10h6m-5 4h4m4.5 7V3"/></g></svg>
+  </button>
+</div>
+</div><div class="scripts">
+<script type="text/javascript">
+  const ctx = {
+    date_suffix: {
+      just: `刚刚`,
+      min: `分钟前`,
+      hour: `小时前`,
+      day: `天前`,
+    },
+    root : `/`,
+  };
+
+  // required plugins (only load if needs)
+  if (`local_search`) {
+    ctx.search = {};
+    ctx.search.service = `local_search`;
+    if (ctx.search.service == 'local_search') {
+      let service_obj = Object.assign({}, `{"field":"post","path":"/db.json","content":true,"sort":"-date"}`);
+      ctx.search[ctx.search.service] = service_obj;
+    }
+  }
+  const def = {
+    avatar: `https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/avatar/round/3442075.svg`,
+    cover: `https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/cover/76b86c0226ffd.svg`,
+  };
+  const deps = {
+    jquery: `https://cdn.bootcdn.net/ajax/libs/jquery/3.7.1/jquery.min.js`,
+    marked: `https://cdn.bootcdn.net/ajax/libs/marked/4.0.18/marked.min.js`
+  }
+  
+
+</script>
+
+<script type="text/javascript">
+  const utils = {
+    // 懒加载 css https://github.com/filamentgroup/loadCSS
+    css: (href, before, media, attributes) => {
+      var doc = window.document;
+      var ss = doc.createElement("link");
+      var ref;
+      if (before) {
+        ref = before;
+      } else {
+        var refs = (doc.body || doc.getElementsByTagName("head")[0]).childNodes;
+        ref = refs[refs.length - 1];
+      }
+      var sheets = doc.styleSheets;
+      if (attributes) {
+        for (var attributeName in attributes) {
+          if (attributes.hasOwnProperty(attributeName)) {
+            ss.setAttribute(attributeName, attributes[attributeName]);
+          }
+        }
+      }
+      ss.rel = "stylesheet";
+      ss.href = href;
+      ss.media = "only x";
+      function ready(cb) {
+        if (doc.body) {
+          return cb();
+        }
+        setTimeout(function () {
+          ready(cb);
+        });
+      }
+      ready(function () {
+        ref.parentNode.insertBefore(ss, before ? ref : ref.nextSibling);
+      });
+      var onloadcssdefined = function (cb) {
+        var resolvedHref = ss.href;
+        var i = sheets.length;
+        while (i--) {
+          if (sheets[i].href === resolvedHref) {
+            return cb();
+          }
+        }
+        setTimeout(function () {
+          onloadcssdefined(cb);
+        });
+      };
+      function loadCB() {
+        if (ss.addEventListener) {
+          ss.removeEventListener("load", loadCB);
+        }
+        ss.media = media || "all";
+      }
+      if (ss.addEventListener) {
+        ss.addEventListener("load", loadCB);
+      }
+      ss.onloadcssdefined = onloadcssdefined;
+      onloadcssdefined(loadCB);
+      return ss;
+    },
+
+    js: (src, opt) => new Promise((resolve, reject) => {
+      var script = document.createElement('script');
+      if (src.startsWith('/')){
+        src = ctx.root + src.substring(1);
+      }
+      script.src = src;
+      if (opt) {
+        for (let key of Object.keys(opt)) {
+          script[key] = opt[key]
+        }
+      } else {
+        // 默认异步，如果需要同步，第二个参数传入 {} 即可
+        script.async = true
+      }
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    }),
+
+    jq: (fn) => {
+      if (typeof jQuery === 'undefined') {
+        utils.js(deps.jquery).then(fn)
+      } else {
+        fn()
+      }
+    },
+    
+    onLoading: (el) => {
+      if (el) {
+        $(el).append('<div class="loading-wrap"><svg xmlns="http://www.w3.org/2000/svg" width="2em" height="2em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="2"><path stroke-dasharray="60" stroke-dashoffset="60" stroke-opacity=".3" d="M12 3C16.9706 3 21 7.02944 21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3Z"><animate fill="freeze" attributeName="stroke-dashoffset" dur="1.3s" values="60;0"/></path><path stroke-dasharray="15" stroke-dashoffset="15" d="M12 3C16.9706 3 21 7.02944 21 12"><animate fill="freeze" attributeName="stroke-dashoffset" dur="0.3s" values="15;0"/><animateTransform attributeName="transform" dur="1.5s" repeatCount="indefinite" type="rotate" values="0 12 12;360 12 12"/></path></g></svg></div>');
+      }
+    },
+    onLoadSuccess: (el) => {
+      if (el) {
+        $(el).find('.loading-wrap').remove();
+      }
+    },
+    onLoadFailure: (el) => {
+      if (el) {
+        $(el).find('.loading-wrap svg').remove();
+        $(el).find('.loading-wrap').append('<svg xmlns="http://www.w3.org/2000/svg" width="2em" height="2em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><path stroke-dasharray="60" stroke-dashoffset="60" d="M12 3L21 20H3L12 3Z"><animate fill="freeze" attributeName="stroke-dashoffset" dur="0.5s" values="60;0"/></path><path stroke-dasharray="6" stroke-dashoffset="6" d="M12 10V14"><animate fill="freeze" attributeName="stroke-dashoffset" begin="0.6s" dur="0.2s" values="6;0"/></path></g><circle cx="12" cy="17" r="1" fill="currentColor" fill-opacity="0"><animate fill="freeze" attributeName="fill-opacity" begin="0.8s" dur="0.4s" values="0;1"/></circle></svg>');
+        $(el).find('.loading-wrap').addClass('error');
+      }
+    },
+    request: (el, url, callback, onFailure) => {
+      let retryTimes = 3;
+      utils.onLoading(el);
+      function req() {
+        return new Promise((resolve, reject) => {
+          let status = 0; // 0 等待 1 完成 2 超时
+          let timer = setTimeout(() => {
+            if (status === 0) {
+              status = 2;
+              timer = null;
+              reject('请求超时');
+              if (retryTimes == 0) {
+                onFailure();
+              }
+            }
+          }, 5000);
+          fetch(url).then(function(response) {
+            if (status !== 2) {
+              clearTimeout(timer);
+              resolve(response);
+              timer = null;
+              status = 1;
+            }
+            if (response.ok) {
+              return response.json();
+            }
+            throw new Error('Network response was not ok.');
+          }).then(function(data) {
+            retryTimes = 0;
+            utils.onLoadSuccess(el);
+            callback(data);
+          }).catch(function(error) {
+            if (retryTimes > 0) {
+              retryTimes -= 1;
+              setTimeout(() => {
+                req();
+              }, 5000);
+            } else {
+              utils.onLoadFailure(el);
+              onFailure();
+            }
+          });
+        });
+      }
+      req();
+    },
+  };
+</script>
+
+<script>
+  const sidebar = {
+    leftbar: () => {
+      if (l_body) {
+        l_body.toggleAttribute('leftbar');
+        l_body.removeAttribute('rightbar');
+      }
+    },
+    rightbar: () => {
+      if (l_body) {
+        l_body.toggleAttribute('rightbar');
+        l_body.removeAttribute('leftbar');
+      }
+    },
+    dismiss: () => {
+      if (l_body) {
+        l_body.removeAttribute('leftbar');
+        l_body.removeAttribute('rightbar');
+      }
+    },
+    toggleTOC: () => {
+      document.querySelector('#data-toc').classList.toggle('collapse');
+    }
+  }
+</script>
+<script type="text/javascript">
+  (() => {
+    const tagSwitchers = document.querySelectorAll('.tag-subtree.parent-tag > a > .tag-switcher-wrapper')
+    for (const tagSwitcher of tagSwitchers) {
+      tagSwitcher.addEventListener('click', (e) => {
+        const parent = e.target.closest('.tag-subtree.parent-tag')
+        parent.classList.toggle('expanded')
+        e.preventDefault()
+      })
+    }
+
+    // Get active tag from query string, then activate it.
+    const urlParams = new URLSearchParams(window.location.search)
+    const activeTag = urlParams.get('tag')
+    if (activeTag) {
+      let tag = document.querySelector(`.tag-subtree[data-tag="${activeTag}"]`)
+      if (tag) {
+        tag.querySelector('a').classList.add('active')
+        
+        while (tag) {
+          tag.classList.add('expanded')
+          tag = tag.parentElement.closest('.tag-subtree.parent-tag')
+        }
+      }
+    }
+  })()
+</script>
+
+
+<!-- required -->
+<script src="/js/main.js?v=1.29.0" defer></script>
+
+<script type="text/javascript">
+  const applyTheme = (theme) => {
+    if (theme === 'auto') {
+      document.documentElement.removeAttribute('data-theme')
+    } else {
+      document.documentElement.setAttribute('data-theme', theme)
+    }
+
+    applyThemeToGiscus(theme)
+  }
+
+  const applyThemeToGiscus = (theme) => {
+    theme = theme === 'auto' ? 'preferred_color_scheme' : theme
+
+    const cmt = document.getElementById('giscus')
+    if (cmt) {
+      // This works before giscus load.
+      cmt.setAttribute('data-theme', theme)
+    }
+
+    const iframe = document.querySelector('#comments > section.giscus > iframe')
+    if (iframe) {
+      // This works after giscus loaded.
+      const src = iframe.src
+      const newSrc = src.replace(/theme=[\w]+/, `theme=${theme}`)
+      iframe.src = newSrc
+    }
+  }
+
+  const switchTheme = () => {
+    // light -> dark -> auto -> light -> ...
+    const currentTheme = document.documentElement.getAttribute('data-theme')
+    let newTheme;
+    switch (currentTheme) {
+      case 'light':
+        newTheme = 'dark'
+        break
+      case 'dark':
+        newTheme = 'auto'
+        break
+      default:
+        newTheme = 'light'
+    }
+    applyTheme(newTheme)
+    window.localStorage.setItem('Stellar.theme', newTheme)
+
+    const messages = {
+      light: `切换到浅色模式`,
+      dark: `切换到深色模式`,
+      auto: `切换到跟随系统配色`,
+    }
+    hud?.toast?.(messages[newTheme])
+  }
+
+  (() => {
+    // Apply user's preferred theme, if any.
+    const theme = window.localStorage.getItem('Stellar.theme')
+    if (theme !== null) {
+      applyTheme(theme)
+    }
+  })()
+</script>
+
+
+<!-- optional -->
+
+  <script type="module">
+  const el = document.getElementById('twikoo_container');
+  util.viewportLazyload(el, load_twikoo, false);
+
+  function load_twikoo() {
+    if (!el) return;
+    utils.js('https://gcore.jsdelivr.net/npm/twikoo@1.6.8/dist/twikoo.all.min.js', {defer: true}).then(function () {
+      const path = el.getAttribute('comment_id') ?? decodeURI(window.location.pathname);
+      twikoo.init(Object.assign({"js":"https://gcore.jsdelivr.net/npm/twikoo@1.6.8/dist/twikoo.all.min.js","envId":"https://twikoo.loli.fj.cn"}, {
+        el: '#twikoo_container',
+        path: path,
+      }));
+    });
+  }
+</script>
+
+
+
+<script defer>
+  window.addEventListener('DOMContentLoaded', (event) => {
+    ctx.services = Object.assign({}, JSON.parse(`{"mdrender":{"js":"/js/services/mdrender.js"},"siteinfo":{"js":"/js/services/siteinfo.js","api":null},"ghinfo":{"js":"/js/services/ghinfo.js"},"sites":{"js":"/js/services/sites.js"},"friends":{"js":"/js/services/friends.js"},"timeline":{"js":"/js/services/timeline.js"},"fcircle":{"js":"/js/services/fcircle.js"},"weibo":{"js":"/js/services/weibo.js"},"memos":{"js":"/js/services/memos.js"}}`));
+    for (let id of Object.keys(ctx.services)) {
+      const js = ctx.services[id].js;
+      if (id == 'siteinfo') {
+        ctx.cardlinks = document.querySelectorAll('a.link-card[cardlink]');
+        if (ctx.cardlinks?.length > 0) {
+          utils.js(js, { defer: true }).then(function () {
+            setCardLink(ctx.cardlinks);
+          });
+        }
+      } else {
+        const els = document.getElementsByClassName(`ds-${id}`);
+        if (els?.length > 0) {
+          utils.jq(() => {
+            if (id == 'timeline' || 'memos' || 'marked') {
+              utils.js(deps.marked).then(function () {
+                utils.js(js, { defer: true });
+              });
+            } else {
+              utils.js(js, { defer: true });
+            }
+          });
+        }
+      }
+    }
+  });
+</script>
+
+<script>
+  window.addEventListener('DOMContentLoaded', (event) => {
+    ctx.search = {
+      path: `/db.json`,
+    }
+    utils.js('/js/search/local-search.js', { defer: true });
+  });
+</script><script>
+  window.FPConfig = {
+    delay: 0,
+    ignoreKeywords: [],
+    maxRPS: 5,
+    hoverDelay: 25
+  };
+</script>
+<script defer src="https://cdn.bootcdn.net/ajax/libs/flying-pages/2.1.2/flying-pages.min.js"></script><script defer src="https://cdn.bootcdn.net/ajax/libs/vanilla-lazyload/17.8.4/lazyload.min.js"></script>
+<script>
+  // https://www.npmjs.com/package/vanilla-lazyload
+  // Set the options globally
+  // to make LazyLoad self-initialize
+  window.lazyLoadOptions = {
+    elements_selector: ".lazy",
+  };
+  // Listen to the initialization event
+  // and get the instance of LazyLoad
+  window.addEventListener(
+    "LazyLoad::Initialized",
+    function (event) {
+      window.lazyLoadInstance = event.detail.instance;
+    },
+    false
+  );
+  document.addEventListener('DOMContentLoaded', function () {
+    window.lazyLoadInstance?.update();
+  });
+</script><script>
+  ctx.fancybox = {
+    selector: `.timenode p>img`,
+    css: `https://cdn.bootcdn.net/ajax/libs/fancyapps-ui/5.0.22/fancybox/fancybox.min.css`,
+    js: `https://cdn.bootcdn.net/ajax/libs/fancyapps-ui/5.0.22/fancybox/fancybox.umd.min.js`
+  };
+  var selector = '[data-fancybox]:not(.error)';
+  if (ctx.fancybox.selector) {
+    selector += `, ${ctx.fancybox.selector}`
+  }
+  var needFancybox = document.querySelectorAll(selector).length !== 0;
+  if (!needFancybox) {
+    const els = document.getElementsByClassName('ds-memos');
+    if (els != undefined && els.length > 0) {
+      needFancybox = true;
+    }
+  }
+  if (needFancybox) {
+    utils.css(ctx.fancybox.css);
+    utils.js(ctx.fancybox.js, { defer: true }).then(function () {
+      Fancybox.bind(selector, {
+        hideScrollbar: false,
+        Thumbs: {
+          autoStart: false,
+        },
+        caption: (fancybox, slide) => {
+          return slide.triggerEl.alt || slide.triggerEl.dataset.caption || null
+        }
+      });
+    })
+  }
+</script>
+<script>
+  window.addEventListener('DOMContentLoaded', (event) => {
+    const swiper_api = document.getElementById('swiper-api');
+    if (swiper_api != undefined) {
+      utils.css(`https://unpkg.com/swiper@10.3.1/swiper-bundle.min.css`);
+      utils.js(`https://unpkg.com/swiper@10.3.1/swiper-bundle.min.js`, { defer: true }).then(function () {
+        const effect = swiper_api.getAttribute('effect') || '';
+        var swiper = new Swiper('.swiper#swiper-api', {
+          slidesPerView: 'auto',
+          spaceBetween: 8,
+          centeredSlides: true,
+          effect: effect,
+          rewind: true,
+          pagination: {
+            el: '.swiper-pagination',
+            clickable: true,
+          },
+          navigation: {
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
+          },
+        });
+      })
+    }
+  });
+</script>
+<script defer type="text/javascript" src="https://cdn.jsdelivr.net/npm/mermaid@v9/dist/mermaid.min.js"></script>
+<script>
+  window.addEventListener('DOMContentLoaded', (event) => {
+    var mermaid_config = {
+      startOnLoad: true,
+      theme:
+        "" == "auto" &&
+          window.matchMedia("(prefers-color-scheme: dark)").matches
+          ? "dark"
+          : "neutral",
+      logLevel: 3,
+      themeVariables: {
+        darkMode: true
+      },
+      flowchart: {
+        useMaxWidth: false,
+        htmlLabels: true,
+        curve: "linear"
+      },
+      gantt: {
+        axisFormat: "%Y/%m/%d"
+      },
+      sequence: {
+        actorMargin: 50
+      }
+    }
+    mermaid.initialize(mermaid_config);
+  });
+</script><script>
+  document.addEventListener('DOMContentLoaded', function () {
+    window.codeElements = document.querySelectorAll('.code');
+    if (window.codeElements.length > 0) {
+      ctx.copycode = {
+        default_text: `Copy`,
+        success_text: `Copied`,
+        toast: `复制成功`,
+      };
+      utils.js('/js/plugins/copycode.js');
+    }
+  });
+</script>
+
+
+<!-- inject -->
+
+</div></body></html>

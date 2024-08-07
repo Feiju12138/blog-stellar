@@ -1,0 +1,1094 @@
+
+<!DOCTYPE html><html lang="zh-CN">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="hexo-theme" content="https://github.com/xaoxuu/hexo-theme-stellar/tree/1.29.0" theme-name="Stellar" theme-version="1.29.0">
+  
+  <meta name="generator" content="Hexo 6.3.0">
+  <meta http-equiv='x-dns-prefetch-control' content='on' />
+  
+  <meta name="renderer" content="webkit">
+  <meta name="force-rendering" content="webkit">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+  <meta name="HandheldFriendly" content="True" >
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#000">
+  <meta name="theme-color" content="#f9fafb">
+  
+  <title>【笔记】Defaults学习笔记 - 绯鞠的博客</title>
+
+  
+    <meta name="description" content="前言defaults命令可以用于修改所有Mac应用的配置文件（.plist）">
+<meta property="og:type" content="article">
+<meta property="og:title" content="【笔记】Defaults学习笔记">
+<meta property="og:url" content="https://loli.fj.cn/2022/05/13/Defaults%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/index.html">
+<meta property="og:site_name" content="绯鞠的博客">
+<meta property="og:description" content="前言defaults命令可以用于修改所有Mac应用的配置文件（.plist）">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2022-05-13T12:38:20.000Z">
+<meta property="article:modified_time" content="2024-08-06T02:31:29.770Z">
+<meta property="article:author" content="绯鞠">
+<meta property="article:tag" content="MacOS">
+<meta name="twitter:card" content="summary">
+  
+  
+  
+  <meta name="keywords" content="MacOS">
+
+  <!-- feed -->
+  
+    <link rel="alternate" href="/atom.xml" title="绯鞠的博客" type="application/atom+xml">
+  
+
+  <link rel="stylesheet" href="/css/main.css?v=1.29.0">
+
+  
+
+  
+
+  
+</head>
+<body>
+
+<div class="l_body s:aa content tech" id="start" layout="post" ><aside class="l_left"><div class="leftbar-container">
+
+
+<header class="header"><div class="logo-wrap"><a class="avatar" href="/about/"><div class="bg" style="opacity:0;background-image:url(https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/avatar/round/rainbow64@3x.webp);"></div><img no-lazy class="avatar" src="/dist/images/avatar.gif" onerror="javascript:this.classList.add('error');this.src='https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/image/2659360.svg';"></a><a class="title" href="/"><div class="main" ff="title">绯鞠的博客</div><div class="sub cap">连蜜统治世界!!!💕</div></a></div></header>
+
+<div class="nav-area">
+<div class="search-wrapper" id="search-wrapper"><form class="search-form"><a class="search-button" onclick="document.getElementById(&quot;search-input&quot;).focus();"><svg t="1705074644177" viewBox="0 0 1025 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="1560" width="200" height="200"><path d="M1008.839137 935.96571L792.364903 719.491476a56.783488 56.783488 0 0 0-80.152866 0 358.53545 358.53545 0 1 1 100.857314-335.166073 362.840335 362.840335 0 0 1-3.689902 170.145468 51.248635 51.248635 0 1 0 99.217358 26.444296 462.057693 462.057693 0 1 0-158.255785 242.303546l185.930047 185.725053a51.248635 51.248635 0 0 0 72.568068 0 51.248635 51.248635 0 0 0 0-72.978056z" p-id="1561"></path><path d="M616.479587 615.969233a50.428657 50.428657 0 0 0-61.498362-5.534852 174.655348 174.655348 0 0 1-177.525271 3.484907 49.403684 49.403684 0 0 0-58.833433 6.76482l-3.074918 2.869923a49.403684 49.403684 0 0 0 8.609771 78.10292 277.767601 277.767601 0 0 0 286.992355-5.739847 49.403684 49.403684 0 0 0 8.404776-76.667958z" p-id="1562"></path></svg></a><input type="text" class="search-input" id="search-input" placeholder="站内搜索"></form><div id="search-result"></div><div class="search-no-result">没有找到内容！</div></div>
+
+
+<nav class="menu dis-select"><a class="nav-item" title="友链" href="/links/"><link rel="stylesheet" href="https://unpkg.com/font-awesome@4.7.0/css/font-awesome.min.css"><i class="fa fa-link"></i></a><a class="nav-item" title="赞助" href="/reward/"><i class="fa fa-heart"></i></a><a class="nav-item" title="订阅" href="/atom.xml"><i class="fa fa-rss"></i></a><a class="nav-item" title="主题" href="//loli.fj.cn"><i class="fa fa-arrow-right"></i></a></nav>
+</div>
+<div class="widgets">
+
+
+<widget class="widget-wrapper post-list"><div class="widget-header dis-select"><span class="name">最近更新</span></div><div class="widget-body fs14"><a class="item title" href="/2024/08/06/Mysql%E7%9A%84UDF%E6%8F%90%E6%9D%83/"><span class="title">【笔记】Mysql的UDF提权</span></a><a class="item title" href="/2024/08/06/PowerShell%E5%8E%8B%E7%BC%A9%E5%92%8C%E8%A7%A3%E5%8E%8B%E7%BC%A9zip%E6%96%87%E4%BB%B6/"><span class="title">【笔记】PowerShell压缩和解压缩zip文件</span></a><a class="item title" href="/2022/09/22/Winget%E5%AE%89%E8%A3%85%E7%AC%94%E8%AE%B0/"><span class="title">【笔记】Winget安装笔记</span></a><a class="item title" href="/2024/07/30/msf%E5%AE%9E%E7%8E%B0Mysql%E6%8F%90%E6%9D%83/"><span class="title">【笔记】msf实现Mysql提权</span></a><a class="item title" href="/2024/08/06/%E5%B0%86WindowsTerminal%E4%BD%9C%E4%B8%BAWindows%E9%BB%98%E8%AE%A4%E7%BB%88%E7%AB%AF/"><span class="title">【笔记】将WindowsTerminal作为Windows默认终端</span></a><a class="item title" href="/2022/06/25/%E6%9F%A5%E7%9C%8B%E7%AB%AF%E5%8F%A3%E5%8F%B7%E5%BC%80%E6%94%BE%E6%83%85%E5%86%B5/"><span class="title">【笔记】查看端口号开放情况</span></a><a class="item title" href="/2020/02/12/%E9%A1%BA%E5%BA%8F%E6%A0%88/"><span class="title">【代码】顺序栈</span></a><a class="item title" href="/2019/11/18/%E9%AA%87%E5%AE%A2%E6%8A%80%E6%9C%AF%E8%A7%A3%E5%86%B3%E6%B5%8F%E8%A7%88%E5%99%A8%E5%85%BC%E5%AE%B9%E6%80%A7%E9%97%AE%E9%A2%98/"><span class="title">【笔记】骇客技术解决浏览器兼容性问题（Javascript篇）</span></a><a class="item title" href="/2024/02/08/%E9%AA%8C%E8%AF%81JSON%E6%96%87%E4%BB%B6%E5%86%85%E5%AE%B9/"><span class="title">【笔记】验证JSON文件内容</span></a><a class="item title" href="/2020/07/04/%E9%AA%8C%E8%AF%81%E5%9B%9E%E6%96%87%E4%B8%B2/"><span class="title">【代码】验证回文串</span></a></div></widget>
+</div>
+<footer class="footer dis-select"><div class="social-wrap"><a class="social" href="/links/#comments" rel="noopener noreferrer"><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/social/942ebbf1a4b91.svg"/></a><a class="social" onclick="switchTheme()"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024"><path fill="currentColor" fill-rule="evenodd" d="M582.4 326.4c-140.8 0-256 115.2-256 256s115.2 256 256 256 256-115.2 256-256-115.2-256-256-256z m0 448c-70.4 0-131.2-36.8-164.8-92.8 12.8 3.2 27.2 4.8 40 4.8 121.6 0 219.2-99.2 219.2-219.2 0-17.6-1.6-35.2-6.4-52.8 60.8 32 102.4 96 102.4 169.6 1.6 104-84.8 190.4-190.4 190.4zM582.4 262.4c17.6 0 32-14.4 32-32v-128c0-17.6-14.4-32-32-32s-32 14.4-32 32v128c0 17.6 14.4 32 32 32zM262.4 582.4c0-17.6-14.4-32-32-32h-128c-17.6 0-32 14.4-32 32s14.4 32 32 32h128c17.6 0 32-14.4 32-32zM310.4 356.8c6.4 6.4 14.4 9.6 22.4 9.6 8 0 16-3.2 22.4-9.6 12.8-12.8 12.8-32 0-44.8l-91.2-91.2c-12.8-12.8-32-12.8-44.8 0-12.8 12.8-12.8 32 0 44.8l91.2 91.2zM944 220.8c-12.8-12.8-32-12.8-44.8 0l-91.2 91.2c-12.8 12.8-12.8 32 0 44.8 6.4 6.4 14.4 9.6 22.4 9.6 8 0 16-3.2 22.4-9.6l91.2-91.2c12.8-12.8 12.8-33.6 0-44.8zM310.4 808l-91.2 91.2c-12.8 12.8-12.8 32 0 44.8 6.4 6.4 14.4 9.6 22.4 9.6 8 0 16-3.2 22.4-9.6l91.2-91.2c12.8-12.8 12.8-32 0-44.8-11.2-11.2-32-11.2-44.8 0z"></path></svg></a></div></footer>
+</div></aside><div class="l_main" id="main">
+
+
+
+
+
+<div class="article banner top">
+  <div class="content">
+    <div class="top bread-nav footnote"><div class="left"><div class="flex-row" id="breadcrumb"><a class="cap breadcrumb" href="/">主页</a>
+<span class="sep"></span><a class="cap breadcrumb" href="/">文章</a></div>
+<div class="flex-row" id="post-meta"><span class="text created">发布于：<time datetime="2022-05-13T12:38:20.000Z">2022-05-13</time></span><span class="sep updated"></span><span class="text updated">更新于：<time datetime="2024-08-06T02:31:29.770Z">2024-08-06</time></span></div></div></div>
+    
+    <div class="bottom only-title">
+      
+      <div class="text-area">
+        <h1 class="text title"><span>【笔记】Defaults学习笔记</span></h1>
+        
+      </div>
+    </div>
+    
+  </div>
+  </div><article class="md-text content"><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>defaults命令可以用于修改所有Mac应用的配置文件（<code>.plist</code>）</p>
+<span id="more"></span>
+
+<h2 id="配置文件存放路径"><a href="#配置文件存放路径" class="headerlink" title="配置文件存放路径"></a>配置文件存放路径</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">/Library/Preferences</span><br><span class="line">~/Library/Preferences</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>默认修改的是用户目录下的配置文件</li>
+</ul>
+<h2 id="查看软件全局限定名"><a href="#查看软件全局限定名" class="headerlink" title="查看软件全局限定名"></a>查看软件全局限定名</h2><ul>
+<li>查看所有可以使用defaults命令直接修改的系统软件或用户软件的全局限定名</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">defaults domains</span><br></pre></td></tr></table></figure>
+
+<h2 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h2><h3 id="读取配置"><a href="#读取配置" class="headerlink" title="读取配置"></a>读取配置</h3><blockquote>
+<p><code>&lt;appname&gt;</code>：系统应用的全局限定名</p>
+</blockquote>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">defaults read &lt;appname&gt;</span><br><span class="line"></span><br><span class="line">defaults read &lt;appname&gt; &lt;key&gt;</span><br></pre></td></tr></table></figure>
+
+<h3 id="修改配置"><a href="#修改配置" class="headerlink" title="修改配置"></a>修改配置</h3><blockquote>
+<p><code>&lt;key&gt;</code>：指定键<br><code>&lt;type&gt;</code>：指定值的类型<br><code>&lt;value&gt;</code>：指定值</p>
+</blockquote>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">defaults write &lt;appname&gt; &lt;key&gt; -&lt;type&gt; &lt;value&gt;</span><br></pre></td></tr></table></figure>
+
+<h4 id="修改为默认配置"><a href="#修改为默认配置" class="headerlink" title="修改为默认配置"></a>修改为默认配置</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">defaults write &lt;appname&gt; &lt;key&gt; Default</span><br></pre></td></tr></table></figure>
+
+<h3 id="删除配置"><a href="#删除配置" class="headerlink" title="删除配置"></a>删除配置</h3><ul>
+<li>配置被删除后，将被还原成默认配置</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">defaults delete &lt;appname&gt;</span><br><span class="line"></span><br><span class="line">defaults delete &lt;appname&gt; &lt;key&gt;</span><br></pre></td></tr></table></figure>
+
+<h2 id="程序坞（Dock栏）的相关配置"><a href="#程序坞（Dock栏）的相关配置" class="headerlink" title="程序坞（Dock栏）的相关配置"></a>程序坞（Dock栏）的相关配置</h2><h3 id="删除所有配置"><a href="#删除所有配置" class="headerlink" title="删除所有配置"></a>删除所有配置</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">defaults delete com.apple.dock &amp;&amp; killall Dock</span><br></pre></td></tr></table></figure>
+
+<h3 id="锁定内容"><a href="#锁定内容" class="headerlink" title="锁定内容"></a>锁定内容</h3><h4 id="修改配置-1"><a href="#修改配置-1" class="headerlink" title="修改配置"></a>修改配置</h4><blockquote>
+<p><code>&lt;value&gt;</code></p>
+<blockquote>
+<p><code>true</code>：锁定<br><code>false</code>：解锁</p>
+</blockquote>
+</blockquote>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">defaults write com.apple.dock &quot;contents-immutable&quot; -bool &quot;&lt;value&gt;&quot; &amp;&amp; killall Dock</span><br></pre></td></tr></table></figure>
+
+<h4 id="删除配置-1"><a href="#删除配置-1" class="headerlink" title="删除配置"></a>删除配置</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">defaults write com.apple.dock &quot;contents-immutable&quot; &amp;&amp; killall Dock</span><br></pre></td></tr></table></figure>
+
+<h3 id="配置位置"><a href="#配置位置" class="headerlink" title="配置位置"></a>配置位置</h3><h4 id="修改配置-2"><a href="#修改配置-2" class="headerlink" title="修改配置"></a>修改配置</h4><blockquote>
+<p><code>&lt;value&gt;</code></p>
+<blockquote>
+<p><code>left</code>：在屏幕左侧<br><code>right</code>：在屏幕右侧</p>
+</blockquote>
+</blockquote>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">defaults write com.apple.dock &quot;orientation&quot; -string &quot;&lt;value&gt;&quot; &amp;&amp; killall Dock</span><br></pre></td></tr></table></figure>
+
+<h4 id="删除配置-2"><a href="#删除配置-2" class="headerlink" title="删除配置"></a>删除配置</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">defaults delete com.apple.dock &quot;orientation&quot; &amp;&amp; killall Dock</span><br></pre></td></tr></table></figure>
+
+<h3 id="锁定位置"><a href="#锁定位置" class="headerlink" title="锁定位置"></a>锁定位置</h3><h4 id="修改配置-3"><a href="#修改配置-3" class="headerlink" title="修改配置"></a>修改配置</h4><blockquote>
+<p><code>&lt;value&gt;</code></p>
+<blockquote>
+<p><code>true</code>：锁定<br><code>false</code>：解锁</p>
+</blockquote>
+</blockquote>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">defaults write com.apple.dock &quot;position-immutable&quot; -bool &quot;&lt;value&gt;&quot; &amp;&amp; killall Dock</span><br></pre></td></tr></table></figure>
+
+<h4 id="删除配置-3"><a href="#删除配置-3" class="headerlink" title="删除配置"></a>删除配置</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">defaults delete com.apple.dock &quot;position-immutable&quot; -bool &quot;&lt;value&gt;&quot; &amp;&amp; killall Dock</span><br></pre></td></tr></table></figure>
+
+<h3 id="配置图标大小"><a href="#配置图标大小" class="headerlink" title="配置图标大小"></a>配置图标大小</h3><h4 id="修改配置-4"><a href="#修改配置-4" class="headerlink" title="修改配置"></a>修改配置</h4><blockquote>
+<p><code>&lt;value&gt;</code>：缺省值为48</p>
+</blockquote>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">defaults write com.apple.dock &quot;tilesize&quot; -int &quot;&lt;value&gt;&quot; &amp;&amp; killall Dock</span><br></pre></td></tr></table></figure>
+
+<h4 id="删除配置-4"><a href="#删除配置-4" class="headerlink" title="删除配置"></a>删除配置</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">defaults delete com.apple.dock &quot;tilesize&quot; &amp;&amp; killall Dock</span><br></pre></td></tr></table></figure>
+
+<h3 id="锁定图标大小"><a href="#锁定图标大小" class="headerlink" title="锁定图标大小"></a>锁定图标大小</h3><h4 id="修改配置-5"><a href="#修改配置-5" class="headerlink" title="修改配置"></a>修改配置</h4><blockquote>
+<p><code>&lt;value&gt;</code></p>
+<blockquote>
+<p><code>true</code>：锁定<br><code>false</code>：解锁</p>
+</blockquote>
+</blockquote>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">defaults write com.apple.dock &quot;size-immutable&quot; -bool &quot;&lt;value&gt;&quot; &amp;&amp; killall Dock</span><br></pre></td></tr></table></figure>
+
+<h4 id="删除配置-5"><a href="#删除配置-5" class="headerlink" title="删除配置"></a>删除配置</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">defaults delete com.apple.dock &quot;size-immutable&quot; &amp;&amp; killall Dock</span><br></pre></td></tr></table></figure>
+
+<h3 id="配置是否开启自动隐藏"><a href="#配置是否开启自动隐藏" class="headerlink" title="配置是否开启自动隐藏"></a>配置是否开启自动隐藏</h3><h4 id="修改配置-6"><a href="#修改配置-6" class="headerlink" title="修改配置"></a>修改配置</h4><blockquote>
+<p><code>&lt;value&gt;</code></p>
+<blockquote>
+<p><code>true</code>：开启自动隐藏<br><code>false</code>：关闭自动隐藏</p>
+</blockquote>
+</blockquote>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">defaults write com.apple.dock &quot;autohide&quot; -bool &quot;&lt;value&gt;&quot; &amp;&amp; killall Dock</span><br></pre></td></tr></table></figure>
+
+<h4 id="删除配置-6"><a href="#删除配置-6" class="headerlink" title="删除配置"></a>删除配置</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">defaults delete com.apple.dock &quot;autohide&quot; &amp;&amp; killall Dock</span><br></pre></td></tr></table></figure>
+
+<h3 id="配置自动隐藏动画时间"><a href="#配置自动隐藏动画时间" class="headerlink" title="配置自动隐藏动画时间"></a>配置自动隐藏动画时间</h3><h4 id="修改配置-7"><a href="#修改配置-7" class="headerlink" title="修改配置"></a>修改配置</h4><blockquote>
+<p><code>&lt;value&gt;</code>：缺省值为0.7</p>
+</blockquote>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">defaults write com.apple.dock &quot;autohide-time-modifier&quot; -float &quot;&lt;value&gt;&quot; &amp;&amp; killall Dock</span><br></pre></td></tr></table></figure>
+
+<h4 id="删除配置-7"><a href="#删除配置-7" class="headerlink" title="删除配置"></a>删除配置</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">defaults delete com.apple.dock &quot;autohide-time-modifier&quot; &amp;&amp; killall Dock</span><br></pre></td></tr></table></figure>
+
+<h3 id="配置自动隐藏触发时延"><a href="#配置自动隐藏触发时延" class="headerlink" title="配置自动隐藏触发时延"></a>配置自动隐藏触发时延</h3><h4 id="修改配置-8"><a href="#修改配置-8" class="headerlink" title="修改配置"></a>修改配置</h4><blockquote>
+<p><code>&lt;value&gt;</code>：缺省值为0.5</p>
+</blockquote>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">defaults write com.apple.dock &quot;autohide-delay&quot; -float &quot;&lt;value&gt;&quot; &amp;&amp; killall Dock</span><br></pre></td></tr></table></figure>
+
+<h4 id="删除配置-8"><a href="#删除配置-8" class="headerlink" title="删除配置"></a>删除配置</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">defaults delete com.apple.dock &quot;autohide-delay&quot; &amp;&amp; killall Dock</span><br></pre></td></tr></table></figure>
+
+<h3 id="配置是否开启最近使用的程序图标"><a href="#配置是否开启最近使用的程序图标" class="headerlink" title="配置是否开启最近使用的程序图标"></a>配置是否开启最近使用的程序图标</h3><h4 id="修改配置-9"><a href="#修改配置-9" class="headerlink" title="修改配置"></a>修改配置</h4><blockquote>
+<p><code>&lt;value&gt;</code></p>
+<blockquote>
+<p><code>true</code>：开启最近使用的程序图标<br><code>false</code>：关闭最近使用的程序图标</p>
+</blockquote>
+</blockquote>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">defaults write com.apple.dock &quot;show-recents&quot; -bool &quot;&lt;value&gt;&quot; &amp;&amp; killall Dock</span><br></pre></td></tr></table></figure>
+
+<h4 id="删除配置-9"><a href="#删除配置-9" class="headerlink" title="删除配置"></a>删除配置</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">defaults delete com.apple.dock &quot;show-recents&quot; &amp;&amp; killall Dock</span><br></pre></td></tr></table></figure>
+
+<h3 id="配置最小化时的动画效果"><a href="#配置最小化时的动画效果" class="headerlink" title="配置最小化时的动画效果"></a>配置最小化时的动画效果</h3><h4 id="修改配置-10"><a href="#修改配置-10" class="headerlink" title="修改配置"></a>修改配置</h4><blockquote>
+<p><code>&lt;value&gt;</code></p>
+<blockquote>
+<p><code>genie</code>：神奇效果<br><code>scale</code>：缩放效果<br><code>suck</code>：吸入效果（隐藏效果）</p>
+</blockquote>
+</blockquote>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">defaults write com.apple.dock &quot;mineffect&quot; -string &quot;&lt;value&gt;&quot; &amp;&amp; killall Dock</span><br></pre></td></tr></table></figure>
+
+<h4 id="删除配置-10"><a href="#删除配置-10" class="headerlink" title="删除配置"></a>删除配置</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">defaults delete com.apple.dock &quot;mineffect&quot; &amp;&amp; killall Dock</span><br></pre></td></tr></table></figure>
+
+<h3 id="配置隐藏程序图标是否变为半透明"><a href="#配置隐藏程序图标是否变为半透明" class="headerlink" title="配置隐藏程序图标是否变为半透明"></a>配置隐藏程序图标是否变为半透明</h3><h4 id="修改配置-11"><a href="#修改配置-11" class="headerlink" title="修改配置"></a>修改配置</h4><blockquote>
+<p><code>&lt;value&gt;</code></p>
+<blockquote>
+<p><code>true</code>：开启隐藏程序图标变为半透明<br><code>false</code>：关闭隐藏程序图标变为半透明</p>
+</blockquote>
+</blockquote>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">defaults write com.apple.dock &quot;showhidden&quot; -bool &quot;&lt;value&gt;&quot; &amp;&amp; killall Dock</span><br></pre></td></tr></table></figure>
+
+<h4 id="删除配置-11"><a href="#删除配置-11" class="headerlink" title="删除配置"></a>删除配置</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">defaults delete com.apple.dock &quot;showhidden&quot; &amp;&amp; killall Dock</span><br></pre></td></tr></table></figure>
+
+<h3 id="配置是否开启新开程序的跳动动画"><a href="#配置是否开启新开程序的跳动动画" class="headerlink" title="配置是否开启新开程序的跳动动画"></a>配置是否开启新开程序的跳动动画</h3><h4 id="修改配置-12"><a href="#修改配置-12" class="headerlink" title="修改配置"></a>修改配置</h4><blockquote>
+<p><code>&lt;value&gt;</code></p>
+<blockquote>
+<p><code>true</code>：开启新开程序的跳动动画<br><code>false</code>：关闭新开程序的跳动动画</p>
+</blockquote>
+</blockquote>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">defaults write com.apple.dock &quot;launchanim&quot; -bool &quot;&lt;value&gt;&quot; &amp;&amp; killall Dock</span><br></pre></td></tr></table></figure>
+
+<h4 id="删除配置-12"><a href="#删除配置-12" class="headerlink" title="删除配置"></a>删除配置</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">defaults delete com.apple.dock &quot;launchanim&quot; &amp;&amp; killall Dock</span><br></pre></td></tr></table></figure>
+
+<h3 id="配置触发角动画时间"><a href="#配置触发角动画时间" class="headerlink" title="配置触发角动画时间"></a>配置触发角动画时间</h3><h4 id="修改配置-13"><a href="#修改配置-13" class="headerlink" title="修改配置"></a>修改配置</h4><blockquote>
+<p><code>&lt;value&gt;</code>：动画时间，如果为0表示没有动画</p>
+</blockquote>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">defaults write com.apple.dock &quot;expose-animation-duration&quot; -int &quot;&lt;value&gt;&quot; &amp;&amp; killall Dock</span><br></pre></td></tr></table></figure>
+
+<h4 id="删除配置-13"><a href="#删除配置-13" class="headerlink" title="删除配置"></a>删除配置</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">defaults delete com.apple.dock &quot;expose-animation-duration&quot; &amp;&amp; killall Dock</span><br></pre></td></tr></table></figure>
+
+<h3 id="程序坞上正在运行应用的窗口快速浏览功能"><a href="#程序坞上正在运行应用的窗口快速浏览功能" class="headerlink" title="程序坞上正在运行应用的窗口快速浏览功能"></a>程序坞上正在运行应用的窗口快速浏览功能</h3><ul>
+<li>这是一个隐藏的配置</li>
+</ul>
+<h4 id="修改配置-14"><a href="#修改配置-14" class="headerlink" title="修改配置"></a>修改配置</h4><blockquote>
+<p><code>&lt;value&gt;</code></p>
+<blockquote>
+<p><code>true</code>：开启窗口快速浏览功能<br><code>false</code>：关闭窗口快速浏览功能</p>
+</blockquote>
+</blockquote>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">defaults write com.apple.dock scroll-to-open -bool &quot;&lt;value&gt;&quot; &amp;&amp; killall Dock</span><br></pre></td></tr></table></figure>
+
+<ol>
+<li>开启后将鼠标放到需要浏览的应用图标上</li>
+<li>向上滚动滚轮显示窗口快速浏览</li>
+<li>向下滚动滚轮隐藏窗口快速浏览</li>
+</ol>
+<h4 id="删除配置-14"><a href="#删除配置-14" class="headerlink" title="删除配置"></a>删除配置</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">defaults delete com.apple.dock scroll-to-open &amp;&amp; killall Dock</span><br></pre></td></tr></table></figure>
+
+<h3 id="程序坞永远只显示正在运行的应用"><a href="#程序坞永远只显示正在运行的应用" class="headerlink" title="程序坞永远只显示正在运行的应用"></a>程序坞永远只显示正在运行的应用</h3><ul>
+<li>这是一个隐藏的配置</li>
+<li>无论是关闭该功能还是删除配置恢复为缺省值，之前设置的图标顺序都不能还原，需要重新排序</li>
+</ul>
+<h4 id="修改配置-15"><a href="#修改配置-15" class="headerlink" title="修改配置"></a>修改配置</h4><blockquote>
+<p><code>&lt;value&gt;</code></p>
+<blockquote>
+<p><code>true</code>：开启只显示正在运行的应用<br><code>false</code>：关闭只显示正在运行的应用</p>
+</blockquote>
+</blockquote>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">defaults write com.apple.dock static-only -bool &quot;&lt;value&gt;&quot; &amp;&amp; killall Dock</span><br></pre></td></tr></table></figure>
+
+<h4 id="删除配置-15"><a href="#删除配置-15" class="headerlink" title="删除配置"></a>删除配置</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">defaults delete com.apple.dock static-only &amp;&amp; killall Dock</span><br></pre></td></tr></table></figure>
+
+<h2 id="启动台（LaunchPad）的相关配置"><a href="#启动台（LaunchPad）的相关配置" class="headerlink" title="启动台（LaunchPad）的相关配置"></a>启动台（LaunchPad）的相关配置</h2><h3 id="配置显示图标的列数"><a href="#配置显示图标的列数" class="headerlink" title="配置显示图标的列数"></a>配置显示图标的列数</h3><h4 id="修改配置-16"><a href="#修改配置-16" class="headerlink" title="修改配置"></a>修改配置</h4><blockquote>
+<p><code>&lt;value&gt;</code>：缺省值为7</p>
+</blockquote>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">defaults write com.apple.dock &quot;springboard-columns&quot; -int &quot;8&quot; &amp;&amp; killall Dock</span><br></pre></td></tr></table></figure>
+
+<h4 id="删除配置-16"><a href="#删除配置-16" class="headerlink" title="删除配置"></a>删除配置</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">defaults delete com.apple.dock &quot;springboard-columns&quot; &amp;&amp; killall Dock</span><br></pre></td></tr></table></figure>
+
+<h3 id="配置显示图标的行数"><a href="#配置显示图标的行数" class="headerlink" title="配置显示图标的行数"></a>配置显示图标的行数</h3><h4 id="修改配置-17"><a href="#修改配置-17" class="headerlink" title="修改配置"></a>修改配置</h4><blockquote>
+<p><code>&lt;value&gt;</code>：缺省值为5</p>
+</blockquote>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">defaults write com.apple.dock &quot;springboard-rows&quot; -int &quot;&lt;value&gt;&quot; &amp;&amp; killall Dock</span><br></pre></td></tr></table></figure>
+
+<h4 id="删除配置-17"><a href="#删除配置-17" class="headerlink" title="删除配置"></a>删除配置</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">defaults delete com.apple.dock &quot;springboard-rows&quot; &amp;&amp; killall Dock</span><br></pre></td></tr></table></figure>
+
+<h3 id="重置启动台"><a href="#重置启动台" class="headerlink" title="重置启动台"></a>重置启动台</h3><ul>
+<li>所有预装应用软件的图标会恢复到初始的位置</li>
+<li>所有第三方应用软件的图标会重新排序，已放到文件夹的图标会被打散</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">defaults write com.apple.dock ResetLaunchPad -bool &quot;true&quot; &amp;&amp; killall Dock</span><br></pre></td></tr></table></figure>
+
+<h2 id="访达（Finder）的相关配置"><a href="#访达（Finder）的相关配置" class="headerlink" title="访达（Finder）的相关配置"></a>访达（Finder）的相关配置</h2><h3 id="配置是否显示隐藏文件"><a href="#配置是否显示隐藏文件" class="headerlink" title="配置是否显示隐藏文件"></a>配置是否显示隐藏文件</h3><h4 id="修改配置-18"><a href="#修改配置-18" class="headerlink" title="修改配置"></a>修改配置</h4><blockquote>
+<p><code>value</code></p>
+<blockquote>
+<p><code>true</code>：显示隐藏文件<br><code>false</code>：不显示隐藏文件</p>
+</blockquote>
+</blockquote>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">defaults write com.apple.finder &quot;AppleShowAllFiles&quot; -bool &quot;&lt;value&gt;&quot; &amp;&amp; killall Finder</span><br></pre></td></tr></table></figure>
+
+<h4 id="删除配置-18"><a href="#删除配置-18" class="headerlink" title="删除配置"></a>删除配置</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">defaults delete com.apple.finder &quot;AppleShowAllFiles&quot; &amp;&amp; killall Finder</span><br></pre></td></tr></table></figure>
+
+<h3 id="配置QuickLook的动画时间"><a href="#配置QuickLook的动画时间" class="headerlink" title="配置QuickLook的动画时间"></a>配置QuickLook的动画时间</h3><h4 id="修改配置-19"><a href="#修改配置-19" class="headerlink" title="修改配置"></a>修改配置</h4><blockquote>
+<p><code>&lt;value&gt;</code>：动画时间，如果为0表示没有动画</p>
+</blockquote>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">defaults write com.apple.finder &quot;QLPanelAnimationDuration&quot; -int &quot;&lt;value&gt;&quot; &amp;&amp; killall Finder</span><br></pre></td></tr></table></figure>
+
+<h4 id="删除配置-19"><a href="#删除配置-19" class="headerlink" title="删除配置"></a>删除配置</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">defaults delete com.apple.finder &quot;QLPanelAnimationDuration&quot; &amp;&amp; killall Finder</span><br></pre></td></tr></table></figure>
+
+<h3 id="配置是否显示完整路径"><a href="#配置是否显示完整路径" class="headerlink" title="配置是否显示完整路径"></a>配置是否显示完整路径</h3><h4 id="修改配置-20"><a href="#修改配置-20" class="headerlink" title="修改配置"></a>修改配置</h4><blockquote>
+<p><code>&lt;value&gt;</code></p>
+<blockquote>
+<p><code>true</code>：显示完整路径<br><code>false</code>：不显示完整路径</p>
+</blockquote>
+</blockquote>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">defaults write com.apple.finder &quot;_FXShowPosixPathInTitle&quot; -bool &quot;&lt;value&gt;&quot; &amp;&amp; killall Finder</span><br></pre></td></tr></table></figure>
+
+<h4 id="删除配置-20"><a href="#删除配置-20" class="headerlink" title="删除配置"></a>删除配置</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">defaults delete com.apple.finder &quot;_FXShowPosixPathInTitle&quot; &amp;&amp; killall Finder</span><br></pre></td></tr></table></figure>
+
+<h3 id="配置是否显示文件扩展名"><a href="#配置是否显示文件扩展名" class="headerlink" title="配置是否显示文件扩展名"></a>配置是否显示文件扩展名</h3><h4 id="修改配置-21"><a href="#修改配置-21" class="headerlink" title="修改配置"></a>修改配置</h4><blockquote>
+<p><code>&lt;value&gt;</code></p>
+<blockquote>
+<p><code>true</code>：显示文件扩展名<br><code>false</code>：不显示文件扩展名</p>
+</blockquote>
+</blockquote>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">defaults write NSGlobalDomain &quot;AppleShowAllExtensions&quot; -bool &quot;&lt;value&gt;&quot; &amp;&amp; killall Finder</span><br></pre></td></tr></table></figure>
+
+<h4 id="删除配置-21"><a href="#删除配置-21" class="headerlink" title="删除配置"></a>删除配置</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">defaults delete NSGlobalDomain &quot;AppleShowAllExtensions&quot; &amp;&amp; killall Finder</span><br></pre></td></tr></table></figure>
+
+<h2 id="截屏的相关配置"><a href="#截屏的相关配置" class="headerlink" title="截屏的相关配置"></a>截屏的相关配置</h2><h3 id="配置截屏默认文件名"><a href="#配置截屏默认文件名" class="headerlink" title="配置截屏默认文件名"></a>配置截屏默认文件名</h3><h4 id="修改配置-22"><a href="#修改配置-22" class="headerlink" title="修改配置"></a>修改配置</h4><blockquote>
+<p><code>&lt;file&gt;</code>：默认文件名，重复文件名后，末尾自动追加递增的编号，编号从2开始</p>
+</blockquote>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">defaults write com.apple.screencapture name &lt;file&gt;</span><br></pre></td></tr></table></figure>
+
+<h3 id="配置截屏默认保存位置"><a href="#配置截屏默认保存位置" class="headerlink" title="配置截屏默认保存位置"></a>配置截屏默认保存位置</h3><h4 id="修改配置-23"><a href="#修改配置-23" class="headerlink" title="修改配置"></a>修改配置</h4><blockquote>
+<p><code>&lt;dir&gt;</code>：默认截屏文件保存位置</p>
+</blockquote>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">defaults write com.apple.screencapture location &lt;dir&gt;</span><br></pre></td></tr></table></figure>
+
+<h3 id="配置截屏默认保存位置-1"><a href="#配置截屏默认保存位置-1" class="headerlink" title="配置截屏默认保存位置"></a>配置截屏默认保存位置</h3><h4 id="修改配置-24"><a href="#修改配置-24" class="headerlink" title="修改配置"></a>修改配置</h4><blockquote>
+<p><code>&lt;type&gt;</code>：文件格式</p>
+<blockquote>
+<p><code>bmp</code><br><code>gif</code><br><code>jpg</code><br><code>jpeg</code><br><code>pdf</code><br><code>tiff</code></p>
+</blockquote>
+</blockquote>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">defaults write com.apple.screencapture type &lt;type&gt;</span><br></pre></td></tr></table></figure>
+
+<h3 id="配置截屏是否显示投影"><a href="#配置截屏是否显示投影" class="headerlink" title="配置截屏是否显示投影"></a>配置截屏是否显示投影</h3><h4 id="修改配置-25"><a href="#修改配置-25" class="headerlink" title="修改配置"></a>修改配置</h4><blockquote>
+<p><code>&lt;value&gt;</code></p>
+<blockquote>
+<p><code>true</code>：截屏显示投影<br><code>false</code>：截屏不显示投影</p>
+</blockquote>
+</blockquote>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">defaults write com.apple.screencapture disable-shadow -bool &lt;value&gt;</span><br></pre></td></tr></table></figure>
+
+<h4 id="删除配置-22"><a href="#删除配置-22" class="headerlink" title="删除配置"></a>删除配置</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">defaults delete com.apple.screencapture disable-shadow</span><br></pre></td></tr></table></figure>
+
+<h2 id="Safari相关配置"><a href="#Safari相关配置" class="headerlink" title="Safari相关配置"></a>Safari相关配置</h2><h3 id="配置是否显示调试菜单"><a href="#配置是否显示调试菜单" class="headerlink" title="配置是否显示调试菜单"></a>配置是否显示调试菜单</h3><h4 id="修改配置-26"><a href="#修改配置-26" class="headerlink" title="修改配置"></a>修改配置</h4><blockquote>
+<p><code>&lt;value&gt;</code></p>
+<blockquote>
+<p><code>true</code>：显示调试菜单<br><code>false</code>：不显示调试菜单</p>
+</blockquote>
+</blockquote>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">defaults write com.apple.safari &quot;IncludeDebugMenu&quot; -bool &quot;&lt;value&gt;&quot; &amp;&amp; killall Safari</span><br></pre></td></tr></table></figure>
+
+<h4 id="删除配置-23"><a href="#删除配置-23" class="headerlink" title="删除配置"></a>删除配置</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">defaults delete com.apple.safari &quot;IncludeDebugMenu&quot; &amp;&amp; killall Safari</span><br></pre></td></tr></table></figure>
+
+<h3 id="配置是否强制在新标签页打开网页"><a href="#配置是否强制在新标签页打开网页" class="headerlink" title="配置是否强制在新标签页打开网页"></a>配置是否强制在新标签页打开网页</h3><h4 id="修改配置-27"><a href="#修改配置-27" class="headerlink" title="修改配置"></a>修改配置</h4><blockquote>
+<p><code>&lt;value&gt;</code></p>
+<blockquote>
+<p><code>true</code>：强制在新标签页打开网页<br><code>false</code>：不强制在新标签页打开网页</p>
+</blockquote>
+</blockquote>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">defaults write com.apple.safari &quot;TargetedClicksCreateTabs&quot; -bool &quot;&lt;value&gt;&quot; &amp;&amp; killall Safari</span><br></pre></td></tr></table></figure>
+
+<h4 id="删除配置-24"><a href="#删除配置-24" class="headerlink" title="删除配置"></a>删除配置</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">defaults delete com.apple.safari &quot;TargetedClicksCreateTabs&quot; &amp;&amp; killall Safari</span><br></pre></td></tr></table></figure>
+
+<h2 id="Xcode的相关配置"><a href="#Xcode的相关配置" class="headerlink" title="Xcode的相关配置"></a>Xcode的相关配置</h2><h3 id="配置是否显示build的所用时间"><a href="#配置是否显示build的所用时间" class="headerlink" title="配置是否显示build的所用时间"></a>配置是否显示build的所用时间</h3><h4 id="修改配置-28"><a href="#修改配置-28" class="headerlink" title="修改配置"></a>修改配置</h4><blockquote>
+<p><code>&lt;value&gt;</code></p>
+<blockquote>
+<p><code>true</code>：显示build的所用时间<br><code>false</code>：不显示build的所用时间</p>
+</blockquote>
+</blockquote>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">defaults write com.apple.dt.Xcode &quot;ShowBuildOperationDuration&quot; -bool &quot;&lt;value&gt;&quot; &amp;&amp; killall Xcode</span><br></pre></td></tr></table></figure>
+
+<h4 id="删除配置-25"><a href="#删除配置-25" class="headerlink" title="删除配置"></a>删除配置</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">defaults delete com.apple.dt.Xcode &quot;ShowBuildOperationDuration&quot; &amp;&amp; killall Xcode</span><br></pre></td></tr></table></figure>
+
+<h2 id="系统偏好设置的相关配置"><a href="#系统偏好设置的相关配置" class="headerlink" title="系统偏好设置的相关配置"></a>系统偏好设置的相关配置</h2><h3 id="配置是否显示更新红点"><a href="#配置是否显示更新红点" class="headerlink" title="配置是否显示更新红点"></a>配置是否显示更新红点</h3><h4 id="修改配置-29"><a href="#修改配置-29" class="headerlink" title="修改配置"></a>修改配置</h4><ul>
+<li>重启后会失效</li>
+</ul>
+<blockquote>
+<p><code>&lt;value&gt;</code>：</p>
+<blockquote>
+<p><code>1</code>：启动更新<br><code>0</code>：关闭更新</p>
+</blockquote>
+</blockquote>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">defaults write com.apple.systempreferences &quot;AttentionPrefBundleIDs&quot; -dict com.apple.preferences.softwareupdate 1 &amp;&amp; killall Dock</span><br></pre></td></tr></table></figure>
+
+<h4 id="删除配置-26"><a href="#删除配置-26" class="headerlink" title="删除配置"></a>删除配置</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">defaults delete com.apple.systempreferences &amp;&amp; killall Dock</span><br></pre></td></tr></table></figure>
+
+<h2 id="AppStore的相关配置"><a href="#AppStore的相关配置" class="headerlink" title="AppStore的相关配置"></a>AppStore的相关配置</h2><h3 id="配置是否显示更新红点-1"><a href="#配置是否显示更新红点-1" class="headerlink" title="配置是否显示更新红点"></a>配置是否显示更新红点</h3><h4 id="修改配置-30"><a href="#修改配置-30" class="headerlink" title="修改配置"></a>修改配置</h4><ul>
+<li>副作用：AppStore的所有软件无法安装和更新</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">defaults write com.apple.appstored &quot;BadgeCount&quot; -int &quot;0&quot; &amp;&amp; killall Dock</span><br></pre></td></tr></table></figure>
+
+<h4 id="删除配置-27"><a href="#删除配置-27" class="headerlink" title="删除配置"></a>删除配置</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">defaults delete com.apple.appstored &quot;BadgeCount&quot; &amp;&amp; killall Dock</span><br></pre></td></tr></table></figure>
+
+<h2 id="系统的相关配置"><a href="#系统的相关配置" class="headerlink" title="系统的相关配置"></a>系统的相关配置</h2><h3 id="配置是否开启电源键一按就睡眠"><a href="#配置是否开启电源键一按就睡眠" class="headerlink" title="配置是否开启电源键一按就睡眠"></a>配置是否开启电源键一按就睡眠</h3><h4 id="修改配置-31"><a href="#修改配置-31" class="headerlink" title="修改配置"></a>修改配置</h4><blockquote>
+<p><code>&lt;value&gt;</code></p>
+<blockquote>
+<p><code>true</code>：开启电源键一按就睡眠<br><code>false</code>：关闭电源键一按就睡眠</p>
+</blockquote>
+</blockquote>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">defaults write com.apple.loginwindow &quot;PowerButtonSleepsSystem&quot; -bool &quot;&lt;value&gt;&quot;</span><br></pre></td></tr></table></figure>
+
+<h4 id="删除配置-28"><a href="#删除配置-28" class="headerlink" title="删除配置"></a>删除配置</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">defaults delete com.apple.loginwindow &quot;PowerButtonSleepsSystem&quot;</span><br></pre></td></tr></table></figure>
+
+<h3 id="配置开机的背景图片"><a href="#配置开机的背景图片" class="headerlink" title="配置开机的背景图片"></a>配置开机的背景图片</h3><h4 id="修改配置-32"><a href="#修改配置-32" class="headerlink" title="修改配置"></a>修改配置</h4><blockquote>
+<p><code>&lt;value&gt;</code>：指定背景图片文件路径</p>
+</blockquote>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">defaults write /Library/Preferences/com.apple.loginwindow &quot;DesktopPicture&quot; &quot;&lt;value&gt;&quot;</span><br></pre></td></tr></table></figure>
+
+<h4 id="删除配置-29"><a href="#删除配置-29" class="headerlink" title="删除配置"></a>删除配置</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">defaults delete /Library/Preferences/com.apple.loginwindow &quot;DesktopPicture&quot;</span><br></pre></td></tr></table></figure>
+
+<h3 id="配置是否开启自动登录"><a href="#配置是否开启自动登录" class="headerlink" title="配置是否开启自动登录"></a>配置是否开启自动登录</h3><h4 id="删除配置-30"><a href="#删除配置-30" class="headerlink" title="删除配置"></a>删除配置</h4><ul>
+<li>禁用自动登录</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">defaults delete /Library/Preferences/com.apple.loginwindow autoLoginUser</span><br></pre></td></tr></table></figure>
+
+<h3 id="配置是否开启开机提示音"><a href="#配置是否开启开机提示音" class="headerlink" title="配置是否开启开机提示音"></a>配置是否开启开机提示音</h3><h4 id="开启提示音"><a href="#开启提示音" class="headerlink" title="开启提示音"></a>开启提示音</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo defaults write com.apple.PowerChime &quot;ChimeOnAllHardware&quot; -bool &quot;true&quot;</span><br><span class="line">open /System/Library/CoreServices/PowerChime.app</span><br></pre></td></tr></table></figure>
+
+<h4 id="关闭提示音"><a href="#关闭提示音" class="headerlink" title="关闭提示音"></a>关闭提示音</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo defaults write com.apple.PowerChime &quot;ChimeOnAllHardware&quot; -bool &quot;false&quot; &amp;&amp; killall PowerChime</span><br></pre></td></tr></table></figure>
+
+<h3 id="配置是否开启有线网下的AirDrop支持"><a href="#配置是否开启有线网下的AirDrop支持" class="headerlink" title="配置是否开启有线网下的AirDrop支持"></a>配置是否开启有线网下的AirDrop支持</h3><h4 id="修改配置-33"><a href="#修改配置-33" class="headerlink" title="修改配置"></a>修改配置</h4><blockquote>
+<p><code>&lt;value&gt;</code></p>
+<blockquote>
+<p><code>true</code>：开启有线网下的AirDrop支持<br><code>false</code>：关闭有线网下的AirDrop支持</p>
+</blockquote>
+</blockquote>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">defaults write com.apple.NetworkBrowser &quot;BrowseAllInterfaces&quot; -bool &quot;&lt;value&gt;&quot;</span><br></pre></td></tr></table></figure>
+
+<h4 id="删除配置-31"><a href="#删除配置-31" class="headerlink" title="删除配置"></a>删除配置</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">defaults delete com.apple.NetworkBrowser &quot;BrowseAllInterfaces&quot;</span><br></pre></td></tr></table></figure>
+
+<h3 id="配置是否关闭截屏阴影"><a href="#配置是否关闭截屏阴影" class="headerlink" title="配置是否关闭截屏阴影"></a>配置是否关闭截屏阴影</h3><h4 id="修改配置-34"><a href="#修改配置-34" class="headerlink" title="修改配置"></a>修改配置</h4><blockquote>
+<p><code>&lt;value&gt;</code></p>
+<blockquote>
+<p><code>true</code>：关闭截屏阴影<br><code>false</code>：开启截屏阴影</p>
+</blockquote>
+</blockquote>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">defaults write com.apple.screencapture &quot;disable-shadow&quot; -bool &quot;&lt;value&gt;&quot;</span><br></pre></td></tr></table></figure>
+
+<h4 id="删除配置-32"><a href="#删除配置-32" class="headerlink" title="删除配置"></a>删除配置</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">defaults delete com.apple.screencapture &quot;disable-shadow&quot;</span><br></pre></td></tr></table></figure>
+
+<h3 id="配置截屏图片保存路径"><a href="#配置截屏图片保存路径" class="headerlink" title="配置截屏图片保存路径"></a>配置截屏图片保存路径</h3><h4 id="修改配置-35"><a href="#修改配置-35" class="headerlink" title="修改配置"></a>修改配置</h4><blockquote>
+<p><code>&lt;value&gt;</code>：指定截屏文件的保存路径。例如：<code>~/Pictures/Screenshot.localized</code></p>
+</blockquote>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">defaults write com.apple.screencapture &quot;location&quot; &quot;&lt;value&gt;&quot;</span><br></pre></td></tr></table></figure>
+
+<h4 id="删除配置-33"><a href="#删除配置-33" class="headerlink" title="删除配置"></a>删除配置</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">defaults delete com.apple.screencapture &quot;location&quot;</span><br></pre></td></tr></table></figure>
+
+<h3 id="配置截屏图片的存储格式"><a href="#配置截屏图片的存储格式" class="headerlink" title="配置截屏图片的存储格式"></a>配置截屏图片的存储格式</h3><h4 id="修改配置-36"><a href="#修改配置-36" class="headerlink" title="修改配置"></a>修改配置</h4><blockquote>
+<p><code>&lt;value&gt;</code>：修改存储格式</p>
+<blockquote>
+<p><code>jpg</code><br><code>png</code></p>
+</blockquote>
+</blockquote>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">defaults write com.apple.screencapture &quot;type&quot; &quot;&lt;value&gt;&quot; &amp;&amp; killall SystemUIServer</span><br></pre></td></tr></table></figure>
+
+<h4 id="删除配置-34"><a href="#删除配置-34" class="headerlink" title="删除配置"></a>删除配置</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">defaults delete com.apple.screencapture &quot;type&quot; &amp;&amp; killall SystemUIServer</span><br></pre></td></tr></table></figure>
+
+<h3 id="配置系统字体大小"><a href="#配置系统字体大小" class="headerlink" title="配置系统字体大小"></a>配置系统字体大小</h3><h4 id="修改配置-37"><a href="#修改配置-37" class="headerlink" title="修改配置"></a>修改配置</h4><blockquote>
+<p><code>&lt;value&gt;</code>：修改数值，缺省值为1</p>
+</blockquote>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">defaults write NSGlobalDomain &quot;AppleDisplayScaleFactor&quot; -float &quot;&lt;value&gt;&quot;</span><br></pre></td></tr></table></figure>
+
+<h4 id="删除配置-35"><a href="#删除配置-35" class="headerlink" title="删除配置"></a>删除配置</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">defaults delete NSGlobalDomain &quot;AppleDisplayScaleFactor&quot;</span><br></pre></td></tr></table></figure>
+
+<h3 id="配置是否关闭仪表盘"><a href="#配置是否关闭仪表盘" class="headerlink" title="配置是否关闭仪表盘"></a>配置是否关闭仪表盘</h3><h4 id="修改配置-38"><a href="#修改配置-38" class="headerlink" title="修改配置"></a>修改配置</h4><blockquote>
+<p><code>&lt;value&gt;</code></p>
+<blockquote>
+<p><code>true</code>：关闭仪表盘<br><code>false</code>： 启用仪表盘</p>
+</blockquote>
+</blockquote>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">defaults write com.apple.dashboard &quot;mcx-disabled&quot; -bool &quot;&lt;value&gt;&quot; &amp;&amp; killall Dock</span><br></pre></td></tr></table></figure>
+
+<h4 id="删除配置-36"><a href="#删除配置-36" class="headerlink" title="删除配置"></a>删除配置</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">defaults delete com.apple.dashboard &quot;mcx-disabled&quot; &amp;&amp; killall Dock</span><br></pre></td></tr></table></figure>
+
+<h3 id="配置是否开启HiDPI"><a href="#配置是否开启HiDPI" class="headerlink" title="配置是否开启HiDPI"></a>配置是否开启HiDPI</h3><ul>
+<li>HiDPI技术可以在软件层面提高显示效果</li>
+</ul>
+<h4 id="修改配置-39"><a href="#修改配置-39" class="headerlink" title="修改配置"></a>修改配置</h4><blockquote>
+<p><code>&lt;value&gt;</code></p>
+<blockquote>
+<p><code>true</code>：开启HiDPI<br><code>false</code>：关闭HiDPI</p>
+</blockquote>
+</blockquote>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo defaults write /Library/Preferences/com.Apple.windowserver &quot;DisplayResolutionEnabled&quot; -bool &quot;&lt;value&gt;&quot;</span><br></pre></td></tr></table></figure>
+
+<h4 id="删除配置-37"><a href="#删除配置-37" class="headerlink" title="删除配置"></a>删除配置</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo defaults delete /Library/Preferences/com.Apple.windowserver &quot;DisplayResolutionEnabled&quot;</span><br></pre></td></tr></table></figure>
+
+<h3 id="配置键盘按键重复"><a href="#配置键盘按键重复" class="headerlink" title="配置键盘按键重复"></a>配置键盘按键重复</h3><h4 id="修改配置-40"><a href="#修改配置-40" class="headerlink" title="修改配置"></a>修改配置</h4><blockquote>
+<p><code>&lt;num&gt;</code>：默认取值范围为[2,120]，2表示按键重复速率最快，120表示按键重复速率最慢，实际上可以取0或1（在系统偏好设置中不存在），可以比2更快</p>
+</blockquote>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">defaults write NSGlobalDomain KeyRepeat -int &lt;num&gt;</span><br></pre></td></tr></table></figure>
+
+<h4 id="删除配置-38"><a href="#删除配置-38" class="headerlink" title="删除配置"></a>删除配置</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">defaults delete NSGlobalDomain KeyRepeat</span><br></pre></td></tr></table></figure>
+
+<h3 id="配置键盘重复前延迟"><a href="#配置键盘重复前延迟" class="headerlink" title="配置键盘重复前延迟"></a>配置键盘重复前延迟</h3><h4 id="修改配置-41"><a href="#修改配置-41" class="headerlink" title="修改配置"></a>修改配置</h4><blockquote>
+<p><code>&lt;num&gt;</code>：默认取值范围为[15,120]，15表示重复前延迟最短，120表示重复前延迟最长</p>
+</blockquote>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">defaults write NSGlobalDomain InitialKeyRepeat -int &lt;num&gt;</span><br></pre></td></tr></table></figure>
+
+<h4 id="删除配置-39"><a href="#删除配置-39" class="headerlink" title="删除配置"></a>删除配置</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">defaults delete NSGlobalDomain InitialKeyRepeat</span><br></pre></td></tr></table></figure>
+
+<h2 id="全局配置"><a href="#全局配置" class="headerlink" title="全局配置"></a>全局配置</h2><h3 id="移动窗口快捷键"><a href="#移动窗口快捷键" class="headerlink" title="移动窗口快捷键"></a>移动窗口快捷键</h3><ul>
+<li>这是一个隐藏的配置</li>
+<li>开启移动窗口快捷键后，按住<code>Control</code>+<code>Command</code>键，可以无需瞄准窗口的标题栏就可以移动窗口位置</li>
+<li>重启（注销重新登录）后生效</li>
+</ul>
+<blockquote>
+<p><code>&lt;value&gt;</code></p>
+<blockquote>
+<p><code>true</code>：启用移动窗口快捷键<br><code>false</code>：缺省值，禁用移动窗口快捷键</p>
+</blockquote>
+</blockquote>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">defaults write -g NSWindowShouldDragOnGesture -bool &quot;&lt;value&gt;&quot;</span><br></pre></td></tr></table></figure>
+
+<h3 id="配置是否开启崩溃报告"><a href="#配置是否开启崩溃报告" class="headerlink" title="配置是否开启崩溃报告"></a>配置是否开启崩溃报告</h3><h4 id="崩溃报告以窗口显示"><a href="#崩溃报告以窗口显示" class="headerlink" title="崩溃报告以窗口显示"></a>崩溃报告以窗口显示</h4><h5 id="开启"><a href="#开启" class="headerlink" title="开启"></a>开启</h5><ul>
+<li>缺省值</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">defaults write com.apple.CrashReporter &quot;DialogType&quot; crashreport</span><br></pre></td></tr></table></figure>
+
+<h5 id="关闭"><a href="#关闭" class="headerlink" title="关闭"></a>关闭</h5><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">defaults write com.apple.CrashReporter &quot;DialogType&quot; none</span><br></pre></td></tr></table></figure>
+
+<h4 id="崩溃报告通知显示"><a href="#崩溃报告通知显示" class="headerlink" title="崩溃报告通知显示"></a>崩溃报告通知显示</h4><h5 id="开启-1"><a href="#开启-1" class="headerlink" title="开启"></a>开启</h5><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">defaults write com.apple.CrashReporter UseUNC 1</span><br></pre></td></tr></table></figure>
+
+<h5 id="关闭-1"><a href="#关闭-1" class="headerlink" title="关闭"></a>关闭</h5><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">defaults write com.apple.CrashReporter UseUNC 0</span><br></pre></td></tr></table></figure>
+
+<h3 id="配置键盘长按"><a href="#配置键盘长按" class="headerlink" title="配置键盘长按"></a>配置键盘长按</h3><blockquote>
+<p><code>1</code>：配置启用长按键盘切换音阶<br><code>0</code>：配置启用长安键盘连续输入</p>
+</blockquote>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">defaults write -g ApplePressAndHoldEnabled 0</span><br></pre></td></tr></table></figure>
+
+<h2 id="完成"><a href="#完成" class="headerlink" title="完成"></a>完成</h2><h2 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h2><p><a href="/302.html?target=https://zhuanlan.zhihu.com/p/393397480">知乎——搞点肉蛋奶</a><br><a target="_blank" rel="noopener" href="https://www.bilibili.com/read/cv10688934/">哔哩哔哩——Mac下载</a><br><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/4c3d11eebb6d">简书——mzs0229</a><br><a target="_blank" rel="noopener" href="https://blog.csdn.net/yuanmengong886/article/details/69943686">CSDN——yuanmengong886</a><br><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/20667030">简书——hzlzh</a><br><a target="_blank" rel="noopener" href="https://discussionschinese.apple.com/thread/252033621">Apple社区——惰惰猴</a><br><a target="_blank" rel="noopener" href="https://sspai.com/post/64748">少数派——伊一</a><br><a target="_blank" rel="noopener" href="https://blog.csdn.net/lovechris00/article/details/113280758">CSDN——伊织code</a><br><a target="_blank" rel="noopener" href="https://ujjainyoga.com/post/53714.html">苹果派</a><br><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/73725126">知乎——李宇</a><br><a target="_blank" rel="noopener" href="https://sspai.com/post/38337">少数派——文刀漢三</a><br><a target="_blank" rel="noopener" href="https://sspai.com/post/33389">少数派——SandmeEmai</a><br><a target="_blank" rel="noopener" href="https://sspai.com/post/33479">少数派——修电脑的哲学家</a><br><a target="_blank" rel="noopener" href="https://sspai.com/post/33299">少数派——SandmeEmai</a><br><a target="_blank" rel="noopener" href="https://sspai.com/post/76530">少数派——PlatyHsu</a><br><a target="_blank" rel="noopener" href="https://sspai.com/post/33682">少数派——修电脑的哲学家</a><br><a target="_blank" rel="noopener" href="https://blog.csdn.net/boildoctor/article/details/111233231">CSDN——小手琴师</a><br><a target="_blank" rel="noopener" href="https://www.zhihu.com/question/45670000">知乎——知乎用户</a></p>
+
+<div class="article-footer fs14">
+    <section id="license">
+      <div class="header"><span>许可协议</span></div>
+      <div class="body"><p>本文采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">署名-非商业性使用-相同方式共享 4.0 国际</a> 许可协议，转载请注明出处。</p>
+</div>
+    </section>
+    </div>
+</article>
+<div class="related-wrap" id="read-next"><section class="body"><div class="item" id="prev"><div class="note">较新文章</div><a href="/2022/05/13/MacOS%E5%B0%86%E6%A1%8C%E9%9D%A2%E6%96%87%E4%BB%B6%E9%9A%90%E8%97%8F/">【笔记】MacOS将桌面文件隐藏</a></div><div class="item" id="next"><div class="note">较早文章</div><a href="/2022/05/13/msf%E5%90%91Windows%E8%BF%9C%E7%A8%8B%E6%89%A7%E8%A1%8CDOS%E5%91%BD%E4%BB%A4/">【笔记】msf向Windows远程执行DOS命令</a></div></section></div>
+
+
+
+
+  <div class="related-wrap md-text" id="comments">
+    <section class='header cmt-title cap theme'>
+      <p>快来参与讨论吧~</p>
+
+    </section>
+    <section class='body cmt-body twikoo'>
+      
+
+<div id="twikoo_container"><svg class="loading" style="vertical-align:middle;fill:currentColor;overflow:hidden;" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="2709"><path d="M832 512c0-176-144-320-320-320V128c211.2 0 384 172.8 384 384h-64zM192 512c0 176 144 320 320 320v64C300.8 896 128 723.2 128 512h64z" p-id="2710"></path></svg></div>
+    </section>
+  </div>
+
+
+
+<footer class="page-footer footnote"><hr><div class="text"><p>本站由 <a href="/">绯鞠</a> 使用 <a target="_blank" rel="noopener" href="https://github.com/xaoxuu/hexo-theme-stellar/tree/1.29.0">Stellar 1.29.0</a> 主题创建。<br>本博客所有文章除特别声明外，均采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> 许可协议，转载请注明出处。</p>
+</div></footer>
+<div class="main-mask" onclick="sidebar.dismiss()"></div></div><aside class="l_right">
+<div class="widgets">
+
+
+
+<widget class="widget-wrapper toc" id="data-toc" collapse="false"><div class="widget-header dis-select"><span class="name">本文目录</span><a class="cap-action" onclick="sidebar.toggleTOC()" ><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6h11m-11 6h11m-11 6h11M4 6h1v4m-1 0h2m0 8H4c0-1 2-2 2-3s-1-1.5-2-1"/></svg></a></div><div class="widget-body"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%89%8D%E8%A8%80"><span class="toc-text">前言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%E5%AD%98%E6%94%BE%E8%B7%AF%E5%BE%84"><span class="toc-text">配置文件存放路径</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9F%A5%E7%9C%8B%E8%BD%AF%E4%BB%B6%E5%85%A8%E5%B1%80%E9%99%90%E5%AE%9A%E5%90%8D"><span class="toc-text">查看软件全局限定名</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%AF%AD%E6%B3%95"><span class="toc-text">语法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AF%BB%E5%8F%96%E9%85%8D%E7%BD%AE"><span class="toc-text">读取配置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BF%AE%E6%94%B9%E9%85%8D%E7%BD%AE"><span class="toc-text">修改配置</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BF%AE%E6%94%B9%E4%B8%BA%E9%BB%98%E8%AE%A4%E9%85%8D%E7%BD%AE"><span class="toc-text">修改为默认配置</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%A0%E9%99%A4%E9%85%8D%E7%BD%AE"><span class="toc-text">删除配置</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%A8%8B%E5%BA%8F%E5%9D%9E%EF%BC%88Dock%E6%A0%8F%EF%BC%89%E7%9A%84%E7%9B%B8%E5%85%B3%E9%85%8D%E7%BD%AE"><span class="toc-text">程序坞（Dock栏）的相关配置</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%A0%E9%99%A4%E6%89%80%E6%9C%89%E9%85%8D%E7%BD%AE"><span class="toc-text">删除所有配置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%94%81%E5%AE%9A%E5%86%85%E5%AE%B9"><span class="toc-text">锁定内容</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BF%AE%E6%94%B9%E9%85%8D%E7%BD%AE-1"><span class="toc-text">修改配置</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%88%A0%E9%99%A4%E9%85%8D%E7%BD%AE-1"><span class="toc-text">删除配置</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%85%8D%E7%BD%AE%E4%BD%8D%E7%BD%AE"><span class="toc-text">配置位置</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BF%AE%E6%94%B9%E9%85%8D%E7%BD%AE-2"><span class="toc-text">修改配置</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%88%A0%E9%99%A4%E9%85%8D%E7%BD%AE-2"><span class="toc-text">删除配置</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%94%81%E5%AE%9A%E4%BD%8D%E7%BD%AE"><span class="toc-text">锁定位置</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BF%AE%E6%94%B9%E9%85%8D%E7%BD%AE-3"><span class="toc-text">修改配置</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%88%A0%E9%99%A4%E9%85%8D%E7%BD%AE-3"><span class="toc-text">删除配置</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%85%8D%E7%BD%AE%E5%9B%BE%E6%A0%87%E5%A4%A7%E5%B0%8F"><span class="toc-text">配置图标大小</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BF%AE%E6%94%B9%E9%85%8D%E7%BD%AE-4"><span class="toc-text">修改配置</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%88%A0%E9%99%A4%E9%85%8D%E7%BD%AE-4"><span class="toc-text">删除配置</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%94%81%E5%AE%9A%E5%9B%BE%E6%A0%87%E5%A4%A7%E5%B0%8F"><span class="toc-text">锁定图标大小</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BF%AE%E6%94%B9%E9%85%8D%E7%BD%AE-5"><span class="toc-text">修改配置</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%88%A0%E9%99%A4%E9%85%8D%E7%BD%AE-5"><span class="toc-text">删除配置</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%85%8D%E7%BD%AE%E6%98%AF%E5%90%A6%E5%BC%80%E5%90%AF%E8%87%AA%E5%8A%A8%E9%9A%90%E8%97%8F"><span class="toc-text">配置是否开启自动隐藏</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BF%AE%E6%94%B9%E9%85%8D%E7%BD%AE-6"><span class="toc-text">修改配置</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%88%A0%E9%99%A4%E9%85%8D%E7%BD%AE-6"><span class="toc-text">删除配置</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%85%8D%E7%BD%AE%E8%87%AA%E5%8A%A8%E9%9A%90%E8%97%8F%E5%8A%A8%E7%94%BB%E6%97%B6%E9%97%B4"><span class="toc-text">配置自动隐藏动画时间</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BF%AE%E6%94%B9%E9%85%8D%E7%BD%AE-7"><span class="toc-text">修改配置</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%88%A0%E9%99%A4%E9%85%8D%E7%BD%AE-7"><span class="toc-text">删除配置</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%85%8D%E7%BD%AE%E8%87%AA%E5%8A%A8%E9%9A%90%E8%97%8F%E8%A7%A6%E5%8F%91%E6%97%B6%E5%BB%B6"><span class="toc-text">配置自动隐藏触发时延</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BF%AE%E6%94%B9%E9%85%8D%E7%BD%AE-8"><span class="toc-text">修改配置</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%88%A0%E9%99%A4%E9%85%8D%E7%BD%AE-8"><span class="toc-text">删除配置</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%85%8D%E7%BD%AE%E6%98%AF%E5%90%A6%E5%BC%80%E5%90%AF%E6%9C%80%E8%BF%91%E4%BD%BF%E7%94%A8%E7%9A%84%E7%A8%8B%E5%BA%8F%E5%9B%BE%E6%A0%87"><span class="toc-text">配置是否开启最近使用的程序图标</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BF%AE%E6%94%B9%E9%85%8D%E7%BD%AE-9"><span class="toc-text">修改配置</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%88%A0%E9%99%A4%E9%85%8D%E7%BD%AE-9"><span class="toc-text">删除配置</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%85%8D%E7%BD%AE%E6%9C%80%E5%B0%8F%E5%8C%96%E6%97%B6%E7%9A%84%E5%8A%A8%E7%94%BB%E6%95%88%E6%9E%9C"><span class="toc-text">配置最小化时的动画效果</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BF%AE%E6%94%B9%E9%85%8D%E7%BD%AE-10"><span class="toc-text">修改配置</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%88%A0%E9%99%A4%E9%85%8D%E7%BD%AE-10"><span class="toc-text">删除配置</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%85%8D%E7%BD%AE%E9%9A%90%E8%97%8F%E7%A8%8B%E5%BA%8F%E5%9B%BE%E6%A0%87%E6%98%AF%E5%90%A6%E5%8F%98%E4%B8%BA%E5%8D%8A%E9%80%8F%E6%98%8E"><span class="toc-text">配置隐藏程序图标是否变为半透明</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BF%AE%E6%94%B9%E9%85%8D%E7%BD%AE-11"><span class="toc-text">修改配置</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%88%A0%E9%99%A4%E9%85%8D%E7%BD%AE-11"><span class="toc-text">删除配置</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%85%8D%E7%BD%AE%E6%98%AF%E5%90%A6%E5%BC%80%E5%90%AF%E6%96%B0%E5%BC%80%E7%A8%8B%E5%BA%8F%E7%9A%84%E8%B7%B3%E5%8A%A8%E5%8A%A8%E7%94%BB"><span class="toc-text">配置是否开启新开程序的跳动动画</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BF%AE%E6%94%B9%E9%85%8D%E7%BD%AE-12"><span class="toc-text">修改配置</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%88%A0%E9%99%A4%E9%85%8D%E7%BD%AE-12"><span class="toc-text">删除配置</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%85%8D%E7%BD%AE%E8%A7%A6%E5%8F%91%E8%A7%92%E5%8A%A8%E7%94%BB%E6%97%B6%E9%97%B4"><span class="toc-text">配置触发角动画时间</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BF%AE%E6%94%B9%E9%85%8D%E7%BD%AE-13"><span class="toc-text">修改配置</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%88%A0%E9%99%A4%E9%85%8D%E7%BD%AE-13"><span class="toc-text">删除配置</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%A8%8B%E5%BA%8F%E5%9D%9E%E4%B8%8A%E6%AD%A3%E5%9C%A8%E8%BF%90%E8%A1%8C%E5%BA%94%E7%94%A8%E7%9A%84%E7%AA%97%E5%8F%A3%E5%BF%AB%E9%80%9F%E6%B5%8F%E8%A7%88%E5%8A%9F%E8%83%BD"><span class="toc-text">程序坞上正在运行应用的窗口快速浏览功能</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BF%AE%E6%94%B9%E9%85%8D%E7%BD%AE-14"><span class="toc-text">修改配置</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%88%A0%E9%99%A4%E9%85%8D%E7%BD%AE-14"><span class="toc-text">删除配置</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%A8%8B%E5%BA%8F%E5%9D%9E%E6%B0%B8%E8%BF%9C%E5%8F%AA%E6%98%BE%E7%A4%BA%E6%AD%A3%E5%9C%A8%E8%BF%90%E8%A1%8C%E7%9A%84%E5%BA%94%E7%94%A8"><span class="toc-text">程序坞永远只显示正在运行的应用</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BF%AE%E6%94%B9%E9%85%8D%E7%BD%AE-15"><span class="toc-text">修改配置</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%88%A0%E9%99%A4%E9%85%8D%E7%BD%AE-15"><span class="toc-text">删除配置</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%90%AF%E5%8A%A8%E5%8F%B0%EF%BC%88LaunchPad%EF%BC%89%E7%9A%84%E7%9B%B8%E5%85%B3%E9%85%8D%E7%BD%AE"><span class="toc-text">启动台（LaunchPad）的相关配置</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%85%8D%E7%BD%AE%E6%98%BE%E7%A4%BA%E5%9B%BE%E6%A0%87%E7%9A%84%E5%88%97%E6%95%B0"><span class="toc-text">配置显示图标的列数</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BF%AE%E6%94%B9%E9%85%8D%E7%BD%AE-16"><span class="toc-text">修改配置</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%88%A0%E9%99%A4%E9%85%8D%E7%BD%AE-16"><span class="toc-text">删除配置</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%85%8D%E7%BD%AE%E6%98%BE%E7%A4%BA%E5%9B%BE%E6%A0%87%E7%9A%84%E8%A1%8C%E6%95%B0"><span class="toc-text">配置显示图标的行数</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BF%AE%E6%94%B9%E9%85%8D%E7%BD%AE-17"><span class="toc-text">修改配置</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%88%A0%E9%99%A4%E9%85%8D%E7%BD%AE-17"><span class="toc-text">删除配置</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%87%8D%E7%BD%AE%E5%90%AF%E5%8A%A8%E5%8F%B0"><span class="toc-text">重置启动台</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%AE%BF%E8%BE%BE%EF%BC%88Finder%EF%BC%89%E7%9A%84%E7%9B%B8%E5%85%B3%E9%85%8D%E7%BD%AE"><span class="toc-text">访达（Finder）的相关配置</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%85%8D%E7%BD%AE%E6%98%AF%E5%90%A6%E6%98%BE%E7%A4%BA%E9%9A%90%E8%97%8F%E6%96%87%E4%BB%B6"><span class="toc-text">配置是否显示隐藏文件</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BF%AE%E6%94%B9%E9%85%8D%E7%BD%AE-18"><span class="toc-text">修改配置</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%88%A0%E9%99%A4%E9%85%8D%E7%BD%AE-18"><span class="toc-text">删除配置</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%85%8D%E7%BD%AEQuickLook%E7%9A%84%E5%8A%A8%E7%94%BB%E6%97%B6%E9%97%B4"><span class="toc-text">配置QuickLook的动画时间</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BF%AE%E6%94%B9%E9%85%8D%E7%BD%AE-19"><span class="toc-text">修改配置</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%88%A0%E9%99%A4%E9%85%8D%E7%BD%AE-19"><span class="toc-text">删除配置</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%85%8D%E7%BD%AE%E6%98%AF%E5%90%A6%E6%98%BE%E7%A4%BA%E5%AE%8C%E6%95%B4%E8%B7%AF%E5%BE%84"><span class="toc-text">配置是否显示完整路径</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BF%AE%E6%94%B9%E9%85%8D%E7%BD%AE-20"><span class="toc-text">修改配置</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%88%A0%E9%99%A4%E9%85%8D%E7%BD%AE-20"><span class="toc-text">删除配置</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%85%8D%E7%BD%AE%E6%98%AF%E5%90%A6%E6%98%BE%E7%A4%BA%E6%96%87%E4%BB%B6%E6%89%A9%E5%B1%95%E5%90%8D"><span class="toc-text">配置是否显示文件扩展名</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BF%AE%E6%94%B9%E9%85%8D%E7%BD%AE-21"><span class="toc-text">修改配置</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%88%A0%E9%99%A4%E9%85%8D%E7%BD%AE-21"><span class="toc-text">删除配置</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%88%AA%E5%B1%8F%E7%9A%84%E7%9B%B8%E5%85%B3%E9%85%8D%E7%BD%AE"><span class="toc-text">截屏的相关配置</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%85%8D%E7%BD%AE%E6%88%AA%E5%B1%8F%E9%BB%98%E8%AE%A4%E6%96%87%E4%BB%B6%E5%90%8D"><span class="toc-text">配置截屏默认文件名</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BF%AE%E6%94%B9%E9%85%8D%E7%BD%AE-22"><span class="toc-text">修改配置</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%85%8D%E7%BD%AE%E6%88%AA%E5%B1%8F%E9%BB%98%E8%AE%A4%E4%BF%9D%E5%AD%98%E4%BD%8D%E7%BD%AE"><span class="toc-text">配置截屏默认保存位置</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BF%AE%E6%94%B9%E9%85%8D%E7%BD%AE-23"><span class="toc-text">修改配置</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%85%8D%E7%BD%AE%E6%88%AA%E5%B1%8F%E9%BB%98%E8%AE%A4%E4%BF%9D%E5%AD%98%E4%BD%8D%E7%BD%AE-1"><span class="toc-text">配置截屏默认保存位置</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BF%AE%E6%94%B9%E9%85%8D%E7%BD%AE-24"><span class="toc-text">修改配置</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%85%8D%E7%BD%AE%E6%88%AA%E5%B1%8F%E6%98%AF%E5%90%A6%E6%98%BE%E7%A4%BA%E6%8A%95%E5%BD%B1"><span class="toc-text">配置截屏是否显示投影</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BF%AE%E6%94%B9%E9%85%8D%E7%BD%AE-25"><span class="toc-text">修改配置</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%88%A0%E9%99%A4%E9%85%8D%E7%BD%AE-22"><span class="toc-text">删除配置</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Safari%E7%9B%B8%E5%85%B3%E9%85%8D%E7%BD%AE"><span class="toc-text">Safari相关配置</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%85%8D%E7%BD%AE%E6%98%AF%E5%90%A6%E6%98%BE%E7%A4%BA%E8%B0%83%E8%AF%95%E8%8F%9C%E5%8D%95"><span class="toc-text">配置是否显示调试菜单</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BF%AE%E6%94%B9%E9%85%8D%E7%BD%AE-26"><span class="toc-text">修改配置</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%88%A0%E9%99%A4%E9%85%8D%E7%BD%AE-23"><span class="toc-text">删除配置</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%85%8D%E7%BD%AE%E6%98%AF%E5%90%A6%E5%BC%BA%E5%88%B6%E5%9C%A8%E6%96%B0%E6%A0%87%E7%AD%BE%E9%A1%B5%E6%89%93%E5%BC%80%E7%BD%91%E9%A1%B5"><span class="toc-text">配置是否强制在新标签页打开网页</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BF%AE%E6%94%B9%E9%85%8D%E7%BD%AE-27"><span class="toc-text">修改配置</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%88%A0%E9%99%A4%E9%85%8D%E7%BD%AE-24"><span class="toc-text">删除配置</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Xcode%E7%9A%84%E7%9B%B8%E5%85%B3%E9%85%8D%E7%BD%AE"><span class="toc-text">Xcode的相关配置</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%85%8D%E7%BD%AE%E6%98%AF%E5%90%A6%E6%98%BE%E7%A4%BAbuild%E7%9A%84%E6%89%80%E7%94%A8%E6%97%B6%E9%97%B4"><span class="toc-text">配置是否显示build的所用时间</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BF%AE%E6%94%B9%E9%85%8D%E7%BD%AE-28"><span class="toc-text">修改配置</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%88%A0%E9%99%A4%E9%85%8D%E7%BD%AE-25"><span class="toc-text">删除配置</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%B3%BB%E7%BB%9F%E5%81%8F%E5%A5%BD%E8%AE%BE%E7%BD%AE%E7%9A%84%E7%9B%B8%E5%85%B3%E9%85%8D%E7%BD%AE"><span class="toc-text">系统偏好设置的相关配置</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%85%8D%E7%BD%AE%E6%98%AF%E5%90%A6%E6%98%BE%E7%A4%BA%E6%9B%B4%E6%96%B0%E7%BA%A2%E7%82%B9"><span class="toc-text">配置是否显示更新红点</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BF%AE%E6%94%B9%E9%85%8D%E7%BD%AE-29"><span class="toc-text">修改配置</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%88%A0%E9%99%A4%E9%85%8D%E7%BD%AE-26"><span class="toc-text">删除配置</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#AppStore%E7%9A%84%E7%9B%B8%E5%85%B3%E9%85%8D%E7%BD%AE"><span class="toc-text">AppStore的相关配置</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%85%8D%E7%BD%AE%E6%98%AF%E5%90%A6%E6%98%BE%E7%A4%BA%E6%9B%B4%E6%96%B0%E7%BA%A2%E7%82%B9-1"><span class="toc-text">配置是否显示更新红点</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BF%AE%E6%94%B9%E9%85%8D%E7%BD%AE-30"><span class="toc-text">修改配置</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%88%A0%E9%99%A4%E9%85%8D%E7%BD%AE-27"><span class="toc-text">删除配置</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%B3%BB%E7%BB%9F%E7%9A%84%E7%9B%B8%E5%85%B3%E9%85%8D%E7%BD%AE"><span class="toc-text">系统的相关配置</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%85%8D%E7%BD%AE%E6%98%AF%E5%90%A6%E5%BC%80%E5%90%AF%E7%94%B5%E6%BA%90%E9%94%AE%E4%B8%80%E6%8C%89%E5%B0%B1%E7%9D%A1%E7%9C%A0"><span class="toc-text">配置是否开启电源键一按就睡眠</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BF%AE%E6%94%B9%E9%85%8D%E7%BD%AE-31"><span class="toc-text">修改配置</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%88%A0%E9%99%A4%E9%85%8D%E7%BD%AE-28"><span class="toc-text">删除配置</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%85%8D%E7%BD%AE%E5%BC%80%E6%9C%BA%E7%9A%84%E8%83%8C%E6%99%AF%E5%9B%BE%E7%89%87"><span class="toc-text">配置开机的背景图片</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BF%AE%E6%94%B9%E9%85%8D%E7%BD%AE-32"><span class="toc-text">修改配置</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%88%A0%E9%99%A4%E9%85%8D%E7%BD%AE-29"><span class="toc-text">删除配置</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%85%8D%E7%BD%AE%E6%98%AF%E5%90%A6%E5%BC%80%E5%90%AF%E8%87%AA%E5%8A%A8%E7%99%BB%E5%BD%95"><span class="toc-text">配置是否开启自动登录</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%88%A0%E9%99%A4%E9%85%8D%E7%BD%AE-30"><span class="toc-text">删除配置</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%85%8D%E7%BD%AE%E6%98%AF%E5%90%A6%E5%BC%80%E5%90%AF%E5%BC%80%E6%9C%BA%E6%8F%90%E7%A4%BA%E9%9F%B3"><span class="toc-text">配置是否开启开机提示音</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%BC%80%E5%90%AF%E6%8F%90%E7%A4%BA%E9%9F%B3"><span class="toc-text">开启提示音</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%85%B3%E9%97%AD%E6%8F%90%E7%A4%BA%E9%9F%B3"><span class="toc-text">关闭提示音</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%85%8D%E7%BD%AE%E6%98%AF%E5%90%A6%E5%BC%80%E5%90%AF%E6%9C%89%E7%BA%BF%E7%BD%91%E4%B8%8B%E7%9A%84AirDrop%E6%94%AF%E6%8C%81"><span class="toc-text">配置是否开启有线网下的AirDrop支持</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BF%AE%E6%94%B9%E9%85%8D%E7%BD%AE-33"><span class="toc-text">修改配置</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%88%A0%E9%99%A4%E9%85%8D%E7%BD%AE-31"><span class="toc-text">删除配置</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%85%8D%E7%BD%AE%E6%98%AF%E5%90%A6%E5%85%B3%E9%97%AD%E6%88%AA%E5%B1%8F%E9%98%B4%E5%BD%B1"><span class="toc-text">配置是否关闭截屏阴影</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BF%AE%E6%94%B9%E9%85%8D%E7%BD%AE-34"><span class="toc-text">修改配置</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%88%A0%E9%99%A4%E9%85%8D%E7%BD%AE-32"><span class="toc-text">删除配置</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%85%8D%E7%BD%AE%E6%88%AA%E5%B1%8F%E5%9B%BE%E7%89%87%E4%BF%9D%E5%AD%98%E8%B7%AF%E5%BE%84"><span class="toc-text">配置截屏图片保存路径</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BF%AE%E6%94%B9%E9%85%8D%E7%BD%AE-35"><span class="toc-text">修改配置</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%88%A0%E9%99%A4%E9%85%8D%E7%BD%AE-33"><span class="toc-text">删除配置</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%85%8D%E7%BD%AE%E6%88%AA%E5%B1%8F%E5%9B%BE%E7%89%87%E7%9A%84%E5%AD%98%E5%82%A8%E6%A0%BC%E5%BC%8F"><span class="toc-text">配置截屏图片的存储格式</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BF%AE%E6%94%B9%E9%85%8D%E7%BD%AE-36"><span class="toc-text">修改配置</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%88%A0%E9%99%A4%E9%85%8D%E7%BD%AE-34"><span class="toc-text">删除配置</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%85%8D%E7%BD%AE%E7%B3%BB%E7%BB%9F%E5%AD%97%E4%BD%93%E5%A4%A7%E5%B0%8F"><span class="toc-text">配置系统字体大小</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BF%AE%E6%94%B9%E9%85%8D%E7%BD%AE-37"><span class="toc-text">修改配置</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%88%A0%E9%99%A4%E9%85%8D%E7%BD%AE-35"><span class="toc-text">删除配置</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%85%8D%E7%BD%AE%E6%98%AF%E5%90%A6%E5%85%B3%E9%97%AD%E4%BB%AA%E8%A1%A8%E7%9B%98"><span class="toc-text">配置是否关闭仪表盘</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BF%AE%E6%94%B9%E9%85%8D%E7%BD%AE-38"><span class="toc-text">修改配置</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%88%A0%E9%99%A4%E9%85%8D%E7%BD%AE-36"><span class="toc-text">删除配置</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%85%8D%E7%BD%AE%E6%98%AF%E5%90%A6%E5%BC%80%E5%90%AFHiDPI"><span class="toc-text">配置是否开启HiDPI</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BF%AE%E6%94%B9%E9%85%8D%E7%BD%AE-39"><span class="toc-text">修改配置</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%88%A0%E9%99%A4%E9%85%8D%E7%BD%AE-37"><span class="toc-text">删除配置</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%85%8D%E7%BD%AE%E9%94%AE%E7%9B%98%E6%8C%89%E9%94%AE%E9%87%8D%E5%A4%8D"><span class="toc-text">配置键盘按键重复</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BF%AE%E6%94%B9%E9%85%8D%E7%BD%AE-40"><span class="toc-text">修改配置</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%88%A0%E9%99%A4%E9%85%8D%E7%BD%AE-38"><span class="toc-text">删除配置</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%85%8D%E7%BD%AE%E9%94%AE%E7%9B%98%E9%87%8D%E5%A4%8D%E5%89%8D%E5%BB%B6%E8%BF%9F"><span class="toc-text">配置键盘重复前延迟</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BF%AE%E6%94%B9%E9%85%8D%E7%BD%AE-41"><span class="toc-text">修改配置</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%88%A0%E9%99%A4%E9%85%8D%E7%BD%AE-39"><span class="toc-text">删除配置</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%A8%E5%B1%80%E9%85%8D%E7%BD%AE"><span class="toc-text">全局配置</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%A7%BB%E5%8A%A8%E7%AA%97%E5%8F%A3%E5%BF%AB%E6%8D%B7%E9%94%AE"><span class="toc-text">移动窗口快捷键</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%85%8D%E7%BD%AE%E6%98%AF%E5%90%A6%E5%BC%80%E5%90%AF%E5%B4%A9%E6%BA%83%E6%8A%A5%E5%91%8A"><span class="toc-text">配置是否开启崩溃报告</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%B4%A9%E6%BA%83%E6%8A%A5%E5%91%8A%E4%BB%A5%E7%AA%97%E5%8F%A3%E6%98%BE%E7%A4%BA"><span class="toc-text">崩溃报告以窗口显示</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%BC%80%E5%90%AF"><span class="toc-text">开启</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%85%B3%E9%97%AD"><span class="toc-text">关闭</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%B4%A9%E6%BA%83%E6%8A%A5%E5%91%8A%E9%80%9A%E7%9F%A5%E6%98%BE%E7%A4%BA"><span class="toc-text">崩溃报告通知显示</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%BC%80%E5%90%AF-1"><span class="toc-text">开启</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%85%B3%E9%97%AD-1"><span class="toc-text">关闭</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%85%8D%E7%BD%AE%E9%94%AE%E7%9B%98%E9%95%BF%E6%8C%89"><span class="toc-text">配置键盘长按</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%8C%E6%88%90"><span class="toc-text">完成</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%82%E8%80%83%E6%96%87%E7%8C%AE"><span class="toc-text">参考文献</span></a></li></ol></div><div class="widget-footer">
+
+<a class="top" onclick="util.scrollTop()"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 12c0-4.714 0-7.071 1.464-8.536C4.93 2 7.286 2 12 2c4.714 0 7.071 0 8.535 1.464C22 4.93 22 7.286 22 12c0 4.714 0 7.071-1.465 8.535C19.072 22 16.714 22 12 22s-7.071 0-8.536-1.465C2 19.072 2 16.714 2 12Z"/><path stroke-linecap="round" stroke-linejoin="round" d="m9 15.5l3-3l3 3m-6-4l3-3l3 3"/></g></svg><span>回到顶部</span></a><a class="buttom" onclick="util.scrollComment()"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="currentColor" fill-rule="evenodd" d="M10.46 1.25h3.08c1.603 0 2.86 0 3.864.095c1.023.098 1.861.3 2.6.752a5.75 5.75 0 0 1 1.899 1.899c.452.738.654 1.577.752 2.6c.095 1.004.095 2.261.095 3.865v1.067c0 1.141 0 2.036-.05 2.759c-.05.735-.153 1.347-.388 1.913a5.75 5.75 0 0 1-3.112 3.112c-.805.334-1.721.408-2.977.43a10.81 10.81 0 0 0-.929.036c-.198.022-.275.054-.32.08c-.047.028-.112.078-.224.232c-.121.166-.258.396-.476.764l-.542.916c-.773 1.307-2.69 1.307-3.464 0l-.542-.916a10.605 10.605 0 0 0-.476-.764c-.112-.154-.177-.204-.224-.232c-.045-.026-.122-.058-.32-.08c-.212-.023-.49-.03-.93-.037c-1.255-.021-2.171-.095-2.976-.429A5.75 5.75 0 0 1 1.688 16.2c-.235-.566-.338-1.178-.389-1.913c-.049-.723-.049-1.618-.049-2.76v-1.066c0-1.604 0-2.86.095-3.865c.098-1.023.3-1.862.752-2.6a5.75 5.75 0 0 1 1.899-1.899c.738-.452 1.577-.654 2.6-.752C7.6 1.25 8.857 1.25 10.461 1.25M6.739 2.839c-.914.087-1.495.253-1.959.537A4.25 4.25 0 0 0 3.376 4.78c-.284.464-.45 1.045-.537 1.96c-.088.924-.089 2.11-.089 3.761v1c0 1.175 0 2.019.046 2.685c.045.659.131 1.089.278 1.441a4.25 4.25 0 0 0 2.3 2.3c.515.214 1.173.294 2.429.316h.031c.398.007.747.013 1.037.045c.311.035.616.104.909.274c.29.17.5.395.682.645c.169.232.342.525.538.856l.559.944a.52.52 0 0 0 .882 0l.559-.944c.196-.331.37-.624.538-.856c.182-.25.392-.476.682-.645c.293-.17.598-.24.909-.274c.29-.032.639-.038 1.037-.045h.032c1.255-.022 1.913-.102 2.428-.316a4.25 4.25 0 0 0 2.3-2.3c.147-.352.233-.782.278-1.441c.046-.666.046-1.51.046-2.685v-1c0-1.651 0-2.837-.089-3.762c-.087-.914-.253-1.495-.537-1.959a4.25 4.25 0 0 0-1.403-1.403c-.464-.284-1.045-.45-1.96-.537c-.924-.088-2.11-.089-3.761-.089h-3c-1.651 0-2.837 0-3.762.089" clip-rule="evenodd"/><path fill="currentColor" d="M9 11a1 1 0 1 1-2 0a1 1 0 0 1 2 0m4 0a1 1 0 1 1-2 0a1 1 0 0 1 2 0m4 0a1 1 0 1 1-2 0a1 1 0 0 1 2 0"/></svg><span>参与讨论</span></a></div></widget>
+</div></aside><div class='float-panel blur'>
+  <button type='button' style='display:none' class='laptop-only rightbar-toggle mobile' onclick='sidebar.rightbar()'>
+    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6h11m-11 6h11m-11 6h11M4 6h1v4m-1 0h2m0 8H4c0-1 2-2 2-3s-1-1.5-2-1"/></svg>
+  </button>
+  <button type='button' style='display:none' class='mobile-only leftbar-toggle mobile' onclick='sidebar.leftbar()'>
+    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 11c0-3.771 0-5.657 1.172-6.828C4.343 3 6.229 3 10 3h4c3.771 0 5.657 0 6.828 1.172C22 5.343 22 7.229 22 11v2c0 3.771 0 5.657-1.172 6.828C19.657 21 17.771 21 14 21h-4c-3.771 0-5.657 0-6.828-1.172C2 18.657 2 16.771 2 13z"/><path id="sep" stroke-linecap="round" d="M5.5 10h6m-5 4h4m4.5 7V3"/></g></svg>
+  </button>
+</div>
+</div><div class="scripts">
+<script type="text/javascript">
+  const ctx = {
+    date_suffix: {
+      just: `刚刚`,
+      min: `分钟前`,
+      hour: `小时前`,
+      day: `天前`,
+    },
+    root : `/`,
+  };
+
+  // required plugins (only load if needs)
+  if (`local_search`) {
+    ctx.search = {};
+    ctx.search.service = `local_search`;
+    if (ctx.search.service == 'local_search') {
+      let service_obj = Object.assign({}, `{"field":"post","path":"/db.json","content":true,"sort":"-date"}`);
+      ctx.search[ctx.search.service] = service_obj;
+    }
+  }
+  const def = {
+    avatar: `https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/avatar/round/3442075.svg`,
+    cover: `https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/cover/76b86c0226ffd.svg`,
+  };
+  const deps = {
+    jquery: `https://cdn.bootcdn.net/ajax/libs/jquery/3.7.1/jquery.min.js`,
+    marked: `https://cdn.bootcdn.net/ajax/libs/marked/4.0.18/marked.min.js`
+  }
+  
+
+</script>
+
+<script type="text/javascript">
+  const utils = {
+    // 懒加载 css https://github.com/filamentgroup/loadCSS
+    css: (href, before, media, attributes) => {
+      var doc = window.document;
+      var ss = doc.createElement("link");
+      var ref;
+      if (before) {
+        ref = before;
+      } else {
+        var refs = (doc.body || doc.getElementsByTagName("head")[0]).childNodes;
+        ref = refs[refs.length - 1];
+      }
+      var sheets = doc.styleSheets;
+      if (attributes) {
+        for (var attributeName in attributes) {
+          if (attributes.hasOwnProperty(attributeName)) {
+            ss.setAttribute(attributeName, attributes[attributeName]);
+          }
+        }
+      }
+      ss.rel = "stylesheet";
+      ss.href = href;
+      ss.media = "only x";
+      function ready(cb) {
+        if (doc.body) {
+          return cb();
+        }
+        setTimeout(function () {
+          ready(cb);
+        });
+      }
+      ready(function () {
+        ref.parentNode.insertBefore(ss, before ? ref : ref.nextSibling);
+      });
+      var onloadcssdefined = function (cb) {
+        var resolvedHref = ss.href;
+        var i = sheets.length;
+        while (i--) {
+          if (sheets[i].href === resolvedHref) {
+            return cb();
+          }
+        }
+        setTimeout(function () {
+          onloadcssdefined(cb);
+        });
+      };
+      function loadCB() {
+        if (ss.addEventListener) {
+          ss.removeEventListener("load", loadCB);
+        }
+        ss.media = media || "all";
+      }
+      if (ss.addEventListener) {
+        ss.addEventListener("load", loadCB);
+      }
+      ss.onloadcssdefined = onloadcssdefined;
+      onloadcssdefined(loadCB);
+      return ss;
+    },
+
+    js: (src, opt) => new Promise((resolve, reject) => {
+      var script = document.createElement('script');
+      if (src.startsWith('/')){
+        src = ctx.root + src.substring(1);
+      }
+      script.src = src;
+      if (opt) {
+        for (let key of Object.keys(opt)) {
+          script[key] = opt[key]
+        }
+      } else {
+        // 默认异步，如果需要同步，第二个参数传入 {} 即可
+        script.async = true
+      }
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    }),
+
+    jq: (fn) => {
+      if (typeof jQuery === 'undefined') {
+        utils.js(deps.jquery).then(fn)
+      } else {
+        fn()
+      }
+    },
+    
+    onLoading: (el) => {
+      if (el) {
+        $(el).append('<div class="loading-wrap"><svg xmlns="http://www.w3.org/2000/svg" width="2em" height="2em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="2"><path stroke-dasharray="60" stroke-dashoffset="60" stroke-opacity=".3" d="M12 3C16.9706 3 21 7.02944 21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3Z"><animate fill="freeze" attributeName="stroke-dashoffset" dur="1.3s" values="60;0"/></path><path stroke-dasharray="15" stroke-dashoffset="15" d="M12 3C16.9706 3 21 7.02944 21 12"><animate fill="freeze" attributeName="stroke-dashoffset" dur="0.3s" values="15;0"/><animateTransform attributeName="transform" dur="1.5s" repeatCount="indefinite" type="rotate" values="0 12 12;360 12 12"/></path></g></svg></div>');
+      }
+    },
+    onLoadSuccess: (el) => {
+      if (el) {
+        $(el).find('.loading-wrap').remove();
+      }
+    },
+    onLoadFailure: (el) => {
+      if (el) {
+        $(el).find('.loading-wrap svg').remove();
+        $(el).find('.loading-wrap').append('<svg xmlns="http://www.w3.org/2000/svg" width="2em" height="2em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><path stroke-dasharray="60" stroke-dashoffset="60" d="M12 3L21 20H3L12 3Z"><animate fill="freeze" attributeName="stroke-dashoffset" dur="0.5s" values="60;0"/></path><path stroke-dasharray="6" stroke-dashoffset="6" d="M12 10V14"><animate fill="freeze" attributeName="stroke-dashoffset" begin="0.6s" dur="0.2s" values="6;0"/></path></g><circle cx="12" cy="17" r="1" fill="currentColor" fill-opacity="0"><animate fill="freeze" attributeName="fill-opacity" begin="0.8s" dur="0.4s" values="0;1"/></circle></svg>');
+        $(el).find('.loading-wrap').addClass('error');
+      }
+    },
+    request: (el, url, callback, onFailure) => {
+      let retryTimes = 3;
+      utils.onLoading(el);
+      function req() {
+        return new Promise((resolve, reject) => {
+          let status = 0; // 0 等待 1 完成 2 超时
+          let timer = setTimeout(() => {
+            if (status === 0) {
+              status = 2;
+              timer = null;
+              reject('请求超时');
+              if (retryTimes == 0) {
+                onFailure();
+              }
+            }
+          }, 5000);
+          fetch(url).then(function(response) {
+            if (status !== 2) {
+              clearTimeout(timer);
+              resolve(response);
+              timer = null;
+              status = 1;
+            }
+            if (response.ok) {
+              return response.json();
+            }
+            throw new Error('Network response was not ok.');
+          }).then(function(data) {
+            retryTimes = 0;
+            utils.onLoadSuccess(el);
+            callback(data);
+          }).catch(function(error) {
+            if (retryTimes > 0) {
+              retryTimes -= 1;
+              setTimeout(() => {
+                req();
+              }, 5000);
+            } else {
+              utils.onLoadFailure(el);
+              onFailure();
+            }
+          });
+        });
+      }
+      req();
+    },
+  };
+</script>
+
+<script>
+  const sidebar = {
+    leftbar: () => {
+      if (l_body) {
+        l_body.toggleAttribute('leftbar');
+        l_body.removeAttribute('rightbar');
+      }
+    },
+    rightbar: () => {
+      if (l_body) {
+        l_body.toggleAttribute('rightbar');
+        l_body.removeAttribute('leftbar');
+      }
+    },
+    dismiss: () => {
+      if (l_body) {
+        l_body.removeAttribute('leftbar');
+        l_body.removeAttribute('rightbar');
+      }
+    },
+    toggleTOC: () => {
+      document.querySelector('#data-toc').classList.toggle('collapse');
+    }
+  }
+</script>
+<script type="text/javascript">
+  (() => {
+    const tagSwitchers = document.querySelectorAll('.tag-subtree.parent-tag > a > .tag-switcher-wrapper')
+    for (const tagSwitcher of tagSwitchers) {
+      tagSwitcher.addEventListener('click', (e) => {
+        const parent = e.target.closest('.tag-subtree.parent-tag')
+        parent.classList.toggle('expanded')
+        e.preventDefault()
+      })
+    }
+
+    // Get active tag from query string, then activate it.
+    const urlParams = new URLSearchParams(window.location.search)
+    const activeTag = urlParams.get('tag')
+    if (activeTag) {
+      let tag = document.querySelector(`.tag-subtree[data-tag="${activeTag}"]`)
+      if (tag) {
+        tag.querySelector('a').classList.add('active')
+        
+        while (tag) {
+          tag.classList.add('expanded')
+          tag = tag.parentElement.closest('.tag-subtree.parent-tag')
+        }
+      }
+    }
+  })()
+</script>
+
+
+<!-- required -->
+<script src="/js/main.js?v=1.29.0" defer></script>
+
+<script type="text/javascript">
+  const applyTheme = (theme) => {
+    if (theme === 'auto') {
+      document.documentElement.removeAttribute('data-theme')
+    } else {
+      document.documentElement.setAttribute('data-theme', theme)
+    }
+
+    applyThemeToGiscus(theme)
+  }
+
+  const applyThemeToGiscus = (theme) => {
+    theme = theme === 'auto' ? 'preferred_color_scheme' : theme
+
+    const cmt = document.getElementById('giscus')
+    if (cmt) {
+      // This works before giscus load.
+      cmt.setAttribute('data-theme', theme)
+    }
+
+    const iframe = document.querySelector('#comments > section.giscus > iframe')
+    if (iframe) {
+      // This works after giscus loaded.
+      const src = iframe.src
+      const newSrc = src.replace(/theme=[\w]+/, `theme=${theme}`)
+      iframe.src = newSrc
+    }
+  }
+
+  const switchTheme = () => {
+    // light -> dark -> auto -> light -> ...
+    const currentTheme = document.documentElement.getAttribute('data-theme')
+    let newTheme;
+    switch (currentTheme) {
+      case 'light':
+        newTheme = 'dark'
+        break
+      case 'dark':
+        newTheme = 'auto'
+        break
+      default:
+        newTheme = 'light'
+    }
+    applyTheme(newTheme)
+    window.localStorage.setItem('Stellar.theme', newTheme)
+
+    const messages = {
+      light: `切换到浅色模式`,
+      dark: `切换到深色模式`,
+      auto: `切换到跟随系统配色`,
+    }
+    hud?.toast?.(messages[newTheme])
+  }
+
+  (() => {
+    // Apply user's preferred theme, if any.
+    const theme = window.localStorage.getItem('Stellar.theme')
+    if (theme !== null) {
+      applyTheme(theme)
+    }
+  })()
+</script>
+
+
+<!-- optional -->
+
+  <script type="module">
+  const el = document.getElementById('twikoo_container');
+  util.viewportLazyload(el, load_twikoo, false);
+
+  function load_twikoo() {
+    if (!el) return;
+    utils.js('https://gcore.jsdelivr.net/npm/twikoo@1.6.8/dist/twikoo.all.min.js', {defer: true}).then(function () {
+      const path = el.getAttribute('comment_id') ?? decodeURI(window.location.pathname);
+      twikoo.init(Object.assign({"js":"https://gcore.jsdelivr.net/npm/twikoo@1.6.8/dist/twikoo.all.min.js","envId":"https://twikoo.loli.fj.cn"}, {
+        el: '#twikoo_container',
+        path: path,
+      }));
+    });
+  }
+</script>
+
+
+
+<script defer>
+  window.addEventListener('DOMContentLoaded', (event) => {
+    ctx.services = Object.assign({}, JSON.parse(`{"mdrender":{"js":"/js/services/mdrender.js"},"siteinfo":{"js":"/js/services/siteinfo.js","api":null},"ghinfo":{"js":"/js/services/ghinfo.js"},"sites":{"js":"/js/services/sites.js"},"friends":{"js":"/js/services/friends.js"},"timeline":{"js":"/js/services/timeline.js"},"fcircle":{"js":"/js/services/fcircle.js"},"weibo":{"js":"/js/services/weibo.js"},"memos":{"js":"/js/services/memos.js"}}`));
+    for (let id of Object.keys(ctx.services)) {
+      const js = ctx.services[id].js;
+      if (id == 'siteinfo') {
+        ctx.cardlinks = document.querySelectorAll('a.link-card[cardlink]');
+        if (ctx.cardlinks?.length > 0) {
+          utils.js(js, { defer: true }).then(function () {
+            setCardLink(ctx.cardlinks);
+          });
+        }
+      } else {
+        const els = document.getElementsByClassName(`ds-${id}`);
+        if (els?.length > 0) {
+          utils.jq(() => {
+            if (id == 'timeline' || 'memos' || 'marked') {
+              utils.js(deps.marked).then(function () {
+                utils.js(js, { defer: true });
+              });
+            } else {
+              utils.js(js, { defer: true });
+            }
+          });
+        }
+      }
+    }
+  });
+</script>
+
+<script>
+  window.addEventListener('DOMContentLoaded', (event) => {
+    ctx.search = {
+      path: `/db.json`,
+    }
+    utils.js('/js/search/local-search.js', { defer: true });
+  });
+</script><script>
+  window.FPConfig = {
+    delay: 0,
+    ignoreKeywords: [],
+    maxRPS: 5,
+    hoverDelay: 25
+  };
+</script>
+<script defer src="https://cdn.bootcdn.net/ajax/libs/flying-pages/2.1.2/flying-pages.min.js"></script><script defer src="https://cdn.bootcdn.net/ajax/libs/vanilla-lazyload/17.8.4/lazyload.min.js"></script>
+<script>
+  // https://www.npmjs.com/package/vanilla-lazyload
+  // Set the options globally
+  // to make LazyLoad self-initialize
+  window.lazyLoadOptions = {
+    elements_selector: ".lazy",
+  };
+  // Listen to the initialization event
+  // and get the instance of LazyLoad
+  window.addEventListener(
+    "LazyLoad::Initialized",
+    function (event) {
+      window.lazyLoadInstance = event.detail.instance;
+    },
+    false
+  );
+  document.addEventListener('DOMContentLoaded', function () {
+    window.lazyLoadInstance?.update();
+  });
+</script><script>
+  ctx.fancybox = {
+    selector: `.timenode p>img`,
+    css: `https://cdn.bootcdn.net/ajax/libs/fancyapps-ui/5.0.22/fancybox/fancybox.min.css`,
+    js: `https://cdn.bootcdn.net/ajax/libs/fancyapps-ui/5.0.22/fancybox/fancybox.umd.min.js`
+  };
+  var selector = '[data-fancybox]:not(.error)';
+  if (ctx.fancybox.selector) {
+    selector += `, ${ctx.fancybox.selector}`
+  }
+  var needFancybox = document.querySelectorAll(selector).length !== 0;
+  if (!needFancybox) {
+    const els = document.getElementsByClassName('ds-memos');
+    if (els != undefined && els.length > 0) {
+      needFancybox = true;
+    }
+  }
+  if (needFancybox) {
+    utils.css(ctx.fancybox.css);
+    utils.js(ctx.fancybox.js, { defer: true }).then(function () {
+      Fancybox.bind(selector, {
+        hideScrollbar: false,
+        Thumbs: {
+          autoStart: false,
+        },
+        caption: (fancybox, slide) => {
+          return slide.triggerEl.alt || slide.triggerEl.dataset.caption || null
+        }
+      });
+    })
+  }
+</script>
+<script>
+  window.addEventListener('DOMContentLoaded', (event) => {
+    const swiper_api = document.getElementById('swiper-api');
+    if (swiper_api != undefined) {
+      utils.css(`https://unpkg.com/swiper@10.3.1/swiper-bundle.min.css`);
+      utils.js(`https://unpkg.com/swiper@10.3.1/swiper-bundle.min.js`, { defer: true }).then(function () {
+        const effect = swiper_api.getAttribute('effect') || '';
+        var swiper = new Swiper('.swiper#swiper-api', {
+          slidesPerView: 'auto',
+          spaceBetween: 8,
+          centeredSlides: true,
+          effect: effect,
+          rewind: true,
+          pagination: {
+            el: '.swiper-pagination',
+            clickable: true,
+          },
+          navigation: {
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
+          },
+        });
+      })
+    }
+  });
+</script>
+<script defer type="text/javascript" src="https://cdn.jsdelivr.net/npm/mermaid@v9/dist/mermaid.min.js"></script>
+<script>
+  window.addEventListener('DOMContentLoaded', (event) => {
+    var mermaid_config = {
+      startOnLoad: true,
+      theme:
+        "" == "auto" &&
+          window.matchMedia("(prefers-color-scheme: dark)").matches
+          ? "dark"
+          : "neutral",
+      logLevel: 3,
+      themeVariables: {
+        darkMode: true
+      },
+      flowchart: {
+        useMaxWidth: false,
+        htmlLabels: true,
+        curve: "linear"
+      },
+      gantt: {
+        axisFormat: "%Y/%m/%d"
+      },
+      sequence: {
+        actorMargin: 50
+      }
+    }
+    mermaid.initialize(mermaid_config);
+  });
+</script><script>
+  document.addEventListener('DOMContentLoaded', function () {
+    window.codeElements = document.querySelectorAll('.code');
+    if (window.codeElements.length > 0) {
+      ctx.copycode = {
+        default_text: `Copy`,
+        success_text: `Copied`,
+        toast: `复制成功`,
+      };
+      utils.js('/js/plugins/copycode.js');
+    }
+  });
+</script>
+
+
+<!-- inject -->
+
+</div></body></html>
