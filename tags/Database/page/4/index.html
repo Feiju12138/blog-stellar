@@ -1,660 +1,268 @@
-<!DOCTYPE html>
-<html lang="zh-CN">
-<head>
-  <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width">
-<meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
-<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 6.3.0">
-
-  <link rel="apple-touch-icon" sizes="180x180" href="/dist/images/favicon_package/apple-touch-icon.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="/dist/images/favicon_package/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="/dist/images/favicon_package/favicon-16x16.png">
-  <link rel="mask-icon" href="/dist/images/favicon_package/safari-pinned-tab.svg" color="#222">
-  <link rel="manifest" href="/dist/images/favicon_package/site.webmanifest">
-  <meta name="google-site-verification" content="qIz-Tg08U6gyN_53z89yii0ZmKx2avfsO-iyOWhsRx8">
-  <meta name="msvalidate.01" content="096F3D01D2AA04148F10750CD4566535">
-  <meta name="yandex-verification" content="43f790b7e38394a4">
-  <meta name="baidu-site-verification" content="codeva-LMZoUaXjJl">
-
-<link rel="stylesheet" href="/css/main.css">
-
-
-
-<link rel="stylesheet" href="/lib/@fortawesome/fontawesome-free/css/all.min.css" integrity="sha256-HtsXJanqjKTc8vVQjO4YMhiqFoXkfBsjBWcX91T1jr8=" crossorigin="anonymous">
-  <link rel="stylesheet" href="/lib/animate.css/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
-  <link rel="stylesheet" href="/lib/pace-js/themes/black/pace-theme-material.css">
-  <script src="/lib/pace-js/pace.min.js" integrity="sha256-gqd7YTjg/BtfqWSwsJOvndl0Bxc8gFImLEkXQT8+qj0=" crossorigin="anonymous"></script>
-
-<script class="next-config" data-name="main" type="application/json">{"hostname":"loli.fj.cn","root":"/","images":"/images","scheme":"Muse","darkmode":true,"version":"8.18.0","exturl":false,"sidebar":{"position":"right","display":"always","padding":18,"offset":12},"copycode":{"enable":true,"style":"mac"},"fold":{"enable":true,"height":500},"bookmark":{"enable":true,"color":"#222","save":"manual"},"mediumzoom":true,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":"gitalk","storage":false,"lazyload":true,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"manual","top_n_per_article":1,"unescape":false,"preload":true}}</script><script src="/js/config.js"></script>
-
-
-
-<link rel="canonical" href="https://loli.fj.cn/tags/Database/page/4/">
-
-
-
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":false,"lang":"zh-CN","comments":"","permalink":"","path":"tags/Database/page/4/index.html","title":""}</script>
-
-<script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>标签: Database | 绯鞠的博客</title>
-  
-
-
-
-
-
-
-  <script async defer data-website-id="981ed5a0-eea5-4426-a8a9-c16a789ccc3f" src="https://umami.loli.fj.cn/script.js" data-host-url="https://umami.loli.fj.cn/"></script>
-
-
-  <noscript>
-    <link rel="stylesheet" href="/css/noscript.css">
-  </noscript>
-<link rel="alternate" href="/atom.xml" title="绯鞠的博客" type="application/atom+xml">
-</head>
-
-<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
-  <div class="headband"></div>
-
-  <main class="main">
-    <div class="column">
-      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
-  <div class="site-nav-toggle">
-    <div class="toggle" aria-label="切换导航栏" role="button">
-        <span class="toggle-line"></span>
-        <span class="toggle-line"></span>
-        <span class="toggle-line"></span>
-    </div>
-  </div>
-
-  <div class="site-meta">
-
-    <a href="/" class="brand" rel="start">
-      <i class="logo-line"></i>
-      <p class="site-title">绯鞠的博客</p>
-      <i class="logo-line"></i>
-    </a>
-      <p class="site-subtitle" itemprop="description">连蜜统治世界!!!💕</p>
-  </div>
-
-  <div class="site-nav-right">
-    <div class="toggle popup-trigger" aria-label="搜索" role="button">
-        <i class="fa fa-search fa-fw fa-lg"></i>
-    </div>
-  </div>
-</div>
-
-
-
-<nav class="site-nav">
-  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li><li class="menu-item menu-item-links"><a href="/links/" rel="section"><i class="fa fa-link fa-fw"></i>友链</a></li><li class="menu-item menu-item-reward"><a href="/reward/" rel="section"><i class="fa fa-hand-holding-heart fa-fw"></i>赞助</a></li><li class="menu-item menu-item-command"><a href="/command/" rel="section"><i class="fa fa-book fa-fw"></i>指令</a></li><li class="menu-item menu-item-contribute"><a href="/contribute/" rel="section"><i class="fa fa-chart-line fa-fw"></i>贡献</a></li><li class="menu-item menu-item-rss"><a href="/atom.xml" rel="section"><i class="fa fa-rss fa-fw"></i>订阅</a></li><li class="menu-item menu-item-theme"><a target="_blank" href="//butterfly.loli.fj.cn" rel="section noopener"><i class="fa fa-arrow-right fa-fw"></i>彩蛋?</a></li>
-      <li class="menu-item menu-item-search">
-        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
-        </a>
-      </li>
-  </ul>
-</nav>
-
-
-
-  <div class="search-pop-overlay">
-    <div class="popup search-popup"><div class="search-header">
-  <span class="search-icon">
-    <i class="fa fa-search"></i>
-  </span>
-  <div class="search-input-container">
-    <input autocomplete="off" autocapitalize="off" maxlength="80"
-           placeholder="搜索..." spellcheck="false"
-           type="search" class="search-input">
-  </div>
-  <span class="popup-btn-close" role="button">
-    <i class="fa fa-times-circle"></i>
-  </span>
-</div>
-<div class="search-result-container no-result">
-  <div class="search-result-icon">
-    <i class="fa fa-spinner fa-pulse fa-5x"></i>
-  </div>
-</div>
-
-    </div>
-  </div>
-
-<!-- 加载字体样式 -->
-<link rel="stylesheet" href="/dist/css/fonts.css">
-<!-- 加载鼠标样式 -->
-<link rel="stylesheet" href="/dist/css/cursor.css">
-<!-- 加载滚动条样式 -->
-<link rel="stylesheet" href="/dist/css/scrollbar.css">
-<!-- 加载分类页样式 -->
-<link rel="stylesheet" href="/categories/index.css">
-<!-- 加载标签页样式 -->
-<link rel="stylesheet" href="/tags/index.css">
-<!-- 加载投币动画 -->
-<link rel="stylesheet" href="/dist/css/coin.css">
-
-<!-- 加载色彩 -->
-<script type="text/javascript" src="/dist/js/lipstick.js"></script>
-<!-- 加载站内快捷键 -->
-<script type="text/javascript" src="/dist/js/hotkey.js"></script>
-<!-- Toast加载 -->
-<script type="text/javascript" src="/dist/js/toast.js"></script>
-<!-- 获取浏览器类型 -->
-<script type="text/javascript" src="/dist/js/get_browser_kind.js"></script>
-<!-- 禁止镜像站 -->
-<script type="text/javascript" src="/dist/js/ban_mirror.js"></script>
-
-</header>
-        
-  
-  <aside class="sidebar">
-
-    <div class="sidebar-inner sidebar-overview-active">
-      <ul class="sidebar-nav">
-        <li class="sidebar-nav-toc">
-          文章目录
-        </li>
-        <li class="sidebar-nav-overview">
-          站点概览
-        </li>
-      </ul>
-
-      <div class="sidebar-panel-container">
-        <!--noindex-->
-        <div class="post-toc-wrap sidebar-panel">
-        </div>
-        <!--/noindex-->
-
-        <div class="site-overview-wrap sidebar-panel">
-          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
-    <img class="site-author-image" itemprop="image" alt="绯鞠"
-      src="/dist/images/avatar.gif">
-  <p class="site-author-name" itemprop="name">绯鞠</p>
-  <div class="site-description" itemprop="description">捕捉一只爱折腾的绯鞠</div>
-</div>
-  <div class="links-of-author animated">
-      <span class="links-of-author-item">
-        <a href="mailto:00-isomer-cabbies@icloud.com" title="E-Mail → mailto:00-isomer-cabbies@icloud.com" rel="noopener me" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
-      </span>
-      <span class="links-of-author-item">
-        <a href="https://t.me/LittleSweetCookie" title="Telegram → https:&#x2F;&#x2F;t.me&#x2F;LittleSweetCookie" rel="noopener me" target="_blank"><i class="fab fa-telegram fa-fw"></i>Telegram</a>
-      </span>
-  </div>
-<!-- 设置Aplayer挂载点 -->
-<div id="aplayer"></div>
-
-        </div>
-      </div>
-    </div>
-
-    
-  </aside>
-
-
-    </div>
-
-    <div class="main-inner tag posts-collapse">
-
-
-  
-  
-  
-  <div class="post-block">
-    <div class="post-content">
-      <div class="collection-title">
-        <h1 class="collection-header">Database
-          <small>标签</small>
-        </h1>
-      </div>
-
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>标签: Database | 绯鞠的博客</title><meta name="author" content="绯鞠"><meta name="copyright" content="绯鞠"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="捕捉一只爱折腾的绯鞠">
+<meta property="og:type" content="website">
+<meta property="og:title" content="绯鞠的博客">
+<meta property="og:url" content="https://loli.fj.cn/tags/Database/page/4/index.html">
+<meta property="og:site_name" content="绯鞠的博客">
+<meta property="og:description" content="捕捉一只爱折腾的绯鞠">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://loli.fj.cn/dist/images/avatar.jpg">
+<meta property="article:author" content="绯鞠">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://loli.fj.cn/dist/images/avatar.jpg"><link rel="shortcut icon" href="/dist/images/favicon_package/favicon-32x32.png"><link rel="canonical" href="https://loli.fj.cn/tags/Database/page/4/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css?v=4.13.0"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.1/css/all.min.css"><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":false,"top_n_per_article":1,"unescape":false,"languages":{"hits_empty":"找不到您查询的内容：${query}","hits_stats":"共找到 ${hits} 篇文章"}},
+  translate: {"defaultEncoding":2,"translateDelay":0,"msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"簡"},
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '天',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'mediumZoom',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid@4.11.1/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: true,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '标签: Database',
+  isPost: false,
+  isHome: false,
+  isHighlightShrink: true,
+  isToc: false,
+  postUpdate: '2024-08-08 09:58:13'
+}</script><script>(win=>{
+      win.saveToLocal = {
+        set: (key, value, ttl) => {
+          if (ttl === 0) return
+          const now = Date.now()
+          const expiry = now + ttl * 86400000
+          const item = {
+            value,
+            expiry
+          }
+          localStorage.setItem(key, JSON.stringify(item))
+        },
       
-    <div class="collection-year">
-      <span class="collection-header">2023</span>
-    </div>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-      <div class="post-meta-container">
-        <time itemprop="dateCreated"
-              datetime="2023-06-28T14:44:17+08:00"
-              content="2023-06-28">
-          06-28
-        </time>
-      </div>
-
-      <div class="post-title">
-        <a class="post-title-link" href="/2023/06/28/MongoDB%E5%AE%89%E8%A3%85%E7%AC%94%E8%AE%B0/" itemprop="url">
-          <span itemprop="name">【笔记】MongoDB安装笔记</span>
-        </a>
-      </div>
-
+        get: key => {
+          const itemStr = localStorage.getItem(key)
       
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-      <div class="post-meta-container">
-        <time itemprop="dateCreated"
-              datetime="2023-05-20T17:26:08+08:00"
-              content="2023-05-20">
-          05-20
-        </time>
-      </div>
-
-      <div class="post-title">
-        <a class="post-title-link" href="/2023/05/20/Redis%E9%85%8D%E7%BD%AE/" itemprop="url">
-          <span itemprop="name">【笔记】Redis配置</span>
-        </a>
-      </div>
-
+          if (!itemStr) {
+            return undefined
+          }
+          const item = JSON.parse(itemStr)
+          const now = Date.now()
       
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-      <div class="post-meta-container">
-        <time itemprop="dateCreated"
-              datetime="2023-05-08T13:42:10+08:00"
-              content="2023-05-08">
-          05-08
-        </time>
-      </div>
-
-      <div class="post-title">
-        <a class="post-title-link" href="/2023/05/08/Mysql%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2/" itemprop="url">
-          <span itemprop="name">【笔记】Mysql数据类型转换</span>
-        </a>
-      </div>
-
-      
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-      <div class="post-meta-container">
-        <time itemprop="dateCreated"
-              datetime="2023-04-27T18:14:50+08:00"
-              content="2023-04-27">
-          04-27
-        </time>
-      </div>
-
-      <div class="post-title">
-        <a class="post-title-link" href="/2023/04/27/Mysql%E7%A6%81%E7%94%A8%E8%AF%BB%E5%86%99%E7%BB%95%E8%BF%87/" itemprop="url">
-          <span itemprop="name">【笔记】Mysql禁用读写绕过</span>
-        </a>
-      </div>
-
-      
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-      <div class="post-meta-container">
-        <time itemprop="dateCreated"
-              datetime="2023-04-25T10:59:11+08:00"
-              content="2023-04-25">
-          04-25
-        </time>
-      </div>
-
-      <div class="post-title">
-        <a class="post-title-link" href="/2023/04/25/Mysql%E6%95%B0%E5%80%BC%E5%9E%8B%E6%95%B0%E6%8D%AE%E5%8F%96%E5%80%BC%E8%8C%83%E5%9B%B4/" itemprop="url">
-          <span itemprop="name">【笔记】Mysql数值型数据取值范围</span>
-        </a>
-      </div>
-
-      
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-      <div class="post-meta-container">
-        <time itemprop="dateCreated"
-              datetime="2023-04-19T18:26:24+08:00"
-              content="2023-04-19">
-          04-19
-        </time>
-      </div>
-
-      <div class="post-title">
-        <a class="post-title-link" href="/2023/04/19/Mysql%E6%B8%85%E7%A9%BA%E6%95%B0%E6%8D%AE%E8%A1%A8%E7%9A%84%E6%89%80%E6%9C%89%E5%86%85%E5%AE%B9/" itemprop="url">
-          <span itemprop="name">【笔记】Mysql清空数据表的所有内容</span>
-        </a>
-      </div>
-
-      
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-      <div class="post-meta-container">
-        <time itemprop="dateCreated"
-              datetime="2023-04-14T12:28:42+08:00"
-              content="2023-04-14">
-          04-14
-        </time>
-      </div>
-
-      <div class="post-title">
-        <a class="post-title-link" href="/2023/04/14/Mysql%E6%9F%A5%E8%AF%A2%E6%8A%A5%E9%94%99/" itemprop="url">
-          <span itemprop="name">【踩坑】Mysql查询报错</span>
-        </a>
-      </div>
-
-      
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-      <div class="post-meta-container">
-        <time itemprop="dateCreated"
-              datetime="2023-03-27T16:07:24+08:00"
-              content="2023-03-27">
-          03-27
-        </time>
-      </div>
-
-      <div class="post-title">
-        <a class="post-title-link" href="/2023/03/27/Mysql%E5%88%9B%E5%BB%BA%E6%95%B0%E6%8D%AE%E5%BA%93%E5%92%8C%E6%95%B0%E6%8D%AE%E8%A1%A8%E6%97%B6%E6%8C%87%E5%AE%9A%E5%AD%97%E7%AC%A6%E9%9B%86/" itemprop="url">
-          <span itemprop="name">【笔记】Mysql创建数据库和数据表时指定字符集</span>
-        </a>
-      </div>
-
-      
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-      <div class="post-meta-container">
-        <time itemprop="dateCreated"
-              datetime="2023-03-27T14:06:00+08:00"
-              content="2023-03-27">
-          03-27
-        </time>
-      </div>
-
-      <div class="post-title">
-        <a class="post-title-link" href="/2023/03/27/Mysql%E5%88%9B%E5%BB%BA%E6%95%B0%E6%8D%AE%E8%A1%A8%E6%97%B6%E6%8A%A5%E9%94%99/" itemprop="url">
-          <span itemprop="name">【踩坑】Mysql创建数据表时报错</span>
-        </a>
-      </div>
-
-      
-    </header>
-  </article>
-    <div class="collection-year">
-      <span class="collection-header">2022</span>
-    </div>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-      <div class="post-meta-container">
-        <time itemprop="dateCreated"
-              datetime="2022-06-18T10:44:32+08:00"
-              content="2022-06-18">
-          06-18
-        </time>
-      </div>
-
-      <div class="post-title">
-        <a class="post-title-link" href="/2022/06/18/Redis%E6%96%87%E4%BB%B6%E5%86%99%E5%85%A5%E6%BC%8F%E6%B4%9E/" itemprop="url">
-          <span itemprop="name">【笔记】Redis文件写入漏洞</span>
-        </a>
-      </div>
-
-      
-    </header>
-  </article>
-
-    </div>
-  </div>
-  
-  
-  
-  <nav class="pagination">
-    <a class="extend prev" rel="prev" title="上一页" aria-label="上一页" href="/tags/Database/page/3/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/tags/Database/">1</a><span class="space">&hellip;</span><a class="page-number" href="/tags/Database/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/tags/Database/page/5/">5</a><span class="space">&hellip;</span><a class="page-number" href="/tags/Database/page/9/">9</a><a class="extend next" rel="next" title="下一页" aria-label="下一页" href="/tags/Database/page/5/"><i class="fa fa-angle-right"></i></a>
-  </nav>
-
-</div>
-  </main>
-
-  <footer class="footer">
-    <div class="footer-inner">
-
-  <div class="copyright">
-    &copy; 2019 – 
-    <span itemprop="copyrightYear">2024</span>
-    <span class="with-love">
-      <i class="fa fa-heart"></i>
-    </span>
-    <span class="author" itemprop="copyrightHolder">绯鞠</span>
-  </div>
-<div class="busuanzi-count">
-    <span class="post-meta-item" id="busuanzi_container_site_uv">
-      <span class="post-meta-item-icon">
-        <i class="fa fa-user"></i>
-      </span>
-      <span class="site-uv" title="总访客量">
-        <span id="busuanzi_value_site_uv"></span>
-      </span>
-    </span>
-    <span class="post-meta-item" id="busuanzi_container_site_pv">
-      <span class="post-meta-item-icon">
-        <i class="fa fa-eye"></i>
-      </span>
-      <span class="site-pv" title="总访问量">
-        <span id="busuanzi_value_site_pv"></span>
-      </span>
-    </span>
-</div>
-  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/muse/" rel="noopener" target="_blank">NexT.Muse</a> 强力驱动
-  </div><!-- 当前在线人数统计 -->
-<div>当前在线人数 <span id="current_visitors_count">0</span></div>
-<script src="/dist/js/current_visitors_count.js"></script>
-
-<!-- 网站运行时间统计 -->
-<div id="sitetime"></div>
-<script type="text/javascript" src="/dist/js/sitetime.js"></script>
-
-<!-- 网站标记 -->
-<div>
-    <!-- SSL标记 -->
-    <a href="https://ipw.cn/ssl/?site=loli.fj.cn" title="本站支持SSL安全访问" target='_blank'
-       style="display: inline; border-bottom: 1px solid rgba(255, 255, 255, 0);"><img
-                style='display:inline-block;vertical-align:middle' alt="本站支持SSL安全访问"
-                src="https://static.ipw.cn/icon/ssl-s6.svg"></a>
-    <!-- IPv6标记 -->
-    <a href="https://ipw.cn/ipv6webcheck/?site=loli.fj.cn" title="本站支持IPv6访问" target='_blank'
-       style="display: inline; border-bottom: 1px solid rgba(255, 255, 255, 0);"><img
-                style='display:inline-block;vertical-align:middle' alt="本站支持IPv6访问"
-                src="https://static.ipw.cn/icon/ipv6-certified-s6.svg"></a>
-</div>
-
-<!-- 滑翔机 -->
-<a target="_blank" rel="noopener" href="http://www.catb.org/hacker-emblem/" style="border-bottom: 0 solid #999;">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/4/45/Glider.svg" style="width: 55px; height: 55px;">
-</a>
-
-<!-- 加载APlayer播放器 -->
-<link rel="stylesheet" href="/dist/aplayer/APlayer.min.css">
-<script type="text/javascript" src="/dist/aplayer/APlayer.min.js"></script>
-<script type="text/javascript" src="/dist/aplayer/index.js"></script>
-
-<!-- 加载看板娘 必须在渲染APlayer播放器之后渲染 -->
-<link rel="stylesheet" href="/dist/live2d/v2/waifu.css">
-<script type="text/javascript" src="/dist/live2d/v2/live2d.min.js"></script>
-<script type="text/javascript" src="/dist/live2d/v2/waifu.js"></script>
-
-<!-- 加载钢琴音 -->
-<script type="text/javascript" src="/dist/js/play_piano.js"></script>
-
-<!-- 渲染分类页面 PJAX排除 -->
-<script type="text/javascript" src="/categories/index.js" data-pjax=""></script>
-
-<!-- 渲染标签页面 PJAX排除 -->
-<script type="text/javascript" src="/tags/index.js" data-pjax=""></script>
-
-<!-- 渲染贡献页面 PJAX排除 -->
-<script type="text/javascript" src="/dist/echarts5/echarts.min.js"></script>
-<script type="text/javascript" src="/contribute/index.js" data-pjax=""></script>
-
-<!-- 渲染代码块中代码类型 PJAX排除 -->
-<script type="text/javascript" src="/dist/js/code_block_type.js" data-pjax=""></script>
-
-<!-- 渲染代码块顶部按钮 PJAX排除 -->
-<script type="text/javascript" src="/dist/js/code_block_button.js" data-pjax=""></script>
-
-<!-- 渲染打字机效果 PJAX排除 -->
-<script type="text/javascript" src="/dist/js/ai_excerpt_typing.js" data-pjax=""></script>
-
-<!-- 渲染加载门 -->
-<div id="loading-door-left"></div>
-<div id="loading-door-right"></div>
-<a id="loading-door-a" href="javascript:loadingDoorOpen();">芝麻开门</a>
-<link rel="stylesheet" href="/dist/css/loading_door.css">
-
-<!-- 其他JS代码 -->
-<script>
-
-    // 移除PJAX
-    function removePJAX() {
-        // 获取所有菜单的超链接
-        let menus = document.querySelectorAll(".site-nav a");
-        // 遍历这些超链接对象
-        for (let menu of menus) {
-            // 移除首页的PJAX
-            // if (menu.getAttribute("href")==="/") {
-            //     menu.setAttribute("data-pjax-state", "unload");
-            // }
+          if (now > item.expiry) {
+            localStorage.removeItem(key)
+            return undefined
+          }
+          return item.value
         }
-    }
-    removePJAX();
+      }
+    
+      win.getScript = (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        script.onerror = reject
+        script.onload = script.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          script.onload = script.onreadystatechange = null
+          resolve()
+        }
 
-    // 加载门关闭
-    function loadingDoorClose() {
-        // 加载门关闭
-        document.getElementById("loading-door-left").style.width = `${window.innerWidth / 2}px`;
-        document.getElementById("loading-door-right").style.width = `${window.innerWidth / 2}px`;
-        // 锁定滚动条
-        document.body.style.overflow = "hidden";
-        // 显示咒语
-        setTimeout(function () {
-            if (document.getElementById("loading-door-left").style.width === `${window.innerWidth / 2}px`) {
-                document.getElementById("loading-door-a").style.display = "inline";
-            }
-        }, 3000);
-    }
+        Object.keys(attr).forEach(key => {
+          script.setAttribute(key, attr[key])
+        })
 
-    // 加载门打开
-    function loadingDoorOpen() {
-        // 加载门打开
-        document.getElementById("loading-door-left").style.width = "0";
-        document.getElementById("loading-door-right").style.width = "0";
-        // 解锁滚动条
-        document.body.style.overflow = "";
-        // 隐藏咒语
-        document.getElementById("loading-door-a").style.display = "none";
-    }
+        document.head.appendChild(script)
+      })
+    
+      win.getCSS = (url, id = false) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onerror = reject
+        link.onload = link.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          link.onload = link.onreadystatechange = null
+          resolve()
+        }
+        document.head.appendChild(link)
+      })
+    
+      win.activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+        if (t === 'dark') activateDarkMode()
+        else if (t === 'light') activateLightMode()
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+      const detectApple = () => {
+        if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+          document.documentElement.classList.add('apple')
+        }
+      }
+      detectApple()
+    })(window)</script><meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="绯鞠的博客" type="application/atom+xml">
+</head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/dist/images/avatar.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">2918</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">115</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">17</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 更多</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/links/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></li><li><a class="site-page child" href="/reward/"><i class="fa-fw fa fa-hand-holding-heart"></i><span> 赞助</span></a></li><li><a class="site-page child" href="/atom.xml"><i class="fa-fw fa fa-rss"></i><span> 订阅</span></a></li><li><a class="site-page child" target="_blank" rel="noopener" href="//keep.loli.fj.cn"><i class="fa-fw fa fa-arrow-right"></i><span> 主题</span></a></li></ul></div></div></div></div><div class="page" id="body-wrap"><header class="not-top-img" id="page-header"><nav id="nav"><span id="blog-info"><a href="/" title="绯鞠的博客"><img class="site-icon" src="/dist/images/avatar.gif"/><span class="site-name">绯鞠的博客</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 更多</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/links/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></li><li><a class="site-page child" href="/reward/"><i class="fa-fw fa fa-hand-holding-heart"></i><span> 赞助</span></a></li><li><a class="site-page child" href="/atom.xml"><i class="fa-fw fa fa-rss"></i><span> 订阅</span></a></li><li><a class="site-page child" target="_blank" rel="noopener" href="//keep.loli.fj.cn"><i class="fa-fw fa fa-arrow-right"></i><span> 主题</span></a></li></ul></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav></header><main class="layout" id="content-inner"><div id="tag"><div class="article-sort-title">标签 - Database</div><div class="article-sort"><div class="article-sort-item year">2023</div><div class="article-sort-item no-article-cover"><div class="article-sort-item-info"><div class="article-sort-item-time"><i class="far fa-calendar-alt"></i><time class="post-meta-date-created" datetime="2023-06-28T06:44:17.000Z" title="发表于 2023-06-28 14:44:17">2023-06-28</time></div><a class="article-sort-item-title" href="/2023/06/28/MongoDB%E5%AE%89%E8%A3%85%E7%AC%94%E8%AE%B0/" title="【笔记】MongoDB安装笔记">【笔记】MongoDB安装笔记</a></div></div><div class="article-sort-item no-article-cover"><div class="article-sort-item-info"><div class="article-sort-item-time"><i class="far fa-calendar-alt"></i><time class="post-meta-date-created" datetime="2023-05-20T09:26:08.000Z" title="发表于 2023-05-20 17:26:08">2023-05-20</time></div><a class="article-sort-item-title" href="/2023/05/20/Redis%E9%85%8D%E7%BD%AE/" title="【笔记】Redis配置">【笔记】Redis配置</a></div></div><div class="article-sort-item no-article-cover"><div class="article-sort-item-info"><div class="article-sort-item-time"><i class="far fa-calendar-alt"></i><time class="post-meta-date-created" datetime="2023-05-08T05:42:10.000Z" title="发表于 2023-05-08 13:42:10">2023-05-08</time></div><a class="article-sort-item-title" href="/2023/05/08/Mysql%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2/" title="【笔记】Mysql数据类型转换">【笔记】Mysql数据类型转换</a></div></div><div class="article-sort-item no-article-cover"><div class="article-sort-item-info"><div class="article-sort-item-time"><i class="far fa-calendar-alt"></i><time class="post-meta-date-created" datetime="2023-04-27T10:14:50.000Z" title="发表于 2023-04-27 18:14:50">2023-04-27</time></div><a class="article-sort-item-title" href="/2023/04/27/Mysql%E7%A6%81%E7%94%A8%E8%AF%BB%E5%86%99%E7%BB%95%E8%BF%87/" title="【笔记】Mysql禁用读写绕过">【笔记】Mysql禁用读写绕过</a></div></div><div class="article-sort-item no-article-cover"><div class="article-sort-item-info"><div class="article-sort-item-time"><i class="far fa-calendar-alt"></i><time class="post-meta-date-created" datetime="2023-04-25T02:59:11.000Z" title="发表于 2023-04-25 10:59:11">2023-04-25</time></div><a class="article-sort-item-title" href="/2023/04/25/Mysql%E6%95%B0%E5%80%BC%E5%9E%8B%E6%95%B0%E6%8D%AE%E5%8F%96%E5%80%BC%E8%8C%83%E5%9B%B4/" title="【笔记】Mysql数值型数据取值范围">【笔记】Mysql数值型数据取值范围</a></div></div><div class="article-sort-item no-article-cover"><div class="article-sort-item-info"><div class="article-sort-item-time"><i class="far fa-calendar-alt"></i><time class="post-meta-date-created" datetime="2023-04-19T10:26:24.000Z" title="发表于 2023-04-19 18:26:24">2023-04-19</time></div><a class="article-sort-item-title" href="/2023/04/19/Mysql%E6%B8%85%E7%A9%BA%E6%95%B0%E6%8D%AE%E8%A1%A8%E7%9A%84%E6%89%80%E6%9C%89%E5%86%85%E5%AE%B9/" title="【笔记】Mysql清空数据表的所有内容">【笔记】Mysql清空数据表的所有内容</a></div></div><div class="article-sort-item no-article-cover"><div class="article-sort-item-info"><div class="article-sort-item-time"><i class="far fa-calendar-alt"></i><time class="post-meta-date-created" datetime="2023-04-14T04:28:42.000Z" title="发表于 2023-04-14 12:28:42">2023-04-14</time></div><a class="article-sort-item-title" href="/2023/04/14/Mysql%E6%9F%A5%E8%AF%A2%E6%8A%A5%E9%94%99/" title="【踩坑】Mysql查询报错">【踩坑】Mysql查询报错</a></div></div><div class="article-sort-item no-article-cover"><div class="article-sort-item-info"><div class="article-sort-item-time"><i class="far fa-calendar-alt"></i><time class="post-meta-date-created" datetime="2023-03-27T08:07:24.000Z" title="发表于 2023-03-27 16:07:24">2023-03-27</time></div><a class="article-sort-item-title" href="/2023/03/27/Mysql%E5%88%9B%E5%BB%BA%E6%95%B0%E6%8D%AE%E5%BA%93%E5%92%8C%E6%95%B0%E6%8D%AE%E8%A1%A8%E6%97%B6%E6%8C%87%E5%AE%9A%E5%AD%97%E7%AC%A6%E9%9B%86/" title="【笔记】Mysql创建数据库和数据表时指定字符集">【笔记】Mysql创建数据库和数据表时指定字符集</a></div></div><div class="article-sort-item no-article-cover"><div class="article-sort-item-info"><div class="article-sort-item-time"><i class="far fa-calendar-alt"></i><time class="post-meta-date-created" datetime="2023-03-27T06:06:00.000Z" title="发表于 2023-03-27 14:06:00">2023-03-27</time></div><a class="article-sort-item-title" href="/2023/03/27/Mysql%E5%88%9B%E5%BB%BA%E6%95%B0%E6%8D%AE%E8%A1%A8%E6%97%B6%E6%8A%A5%E9%94%99/" title="【踩坑】Mysql创建数据表时报错">【踩坑】Mysql创建数据表时报错</a></div></div><div class="article-sort-item year">2022</div><div class="article-sort-item no-article-cover"><div class="article-sort-item-info"><div class="article-sort-item-time"><i class="far fa-calendar-alt"></i><time class="post-meta-date-created" datetime="2022-06-18T02:44:32.000Z" title="发表于 2022-06-18 10:44:32">2022-06-18</time></div><a class="article-sort-item-title" href="/2022/06/18/Redis%E6%96%87%E4%BB%B6%E5%86%99%E5%85%A5%E6%BC%8F%E6%B4%9E/" title="【笔记】Redis文件写入漏洞">【笔记】Redis文件写入漏洞</a></div></div></div><nav id="pagination"><div class="pagination"><a class="extend prev" rel="prev" href="/tags/Database/page/3/"><i class="fas fa-chevron-left fa-fw"></i></a><a class="page-number" href="/tags/Database/">1</a><span class="space">&hellip;</span><a class="page-number" href="/tags/Database/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/tags/Database/page/5/">5</a><span class="space">&hellip;</span><a class="page-number" href="/tags/Database/page/9/">9</a><a class="extend next" rel="next" href="/tags/Database/page/5/"><i class="fas fa-chevron-right fa-fw"></i></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/dist/images/avatar.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">绯鞠</div><div class="author-info__description">捕捉一只爱折腾的绯鞠</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">2918</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">115</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">17</div></a></div><div class="card-info-social-icons is-center"><a class="social-icon" href="mailto:00-isomer-cabbies@icloud.com" target="_blank" title="Email"><i class="fas fa-envelope" style="color: #000000;"></i></a><a class="social-icon" href="https://t.me/LittleSweetCookie" target="_blank" title="Telegram"><i class="fab fa-telegram" style="color: #000000;"></i></a></div></div><div class="sticky_layout"><div class="card-widget card-categories"><div class="item-headline">
+            <i class="fas fa-folder-open"></i>
+            <span>分类</span>
+            <a class="card-more-btn" href="/categories/" title="查看更多">
+    <i class="fas fa-angle-right"></i></a>
+            </div>
+            <ul class="card-category-list" id="aside-cat-list">
+            <li class="card-category-list-item "><a class="card-category-list-link" href="/categories/Android%E5%AD%A6%E4%B9%A0%E6%8C%87%E5%8C%97/"><span class="card-category-list-name">Android学习指北</span><span class="card-category-list-count">25</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/C-%E5%AD%A6%E4%B9%A0%E6%8C%87%E5%8C%97/"><span class="card-category-list-name">C++学习指北</span><span class="card-category-list-count">21</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/C%E8%AF%AD%E8%A8%80%E5%AD%A6%E4%B9%A0%E6%8C%87%E5%8C%97/"><span class="card-category-list-name">C语言学习指北</span><span class="card-category-list-count">25</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/Flutter%E5%AD%A6%E4%B9%A0%E6%8C%87%E5%8C%97/"><span class="card-category-list-name">Flutter学习指北</span><span class="card-category-list-count">36</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/Go%E8%AF%AD%E8%A8%80%E5%AD%A6%E4%B9%A0%E6%8C%87%E5%8C%97/"><span class="card-category-list-name">Go语言学习指北</span><span class="card-category-list-count">40</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/Java%E5%90%8E%E7%AB%AF%E5%AD%A6%E4%B9%A0%E6%8C%87%E5%8C%97/"><span class="card-category-list-name">Java后端学习指北</span><span class="card-category-list-count">147</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/MacOS%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8C%97/"><span class="card-category-list-name">MacOS使用指北</span><span class="card-category-list-count">4</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/Nodejs%E5%AD%A6%E4%B9%A0%E6%8C%87%E5%8C%97/"><span class="card-category-list-name">Nodejs学习指北</span><span class="card-category-list-count">6</span></a></li>
+            </ul></div><div class="card-widget card-tags"><div class="item-headline"><i class="fas fa-tags"></i><span>标签</span></div><div class="card-tag-cloud"><a href="/tags/MyBatis/" style="font-size: 1.28em; color: #99a0aa">MyBatis</a> <a href="/tags/JSP/" style="font-size: 1.17em; color: #999ca0">JSP</a> <a href="/tags/Linux/" style="font-size: 1.5em; color: #99a9bf">Linux</a> <a href="/tags/Rust/" style="font-size: 1.32em; color: #99a2ae">Rust</a> <a href="/tags/Zookeeper/" style="font-size: 1.15em; color: #999b9e">Zookeeper</a> <a href="/tags/Zerotier/" style="font-size: 1.12em; color: #999a9b">Zerotier</a> <a href="/tags/SVN/" style="font-size: 1.1em; color: #999">SVN</a> <a href="/tags/Git/" style="font-size: 1.3em; color: #99a1ac">Git</a> <a href="/tags/LeetCode/" style="font-size: 1.21em; color: #999da3">LeetCode</a> <a href="/tags/Decompilation/" style="font-size: 1.19em; color: #999da2">Decompilation</a> <a href="/tags/SonarQube/" style="font-size: 1.17em; color: #999ca0">SonarQube</a> <a href="/tags/AOP/" style="font-size: 1.14em; color: #999a9c">AOP</a> <a href="/tags/Powershell/" style="font-size: 1.12em; color: #999a9b">Powershell</a> <a href="/tags/Vue/" style="font-size: 1.15em; color: #999b9e">Vue</a> <a href="/tags/SpringFamily/" style="font-size: 1.1em; color: #999">SpringFamily</a> <a href="/tags/Ruby/" style="font-size: 1.12em; color: #999a9b">Ruby</a> <a href="/tags/TypeScript/" style="font-size: 1.15em; color: #999b9e">TypeScript</a> <a href="/tags/Apache/" style="font-size: 1.23em; color: #999ea5">Apache</a> <a href="/tags/Automator/" style="font-size: 1.19em; color: #999da2">Automator</a> <a href="/tags/Go/" style="font-size: 1.46em; color: #99a8bc">Go</a> <a href="/tags/JS/" style="font-size: 1.1em; color: #999">JS</a> <a href="/tags/Hadoop/" style="font-size: 1.26em; color: #99a0a9">Hadoop</a> <a href="/tags/SQLite/" style="font-size: 1.17em; color: #999ca0">SQLite</a> <a href="/tags/Vim/" style="font-size: 1.25em; color: #999fa7">Vim</a> <a href="/tags/Visual-Basic/" style="font-size: 1.25em; color: #999fa7">Visual Basic</a> <a href="/tags/Kali/" style="font-size: 1.34em; color: #99a2af">Kali</a> <a href="/tags/Jetbrains/" style="font-size: 1.37em; color: #99a4b3">Jetbrains</a> <a href="/tags/Tomcat/" style="font-size: 1.23em; color: #999ea5">Tomcat</a> <a href="/tags/AJAX/" style="font-size: 1.14em; color: #999a9c">AJAX</a> <a href="/tags/Python/" style="font-size: 1.48em; color: #99a8bd">Python</a> <a href="/tags/Javascript/" style="font-size: 1.45em; color: #99a7ba">Javascript</a> <a href="/tags/SpringBoot/" style="font-size: 1.35em; color: #99a3b1">SpringBoot</a> <a href="/tags/Express/" style="font-size: 1.1em; color: #999">Express</a> <a href="/tags/PowerShell/" style="font-size: 1.12em; color: #999a9b">PowerShell</a> <a href="/tags/Dart/" style="font-size: 1.39em; color: #99a5b5">Dart</a> <a href="/tags/Database/" style="font-size: 1.43em; color: #99a6b8">Database</a> <a href="/tags/Kubernetes/" style="font-size: 1.19em; color: #999da2">Kubernetes</a> <a href="/tags/Homebrew/" style="font-size: 1.12em; color: #999a9b">Homebrew</a> <a href="/tags/Android/" style="font-size: 1.41em; color: #99a5b6">Android</a> <a href="/tags/Arduino/" style="font-size: 1.1em; color: #999">Arduino</a></div></div><div class="card-widget card-webinfo"><div class="item-headline"><i class="fas fa-chart-line"></i><span>网站资讯</span></div><div class="webinfo"><div class="webinfo-item"><div class="item-name">文章数目 :</div><div class="item-count">2918</div></div><div class="webinfo-item"><div class="item-name">已运行时间 :</div><div class="item-count" id="runtimeshow" data-publishDate="2019-11-22T07:53:18.000Z"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">本站访客数 :</div><div class="item-count" id="busuanzi_value_site_uv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">本站总访问量 :</div><div class="item-count" id="busuanzi_value_site_pv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">最后更新时间 :</div><div class="item-count" id="last-push-date" data-lastPushDate="2024-08-08T01:57:40.535Z"><i class="fa-solid fa-spinner fa-spin"></i></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="translateLink" type="button" title="简繁转换">繁</button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js?v=4.13.0"></script><script src="/js/main.js?v=4.13.0"></script><script src="/js/tw_cn.js?v=4.13.0"></script><script src="https://cdn.jsdelivr.net/npm/medium-zoom@1.1.0/dist/medium-zoom.min.js"></script><div class="js-pjax"><script>(() => {
+  const $mermaid = document.querySelectorAll('#article-container .mermaid-wrap')
+  if ($mermaid.length === 0) return
+  const runMermaid = () => {
+    window.loadMermaid = true
+    const theme = document.documentElement.getAttribute('data-theme') === 'dark' ? 'dark' : 'default'
 
-    // PJAX渲染完成后执行
-    document.addEventListener("pjax:success", function () {
-        // 将滚动条置顶
-        document.documentElement.scrollTop = 0;
-        // 移除PJAX
-        removePJAX();
-    });
+    Array.from($mermaid).forEach((item, index) => {
+      const mermaidSrc = item.firstElementChild
+      const mermaidThemeConfig = '%%{init:{ \'theme\':\'' + theme + '\'}}%%\n'
+      const mermaidID = 'mermaid-' + index
+      const mermaidDefinition = mermaidThemeConfig + mermaidSrc.textContent
 
-    // PJAX开始请求后执行
-    document.addEventListener("pjax:send", function () {
-        // 加载门关闭
-        loadingDoorClose();
-    });
-    // PJAX结束请求后执行
-    document.addEventListener("pjax:complete", function () {
-        // 加载门打开
-        loadingDoorOpen();
-    });
+      const renderFn = mermaid.render(mermaidID, mermaidDefinition)
 
-</script>
+      const renderV10 = () => {
+        renderFn.then(({svg}) => {
+          mermaidSrc.insertAdjacentHTML('afterend', svg)
+        })
+      }
 
+      const renderV9 = svg => {
+        mermaidSrc.insertAdjacentHTML('afterend', svg)
+      }
 
-    </div>
-  </footer>
+      typeof renderFn === 'string' ? renderV9(renderFn) : renderV10()
+    })
+  }
 
+  const loadMermaid = () => {
+    window.loadMermaid ? runMermaid() : getScript('https://cdn.jsdelivr.net/npm/mermaid@10.8.0/dist/mermaid.min.js').then(runMermaid)
+  }
+
+  btf.addGlobalFn('themeChange', runMermaid, 'mermaid')
+
+  window.pjax ? loadMermaid() : document.addEventListener('DOMContentLoaded', loadMermaid)
+})()</script></div><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/dist/activate-power-mode.min.js"></script><script>POWERMODE.colorful = true;
+POWERMODE.shake = false;
+POWERMODE.mobile = false;
+document.body.addEventListener('input', POWERMODE);
+</script><script src="https://cdn.jsdelivr.net/npm/pjax@0.2.8/pjax.min.js"></script><script>let pjaxSelectors = ["head > title","#config-diff","#body-wrap","#rightside-config-hide","#rightside-config-show",".js-pjax"]
+
+var pjax = new Pjax({
+  elements: 'a:not([target="_blank"])',
+  selectors: pjaxSelectors,
+  cacheBust: false,
+  analytics: false,
+  scrollRestoration: false
+})
+
+document.addEventListener('pjax:send', function () {
+
+  // removeEventListener
+  btf.removeGlobalFnEvent('pjax')
+  btf.removeGlobalFnEvent('themeChange')
+
+  document.getElementById('rightside').classList.remove('rightside-show')
   
-  <div class="toggle sidebar-toggle" role="button">
-    <span class="toggle-line"></span>
-    <span class="toggle-line"></span>
-    <span class="toggle-line"></span>
-  </div>
-  <div class="sidebar-dimmer"></div>
-  <div class="back-to-top" role="button" aria-label="返回顶部">
-    <i class="fa fa-arrow-up fa-lg"></i>
-    <span>0%</span>
-  </div>
-  <div class="reading-progress-bar"></div>
-  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
+  if (window.aplayers) {
+    for (let i = 0; i < window.aplayers.length; i++) {
+      if (!window.aplayers[i].options.fixed) {
+        window.aplayers[i].destroy()
+      }
+    }
+  }
 
-<noscript>
-  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
-</noscript>
+  typeof typed === 'object' && typed.destroy()
 
+  //reset readmode
+  const $bodyClassList = document.body.classList
+  $bodyClassList.contains('read-mode') && $bodyClassList.remove('read-mode')
 
-  
-  <script src="/lib/animejs/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
-  <script src="/lib/@next-theme/pjax/pjax.min.js" integrity="sha256-vxLn1tSKWD4dqbMRyv940UYw4sXgMtYcK6reefzZrao=" crossorigin="anonymous"></script>
-  <script src="/lib/medium-zoom/dist/medium-zoom.min.js" integrity="sha256-7PhEpEWEW0XXQ0k6kQrPKwuoIomz8R8IYyuU1Qew4P8=" crossorigin="anonymous"></script>
-  <script src="/lib/pangu/dist/browser/pangu.min.js" integrity="sha256-j+yj56cdEY2CwkVtGyz18fNybFGpMGJ8JxG3GSyO2+I=" crossorigin="anonymous"></script>
-<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/schemes/muse.js"></script><script src="/js/next-boot.js"></script><script src="/js/bookmark.js"></script><script src="/js/pjax.js"></script>
+  typeof disqusjs === 'object' && disqusjs.destroy()
+})
 
-  <script src="/lib/hexo-generator-searchdb/dist/search.js" integrity="sha256-1kfA5uHPf65M5cphT2dvymhkuyHPQp5A53EGZOnOLmc=" crossorigin="anonymous"></script>
-<script src="/js/third-party/search/local-search.js"></script>
+document.addEventListener('pjax:complete', function () {
+  window.refreshFn()
 
+  document.querySelectorAll('script[data-pjax]').forEach(item => {
+    const newScript = document.createElement('script')
+    const content = item.text || item.textContent || item.innerHTML || ""
+    Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
+    newScript.appendChild(document.createTextNode(content))
+    item.parentNode.replaceChild(newScript, item)
+  })
 
-  <script class="next-config" data-name="mermaid" type="application/json">{"enable":true,"theme":{"light":"default","dark":"dark"},"js":{"url":"/lib/mermaid/dist/mermaid.min.js","integrity":"sha256-9y71g5Lz/KLsHjB8uXwnkuWDtAMDSzD/HdIbqhJfTAI="}}</script>
-  <script src="/js/third-party/tags/mermaid.js"></script>
+  GLOBAL_CONFIG.islazyload && window.lazyLoadInstance.update()
 
+  typeof panguInit === 'function' && panguInit()
 
+  // google analytics
+  typeof gtag === 'function' && gtag('config', '', {'page_path': window.location.pathname});
 
-  <script src="/js/third-party/pace.js"></script>
+  // baidu analytics
+  typeof _hmt === 'object' && _hmt.push(['_trackPageview',window.location.pathname]);
 
+  typeof loadMeting === 'function' && document.getElementsByClassName('aplayer').length && loadMeting()
 
-  
-  <script data-pjax async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+  // prismjs
+  typeof Prism === 'object' && Prism.highlightAll()
+})
 
-
-
-
-<script class="next-config" data-name="twikoo" type="application/json">{"enable":true,"visitor":false,"envId":"https://twikoo.loli.fj.cn","jsUrl":"/dist/js/twikoo.all.min.js","el":"#twikoo-comments"}</script>
-<script>
-document.addEventListener('page:loaded', () => {
-  NexT.utils.loadComments(CONFIG.twikoo.el)
-    .then(() => NexT.utils.getScript(
-      CONFIG.twikoo.jsUrl || 'https://cdn.jsdelivr.net/npm/twikoo/dist/twikoo.all.min.js',
-      { condition: window.twikoo }
-    ))
-    .then(() => {
-      twikoo.init(CONFIG.twikoo);
-    });
-});
-</script>
-<style>
-.post-block, .comments {
-  overflow: visible;
-}
-.tk-owo-emotion {
-  display: inline-block;
-}
-</style>
-
-</body>
-</html>
+document.addEventListener('pjax:error', e => {
+  if (e.request.status === 404) {
+    pjax.loadUrl('/404.html')
+  }
+})</script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据库加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div id="local-search-results"></div><div id="local-search-stats-wrap"></div></div></div><div id="search-mask"></div><script src="/js/search/local-search.js?v=4.13.0"></script></div></div></body></html>
