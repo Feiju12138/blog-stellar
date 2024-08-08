@@ -1,382 +1,357 @@
+
+
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <meta name="keywords" content="Hexo Theme Keep">
-    <meta name="description" content="捕捉一只爱折腾的绯鞠">
-    <meta name="author" content="绯鞠">
-    
-    <title>
-        
-            【笔记】BootstrapTable学习笔记 |
-        
-        绯鞠的博客
-    </title>
-    
-<link rel="stylesheet" href="/css/style.css">
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/dist/images/favicon_package/apple-touch-icon.png">
+  <link rel="icon" href="/dist/images/favicon_package/favicon.ico">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="绯鞠">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="前言使用BootstrapTable实现自动分页的表格">
+<meta property="og:type" content="article">
+<meta property="og:title" content="【笔记】BootstrapTable学习笔记">
+<meta property="og:url" content="https://loli.fj.cn/2022/07/22/BootstrapTable%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/index.html">
+<meta property="og:site_name" content="绯鞠的博客">
+<meta property="og:description" content="前言使用BootstrapTable实现自动分页的表格">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2022-07-22T13:56:25.000Z">
+<meta property="article:modified_time" content="2024-08-06T02:31:29.750Z">
+<meta property="article:author" content="绯鞠">
+<meta property="article:tag" content="HTML">
+<meta property="article:tag" content="Javascript">
+<meta property="article:tag" content="Bootstrap">
+<meta name="twitter:card" content="summary_large_image">
+  
+  
+    <meta name="referrer" content="no-referrer-when-downgrade">
+  
+  
+  <title>【笔记】BootstrapTable学习笔记 - 绯鞠的博客</title>
 
-    
-        <link rel="shortcut icon" href="/dist/images/favicon_package/favicon.ico">
-    
-    
-<link rel="stylesheet" href="/font/css/fontawesome.min.css">
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
-    
-<link rel="stylesheet" href="/font/css/regular.min.css">
 
-    
-<link rel="stylesheet" href="/font/css/solid.min.css">
 
-    
-<link rel="stylesheet" href="/font/css/brands.min.css">
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
 
-    
-    <script class="keep-theme-configurations">
-    const KEEP = window.KEEP || {}
-    KEEP.hexo_config = {"hostname":"loli.fj.cn","root":"/","language":"zh-CN","path":"search.xml"}
-    KEEP.theme_config = {"base_info":{"primary_color":"#F6CDE1","title":"绯鞠的博客","author":"绯鞠","avatar":"/dist/images/avatar.jpg","logo":"/dist/images/avatar.gif","favicon":"/dist/images/favicon_package/favicon.ico"},"menu":{"home":"/","archives":"/archives/","about":"/about/","tags":"/tags/","categories":"/categories/","links":"/links/","赞助":"/reward/","订阅":"/atom.xml","主题":"//fluid.loli.fj.cn || fa fa-arrow-right"},"first_screen":{"enable":false,"background_img":"/images/bg.svg","background_img_dark":"/images/bg.svg","description":"Keep writing and Keep loving.","hitokoto":true},"social_contact":{"enable":true,"links":{"github":null,"weixin":null,"qq":null,"weibo":null,"zhihu":null,"twitter":null,"x":null,"facebook":null,"email":"mailto:00-isomer-cabbies@icloud.com","telegram":"https://t.me/LittleSweetCookie"}},"scroll":{"progress_bar":true,"percent":true,"hide_header":false},"home":{"announcement":null,"category":true,"tag":true,"post_datetime":"created","post_datetime_format":"YYYY-MM-DD"},"post":{"author_badge":{"enable":true,"level_badge":true,"custom_badge":["One","Two","Three"]},"word_count":{"wordcount":false,"min2read":false},"datetime_format":"YYYY-MM-DD","copyright_info":false,"share":false,"reward":{"enable":false,"img_link":null,"text":null},"img_align":"center"},"code_block":{"tools":{"enable":true,"style":"mac"},"highlight_theme":"default"},"toc":{"enable":true,"number":true,"expand_all":true,"init_open":true,"layout":"right"},"website_count":{"busuanzi_count":{"enable":true,"site_uv":true,"site_pv":true,"page_pv":false}},"local_search":{"enable":true,"preload":true},"comment":{"enable":true,"use":"twikoo","valine":{"appid":null,"appkey":null,"server_urls":null,"placeholder":null},"gitalk":{"github_id":null,"github_admins":null,"repository":null,"client_id":null,"client_secret":null,"proxy":null},"twikoo":{"env_id":"https://twikoo.loli.fj.cn","region":"ap-guangzhou","version":"1.6.36"},"waline":{"server_url":null,"reaction":false,"version":"3.2.1"},"giscus":{"repo":null,"repo_id":null,"category":"Announcements","category_id":null,"reactions_enabled":false},"artalk":{"server":null},"disqus":{"shortname":null}},"rss":{"enable":true},"lazyload":{"enable":false},"cdn":{"enable":false,"provider":"cdnjs"},"pjax":{"enable":true},"footer":{"since":2019,"word_count":false,"site_deploy":{"enable":false,"provider":"github","url":null},"record":{"enable":false,"list":[{"code":"蒙ICP备2022003684号","link":"https://beian.miit.gov.cn"},{"code":"蒙公网安备15220102010165号","link":"https://beian.mps.gov.cn"}]}},"inject":{"enable":false,"css":[null],"js":[null]},"root":"","source_data":{},"version":"4.1.4"}
-    KEEP.language_ago = {"second":"%s 秒前","minute":"%s 分钟前","hour":"%s 小时前","day":"%s 天前","week":"%s 周前","month":"%s 个月前","year":"%s 年前"}
-    KEEP.language_code_block = {"copy":"复制代码","copied":"已复制","fold":"折叠代码块","folded":"已折叠"}
-    KEEP.language_copy_copyright = {"copy":"复制版权信息","copied":"已复制","title":"原文标题","author":"原文作者","link":"原文链接"}
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"loli.fj.cn","root":"/","version":"1.9.7","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"PLAINTEXT"},"copy_btn":true,"image_caption":{"enable":false},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":6},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
   </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+
+  
 <meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="绯鞠的博客" type="application/atom+xml">
 </head>
 
 
 <body>
-<div class="progress-bar-container">
-    
-        <span class="scroll-progress-bar"></span>
-    
+  
 
-    
-        <span class="pjax-progress-bar"></span>
-        <i class="pjax-progress-icon fas fa-circle-notch fa-spin"></i>
-    
-</div>
-
-
-
-<main class="page-container border-box">
-    <!-- home first screen  -->
+  <header>
     
 
-    <!-- page content -->
-    <div class="page-main-content border-box">
-        <div class="page-main-content-top">
-            
-<header class="header-wrapper">
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>绯鞠的博客</strong>
+    </a>
 
-    <div class="border-box header-content">
-        <div class="left border-box">
-            
-                <a class="logo-image border-box" href="/">
-                    <img src="/dist/images/avatar.gif">
-                </a>
-            
-            <a class="site-name border-box" href="/">
-               绯鞠的博客
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/" target="_self">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/" target="_self">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/links/" target="_self">
+                <i class="iconfont icon-user-friends"></i>
+                <span>友链</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/command/" target="_self">
+                <i class="iconfont icon-book"></i>
+                <span>指令</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/atom.xml" target="_self">
+                <i class="iconfont icon-rss"></i>
+                <span>订阅</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="//redefine.loli.fj.cn" target="_self">
+                <i class="iconfont icon-th-large"></i>
+                <span>主题</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
             </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('https://game.gtimg.cn/images/yxzj/img201606/skin/hero-info/141/141-bigskin-1.jpg') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="【笔记】BootstrapTable学习笔记"></span>
+          
         </div>
 
-        <div class="right border-box">
-            <div class="pc">
-                <ul class="menu-list">
-                    
-                        
-                        <li class="menu-item">
-                            <a class=""
-                               href="/"
-                            >
-                                
-                                首页
-                            </a>
-                        </li>
-                    
-                        
-                        <li class="menu-item">
-                            <a class=""
-                               href="/archives/"
-                            >
-                                
-                                归档
-                            </a>
-                        </li>
-                    
-                        
-                        <li class="menu-item">
-                            <a class=""
-                               href="/about/"
-                            >
-                                
-                                关于
-                            </a>
-                        </li>
-                    
-                        
-                        <li class="menu-item">
-                            <a class=""
-                               href="/tags/"
-                            >
-                                
-                                标签
-                            </a>
-                        </li>
-                    
-                        
-                        <li class="menu-item">
-                            <a class=""
-                               href="/categories/"
-                            >
-                                
-                                分类
-                            </a>
-                        </li>
-                    
-                        
-                        <li class="menu-item">
-                            <a class=""
-                               href="/links/"
-                            >
-                                
-                                友链
-                            </a>
-                        </li>
-                    
-                        
-                        <li class="menu-item">
-                            <a class=""
-                               href="/reward/"
-                            >
-                                
-                                赞助
-                            </a>
-                        </li>
-                    
-                        
-                        <li class="menu-item">
-                            <a class=""
-                               href="/atom.xml"
-                            >
-                                
-                                订阅
-                            </a>
-                        </li>
-                    
-                        
-                        <li class="menu-item">
-                            <a class=""
-                               target="_blank" rel="noopener" href="//fluid.loli.fj.cn"
-                            >
-                                
-                                    <i class="menu-icon fa fa-arrow-right"></i>
-                                
-                                主题
-                            </a>
-                        </li>
-                    
-                    
-                        <li class="menu-item search search-popup-trigger">
-                            <i class="fas search fa-search"></i>
-                        </li>
-                    
-                </ul>
-            </div>
-            <div class="mobile">
-                
-                    <div class="icon-item search search-popup-trigger"><i class="fas fa-search"></i></div>
-                
-                <div class="icon-item menu-bar">
-                    <div class="menu-bar-middle"></div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="header-drawer">
-        <ul class="drawer-menu-list">
-            
-                
-                <li class="drawer-menu-item flex-center">
-                    <a class=""
-                       href="/"
-                    >首页</a>
-                </li>
-            
-                
-                <li class="drawer-menu-item flex-center">
-                    <a class=""
-                       href="/archives/"
-                    >归档</a>
-                </li>
-            
-                
-                <li class="drawer-menu-item flex-center">
-                    <a class=""
-                       href="/about/"
-                    >关于</a>
-                </li>
-            
-                
-                <li class="drawer-menu-item flex-center">
-                    <a class=""
-                       href="/tags/"
-                    >标签</a>
-                </li>
-            
-                
-                <li class="drawer-menu-item flex-center">
-                    <a class=""
-                       href="/categories/"
-                    >分类</a>
-                </li>
-            
-                
-                <li class="drawer-menu-item flex-center">
-                    <a class=""
-                       href="/links/"
-                    >友链</a>
-                </li>
-            
-                
-                <li class="drawer-menu-item flex-center">
-                    <a class=""
-                       href="/reward/"
-                    >赞助</a>
-                </li>
-            
-                
-                <li class="drawer-menu-item flex-center">
-                    <a class=""
-                       href="/atom.xml"
-                    >订阅</a>
-                </li>
-            
-                
-                <li class="drawer-menu-item flex-center">
-                    <a class=""
-                       target="_blank" rel="noopener" href="//fluid.loli.fj.cn"
-                    >主题</a>
-                </li>
-            
-        </ul>
-    </div>
-
-    <div class="window-mask"></div>
-
-</header>
-
-
-        </div>
-
-        <div class="page-main-content-middle border-box">
-
-            <div class="main-content border-box">
-                
-
-                    
-<div class="fade-in-down-animation">
-    <div class="post-page-container border-box">
-        <div class="post-content-container border-box">
-            
-
-            <div class="post-content-bottom border-box">
-                
-                    <div class="post-title">
-                        【笔记】BootstrapTable学习笔记
-                    </div>
-                
-
-                
-                    <div class="post-header border-box">
-                        
-                            <div class="avatar-box border-box">
-                                <img src="/dist/images/avatar.jpg">
-                            </div>
-                        
-                        <div class="info-box">
-                            <div class="author border-box">
-                                <span class="name">绯鞠</span>
-                                
-                                    <span class="author-badge">Lv10</span>
-                                
-                            </div>
-                            <div class="meta-info border-box">
-                                
-
-<div class="post-meta-info-container border-box post">
-    <div class="post-meta-info border-box">
         
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2022-07-22 21:56" pubdate>
+          2022:07:22
+        </time>
+      </span>
+    
+  </div>
 
-        
-            <span class="meta-info-item post-create-date">
-                <i class="icon fa-solid fa-calendar-plus"></i>&nbsp;
-                <span class="datetime">2022-07-22</span>
-            </span>
-
-            <span class="meta-info-item post-update-date">
-                <i class="icon fa-solid fa-file-pen"></i>&nbsp;
-                <span class="datetime" data-updated="Tue Aug 06 2024 10:31:29 GMT+0800">2024-08-06</span>
-            </span>
-        
-
-        
-
-        
-            <span class="post-tag meta-info-item border-box">
-                <ul class="post-tag-ul">
-                    
-                            <li class="tag-item"><span class="tag-separator"><i class="icon fas fa-hashtag"></i></span><a href="/tags/HTML/">HTML</a></li>
-                        
-                    
-                            <li class="tag-item"><span class="tag-separator"><i class="icon fas fa-hashtag"></i></span><a href="/tags/Javascript/">Javascript</a></li>
-                        
-                    
-                            <li class="tag-item"><span class="tag-separator"><i class="icon fas fa-hashtag"></i></span><a href="/tags/Bootstrap/">Bootstrap</a></li>
-                        
-                    
-                </ul>
-            </span>
-        
-
-        
-        
-        
-        
-    </div>
+  <div class="mt-1">
+    
 
     
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
 </div>
 
-                            </div>
-                        </div>
-                    </div>
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar category-bar" style="margin-right: -1rem">
+    
+
+
+
+
+
+<div class="category-list">
+  
+  
+</div>
+
+
+  </aside>
+
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">【笔记】BootstrapTable学习笔记</h1>
+            
+              <p id="updated-time" class="note note-info" style="">
                 
-
-                <div class="post-content keep-markdown-body ">
-                    
-
-                    
-                         <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>使用BootstrapTable实现自动分页的表格</p>
+                  
+                    本文最后更新于 2024:08:06
+                  
+                
+              </p>
+            
+            
+              <div class="markdown-body">
+                
+                <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>使用BootstrapTable实现自动分页的表格</p>
 <span id="more"></span>
 
 <h2 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h2><ul>
 <li><a href="/302.html?target=https://v5.bootcss.com/docs/versions/">Bootstrap相关依赖</a></li>
-<li><a class="link"   target="_blank" rel="noopener" href="https://bootstrap-table.com/" >BootstrapTable相关依赖<i class="fas fa-external-link-alt"></i></a></li>
-<li><a class="link"   target="_blank" rel="noopener" href="https://jquery.com/" >jQuery相关依赖<i class="fas fa-external-link-alt"></i></a></li>
-<li><a class="link"   target="_blank" rel="noopener" href="https://cn.vuejs.org/" >Vue相关依赖（可选）<i class="fas fa-external-link-alt"></i></a></li>
+<li><a target="_blank" rel="noopener" href="https://bootstrap-table.com/">BootstrapTable相关依赖</a></li>
+<li><a target="_blank" rel="noopener" href="https://jquery.com/">jQuery相关依赖</a></li>
+<li><a target="_blank" rel="noopener" href="https://cn.vuejs.org/">Vue相关依赖（可选）</a></li>
 </ul>
-<h2 id="引入依赖"><a href="#引入依赖" class="headerlink" title="引入依赖"></a>引入依赖</h2><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">&quot;stylesheet&quot;</span> <span class="attr">href</span>=<span class="string">&quot;dist/css/bootstrap.css&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">&quot;stylesheet&quot;</span> <span class="attr">href</span>=<span class="string">&quot;dist/css/bootstrap-table.css&quot;</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">&quot;dist/js/jquery.js&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">&quot;https://cdn.bootcss.com/popper.js/1.15.0/umd/popper.js&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">&quot;dist/js/bootstrap.js&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">&quot;dist/js/bootstrap.bundle.js&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">&quot;dist/js/bootstrap-table.js&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">&quot;dist/js/bootstrap-table-zh-CN.min.js&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h2 id="引入依赖"><a href="#引入依赖" class="headerlink" title="引入依赖"></a>引入依赖</h2><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">link</span> <span class="hljs-attr">rel</span>=<span class="hljs-string">&quot;stylesheet&quot;</span> <span class="hljs-attr">href</span>=<span class="hljs-string">&quot;dist/css/bootstrap.css&quot;</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">link</span> <span class="hljs-attr">rel</span>=<span class="hljs-string">&quot;stylesheet&quot;</span> <span class="hljs-attr">href</span>=<span class="hljs-string">&quot;dist/css/bootstrap-table.css&quot;</span>&gt;</span><br><br><span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;dist/js/jquery.js&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;https://cdn.bootcss.com/popper.js/1.15.0/umd/popper.js&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span><br><br><span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;dist/js/bootstrap.js&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;dist/js/bootstrap.bundle.js&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;dist/js/bootstrap-table.js&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;dist/js/bootstrap-table-zh-CN.min.js&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span><br></code></pre></td></tr></table></figure>
 
 <h3 id="与Vue合作"><a href="#与Vue合作" class="headerlink" title="与Vue合作"></a>与Vue合作</h3><ul>
 <li>如果配合Vue，需要引入下面的依赖</li>
 </ul>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">&quot;dist/js/vue.js&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">&quot;dist/js/bootstrap-table-vue.js&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;dist/js/vue.js&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;dist/js/bootstrap-table-vue.js&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span><br></code></pre></td></tr></table></figure>
 
-<h2 id="HTML生成表格"><a href="#HTML生成表格" class="headerlink" title="HTML生成表格"></a>HTML生成表格</h2><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">&quot;table&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">bootstrap-table</span> <span class="attr">:columns</span>=<span class="string">&quot;columns&quot;</span> <span class="attr">:data</span>=<span class="string">&quot;data&quot;</span> <span class="attr">:options</span>=<span class="string">&quot;options&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">bootstrap-table</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h2 id="HTML生成表格"><a href="#HTML生成表格" class="headerlink" title="HTML生成表格"></a>HTML生成表格</h2><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;table&quot;</span>&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">bootstrap-table</span> <span class="hljs-attr">:columns</span>=<span class="hljs-string">&quot;columns&quot;</span> <span class="hljs-attr">:data</span>=<span class="hljs-string">&quot;data&quot;</span> <span class="hljs-attr">:options</span>=<span class="hljs-string">&quot;options&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">bootstrap-table</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br></code></pre></td></tr></table></figure>
 
-<h2 id="JS配置表格"><a href="#JS配置表格" class="headerlink" title="JS配置表格"></a>JS配置表格</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable language_">document</span>.<span class="title function_">getElementById</span>(<span class="string">&quot;table&quot;</span>).<span class="title function_">bootstrapTable</span>(&#123;</span><br><span class="line">  <span class="attr">columns</span>: [],</span><br><span class="line">  <span class="attr">data</span>: [],</span><br><span class="line">  <span class="comment">// 是否开启分页</span></span><br><span class="line">  <span class="attr">pagination</span>: <span class="literal">true</span>,</span><br><span class="line">  <span class="comment">// 默认页码</span></span><br><span class="line">  <span class="attr">pageNumber</span>: <span class="number">1</span>,</span><br><span class="line">  <span class="comment">// 是否显示所有列</span></span><br><span class="line">  <span class="attr">showColumns</span>: <span class="literal">true</span>,</span><br><span class="line">  <span class="comment">// 单页数据数</span></span><br><span class="line">  <span class="attr">pageSize</span>: <span class="number">2</span>,</span><br><span class="line">  <span class="comment">// 提供的单页数据选项</span></span><br><span class="line">  <span class="attr">pageList</span>: [<span class="number">2</span>, <span class="number">5</span>]</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<h2 id="JS配置表格"><a href="#JS配置表格" class="headerlink" title="JS配置表格"></a>JS配置表格</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-variable language_">document</span>.<span class="hljs-title function_">getElementById</span>(<span class="hljs-string">&quot;table&quot;</span>).<span class="hljs-title function_">bootstrapTable</span>(&#123;<br>  <span class="hljs-attr">columns</span>: [],<br>  <span class="hljs-attr">data</span>: [],<br>  <span class="hljs-comment">// 是否开启分页</span><br>  <span class="hljs-attr">pagination</span>: <span class="hljs-literal">true</span>,<br>  <span class="hljs-comment">// 默认页码</span><br>  <span class="hljs-attr">pageNumber</span>: <span class="hljs-number">1</span>,<br>  <span class="hljs-comment">// 是否显示所有列</span><br>  <span class="hljs-attr">showColumns</span>: <span class="hljs-literal">true</span>,<br>  <span class="hljs-comment">// 单页数据数</span><br>  <span class="hljs-attr">pageSize</span>: <span class="hljs-number">2</span>,<br>  <span class="hljs-comment">// 提供的单页数据选项</span><br>  <span class="hljs-attr">pageList</span>: [<span class="hljs-number">2</span>, <span class="hljs-number">5</span>]<br>&#125;);<br></code></pre></td></tr></table></figure>
 
 <h2 id="Vue-js配置表格"><a href="#Vue-js配置表格" class="headerlink" title="Vue.js配置表格"></a>Vue.js配置表格</h2><ul>
 <li>本案例是通过与Vue的合作实现的</li>
@@ -387,7 +362,7 @@
 <li><code>data</code>用来定义数据，数据是由对象数组组成的，每个对象的键就是<code>field</code>字段名、值就是实际数据</li>
 <li><code>options</code>用来定义表格配置，无论前端分页还是后端分页，都需要在<code>options</code>中进行表格配置</li>
 </ul>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">new</span> <span class="title class_">Vue</span>(&#123;</span><br><span class="line">  <span class="attr">el</span>: <span class="string">&#x27;#table&#x27;</span>,</span><br><span class="line">  <span class="attr">components</span>: &#123;</span><br><span class="line">    <span class="string">&#x27;BootstrapTable&#x27;</span>: <span class="title class_">BootstrapTable</span></span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="attr">data</span>: &#123;</span><br><span class="line">    <span class="attr">columns</span>: [</span><br><span class="line">      &#123;</span><br><span class="line">        <span class="attr">title</span>: <span class="string">&#x27;编号&#x27;</span>,</span><br><span class="line">        <span class="attr">field</span>: <span class="string">&#x27;id&#x27;</span></span><br><span class="line">      &#125;, &#123;</span><br><span class="line">        <span class="attr">title</span>: <span class="string">&#x27;名称&#x27;</span>,</span><br><span class="line">        <span class="attr">field</span>: <span class="string">&#x27;name&#x27;</span></span><br><span class="line">      &#125;</span><br><span class="line">    ],</span><br><span class="line">    <span class="attr">data</span>: [</span><br><span class="line">      &#123;</span><br><span class="line">        <span class="attr">id</span>: <span class="number">1</span>,</span><br><span class="line">        <span class="attr">name</span>: <span class="string">&quot;张三&quot;</span></span><br><span class="line">      &#125;,&#123;</span><br><span class="line">        <span class="attr">id</span>: <span class="number">2</span>,</span><br><span class="line">        <span class="attr">name</span>: <span class="string">&quot;李四&quot;</span></span><br><span class="line">      &#125;,&#123;</span><br><span class="line">        <span class="attr">id</span>: <span class="number">3</span>,</span><br><span class="line">        <span class="attr">name</span>: <span class="string">&quot;王五&quot;</span></span><br><span class="line">      &#125;</span><br><span class="line">    ],</span><br><span class="line">    <span class="attr">options</span>: &#123;</span><br><span class="line">      <span class="comment">// 是否开启分页</span></span><br><span class="line">      <span class="attr">pagination</span>: <span class="literal">true</span>,</span><br><span class="line">      <span class="comment">// 默认页码</span></span><br><span class="line">      <span class="attr">pageNumber</span>: <span class="number">1</span>,</span><br><span class="line">      <span class="comment">// 是否显示所有列</span></span><br><span class="line">      <span class="attr">showColumns</span>: <span class="literal">true</span>,</span><br><span class="line">      <span class="comment">// 单页数据数</span></span><br><span class="line">      <span class="attr">pageSize</span>: <span class="number">2</span>,</span><br><span class="line">      <span class="comment">// 提供的单页数据选项</span></span><br><span class="line">      <span class="attr">pageList</span>: [<span class="number">2</span>, <span class="number">5</span>]</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">new</span> <span class="hljs-title class_">Vue</span>(&#123;<br>  <span class="hljs-attr">el</span>: <span class="hljs-string">&#x27;#table&#x27;</span>,<br>  <span class="hljs-attr">components</span>: &#123;<br>    <span class="hljs-string">&#x27;BootstrapTable&#x27;</span>: <span class="hljs-title class_">BootstrapTable</span><br>  &#125;,<br>  <span class="hljs-attr">data</span>: &#123;<br>    <span class="hljs-attr">columns</span>: [<br>      &#123;<br>        <span class="hljs-attr">title</span>: <span class="hljs-string">&#x27;编号&#x27;</span>,<br>        <span class="hljs-attr">field</span>: <span class="hljs-string">&#x27;id&#x27;</span><br>      &#125;, &#123;<br>        <span class="hljs-attr">title</span>: <span class="hljs-string">&#x27;名称&#x27;</span>,<br>        <span class="hljs-attr">field</span>: <span class="hljs-string">&#x27;name&#x27;</span><br>      &#125;<br>    ],<br>    <span class="hljs-attr">data</span>: [<br>      &#123;<br>        <span class="hljs-attr">id</span>: <span class="hljs-number">1</span>,<br>        <span class="hljs-attr">name</span>: <span class="hljs-string">&quot;张三&quot;</span><br>      &#125;,&#123;<br>        <span class="hljs-attr">id</span>: <span class="hljs-number">2</span>,<br>        <span class="hljs-attr">name</span>: <span class="hljs-string">&quot;李四&quot;</span><br>      &#125;,&#123;<br>        <span class="hljs-attr">id</span>: <span class="hljs-number">3</span>,<br>        <span class="hljs-attr">name</span>: <span class="hljs-string">&quot;王五&quot;</span><br>      &#125;<br>    ],<br>    <span class="hljs-attr">options</span>: &#123;<br>      <span class="hljs-comment">// 是否开启分页</span><br>      <span class="hljs-attr">pagination</span>: <span class="hljs-literal">true</span>,<br>      <span class="hljs-comment">// 默认页码</span><br>      <span class="hljs-attr">pageNumber</span>: <span class="hljs-number">1</span>,<br>      <span class="hljs-comment">// 是否显示所有列</span><br>      <span class="hljs-attr">showColumns</span>: <span class="hljs-literal">true</span>,<br>      <span class="hljs-comment">// 单页数据数</span><br>      <span class="hljs-attr">pageSize</span>: <span class="hljs-number">2</span>,<br>      <span class="hljs-comment">// 提供的单页数据选项</span><br>      <span class="hljs-attr">pageList</span>: [<span class="hljs-number">2</span>, <span class="hljs-number">5</span>]<br>    &#125;<br>  &#125;<br>&#125;);<br></code></pre></td></tr></table></figure>
 
 <h3 id="后端分页"><a href="#后端分页" class="headerlink" title="后端分页"></a>后端分页</h3><ul>
 <li><p>后段分页需要通过请求后端接口得到表格数据</p>
@@ -395,7 +370,7 @@
 <li>BootstrapTable默认将会传递以下参数<ul>
 <li><code>offset</code>：当前页的第一个数据在数据表中的下标，对应<code>SQL</code>中<code>LIMIT</code>语句的第一个参数</li>
 <li><code>limit</code>：当前页的数据个数，对应<code>SQL</code>中<code>LIMIT</code>语句的第二个参数</li>
-<li>更多参数（<code>search</code>、<code>sort</code>、<code>order</code>）详见<a class="link"   target="_blank" rel="noopener" href="https://bootstrap-table.com/docs/api/table-options/" >官网文档<i class="fas fa-external-link-alt"></i></a></li>
+<li>更多参数（<code>search</code>、<code>sort</code>、<code>order</code>）详见<a target="_blank" rel="noopener" href="https://bootstrap-table.com/docs/api/table-options/">官网文档</a></li>
 </ul>
 </li>
 <li>BootstrapTable期望得到以下格式的JS对象<code>&#123;total: 1, rows: []&#125;</code><ul>
@@ -410,503 +385,417 @@
 <li><p>如果后端响应的数据格式不是<code>&#123;total: 1, rows: []&#125;</code>，可以通过<code>responseHandler: function(result) &#123;&#125;</code>来重新格式化，通过<code>return</code>返回格式化后的响应数据</p>
 </li>
 </ul>
-<h4 id="GET请求"><a href="#GET请求" class="headerlink" title="GET请求"></a>GET请求</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">new</span> <span class="title class_">Vue</span>(&#123;</span><br><span class="line">  <span class="attr">el</span>: <span class="string">&#x27;#table&#x27;</span>,</span><br><span class="line">  <span class="attr">components</span>: &#123;</span><br><span class="line">    <span class="string">&#x27;BootstrapTable&#x27;</span>: <span class="title class_">BootstrapTable</span></span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="attr">data</span>: &#123;</span><br><span class="line">    <span class="attr">columns</span>: [</span><br><span class="line">      &#123;</span><br><span class="line">        <span class="attr">title</span>: <span class="string">&#x27;编号&#x27;</span>,</span><br><span class="line">        <span class="attr">field</span>: <span class="string">&#x27;id&#x27;</span></span><br><span class="line">      &#125;, &#123;</span><br><span class="line">        <span class="attr">title</span>: <span class="string">&#x27;名称&#x27;</span>,</span><br><span class="line">        <span class="attr">field</span>: <span class="string">&#x27;name&#x27;</span></span><br><span class="line">      &#125;</span><br><span class="line">    ],</span><br><span class="line">    <span class="attr">data</span>: [],</span><br><span class="line">    <span class="attr">options</span>: &#123;</span><br><span class="line">      <span class="comment">// 是否开启分页</span></span><br><span class="line">      <span class="attr">pagination</span>: <span class="literal">true</span>,</span><br><span class="line">      <span class="comment">// 默认页码</span></span><br><span class="line">      <span class="attr">pageNumber</span>: <span class="number">1</span>,</span><br><span class="line">      <span class="comment">// 是否显示所有列</span></span><br><span class="line">      <span class="attr">showColumns</span>: <span class="literal">true</span>,</span><br><span class="line">      <span class="comment">// 单页数据数</span></span><br><span class="line">      <span class="attr">pageSize</span>: <span class="number">2</span>,</span><br><span class="line">      <span class="comment">// 提供的单页数据选项</span></span><br><span class="line">      <span class="attr">pageList</span>: [<span class="number">2</span>, <span class="number">5</span>],</span><br><span class="line">      <span class="comment">// 定义后端分页</span></span><br><span class="line">      <span class="attr">sidePagination</span>: <span class="string">&#x27;server&#x27;</span>,</span><br><span class="line">      <span class="comment">// 定义请求URL</span></span><br><span class="line">      <span class="attr">url</span>: <span class="string">``</span>,</span><br><span class="line">      <span class="comment">// 定义请求方式</span></span><br><span class="line">      <span class="attr">method</span>: <span class="string">&#x27;GET&#x27;</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<h4 id="GET请求"><a href="#GET请求" class="headerlink" title="GET请求"></a>GET请求</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">new</span> <span class="hljs-title class_">Vue</span>(&#123;<br>  <span class="hljs-attr">el</span>: <span class="hljs-string">&#x27;#table&#x27;</span>,<br>  <span class="hljs-attr">components</span>: &#123;<br>    <span class="hljs-string">&#x27;BootstrapTable&#x27;</span>: <span class="hljs-title class_">BootstrapTable</span><br>  &#125;,<br>  <span class="hljs-attr">data</span>: &#123;<br>    <span class="hljs-attr">columns</span>: [<br>      &#123;<br>        <span class="hljs-attr">title</span>: <span class="hljs-string">&#x27;编号&#x27;</span>,<br>        <span class="hljs-attr">field</span>: <span class="hljs-string">&#x27;id&#x27;</span><br>      &#125;, &#123;<br>        <span class="hljs-attr">title</span>: <span class="hljs-string">&#x27;名称&#x27;</span>,<br>        <span class="hljs-attr">field</span>: <span class="hljs-string">&#x27;name&#x27;</span><br>      &#125;<br>    ],<br>    <span class="hljs-attr">data</span>: [],<br>    <span class="hljs-attr">options</span>: &#123;<br>      <span class="hljs-comment">// 是否开启分页</span><br>      <span class="hljs-attr">pagination</span>: <span class="hljs-literal">true</span>,<br>      <span class="hljs-comment">// 默认页码</span><br>      <span class="hljs-attr">pageNumber</span>: <span class="hljs-number">1</span>,<br>      <span class="hljs-comment">// 是否显示所有列</span><br>      <span class="hljs-attr">showColumns</span>: <span class="hljs-literal">true</span>,<br>      <span class="hljs-comment">// 单页数据数</span><br>      <span class="hljs-attr">pageSize</span>: <span class="hljs-number">2</span>,<br>      <span class="hljs-comment">// 提供的单页数据选项</span><br>      <span class="hljs-attr">pageList</span>: [<span class="hljs-number">2</span>, <span class="hljs-number">5</span>],<br>      <span class="hljs-comment">// 定义后端分页</span><br>      <span class="hljs-attr">sidePagination</span>: <span class="hljs-string">&#x27;server&#x27;</span>,<br>      <span class="hljs-comment">// 定义请求URL</span><br>      <span class="hljs-attr">url</span>: <span class="hljs-string">``</span>,<br>      <span class="hljs-comment">// 定义请求方式</span><br>      <span class="hljs-attr">method</span>: <span class="hljs-string">&#x27;GET&#x27;</span><br>    &#125;<br>  &#125;<br>&#125;);<br></code></pre></td></tr></table></figure>
 
-<h4 id="POST请求"><a href="#POST请求" class="headerlink" title="POST请求"></a>POST请求</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">new</span> <span class="title class_">Vue</span>(&#123;</span><br><span class="line">  <span class="attr">el</span>: <span class="string">&#x27;#table&#x27;</span>,</span><br><span class="line">  <span class="attr">components</span>: &#123;</span><br><span class="line">    <span class="string">&#x27;BootstrapTable&#x27;</span>: <span class="title class_">BootstrapTable</span></span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="attr">data</span>: &#123;</span><br><span class="line">    <span class="attr">columns</span>: [</span><br><span class="line">      &#123;</span><br><span class="line">        <span class="attr">title</span>: <span class="string">&#x27;编号&#x27;</span>,</span><br><span class="line">        <span class="attr">field</span>: <span class="string">&#x27;id&#x27;</span></span><br><span class="line">      &#125;, &#123;</span><br><span class="line">        <span class="attr">title</span>: <span class="string">&#x27;名称&#x27;</span>,</span><br><span class="line">        <span class="attr">field</span>: <span class="string">&#x27;name&#x27;</span></span><br><span class="line">      &#125;</span><br><span class="line">    ],</span><br><span class="line">    <span class="attr">data</span>: [],</span><br><span class="line">    <span class="attr">options</span>: &#123;</span><br><span class="line">      <span class="comment">// 是否开启分页</span></span><br><span class="line">      <span class="attr">pagination</span>: <span class="literal">true</span>,</span><br><span class="line">      <span class="comment">// 默认页码</span></span><br><span class="line">      <span class="attr">pageNumber</span>: <span class="number">1</span>,</span><br><span class="line">      <span class="comment">// 是否显示所有列</span></span><br><span class="line">      <span class="attr">showColumns</span>: <span class="literal">true</span>,</span><br><span class="line">      <span class="comment">// 单页数据数</span></span><br><span class="line">      <span class="attr">pageSize</span>: <span class="number">2</span>,</span><br><span class="line">      <span class="comment">// 提供的单页数据选项</span></span><br><span class="line">      <span class="attr">pageList</span>: [<span class="number">2</span>, <span class="number">5</span>],</span><br><span class="line">      <span class="comment">// 定义后端分页</span></span><br><span class="line">      <span class="attr">sidePagination</span>: <span class="string">&#x27;server&#x27;</span>,</span><br><span class="line">      <span class="comment">// 定义请求URL</span></span><br><span class="line">      <span class="attr">url</span>: <span class="string">``</span>,</span><br><span class="line">      <span class="comment">// POST请求注意修改此处：定义请求方式</span></span><br><span class="line">      <span class="attr">method</span>: <span class="string">&#x27;POST&#x27;</span>,</span><br><span class="line">      <span class="comment">// POST请求注意添加此处：请求体中的数据格式（网上大部分人说这个是配置期待返回数据类型）</span></span><br><span class="line">      <span class="attr">dataType</span>: <span class="string">&quot;json&quot;</span>,</span><br><span class="line">      <span class="comment">// POST请求注意添加此处：请求数据内容格式（缺省值是：`application/json`）</span></span><br><span class="line">      <span class="comment">// contentType: &quot;application/x-www-form-urlencoded; charset=UTF-8&quot;</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<h4 id="POST请求"><a href="#POST请求" class="headerlink" title="POST请求"></a>POST请求</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">new</span> <span class="hljs-title class_">Vue</span>(&#123;<br>  <span class="hljs-attr">el</span>: <span class="hljs-string">&#x27;#table&#x27;</span>,<br>  <span class="hljs-attr">components</span>: &#123;<br>    <span class="hljs-string">&#x27;BootstrapTable&#x27;</span>: <span class="hljs-title class_">BootstrapTable</span><br>  &#125;,<br>  <span class="hljs-attr">data</span>: &#123;<br>    <span class="hljs-attr">columns</span>: [<br>      &#123;<br>        <span class="hljs-attr">title</span>: <span class="hljs-string">&#x27;编号&#x27;</span>,<br>        <span class="hljs-attr">field</span>: <span class="hljs-string">&#x27;id&#x27;</span><br>      &#125;, &#123;<br>        <span class="hljs-attr">title</span>: <span class="hljs-string">&#x27;名称&#x27;</span>,<br>        <span class="hljs-attr">field</span>: <span class="hljs-string">&#x27;name&#x27;</span><br>      &#125;<br>    ],<br>    <span class="hljs-attr">data</span>: [],<br>    <span class="hljs-attr">options</span>: &#123;<br>      <span class="hljs-comment">// 是否开启分页</span><br>      <span class="hljs-attr">pagination</span>: <span class="hljs-literal">true</span>,<br>      <span class="hljs-comment">// 默认页码</span><br>      <span class="hljs-attr">pageNumber</span>: <span class="hljs-number">1</span>,<br>      <span class="hljs-comment">// 是否显示所有列</span><br>      <span class="hljs-attr">showColumns</span>: <span class="hljs-literal">true</span>,<br>      <span class="hljs-comment">// 单页数据数</span><br>      <span class="hljs-attr">pageSize</span>: <span class="hljs-number">2</span>,<br>      <span class="hljs-comment">// 提供的单页数据选项</span><br>      <span class="hljs-attr">pageList</span>: [<span class="hljs-number">2</span>, <span class="hljs-number">5</span>],<br>      <span class="hljs-comment">// 定义后端分页</span><br>      <span class="hljs-attr">sidePagination</span>: <span class="hljs-string">&#x27;server&#x27;</span>,<br>      <span class="hljs-comment">// 定义请求URL</span><br>      <span class="hljs-attr">url</span>: <span class="hljs-string">``</span>,<br>      <span class="hljs-comment">// POST请求注意修改此处：定义请求方式</span><br>      <span class="hljs-attr">method</span>: <span class="hljs-string">&#x27;POST&#x27;</span>,<br>      <span class="hljs-comment">// POST请求注意添加此处：请求体中的数据格式（网上大部分人说这个是配置期待返回数据类型）</span><br>      <span class="hljs-attr">dataType</span>: <span class="hljs-string">&quot;json&quot;</span>,<br>      <span class="hljs-comment">// POST请求注意添加此处：请求数据内容格式（缺省值是：`application/json`）</span><br>      <span class="hljs-comment">// contentType: &quot;application/x-www-form-urlencoded; charset=UTF-8&quot;</span><br>    &#125;<br>  &#125;<br>&#125;);<br></code></pre></td></tr></table></figure>
 
 <h2 id="更多表格配置"><a href="#更多表格配置" class="headerlink" title="更多表格配置"></a>更多表格配置</h2><ul>
-<li>在这里列出常见表格配置，更多配置详见<a class="link"   target="_blank" rel="noopener" href="https://bootstrap-table.com/docs/api/table-options/" >官网文档<i class="fas fa-external-link-alt"></i></a></li>
+<li>在这里列出常见表格配置，更多配置详见<a target="_blank" rel="noopener" href="https://bootstrap-table.com/docs/api/table-options/">官网文档</a></li>
 <li>对于Vue，需要将除了<code>columns</code>、<code>data</code>以外的配置放在<code>options</code>中</li>
 </ul>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable language_">document</span>.<span class="title function_">getElementById</span>(<span class="string">&quot;table&quot;</span>).<span class="title function_">bootstrapTable</span>(&#123;</span><br><span class="line">  <span class="attr">columns</span>: [],</span><br><span class="line">  <span class="attr">data</span>: [],</span><br><span class="line">  <span class="comment">// 指定行高，单位px，如果没有设置height属性，表格自动根据记录条数决定表格高度</span></span><br><span class="line">  <span class="attr">height</span>: <span class="number">500</span>,</span><br><span class="line">  <span class="comment">// 是否开启分页</span></span><br><span class="line">  <span class="attr">pagination</span>: <span class="literal">true</span>,</span><br><span class="line">  <span class="comment">// 默认页码</span></span><br><span class="line">  <span class="attr">pageNumber</span>: <span class="number">1</span>,</span><br><span class="line">  <span class="comment">// 单页数据数</span></span><br><span class="line">  <span class="attr">pageSize</span>: <span class="number">2</span>,</span><br><span class="line">  <span class="comment">// 提供的单页数据选项，如果不希望有这个功能，可以将数组中只包含一个数据，与单页数据数保持相同</span></span><br><span class="line">  <span class="attr">pageList</span>: [<span class="number">2</span>, <span class="number">5</span>],</span><br><span class="line">  <span class="comment">// 是否显示隔行着色</span></span><br><span class="line">  <span class="attr">striped</span>: <span class="literal">true</span>,</span><br><span class="line">  <span class="comment">// 是否启用缓存</span></span><br><span class="line">  <span class="attr">cache</span>: <span class="literal">false</span>,</span><br><span class="line">  <span class="comment">// 排序方式</span></span><br><span class="line">  <span class="attr">sortOrder</span>:<span class="string">&quot;asc&quot;</span>,</span><br><span class="line">  <span class="comment">// 是否启用点击选中行</span></span><br><span class="line">  <span class="attr">clickToSelect</span>: <span class="literal">true</span>,</span><br><span class="line">  <span class="comment">// 最少允许的列数</span></span><br><span class="line">  <span class="attr">minimumCountColumns</span>: <span class="number">2</span>,</span><br><span class="line">  </span><br><span class="line">  <span class="comment">/* 按钮显示配置 */</span></span><br><span class="line">  <span class="comment">// 是否显示刷新按钮</span></span><br><span class="line">  <span class="attr">showRefresh</span>: <span class="literal">false</span>,</span><br><span class="line">  <span class="comment">// 是否显示右上角列选择按钮</span></span><br><span class="line">  <span class="attr">showColumns</span>: <span class="literal">false</span>,</span><br><span class="line">  <span class="comment">// 是否显示详细视图和列表视图的切换按钮</span></span><br><span class="line">  <span class="attr">showToggle</span>: <span class="literal">true</span>,</span><br><span class="line">  <span class="comment">// 是否显示右上角切换列按钮</span></span><br><span class="line">  <span class="attr">showColumns</span>: <span class="literal">false</span>,</span><br><span class="line">  <span class="comment">// 页码靠左</span></span><br><span class="line">  <span class="attr">paginationHAlign</span>: <span class="string">&quot;left&quot;</span>,</span><br><span class="line">  </span><br><span class="line">  <span class="comment">/* 数据导入导出配置 */</span></span><br><span class="line">  <span class="comment">// 是否显示导出</span></span><br><span class="line">  <span class="attr">showExport</span>: <span class="literal">true</span>,</span><br><span class="line">  <span class="comment">// 导出数据类型`basic`、`all`、`selected`</span></span><br><span class="line">  <span class="attr">exportDataType</span>: <span class="string">&quot;all&quot;</span>,</span><br><span class="line">  </span><br><span class="line">  <span class="comment">/* 后端分页配置 */</span></span><br><span class="line">  <span class="comment">// 分页数据得到的方式，如果是`client`（缺省值）就是前段分页，如果是`server`就是后端分页</span></span><br><span class="line">  <span class="attr">sidePagination</span>: <span class="string">&#x27;server&#x27;</span>,</span><br><span class="line">  <span class="comment">// 如果是后端分页，需要指定请求URL</span></span><br><span class="line">  <span class="comment">// url: ``,</span></span><br><span class="line">  <span class="comment">// 指定请求方式，缺省值：`GET`</span></span><br><span class="line">  <span class="comment">// method: &#x27;POST&#x27;,</span></span><br><span class="line">  <span class="comment">// POST请求注意添加此处：请求体中的数据格式（网上大部分人说这个是配置期待返回数据类型）</span></span><br><span class="line">  <span class="attr">dataType</span>: <span class="string">&quot;json&quot;</span>,</span><br><span class="line">  <span class="comment">// POST请求注意添加此处：请求数据内容格式（缺省值是：`application/json`）</span></span><br><span class="line">  <span class="comment">// contentType: &quot;application/x-www-form-urlencoded; charset=UTF-8&quot;,</span></span><br><span class="line">  <span class="comment">// 查询参数组织方式</span></span><br><span class="line">  <span class="comment">//  如果查询参数组织方式为`undefined`：则可以获取：`pageNumber`、`pageSize`、`searchText`、`sortName`、`sortOrder`</span></span><br><span class="line">  <span class="comment">//  如果查询参数组织方式为`limit`：则可以获取：`limit`、`offset`、`search`、`sort`、`order`</span></span><br><span class="line">  <span class="attr">queryParamsType</span>: <span class="string">&quot;undefined&quot;</span>,</span><br><span class="line">  <span class="comment">// 请求参数处理</span></span><br><span class="line">  <span class="attr">queryParams</span>: <span class="keyword">function</span> (<span class="params">e</span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> &#123;</span><br><span class="line">      <span class="comment">// 内置的参数可以通过e调取</span></span><br><span class="line">      <span class="attr">offset</span>: e.<span class="property">offset</span>,</span><br><span class="line">      <span class="attr">limit</span>: e.<span class="property">limit</span>,</span><br><span class="line">      <span class="comment">// 自定义参数也可以定义</span></span><br><span class="line">      ...</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="comment">// 响应数据处理</span></span><br><span class="line">  <span class="attr">responseHandler</span>: <span class="keyword">function</span> (<span class="params">result</span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> &#123;</span><br><span class="line">      <span class="comment">// 所有数据的行数</span></span><br><span class="line">      <span class="attr">total</span>: <span class="number">1</span>,</span><br><span class="line">      <span class="comment">// 所有数据的数组</span></span><br><span class="line">      <span class="attr">rows</span>: [&#123;&#125;, &#123;&#125;]</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  </span><br><span class="line">  <span class="comment">/* 排序配置 */</span></span><br><span class="line">  <span class="comment">// 是否显示排序</span></span><br><span class="line">  <span class="attr">sortable</span>: <span class="literal">true</span>,</span><br><span class="line">  <span class="comment">// 如果显示排序，可以设置排序方式</span></span><br><span class="line">  <span class="comment">// sortOrder: &quot;asc&quot;,</span></span><br><span class="line">  </span><br><span class="line">  <span class="comment">/* 搜索配置 */</span></span><br><span class="line">  <span class="comment">// 是否开启搜索</span></span><br><span class="line">  <span class="attr">search</span>: <span class="literal">false</span>,</span><br><span class="line">  <span class="comment">// 是否开启回车搜索</span></span><br><span class="line">   <span class="attr">searchOnEnterKey</span>: <span class="literal">false</span>,</span><br><span class="line">  <span class="comment">// 搜索框对其方式</span></span><br><span class="line">  <span class="attr">searchAlign</span>: <span class="string">&quot;right&quot;</span>,</span><br><span class="line">  <span class="comment">// 全局匹配</span></span><br><span class="line">  <span class="attr">strictSearch</span>: <span class="literal">true</span>,</span><br><span class="line">  <span class="comment">// 模糊搜索</span></span><br><span class="line">  <span class="attr">strictSearch</span>: <span class="literal">false</span>,</span><br><span class="line">  </span><br><span class="line">  <span class="comment">/* 事件函数 */</span></span><br><span class="line">  <span class="comment">// 加载成功函数</span></span><br><span class="line">  <span class="attr">onLoadSuccess</span>: <span class="keyword">function</span> (<span class="params">res</span>) &#123;</span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="comment">// 加载失败函数</span></span><br><span class="line">  <span class="attr">onLoadError</span>: <span class="keyword">function</span> (<span class="params"></span>) &#123;</span><br><span class="line">  &#125;,</span><br><span class="line">  </span><br><span class="line">  <span class="comment">/* 翻译 */</span></span><br><span class="line">  paginationPreText : <span class="string">&quot;上一页&quot;</span>,</span><br><span class="line">  paginationNextText : <span class="string">&quot;下一页&quot;</span></span><br><span class="line">  </span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-variable language_">document</span>.<span class="hljs-title function_">getElementById</span>(<span class="hljs-string">&quot;table&quot;</span>).<span class="hljs-title function_">bootstrapTable</span>(&#123;<br>  <span class="hljs-attr">columns</span>: [],<br>  <span class="hljs-attr">data</span>: [],<br>  <span class="hljs-comment">// 指定行高，单位px，如果没有设置height属性，表格自动根据记录条数决定表格高度</span><br>  <span class="hljs-attr">height</span>: <span class="hljs-number">500</span>,<br>  <span class="hljs-comment">// 是否开启分页</span><br>  <span class="hljs-attr">pagination</span>: <span class="hljs-literal">true</span>,<br>  <span class="hljs-comment">// 默认页码</span><br>  <span class="hljs-attr">pageNumber</span>: <span class="hljs-number">1</span>,<br>  <span class="hljs-comment">// 单页数据数</span><br>  <span class="hljs-attr">pageSize</span>: <span class="hljs-number">2</span>,<br>  <span class="hljs-comment">// 提供的单页数据选项，如果不希望有这个功能，可以将数组中只包含一个数据，与单页数据数保持相同</span><br>  <span class="hljs-attr">pageList</span>: [<span class="hljs-number">2</span>, <span class="hljs-number">5</span>],<br>  <span class="hljs-comment">// 是否显示隔行着色</span><br>  <span class="hljs-attr">striped</span>: <span class="hljs-literal">true</span>,<br>  <span class="hljs-comment">// 是否启用缓存</span><br>  <span class="hljs-attr">cache</span>: <span class="hljs-literal">false</span>,<br>  <span class="hljs-comment">// 排序方式</span><br>  <span class="hljs-attr">sortOrder</span>:<span class="hljs-string">&quot;asc&quot;</span>,<br>  <span class="hljs-comment">// 是否启用点击选中行</span><br>  <span class="hljs-attr">clickToSelect</span>: <span class="hljs-literal">true</span>,<br>  <span class="hljs-comment">// 最少允许的列数</span><br>  <span class="hljs-attr">minimumCountColumns</span>: <span class="hljs-number">2</span>,<br>  <br>  <span class="hljs-comment">/* 按钮显示配置 */</span><br>  <span class="hljs-comment">// 是否显示刷新按钮</span><br>  <span class="hljs-attr">showRefresh</span>: <span class="hljs-literal">false</span>,<br>  <span class="hljs-comment">// 是否显示右上角列选择按钮</span><br>  <span class="hljs-attr">showColumns</span>: <span class="hljs-literal">false</span>,<br>  <span class="hljs-comment">// 是否显示详细视图和列表视图的切换按钮</span><br>  <span class="hljs-attr">showToggle</span>: <span class="hljs-literal">true</span>,<br>  <span class="hljs-comment">// 是否显示右上角切换列按钮</span><br>  <span class="hljs-attr">showColumns</span>: <span class="hljs-literal">false</span>,<br>  <span class="hljs-comment">// 页码靠左</span><br>  <span class="hljs-attr">paginationHAlign</span>: <span class="hljs-string">&quot;left&quot;</span>,<br>  <br>  <span class="hljs-comment">/* 数据导入导出配置 */</span><br>  <span class="hljs-comment">// 是否显示导出</span><br>  <span class="hljs-attr">showExport</span>: <span class="hljs-literal">true</span>,<br>  <span class="hljs-comment">// 导出数据类型`basic`、`all`、`selected`</span><br>  <span class="hljs-attr">exportDataType</span>: <span class="hljs-string">&quot;all&quot;</span>,<br>  <br>  <span class="hljs-comment">/* 后端分页配置 */</span><br>  <span class="hljs-comment">// 分页数据得到的方式，如果是`client`（缺省值）就是前段分页，如果是`server`就是后端分页</span><br>  <span class="hljs-attr">sidePagination</span>: <span class="hljs-string">&#x27;server&#x27;</span>,<br>  <span class="hljs-comment">// 如果是后端分页，需要指定请求URL</span><br>  <span class="hljs-comment">// url: ``,</span><br>  <span class="hljs-comment">// 指定请求方式，缺省值：`GET`</span><br>  <span class="hljs-comment">// method: &#x27;POST&#x27;,</span><br>  <span class="hljs-comment">// POST请求注意添加此处：请求体中的数据格式（网上大部分人说这个是配置期待返回数据类型）</span><br>  <span class="hljs-attr">dataType</span>: <span class="hljs-string">&quot;json&quot;</span>,<br>  <span class="hljs-comment">// POST请求注意添加此处：请求数据内容格式（缺省值是：`application/json`）</span><br>  <span class="hljs-comment">// contentType: &quot;application/x-www-form-urlencoded; charset=UTF-8&quot;,</span><br>  <span class="hljs-comment">// 查询参数组织方式</span><br>  <span class="hljs-comment">//  如果查询参数组织方式为`undefined`：则可以获取：`pageNumber`、`pageSize`、`searchText`、`sortName`、`sortOrder`</span><br>  <span class="hljs-comment">//  如果查询参数组织方式为`limit`：则可以获取：`limit`、`offset`、`search`、`sort`、`order`</span><br>  <span class="hljs-attr">queryParamsType</span>: <span class="hljs-string">&quot;undefined&quot;</span>,<br>  <span class="hljs-comment">// 请求参数处理</span><br>  <span class="hljs-attr">queryParams</span>: <span class="hljs-keyword">function</span> (<span class="hljs-params">e</span>) &#123;<br>    <span class="hljs-keyword">return</span> &#123;<br>      <span class="hljs-comment">// 内置的参数可以通过e调取</span><br>      <span class="hljs-attr">offset</span>: e.<span class="hljs-property">offset</span>,<br>      <span class="hljs-attr">limit</span>: e.<span class="hljs-property">limit</span>,<br>      <span class="hljs-comment">// 自定义参数也可以定义</span><br>      ...<br>    &#125;<br>  &#125;,<br>  <span class="hljs-comment">// 响应数据处理</span><br>  <span class="hljs-attr">responseHandler</span>: <span class="hljs-keyword">function</span> (<span class="hljs-params">result</span>) &#123;<br>    <span class="hljs-keyword">return</span> &#123;<br>      <span class="hljs-comment">// 所有数据的行数</span><br>      <span class="hljs-attr">total</span>: <span class="hljs-number">1</span>,<br>      <span class="hljs-comment">// 所有数据的数组</span><br>      <span class="hljs-attr">rows</span>: [&#123;&#125;, &#123;&#125;]<br>    &#125;<br>  &#125;,<br>  <br>  <span class="hljs-comment">/* 排序配置 */</span><br>  <span class="hljs-comment">// 是否显示排序</span><br>  <span class="hljs-attr">sortable</span>: <span class="hljs-literal">true</span>,<br>  <span class="hljs-comment">// 如果显示排序，可以设置排序方式</span><br>  <span class="hljs-comment">// sortOrder: &quot;asc&quot;,</span><br>  <br>  <span class="hljs-comment">/* 搜索配置 */</span><br>  <span class="hljs-comment">// 是否开启搜索</span><br>  <span class="hljs-attr">search</span>: <span class="hljs-literal">false</span>,<br>  <span class="hljs-comment">// 是否开启回车搜索</span><br>   <span class="hljs-attr">searchOnEnterKey</span>: <span class="hljs-literal">false</span>,<br>  <span class="hljs-comment">// 搜索框对其方式</span><br>  <span class="hljs-attr">searchAlign</span>: <span class="hljs-string">&quot;right&quot;</span>,<br>  <span class="hljs-comment">// 全局匹配</span><br>  <span class="hljs-attr">strictSearch</span>: <span class="hljs-literal">true</span>,<br>  <span class="hljs-comment">// 模糊搜索</span><br>  <span class="hljs-attr">strictSearch</span>: <span class="hljs-literal">false</span>,<br>  <br>  <span class="hljs-comment">/* 事件函数 */</span><br>  <span class="hljs-comment">// 加载成功函数</span><br>  <span class="hljs-attr">onLoadSuccess</span>: <span class="hljs-keyword">function</span> (<span class="hljs-params">res</span>) &#123;<br>  &#125;,<br>  <span class="hljs-comment">// 加载失败函数</span><br>  <span class="hljs-attr">onLoadError</span>: <span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) &#123;<br>  &#125;,<br>  <br>  <span class="hljs-comment">/* 翻译 */</span><br>  paginationPreText : <span class="hljs-string">&quot;上一页&quot;</span>,<br>  paginationNextText : <span class="hljs-string">&quot;下一页&quot;</span><br>  <br>&#125;);<br></code></pre></td></tr></table></figure>
 
 <h2 id="去除左下角分页信息"><a href="#去除左下角分页信息" class="headerlink" title="去除左下角分页信息"></a>去除左下角分页信息</h2><ul>
 <li>JS中在配置中为分页信息添加类名</li>
 </ul>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">paginationDetailHAlign</span>: <span class="string">&#x27; hidden&#x27;</span>,</span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-attr">paginationDetailHAlign</span>: <span class="hljs-string">&#x27; hidden&#x27;</span>,<br></code></pre></td></tr></table></figure>
 
 <ul>
 <li>CSS中通过类名隐藏分页信息</li>
 </ul>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.hidden</span> &#123;</span><br><span class="line">  <span class="attribute">display</span>: none;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs css"><span class="hljs-selector-class">.hidden</span> &#123;<br>  <span class="hljs-attribute">display</span>: none;<br>&#125;<br></code></pre></td></tr></table></figure>
 
 <h2 id="重新渲染数据"><a href="#重新渲染数据" class="headerlink" title="重新渲染数据"></a>重新渲染数据</h2><blockquote>
 <p><code>&lt;data&gt;</code>：更新后的数据（对象数组）</p>
 </blockquote>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable language_">document</span>.<span class="title function_">getElementById</span>(<span class="string">&quot;table&quot;</span>).<span class="title function_">bootstrapTable</span>(<span class="string">&quot;load&quot;</span>, &lt;data&gt;);</span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-variable language_">document</span>.<span class="hljs-title function_">getElementById</span>(<span class="hljs-string">&quot;table&quot;</span>).<span class="hljs-title function_">bootstrapTable</span>(<span class="hljs-string">&quot;load&quot;</span>, &lt;data&gt;);<br></code></pre></td></tr></table></figure>
 
-<h2 id="销毁表格数据"><a href="#销毁表格数据" class="headerlink" title="销毁表格数据"></a>销毁表格数据</h2> <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable language_">document</span>.<span class="title function_">getElementById</span>(<span class="string">&quot;table&quot;</span>).<span class="title function_">bootstrapTable</span>(<span class="string">&quot;destroy&quot;</span>);</span><br></pre></td></tr></table></figure>
+<h2 id="销毁表格数据"><a href="#销毁表格数据" class="headerlink" title="销毁表格数据"></a>销毁表格数据</h2> <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-variable language_">document</span>.<span class="hljs-title function_">getElementById</span>(<span class="hljs-string">&quot;table&quot;</span>).<span class="hljs-title function_">bootstrapTable</span>(<span class="hljs-string">&quot;destroy&quot;</span>);<br></code></pre></td></tr></table></figure>
 
 <h2 id="页码居左对齐"><a href="#页码居左对齐" class="headerlink" title="页码居左对齐"></a>页码居左对齐</h2><ul>
 <li>删除页码的居右属性，页码将会自动居左对齐</li>
 </ul>
 <p>只有已经完成BootstrapTable渲染之后才能通过这种方式使页码居左对齐</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable language_">document</span>.<span class="title function_">getElementsByClassName</span>(<span class="string">&quot;float-right pagination&quot;</span>)[<span class="number">0</span>].<span class="property">classList</span>.<span class="title function_">remove</span>(<span class="string">&quot;float-right&quot;</span>);</span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-variable language_">document</span>.<span class="hljs-title function_">getElementsByClassName</span>(<span class="hljs-string">&quot;float-right pagination&quot;</span>)[<span class="hljs-number">0</span>].<span class="hljs-property">classList</span>.<span class="hljs-title function_">remove</span>(<span class="hljs-string">&quot;float-right&quot;</span>);<br></code></pre></td></tr></table></figure>
 
-<h2 id="完成"><a href="#完成" class="headerlink" title="完成"></a>完成</h2><h2 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h2><p><a class="link"   target="_blank" rel="noopener" href="https://blog.csdn.net/qq_44796977/article/details/104986053" >CSDN——小白能否逆袭<i class="fas fa-external-link-alt"></i></a><br><a class="link"   target="_blank" rel="noopener" href="https://bootstrap-table.com/docs/vuejs/browser/" >BootstrapTable<i class="fas fa-external-link-alt"></i></a><br><a class="link"   target="_blank" rel="noopener" href="https://www.php.cn/bootstrap/471867.html" >PHP中文网<i class="fas fa-external-link-alt"></i></a><br><a class="link"   target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_37620246/article/details/76982661" >CSDN——清清泪<i class="fas fa-external-link-alt"></i></a><br><a class="link"   target="_blank" rel="noopener" href="https://blog.csdn.net/manbufenglin/article/details/81698874" >CSDN——manbufenglin<i class="fas fa-external-link-alt"></i></a><br><a href="/302.html?target=http://www.yayihouse.com/yayishuwu/chapter/2082">码上敲享录</a><br><a class="link"   target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_30276935/article/details/97960788" >CSDN——weixin_30276935<i class="fas fa-external-link-alt"></i></a><br><a class="link"   target="_blank" rel="noopener" href="https://blog.csdn.net/u012667477/article/details/84835084" >CSDN——Spring是框架不是春天<i class="fas fa-external-link-alt"></i></a><br><a class="link"   target="_blank" rel="noopener" href="https://blog.csdn.net/New_joined_lion/article/details/110672506" >CSDN——新来的大狮<i class="fas fa-external-link-alt"></i></a><br><a class="link"   target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_39735923/article/details/82496527" >CSDN——二萌偏<i class="fas fa-external-link-alt"></i></a></p>
-
-                    
-                </div>
+<h2 id="完成"><a href="#完成" class="headerlink" title="完成"></a>完成</h2><h2 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h2><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_44796977/article/details/104986053">CSDN——小白能否逆袭</a><br><a target="_blank" rel="noopener" href="https://bootstrap-table.com/docs/vuejs/browser/">BootstrapTable</a><br><a target="_blank" rel="noopener" href="https://www.php.cn/bootstrap/471867.html">PHP中文网</a><br><a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_37620246/article/details/76982661">CSDN——清清泪</a><br><a target="_blank" rel="noopener" href="https://blog.csdn.net/manbufenglin/article/details/81698874">CSDN——manbufenglin</a><br><a href="/302.html?target=http://www.yayihouse.com/yayishuwu/chapter/2082">码上敲享录</a><br><a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_30276935/article/details/97960788">CSDN——weixin_30276935</a><br><a target="_blank" rel="noopener" href="https://blog.csdn.net/u012667477/article/details/84835084">CSDN——Spring是框架不是春天</a><br><a target="_blank" rel="noopener" href="https://blog.csdn.net/New_joined_lion/article/details/110672506">CSDN——新来的大狮</a><br><a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_39735923/article/details/82496527">CSDN——二萌偏</a></p>
 
                 
-
-                <div class="post-bottom-tags-and-share border-box">
-                    <div>
-                        
-                            <ul class="post-tags-box border-box">
-                                
-                                    <li class="tag-item border-box">
-                                        <i class="icon fas fa-hashtag"></i>&nbsp;<a href="/tags/HTML/">HTML</a>
-                                    </li>
-                                
-                                    <li class="tag-item border-box">
-                                        <i class="icon fas fa-hashtag"></i>&nbsp;<a href="/tags/Javascript/">Javascript</a>
-                                    </li>
-                                
-                                    <li class="tag-item border-box">
-                                        <i class="icon fas fa-hashtag"></i>&nbsp;<a href="/tags/Bootstrap/">Bootstrap</a>
-                                    </li>
-                                
-                            </ul>
-                        
-                    </div>
-                    <div>
-                        
-                    </div>
-                </div>
-
-                
-
-                
-                    <div class="post-nav border-box">
-                        
-                            <div class="prev-post">
-                                <a class="prev"
-                                   rel="prev"
-                                   href="/2022/07/22/DOM%E5%85%83%E7%B4%A0%E6%B7%BB%E5%8A%A0Class%E5%B1%9E%E6%80%A7%E5%80%BC/"
-                                   title="【笔记】DOM元素添加Class属性值"
-                                >
-                                    <span class="left arrow-icon flex-center">
-                                        <i class="fas fa-chevron-left"></i>
-                                    </span>
-                                    <span class="title flex-center">
-                                        <span class="post-nav-title-item text-ellipsis">【笔记】DOM元素添加Class属性值</span>
-                                        <span class="post-nav-item">上一篇</span>
-                                    </span>
-                                </a>
-                            </div>
-                        
-                        
-                            <div class="next-post">
-                                <a class="next"
-                                   rel="next"
-                                   href="/2022/07/21/%E5%88%A9%E7%94%A8%E6%A8%A1%E6%8B%9F%E7%82%B9%E5%87%BBa%E6%A0%87%E7%AD%BE%E5%AE%9E%E7%8E%B0%E6%96%87%E4%BB%B6%E4%B8%8B%E8%BD%BD/"
-                                   title="【笔记】利用模拟点击a标签实现文件下载"
-                                >
-                                    <span class="title flex-center">
-                                        <span class="post-nav-title-item text-ellipsis">【笔记】利用模拟点击a标签实现文件下载</span>
-                                        <span class="post-nav-item">下一篇</span>
-                                    </span>
-                                    <span class="right arrow-icon flex-center">
-                                        <i class="fas fa-chevron-right"></i>
-                                    </span>
-                                </a>
-                            </div>
-                        
-                    </div>
-                
-
-                
-                    
-
-
-    <div class="comments-container border-box">
-        <div id="comments-anchor" class="comment-area-title border-box">
-            <i class="fas fa-comments"></i>&nbsp;评论
-        </div>
-        <div class="comment-plugin-fail border-box">
-    <span class="fail-tip">评论插件加载失败</span>
-    <button class="reload keep-button">点击重新加载</button>
-</div>
-<div class="comment-plugin-loading flex-center border-box">
-    <i class="loading-icon fa-solid fa-spinner fa-spin"></i>
-    <span class="load-tip">正在加载评论插件</span>
-</div>
-<script data-pjax>
-  window.KeepCommentPlugin = {}
-  window.KeepCommentPlugin.hideLoading = () => {
-    const cplDom = document.querySelector('.comments-container .comment-plugin-loading')
-    cplDom.style.display = 'none'
-  }
-  window.KeepCommentPlugin.loadFailHandle = () => {
-    window.KeepCommentPlugin.hideLoading()
-    const cpfDom = document.querySelector('.comments-container .comment-plugin-fail')
-    cpfDom.style.display = 'flex'
-    cpfDom.querySelector('.reload').addEventListener('click', () => {
-      window.location.reload()
-    })
-  }
-</script>
-
-        
+              </div>
             
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/HTML/" class="print-no-link">#HTML</a>
+      
+        <a href="/tags/Javascript/" class="print-no-link">#Javascript</a>
+      
+        <a href="/tags/Bootstrap/" class="print-no-link">#Bootstrap</a>
+      
+    </div>
+  
+</div>
 
-    <div class="twikoo-container">
-        <div id="twikoo-comment"></div>
-        <script data-pjax
-                src="//cdn.jsdelivr.net/npm/twikoo@1.6.36/dist/twikoo.all.min.js"
-                async
-                onerror="window.KeepCommentPlugin.loadFailHandle()"
-        ></script>
-        <script data-pjax
-                async
-                onerror="window.KeepCommentPlugin.loadFailHandle()"
-        >
-          window.KeepCommentPlugin.initTwikoo = () => {
-            if (window?.twikoo) {
-              twikoo.init({
-                el: '#twikoo-comment',
-                envId: 'https://twikoo.loli.fj.cn',
-                region: 'ap-guangzhou',
-                lang: 'zh-CN' || 'zh-CN'
-              })
-              window.KeepCommentPlugin.hideLoading()
-            } else {
-              setTimeout(() => {
-                window.KeepCommentPlugin.initTwikoo()
-              }, 1000)
+
+              
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2022/07/22/DOM%E5%85%83%E7%B4%A0%E6%B7%BB%E5%8A%A0Class%E5%B1%9E%E6%80%A7%E5%80%BC/" title="【笔记】DOM元素添加Class属性值">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">【笔记】DOM元素添加Class属性值</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2022/07/21/%E5%88%A9%E7%94%A8%E6%A8%A1%E6%8B%9F%E7%82%B9%E5%87%BBa%E6%A0%87%E7%AD%BE%E5%AE%9E%E7%8E%B0%E6%96%87%E4%BB%B6%E4%B8%8B%E8%BD%BD/" title="【笔记】利用模拟点击a标签实现文件下载">
+                        <span class="hidden-mobile">【笔记】利用模拟点击a标签实现文件下载</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+  
+  
+    <article id="comments" lazyload>
+      
+  <div id="twikoo"></div>
+  <script type="text/javascript">
+    Fluid.utils.loadComments('#comments', function() {
+      Fluid.utils.createScript('https://lib.baomitu.com/twikoo/1.6.8/twikoo.all.min.js', function() {
+        var options = Object.assign(
+          {"envId":"https://twikoo.loli.fj.cn","region":"ap-shanghai","path":"window.location.pathname"},
+          {
+            el: '#twikoo',
+            path: 'window.location.pathname',
+            onCommentLoaded: function() {
+              Fluid.utils.listenDOMLoaded(function() {
+                var imgSelector = '#twikoo .tk-content img:not(.tk-owo-emotion)';
+                Fluid.plugins.imageCaption(imgSelector);
+                Fluid.plugins.fancyBox(imgSelector);
+              });
             }
           }
-
-          if ('true' === 'true') {
-            setTimeout(() => {
-              window.KeepCommentPlugin.initTwikoo()
-            }, 1200)
-          } else {
-            window.addEventListener('DOMContentLoaded', window.KeepCommentPlugin.initTwikoo)
-          }
-        </script>
-    </div>
-
-
-        
-    </div>
-
-
-
-
-
-                
-            </div>
-        </div>
-
-        
-            <div class="pc-post-toc right-toc">
-                <div class="post-toc-wrap border-box">
-    <div class="post-toc border-box">
-        <ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%89%8D%E8%A8%80"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%87%86%E5%A4%87%E5%B7%A5%E4%BD%9C"><span class="nav-number">2.</span> <span class="nav-text">准备工作</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BC%95%E5%85%A5%E4%BE%9D%E8%B5%96"><span class="nav-number">3.</span> <span class="nav-text">引入依赖</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%8EVue%E5%90%88%E4%BD%9C"><span class="nav-number">3.1.</span> <span class="nav-text">与Vue合作</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#HTML%E7%94%9F%E6%88%90%E8%A1%A8%E6%A0%BC"><span class="nav-number">4.</span> <span class="nav-text">HTML生成表格</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#JS%E9%85%8D%E7%BD%AE%E8%A1%A8%E6%A0%BC"><span class="nav-number">5.</span> <span class="nav-text">JS配置表格</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Vue-js%E9%85%8D%E7%BD%AE%E8%A1%A8%E6%A0%BC"><span class="nav-number">6.</span> <span class="nav-text">Vue.js配置表格</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%89%8D%E7%AB%AF%E5%88%86%E9%A1%B5"><span class="nav-number">6.1.</span> <span class="nav-text">前端分页</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%90%8E%E7%AB%AF%E5%88%86%E9%A1%B5"><span class="nav-number">6.2.</span> <span class="nav-text">后端分页</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#GET%E8%AF%B7%E6%B1%82"><span class="nav-number">6.2.1.</span> <span class="nav-text">GET请求</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#POST%E8%AF%B7%E6%B1%82"><span class="nav-number">6.2.2.</span> <span class="nav-text">POST请求</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9B%B4%E5%A4%9A%E8%A1%A8%E6%A0%BC%E9%85%8D%E7%BD%AE"><span class="nav-number">7.</span> <span class="nav-text">更多表格配置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8E%BB%E9%99%A4%E5%B7%A6%E4%B8%8B%E8%A7%92%E5%88%86%E9%A1%B5%E4%BF%A1%E6%81%AF"><span class="nav-number">8.</span> <span class="nav-text">去除左下角分页信息</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%87%8D%E6%96%B0%E6%B8%B2%E6%9F%93%E6%95%B0%E6%8D%AE"><span class="nav-number">9.</span> <span class="nav-text">重新渲染数据</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%94%80%E6%AF%81%E8%A1%A8%E6%A0%BC%E6%95%B0%E6%8D%AE"><span class="nav-number">10.</span> <span class="nav-text">销毁表格数据</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A1%B5%E7%A0%81%E5%B1%85%E5%B7%A6%E5%AF%B9%E9%BD%90"><span class="nav-number">11.</span> <span class="nav-text">页码居左对齐</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%8C%E6%88%90"><span class="nav-number">12.</span> <span class="nav-text">完成</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%82%E8%80%83%E6%96%87%E7%8C%AE"><span class="nav-number">13.</span> <span class="nav-text">参考文献</span></a></li></ol>
-    </div>
-</div>
-
-            </div>
-        
-    </div>
-</div>
-
-
-                
-            </div>
-        </div>
-
-        <div class="page-main-content-bottom border-box">
-            
-<footer class="footer border-box">
-    <div class="copyright-info info-item">
-        &copy;&nbsp;<span>2019</span>&nbsp;-&nbsp;2024
-        
-            &nbsp;<i class="fas fa-heart icon-animate"></i>&nbsp;&nbsp;<a href="/">绯鞠</a>
-        
-    </div>
-
-    <div class="theme-info info-item">
-        由&nbsp;<a target="_blank" href="https://hexo.io">Hexo</a>&nbsp;驱动&nbsp;&&nbsp;主题&nbsp;<a class="keep-version" target="_blank" href="https://github.com/XPoet/hexo-theme-keep">Keep</a>
-    </div>
-
-    
-
-    
-        <div class="count-info info-item">
-            
-
-            
-                <span class="count-item border-box uv">
-                    <span class="item-type border-box">访客数</span>
-                    <span class="item-value border-box uv" id="busuanzi_value_site_uv"></span>
-                </span>
-            
-
-            
-                <span class="count-item border-box pv">
-                    <span class="item-type border-box">访问量</span>
-                    <span class="item-value border-box pv" id="busuanzi_value_site_pv"></span>
-                </span>
-            
-        </div>
-    
-
-    
-</footer>
-
-        </div>
-    </div>
-
-    <!-- post tools -->
-    
-        <div class="post-tools right-toc">
-            <div class="post-tools-container border-box">
-    <ul class="post-tools-list border-box">
-        <!-- PC encrypt again -->
-        
-
-        <!-- PC TOC show toggle -->
-        
-            <li class="tools-item flex-center toggle-show-toc">
-                <i class="fas fa-list"></i>
-            </li>
-        
-
-        <!-- PC go comment -->
-        
-            <li class="tools-item flex-center go-to-comments">
-                <i class="fas fa-comment"></i>
-                <span class="post-comments-count"></span>
-            </li>
-        
-
-        <!-- PC full screen -->
-        <li class="tools-item flex-center full-screen">
-            <i class="fa-solid fa-expand"></i>
-        </li>
-    </ul>
-</div>
-
-        </div>
-    
-
-    <!-- side tools -->
-    <div class="side-tools">
-        <div class="side-tools-container border-box ">
-    <ul class="side-tools-list side-tools-show-handle border-box">
-        <li class="tools-item tool-font-adjust-plus flex-center">
-            <i class="fas fa-search-plus"></i>
-        </li>
-
-        <li class="tools-item tool-font-adjust-minus flex-center">
-            <i class="fas fa-search-minus"></i>
-        </li>
-
-        <li class="tools-item tool-toggle-theme-mode flex-center">
-            <i class="fas fa-moon"></i>
-        </li>
-
-        <!-- rss -->
-        
-            <li class="tools-item rss flex-center">
-                <a class="flex-center"
-                   href="/atom.xml"
-                   target="_blank"
-                >
-                    <i class="fas fa-rss"></i>
-                </a>
-            </li>
-        
-
-        <li class="tools-item tool-scroll-to-bottom flex-center">
-            <i class="fas fa-arrow-down"></i>
-        </li>
-    </ul>
-
-    <ul class="exposed-tools-list border-box">
-        
-            <li class="tools-item toggle-show-toc-tablet flex-center">
-                <i class="fas fa-list"></i>
-            </li>
-        
-
-        
-            <li class="tools-item go-to-comments-tablet flex-center">
-                <i class="fas fa-comment"></i>
-            </li>
-        
-
-        <li class="tools-item tool-toggle-show flex-center">
-            <i class="fas fa-cog fa-spin"></i>
-        </li>
-
-        <li class="tools-item tool-scroll-to-top flex-center show-arrow">
-            <i class="arrow fas fa-arrow-up"></i>
-            <span class="percent"></span>
-        </li>
-    </ul>
-</div>
-
-    </div>
-
-    <!-- image mask -->
-    <div class="zoom-in-image-mask">
-    <img class="zoom-in-image">
-</div>
-
-
-    <!-- local search -->
-    
-        <div class="search-pop-overlay">
-    <div class="popup search-popup">
-        <div class="search-header">
-          <span class="search-input-field-pre">
-            <i class="fas fa-keyboard"></i>
-          </span>
-            <div class="search-input-container">
-                <input autocomplete="off"
-                       autocorrect="off"
-                       autocapitalize="off"
-                       placeholder="搜索..."
-                       spellcheck="false"
-                       type="search"
-                       class="search-input"
-                >
-            </div>
-            <span class="close-popup-btn">
-                <i class="fas fa-times"></i>
-            </span>
-        </div>
-        <div id="search-result">
-            <div id="no-result">
-                <i class="fas fa-spinner fa-pulse fa-5x fa-fw"></i>
-            </div>
-        </div>
-    </div>
-</div>
-
-    
-
-    <!-- tablet toc -->
-    
-        <div class="tablet-post-toc-mask">
-            <div class="tablet-post-toc">
-                <div class="post-toc-wrap border-box">
-    <div class="post-toc border-box">
-        <ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%89%8D%E8%A8%80"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%87%86%E5%A4%87%E5%B7%A5%E4%BD%9C"><span class="nav-number">2.</span> <span class="nav-text">准备工作</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BC%95%E5%85%A5%E4%BE%9D%E8%B5%96"><span class="nav-number">3.</span> <span class="nav-text">引入依赖</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%8EVue%E5%90%88%E4%BD%9C"><span class="nav-number">3.1.</span> <span class="nav-text">与Vue合作</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#HTML%E7%94%9F%E6%88%90%E8%A1%A8%E6%A0%BC"><span class="nav-number">4.</span> <span class="nav-text">HTML生成表格</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#JS%E9%85%8D%E7%BD%AE%E8%A1%A8%E6%A0%BC"><span class="nav-number">5.</span> <span class="nav-text">JS配置表格</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Vue-js%E9%85%8D%E7%BD%AE%E8%A1%A8%E6%A0%BC"><span class="nav-number">6.</span> <span class="nav-text">Vue.js配置表格</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%89%8D%E7%AB%AF%E5%88%86%E9%A1%B5"><span class="nav-number">6.1.</span> <span class="nav-text">前端分页</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%90%8E%E7%AB%AF%E5%88%86%E9%A1%B5"><span class="nav-number">6.2.</span> <span class="nav-text">后端分页</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#GET%E8%AF%B7%E6%B1%82"><span class="nav-number">6.2.1.</span> <span class="nav-text">GET请求</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#POST%E8%AF%B7%E6%B1%82"><span class="nav-number">6.2.2.</span> <span class="nav-text">POST请求</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9B%B4%E5%A4%9A%E8%A1%A8%E6%A0%BC%E9%85%8D%E7%BD%AE"><span class="nav-number">7.</span> <span class="nav-text">更多表格配置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8E%BB%E9%99%A4%E5%B7%A6%E4%B8%8B%E8%A7%92%E5%88%86%E9%A1%B5%E4%BF%A1%E6%81%AF"><span class="nav-number">8.</span> <span class="nav-text">去除左下角分页信息</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%87%8D%E6%96%B0%E6%B8%B2%E6%9F%93%E6%95%B0%E6%8D%AE"><span class="nav-number">9.</span> <span class="nav-text">重新渲染数据</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%94%80%E6%AF%81%E8%A1%A8%E6%A0%BC%E6%95%B0%E6%8D%AE"><span class="nav-number">10.</span> <span class="nav-text">销毁表格数据</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A1%B5%E7%A0%81%E5%B1%85%E5%B7%A6%E5%AF%B9%E9%BD%90"><span class="nav-number">11.</span> <span class="nav-text">页码居左对齐</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%8C%E6%88%90"><span class="nav-number">12.</span> <span class="nav-text">完成</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%82%E8%80%83%E6%96%87%E7%8C%AE"><span class="nav-number">13.</span> <span class="nav-text">参考文献</span></a></li></ol>
-    </div>
-</div>
-
-            </div>
-        </div>
-    
-</main>
-
-
-
-<!-- common -->
-
-<script src="/js/utils.js"></script>
-
-<script src="/js/header-shrink.js"></script>
-
-<script src="/js/back2top.js"></script>
-
-<script src="/js/toggle-theme.js"></script>
-
-<script src="/js/code-block.js"></script>
-
-<script src="/js/main.js"></script>
-
-<script src="/js/libs/anime.min.js"></script>
-
-
-<!-- local-search -->
-
-    
-<script src="/js/local-search.js"></script>
-
-
-
-<!-- lazyload -->
-
-
-<div class="pjax">
-    
-        <!-- post-helper -->
-        
-<script src="/js/post/post-helper.js"></script>
-
-
-        <!-- toc -->
-        
-            
-<script src="/js/post/toc.js"></script>
-
-        
-
-        <!-- copyright-info -->
-        
-
-        <!-- share -->
-        
-    
-
-    <!-- categories page -->
-    
-
-    <!-- links page -->
-    
-
-    <!-- photos page -->
-    
-
-    <!-- tools page -->
-    
-</div>
-
-<!-- mermaid -->
-
-
-<!-- pjax -->
-
-    
-<script src="/js/libs/pjax.min.js"></script>
-
-<script>
-    window.addEventListener('DOMContentLoaded', () => {
-        window.pjax = new Pjax({
-            selectors: [
-                'head title',
-                '.page-container',
-                '.pjax'
-            ],
-            history: true,
-            debug: false,
-            cacheBust: false,
-            timeout: 0,
-            analytics: false,
-            currentUrlFullReload: false,
-            scrollRestoration: false,
-        });
-
-        document.addEventListener('pjax:send', () => {
-            KEEP.utils.pjaxProgressBarStart()
-        });
-
-        document.addEventListener('pjax:complete', () => {
-            KEEP.utils.pjaxProgressBarEnd()
-            window.pjax.executeScripts(document.querySelectorAll('script[data-pjax], .pjax script'))
-            KEEP.initExecute()
-        });
+        )
+        twikoo.init(options)
+      });
     });
+  </script>
+  <noscript>Please enable JavaScript to view the comments</noscript>
+
+
+    </article>
+  
+
+
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+  <script>
+  Fluid.utils.createScript('https://lib.baomitu.com/mermaid/8.14.0/mermaid.min.js', function() {
+    mermaid.initialize({"theme":"default"});
+
+    Fluid.utils.listenDOMLoaded(function() {
+      Fluid.events.registerRefreshCallback(function() {
+        if ('mermaid' in window) {
+          mermaid.init();
+        }
+      });
+    });
+  });
 </script>
 
 
 
 
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> <br> <!-- 当前在线人数统计 --> <div>当前在线人数 <span id="current_visitors_count">0</span></div> <script src="/dist/js/current_visitors_count.js"></script> <!-- 网站运行时间统计 --> <div id="sitetime"></div> <script type="text/javascript" src="/dist/js/sitetime.js"></script> 
+    </div>
+  
+  
+    <div class="statistics">
+  
+  
+
+  
+    
+      <span id="busuanzi_container_site_pv" style="display: none">
+        总访问量 
+        <span id="busuanzi_value_site_pv"></span>
+         次
+      </span>
+    
+    
+      <span id="busuanzi_container_site_uv" style="display: none">
+        总访客数 
+        <span id="busuanzi_value_site_uv"></span>
+         人
+      </span>
+    
+    
+  
+</div>
+
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script  src="/js/local-search.js" ></script>
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
 </body>
 </html>
