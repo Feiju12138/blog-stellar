@@ -42,7 +42,7 @@ console.log(`
 const music_api = "https://netease-cloud-music-api.loli.fj.cn";
 
 // 一言API接口
-const hitokoto_api = "https://hitokoto.loli.fj.cn/";
+const hitokoto_api = "https://v1.hitokoto.cn";
 
 // 互动对话配置
 const json_path = "/dist/live2d/v2/waifu.json";
