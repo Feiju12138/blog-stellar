@@ -1,449 +1,1151 @@
-<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>绯鞠的博客 - 连蜜统治世界!!!💕</title><meta name="author" content="绯鞠"><meta name="copyright" content="绯鞠"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="捕捉一只爱折腾的绯鞠">
-<meta property="og:type" content="website">
-<meta property="og:title" content="绯鞠的博客">
-<meta property="og:url" content="https://loli.fj.cn/page/142/index.html">
-<meta property="og:site_name" content="绯鞠的博客">
-<meta property="og:description" content="捕捉一只爱折腾的绯鞠">
-<meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://loli.fj.cn/dist/images/avatar.jpg">
-<meta property="article:author" content="绯鞠">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://loli.fj.cn/dist/images/avatar.jpg"><link rel="shortcut icon" href="/dist/images/favicon_package/favicon-32x32.png"><link rel="canonical" href="https://loli.fj.cn/page/142/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css?v=4.13.0"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.1/css/all.min.css"><script>const GLOBAL_CONFIG = {
-  root: '/',
-  algolia: undefined,
-  localSearch: {"path":"/search.xml","preload":false,"top_n_per_article":1,"unescape":false,"languages":{"hits_empty":"找不到您查询的内容：${query}","hits_stats":"共找到 ${hits} 篇文章"}},
-  translate: {"defaultEncoding":2,"translateDelay":0,"msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"簡"},
-  noticeOutdate: undefined,
-  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
-  copy: {
-    success: '复制成功',
-    error: '复制错误',
-    noSupport: '浏览器不支持'
-  },
-  relativeDate: {
-    homepage: false,
-    post: false
-  },
-  runtime: '天',
-  dateSuffix: {
-    just: '刚刚',
-    min: '分钟前',
-    hour: '小时前',
-    day: '天前',
-    month: '个月前'
-  },
-  copyright: undefined,
-  lightbox: 'mediumZoom',
-  Snackbar: undefined,
-  infinitegrid: {
-    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid@4.11.1/dist/infinitegrid.min.js',
-    buttonText: '加载更多'
-  },
-  isPhotoFigcaption: false,
-  islazyload: false,
-  isAnchor: false,
-  percent: {
-    toc: true,
-    rightside: true,
-  },
-  autoDarkmode: false
-}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
-  title: '绯鞠的博客',
-  isPost: false,
-  isHome: true,
-  isHighlightShrink: true,
-  isToc: false,
-  postUpdate: '2024-08-08 09:58:10'
-}</script><script>(win=>{
-      win.saveToLocal = {
-        set: (key, value, ttl) => {
-          if (ttl === 0) return
-          const now = Date.now()
-          const expiry = now + ttl * 86400000
-          const item = {
-            value,
-            expiry
-          }
-          localStorage.setItem(key, JSON.stringify(item))
-        },
-      
-        get: key => {
-          const itemStr = localStorage.getItem(key)
-      
-          if (!itemStr) {
-            return undefined
-          }
-          const item = JSON.parse(itemStr)
-          const now = Date.now()
-      
-          if (now > item.expiry) {
-            localStorage.removeItem(key)
-            return undefined
-          }
-          return item.value
-        }
-      }
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="keywords" content="Hexo Theme Keep">
+    <meta name="description" content="捕捉一只爱折腾的绯鞠">
+    <meta name="author" content="绯鞠">
     
-      win.getScript = (url, attr = {}) => new Promise((resolve, reject) => {
-        const script = document.createElement('script')
-        script.src = url
-        script.async = true
-        script.onerror = reject
-        script.onload = script.onreadystatechange = function() {
-          const loadState = this.readyState
-          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
-          script.onload = script.onreadystatechange = null
-          resolve()
-        }
-
-        Object.keys(attr).forEach(key => {
-          script.setAttribute(key, attr[key])
-        })
-
-        document.head.appendChild(script)
-      })
+    <title>
+        
+        绯鞠的博客
+    </title>
     
-      win.getCSS = (url, id = false) => new Promise((resolve, reject) => {
-        const link = document.createElement('link')
-        link.rel = 'stylesheet'
-        link.href = url
-        if (id) link.id = id
-        link.onerror = reject
-        link.onload = link.onreadystatechange = function() {
-          const loadState = this.readyState
-          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
-          link.onload = link.onreadystatechange = null
-          resolve()
-        }
-        document.head.appendChild(link)
-      })
+<link rel="stylesheet" href="/css/style.css">
+
     
-      win.activateDarkMode = () => {
-        document.documentElement.setAttribute('data-theme', 'dark')
-        if (document.querySelector('meta[name="theme-color"]') !== null) {
-          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
-        }
-      }
-      win.activateLightMode = () => {
-        document.documentElement.setAttribute('data-theme', 'light')
-        if (document.querySelector('meta[name="theme-color"]') !== null) {
-          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
-        }
-      }
-      const t = saveToLocal.get('theme')
+        <link rel="shortcut icon" href="/dist/images/favicon_package/favicon.ico">
     
-        if (t === 'dark') activateDarkMode()
-        else if (t === 'light') activateLightMode()
-      
-      const asideStatus = saveToLocal.get('aside-status')
-      if (asideStatus !== undefined) {
-        if (asideStatus === 'hide') {
-          document.documentElement.classList.add('hide-aside')
-        } else {
-          document.documentElement.classList.remove('hide-aside')
-        }
-      }
     
-      const detectApple = () => {
-        if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
-          document.documentElement.classList.add('apple')
-        }
-      }
-      detectApple()
-    })(window)</script><meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="绯鞠的博客" type="application/atom+xml">
-</head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/dist/images/avatar.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">2918</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">115</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">17</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 更多</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/links/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></li><li><a class="site-page child" href="/reward/"><i class="fa-fw fa fa-hand-holding-heart"></i><span> 赞助</span></a></li><li><a class="site-page child" href="/atom.xml"><i class="fa-fw fa fa-rss"></i><span> 订阅</span></a></li><li><a class="site-page child" target="_blank" rel="noopener" href="//keep.loli.fj.cn"><i class="fa-fw fa fa-arrow-right"></i><span> 主题</span></a></li></ul></div></div></div></div><div class="page" id="body-wrap"><header class="not-top-img" id="page-header"><nav id="nav"><span id="blog-info"><a href="/" title="绯鞠的博客"><img class="site-icon" src="/dist/images/avatar.gif"/><span class="site-name">绯鞠的博客</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 更多</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/links/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></li><li><a class="site-page child" href="/reward/"><i class="fa-fw fa fa-hand-holding-heart"></i><span> 赞助</span></a></li><li><a class="site-page child" href="/atom.xml"><i class="fa-fw fa fa-rss"></i><span> 订阅</span></a></li><li><a class="site-page child" target="_blank" rel="noopener" href="//keep.loli.fj.cn"><i class="fa-fw fa fa-arrow-right"></i><span> 主题</span></a></li></ul></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav></header><main class="layout" id="content-inner"><div class="recent-posts" id="recent-posts"><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2023/01/05/DOS%E4%BD%BF%E7%94%A8%E5%8F%98%E9%87%8F%E6%97%B6%E6%8A%A5%E9%94%99/" title="【笔记】DOS使用变量时报错">【笔记】DOS使用变量时报错</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2023-01-05T04:21:26.000Z" title="发表于 2023-01-05 12:21:26">2023-01-05</time></span><span class="article-meta tags"><span class="article-meta-separator">|</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/Windows/">Windows</a><span class="article-meta-link">•</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/DOS/">DOS</a></span></div><div class="content">前言DOS使用%%i报错：此处不应有%%i或此时不应有%%i
-
-
-解决问题
-在批处理文件中应当使用%%i作为变量
-在直接执行DOS命令时应当使用%i作为变量
-
-完成参考文献CSDN——wo1769815
-</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2023/01/05/Kali2020%E5%85%81%E8%AE%B8root%E7%94%A8%E6%88%B7%E7%9B%B4%E6%8E%A5%E7%99%BB%E5%BD%95/" title="【笔记】Kali2020允许root用户直接登录">【笔记】Kali2020允许root用户直接登录</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2023-01-05T03:10:01.000Z" title="发表于 2023-01-05 11:10:01">2023-01-05</time></span><span class="article-meta tags"><span class="article-meta-separator">|</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/Kali/">Kali</a><span class="article-meta-link">•</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/Linux/">Linux</a></span></div><div class="content">前言Kali2020之后的版本默认不允许root用户直接登录，将其改为允许root用户直接登录
-
-
-正文
-通过修改root用户密码实现允许root用户直接登录
-
-1sudo passwd root
-
-
-然后输入root用户的旧密码和新密码
-
-完成
-重启
-
-1reboot
-
-参考文献CSDN——Donald duck
-</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2023/01/04/Clash%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" title="【笔记】Clash学习笔记">【笔记】Clash学习笔记</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2023-01-04T10:02:15.000Z" title="发表于 2023-01-04 18:02:15">2023-01-04</time></span><span class="article-meta tags"><span class="article-meta-separator">|</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/Github/">Github</a></span></div><div class="content">前言Clash is a cross-platform rule-based proxy utility that runs on the network and application layer, supporting various proxy and anti-censorship protocols out-of-the-box.（Github）
-
-
-手动编译下载项目1git clone https://github.com/Dreamacro/clash.git
-
-编译项目1go build main.go
-
-运行项目
-默认配置文件在~/.config/clash/config.yaml
-
-1./main
-
-指定配置文件目录1./main -d ~/.config/clash/
-
-指定配置文件1./main -f ~/.config/clash/config.yaml
-
-直接下载二进制文件下载依赖MacOS1brew install clash
-
-运行项目1clash
-
-完成参考文献clash
-</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2023/01/03/%E9%83%A8%E7%BD%B2CALDERA%E7%8E%AF%E5%A2%83/" title="【笔记】部署CALDERA环境">【笔记】部署CALDERA环境</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2023-01-03T07:04:46.000Z" title="发表于 2023-01-03 15:04:46">2023-01-03</time></span><span class="article-meta tags"><span class="article-meta-separator">|</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/Github/">Github</a><span class="article-meta-link">•</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/Linux/">Linux</a></span></div><div class="content">前言CALDERA™ is a cyber security platform designed to easily automate adversary emulation, assist manual red-teams, and automate incident response.（Github）
-
-
-准备工作
-python3.6.1 &amp; pip3
-
-12apt install python3apt install python3-pip
-
-
-go1.13+
-
-1apt install golang
-
-下载项目12git clone https://github.com/mitre/caldera.git --recursive --recursive --branch 2.8.1cd caldera
-
-下载依赖1pip3 install -r requirements.txt
-
-报错
-下载并安装lxml模块时报错：error: subprocess-exited-with-error，目前仍未解决
-
-启动服务1python3 server.py --insecure
- ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2023/01/01/%E5%9C%A8Ubuntu%E4%B8%8A%E5%AE%89%E8%A3%85Kali/" title="【笔记】在Ubuntu上安装Kali">【笔记】在Ubuntu上安装Kali</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2023-01-01T08:23:36.000Z" title="发表于 2023-01-01 16:23:36">2023-01-01</time></span><span class="article-meta tags"><span class="article-meta-separator">|</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/Github/">Github</a><span class="article-meta-link">•</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/Kali/">Kali</a><span class="article-meta-link">•</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/Linux/">Linux</a></span></div><div class="content">前言在Ubuntu上安装Kali
-
-
-准备工作12apt-get install gitapt-get install python2
-
-下载项目12git clone https://github.com/LionSec/katoolin.gitcd katoolin
-
-启动安装程序1python2 katoolin.py
-
-踩坑
-在执行python3 katoolin.py时报错：Sorry. This script requires sudo privledges
-
-解决问题
-katoolin.py使用的python2编写，所以需要使用python2启动katoolin.py
-
-完成参考文献CSDN——spartmapGithub——Siddharth1006
-</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2023/01/01/Python2%E7%94%9F%E6%88%90UUID/" title="【笔记】Python生成UUID">【笔记】Python生成UUID</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2023-01-01T02:55:13.000Z" title="发表于 2023-01-01 10:55:13">2023-01-01</time></span><span class="article-meta tags"><span class="article-meta-separator">|</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/Python/">Python</a></span></div><div class="content">前言Python生成UUID学习笔记
-
-
-Python生成UUID通过当前时间戳+MAC地址生成UUID123import uuid print uuid.uuid1()
-
-通过MD5生成UUID
-&lt;str&gt;：字符串
-
-123import uuid print uuid.uuid3(uuid.NAMESPACE_DNS, &quot;&lt;str&gt;&quot;)
-
-通过随机数生成UUID123import uuid print uuid.uuid4()
-
-通过SHA1生成UUID
-&lt;str&gt;：字符串
-
-123import uuid print uuid.uuid5(uuid.NAMESPACE_DNS, &quot;&lt;str&gt;&quot;)
-
-完成参考文献CSDN——泡芙伊伊
-</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2022/12/31/Shells%E5%8F%8D%E5%90%91Shell%E7%94%9F%E6%88%90%E5%B7%A5%E5%85%B7/" title="【笔记】Shells反向Shell生成工具">【笔记】Shells反向Shell生成工具</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2022-12-31T10:56:27.000Z" title="发表于 2022-12-31 18:56:27">2022-12-31</time></span><span class="article-meta tags"><span class="article-meta-separator">|</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/Github/">Github</a></span></div><div class="content">前言A script for generating common revshells fast and easy.Especially nice when in need of PowerShell and Python revshells, which can be a PITA getting correctly formated.（Github）
-本文仅用于网络信息防御学习
-
-
-准备工作
-pip3
-
-下载项目12git clone https://github.com/4ndr34z/shells.gitcd shells
-
-使用shells12chmod +x shells./shells
-
-踩坑
-首次运行会报错缺少依赖updog，提示是否立即下载
-虽然它提示输入Y立即下载依赖，但是回复Y后会立即终止程序
-
-解决问题
-正确的做法应该是直接按回车键
-然后会提示updog没有启动，提示是否立即启动updog，此时同样应该直接按回车键立即启动updog
-
-完成参考文献微信公众号——Web安全工具库
-</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2022/12/31/SiteScan%E4%BF%A1%E6%81%AF%E6%94%B6%E9%9B%86/" title="【笔记】SiteScan信息收集">【笔记】SiteScan信息收集</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2022-12-31T10:39:46.000Z" title="发表于 2022-12-31 18:39:46">2022-12-31</time></span><span class="article-meta tags"><span class="article-meta-separator">|</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/Github/">Github</a></span></div><div class="content">前言包括域名ip历史解析、nmap常见端口爆破、子域名信息收集、旁站信息收集、whois信息收集、网站架构分析、cms解析、备案号信息收集、CDN信息解析、是否存在waf检测、后台寻找以及生成检测结果html报告表等。（Github）
-本文仅用于网络信息防御学习
-
-
-下载项目12git clone https://github.com/kracer127/SiteScan.gitcd SiteScan
-
-下载依赖12pip3 install -r requirements.txtpip3 install colorama
-
-信息收集单个
--u &lt;url&gt;：指定域名或IP
-
-1python3 main.py -u &lt;url&gt;
-
-批量
--f &lt;text&gt;：指定域名或IP列表
-
-1python3 main.py -f &lt;text&gt;
-
-踩坑
-在程序执行过程中报错并终止
-
-12345678910Traceback (most recent call last):  File &quot;/Users/xxx/Downloads/SiteScan/m ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2022/12/31/ThinkPhp6LangRce%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" title="【笔记】ThinkPhp6LangRce学习笔记">【笔记】ThinkPhp6LangRce学习笔记</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2022-12-31T10:28:47.000Z" title="发表于 2022-12-31 18:28:47">2022-12-31</time></span><span class="article-meta tags"><span class="article-meta-separator">|</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/Github/">Github</a></span></div><div class="content">前言一个用于自检Thinkphp多语言漏洞并且可以一键rce的工具，日后再做相关完善。（Github）
-本文仅用于网络信息防御学习
-
-
-下载项目12git clone https://github.com/7coinSec/ThinkPhp6LangRceTools.gitcd ThinkPhp6LangRceTools
-
-下载依赖1pip3 install requests
-
-漏洞环境部署12docker pull 7coinsec/thinkphp6013_lang_ondocker run -it -d -p 80:80 7coinsec/thinkphp6013_lang_on
-
-漏洞检测PoC单个
--u &quot;http://localhost&quot;：指定域名或IP
-
-1python3 tp6.py -u &quot;http://127.0.0.1&quot; -c poc
-
-批量
--f &lt;txt&gt;：指定域名或IP列表文件
-
-1python3 tp6.py -f &lt;txt&gt; -c poc
-
-漏洞利用Exp单个1python3 tp6.py  ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2022/12/31/Chafofa%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" title="【笔记】Chafofa学习笔记">【笔记】Chafofa学习笔记</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2022-12-31T08:30:12.000Z" title="发表于 2022-12-31 16:30:12">2022-12-31</time></span><span class="article-meta tags"><span class="article-meta-separator">|</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/Github/">Github</a></span></div><div class="content">前言一款命令行fofa查询工具，可快速将查询结果导出到表格中。（Github）
-本文仅用于网络信息防御学习
-
-
-下载项目12git clone https://github.com/langsasec/chafofa.gitcd chafofa
-
-下载依赖1pip3 install -r requirements.txt
-
-查看帮助1python3 chafofa.py --help
-
-fofa查询
--f &lt;content&gt;：指定fofa查询语句-s &lt;num&gt;：指定结果条数，默认为100条
-
-1python3 chafofa.py -f &lt;content&gt; -s &lt;num&gt;
-
-
-将得到的结果自动转换成excl表格，包含的内容有：IP、host、端口、协议、网站标题、网站server
-
-完成参考文献微信公众号——Web安全工具库
-</div></div></div><nav id="pagination"><div class="pagination"><a class="extend prev" rel="prev" href="/page/141/#content-inner"><i class="fas fa-chevron-left fa-fw"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/141/#content-inner">141</a><span class="page-number current">142</span><a class="page-number" href="/page/143/#content-inner">143</a><span class="space">&hellip;</span><a class="page-number" href="/page/292/#content-inner">292</a><a class="extend next" rel="next" href="/page/143/#content-inner"><i class="fas fa-chevron-right fa-fw"></i></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/dist/images/avatar.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">绯鞠</div><div class="author-info__description">捕捉一只爱折腾的绯鞠</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">2918</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">115</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">17</div></a></div><div class="card-info-social-icons is-center"><a class="social-icon" href="mailto:00-isomer-cabbies@icloud.com" target="_blank" title="Email"><i class="fas fa-envelope" style="color: #000000;"></i></a><a class="social-icon" href="https://t.me/LittleSweetCookie" target="_blank" title="Telegram"><i class="fab fa-telegram" style="color: #000000;"></i></a></div></div><div class="sticky_layout"><div class="card-widget card-categories"><div class="item-headline">
-            <i class="fas fa-folder-open"></i>
-            <span>分类</span>
-            <a class="card-more-btn" href="/categories/" title="查看更多">
-    <i class="fas fa-angle-right"></i></a>
+<link rel="stylesheet" href="/font/css/fontawesome.min.css">
+
+    
+<link rel="stylesheet" href="/font/css/regular.min.css">
+
+    
+<link rel="stylesheet" href="/font/css/solid.min.css">
+
+    
+<link rel="stylesheet" href="/font/css/brands.min.css">
+
+    
+    <script class="keep-theme-configurations">
+    const KEEP = window.KEEP || {}
+    KEEP.hexo_config = {"hostname":"loli.fj.cn","root":"/","language":"zh-CN","path":"search.xml"}
+    KEEP.theme_config = {"base_info":{"primary_color":"#F6CDE1","title":"绯鞠的博客","author":"绯鞠","avatar":"/dist/images/avatar.jpg","logo":"/dist/images/avatar.gif","favicon":"/dist/images/favicon_package/favicon.ico"},"menu":{"home":"/","archives":"/archives/","about":"/about/","tags":"/tags/","categories":"/categories/","links":"/links/","赞助":"/reward/","订阅":"/atom.xml","主题":"//fluid.loli.fj.cn || fa fa-arrow-right"},"first_screen":{"enable":false,"background_img":"/images/bg.svg","background_img_dark":"/images/bg.svg","description":"Keep writing and Keep loving.","hitokoto":true},"social_contact":{"enable":true,"links":{"github":null,"weixin":null,"qq":null,"weibo":null,"zhihu":null,"twitter":null,"x":null,"facebook":null,"email":"mailto:00-isomer-cabbies@icloud.com","telegram":"https://t.me/LittleSweetCookie"}},"scroll":{"progress_bar":true,"percent":true,"hide_header":false},"home":{"announcement":null,"category":true,"tag":true,"post_datetime":"created","post_datetime_format":"YYYY-MM-DD"},"post":{"author_badge":{"enable":true,"level_badge":true,"custom_badge":["One","Two","Three"]},"word_count":{"wordcount":false,"min2read":false},"datetime_format":"YYYY-MM-DD","copyright_info":false,"share":false,"reward":{"enable":false,"img_link":null,"text":null},"img_align":"center"},"code_block":{"tools":{"enable":true,"style":"mac"},"highlight_theme":"default"},"toc":{"enable":true,"number":true,"expand_all":true,"init_open":true,"layout":"right"},"website_count":{"busuanzi_count":{"enable":true,"site_uv":true,"site_pv":true,"page_pv":false}},"local_search":{"enable":true,"preload":true},"comment":{"enable":true,"use":"twikoo","valine":{"appid":null,"appkey":null,"server_urls":null,"placeholder":null},"gitalk":{"github_id":null,"github_admins":null,"repository":null,"client_id":null,"client_secret":null,"proxy":null},"twikoo":{"env_id":"https://twikoo.loli.fj.cn","region":"ap-guangzhou","version":"1.6.36"},"waline":{"server_url":null,"reaction":false,"version":"3.2.1"},"giscus":{"repo":null,"repo_id":null,"category":"Announcements","category_id":null,"reactions_enabled":false},"artalk":{"server":null},"disqus":{"shortname":null}},"rss":{"enable":true},"lazyload":{"enable":false},"cdn":{"enable":false,"provider":"cdnjs"},"pjax":{"enable":true},"footer":{"since":2019,"word_count":false,"site_deploy":{"enable":false,"provider":"github","url":null},"record":{"enable":false,"list":[{"code":"蒙ICP备2022003684号","link":"https://beian.miit.gov.cn"},{"code":"蒙公网安备15220102010165号","link":"https://beian.mps.gov.cn"}]}},"inject":{"enable":false,"css":[null],"js":[null]},"root":"","source_data":{},"version":"4.1.4"}
+    KEEP.language_ago = {"second":"%s 秒前","minute":"%s 分钟前","hour":"%s 小时前","day":"%s 天前","week":"%s 周前","month":"%s 个月前","year":"%s 年前"}
+    KEEP.language_code_block = {"copy":"复制代码","copied":"已复制","fold":"折叠代码块","folded":"已折叠"}
+    KEEP.language_copy_copyright = {"copy":"复制版权信息","copied":"已复制","title":"原文标题","author":"原文作者","link":"原文链接"}
+  </script>
+<meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="绯鞠的博客" type="application/atom+xml">
+</head>
+
+
+<body>
+<div class="progress-bar-container">
+    
+        <span class="scroll-progress-bar"></span>
+    
+
+    
+        <span class="pjax-progress-bar"></span>
+        <i class="pjax-progress-icon fas fa-circle-notch fa-spin"></i>
+    
+</div>
+
+
+
+<main class="page-container border-box">
+    <!-- home first screen  -->
+    
+
+    <!-- page content -->
+    <div class="page-main-content border-box is-home">
+        <div class="page-main-content-top">
+            
+<header class="header-wrapper">
+
+    <div class="border-box header-content">
+        <div class="left border-box">
+            
+                <a class="logo-image border-box" href="/">
+                    <img src="/dist/images/avatar.gif">
+                </a>
+            
+            <a class="site-name border-box" href="/">
+               绯鞠的博客
+            </a>
+        </div>
+
+        <div class="right border-box">
+            <div class="pc">
+                <ul class="menu-list">
+                    
+                        
+                        <li class="menu-item">
+                            <a class=""
+                               href="/"
+                            >
+                                
+                                首页
+                            </a>
+                        </li>
+                    
+                        
+                        <li class="menu-item">
+                            <a class=""
+                               href="/archives/"
+                            >
+                                
+                                归档
+                            </a>
+                        </li>
+                    
+                        
+                        <li class="menu-item">
+                            <a class=""
+                               href="/about/"
+                            >
+                                
+                                关于
+                            </a>
+                        </li>
+                    
+                        
+                        <li class="menu-item">
+                            <a class=""
+                               href="/tags/"
+                            >
+                                
+                                标签
+                            </a>
+                        </li>
+                    
+                        
+                        <li class="menu-item">
+                            <a class=""
+                               href="/categories/"
+                            >
+                                
+                                分类
+                            </a>
+                        </li>
+                    
+                        
+                        <li class="menu-item">
+                            <a class=""
+                               href="/links/"
+                            >
+                                
+                                友链
+                            </a>
+                        </li>
+                    
+                        
+                        <li class="menu-item">
+                            <a class=""
+                               href="/reward/"
+                            >
+                                
+                                赞助
+                            </a>
+                        </li>
+                    
+                        
+                        <li class="menu-item">
+                            <a class=""
+                               href="/atom.xml"
+                            >
+                                
+                                订阅
+                            </a>
+                        </li>
+                    
+                        
+                        <li class="menu-item">
+                            <a class=""
+                               target="_blank" rel="noopener" href="//fluid.loli.fj.cn"
+                            >
+                                
+                                    <i class="menu-icon fa fa-arrow-right"></i>
+                                
+                                主题
+                            </a>
+                        </li>
+                    
+                    
+                        <li class="menu-item search search-popup-trigger">
+                            <i class="fas search fa-search"></i>
+                        </li>
+                    
+                </ul>
             </div>
-            <ul class="card-category-list" id="aside-cat-list">
-            <li class="card-category-list-item "><a class="card-category-list-link" href="/categories/Android%E5%AD%A6%E4%B9%A0%E6%8C%87%E5%8C%97/"><span class="card-category-list-name">Android学习指北</span><span class="card-category-list-count">25</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/C-%E5%AD%A6%E4%B9%A0%E6%8C%87%E5%8C%97/"><span class="card-category-list-name">C++学习指北</span><span class="card-category-list-count">21</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/C%E8%AF%AD%E8%A8%80%E5%AD%A6%E4%B9%A0%E6%8C%87%E5%8C%97/"><span class="card-category-list-name">C语言学习指北</span><span class="card-category-list-count">25</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/Flutter%E5%AD%A6%E4%B9%A0%E6%8C%87%E5%8C%97/"><span class="card-category-list-name">Flutter学习指北</span><span class="card-category-list-count">36</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/Go%E8%AF%AD%E8%A8%80%E5%AD%A6%E4%B9%A0%E6%8C%87%E5%8C%97/"><span class="card-category-list-name">Go语言学习指北</span><span class="card-category-list-count">40</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/Java%E5%90%8E%E7%AB%AF%E5%AD%A6%E4%B9%A0%E6%8C%87%E5%8C%97/"><span class="card-category-list-name">Java后端学习指北</span><span class="card-category-list-count">147</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/MacOS%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8C%97/"><span class="card-category-list-name">MacOS使用指北</span><span class="card-category-list-count">4</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/Nodejs%E5%AD%A6%E4%B9%A0%E6%8C%87%E5%8C%97/"><span class="card-category-list-name">Nodejs学习指北</span><span class="card-category-list-count">6</span></a></li>
-            </ul></div><div class="card-widget card-tags"><div class="item-headline"><i class="fas fa-tags"></i><span>标签</span></div><div class="card-tag-cloud"><a href="/tags/MyBatis/" style="font-size: 1.28em; color: #99a0aa">MyBatis</a> <a href="/tags/JSP/" style="font-size: 1.17em; color: #999ca0">JSP</a> <a href="/tags/Linux/" style="font-size: 1.5em; color: #99a9bf">Linux</a> <a href="/tags/Rust/" style="font-size: 1.32em; color: #99a2ae">Rust</a> <a href="/tags/Zookeeper/" style="font-size: 1.15em; color: #999b9e">Zookeeper</a> <a href="/tags/Zerotier/" style="font-size: 1.12em; color: #999a9b">Zerotier</a> <a href="/tags/SVN/" style="font-size: 1.1em; color: #999">SVN</a> <a href="/tags/Git/" style="font-size: 1.3em; color: #99a1ac">Git</a> <a href="/tags/LeetCode/" style="font-size: 1.21em; color: #999da3">LeetCode</a> <a href="/tags/Decompilation/" style="font-size: 1.19em; color: #999da2">Decompilation</a> <a href="/tags/SonarQube/" style="font-size: 1.17em; color: #999ca0">SonarQube</a> <a href="/tags/AOP/" style="font-size: 1.14em; color: #999a9c">AOP</a> <a href="/tags/Powershell/" style="font-size: 1.12em; color: #999a9b">Powershell</a> <a href="/tags/Vue/" style="font-size: 1.15em; color: #999b9e">Vue</a> <a href="/tags/SpringFamily/" style="font-size: 1.1em; color: #999">SpringFamily</a> <a href="/tags/Ruby/" style="font-size: 1.12em; color: #999a9b">Ruby</a> <a href="/tags/TypeScript/" style="font-size: 1.15em; color: #999b9e">TypeScript</a> <a href="/tags/Apache/" style="font-size: 1.23em; color: #999ea5">Apache</a> <a href="/tags/Automator/" style="font-size: 1.19em; color: #999da2">Automator</a> <a href="/tags/Go/" style="font-size: 1.46em; color: #99a8bc">Go</a> <a href="/tags/JS/" style="font-size: 1.1em; color: #999">JS</a> <a href="/tags/Hadoop/" style="font-size: 1.26em; color: #99a0a9">Hadoop</a> <a href="/tags/SQLite/" style="font-size: 1.17em; color: #999ca0">SQLite</a> <a href="/tags/Vim/" style="font-size: 1.25em; color: #999fa7">Vim</a> <a href="/tags/Visual-Basic/" style="font-size: 1.25em; color: #999fa7">Visual Basic</a> <a href="/tags/Kali/" style="font-size: 1.34em; color: #99a2af">Kali</a> <a href="/tags/Jetbrains/" style="font-size: 1.37em; color: #99a4b3">Jetbrains</a> <a href="/tags/Tomcat/" style="font-size: 1.23em; color: #999ea5">Tomcat</a> <a href="/tags/AJAX/" style="font-size: 1.14em; color: #999a9c">AJAX</a> <a href="/tags/Python/" style="font-size: 1.48em; color: #99a8bd">Python</a> <a href="/tags/Javascript/" style="font-size: 1.45em; color: #99a7ba">Javascript</a> <a href="/tags/SpringBoot/" style="font-size: 1.35em; color: #99a3b1">SpringBoot</a> <a href="/tags/Express/" style="font-size: 1.1em; color: #999">Express</a> <a href="/tags/PowerShell/" style="font-size: 1.12em; color: #999a9b">PowerShell</a> <a href="/tags/Dart/" style="font-size: 1.39em; color: #99a5b5">Dart</a> <a href="/tags/Database/" style="font-size: 1.43em; color: #99a6b8">Database</a> <a href="/tags/Kubernetes/" style="font-size: 1.19em; color: #999da2">Kubernetes</a> <a href="/tags/Homebrew/" style="font-size: 1.12em; color: #999a9b">Homebrew</a> <a href="/tags/Android/" style="font-size: 1.41em; color: #99a5b6">Android</a> <a href="/tags/Arduino/" style="font-size: 1.1em; color: #999">Arduino</a></div></div><div class="card-widget card-webinfo"><div class="item-headline"><i class="fas fa-chart-line"></i><span>网站资讯</span></div><div class="webinfo"><div class="webinfo-item"><div class="item-name">文章数目 :</div><div class="item-count">2918</div></div><div class="webinfo-item"><div class="item-name">已运行时间 :</div><div class="item-count" id="runtimeshow" data-publishDate="2019-11-22T07:53:18.000Z"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">本站访客数 :</div><div class="item-count" id="busuanzi_value_site_uv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">本站总访问量 :</div><div class="item-count" id="busuanzi_value_site_pv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">最后更新时间 :</div><div class="item-count" id="last-push-date" data-lastPushDate="2024-08-08T01:57:40.535Z"><i class="fa-solid fa-spinner fa-spin"></i></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="translateLink" type="button" title="简繁转换">繁</button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js?v=4.13.0"></script><script src="/js/main.js?v=4.13.0"></script><script src="/js/tw_cn.js?v=4.13.0"></script><script src="https://cdn.jsdelivr.net/npm/medium-zoom@1.1.0/dist/medium-zoom.min.js"></script><div class="js-pjax"><script>(() => {
-  const $mermaid = document.querySelectorAll('#article-container .mermaid-wrap')
-  if ($mermaid.length === 0) return
-  const runMermaid = () => {
-    window.loadMermaid = true
-    const theme = document.documentElement.getAttribute('data-theme') === 'dark' ? 'dark' : 'default'
+            <div class="mobile">
+                
+                    <div class="icon-item search search-popup-trigger"><i class="fas fa-search"></i></div>
+                
+                <div class="icon-item menu-bar">
+                    <div class="menu-bar-middle"></div>
+                </div>
+            </div>
+        </div>
+    </div>
 
-    Array.from($mermaid).forEach((item, index) => {
-      const mermaidSrc = item.firstElementChild
-      const mermaidThemeConfig = '%%{init:{ \'theme\':\'' + theme + '\'}}%%\n'
-      const mermaidID = 'mermaid-' + index
-      const mermaidDefinition = mermaidThemeConfig + mermaidSrc.textContent
+    <div class="header-drawer">
+        <ul class="drawer-menu-list">
+            
+                
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/"
+                    >首页</a>
+                </li>
+            
+                
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/archives/"
+                    >归档</a>
+                </li>
+            
+                
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/about/"
+                    >关于</a>
+                </li>
+            
+                
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/tags/"
+                    >标签</a>
+                </li>
+            
+                
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/categories/"
+                    >分类</a>
+                </li>
+            
+                
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/links/"
+                    >友链</a>
+                </li>
+            
+                
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/reward/"
+                    >赞助</a>
+                </li>
+            
+                
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/atom.xml"
+                    >订阅</a>
+                </li>
+            
+                
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       target="_blank" rel="noopener" href="//fluid.loli.fj.cn"
+                    >主题</a>
+                </li>
+            
+        </ul>
+    </div>
 
-      const renderFn = mermaid.render(mermaidID, mermaidDefinition)
+    <div class="window-mask"></div>
 
-      const renderV10 = () => {
-        renderFn.then(({svg}) => {
-          mermaidSrc.insertAdjacentHTML('afterend', svg)
-        })
-      }
+</header>
 
-      const renderV9 = svg => {
-        mermaidSrc.insertAdjacentHTML('afterend', svg)
-      }
 
-      typeof renderFn === 'string' ? renderV9(renderFn) : renderV10()
-    })
-  }
+        </div>
 
-  const loadMermaid = () => {
-    window.loadMermaid ? runMermaid() : getScript('https://cdn.jsdelivr.net/npm/mermaid@10.8.0/dist/mermaid.min.js').then(runMermaid)
-  }
+        <div class="page-main-content-middle border-box">
 
-  btf.addGlobalFn('themeChange', runMermaid, 'mermaid')
+            <div class="main-content border-box">
+                
 
-  window.pjax ? loadMermaid() : document.addEventListener('DOMContentLoaded', loadMermaid)
-})()</script></div><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/dist/activate-power-mode.min.js"></script><script>POWERMODE.colorful = true;
-POWERMODE.shake = false;
-POWERMODE.mobile = false;
-document.body.addEventListener('input', POWERMODE);
-</script><script src="https://cdn.jsdelivr.net/npm/pjax@0.2.8/pjax.min.js"></script><script>let pjaxSelectors = ["head > title","#config-diff","#body-wrap","#rightside-config-hide","#rightside-config-show",".js-pjax"]
+                    <div class="home-content-container fade-in-down-animation">
+    
+    <ul class="home-post-list border-box">
+        
+            <li class="home-post-item">
 
-var pjax = new Pjax({
-  elements: 'a:not([target="_blank"])',
-  selectors: pjaxSelectors,
-  cacheBust: false,
-  analytics: false,
-  scrollRestoration: false
-})
+                
 
-document.addEventListener('pjax:send', function () {
+                <div class="home-post-item-bottom border-box">
+                    
+                    <h3 class="home-post-title border-box">
+                        <a href="/2023/01/05/DOS%E4%BD%BF%E7%94%A8%E5%8F%98%E9%87%8F%E6%97%B6%E6%8A%A5%E9%94%99/">
+                            【笔记】DOS使用变量时报错
+                        </a>
+                    </h3>
 
-  // removeEventListener
-  btf.removeGlobalFnEvent('pjax')
-  btf.removeGlobalFnEvent('themeChange')
+                    <div class="home-post-content keep-markdown-body">
+                        
+                            <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>DOS使用<code>%%i</code>报错：<code>此处不应有%%i</code>或<code>此时不应有%%i</code></p>
+                        
+                    </div>
 
-  document.getElementById('rightside').classList.remove('rightside-show')
-  
-  if (window.aplayers) {
-    for (let i = 0; i < window.aplayers.length; i++) {
-      if (!window.aplayers[i].options.fixed) {
-        window.aplayers[i].destroy()
-      }
-    }
-  }
+                    
 
-  typeof typed === 'object' && typed.destroy()
+<div class="post-meta-info-container border-box home">
+    <div class="post-meta-info border-box">
+        
+            <span class="meta-info-item border-box">
+                <i class="icon fa-solid fa-file-circle-plus"></i>&nbsp;<span class="home-post-history"
+                                                                                data-updated="Thu Jan 05 2023 12:21:26 GMT+0800"
+                >2023-01-05</span>
+            </span>
+        
 
-  //reset readmode
-  const $bodyClassList = document.body.classList
-  $bodyClassList.contains('read-mode') && $bodyClassList.remove('read-mode')
+        
 
-  typeof disqusjs === 'object' && disqusjs.destroy()
-})
+        
 
-document.addEventListener('pjax:complete', function () {
-  window.refreshFn()
+        
+            <span class="post-tag meta-info-item border-box">
+                <ul class="post-tag-ul">
+                    
+                            <li class="tag-item"><span class="tag-separator"><i class="icon fas fa-hashtag"></i></span><a href="/tags/Windows/">Windows</a></li>
+                        
+                    
+                            <li class="tag-item"><span class="tag-separator"><i class="icon fas fa-hashtag"></i></span><a href="/tags/DOS/">DOS</a></li>
+                        
+                    
+                </ul>
+            </span>
+        
 
-  document.querySelectorAll('script[data-pjax]').forEach(item => {
-    const newScript = document.createElement('script')
-    const content = item.text || item.textContent || item.innerHTML || ""
-    Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
-    newScript.appendChild(document.createTextNode(content))
-    item.parentNode.replaceChild(newScript, item)
-  })
+        
+        
+        
+        
+    </div>
 
-  GLOBAL_CONFIG.islazyload && window.lazyLoadInstance.update()
+    
+        <a class="home-read-more" href="/2023/01/05/DOS%E4%BD%BF%E7%94%A8%E5%8F%98%E9%87%8F%E6%97%B6%E6%8A%A5%E9%94%99/">阅读全文&nbsp;<i class="icon fas fa-angle-right"></i></a>
+    
+</div>
 
-  typeof panguInit === 'function' && panguInit()
+                </div>
+            </li>
+        
+            <li class="home-post-item">
 
-  // google analytics
-  typeof gtag === 'function' && gtag('config', '', {'page_path': window.location.pathname});
+                
 
-  // baidu analytics
-  typeof _hmt === 'object' && _hmt.push(['_trackPageview',window.location.pathname]);
+                <div class="home-post-item-bottom border-box">
+                    
+                    <h3 class="home-post-title border-box">
+                        <a href="/2023/01/05/Kali2020%E5%85%81%E8%AE%B8root%E7%94%A8%E6%88%B7%E7%9B%B4%E6%8E%A5%E7%99%BB%E5%BD%95/">
+                            【笔记】Kali2020允许root用户直接登录
+                        </a>
+                    </h3>
 
-  typeof loadMeting === 'function' && document.getElementsByClassName('aplayer').length && loadMeting()
+                    <div class="home-post-content keep-markdown-body">
+                        
+                            <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>Kali2020之后的版本默认不允许root用户直接登录，将其改为允许root用户直接登录</p>
+                        
+                    </div>
 
-  // prismjs
-  typeof Prism === 'object' && Prism.highlightAll()
-})
+                    
 
-document.addEventListener('pjax:error', e => {
-  if (e.request.status === 404) {
-    pjax.loadUrl('/404.html')
-  }
-})</script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据库加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div id="local-search-results"></div><div id="local-search-stats-wrap"></div></div></div><div id="search-mask"></div><script src="/js/search/local-search.js?v=4.13.0"></script></div></div></body></html>
+<div class="post-meta-info-container border-box home">
+    <div class="post-meta-info border-box">
+        
+            <span class="meta-info-item border-box">
+                <i class="icon fa-solid fa-file-circle-plus"></i>&nbsp;<span class="home-post-history"
+                                                                                data-updated="Thu Jan 05 2023 11:10:01 GMT+0800"
+                >2023-01-05</span>
+            </span>
+        
+
+        
+
+        
+
+        
+            <span class="post-tag meta-info-item border-box">
+                <ul class="post-tag-ul">
+                    
+                            <li class="tag-item"><span class="tag-separator"><i class="icon fas fa-hashtag"></i></span><a href="/tags/Kali/">Kali</a></li>
+                        
+                    
+                            <li class="tag-item"><span class="tag-separator"><i class="icon fas fa-hashtag"></i></span><a href="/tags/Linux/">Linux</a></li>
+                        
+                    
+                </ul>
+            </span>
+        
+
+        
+        
+        
+        
+    </div>
+
+    
+        <a class="home-read-more" href="/2023/01/05/Kali2020%E5%85%81%E8%AE%B8root%E7%94%A8%E6%88%B7%E7%9B%B4%E6%8E%A5%E7%99%BB%E5%BD%95/">阅读全文&nbsp;<i class="icon fas fa-angle-right"></i></a>
+    
+</div>
+
+                </div>
+            </li>
+        
+            <li class="home-post-item">
+
+                
+
+                <div class="home-post-item-bottom border-box">
+                    
+                    <h3 class="home-post-title border-box">
+                        <a href="/2023/01/04/Clash%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">
+                            【笔记】Clash学习笔记
+                        </a>
+                    </h3>
+
+                    <div class="home-post-content keep-markdown-body">
+                        
+                            <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>Clash is a cross-platform rule-based proxy utility that runs on the network and application layer, supporting various proxy and anti-censorship protocols out-of-the-box.（<a href="/302.html?target=https://github.com/Dreamacro/clash/docs">Github</a>）</p>
+                        
+                    </div>
+
+                    
+
+<div class="post-meta-info-container border-box home">
+    <div class="post-meta-info border-box">
+        
+            <span class="meta-info-item border-box">
+                <i class="icon fa-solid fa-file-circle-plus"></i>&nbsp;<span class="home-post-history"
+                                                                                data-updated="Wed Jan 04 2023 18:02:15 GMT+0800"
+                >2023-01-04</span>
+            </span>
+        
+
+        
+
+        
+
+        
+            <span class="post-tag meta-info-item border-box">
+                <ul class="post-tag-ul">
+                    
+                            <li class="tag-item"><span class="tag-separator"><i class="icon fas fa-hashtag"></i></span><a href="/tags/Github/">Github</a></li>
+                        
+                    
+                </ul>
+            </span>
+        
+
+        
+        
+        
+        
+    </div>
+
+    
+        <a class="home-read-more" href="/2023/01/04/Clash%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">阅读全文&nbsp;<i class="icon fas fa-angle-right"></i></a>
+    
+</div>
+
+                </div>
+            </li>
+        
+            <li class="home-post-item">
+
+                
+
+                <div class="home-post-item-bottom border-box">
+                    
+                    <h3 class="home-post-title border-box">
+                        <a href="/2023/01/03/%E9%83%A8%E7%BD%B2CALDERA%E7%8E%AF%E5%A2%83/">
+                            【笔记】部署CALDERA环境
+                        </a>
+                    </h3>
+
+                    <div class="home-post-content keep-markdown-body">
+                        
+                            <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>CALDERA™ is a cyber security platform designed to easily automate adversary emulation, assist manual red-teams, and automate incident response.（<a href="/302.html?target=https://github.com/mitre/caldera">Github</a>）</p>
+                        
+                    </div>
+
+                    
+
+<div class="post-meta-info-container border-box home">
+    <div class="post-meta-info border-box">
+        
+            <span class="meta-info-item border-box">
+                <i class="icon fa-solid fa-file-circle-plus"></i>&nbsp;<span class="home-post-history"
+                                                                                data-updated="Tue Jan 03 2023 15:04:46 GMT+0800"
+                >2023-01-03</span>
+            </span>
+        
+
+        
+
+        
+
+        
+            <span class="post-tag meta-info-item border-box">
+                <ul class="post-tag-ul">
+                    
+                            <li class="tag-item"><span class="tag-separator"><i class="icon fas fa-hashtag"></i></span><a href="/tags/Github/">Github</a></li>
+                        
+                    
+                            <li class="tag-item"><span class="tag-separator"><i class="icon fas fa-hashtag"></i></span><a href="/tags/Linux/">Linux</a></li>
+                        
+                    
+                </ul>
+            </span>
+        
+
+        
+        
+        
+        
+    </div>
+
+    
+        <a class="home-read-more" href="/2023/01/03/%E9%83%A8%E7%BD%B2CALDERA%E7%8E%AF%E5%A2%83/">阅读全文&nbsp;<i class="icon fas fa-angle-right"></i></a>
+    
+</div>
+
+                </div>
+            </li>
+        
+            <li class="home-post-item">
+
+                
+
+                <div class="home-post-item-bottom border-box">
+                    
+                    <h3 class="home-post-title border-box">
+                        <a href="/2023/01/01/%E5%9C%A8Ubuntu%E4%B8%8A%E5%AE%89%E8%A3%85Kali/">
+                            【笔记】在Ubuntu上安装Kali
+                        </a>
+                    </h3>
+
+                    <div class="home-post-content keep-markdown-body">
+                        
+                            <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>在Ubuntu上安装Kali</p>
+                        
+                    </div>
+
+                    
+
+<div class="post-meta-info-container border-box home">
+    <div class="post-meta-info border-box">
+        
+            <span class="meta-info-item border-box">
+                <i class="icon fa-solid fa-file-circle-plus"></i>&nbsp;<span class="home-post-history"
+                                                                                data-updated="Sun Jan 01 2023 16:23:36 GMT+0800"
+                >2023-01-01</span>
+            </span>
+        
+
+        
+
+        
+
+        
+            <span class="post-tag meta-info-item border-box">
+                <ul class="post-tag-ul">
+                    
+                            <li class="tag-item"><span class="tag-separator"><i class="icon fas fa-hashtag"></i></span><a href="/tags/Github/">Github</a></li>
+                        
+                    
+                            <li class="tag-item"><span class="tag-separator"><i class="icon fas fa-hashtag"></i></span><a href="/tags/Kali/">Kali</a></li>
+                        
+                    
+                            <li class="tag-item"><span class="tag-separator"><i class="icon fas fa-hashtag"></i></span><a href="/tags/Linux/">Linux</a></li>
+                        
+                    
+                </ul>
+            </span>
+        
+
+        
+        
+        
+        
+    </div>
+
+    
+        <a class="home-read-more" href="/2023/01/01/%E5%9C%A8Ubuntu%E4%B8%8A%E5%AE%89%E8%A3%85Kali/">阅读全文&nbsp;<i class="icon fas fa-angle-right"></i></a>
+    
+</div>
+
+                </div>
+            </li>
+        
+            <li class="home-post-item">
+
+                
+
+                <div class="home-post-item-bottom border-box">
+                    
+                    <h3 class="home-post-title border-box">
+                        <a href="/2023/01/01/Python2%E7%94%9F%E6%88%90UUID/">
+                            【笔记】Python生成UUID
+                        </a>
+                    </h3>
+
+                    <div class="home-post-content keep-markdown-body">
+                        
+                            <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>Python生成UUID学习笔记</p>
+                        
+                    </div>
+
+                    
+
+<div class="post-meta-info-container border-box home">
+    <div class="post-meta-info border-box">
+        
+            <span class="meta-info-item border-box">
+                <i class="icon fa-solid fa-file-circle-plus"></i>&nbsp;<span class="home-post-history"
+                                                                                data-updated="Sun Jan 01 2023 10:55:13 GMT+0800"
+                >2023-01-01</span>
+            </span>
+        
+
+        
+
+        
+
+        
+            <span class="post-tag meta-info-item border-box">
+                <ul class="post-tag-ul">
+                    
+                            <li class="tag-item"><span class="tag-separator"><i class="icon fas fa-hashtag"></i></span><a href="/tags/Python/">Python</a></li>
+                        
+                    
+                </ul>
+            </span>
+        
+
+        
+        
+        
+        
+    </div>
+
+    
+        <a class="home-read-more" href="/2023/01/01/Python2%E7%94%9F%E6%88%90UUID/">阅读全文&nbsp;<i class="icon fas fa-angle-right"></i></a>
+    
+</div>
+
+                </div>
+            </li>
+        
+            <li class="home-post-item">
+
+                
+
+                <div class="home-post-item-bottom border-box">
+                    
+                    <h3 class="home-post-title border-box">
+                        <a href="/2022/12/31/Shells%E5%8F%8D%E5%90%91Shell%E7%94%9F%E6%88%90%E5%B7%A5%E5%85%B7/">
+                            【笔记】Shells反向Shell生成工具
+                        </a>
+                    </h3>
+
+                    <div class="home-post-content keep-markdown-body">
+                        
+                            <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>A script for generating common revshells fast and easy.<br>Especially nice when in need of PowerShell and Python revshells, which can be a PITA getting correctly formated.（<a href="/302.html?target=https://github.com/4ndr34z/shells">Github</a>）</p>
+<p><font color="red">本文仅用于网络信息防御学习</font></p>
+                        
+                    </div>
+
+                    
+
+<div class="post-meta-info-container border-box home">
+    <div class="post-meta-info border-box">
+        
+            <span class="meta-info-item border-box">
+                <i class="icon fa-solid fa-file-circle-plus"></i>&nbsp;<span class="home-post-history"
+                                                                                data-updated="Sat Dec 31 2022 18:56:27 GMT+0800"
+                >2022-12-31</span>
+            </span>
+        
+
+        
+
+        
+
+        
+            <span class="post-tag meta-info-item border-box">
+                <ul class="post-tag-ul">
+                    
+                            <li class="tag-item"><span class="tag-separator"><i class="icon fas fa-hashtag"></i></span><a href="/tags/Github/">Github</a></li>
+                        
+                    
+                </ul>
+            </span>
+        
+
+        
+        
+        
+        
+    </div>
+
+    
+        <a class="home-read-more" href="/2022/12/31/Shells%E5%8F%8D%E5%90%91Shell%E7%94%9F%E6%88%90%E5%B7%A5%E5%85%B7/">阅读全文&nbsp;<i class="icon fas fa-angle-right"></i></a>
+    
+</div>
+
+                </div>
+            </li>
+        
+            <li class="home-post-item">
+
+                
+
+                <div class="home-post-item-bottom border-box">
+                    
+                    <h3 class="home-post-title border-box">
+                        <a href="/2022/12/31/SiteScan%E4%BF%A1%E6%81%AF%E6%94%B6%E9%9B%86/">
+                            【笔记】SiteScan信息收集
+                        </a>
+                    </h3>
+
+                    <div class="home-post-content keep-markdown-body">
+                        
+                            <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>包括域名ip历史解析、nmap常见端口爆破、子域名信息收集、旁站信息收集、whois信息收集、网站架构分析、cms解析、备案号信息收集、CDN信息解析、是否存在waf检测、后台寻找以及生成检测结果html报告表等。（<a href="/302.html?target=https://github.com/kracer127/SiteScan">Github</a>）</p>
+<p><font color="red">本文仅用于网络信息防御学习</font></p>
+                        
+                    </div>
+
+                    
+
+<div class="post-meta-info-container border-box home">
+    <div class="post-meta-info border-box">
+        
+            <span class="meta-info-item border-box">
+                <i class="icon fa-solid fa-file-circle-plus"></i>&nbsp;<span class="home-post-history"
+                                                                                data-updated="Sat Dec 31 2022 18:39:46 GMT+0800"
+                >2022-12-31</span>
+            </span>
+        
+
+        
+
+        
+
+        
+            <span class="post-tag meta-info-item border-box">
+                <ul class="post-tag-ul">
+                    
+                            <li class="tag-item"><span class="tag-separator"><i class="icon fas fa-hashtag"></i></span><a href="/tags/Github/">Github</a></li>
+                        
+                    
+                </ul>
+            </span>
+        
+
+        
+        
+        
+        
+    </div>
+
+    
+        <a class="home-read-more" href="/2022/12/31/SiteScan%E4%BF%A1%E6%81%AF%E6%94%B6%E9%9B%86/">阅读全文&nbsp;<i class="icon fas fa-angle-right"></i></a>
+    
+</div>
+
+                </div>
+            </li>
+        
+            <li class="home-post-item">
+
+                
+
+                <div class="home-post-item-bottom border-box">
+                    
+                    <h3 class="home-post-title border-box">
+                        <a href="/2022/12/31/ThinkPhp6LangRce%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">
+                            【笔记】ThinkPhp6LangRce学习笔记
+                        </a>
+                    </h3>
+
+                    <div class="home-post-content keep-markdown-body">
+                        
+                            <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>一个用于自检Thinkphp多语言漏洞并且可以一键rce的工具，日后再做相关完善。（<a href="/302.html?target=https://github.com/7coinSec/ThinkPhp6LangRceTools">Github</a>）</p>
+<p><font color="red">本文仅用于网络信息防御学习</font></p>
+                        
+                    </div>
+
+                    
+
+<div class="post-meta-info-container border-box home">
+    <div class="post-meta-info border-box">
+        
+            <span class="meta-info-item border-box">
+                <i class="icon fa-solid fa-file-circle-plus"></i>&nbsp;<span class="home-post-history"
+                                                                                data-updated="Sat Dec 31 2022 18:28:47 GMT+0800"
+                >2022-12-31</span>
+            </span>
+        
+
+        
+
+        
+
+        
+            <span class="post-tag meta-info-item border-box">
+                <ul class="post-tag-ul">
+                    
+                            <li class="tag-item"><span class="tag-separator"><i class="icon fas fa-hashtag"></i></span><a href="/tags/Github/">Github</a></li>
+                        
+                    
+                </ul>
+            </span>
+        
+
+        
+        
+        
+        
+    </div>
+
+    
+        <a class="home-read-more" href="/2022/12/31/ThinkPhp6LangRce%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">阅读全文&nbsp;<i class="icon fas fa-angle-right"></i></a>
+    
+</div>
+
+                </div>
+            </li>
+        
+            <li class="home-post-item">
+
+                
+
+                <div class="home-post-item-bottom border-box">
+                    
+                    <h3 class="home-post-title border-box">
+                        <a href="/2022/12/31/Chafofa%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">
+                            【笔记】Chafofa学习笔记
+                        </a>
+                    </h3>
+
+                    <div class="home-post-content keep-markdown-body">
+                        
+                            <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>一款命令行fofa查询工具，可快速将查询结果导出到表格中。（<a href="/302.html?target=https://github.com/langsasec/chafofa">Github</a>）</p>
+<p><font color="red">本文仅用于网络信息防御学习</font></p>
+                        
+                    </div>
+
+                    
+
+<div class="post-meta-info-container border-box home">
+    <div class="post-meta-info border-box">
+        
+            <span class="meta-info-item border-box">
+                <i class="icon fa-solid fa-file-circle-plus"></i>&nbsp;<span class="home-post-history"
+                                                                                data-updated="Sat Dec 31 2022 16:30:12 GMT+0800"
+                >2022-12-31</span>
+            </span>
+        
+
+        
+
+        
+
+        
+            <span class="post-tag meta-info-item border-box">
+                <ul class="post-tag-ul">
+                    
+                            <li class="tag-item"><span class="tag-separator"><i class="icon fas fa-hashtag"></i></span><a href="/tags/Github/">Github</a></li>
+                        
+                    
+                </ul>
+            </span>
+        
+
+        
+        
+        
+        
+    </div>
+
+    
+        <a class="home-read-more" href="/2022/12/31/Chafofa%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">阅读全文&nbsp;<i class="icon fas fa-angle-right"></i></a>
+    
+</div>
+
+                </div>
+            </li>
+        
+    </ul>
+    
+    <div class="paginator border-box flex-center">
+        <div class="btn-wrap allowed">
+            <a class="jump-btn"
+               href="/page/141/"
+            ><i class="fa-solid fa-chevron-left"></i></a>
+        </div>
+
+
+        <div class="page-number-box border-box flex-center">
+            <input class="page-number-input border-box base-color-size"
+                   type="number"
+                   value="142"
+                   min="1"
+                   max="292"
+            ><span class="delimiter base-color-size">/</span><span class="base-color-size">292</span>
+        </div>
+
+
+        <div class="btn-wrap allowed">
+            <a class="jump-btn"
+               href="/page/143/"
+            ><i class="fa-solid fa-chevron-right"></i></a>
+        </div>
+    </div>
+
+
+
+
+</div>
+
+
+                
+            </div>
+        </div>
+
+        <div class="page-main-content-bottom border-box">
+            
+<footer class="footer border-box">
+    <div class="copyright-info info-item">
+        &copy;&nbsp;<span>2019</span>&nbsp;-&nbsp;2024
+        
+            &nbsp;<i class="fas fa-heart icon-animate"></i>&nbsp;&nbsp;<a href="/">绯鞠</a>
+        
+    </div>
+
+    <div class="theme-info info-item">
+        由&nbsp;<a target="_blank" href="https://hexo.io">Hexo</a>&nbsp;驱动&nbsp;&&nbsp;主题&nbsp;<a class="keep-version" target="_blank" href="https://github.com/XPoet/hexo-theme-keep">Keep</a>
+    </div>
+
+    
+
+    
+        <div class="count-info info-item">
+            
+
+            
+                <span class="count-item border-box uv">
+                    <span class="item-type border-box">访客数</span>
+                    <span class="item-value border-box uv" id="busuanzi_value_site_uv"></span>
+                </span>
+            
+
+            
+                <span class="count-item border-box pv">
+                    <span class="item-type border-box">访问量</span>
+                    <span class="item-value border-box pv" id="busuanzi_value_site_pv"></span>
+                </span>
+            
+        </div>
+    
+
+    
+</footer>
+
+        </div>
+    </div>
+
+    <!-- post tools -->
+    
+
+    <!-- side tools -->
+    <div class="side-tools">
+        <div class="side-tools-container border-box side-tools-show-handle">
+    <ul class="side-tools-list side-tools-show-handle border-box">
+        <li class="tools-item tool-font-adjust-plus flex-center">
+            <i class="fas fa-search-plus"></i>
+        </li>
+
+        <li class="tools-item tool-font-adjust-minus flex-center">
+            <i class="fas fa-search-minus"></i>
+        </li>
+
+        <li class="tools-item tool-toggle-theme-mode flex-center">
+            <i class="fas fa-moon"></i>
+        </li>
+
+        <!-- rss -->
+        
+            <li class="tools-item rss flex-center">
+                <a class="flex-center"
+                   href="/atom.xml"
+                   target="_blank"
+                >
+                    <i class="fas fa-rss"></i>
+                </a>
+            </li>
+        
+
+        <li class="tools-item tool-scroll-to-bottom flex-center">
+            <i class="fas fa-arrow-down"></i>
+        </li>
+    </ul>
+
+    <ul class="exposed-tools-list border-box">
+        
+
+        
+
+        <li class="tools-item tool-toggle-show flex-center">
+            <i class="fas fa-cog fa-spin"></i>
+        </li>
+
+        <li class="tools-item tool-scroll-to-top flex-center show-arrow">
+            <i class="arrow fas fa-arrow-up"></i>
+            <span class="percent"></span>
+        </li>
+    </ul>
+</div>
+
+    </div>
+
+    <!-- image mask -->
+    <div class="zoom-in-image-mask">
+    <img class="zoom-in-image">
+</div>
+
+
+    <!-- local search -->
+    
+        <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+          <span class="search-input-field-pre">
+            <i class="fas fa-keyboard"></i>
+          </span>
+            <div class="search-input-container">
+                <input autocomplete="off"
+                       autocorrect="off"
+                       autocapitalize="off"
+                       placeholder="搜索..."
+                       spellcheck="false"
+                       type="search"
+                       class="search-input"
+                >
+            </div>
+            <span class="close-popup-btn">
+                <i class="fas fa-times"></i>
+            </span>
+        </div>
+        <div id="search-result">
+            <div id="no-result">
+                <i class="fas fa-spinner fa-pulse fa-5x fa-fw"></i>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+
+    <!-- tablet toc -->
+    
+</main>
+
+
+
+
+<!-- common -->
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/header-shrink.js"></script>
+
+<script src="/js/back2top.js"></script>
+
+<script src="/js/toggle-theme.js"></script>
+
+<script src="/js/code-block.js"></script>
+
+<script src="/js/main.js"></script>
+
+<script src="/js/libs/anime.min.js"></script>
+
+
+<!-- local-search -->
+
+    
+<script src="/js/local-search.js"></script>
+
+
+
+<!-- lazyload -->
+
+
+<div class="pjax">
+    
+
+    <!-- categories page -->
+    
+
+    <!-- links page -->
+    
+
+    <!-- photos page -->
+    
+
+    <!-- tools page -->
+    
+</div>
+
+<!-- mermaid -->
+
+
+<!-- pjax -->
+
+    
+<script src="/js/libs/pjax.min.js"></script>
+
+<script>
+    window.addEventListener('DOMContentLoaded', () => {
+        window.pjax = new Pjax({
+            selectors: [
+                'head title',
+                '.page-container',
+                '.pjax'
+            ],
+            history: true,
+            debug: false,
+            cacheBust: false,
+            timeout: 0,
+            analytics: false,
+            currentUrlFullReload: false,
+            scrollRestoration: false,
+        });
+
+        document.addEventListener('pjax:send', () => {
+            KEEP.utils.pjaxProgressBarStart()
+        });
+
+        document.addEventListener('pjax:complete', () => {
+            KEEP.utils.pjaxProgressBarEnd()
+            window.pjax.executeScripts(document.querySelectorAll('script[data-pjax], .pjax script'))
+            KEEP.initExecute()
+        });
+    });
+</script>
+
+
+
+
+</body>
+</html>
