@@ -1,21 +1,50 @@
-
-
 <!DOCTYPE html>
-<html lang="zh-CN" data-default-color-scheme=auto>
+<html lang="zh-CN">
+    <head>
+    <meta charset="utf-8">
+
+    
+
+    <!-- 渲染优化 -->
+    <meta name="renderer" content="webkit">
+    <meta name="force-rendering" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta name="HandheldFriendly" content="True" >
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <!--icon-->
+
+    
+        <link rel="shortcut icon" href="/dist/images/favicon_package/favicon.ico">
+    
+    
+        <link rel="icon" type="image/png" sizes="16x16" href="/dist/images/favicon_package/favicon-16x16.png">
+    
+    
+        <link rel="icon" type="image/png" sizes="32x32" href="/dist/images/favicon_package/favicon-32x32.png">
+    
+    
+        <link rel="apple-touch-icon" sizes="180x180" href="/dist/images/favicon_package/apple-touch-icon.png">
+    
+    
+        <link rel="mask-icon" href="/dist/images/favicon_package/safari-pinned-tab.svg">
+    
+
+
+    <!-- meta -->
+
+
+<title>【笔记】Feign快速入门 | 绯鞠的博客</title>
+
+
+    <meta name="keywords" content="Java, Spring, SpringCloud">
 
 
 
-<head>
-  <meta charset="UTF-8">
-  <link rel="apple-touch-icon" sizes="76x76" href="/dist/images/favicon_package/apple-touch-icon.png">
-  <link rel="icon" href="/dist/images/favicon_package/favicon.ico">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
-  <meta http-equiv="x-ua-compatible" content="ie=edge">
-  
-  <meta name="theme-color" content="#2f4154">
-  <meta name="author" content="绯鞠">
-  <meta name="keywords" content="">
-  
+
+    <!-- OpenGraph -->
+ 
     <meta name="description" content="前言Feign的功能：声明式客户端、集成Ribbon（负载均衡和重试）、集成Hystrix（降级和熔断）">
 <meta property="og:type" content="article">
 <meta property="og:title" content="【笔记】Feign快速入门">
@@ -30,1677 +59,151 @@
 <meta property="article:tag" content="Spring">
 <meta property="article:tag" content="SpringCloud">
 <meta name="twitter:card" content="summary_large_image">
-  
-  
-    <meta name="referrer" content="no-referrer-when-downgrade">
-  
-  
-  <title>【笔记】Feign快速入门 - 绯鞠的博客</title>
-
-  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
 
+    
+<link rel="stylesheet" href="/css/style/main.css">
+ 
 
-  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+    
+    
+        <link rel="stylesheet" id="hl-default-theme" href="/css/highlight/highlight.css" media="none" onload="this.media='all'">
+        
+    
 
-  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+    
+    
 
-  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+    
 
+     
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+ 
 
+    <!-- custom head -->
 
-<!-- 主题依赖的图标库，不要自行修改 -->
-<!-- Do not modify the link that theme dependent icons -->
-
-<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
-
-
-
-<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
-
-
-<link  rel="stylesheet" href="/css/main.css" />
-
-
-  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
-  
-    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
-  
-
-
-
-
-  <script id="fluid-configs">
-    var Fluid = window.Fluid || {};
-    Fluid.ctx = Object.assign({}, Fluid.ctx)
-    var CONFIG = {"hostname":"loli.fj.cn","root":"/","version":"1.9.7","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"PLAINTEXT"},"copy_btn":true,"image_caption":{"enable":false},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":6},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml","include_content_in_search":true};
-
-    if (CONFIG.web_analytics.follow_dnt) {
-      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
-      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
-    }
-  </script>
-  <script  src="/js/utils.js" ></script>
-  <script  src="/js/color-schema.js" ></script>
-  
-
-
-  
 <meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="绯鞠的博客" type="application/atom+xml">
 </head>
 
+    <body>
+        <div id="app" tabindex="-1">
+            <header class="header">
+    <div class="header__left">
+        <a href="/" class="button">
+            <span class="logo__text">绯鞠的博客</span>
+        </a>
+    </div>
+    <div class="header__right">
+        
+            <div class="navbar__menus">
+                
+                    <a href="/" class="navbar-menu button">首页</a>
+                
+                    <a href="/about/" class="navbar-menu button">关于</a>
+                
+                    <a href="/archives/" class="navbar-menu button">归档</a>
+                
+                    <a href="/links/" class="navbar-menu button">友链</a>
+                
+                    <a href="/reward/" class="navbar-menu button">赞助</a>
+                
+                    <a href="/atom.xml" class="navbar-menu button">订阅</a>
+                
+                    <a target="_blank" rel="noopener" href="//melody.loli.fj.cn" class="navbar-menu button">主题</a>
+                
+            </div>
+        
+        
+        
 
-<body>
-  
+        
+        
 
-  <header>
+        
+            <a class="dropdown-icon button" id="btn-dropdown" tabindex="0"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" width='24' height='24' fill="none" stroke="currentColor" stroke-width="0.7" stroke-linecap="round" stroke-linejoin="round"><path fill="currentColor" d="M3.314,4.8h13.372c0.41,0,0.743-0.333,0.743-0.743c0-0.41-0.333-0.743-0.743-0.743H3.314c-0.41,0-0.743,0.333-0.743,0.743C2.571,4.467,2.904,4.8,3.314,4.8z M16.686,15.2H3.314c-0.41,0-0.743,0.333-0.743,0.743s0.333,0.743,0.743,0.743h13.372c0.41,0,0.743-0.333,0.743-0.743S17.096,15.2,16.686,15.2z M16.686,9.257H3.314c-0.41,0-0.743,0.333-0.743,0.743s0.333,0.743,0.743,0.743h13.372c0.41,0,0.743-0.333,0.743-0.743S17.096,9.257,16.686,9.257z"></path></svg></a>
+            <div class="dropdown-menus" id="dropdown-menus">
+                
+                    <a href="/" class="dropdown-menu button">首页</a>
+                
+                    <a href="/about/" class="dropdown-menu button">关于</a>
+                
+                    <a href="/archives/" class="dropdown-menu button">归档</a>
+                
+                    <a href="/links/" class="dropdown-menu button">友链</a>
+                
+                    <a href="/reward/" class="dropdown-menu button">赞助</a>
+                
+                    <a href="/atom.xml" class="dropdown-menu button">订阅</a>
+                
+                    <a target="_blank" rel="noopener" href="//melody.loli.fj.cn" class="dropdown-menu button">主题</a>
+                
+            </div>
+        
+    </div>
+</header>
+
+
+            <main class="main">
     
 
-<div class="header-inner" style="height: 70vh;">
-  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
-  <div class="container">
-    <a class="navbar-brand" href="/">
-      <strong>绯鞠的博客</strong>
-    </a>
+<div class="post-title">
+    <h1 class="post-title__text">
+        【笔记】Feign快速入门
+    </h1>
+    <div class="post-title__meta">
+        <a href="/archives/2020/11/" class="post-meta__date button">2020-11-25</a>
+        
+    <span class="separate-dot"></span><a href="/categories/Java%E5%90%8E%E7%AB%AF%E5%AD%A6%E4%B9%A0%E6%8C%87%E5%8C%97/" class="button">Java后端学习指北</a>
 
-    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
-            data-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <div class="animated-icon"><span></span><span></span><span></span></div>
-    </button>
+ 
+        
+    
+    
 
-    <!-- Collapsible content -->
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav ml-auto text-center">
-        
-          
-          
-          
-          
-            <li class="nav-item">
-              <a class="nav-link" href="/" target="_self">
-                <i class="iconfont icon-home-fill"></i>
-                <span>首页</span>
-              </a>
-            </li>
-          
-        
-          
-          
-          
-          
-            <li class="nav-item">
-              <a class="nav-link" href="/about/" target="_self">
-                <i class="iconfont icon-user-fill"></i>
-                <span>关于</span>
-              </a>
-            </li>
-          
-        
-          
-          
-          
-          
-            <li class="nav-item">
-              <a class="nav-link" href="/tags/" target="_self">
-                <i class="iconfont icon-tags-fill"></i>
-                <span>标签</span>
-              </a>
-            </li>
-          
-        
-          
-          
-          
-          
-            <li class="nav-item">
-              <a class="nav-link" href="/categories/" target="_self">
-                <i class="iconfont icon-category-fill"></i>
-                <span>分类</span>
-              </a>
-            </li>
-          
-        
-          
-          
-          
-          
-            <li class="nav-item">
-              <a class="nav-link" href="/archives/" target="_self">
-                <i class="iconfont icon-archive-fill"></i>
-                <span>归档</span>
-              </a>
-            </li>
-          
-        
-          
-          
-          
-          
-            <li class="nav-item">
-              <a class="nav-link" href="/links/" target="_self">
-                <i class="iconfont icon-user-friends"></i>
-                <span>友链</span>
-              </a>
-            </li>
-          
-        
-          
-          
-          
-          
-            <li class="nav-item">
-              <a class="nav-link" href="/command/" target="_self">
-                <i class="iconfont icon-book"></i>
-                <span>指令</span>
-              </a>
-            </li>
-          
-        
-          
-          
-          
-          
-            <li class="nav-item">
-              <a class="nav-link" href="/atom.xml" target="_self">
-                <i class="iconfont icon-rss"></i>
-                <span>订阅</span>
-              </a>
-            </li>
-          
-        
-          
-          
-          
-          
-            <li class="nav-item">
-              <a class="nav-link" href="//redefine.loli.fj.cn" target="_self">
-                <i class="iconfont icon-th-large"></i>
-                <span>主题</span>
-              </a>
-            </li>
-          
-        
-        
-          <li class="nav-item" id="search-btn">
-            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
-              <i class="iconfont icon-search"></i>
-            </a>
-          </li>
-          
-        
-        
-          <li class="nav-item" id="color-toggle-btn">
-            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
-              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
-            </a>
-          </li>
-        
-      </ul>
+
+ 
+
+ 
     </div>
-  </div>
-</nav>
+</div>
 
-  
 
-<div id="banner" class="banner" parallax=true
-     style="background: url('https://game.gtimg.cn/images/yxzj/img201606/skin/hero-info/141/141-bigskin-1.jpg') no-repeat center center; background-size: cover;">
-  <div class="full-bg-img">
-    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
-      <div class="banner-text text-center fade-in-up">
-        <div class="h2">
-          
-            <span id="subtitle" data-typed-text="【笔记】Feign快速入门"></span>
-          
+    <aside class="post-side">
+        <div class="post-side__toc">
+            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%89%8D%E8%A8%80"><span class="toc-text">前言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B7%BB%E5%8A%A0%E4%BE%9D%E8%B5%96"><span class="toc-text">添加依赖</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%85%8D%E7%BD%AE"><span class="toc-text">配置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9C%A8%E5%90%AF%E5%8A%A8%E7%B1%BB%E6%B7%BB%E5%8A%A0%E6%B3%A8%E8%A7%A3"><span class="toc-text">在启动类添加注解</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%9A%E4%B9%89%E5%A3%B0%E6%98%8E%E5%BC%8F%E5%AE%A2%E6%88%B7%E7%AB%AF"><span class="toc-text">定义声明式客户端</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1%E5%92%8C%E9%87%8D%E8%AF%95"><span class="toc-text">负载均衡和重试</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%99%8D%E7%BA%A7%E5%92%8C%E7%86%94%E6%96%AD"><span class="toc-text">降级和熔断</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%9B%91%E6%8E%A7"><span class="toc-text">监控</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%8C%E6%88%90"><span class="toc-text">完成</span></a></li></ol>
         </div>
-
-        
-          
-  <div class="mt-3">
-    
-    
-      <span class="post-meta">
-        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2020-11-25 15:01" pubdate>
-          2020:11:25
-        </time>
-      </span>
-    
-  </div>
-
-  <div class="mt-1">
-    
-
-    
-
-    
-    
-  </div>
-
-
-        
-      </div>
-
-      
-    </div>
-  </div>
-</div>
-
-</div>
-
-  </header>
-
-  <main>
-    
-      
-
-<div class="container-fluid nopadding-x">
-  <div class="row nomargin-x">
-    <div class="side-col d-none d-lg-block col-lg-2">
-      
-  <aside class="sidebar category-bar" style="margin-right: -1rem">
-    
-
-
-
-
-
-<div class="category-list">
-  
-  
-    
-    
-    
-    <div class="category row nomargin-x">
-      <a class="category-item 
-          list-group-item category-item-action col-10 col-md-11 col-xm-11" title="Java后端学习指北"
-        id="heading-6e1d663b67c0d1240a6560141ec3d997" role="tab" data-toggle="collapse" href="#collapse-6e1d663b67c0d1240a6560141ec3d997"
-        aria-expanded="true"
-      >
-        Java后端学习指北
-        <span class="list-group-count">(147)</span>
-        <i class="iconfont icon-arrowright"></i>
-      </a>
-      
-      <div class="category-collapse collapse show" id="collapse-6e1d663b67c0d1240a6560141ec3d997"
-           role="tabpanel" aria-labelledby="heading-6e1d663b67c0d1240a6560141ec3d997">
-        
-        
-          
-  <div class="category-post-list">
-    
-    
-      
-      
-        <a href="/2020/01/25/JDBC%E5%BF%AB%E9%80%9F%E5%85%A5%E9%97%A8/" title="【代码】JDBC 快速入门"
-           class="list-group-item list-group-item-action
-           ">
-          <span class="category-post">【代码】JDBC 快速入门</span>
-        </a>
-      
-    
-      
-      
-        <a href="/2020/05/20/JDBC%E5%AE%9E%E7%8E%B0%E5%A2%9E%E5%88%A0%E6%94%B9%E6%9F%A5/" title="【代码】JDBC实现增删改查"
-           class="list-group-item list-group-item-action
-           ">
-          <span class="category-post">【代码】JDBC实现增删改查</span>
-        </a>
-      
-    
-      
-      
-        <a href="/2020/08/30/Jedis%E5%BF%AB%E9%80%9F%E5%85%A5%E9%97%A8/" title="【代码】Jedis快速入门"
-           class="list-group-item list-group-item-action
-           ">
-          <span class="category-post">【代码】Jedis快速入门</span>
-        </a>
-      
-    
-      
-      
-        <a href="/2020/12/02/Lucene%E5%BF%AB%E9%80%9F%E5%85%A5%E9%97%A8/" title="【代码】Lucene快速入门"
-           class="list-group-item list-group-item-action
-           ">
-          <span class="category-post">【代码】Lucene快速入门</span>
-        </a>
-      
-    
-      
-      
-        <a href="/2020/08/20/MyBatis%E5%BF%AB%E9%80%9F%E5%85%A5%E9%97%A8/" title="【代码】MyBatis快速入门"
-           class="list-group-item list-group-item-action
-           ">
-          <span class="category-post">【代码】MyBatis快速入门</span>
-        </a>
-      
-    
-      
-      
-        <a href="/2022/09/25/MyBatis%E9%9D%A2%E5%90%91%E6%8E%A5%E5%8F%A3%E5%BC%80%E5%8F%91%E5%BF%AB%E9%80%9F%E5%85%A5%E9%97%A8/" title="【代码】MyBatis面向接口开发快速入门"
-           class="list-group-item list-group-item-action
-           ">
-          <span class="category-post">【代码】MyBatis面向接口开发快速入门</span>
-        </a>
-      
-    
-      
-      
-        <a href="/2022/09/25/MyBatis%E9%9D%A2%E5%90%91%E6%B3%A8%E8%A7%A3%E5%BC%80%E5%8F%91%E5%BF%AB%E9%80%9F%E5%85%A5%E9%97%A8/" title="【代码】MyBatis面向注解开发快速入门"
-           class="list-group-item list-group-item-action
-           ">
-          <span class="category-post">【代码】MyBatis面向注解开发快速入门</span>
-        </a>
-      
-    
-      
-      
-        <a href="/2022/10/13/SSM%E5%B0%81%E8%A3%85%E8%A1%A8%E7%8E%B0%E5%B1%82%E5%93%8D%E5%BA%94%E6%95%B0%E6%8D%AE/" title="【代码】SSM封装表现层响应数据"
-           class="list-group-item list-group-item-action
-           ">
-          <span class="category-post">【代码】SSM封装表现层响应数据</span>
-        </a>
-      
-    
-      
-      
-        <a href="/2022/10/13/SSM%E6%95%B4%E5%90%88/" title="【代码】SSM整合"
-           class="list-group-item list-group-item-action
-           ">
-          <span class="category-post">【代码】SSM整合</span>
-        </a>
-      
-    
-      
-      
-        <a href="/2020/05/13/Servlet%E5%AE%9E%E7%8E%B0%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0/" title="【代码】Servlet实现文件上传"
-           class="list-group-item list-group-item-action
-           ">
-          <span class="category-post">【代码】Servlet实现文件上传</span>
-        </a>
-      
-    
-      
-      
-        <a href="/2020/12/02/Solr%E5%BF%AB%E9%80%9F%E5%85%A5%E9%97%A8/" title="【代码】Solr快速入门"
-           class="list-group-item list-group-item-action
-           ">
-          <span class="category-post">【代码】Solr快速入门</span>
-        </a>
-      
-    
-      
-      
-        <a href="/2021/01/03/SpringBoot-AJAX%E4%B8%8A%E4%BC%A0%E5%A4%9A%E4%B8%AA%E6%96%87%E4%BB%B6/" title="【代码】SpringBoot+AJAX上传多个文件"
-           class="list-group-item list-group-item-action
-           ">
-          <span class="category-post">【代码】SpringBoot+AJAX上传多个文件</span>
-        </a>
-      
-    
-      
-      
-        <a href="/2020/09/28/SpringBoot%E9%A1%B9%E7%9B%AE%E4%BD%BF%E7%94%A8Hikari%E8%BF%9E%E6%8E%A5%E6%B1%A0/" title="【代码】SpringBoot项目使用Hikari连接池"
-           class="list-group-item list-group-item-action
-           ">
-          <span class="category-post">【代码】SpringBoot项目使用Hikari连接池</span>
-        </a>
-      
-    
-      
-      
-        <a href="/2020/08/23/SpringMVC%E5%BF%AB%E9%80%9F%E5%85%A5%E9%97%A8/" title="【代码】SpringMVC快速入门"
-           class="list-group-item list-group-item-action
-           ">
-          <span class="category-post">【代码】SpringMVC快速入门</span>
-        </a>
-      
-    
-      
-      
-        <a href="/2022/09/25/Druid%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" title="【笔记】Druid学习笔记"
-           class="list-group-item list-group-item-action
-           ">
-          <span class="category-post">【笔记】Druid学习笔记</span>
-        </a>
-      
-    
-      
-      
-        <a href="/2020/11/15/Dubbo%E7%AE%A1%E7%90%86%E6%8E%A7%E5%88%B6%E5%8F%B0/" title="【笔记】Dubbo管理控制台"
-           class="list-group-item list-group-item-action
-           ">
-          <span class="category-post">【笔记】Dubbo管理控制台</span>
-        </a>
-      
-    
-      
-      
-        <a href="/2022/11/03/Elasticsearch%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" title="【笔记】Elasticsearch学习笔记"
-           class="list-group-item list-group-item-action
-           ">
-          <span class="category-post">【笔记】Elasticsearch学习笔记</span>
-        </a>
-      
-    
-      
-      
-        <a href="/2020/11/23/Eureka%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" title="【笔记】Eureka学习笔记"
-           class="list-group-item list-group-item-action
-           ">
-          <span class="category-post">【笔记】Eureka学习笔记</span>
-        </a>
-      
-    
-      
-      
-        <a href="/2020/12/01/Eureka%E6%98%BE%E7%A4%BA%E6%AD%A3%E7%A1%AE%E7%9A%84%E7%BD%91%E5%8D%A1/" title="【笔记】Eureka显示正确的网卡"
-           class="list-group-item list-group-item-action
-           ">
-          <span class="category-post">【笔记】Eureka显示正确的网卡</span>
-        </a>
-      
-    
-      
-      
-        <a href="/2022/10/02/Fastjson%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" title="【笔记】Fastjson学习笔记"
-           class="list-group-item list-group-item-action
-           ">
-          <span class="category-post">【笔记】Fastjson学习笔记</span>
-        </a>
-      
-    
-      
-      
-        <a href="/2022/10/24/Feign%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" title="【笔记】Feign学习笔记"
-           class="list-group-item list-group-item-action
-           ">
-          <span class="category-post">【笔记】Feign学习笔记</span>
-        </a>
-      
-    
-      
-      
-        <a href="/2020/11/25/Feign%E5%BF%AB%E9%80%9F%E5%85%A5%E9%97%A8/" title="【笔记】Feign快速入门"
-           class="list-group-item list-group-item-action
-           active">
-          <span class="category-post">【笔记】Feign快速入门</span>
-        </a>
-      
-    
-      
-      
-        <a href="/2022/10/02/Filter%E5%BF%AB%E9%80%9F%E5%85%A5%E9%97%A8/" title="【笔记】Filter快速入门"
-           class="list-group-item list-group-item-action
-           ">
-          <span class="category-post">【笔记】Filter快速入门</span>
-        </a>
-      
-    
-      
-      
-        <a href="/2020/11/25/Hystrix%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" title="【笔记】Hystrix学习笔记"
-           class="list-group-item list-group-item-action
-           ">
-          <span class="category-post">【笔记】Hystrix学习笔记</span>
-        </a>
-      
-    
-      
-      
-        <a href="/2020/10/21/IDEA%E5%88%9B%E5%BB%BA%E5%A4%9A%E6%A8%A1%E5%9D%97%E7%9A%84SpringBoot%E9%A1%B9%E7%9B%AE/" title="【笔记】IDEA创建多模块的SpringBoot项目"
-           class="list-group-item list-group-item-action
-           ">
-          <span class="category-post">【笔记】IDEA创建多模块的SpringBoot项目</span>
-        </a>
-      
-    
-      
-      
-        <a href="/2020/05/19/JDBC%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" title="【笔记】JDBC学习笔记"
-           class="list-group-item list-group-item-action
-           ">
-          <span class="category-post">【笔记】JDBC学习笔记</span>
-        </a>
-      
-    
-      
-      
-        <a href="/2020/05/15/Jsp%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" title="【笔记】JSP学习笔记"
-           class="list-group-item list-group-item-action
-           ">
-          <span class="category-post">【笔记】JSP学习笔记</span>
-        </a>
-      
-    
-      
-      
-        <a href="/2020/10/19/Jackson%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" title="【笔记】Jackson学习笔记"
-           class="list-group-item list-group-item-action
-           ">
-          <span class="category-post">【笔记】Jackson学习笔记</span>
-        </a>
-      
-    
-      
-      
-        <a href="/2019/12/25/Java%E9%A1%B9%E7%9B%AE%E6%89%93%E6%88%90jar%E5%8C%85/" title="【笔记】Java 项目打成 jar 包（IDEA 篇）"
-           class="list-group-item list-group-item-action
-           ">
-          <span class="category-post">【笔记】Java 项目打成 jar 包（IDEA 篇）</span>
-        </a>
-      
-    
-      
-      
-        <a href="/2020/05/25/JavaWeb%E7%9A%84EL%E8%A1%A8%E8%BE%BE%E5%BC%8F/" title="【笔记】JavaWeb的EL表达式"
-           class="list-group-item list-group-item-action
-           ">
-          <span class="category-post">【笔记】JavaWeb的EL表达式</span>
-        </a>
-      
-    
-      
-      
-        <a href="/2020/05/14/JavaWeb%E7%9A%84Filter/" title="【笔记】JavaWeb的Filter"
-           class="list-group-item list-group-item-action
-           ">
-          <span class="category-post">【笔记】JavaWeb的Filter</span>
-        </a>
-      
-    
-      
-      
-        <a href="/2020/05/25/JavaWeb%E7%9A%84JSTL/" title="【笔记】JavaWeb的JSTL"
-           class="list-group-item list-group-item-action
-           ">
-          <span class="category-post">【笔记】JavaWeb的JSTL</span>
-        </a>
-      
-    
-      
-      
-        <a href="/2020/05/13/JavaWeb%E7%9A%84Session/" title="【笔记】JavaWeb的Session"
-           class="list-group-item list-group-item-action
-           ">
-          <span class="category-post">【笔记】JavaWeb的Session</span>
-        </a>
-      
-    
-      
-      
-        <a href="/2022/04/25/Java%E4%B8%AD%E7%9A%84Object%E7%B1%BB/" title="【笔记】Java中的Object类"
-           class="list-group-item list-group-item-action
-           ">
-          <span class="category-post">【笔记】Java中的Object类</span>
-        </a>
-      
-    
-      
-      
-        <a href="/2019/12/08/Java%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" title="【笔记】Java学习笔记"
-           class="list-group-item list-group-item-action
-           ">
-          <span class="category-post">【笔记】Java学习笔记</span>
-        </a>
-      
-    
-      
-      
-        <a href="/2022/02/24/Java%E6%9E%9A%E4%B8%BE%E7%B1%BB%E5%9E%8B/" title="【笔记】Java枚举类型"
-           class="list-group-item list-group-item-action
-           ">
-          <span class="category-post">【笔记】Java枚举类型</span>
-        </a>
-      
-    
-      
-      
-        <a href="/2020/07/07/Java%E7%9A%84Arrays/" title="【笔记】Java的Arrays"
-           class="list-group-item list-group-item-action
-           ">
-          <span class="category-post">【笔记】Java的Arrays</span>
-        </a>
-      
-    
-      
-      
-        <a href="/2020/07/06/Java%E7%9A%84BigInteger%E5%92%8CBigDecimal/" title="【笔记】Java的BigInteger和BigDecimal"
-           class="list-group-item list-group-item-action
-           ">
-          <span class="category-post">【笔记】Java的BigInteger和BigDecimal</span>
-        </a>
-      
-    
-      
-      
-        <a href="/2020/07/11/Java%E7%9A%84Final%E5%85%B3%E9%94%AE%E5%AD%97/" title="【笔记】Java的Final关键字"
-           class="list-group-item list-group-item-action
-           ">
-          <span class="category-post">【笔记】Java的Final关键字</span>
-        </a>
-      
-    
-      
-      
-        <a href="/2020/07/27/Java%E7%9A%84JUnit%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95/" title="【笔记】Java的JUnit单元测试"
-           class="list-group-item list-group-item-action
-           ">
-          <span class="category-post">【笔记】Java的JUnit单元测试</span>
-        </a>
-      
-    
-      
-      
-        <a href="/2020/07/27/Java%E7%9A%84Socket%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/" title="【笔记】Java的Socket网络编程"
-           class="list-group-item list-group-item-action
-           ">
-          <span class="category-post">【笔记】Java的Socket网络编程</span>
-        </a>
-      
-    
-      
-      
-        <a href="/2020/07/11/Java%E7%9A%84Static%E5%85%B3%E9%94%AE%E5%AD%97/" title="【笔记】Java的Static关键字"
-           class="list-group-item list-group-item-action
-           ">
-          <span class="category-post">【笔记】Java的Static关键字</span>
-        </a>
-      
-    
-      
-      
-        <a href="/2020/02/13/Java%E7%9A%84StringBuilder/" title="【笔记】Java的StringBuilder"
-           class="list-group-item list-group-item-action
-           ">
-          <span class="category-post">【笔记】Java的StringBuilder</span>
-        </a>
-      
-    
-      
-      
-        <a href="/2020/07/10/Super%E5%85%B3%E9%94%AE%E5%AD%97/" title="【笔记】Java的Super关键字"
-           class="list-group-item list-group-item-action
-           ">
-          <span class="category-post">【笔记】Java的Super关键字</span>
-        </a>
-      
-    
-      
-      
-        <a href="/2020/07/10/Java%E7%9A%84This%E5%85%B3%E9%94%AE%E5%AD%97/" title="【笔记】Java的This关键字"
-           class="list-group-item list-group-item-action
-           ">
-          <span class="category-post">【笔记】Java的This关键字</span>
-        </a>
-      
-    
-      
-      
-        <a href="/2020/07/10/Java%E7%9A%84%E4%BB%A3%E7%A0%81%E5%9D%97/" title="【笔记】Java的代码块"
-           class="list-group-item list-group-item-action
-           ">
-          <span class="category-post">【笔记】Java的代码块</span>
-        </a>
-      
-    
-      
-      
-        <a href="/2020/07/27/Java%E7%9A%84%E5%86%85%E9%83%A8%E7%B1%BB/" title="【笔记】Java的内部类"
-           class="list-group-item list-group-item-action
-           ">
-          <span class="category-post">【笔记】Java的内部类</span>
-        </a>
-      
-    
-      
-      
-        <a href="/2020/02/13/Java%E7%9A%84%E5%8C%85%E8%A3%85%E7%B1%BB/" title="【笔记】Java的包装类"
-           class="list-group-item list-group-item-action
-           ">
-          <span class="category-post">【笔记】Java的包装类</span>
-        </a>
-      
-    
-      
-      
-        <a href="/2020/07/23/Java%E7%9A%84%E5%8F%8D%E5%B0%84/" title="【笔记】Java的反射"
-           class="list-group-item list-group-item-action
-           ">
-          <span class="category-post">【笔记】Java的反射</span>
-        </a>
-      
-    
-      
-      
-        <a href="/2020/07/11/Java%E7%9A%84%E5%A4%9A%E6%80%81/" title="【笔记】Java的多态"
-           class="list-group-item list-group-item-action
-           ">
-          <span class="category-post">【笔记】Java的多态</span>
-        </a>
-      
-    
-      
-      
-        <a href="/2020/02/13/Java%E7%9A%84%E5%AD%97%E7%AC%A6%E4%B8%B2/" title="【笔记】Java的字符串"
-           class="list-group-item list-group-item-action
-           ">
-          <span class="category-post">【笔记】Java的字符串</span>
-        </a>
-      
-    
-      
-      
-        <a href="/2020/07/10/Java%E7%9A%84%E5%B0%81%E8%A3%85/" title="【笔记】Java的封装"
-           class="list-group-item list-group-item-action
-           ">
-          <span class="category-post">【笔记】Java的封装</span>
-        </a>
-      
-    
-      
-      
-        <a href="/2020/03/13/Java%E7%9A%84%E5%BC%82%E5%B8%B8/" title="【笔记】Java的异常"
-           class="list-group-item list-group-item-action
-           ">
-          <span class="category-post">【笔记】Java的异常</span>
-        </a>
-      
-    
-      
-      
-        <a href="/2020/07/13/Java%E7%9A%84%E6%8A%BD%E8%B1%A1%E7%B1%BB/" title="【笔记】Java的抽象类"
-           class="list-group-item list-group-item-action
-           ">
-          <span class="category-post">【笔记】Java的抽象类</span>
-        </a>
-      
-    
-      
-      
-        <a href="/2020/07/14/Java%E7%9A%84%E6%8E%A5%E5%8F%A3/" title="【笔记】Java的接口"
-           class="list-group-item list-group-item-action
-           ">
-          <span class="category-post">【笔记】Java的接口</span>
-        </a>
-      
-    
-      
-      
-        <a href="/2020/02/12/Java%E7%9A%84%E6%96%87%E4%BB%B6%E5%92%8C%E7%9B%AE%E5%BD%95%E6%93%8D%E4%BD%9C/" title="【笔记】Java的文件和目录操作"
-           class="list-group-item list-group-item-action
-           ">
-          <span class="category-post">【笔记】Java的文件和目录操作</span>
-        </a>
-      
-    
-      
-      
-        <a href="/2020/07/10/Java%E7%9A%84%E6%96%B9%E6%B3%95%E9%87%8D%E5%86%99/" title="【笔记】Java的方法重写"
-           class="list-group-item list-group-item-action
-           ">
-          <span class="category-post">【笔记】Java的方法重写</span>
-        </a>
-      
-    
-      
-      
-        <a href="/2020/02/13/Java%E7%9A%84%E6%97%A5%E5%8E%86%E7%B1%BB/" title="【笔记】Java的日历类"
-           class="list-group-item list-group-item-action
-           ">
-          <span class="category-post">【笔记】Java的日历类</span>
-        </a>
-      
-    
-      
-      
-        <a href="/2020/02/13/Java%E7%9A%84%E6%97%A5%E6%9C%9F%E7%B1%BB/" title="【笔记】Java的日期类"
-           class="list-group-item list-group-item-action
-           ">
-          <span class="category-post">【笔记】Java的日期类</span>
-        </a>
-      
-    
-      
-      
-        <a href="/2020/07/27/Java%E7%9A%84%E6%B3%A8%E8%A7%A3/" title="【笔记】Java的注解"
-           class="list-group-item list-group-item-action
-           ">
-          <span class="category-post">【笔记】Java的注解</span>
-        </a>
-      
-    
-      
-      
-        <a href="/2020/05/30/Java%E7%9A%84%E7%BA%BF%E7%A8%8B/" title="【笔记】Java的线程"
-           class="list-group-item list-group-item-action
-           ">
-          <span class="category-post">【笔记】Java的线程</span>
-        </a>
-      
-    
-      
-      
-        <a href="/2020/07/27/Java%E7%9A%84%E7%BA%BF%E7%A8%8B%E6%B1%A0/" title="【笔记】Java的线程池"
-           class="list-group-item list-group-item-action
-           ">
-          <span class="category-post">【笔记】Java的线程池</span>
-        </a>
-      
-    
-      
-      
-        <a href="/2020/07/10/Java%E7%9A%84%E7%BB%A7%E6%89%BF/" title="【笔记】Java的继承"
-           class="list-group-item list-group-item-action
-           ">
-          <span class="category-post">【笔记】Java的继承</span>
-        </a>
-      
-    
-      
-      
-        <a href="/2020/07/24/Java%E7%9A%84%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" title="【笔记】Java的设计模式"
-           class="list-group-item list-group-item-action
-           ">
-          <span class="category-post">【笔记】Java的设计模式</span>
-        </a>
-      
-    
-      
-      
-        <a href="/2020/07/03/Java%E7%9A%84%E8%BF%90%E7%AE%97%E8%A7%84%E5%88%99/" title="【笔记】Java的运算规则"
-           class="list-group-item list-group-item-action
-           ">
-          <span class="category-post">【笔记】Java的运算规则</span>
-        </a>
-      
-    
-      
-      
-        <a href="/2020/02/17/Java%E7%9A%84%E9%9B%86%E5%90%88/" title="【笔记】Java的集合"
-           class="list-group-item list-group-item-action
-           ">
-          <span class="category-post">【笔记】Java的集合</span>
-        </a>
-      
-    
-      
-      
-        <a href="/2020/01/22/Java%E7%9A%84%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/" title="【笔记】Java的面向对象"
-           class="list-group-item list-group-item-action
-           ">
-          <span class="category-post">【笔记】Java的面向对象</span>
-        </a>
-      
-    
-      
-      
-        <a href="/2023/01/25/Java%E7%A8%8B%E5%BA%8F%E5%A0%86%E5%86%85%E5%AD%98%E8%AF%8A%E6%96%AD/" title="【笔记】Java程序堆内存诊断"
-           class="list-group-item list-group-item-action
-           ">
-          <span class="category-post">【笔记】Java程序堆内存诊断</span>
-        </a>
-      
-    
-      
-      
-        <a href="/2020/09/14/Java%E8%BF%90%E8%A1%8C%E6%97%B6%E5%8F%82%E6%95%B0/" title="【笔记】Java运行时参数"
-           class="list-group-item list-group-item-action
-           ">
-          <span class="category-post">【笔记】Java运行时参数</span>
-        </a>
-      
-    
-      
-      
-        <a href="/2020/08/14/Java%E9%80%9A%E8%BF%87C3P0%E5%AE%9E%E7%8E%B0%E6%95%B0%E6%8D%AE%E5%BA%93%E8%BF%9E%E6%8E%A5%E6%B1%A0/" title="【笔记】Java通过C3P0实现数据库连接池"
-           class="list-group-item list-group-item-action
-           ">
-          <span class="category-post">【笔记】Java通过C3P0实现数据库连接池</span>
-        </a>
-      
-    
-      
-      
-        <a href="/2020/11/11/Java%E9%80%9A%E8%BF%87Jedis%E6%93%8D%E4%BD%9CRedis%E6%95%B0%E6%8D%AE%E5%BA%93/" title="【笔记】Java通过Jedis操作Redis数据库"
-           class="list-group-item list-group-item-action
-           ">
-          <span class="category-post">【笔记】Java通过Jedis操作Redis数据库</span>
-        </a>
-      
-    
-      
-      
-        <a href="/2022/10/02/Listener%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" title="【笔记】Listener学习笔记"
-           class="list-group-item list-group-item-action
-           ">
-          <span class="category-post">【笔记】Listener学习笔记</span>
-        </a>
-      
-    
-      
-      
-        <a href="/2020/09/02/Lombok%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" title="【笔记】Lombok学习笔记"
-           class="list-group-item list-group-item-action
-           ">
-          <span class="category-post">【笔记】Lombok学习笔记</span>
-        </a>
-      
-    
-      
-      
-        <a href="/2022/09/25/Maven%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" title="【笔记】Maven学习笔记"
-           class="list-group-item list-group-item-action
-           ">
-          <span class="category-post">【笔记】Maven学习笔记</span>
-        </a>
-      
-    
-      
-      
-        <a href="/2022/09/25/MyBatis%E4%B8%AD%E5%AE%9A%E4%B9%89%E8%BF%94%E5%9B%9E%E5%80%BC%E7%B1%BB%E5%9E%8B%E7%9A%84%E5%88%AB%E5%90%8D/" title="【笔记】MyBatis中定义返回值类型的别名"
-           class="list-group-item list-group-item-action
-           ">
-          <span class="category-post">【笔记】MyBatis中定义返回值类型的别名</span>
-        </a>
-      
-    
-      
-      
-        <a href="/2022/07/23/Mybatis%E5%8A%A8%E6%80%81SQL%E8%AF%AD%E5%8F%A5/" title="【笔记】MyBatis动态SQL语句"
-           class="list-group-item list-group-item-action
-           ">
-          <span class="category-post">【笔记】MyBatis动态SQL语句</span>
-        </a>
-      
-    
-      
-      
-        <a href="/2022/09/26/MyBatis%E5%8F%82%E6%95%B0%E4%BC%A0%E9%80%92/" title="【笔记】MyBatis参数传递"
-           class="list-group-item list-group-item-action
-           ">
-          <span class="category-post">【笔记】MyBatis参数传递</span>
-        </a>
-      
-    
-      
-      
-        <a href="/2022/09/28/MyBatis%E5%8F%82%E6%95%B0%E5%A4%84%E7%90%86%E6%96%B9%E5%BC%8F/" title="【笔记】MyBatis参数处理方式"
-           class="list-group-item list-group-item-action
-           ">
-          <span class="category-post">【笔记】MyBatis参数处理方式</span>
-        </a>
-      
-    
-      
-      
-        <a href="/2022/09/25/MyBatis%E5%A4%9A%E4%B8%AA%E6%95%B0%E6%8D%AE%E5%BA%93%E9%85%8D%E7%BD%AE/" title="【笔记】MyBatis多个数据库配置"
-           class="list-group-item list-group-item-action
-           ">
-          <span class="category-post">【笔记】MyBatis多个数据库配置</span>
-        </a>
-      
-    
-      
-      
-        <a href="/2020/08/20/MyBatis%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" title="【笔记】MyBatis学习笔记"
-           class="list-group-item list-group-item-action
-           ">
-          <span class="category-post">【笔记】MyBatis学习笔记</span>
-        </a>
-      
-    
-      
-      
-        <a href="/2022/09/25/MyBatis%E5%B0%86Mysql%E5%AD%97%E6%AE%B5%E5%90%8D%E5%92%8CJava%E5%B1%9E%E6%80%A7%E5%90%8D%E6%98%A0%E5%B0%84/" title="【笔记】MyBatis将Mysql字段名和Java属性名映射"
-           class="list-group-item list-group-item-action
-           ">
-          <span class="category-post">【笔记】MyBatis将Mysql字段名和Java属性名映射</span>
-        </a>
-      
-    
-      
-      
-        <a href="/2020/08/20/MyBatis%E6%8F%90%E4%BA%A4%E4%BA%8B%E5%8A%A1/" title="【笔记】MyBatis提交事务"
-           class="list-group-item list-group-item-action
-           ">
-          <span class="category-post">【笔记】MyBatis提交事务</span>
-        </a>
-      
-    
-      
-      
-        <a href="/2022/09/28/MyBatis%E6%8F%92%E5%85%A5%E8%AF%AD%E5%8F%A5%E8%BF%94%E5%9B%9E%E4%B8%BB%E9%94%AE/" title="【笔记】MyBatis插入语句返回主键"
-           class="list-group-item list-group-item-action
-           ">
-          <span class="category-post">【笔记】MyBatis插入语句返回主键</span>
-        </a>
-      
-    
-      
-      
-        <a href="/2020/09/15/MyBatis%E7%BC%93%E5%AD%98/" title="【笔记】MyBatis缓存"
-           class="list-group-item list-group-item-action
-           ">
-          <span class="category-post">【笔记】MyBatis缓存</span>
-        </a>
-      
-    
-      
-      
-        <a href="/2020/11/04/MybatisPlue%E5%AE%9E%E7%8E%B0%E8%87%AA%E5%8A%A8%E5%A1%AB%E5%85%85/" title="【笔记】Mybatis Plue 实现自动填充"
-           class="list-group-item list-group-item-action
-           ">
-          <span class="category-post">【笔记】Mybatis Plue 实现自动填充</span>
-        </a>
-      
-    
-      
-      
-        <a href="/2020/11/11/Mycat%E5%AE%9E%E7%8E%B0%E6%95%B0%E6%8D%AE%E5%BA%93%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1%E5%92%8C%E9%AB%98%E5%8F%AF%E7%94%A8/" title="【笔记】Mycat实现数据库负载均衡和高可用"
-           class="list-group-item list-group-item-action
-           ">
-          <span class="category-post">【笔记】Mycat实现数据库负载均衡和高可用</span>
-        </a>
-      
-    
-      
-      
-        <a href="/2022/10/23/Nacos%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" title="【笔记】Nacos学习笔记"
-           class="list-group-item list-group-item-action
-           ">
-          <span class="category-post">【笔记】Nacos学习笔记</span>
-        </a>
-      
-    
-      
-      
-        <a href="/2022/10/24/Nacos%E9%9B%86%E7%BE%A4%E9%83%A8%E7%BD%B2/" title="【笔记】Nacos集群部署"
-           class="list-group-item list-group-item-action
-           ">
-          <span class="category-post">【笔记】Nacos集群部署</span>
-        </a>
-      
-    
-      
-      
-        <a href="/2020/10/15/POJO%E7%9A%84%E8%AE%BE%E8%AE%A1/" title="【笔记】POJO的设计"
-           class="list-group-item list-group-item-action
-           ">
-          <span class="category-post">【笔记】POJO的设计</span>
-        </a>
-      
-    
-      
-      
-        <a href="/2020/11/13/Redis%E5%88%86%E7%89%87%E6%9C%BA%E5%88%B6/" title="【笔记】Redis分片机制"
-           class="list-group-item list-group-item-action
-           ">
-          <span class="category-post">【笔记】Redis分片机制</span>
-        </a>
-      
-    
-      
-      
-        <a href="/2020/11/24/Ribbon%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" title="【笔记】Ribbon学习笔记"
-           class="list-group-item list-group-item-action
-           ">
-          <span class="category-post">【笔记】Ribbon学习笔记</span>
-        </a>
-      
-    
-      
-      
-        <a href="/2020/12/21/RocketMQ%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" title="【笔记】RocketMQ学习笔记"
-           class="list-group-item list-group-item-action
-           ">
-          <span class="category-post">【笔记】RocketMQ学习笔记</span>
-        </a>
-      
-    
-      
-      
-        <a href="/2020/12/18/RocketMQ%E5%AE%89%E8%A3%85%E7%AC%94%E8%AE%B0/" title="【笔记】RocketMQ安装笔记"
-           class="list-group-item list-group-item-action
-           ">
-          <span class="category-post">【笔记】RocketMQ安装笔记</span>
-        </a>
-      
-    
-      
-      
-        <a href="/2020/12/19/RocketMQ%E7%AE%A1%E7%90%86%E7%95%8C%E9%9D%A2/" title="【笔记】RocketMQ管理界面"
-           class="list-group-item list-group-item-action
-           ">
-          <span class="category-post">【笔记】RocketMQ管理界面</span>
-        </a>
-      
-    
-      
-      
-        <a href="/2022/10/13/SSM%E5%BC%82%E5%B8%B8%E5%A4%84%E7%90%86%E5%99%A8/" title="【笔记】SSM异常处理器"
-           class="list-group-item list-group-item-action
-           ">
-          <span class="category-post">【笔记】SSM异常处理器</span>
-        </a>
-      
-    
-      
-      
-        <a href="/2020/12/15/Seata%E5%88%86%E5%B8%83%E5%BC%8F%E4%BA%8B%E5%8A%A1%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" title="【笔记】Seata 分布式事务 学习笔记"
-           class="list-group-item list-group-item-action
-           ">
-          <span class="category-post">【笔记】Seata 分布式事务 学习笔记</span>
-        </a>
-      
-    
-      
-      
-        <a href="/2020/05/13/Servlet%E5%88%9D%E5%A7%8B%E5%8C%96%E5%8F%82%E6%95%B0/" title="【笔记】Servlet初始化参数"
-           class="list-group-item list-group-item-action
-           ">
-          <span class="category-post">【笔记】Servlet初始化参数</span>
-        </a>
-      
-    
-      
-      
-        <a href="/2020/05/10/Servlet%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" title="【笔记】Servlet学习笔记"
-           class="list-group-item list-group-item-action
-           ">
-          <span class="category-post">【笔记】Servlet学习笔记</span>
-        </a>
-      
-    
-      
-      
-        <a href="/2022/09/29/Servlet%E5%BF%AB%E9%80%9F%E5%85%A5%E9%97%A8/" title="【笔记】Servlet快速入门"
-           class="list-group-item list-group-item-action
-           ">
-          <span class="category-post">【笔记】Servlet快速入门</span>
-        </a>
-      
-    
-      
-      
-        <a href="/2020/12/01/Solr%E5%AE%89%E8%A3%85%E7%AC%94%E8%AE%B0/" title="【笔记】Solr 安装笔记"
-           class="list-group-item list-group-item-action
-           ">
-          <span class="category-post">【笔记】Solr 安装笔记</span>
-        </a>
-      
-    
-      
-      
-        <a href="/2020/10/24/SpringBootCache/" title="【笔记】SpringBoot Cache"
-           class="list-group-item list-group-item-action
-           ">
-          <span class="category-post">【笔记】SpringBoot Cache</span>
-        </a>
-      
-    
-      
-      
-        <a href="/2022/10/22/SpringBoot%E4%B8%8ESpringCloud%E7%9A%84%E5%85%BC%E5%AE%B9%E7%89%88%E6%9C%AC/" title="【笔记】SpringBoot与SpringCloud的兼容版本"
-           class="list-group-item list-group-item-action
-           ">
-          <span class="category-post">【笔记】SpringBoot与SpringCloud的兼容版本</span>
-        </a>
-      
-    
-      
-      
-        <a href="/2022/10/31/SpringBoot%E4%BA%8B%E5%8A%A1/" title="【笔记】SpringBoot事务"
-           class="list-group-item list-group-item-action
-           ">
-          <span class="category-post">【笔记】SpringBoot事务</span>
-        </a>
-      
-    
-      
-      
-        <a href="/2020/10/17/SpringBoot%E5%AE%9E%E7%8E%B0AOP/" title="【笔记】SpringBoot实现AOP"
-           class="list-group-item list-group-item-action
-           ">
-          <span class="category-post">【笔记】SpringBoot实现AOP</span>
-        </a>
-      
-    
-      
-      
-        <a href="/2020/09/16/SpringBoot%E5%AE%9E%E7%8E%B0AOP%E7%9A%84%E5%BF%AB%E9%80%9F%E5%85%A5%E9%97%A8/" title="【笔记】SpringBoot实现AOP的快速入门"
-           class="list-group-item list-group-item-action
-           ">
-          <span class="category-post">【笔记】SpringBoot实现AOP的快速入门</span>
-        </a>
-      
-    
-      
-      
-        <a href="/2020/11/05/SpringBoot%E5%AE%9E%E7%8E%B0%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0/" title="【笔记】SpringBoot实现文件上传"
-           class="list-group-item list-group-item-action
-           ">
-          <span class="category-post">【笔记】SpringBoot实现文件上传</span>
-        </a>
-      
-    
-      
-      
-        <a href="/2020/10/10/SpringBoot%E5%BC%82%E5%B8%B8%E5%A4%84%E7%90%86%E7%B1%BB/" title="【笔记】SpringBoot异常处理类"
-           class="list-group-item list-group-item-action
-           ">
-          <span class="category-post">【笔记】SpringBoot异常处理类</span>
-        </a>
-      
-    
-      
-      
-        <a href="/2020/08/29/SpringBoot%E6%95%B4%E5%90%88Mybatis%E6%A1%86%E6%9E%B6/" title="【笔记】SpringBoot整合Mybatis框架"
-           class="list-group-item list-group-item-action
-           ">
-          <span class="category-post">【笔记】SpringBoot整合Mybatis框架</span>
-        </a>
-      
-    
-      
-      
-        <a href="/2020/08/31/SpringBoot%E6%95%B4%E5%90%88SpringMVC/" title="【笔记】SpringBoot整合SpringMVC"
-           class="list-group-item list-group-item-action
-           ">
-          <span class="category-post">【笔记】SpringBoot整合SpringMVC</span>
-        </a>
-      
-    
-      
-      
-        <a href="/2020/08/28/SpringBoot%E6%95%B4%E5%90%88%E6%95%B0%E6%8D%AE%E5%BA%93%E8%BF%9E%E6%8E%A5%E6%B1%A0/" title="【笔记】SpringBoot整合数据库连接池"
-           class="list-group-item list-group-item-action
-           ">
-          <span class="category-post">【笔记】SpringBoot整合数据库连接池</span>
-        </a>
-      
-    
-      
-      
-        <a href="/2020/08/26/SpringBoot%E6%B3%A8%E8%A7%A3%E7%AC%94%E8%AE%B0/" title="【笔记】SpringBoot注解笔记"
-           class="list-group-item list-group-item-action
-           ">
-          <span class="category-post">【笔记】SpringBoot注解笔记</span>
-        </a>
-      
-    
-      
-      
-        <a href="/2020/09/02/SpringBoot%E7%83%AD%E9%83%A8%E7%BD%B2%E9%85%8D%E7%BD%AE%E5%8F%8A%E5%AE%9E%E7%8E%B0%E7%B1%BB/" title="【笔记】SpringBoot热部署配置及实现类"
-           class="list-group-item list-group-item-action
-           ">
-          <span class="category-post">【笔记】SpringBoot热部署配置及实现类</span>
-        </a>
-      
-    
-      
-      
-        <a href="/2020/11/17/SpringBoot%E8%B7%A8%E5%9F%9F%E5%93%8D%E5%BA%94/" title="【笔记】SpringBoot跨域响应"
-           class="list-group-item list-group-item-action
-           ">
-          <span class="category-post">【笔记】SpringBoot跨域响应</span>
-        </a>
-      
-    
-      
-      
-        <a href="/2020/11/20/SpringBoot%E9%85%8D%E7%BD%AE%E6%8B%A6%E6%88%AA%E5%99%A8/" title="【笔记】SpringBoot配置拦截器"
-           class="list-group-item list-group-item-action
-           ">
-          <span class="category-post">【笔记】SpringBoot配置拦截器</span>
-        </a>
-      
-    
-      
-      
-        <a href="/2022/10/19/SpringBoot%E9%A1%B9%E7%9B%AE%E4%B8%8D%E4%BD%BF%E7%94%A8Tomcat%E6%9C%8D%E5%8A%A1%E5%99%A8/" title="【笔记】SpringBoot项目不使用Tomcat服务器"
-           class="list-group-item list-group-item-action
-           ">
-          <span class="category-post">【笔记】SpringBoot项目不使用Tomcat服务器</span>
-        </a>
-      
-    
-      
-      
-        <a href="/2020/09/29/SpringBoot%E9%A1%B9%E7%9B%AE%E4%BF%AE%E6%94%B9Banner%E5%9B%BE/" title="【笔记】SpringBoot项目修改Banner图"
-           class="list-group-item list-group-item-action
-           ">
-          <span class="category-post">【笔记】SpringBoot项目修改Banner图</span>
-        </a>
-      
-    
-      
-      
-        <a href="/2020/09/02/SpringBoot%E9%A1%B9%E7%9B%AE%E5%81%A5%E5%BA%B7%E6%A3%80%E6%9F%A5/" title="【笔记】SpringBoot项目健康检查"
-           class="list-group-item list-group-item-action
-           ">
-          <span class="category-post">【笔记】SpringBoot项目健康检查</span>
-        </a>
-      
-    
-      
-      
-        <a href="/2021/11/22/SpringBoot%E9%A1%B9%E7%9B%AE%E5%8F%91%E9%80%81%E8%AF%B7%E6%B1%82/" title="【笔记】SpringBoot项目发送请求"
-           class="list-group-item list-group-item-action
-           ">
-          <span class="category-post">【笔记】SpringBoot项目发送请求</span>
-        </a>
-      
-    
-      
-      
-        <a href="/2022/10/18/SpringBoot%E9%A1%B9%E7%9B%AE%E5%BF%AB%E9%80%9F%E5%90%AF%E5%8A%A8/" title="【笔记】SpringBoot项目快速启动"
-           class="list-group-item list-group-item-action
-           ">
-          <span class="category-post">【笔记】SpringBoot项目快速启动</span>
-        </a>
-      
-    
-      
-      
-        <a href="/2020/11/19/SpringBoot%E9%A1%B9%E7%9B%AE%E6%95%B4%E5%90%88Dubbo/" title="【笔记】SpringBoot项目整合Dubbo"
-           class="list-group-item list-group-item-action
-           ">
-          <span class="category-post">【笔记】SpringBoot项目整合Dubbo</span>
-        </a>
-      
-    
-      
-      
-        <a href="/2022/11/06/SpringBoot%E9%A1%B9%E7%9B%AE%E6%95%B4%E5%90%88Elasticsearch/" title="【笔记】SpringBoot项目整合Elasticsearch"
-           class="list-group-item list-group-item-action
-           ">
-          <span class="category-post">【笔记】SpringBoot项目整合Elasticsearch</span>
-        </a>
-      
-    
-      
-      
-        <a href="/2020/11/11/SpringBoot%E9%A1%B9%E7%9B%AE%E6%95%B4%E5%90%88Jedis/" title="【笔记】SpringBoot项目整合Jedis"
-           class="list-group-item list-group-item-action
-           ">
-          <span class="category-post">【笔记】SpringBoot项目整合Jedis</span>
-        </a>
-      
-    
-      
-      
-        <a href="/2022/10/19/SpringBoot%E9%A1%B9%E7%9B%AE%E6%95%B4%E5%90%88MyBatisPlus/" title="【笔记】SpringBoot项目整合MyBatisPlus"
-           class="list-group-item list-group-item-action
-           ">
-          <span class="category-post">【笔记】SpringBoot项目整合MyBatisPlus</span>
-        </a>
-      
-    
-      
-      
-        <a href="/2020/12/01/SpringBoot%E9%A1%B9%E7%9B%AE%E6%95%B4%E5%90%88RabbitMQ/" title="【笔记】SpringBoot项目整合RabbitMQ"
-           class="list-group-item list-group-item-action
-           ">
-          <span class="category-post">【笔记】SpringBoot项目整合RabbitMQ</span>
-        </a>
-      
-    
-      
-      
-        <a href="/2020/11/12/SpringBoot%E9%A1%B9%E7%9B%AE%E6%95%B4%E5%90%88Redis/" title="【笔记】SpringBoot项目整合Redis"
-           class="list-group-item list-group-item-action
-           ">
-          <span class="category-post">【笔记】SpringBoot项目整合Redis</span>
-        </a>
-      
-    
-      
-      
-        <a href="/2020/11/13/SpringBoot%E9%A1%B9%E7%9B%AE%E6%95%B4%E5%90%88Redis%E5%88%86%E7%89%87/" title="【笔记】SpringBoot项目整合Redis分片"
-           class="list-group-item list-group-item-action
-           ">
-          <span class="category-post">【笔记】SpringBoot项目整合Redis分片</span>
-        </a>
-      
-    
-      
-      
-        <a href="/2020/12/22/SpringBoot%E9%A1%B9%E7%9B%AE%E6%95%B4%E5%90%88RocketMQ/" title="【笔记】SpringBoot项目整合RocketMQ"
-           class="list-group-item list-group-item-action
-           ">
-          <span class="category-post">【笔记】SpringBoot项目整合RocketMQ</span>
-        </a>
-      
-    
-      
-      
-        <a href="/2022/11/02/SpringBoot%E9%A1%B9%E7%9B%AE%E6%95%B4%E5%90%88SpringAMQP/" title="【笔记】SpringBoot项目整合SpringAMQP"
-           class="list-group-item list-group-item-action
-           ">
-          <span class="category-post">【笔记】SpringBoot项目整合SpringAMQP</span>
-        </a>
-      
-    
-      
-      
-        <a href="/2021/11/17/SpringBoot%E9%A1%B9%E7%9B%AE%E6%95%B4%E5%90%88log4j%E6%89%93%E5%8D%B0%E6%97%A5%E5%BF%97/" title="【笔记】SpringBoot项目整合log4j打印日志"
-           class="list-group-item list-group-item-action
-           ">
-          <span class="category-post">【笔记】SpringBoot项目整合log4j打印日志</span>
-        </a>
-      
-    
-      
-      
-        <a href="/2022/10/19/SpringBoot%E9%A1%B9%E7%9B%AE%E7%9A%84%E9%85%8D%E7%BD%AE/" title="【笔记】SpringBoot项目的配置"
-           class="list-group-item list-group-item-action
-           ">
-          <span class="category-post">【笔记】SpringBoot项目的配置</span>
-        </a>
-      
-    
-      
-      
-        <a href="/2022/10/19/SpringBoot%E9%A1%B9%E7%9B%AE%E8%AF%BB%E5%8F%96Yaml%E9%85%8D%E7%BD%AE%E4%B8%AD%E7%9A%84%E6%95%B0%E6%8D%AE/" title="【笔记】SpringBoot项目读取Yaml配置中的数据"
-           class="list-group-item list-group-item-action
-           ">
-          <span class="category-post">【笔记】SpringBoot项目读取Yaml配置中的数据</span>
-        </a>
-      
-    
-      
-      
-        <a href="/2022/10/02/SpringFramework%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" title="【笔记】SpringFramework学习笔记"
-           class="list-group-item list-group-item-action
-           ">
-          <span class="category-post">【笔记】SpringFramework学习笔记</span>
-        </a>
-      
-    
-      
-      
-        <a href="/2022/10/06/SpringFramework%E6%B3%A8%E8%A7%A3%E5%BC%80%E5%8F%91/" title="【笔记】SpringFramework注解开发"
-           class="list-group-item list-group-item-action
-           ">
-          <span class="category-post">【笔记】SpringFramework注解开发</span>
-        </a>
-      
-    
-      
-      
-        <a href="/2022/10/12/SpringMVC%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" title="【笔记】SpringMVC学习笔记"
-           class="list-group-item list-group-item-action
-           ">
-          <span class="category-post">【笔记】SpringMVC学习笔记</span>
-        </a>
-      
-    
-      
-      
-        <a href="/2022/10/08/Spring%E5%AE%9E%E7%8E%B0AOP/" title="【笔记】Spring实现AOP"
-           class="list-group-item list-group-item-action
-           ">
-          <span class="category-post">【笔记】Spring实现AOP</span>
-        </a>
-      
-    
-      
-      
-        <a href="/2022/10/11/Spring%E5%AE%9E%E7%8E%B0%E4%BA%8B%E5%8A%A1/" title="【笔记】Spring实现事务"
-           class="list-group-item list-group-item-action
-           ">
-          <span class="category-post">【笔记】Spring实现事务</span>
-        </a>
-      
-    
-      
-      
-        <a href="/2022/10/08/Spring%E6%95%B4%E5%90%88JUnit/" title="【笔记】Spring整合JUnit"
-           class="list-group-item list-group-item-action
-           ">
-          <span class="category-post">【笔记】Spring整合JUnit</span>
-        </a>
-      
-    
-      
-      
-        <a href="/2022/10/08/Spring%E6%95%B4%E5%90%88MyBatis/" title="【笔记】Spring整合MyBatis"
-           class="list-group-item list-group-item-action
-           ">
-          <span class="category-post">【笔记】Spring整合MyBatis</span>
-        </a>
-      
-    
-      
-      
-        <a href="/2020/10/26/Spring%E6%A1%86%E6%9E%B6%E4%B8%AD%E7%9A%84%E7%BA%BF%E7%A8%8B%E6%B1%A0/" title="【笔记】Spring框架中的线程池"
-           class="list-group-item list-group-item-action
-           ">
-          <span class="category-post">【笔记】Spring框架中的线程池</span>
-        </a>
-      
-    
-      
-      
-        <a href="/2019/11/26/Tomcat%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" title="【笔记】Tomcat 学习笔记"
-           class="list-group-item list-group-item-action
-           ">
-          <span class="category-post">【笔记】Tomcat 学习笔记</span>
-        </a>
-      
-    
-      
-      
-        <a href="/2020/09/08/%E4%BB%BB%E5%8A%A1%E8%B0%83%E5%BA%A6/" title="【笔记】任务调度"
-           class="list-group-item list-group-item-action
-           ">
-          <span class="category-post">【笔记】任务调度</span>
-        </a>
-      
-    
-      
-      
-        <a href="/2020/05/07/%E7%94%A8IDEA%E5%88%9B%E5%BB%BA%E4%B8%80%E4%B8%AAJavaweb%E9%A1%B9%E7%9B%AE/" title="【笔记】用IDEA创建一个Javaweb项目"
-           class="list-group-item list-group-item-action
-           ">
-          <span class="category-post">【笔记】用IDEA创建一个Javaweb项目</span>
-        </a>
-      
-    
-      
-      
-        <a href="/2020/05/13/%E7%94%A8JavaWeb%E5%AE%9E%E7%8E%B0Cookie%E8%AF%BB%E5%86%99/" title="【笔记】用JavaWeb实现Cookie读写"
-           class="list-group-item list-group-item-action
-           ">
-          <span class="category-post">【笔记】用JavaWeb实现Cookie读写</span>
-        </a>
-      
-    
-      
-      
-        <a href="/2022/11/14/%E9%80%9A%E8%BF%87Docker%E9%83%A8%E7%BD%B2Cerebro/" title="【笔记】通过Docker部署Cerebro"
-           class="list-group-item list-group-item-action
-           ">
-          <span class="category-post">【笔记】通过Docker部署Cerebro</span>
-        </a>
-      
-    
-      
-      
-        <a href="/2022/11/03/%E9%80%9A%E8%BF%87Docker%E9%83%A8%E7%BD%B2Elasticsearch/" title="【笔记】通过Docker部署Elasticsearch"
-           class="list-group-item list-group-item-action
-           ">
-          <span class="category-post">【笔记】通过Docker部署Elasticsearch</span>
-        </a>
-      
-    
-      
-      
-        <a href="/2022/11/11/%E9%80%9A%E8%BF%87Docker%E9%83%A8%E7%BD%B2Elasticsearch%E9%9B%86%E7%BE%A4/" title="【笔记】通过Docker部署Elasticsearch集群"
-           class="list-group-item list-group-item-action
-           ">
-          <span class="category-post">【笔记】通过Docker部署Elasticsearch集群</span>
-        </a>
-      
-    
-      
-      
-        <a href="/2021/01/03/SpringBoot%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0%E8%B6%85%E5%87%BA%E8%8C%83%E5%9B%B4/" title="【踩坑】SpringBoot文件上传超出范围"
-           class="list-group-item list-group-item-action
-           ">
-          <span class="category-post">【踩坑】SpringBoot文件上传超出范围</span>
-        </a>
-      
-    
-  </div>
-
-        
-      </div>
-    </div>
-  
-</div>
-
-
-  </aside>
-
-
+    </aside>
+    <a class="btn-toc button" id="btn-toc" tabindex="0">
+        <svg viewBox="0 0 1024 1024" width="32" height="32" xmlns="http://www.w3.org/2000/svg">
+            <path d="M128 256h64V192H128zM320 256h576V192H320zM128 544h64v-64H128zM320 544h576v-64H320zM128 832h64v-64H128zM320 832h576v-64H320z" fill="currentColor"></path>
+        </svg>
+    </a>
+    <div class="toc-menus" id="toc-menus">
+        <div class="toc-title">文章目录</div>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%89%8D%E8%A8%80"><span class="toc-text">前言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B7%BB%E5%8A%A0%E4%BE%9D%E8%B5%96"><span class="toc-text">添加依赖</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%85%8D%E7%BD%AE"><span class="toc-text">配置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9C%A8%E5%90%AF%E5%8A%A8%E7%B1%BB%E6%B7%BB%E5%8A%A0%E6%B3%A8%E8%A7%A3"><span class="toc-text">在启动类添加注解</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%9A%E4%B9%89%E5%A3%B0%E6%98%8E%E5%BC%8F%E5%AE%A2%E6%88%B7%E7%AB%AF"><span class="toc-text">定义声明式客户端</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1%E5%92%8C%E9%87%8D%E8%AF%95"><span class="toc-text">负载均衡和重试</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%99%8D%E7%BA%A7%E5%92%8C%E7%86%94%E6%96%AD"><span class="toc-text">降级和熔断</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%9B%91%E6%8E%A7"><span class="toc-text">监控</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%8C%E6%88%90"><span class="toc-text">完成</span></a></li></ol>
     </div>
 
-    <div class="col-lg-8 nopadding-x-md">
-      <div class="container nopadding-x-md" id="board-ctn">
-        <div id="board">
-          <article class="post-content mx-auto">
-            <h1 id="seo-header">【笔记】Feign快速入门</h1>
-            
-              <p id="updated-time" class="note note-info" style="">
-                
-                  
-                    本文最后更新于 2024:08:06
-                  
-                
-              </p>
-            
-            
-              <div class="markdown-body">
-                
-                <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>Feign的功能：声明式客户端、集成Ribbon（负载均衡和重试）、集成Hystrix（降级和熔断）</p>
+
+<article class="post post__with-toc content-card">
+    <div class="post__header"></div>
+    <div class="post__content">
+        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>Feign的功能：声明式客户端、集成Ribbon（负载均衡和重试）、集成Hystrix（降级和熔断）</p>
 <span id="more"></span>
 
 <h2 id="添加依赖"><a href="#添加依赖" class="headerlink" title="添加依赖"></a>添加依赖</h2><ul>
 <li>编辑<code>pom.xml</code>配置文件</li>
 </ul>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">dependencies</span>&gt;</span><br>	<span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span><br>		<span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>org.springframework.boot<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span><br>		<span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>spring-boot-starter-actuator<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span><br>	<span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span><br>	<span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span><br>		<span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>org.springframework.boot<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span><br>		<span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>spring-boot-starter-web<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span><br>	<span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span><br>	<span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span><br>		<span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>org.springframework.cloud<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span><br>		<span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>spring-cloud-starter-netflix-eureka-client<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span><br>	<span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span><br>	<span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span><br>		<span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>org.springframework.cloud<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span><br>		<span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>spring-cloud-starter-netflix-hystrix<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span><br>	<span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span><br>	<span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span><br>		<span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>org.springframework.cloud<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span><br>		<span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>spring-cloud-starter-openfeign<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span><br>	<span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span><br><br>	<span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span><br>		<span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>org.springframework.boot<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span><br>		<span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>spring-boot-starter-test<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span><br>		<span class="hljs-tag">&lt;<span class="hljs-name">scope</span>&gt;</span>test<span class="hljs-tag">&lt;/<span class="hljs-name">scope</span>&gt;</span><br>		<span class="hljs-tag">&lt;<span class="hljs-name">exclusions</span>&gt;</span><br>			<span class="hljs-tag">&lt;<span class="hljs-name">exclusion</span>&gt;</span><br>				<span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>org.junit.vintage<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span><br>				<span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>junit-vintage-engine<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span><br>			<span class="hljs-tag">&lt;/<span class="hljs-name">exclusion</span>&gt;</span><br>		<span class="hljs-tag">&lt;/<span class="hljs-name">exclusions</span>&gt;</span><br>	<span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">dependencies</span>&gt;</span><br><br><span class="hljs-tag">&lt;<span class="hljs-name">dependencyManagement</span>&gt;</span><br>	<span class="hljs-tag">&lt;<span class="hljs-name">dependencies</span>&gt;</span><br>		<span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span><br>			<span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>org.springframework.cloud<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span><br>			<span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>spring-cloud-dependencies<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span><br>			<span class="hljs-tag">&lt;<span class="hljs-name">version</span>&gt;</span>$&#123;spring-cloud.version&#125;<span class="hljs-tag">&lt;/<span class="hljs-name">version</span>&gt;</span><br>			<span class="hljs-tag">&lt;<span class="hljs-name">type</span>&gt;</span>pom<span class="hljs-tag">&lt;/<span class="hljs-name">type</span>&gt;</span><br>			<span class="hljs-tag">&lt;<span class="hljs-name">scope</span>&gt;</span>import<span class="hljs-tag">&lt;/<span class="hljs-name">scope</span>&gt;</span><br>		<span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span><br>	<span class="hljs-tag">&lt;/<span class="hljs-name">dependencies</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">dependencyManagement</span>&gt;</span><br></code></pre></td></tr></table></figure>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependencies</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-starter-actuator<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-starter-web<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.cloud<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-cloud-starter-netflix-eureka-client<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.cloud<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-cloud-starter-netflix-hystrix<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.cloud<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-cloud-starter-openfeign<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"></span><br><span class="line">	<span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-starter-test<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">scope</span>&gt;</span>test<span class="tag">&lt;/<span class="name">scope</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">exclusions</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">exclusion</span>&gt;</span></span><br><span class="line">				<span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.junit.vintage<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">				<span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>junit-vintage-engine<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;/<span class="name">exclusion</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;/<span class="name">exclusions</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependencies</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">dependencyManagement</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">dependencies</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.cloud<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-cloud-dependencies<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">version</span>&gt;</span>$&#123;spring-cloud.version&#125;<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">type</span>&gt;</span>pom<span class="tag">&lt;/<span class="name">type</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">scope</span>&gt;</span>import<span class="tag">&lt;/<span class="name">scope</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">dependencies</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependencyManagement</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
 <h2 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h2><ul>
 <li>编辑<code>application.yml</code>配置文件</li>
 </ul>
-<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs yaml"><span class="hljs-attr">spring:</span><br>  <span class="hljs-attr">application:</span><br>    <span class="hljs-attr">name:</span> <span class="hljs-string">feign</span><br>    <br><span class="hljs-attr">server:</span><br>  <span class="hljs-attr">port:</span> <span class="hljs-number">3001</span><br>  <br><span class="hljs-attr">eureka:</span><br>  <span class="hljs-attr">client:</span><br>    <span class="hljs-attr">service-url:</span><br>      <span class="hljs-attr">defaultZone:</span> <span class="hljs-string">http://eureka1:2001/eureka,</span> <span class="hljs-string">http://eureka2:2002/eureka</span><br></code></pre></td></tr></table></figure>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">spring:</span></span><br><span class="line">  <span class="attr">application:</span></span><br><span class="line">    <span class="attr">name:</span> <span class="string">feign</span></span><br><span class="line">    </span><br><span class="line"><span class="attr">server:</span></span><br><span class="line">  <span class="attr">port:</span> <span class="number">3001</span></span><br><span class="line">  </span><br><span class="line"><span class="attr">eureka:</span></span><br><span class="line">  <span class="attr">client:</span></span><br><span class="line">    <span class="attr">service-url:</span></span><br><span class="line">      <span class="attr">defaultZone:</span> <span class="string">http://eureka1:2001/eureka,</span> <span class="string">http://eureka2:2002/eureka</span></span><br></pre></td></tr></table></figure>
 
 <h2 id="在启动类添加注解"><a href="#在启动类添加注解" class="headerlink" title="在启动类添加注解"></a>在启动类添加注解</h2><ul>
 <li>在启动类添加<code>@EnableDiscoveryClient</code>和<code>@EnableFeignClients</code>注解</li>
 </ul>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@EnableFeignClients</span><br><span class="hljs-meta">@EnableDiscoveryClient</span><br><span class="hljs-meta">@SpringBootApplication</span><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">Application</span> &#123;<br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">main</span><span class="hljs-params">(String[] args)</span> &#123;<br>        SpringApplication.run(Application.class, args);<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@EnableFeignClients</span></span><br><span class="line"><span class="meta">@EnableDiscoveryClient</span></span><br><span class="line"><span class="meta">@SpringBootApplication</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Application</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        SpringApplication.run(Application.class, args);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <h2 id="定义声明式客户端"><a href="#定义声明式客户端" class="headerlink" title="定义声明式客户端"></a>定义声明式客户端</h2><blockquote>
 <p><code>@FeignClient()</code>：标注这个接口为声明式客户端</p>
@@ -1712,7 +215,7 @@
 <p><code>@PathVariable</code>：定义Rest风格的参数传递（不能省略）<br><code>@RequestParam</code>：定义普通的参数传递（不能省略）</p>
 </blockquote>
 </blockquote>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@FeignClient(name = &quot;item-service&quot;)</span><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">interface</span> <span class="hljs-title class_">ItemClient</span> &#123;<br><br>    <span class="hljs-meta">@GetMapping(&quot;/&#123;id&#125;&quot;)</span><br>    String <span class="hljs-title function_">method1</span><span class="hljs-params">(<span class="hljs-meta">@PathVariable</span> String id)</span>;<br><br>    <span class="hljs-meta">@PostMapping(&quot;/&quot;)</span><br>    String <span class="hljs-title function_">method2</span><span class="hljs-params">(<span class="hljs-meta">@RequestParam</span> String id)</span>;<br><br>&#125;<br></code></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@FeignClient(name = &quot;item-service&quot;)</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">interface</span> <span class="title class_">ItemClient</span> &#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@GetMapping(&quot;/&#123;id&#125;&quot;)</span></span><br><span class="line">    String <span class="title function_">method1</span><span class="params">(<span class="meta">@PathVariable</span> String id)</span>;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@PostMapping(&quot;/&quot;)</span></span><br><span class="line">    String <span class="title function_">method2</span><span class="params">(<span class="meta">@RequestParam</span> String id)</span>;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <ul>
 <li>此时如果调用<code>itemClient.method1(1)</code>方法，则会向<code>http://localhost:3001/item-service/1</code>发送请求</li>
@@ -1727,23 +230,23 @@
 <blockquote>
 <p><code>ConnectTimeout</code>：连接超时时间，默认为1000毫秒<br><code>ReadTimeout</code>：读取超时，默认为1000毫秒<br><code>MaxAutoRetries</code>：单台服务器重试次数，默认为0次<br><code>MaxAutoRetriesNextServer</code>：多台服务器重试次数，默认为1次</p>
 </blockquote>
-<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs yaml"><span class="hljs-attr">ribbon:</span><br>  <span class="hljs-attr">ConnectTimeout:</span> <span class="hljs-number">1000</span><br>  <span class="hljs-attr">ReadTimeout:</span> <span class="hljs-number">1000</span><br></code></pre></td></tr></table></figure>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">ribbon:</span></span><br><span class="line">  <span class="attr">ConnectTimeout:</span> <span class="number">1000</span></span><br><span class="line">  <span class="attr">ReadTimeout:</span> <span class="number">1000</span></span><br></pre></td></tr></table></figure>
 
 <ul>
 <li>修改<code>application.yml</code>配置文件（修改指定服务器的方式）</li>
 </ul>
-<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs yml"><span class="hljs-attr">item-service:</span><br>  <span class="hljs-attr">ribbon:</span><br>    <span class="hljs-attr">ConnectTimeout:</span> <span class="hljs-number">1000</span><br>    <span class="hljs-attr">ReadTimeout:</span> <span class="hljs-number">1000</span><br></code></pre></td></tr></table></figure>
+<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">item-service:</span></span><br><span class="line">  <span class="attr">ribbon:</span></span><br><span class="line">    <span class="attr">ConnectTimeout:</span> <span class="number">1000</span></span><br><span class="line">    <span class="attr">ReadTimeout:</span> <span class="number">1000</span></span><br></pre></td></tr></table></figure>
 
 <h2 id="降级和熔断"><a href="#降级和熔断" class="headerlink" title="降级和熔断"></a>降级和熔断</h2><ul>
 <li>在声明式客户端通过<code>fallbach</code>属性指定降级类</li>
 </ul>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@FeignClient(name = &quot;item-service&quot;, fallback = ItemClientFB.class)</span><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">interface</span> <span class="hljs-title class_">ItemClient</span> &#123;<br>    ...<br>&#125;<br></code></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@FeignClient(name = &quot;item-service&quot;, fallback = ItemClientFB.class)</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">interface</span> <span class="title class_">ItemClient</span> &#123;</span><br><span class="line">    ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <ul>
 <li>定义降级类，实现声明式客户端接口，在重写的方法中添加降级代码</li>
 <li>降级类需要添加<code>@Component</code>注解</li>
 </ul>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@Component</span><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">ItemClientFB</span> <span class="hljs-keyword">implements</span> <span class="hljs-title class_">ItemClient</span> &#123;<br><br>    <span class="hljs-meta">@Override</span><br>    String <span class="hljs-title function_">method1</span><span class="hljs-params">(<span class="hljs-meta">@PathVariable</span> String id)</span> &#123;<br>        ...<br>    &#125;<br>    <br>    <span class="hljs-meta">@Override</span><br>    String <span class="hljs-title function_">method2</span><span class="hljs-params">(<span class="hljs-meta">@RequestParam</span> String id)</span> &#123;<br>        ...<br>    &#125;<br><br>&#125;<br></code></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Component</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">ItemClientFB</span> <span class="keyword">implements</span> <span class="title class_">ItemClient</span> &#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    String <span class="title function_">method1</span><span class="params">(<span class="meta">@PathVariable</span> String id)</span> &#123;</span><br><span class="line">        ...</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    String <span class="title function_">method2</span><span class="params">(<span class="meta">@RequestParam</span> String id)</span> &#123;</span><br><span class="line">        ...</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <ul>
 <li>无需配置，自动熔断，自动恢复</li>
@@ -1755,403 +258,219 @@
 <li>查看监控日志</li>
 </ul>
 <h2 id="完成"><a href="#完成" class="headerlink" title="完成"></a>完成</h2>
-                
-              </div>
-            
-            <hr/>
-            <div>
-              <div class="post-metas my-3">
-  
-    <div class="post-meta mr-3 d-flex align-items-center">
-      <i class="iconfont icon-category"></i>
-      
+    </div>
+     
+    <div class="post-footer__meta"><p>更新于 2024-08-06</p></div> 
+    <div class="post-entry__tags"><a href="/tags/Java/" class="post-tags__link button"># Java</a><a href="/tags/Spring/" class="post-tags__link button"># Spring</a><a href="/tags/SpringCloud/" class="post-tags__link button"># SpringCloud</a></div> 
+</article>
 
-<span class="category-chains">
-  
-  
-    
-      <span class="category-chain">
+
+    <div class="nav">
+        <div class="nav__prev">
+            
+                <a href="/2020/11/25/MacOS%E7%89%88%E7%9A%84VMwareFusion%E8%99%9A%E6%8B%9F%E7%BD%91%E5%8D%A1%E9%85%8D%E7%BD%AE/" class="nav__link">
+                    <div>
+                        <svg viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" width="24" height="24"><path d="M589.088 790.624L310.464 512l278.624-278.624 45.248 45.248L400.96 512l233.376 233.376z" fill="#808080"></path></svg>
+                    </div>
+                    <div>
+                        <div class="nav__label">
+                            上一篇
+                        </div>
+                        <div class="nav__title">
+                            【笔记】MacOS版的 VMware Fusion 虚拟网卡配置
+                        </div>
+                    </div>
+                </a>
+            
+        </div>
+        <div class="nav__next">
+            
+                <a href="/2020/11/25/Apache%E6%B5%8B%E8%AF%95%E5%B9%B6%E5%8F%91/" class="nav__link">
+                    <div>
+                        <div class="nav__label">
+                            下一篇
+                        </div>
+                        <div class="nav__title">
+                            【笔记】Apache测试并发
+                        </div>
+                    </div>
+                    <div>
+                        <svg viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" width="24" height="24"><path d="M434.944 790.624l-45.248-45.248L623.04 512l-233.376-233.376 45.248-45.248L713.568 512z" fill="#808080"></path></svg>
+                    </div>
+                </a>
+            
+        </div>
+    </div>
+
+
+
+    <div class="post__comments post__with-toc content-card" id="comment">
         
-  <a href="/categories/Java%E5%90%8E%E7%AB%AF%E5%AD%A6%E4%B9%A0%E6%8C%87%E5%8C%97/" class="category-chain-item">Java后端学习指北</a>
-  
-  
-
-      </span>
+    <h4>评论</h4>
     
-  
-</span>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <div id="tcomment" class="twikoo_thread"></div>
+
+    
+
+
 
     </div>
-  
-  
-    <div class="post-meta">
-      <i class="iconfont icon-tags"></i>
-      
-        <a href="/tags/Java/" class="print-no-link">#Java</a>
-      
-        <a href="/tags/Spring/" class="print-no-link">#Spring</a>
-      
-        <a href="/tags/SpringCloud/" class="print-no-link">#SpringCloud</a>
-      
-    </div>
-  
-</div>
 
 
-              
 
-              
-                <div class="post-prevnext my-3">
-                  <article class="post-prev col-6">
-                    
-                    
-                      <a href="/2020/11/25/MacOS%E7%89%88%E7%9A%84VMwareFusion%E8%99%9A%E6%8B%9F%E7%BD%91%E5%8D%A1%E9%85%8D%E7%BD%AE/" title="【笔记】MacOS版的 VMware Fusion 虚拟网卡配置">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">【笔记】MacOS版的 VMware Fusion 虚拟网卡配置</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
-                  </article>
-                  <article class="post-next col-6">
-                    
-                    
-                      <a href="/2020/11/25/Apache%E6%B5%8B%E8%AF%95%E5%B9%B6%E5%8F%91/" title="【笔记】Apache测试并发">
-                        <span class="hidden-mobile">【笔记】Apache测试并发</span>
-                        <span class="visible-mobile">下一篇</span>
-                        <i class="iconfont icon-arrowright"></i>
-                      </a>
-                    
-                  </article>
-                </div>
-              
-            </div>
+</main>
 
+            <footer class="footer">
+     
+    <a href="#" class="button" id="b2t" aria-label="回到顶部" title="回到顶部">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" width="32" height="32">
+            <path d="M233.376 722.752L278.624 768 512 534.624 745.376 768l45.248-45.248L512 444.128zM192 352h640V288H192z" fill="currentColor"></path>
+        </svg>
+    </a>
+
+    
+
+
+    
+    
+    
+        <span id="busuanzi_container_site_uv" hidden>
+            <span></span>
+            <span id="busuanzi_value_site_uv"></span>
+            <span>Viewers</span>
             
-  
-  
-    <article id="comments" lazyload>
-      
-  <div id="twikoo"></div>
-  <script type="text/javascript">
-    Fluid.utils.loadComments('#comments', function() {
-      Fluid.utils.createScript('https://lib.baomitu.com/twikoo/1.6.8/twikoo.all.min.js', function() {
-        var options = Object.assign(
-          {"envId":"https://twikoo.loli.fj.cn","region":"ap-shanghai","path":"window.location.pathname"},
-          {
-            el: '#twikoo',
-            path: 'window.location.pathname',
-            onCommentLoaded: function() {
-              Fluid.utils.listenDOMLoaded(function() {
-                var imgSelector = '#twikoo .tk-content img:not(.tk-owo-emotion)';
-                Fluid.plugins.imageCaption(imgSelector);
-                Fluid.plugins.fancyBox(imgSelector);
-              });
+                <span>&amp;nbsp;&amp;nbsp;&amp;nbsp;|</span>
+            
+        </span>
+    
+    
+        <span id="busuanzi_container_site_pv" hidden>
+            <span></span>
+            <span id="busuanzi_value_site_pv"></span>
+            <span>Views</span>
+            
+        </span>
+    
+ 
+ 
+
+ 
+    
+        
+        <p class="footer-copyright">
+            Copyright © 2024 <a href="/">绯鞠的博客</a>
+        </p>
+    
+    
+    <p>Powered by <a href="https://hexo.io" target="_blank">Hexo</a> | Theme - <a href="https://github.com/ChrAlpha/hexo-theme-cards" target="_blank">Cards</a></p>
+</footer>
+
+        </div>
+         
+
+ 
+
+ 
+
+ 
+
+ 
+
+
+
+ 
+
+
+
+ 
+
+
+    
+ 
+
+ 
+
+ 
+
+ 
+
+
+    <script src='https://cdn.jsdelivr.net/npm/mermaid@8.10.2/dist/mermaid.min.js'></script>
+    <script>
+            mermaid.initialize(JSON.stringify(''));
+    </script>
+ 
+
+ 
+
+
+    
+
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+
+    
+    
+    
+    
+    
+
+    
+    
+    
+    <script>
+        function loadComment() {
+            let e;
+            (e = document.createElement("script")).src = 'https://cdn.jsdelivr.net/npm/twikoo@0.3.2/dist/twikoo.all.min.js',
+            document.body.appendChild(e);
+            e.onload = () => {
+                twikoo.init({
+                    envId: 'https://twikoo.loli.fj.cn',
+                    el: '#tcomment'
+                });
+            };
+        }
+    
+        var runningOnBrowser = typeof window !== "undefined";
+        var isBot = runningOnBrowser && !("onscroll" in window) || typeof navigator !== "undefined" && /(gle|ing|ro|msn)bot|crawl|spider|yand|duckgo/i.test(navigator.userAgent);
+        var supportsIntersectionObserver = runningOnBrowser && "IntersectionObserver" in window;
+    
+        setTimeout(function () {
+            if (!isBot && supportsIntersectionObserver) {
+                var comment_observer = new IntersectionObserver(function(entries) {
+                    if (entries[0].isIntersecting) {
+                        loadComment();
+                        comment_observer.disconnect();
+                    }
+                }, { threshold: [0] });
+                comment_observer.observe(document.getElementById('comment'));
+            } else {
+                loadComment();
             }
-          }
-        )
-        twikoo.init(options)
-      });
-    });
-  </script>
-  <noscript>Please enable JavaScript to view the comments</noscript>
+        }, 1);
+    </script>
 
 
-    </article>
-  
 
 
-          </article>
-        </div>
-      </div>
-    </div>
-
-    <div class="side-col d-none d-lg-block col-lg-2">
-      
-  <aside class="sidebar" style="margin-left: -1rem">
-    <div id="toc">
-  <p class="toc-header">
-    <i class="iconfont icon-list"></i>
-    <span>目录</span>
-  </p>
-  <div class="toc-body" id="toc-body"></div>
-</div>
-
-
-
-  </aside>
-
-
-    </div>
-  </div>
-</div>
-
-
-
-
-
-  
-
-
-
-  
-
-
-
-  
-
-
-
-  
-
-
-
-
-
-  <script>
-  Fluid.utils.createScript('https://lib.baomitu.com/mermaid/8.14.0/mermaid.min.js', function() {
-    mermaid.initialize({"theme":"default"});
-
-    Fluid.utils.listenDOMLoaded(function() {
-      Fluid.events.registerRefreshCallback(function() {
-        if ('mermaid' in window) {
-          mermaid.init();
-        }
-      });
-    });
-  });
-</script>
-
-
-
-
-
-
-    
-
-    
-      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
-        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
-      </a>
-    
-
-    
-      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
-     aria-hidden="true">
-  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
-    <div class="modal-content">
-      <div class="modal-header text-center">
-        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
-        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body mx-3">
-        <div class="md-form mb-5">
-          <input type="text" id="local-search-input" class="form-control validate">
-          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
-        </div>
-        <div class="list-group" id="local-search-result"></div>
-      </div>
-    </div>
-  </div>
-</div>
-
-    
-
-    
-  </main>
-
-  <footer>
-    <div class="footer-inner">
-  
-    <div class="footer-content">
-       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> <br> <!-- 当前在线人数统计 --> <div>当前在线人数 <span id="current_visitors_count">0</span></div> <script src="/dist/js/current_visitors_count.js"></script> <!-- 网站运行时间统计 --> <div id="sitetime"></div> <script type="text/javascript" src="/dist/js/sitetime.js"></script> 
-    </div>
-  
-  
-    <div class="statistics">
-  
-  
-
-  
-    
-      <span id="busuanzi_container_site_pv" style="display: none">
-        总访问量 
-        <span id="busuanzi_value_site_pv"></span>
-         次
-      </span>
-    
-    
-      <span id="busuanzi_container_site_uv" style="display: none">
-        总访客数 
-        <span id="busuanzi_value_site_uv"></span>
-         人
-      </span>
-    
-    
-  
-</div>
-
-  
-  
-  
-</div>
-
-  </footer>
-
-  <!-- Scripts -->
-  
-  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
-  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
-
-  <script>
-    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
-    NProgress.start()
-    window.addEventListener('load', function() {
-      NProgress.done();
-    })
-  </script>
-
-
-<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
-<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
-<script  src="/js/events.js" ></script>
-<script  src="/js/plugins.js" ></script>
-
-
-  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
-  <script>
-    (function (window, document) {
-      var typing = Fluid.plugins.typing;
-      var subtitle = document.getElementById('subtitle');
-      if (!subtitle || !typing) {
-        return;
-      }
-      var text = subtitle.getAttribute('data-typed-text');
-      
-        typing(text);
-      
-    })(window, document);
-  </script>
-
-
-
-
-  
-    <script  src="/js/img-lazyload.js" ></script>
-  
-
-
-
-
-  
-<script>
-  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
-    var toc = jQuery('#toc');
-    if (toc.length === 0 || !window.tocbot) { return; }
-    var boardCtn = jQuery('#board-ctn');
-    var boardTop = boardCtn.offset().top;
-
-    window.tocbot.init(Object.assign({
-      tocSelector     : '#toc-body',
-      contentSelector : '.markdown-body',
-      linkClass       : 'tocbot-link',
-      activeLinkClass : 'tocbot-active-link',
-      listClass       : 'tocbot-list',
-      isCollapsedClass: 'tocbot-is-collapsed',
-      collapsibleClass: 'tocbot-is-collapsible',
-      scrollSmooth    : true,
-      includeTitleTags: true,
-      headingsOffset  : -boardTop,
-    }, CONFIG.toc));
-    if (toc.find('.toc-list-item').length > 0) {
-      toc.css('visibility', 'visible');
-    }
-
-    Fluid.events.registerRefreshCallback(function() {
-      if ('tocbot' in window) {
-        tocbot.refresh();
-        var toc = jQuery('#toc');
-        if (toc.length === 0 || !tocbot) {
-          return;
-        }
-        if (toc.find('.toc-list-item').length > 0) {
-          toc.css('visibility', 'visible');
-        }
-      }
-    });
-  });
-</script>
-
-
-  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
-
-  <script>Fluid.plugins.codeWidget();</script>
-
-
-  
-<script>
-  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
-    window.anchors.options = {
-      placement: CONFIG.anchorjs.placement,
-      visible  : CONFIG.anchorjs.visible
-    };
-    if (CONFIG.anchorjs.icon) {
-      window.anchors.options.icon = CONFIG.anchorjs.icon;
-    }
-    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
-    var res = [];
-    for (var item of el) {
-      res.push('.markdown-body > ' + item.trim());
-    }
-    if (CONFIG.anchorjs.placement === 'left') {
-      window.anchors.options.class = 'anchorjs-link-left';
-    }
-    window.anchors.add(res.join(', '));
-
-    Fluid.events.registerRefreshCallback(function() {
-      if ('anchors' in window) {
-        anchors.removeAll();
-        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
-        var res = [];
-        for (var item of el) {
-          res.push('.markdown-body > ' + item.trim());
-        }
-        if (CONFIG.anchorjs.placement === 'left') {
-          anchors.options.class = 'anchorjs-link-left';
-        }
-        anchors.add(res.join(', '));
-      }
-    });
-  });
-</script>
-
-
-  
-<script>
-  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
-    Fluid.plugins.fancyBox();
-  });
-</script>
-
-
-  <script  src="/js/local-search.js" ></script>
-
-  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
-
-
-
-
-
-<!-- 主题的启动项，将它保持在最底部 -->
-<!-- the boot of the theme, keep it at the bottom -->
-<script  src="/js/boot.js" ></script>
-
-
-  
-
-  <noscript>
-    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
-  </noscript>
-</body>
+    </body>
 </html>

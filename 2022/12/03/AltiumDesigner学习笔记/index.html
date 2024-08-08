@@ -1,21 +1,50 @@
-
-
 <!DOCTYPE html>
-<html lang="zh-CN" data-default-color-scheme=auto>
+<html lang="zh-CN">
+    <head>
+    <meta charset="utf-8">
+
+    
+
+    <!-- 渲染优化 -->
+    <meta name="renderer" content="webkit">
+    <meta name="force-rendering" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta name="HandheldFriendly" content="True" >
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <!--icon-->
+
+    
+        <link rel="shortcut icon" href="/dist/images/favicon_package/favicon.ico">
+    
+    
+        <link rel="icon" type="image/png" sizes="16x16" href="/dist/images/favicon_package/favicon-16x16.png">
+    
+    
+        <link rel="icon" type="image/png" sizes="32x32" href="/dist/images/favicon_package/favicon-32x32.png">
+    
+    
+        <link rel="apple-touch-icon" sizes="180x180" href="/dist/images/favicon_package/apple-touch-icon.png">
+    
+    
+        <link rel="mask-icon" href="/dist/images/favicon_package/safari-pinned-tab.svg">
+    
+
+
+    <!-- meta -->
+
+
+<title>【笔记】AltiumDesigner学习笔记 | 绯鞠的博客</title>
+
+
+    <meta name="keywords" content="Microcontroller">
 
 
 
-<head>
-  <meta charset="UTF-8">
-  <link rel="apple-touch-icon" sizes="76x76" href="/dist/images/favicon_package/apple-touch-icon.png">
-  <link rel="icon" href="/dist/images/favicon_package/favicon.ico">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
-  <meta http-equiv="x-ua-compatible" content="ie=edge">
-  
-  <meta name="theme-color" content="#2f4154">
-  <meta name="author" content="绯鞠">
-  <meta name="keywords" content="">
-  
+
+    <!-- OpenGraph -->
+ 
     <meta name="description" content="前言Altium Designer 16.1学习笔记">
 <meta property="og:type" content="article">
 <meta property="og:title" content="【笔记】AltiumDesigner学习笔记">
@@ -140,310 +169,133 @@
 <meta property="article:tag" content="Microcontroller">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="https://loli.fj.cn/images/20221203183848/04.webp">
-  
-  
-    <meta name="referrer" content="no-referrer-when-downgrade">
-  
-  
-  <title>【笔记】AltiumDesigner学习笔记 - 绯鞠的博客</title>
-
-  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
 
+    
+<link rel="stylesheet" href="/css/style/main.css">
+ 
 
-  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+    
+    
+        <link rel="stylesheet" id="hl-default-theme" href="/css/highlight/highlight.css" media="none" onload="this.media='all'">
+        
+    
 
-  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+    
+    
 
-  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+    
 
+     
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+ 
 
+    <!-- custom head -->
 
-<!-- 主题依赖的图标库，不要自行修改 -->
-<!-- Do not modify the link that theme dependent icons -->
-
-<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
-
-
-
-<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
-
-
-<link  rel="stylesheet" href="/css/main.css" />
-
-
-  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
-  
-    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
-  
-
-
-
-
-  <script id="fluid-configs">
-    var Fluid = window.Fluid || {};
-    Fluid.ctx = Object.assign({}, Fluid.ctx)
-    var CONFIG = {"hostname":"loli.fj.cn","root":"/","version":"1.9.7","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"PLAINTEXT"},"copy_btn":true,"image_caption":{"enable":false},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":6},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml","include_content_in_search":true};
-
-    if (CONFIG.web_analytics.follow_dnt) {
-      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
-      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
-    }
-  </script>
-  <script  src="/js/utils.js" ></script>
-  <script  src="/js/color-schema.js" ></script>
-  
-
-
-  
 <meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="绯鞠的博客" type="application/atom+xml">
 </head>
 
+    <body>
+        <div id="app" tabindex="-1">
+            <header class="header">
+    <div class="header__left">
+        <a href="/" class="button">
+            <span class="logo__text">绯鞠的博客</span>
+        </a>
+    </div>
+    <div class="header__right">
+        
+            <div class="navbar__menus">
+                
+                    <a href="/" class="navbar-menu button">首页</a>
+                
+                    <a href="/about/" class="navbar-menu button">关于</a>
+                
+                    <a href="/archives/" class="navbar-menu button">归档</a>
+                
+                    <a href="/links/" class="navbar-menu button">友链</a>
+                
+                    <a href="/reward/" class="navbar-menu button">赞助</a>
+                
+                    <a href="/atom.xml" class="navbar-menu button">订阅</a>
+                
+                    <a target="_blank" rel="noopener" href="//melody.loli.fj.cn" class="navbar-menu button">主题</a>
+                
+            </div>
+        
+        
+        
 
-<body>
-  
+        
+        
 
-  <header>
+        
+            <a class="dropdown-icon button" id="btn-dropdown" tabindex="0"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" width='24' height='24' fill="none" stroke="currentColor" stroke-width="0.7" stroke-linecap="round" stroke-linejoin="round"><path fill="currentColor" d="M3.314,4.8h13.372c0.41,0,0.743-0.333,0.743-0.743c0-0.41-0.333-0.743-0.743-0.743H3.314c-0.41,0-0.743,0.333-0.743,0.743C2.571,4.467,2.904,4.8,3.314,4.8z M16.686,15.2H3.314c-0.41,0-0.743,0.333-0.743,0.743s0.333,0.743,0.743,0.743h13.372c0.41,0,0.743-0.333,0.743-0.743S17.096,15.2,16.686,15.2z M16.686,9.257H3.314c-0.41,0-0.743,0.333-0.743,0.743s0.333,0.743,0.743,0.743h13.372c0.41,0,0.743-0.333,0.743-0.743S17.096,9.257,16.686,9.257z"></path></svg></a>
+            <div class="dropdown-menus" id="dropdown-menus">
+                
+                    <a href="/" class="dropdown-menu button">首页</a>
+                
+                    <a href="/about/" class="dropdown-menu button">关于</a>
+                
+                    <a href="/archives/" class="dropdown-menu button">归档</a>
+                
+                    <a href="/links/" class="dropdown-menu button">友链</a>
+                
+                    <a href="/reward/" class="dropdown-menu button">赞助</a>
+                
+                    <a href="/atom.xml" class="dropdown-menu button">订阅</a>
+                
+                    <a target="_blank" rel="noopener" href="//melody.loli.fj.cn" class="dropdown-menu button">主题</a>
+                
+            </div>
+        
+    </div>
+</header>
+
+
+            <main class="main">
     
 
-<div class="header-inner" style="height: 70vh;">
-  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
-  <div class="container">
-    <a class="navbar-brand" href="/">
-      <strong>绯鞠的博客</strong>
-    </a>
+<div class="post-title">
+    <h1 class="post-title__text">
+        【笔记】AltiumDesigner学习笔记
+    </h1>
+    <div class="post-title__meta">
+        <a href="/archives/2022/12/" class="post-meta__date button">2022-12-03</a>
+        
+ 
+        
+    
+    
 
-    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
-            data-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <div class="animated-icon"><span></span><span></span><span></span></div>
-    </button>
 
-    <!-- Collapsible content -->
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav ml-auto text-center">
-        
-          
-          
-          
-          
-            <li class="nav-item">
-              <a class="nav-link" href="/" target="_self">
-                <i class="iconfont icon-home-fill"></i>
-                <span>首页</span>
-              </a>
-            </li>
-          
-        
-          
-          
-          
-          
-            <li class="nav-item">
-              <a class="nav-link" href="/about/" target="_self">
-                <i class="iconfont icon-user-fill"></i>
-                <span>关于</span>
-              </a>
-            </li>
-          
-        
-          
-          
-          
-          
-            <li class="nav-item">
-              <a class="nav-link" href="/tags/" target="_self">
-                <i class="iconfont icon-tags-fill"></i>
-                <span>标签</span>
-              </a>
-            </li>
-          
-        
-          
-          
-          
-          
-            <li class="nav-item">
-              <a class="nav-link" href="/categories/" target="_self">
-                <i class="iconfont icon-category-fill"></i>
-                <span>分类</span>
-              </a>
-            </li>
-          
-        
-          
-          
-          
-          
-            <li class="nav-item">
-              <a class="nav-link" href="/archives/" target="_self">
-                <i class="iconfont icon-archive-fill"></i>
-                <span>归档</span>
-              </a>
-            </li>
-          
-        
-          
-          
-          
-          
-            <li class="nav-item">
-              <a class="nav-link" href="/links/" target="_self">
-                <i class="iconfont icon-user-friends"></i>
-                <span>友链</span>
-              </a>
-            </li>
-          
-        
-          
-          
-          
-          
-            <li class="nav-item">
-              <a class="nav-link" href="/command/" target="_self">
-                <i class="iconfont icon-book"></i>
-                <span>指令</span>
-              </a>
-            </li>
-          
-        
-          
-          
-          
-          
-            <li class="nav-item">
-              <a class="nav-link" href="/atom.xml" target="_self">
-                <i class="iconfont icon-rss"></i>
-                <span>订阅</span>
-              </a>
-            </li>
-          
-        
-          
-          
-          
-          
-            <li class="nav-item">
-              <a class="nav-link" href="//redefine.loli.fj.cn" target="_self">
-                <i class="iconfont icon-th-large"></i>
-                <span>主题</span>
-              </a>
-            </li>
-          
-        
-        
-          <li class="nav-item" id="search-btn">
-            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
-              <i class="iconfont icon-search"></i>
-            </a>
-          </li>
-          
-        
-        
-          <li class="nav-item" id="color-toggle-btn">
-            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
-              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
-            </a>
-          </li>
-        
-      </ul>
+ 
+
+ 
     </div>
-  </div>
-</nav>
+</div>
 
-  
 
-<div id="banner" class="banner" parallax=true
-     style="background: url('https://game.gtimg.cn/images/yxzj/img201606/skin/hero-info/141/141-bigskin-1.jpg') no-repeat center center; background-size: cover;">
-  <div class="full-bg-img">
-    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
-      <div class="banner-text text-center fade-in-up">
-        <div class="h2">
-          
-            <span id="subtitle" data-typed-text="【笔记】AltiumDesigner学习笔记"></span>
-          
+    <aside class="post-side">
+        <div class="post-side__toc">
+            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%89%8D%E8%A8%80"><span class="toc-text">前言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%A8%E5%B1%80%E9%85%8D%E7%BD%AE"><span class="toc-text">全局配置</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BF%AE%E6%94%B9%E7%94%BB%E5%B8%83%E7%BC%A9%E6%94%BE%E5%BF%AB%E6%8D%B7%E9%94%AE%EF%BC%88%E5%8F%AF%E9%80%89%EF%BC%89"><span class="toc-text">修改画布缩放快捷键（可选）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%85%B3%E9%97%AD%E5%B0%86%E5%AD%97%E5%BA%93%E9%99%84%E5%8A%A0%E5%88%B0%E5%B7%A5%E7%A8%8B%E6%96%87%E4%BB%B6%E4%B8%AD"><span class="toc-text">关闭将字库附加到工程文件中</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C"><span class="toc-text">基本操作</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BC%A9%E6%94%BE%E7%94%BB%E5%B8%83"><span class="toc-text">缩放画布</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8B%96%E6%8B%BD%E7%94%BB%E5%B8%83"><span class="toc-text">拖拽画布</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BF%AB%E9%80%9F%E5%88%87%E6%8D%A2%E6%8D%95%E6%8D%89%E6%A0%85%E6%A0%BC%E5%A4%A7%E5%B0%8F"><span class="toc-text">快速切换捕捉栅格大小</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BF%AB%E9%80%9F%E5%88%87%E6%8D%A2%E5%8D%95%E4%BD%8D"><span class="toc-text">快速切换单位</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BF%AB%E9%80%9F%E5%88%87%E6%8D%A2%E8%BF%9E%E7%BA%BF%E7%B1%BB%E5%9E%8B"><span class="toc-text">快速切换连线类型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%89%93%E5%BC%80%E5%AF%B9%E9%BD%90%E8%8F%9C%E5%8D%95"><span class="toc-text">打开对齐菜单</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BF%AB%E6%8D%B7%E9%94%AE"><span class="toc-text">快捷键</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9F%A5%E7%9C%8B%E6%89%80%E6%9C%89%E5%BF%AB%E6%8D%B7%E9%94%AE"><span class="toc-text">查看所有快捷键</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%9B%E5%BB%BA%E8%87%AA%E5%AE%9A%E4%B9%89%E5%BF%AB%E6%8D%B7%E9%94%AE"><span class="toc-text">创建自定义快捷键</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8E%9F%E7%90%86%E5%9B%BE%E9%85%8D%E7%BD%AE"><span class="toc-text">原理图配置</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%85%B3%E9%97%AD%E5%8F%B3%E4%B8%8B%E8%A7%92%E6%A0%87%E9%A2%98%E5%9D%97"><span class="toc-text">关闭右下角标题块</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BF%AE%E6%94%B9%E8%A1%A8%E6%A0%BC%E8%83%8C%E6%99%AF"><span class="toc-text">修改表格背景</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BF%AE%E6%94%B9%E8%A1%A8%E6%A0%BC%E7%BA%BF%E9%A2%9C%E8%89%B2"><span class="toc-text">修改表格线颜色</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8E%9F%E7%90%86%E5%9B%BE%E6%93%8D%E4%BD%9C"><span class="toc-text">原理图操作</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%94%BE%E7%BD%AE%E5%85%83%E4%BB%B6"><span class="toc-text">放置元件</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%BB%98%E5%88%B6%E5%9F%BA%E6%9C%AC%E7%94%B5%E8%B7%AF%E5%85%83%E4%BB%B6"><span class="toc-text">绘制基本电路元件</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E7%94%B5%E6%BA%90%E6%AD%A3%E6%9E%81"><span class="toc-text">电源正极</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%8E%A5%E5%9C%B0"><span class="toc-text">接地</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%BB%98%E5%88%B6%E5%BA%93%E4%B8%AD%E7%9A%84%E5%85%83%E4%BB%B6"><span class="toc-text">绘制库中的元件</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%94%BE%E7%BD%AE%E7%BD%91%E7%BB%9C%E6%A0%87%E5%8F%B7"><span class="toc-text">放置网络标号</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BF%AE%E6%94%B9%E5%85%83%E4%BB%B6%E5%BC%95%E8%84%9A%E6%A0%87%E5%8F%B7"><span class="toc-text">修改元件引脚标号</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%85%83%E4%BB%B6%E7%9A%84%E6%8E%A5%E7%BA%BF"><span class="toc-text">元件的接线</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%87%AA%E5%8A%A8%E8%BF%9E%E7%BA%BF"><span class="toc-text">自动连线</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%9B%E5%BB%BA%E5%85%83%E4%BB%B6%E7%9A%84%E5%89%AF%E6%9C%AC"><span class="toc-text">创建元件的副本</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%A0%E9%99%A4%E5%85%83%E4%BB%B6"><span class="toc-text">删除元件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AE%BE%E7%BD%AE%E5%85%83%E4%BB%B6%E5%B1%9E%E6%80%A7"><span class="toc-text">设置元件属性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BF%AB%E9%80%9F%E5%A1%AB%E5%85%85%E6%89%80%E6%9C%89%E5%8F%98%E9%87%8F"><span class="toc-text">快速填充所有变量</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%89%B9%E6%B3%A8%E6%8E%A5%E7%BA%BF"><span class="toc-text">批注接线</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%B8%85%E9%99%A4%E6%89%B9%E6%B3%A8"><span class="toc-text">清除批注</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BB%98%E5%88%B6%E5%9B%BE%E5%BD%A2"><span class="toc-text">绘制图形</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%BB%98%E5%88%B6%E5%89%8D%E8%AE%BE%E7%BD%AE%E5%B1%9E%E6%80%A7"><span class="toc-text">绘制前设置属性</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E5%9B%BE"><span class="toc-text">编译原理图</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%9F%A5%E7%9C%8B%E7%BC%96%E8%AF%91%E6%97%A5%E5%BF%97"><span class="toc-text">查看编译日志</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B0%86%E5%8E%9F%E7%90%86%E5%9B%BE%E7%94%9F%E6%88%90PCB%E5%9B%BE"><span class="toc-text">将原理图生成PCB图</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%A3%80%E6%9F%A5%E5%92%8C%E6%8C%87%E5%AE%9A%E5%B0%81%E8%A3%85"><span class="toc-text">检查和指定封装</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8E%9F%E7%90%86%E5%9B%BE%E4%B8%AD%E6%A3%80%E6%9F%A5%E5%85%83%E4%BB%B6%E7%9A%84%E5%B0%81%E8%A3%85%E6%98%A0%E5%B0%84"><span class="toc-text">原理图中检查元件的封装映射</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%85%83%E4%BB%B6%E7%AC%A6%E5%8F%B7%E5%BA%93%E4%B8%AD%E6%A3%80%E6%9F%A5%E5%85%83%E4%BB%B6%E7%9A%84%E5%B0%81%E8%A3%85%E6%98%A0%E5%B0%84"><span class="toc-text">元件符号库中检查元件的封装映射</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%87%8D%E6%96%B0%E6%8C%87%E5%AE%9A%E5%B0%81%E8%A3%85"><span class="toc-text">重新指定封装</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%9B%E5%BB%BA%E6%96%B0%E7%9A%84PCB%E6%96%87%E4%BB%B6"><span class="toc-text">创建新的PCB文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%94%9F%E6%88%90PCB%E5%9B%BE"><span class="toc-text">生成PCB图</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%87%8D%E6%96%B0%E8%BD%AC%E5%8C%96%E6%88%90PCB%E5%9B%BE"><span class="toc-text">重新转化成PCB图</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%B8%85%E7%90%86%E7%BD%91%E7%BB%9C"><span class="toc-text">清理网络</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%B8%85%E7%90%86%E5%AF%B9%E8%B1%A1"><span class="toc-text">清理对象</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#PCB%E6%9D%BF%E7%9A%84%E7%BB%93%E6%9E%84"><span class="toc-text">PCB板的结构</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#PCB%E5%9B%BE%E9%85%8D%E7%BD%AE"><span class="toc-text">PCB图配置</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8C%87%E5%AE%9A%E5%8E%9F%E7%82%B9"><span class="toc-text">指定原点</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%98%BE%E7%A4%BA%E6%88%96%E9%9A%90%E8%97%8F%E6%89%80%E6%9C%89%E7%BD%91%E7%BB%9C%E6%88%96%E5%99%A8%E4%BB%B6"><span class="toc-text">显示或隐藏所有网络或器件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%9A%90%E8%97%8F%E6%8C%87%E5%AE%9A%E5%B1%82"><span class="toc-text">隐藏指定层</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%BB%98%E8%AE%A4%E8%A7%84%E5%88%99%E7%9A%84%E4%BF%AE%E6%94%B9%E5%92%8C%E8%87%AA%E5%AE%9A%E4%B9%89%E8%A7%84%E5%88%99%E7%9A%84%E5%88%9B%E5%BB%BA"><span class="toc-text">默认规则的修改和自定义规则的创建</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%89%93%E5%BC%80PCB%E8%A7%84%E5%88%99%E5%8F%8A%E7%BA%A6%E6%9D%9F%E7%BC%96%E8%BE%91%E5%99%A8"><span class="toc-text">打开PCB规则及约束编辑器</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%88%9B%E5%BB%BA%E8%87%AA%E5%AE%9A%E4%B9%89%E8%A7%84%E5%88%99"><span class="toc-text">创建自定义规则</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BF%AE%E6%94%B9%E7%B3%BB%E7%BB%9F%E9%BB%98%E8%AE%A4%E8%A7%84%E5%88%99"><span class="toc-text">修改系统默认规则</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BF%AE%E6%94%B9%E8%A7%84%E5%88%99%E4%BC%98%E5%85%88%E7%BA%A7"><span class="toc-text">修改规则优先级</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%9B%B4%E5%A4%9A%E8%A7%84%E5%88%99%E9%85%8D%E7%BD%AE"><span class="toc-text">更多规则配置</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E8%AE%BE%E7%BD%AE%E5%85%83%E4%BB%B6%E4%B8%8E%E5%85%83%E4%BB%B6%E7%9A%84%E5%AE%89%E5%85%A8%E8%B7%9D%E7%A6%BB"><span class="toc-text">设置元件与元件的安全距离</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E8%AE%BE%E7%BD%AE%E8%B5%B0%E7%BA%BF%E9%BB%98%E8%AE%A4%E5%AE%BD%E5%BA%A6"><span class="toc-text">设置走线默认宽度</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E8%AE%BE%E7%BD%AE%E8%B5%B0%E7%BA%BF%E4%B8%8E%E7%84%8A%E7%9B%98%E7%9A%84%E5%AE%89%E5%85%A8%E8%B7%9D%E7%A6%BB"><span class="toc-text">设置走线与焊盘的安全距离</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E8%AE%BE%E7%BD%AE%E4%B8%9D%E5%8D%B0%E4%B8%8E%E7%84%8A%E7%9B%98%E7%9A%84%E5%AE%89%E5%85%A8%E8%B7%9D%E7%A6%BB"><span class="toc-text">设置丝印与焊盘的安全距离</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E8%AE%BE%E7%BD%AE%E8%BF%87%E5%AD%94%E5%B0%BA%E5%AF%B8%E5%AE%89%E5%85%A8%E5%80%BC"><span class="toc-text">设置过孔尺寸安全值</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%B0%86%E8%BF%87%E5%AD%94%E7%9A%84%E6%95%B7%E9%93%9C%E4%BB%8E%E5%8D%81%E5%AD%97%E6%94%B9%E4%B8%BA%E5%AE%8C%E5%85%A8"><span class="toc-text">将过孔的敷铜从十字改为完全</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E8%AE%BE%E7%BD%AE%E6%9D%BF%E8%BE%B9%E8%B7%9D"><span class="toc-text">设置板边距</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%80%9A%E8%BF%87%E8%AE%BE%E7%BD%AE%E4%BF%AE%E6%94%B9%E8%BF%87%E5%AD%94%E9%BB%98%E8%AE%A4%E5%80%BC"><span class="toc-text">通过设置修改过孔默认值</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#PCB%E5%9B%BE%E6%93%8D%E4%BD%9C"><span class="toc-text">PCB图操作</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B0%86%E9%80%89%E4%B8%AD%E7%9A%84%E6%89%80%E6%9C%89%E5%85%83%E4%BB%B6%E6%94%BE%E5%88%B0%E6%8C%87%E5%AE%9A%E5%8C%BA%E5%9F%9F"><span class="toc-text">将选中的所有元件放到指定区域</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%A7%86%E5%9B%BE%E6%93%8D%E4%BD%9C"><span class="toc-text">视图操作</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%A7%86%E5%9B%BE%E5%88%87%E6%8D%A2"><span class="toc-text">视图切换</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%87%AA%E5%8A%A8%E7%BC%A9%E6%94%BE"><span class="toc-text">自动缩放</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%9C%A83D%E8%A7%86%E5%9B%BE%E4%B8%8B%E7%BF%BB%E8%BD%AC%E6%9D%BF%E5%AD%90"><span class="toc-text">在3D视图下翻转板子</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%94%81%E5%AE%9A%E5%85%83%E4%BB%B6%E4%BD%8D%E7%BD%AE"><span class="toc-text">锁定元件位置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%9A%90%E8%97%8F%E5%85%B6%E4%BB%96%E5%B1%82"><span class="toc-text">隐藏其他层</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%81%A2%E5%A4%8D%E6%98%BE%E7%A4%BA"><span class="toc-text">恢复显示</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9F%A5%E7%9C%8B%E9%99%84%E8%BF%91%E8%BF%9E%E6%8E%A5%E7%82%B9"><span class="toc-text">查看附近连接点</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%81%A2%E5%A4%8D%E6%98%BE%E7%A4%BA-1"><span class="toc-text">恢复显示</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%89%B9%E9%87%8F%E9%80%89%E6%8B%A9"><span class="toc-text">批量选择</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%80%9A%E8%BF%87%E6%9F%A5%E6%89%BE%E5%B7%A5%E5%85%B7%E6%89%B9%E9%87%8F%E9%80%89%E6%8B%A9"><span class="toc-text">通过查找工具批量选择</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%89%93%E5%BC%80%E6%89%B9%E9%87%8F%E9%80%89%E6%8B%A9%E8%8F%9C%E5%8D%95"><span class="toc-text">打开批量选择菜单</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B5%8B%E9%87%8F%E8%B7%9D%E7%A6%BB"><span class="toc-text">测量距离</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8F%96%E6%B6%88%E6%A0%87%E5%B0%BA"><span class="toc-text">取消标尺</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%A3%81%E6%9D%BF"><span class="toc-text">裁板</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%BB%98%E5%88%B6%E8%A3%81%E6%9D%BF%E7%BA%BF"><span class="toc-text">绘制裁板线</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%9B%9B%E4%B8%AA%E8%A7%92%E5%AE%9A%E4%BD%8D%E5%AD%94%E5%B0%BA%E5%AF%B8"><span class="toc-text">四个角定位孔尺寸</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%A0%B9%E6%8D%AE%E8%A3%81%E6%9D%BF%E7%BA%BF%E8%A3%81%E6%9D%BF"><span class="toc-text">根据裁板线裁板</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E4%BF%9D%E7%95%99%E5%B0%81%E9%97%AD%E5%9B%BE%E5%BD%A2%E5%86%85%E9%83%A8"><span class="toc-text">保留封闭图形内部</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#%E5%B0%81%E9%97%AD%E5%9B%BE%E5%BD%A2%E5%86%85%E9%83%A8%E6%8C%96%E7%A9%BA"><span class="toc-text">封闭图形内部挖空</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B8%83%E5%B1%80"><span class="toc-text">布局</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B8%83%E7%BA%BF"><span class="toc-text">布线</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%89%8B%E5%8A%A8%E5%B8%83%E7%BA%BF"><span class="toc-text">手动布线</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%88%A0%E9%99%A4%E6%8C%87%E5%AE%9A%E7%9A%84%E7%BD%91%E7%BB%9C"><span class="toc-text">删除指定的网络</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%88%87%E6%8D%A2%E9%A1%B6%E7%AB%AF%E5%B8%83%E7%BA%BF%E5%92%8C%E5%BA%95%E7%AB%AF%E5%B8%83%E7%BA%BF"><span class="toc-text">切换顶端布线和底端布线</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%94%BE%E7%BD%AE%E8%BF%87%E5%AD%94"><span class="toc-text">放置过孔</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#%E5%BF%AB%E9%80%9F%E6%94%BE%E7%BD%AE%E8%BF%87%E5%AD%94"><span class="toc-text">快速放置过孔</span></a></li></ol></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%99%B6%E6%8C%AF-x2F-%E9%AB%98%E9%80%9F%E4%BF%A1%E6%81%AF%E5%8C%85%E5%9C%B0%E5%A4%84%E7%90%86"><span class="toc-text">晶振&#x2F;高速信息包地处理</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E4%B8%BA%E7%84%8A%E7%9B%98%E4%B8%8E%E8%B5%B0%E7%BA%BF%E8%BF%9E%E6%8E%A5%E5%A4%84%E6%B7%BB%E5%8A%A0%E6%B3%AA%E6%BB%B4"><span class="toc-text">为焊盘与走线连接处添加泪滴</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%87%AA%E5%8A%A8%E5%B8%83%E7%BA%BF"><span class="toc-text">自动布线</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%A7%84%E5%88%99%E6%A3%80%E6%9F%A5"><span class="toc-text">规则检查</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%95%B7%E9%93%9C"><span class="toc-text">敷铜</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%95%B4%E6%9D%BF%E6%95%B7%E9%93%9C"><span class="toc-text">整板敷铜</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%87%8D%E6%96%B0%E6%B8%B2%E6%9F%93"><span class="toc-text">重新渲染</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B7%BB%E5%8A%A0%E7%BC%9D%E5%90%88%E5%AD%94"><span class="toc-text">添加缝合孔</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%87%AA%E5%8A%A8%E4%B8%BA%E6%95%B4%E4%B8%AAPCB%E6%9D%BF%E6%89%93%E7%BC%9D%E5%90%88%E5%AD%94"><span class="toc-text">自动为整个PCB板打缝合孔</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%89%8B%E5%8A%A8%E9%80%89%E5%AE%9A%E5%8C%BA%E5%9F%9F%E6%89%93%E7%BC%9D%E5%90%88%E5%AD%94"><span class="toc-text">手动选定区域打缝合孔</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%88%A0%E9%99%A4%E7%BC%9D%E5%90%88%E5%AD%94"><span class="toc-text">删除缝合孔</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%A0%87%E6%B3%A8"><span class="toc-text">标注</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%87%AA%E5%AE%9A%E4%B9%89%E5%85%83%E4%BB%B6%E5%BA%93"><span class="toc-text">自定义元件库</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%9B%E5%BB%BA%E7%AC%A6%E5%8F%B7%E5%BA%93%EF%BC%88Schematic-Library%EF%BC%89%E5%92%8C%E5%B0%81%E8%A3%85%E5%BA%93%EF%BC%88PCB-Library%EF%BC%89"><span class="toc-text">创建符号库（Schematic Library）和封装库（PCB Library）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%87%AA%E5%AE%9A%E4%B9%89%E7%AC%A6%E5%8F%B7%E5%BA%93"><span class="toc-text">自定义符号库</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%88%9B%E5%BB%BA%E8%87%AA%E5%AE%9A%E4%B9%89%E5%85%83%E4%BB%B6"><span class="toc-text">创建自定义元件</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%BB%98%E5%88%B6%E8%87%AA%E5%AE%9A%E4%B9%89%E5%85%83%E4%BB%B6"><span class="toc-text">绘制自定义元件</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BF%AE%E6%94%B9%E8%87%AA%E5%AE%9A%E4%B9%89%E5%85%83%E4%BB%B6%E5%B1%9E%E6%80%A7%EF%BC%8C%E5%AE%8C%E6%88%90%E8%87%AA%E5%AE%9A%E4%B9%89%E7%AC%A6%E5%8F%B7"><span class="toc-text">修改自定义元件属性，完成自定义符号</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%87%AA%E5%AE%9A%E4%B9%89%E5%B0%81%E8%A3%85%E5%BA%93"><span class="toc-text">自定义封装库</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%A4%8D%E4%BD%8D%E7%94%BB%E5%B8%83"><span class="toc-text">复位画布</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%BF%AB%E9%80%9F%E5%88%87%E6%8D%A2%E6%A0%85%E6%A0%BC%E5%A4%A7%E5%B0%8F"><span class="toc-text">快速切换栅格大小</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%BB%98%E5%88%B6%E8%87%AA%E5%AE%9A%E4%B9%89%E5%85%83%E4%BB%B6%E7%9A%84%E5%B0%81%E8%A3%85"><span class="toc-text">绘制自定义元件的封装</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%94%BE%E7%BD%AE%E7%BA%BF%E6%9D%A1"><span class="toc-text">放置线条</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%94%BE%E7%BD%AE%E7%84%8A%E7%9B%98"><span class="toc-text">放置焊盘</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#%E4%BF%AE%E6%94%B9%E7%84%8A%E7%9B%98%E5%B1%9E%E6%80%A7"><span class="toc-text">修改焊盘属性</span></a></li></ol></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%94%BE%E7%BD%AE3D%E5%85%83%E4%BB%B6%E4%BD%93"><span class="toc-text">放置3D元件体</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%87%8D%E6%96%B0%E8%AE%BE%E7%BD%AE%E5%8E%9F%E7%82%B9"><span class="toc-text">重新设置原点</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BF%AE%E6%94%B9%E8%87%AA%E5%AE%9A%E4%B9%89%E5%85%83%E4%BB%B6%E5%B1%9E%E6%80%A7%EF%BC%8C%E5%AE%8C%E6%88%90%E8%87%AA%E5%AE%9A%E4%B9%89%E5%B0%81%E8%A3%85"><span class="toc-text">修改自定义元件属性，完成自定义封装</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%BB%A7%E7%BB%AD%E6%B7%BB%E5%8A%A0%E6%96%B0%E7%9A%84%E8%87%AA%E5%AE%9A%E4%B9%89%E5%B0%81%E8%A3%85"><span class="toc-text">继续添加新的自定义封装</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%98%A0%E5%B0%84%E7%AC%A6%E5%8F%B7%E5%BA%93%E4%B8%8E%E5%B0%81%E8%A3%85%E5%BA%93"><span class="toc-text">映射符号库与封装库</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8D%95%E7%8B%AC%E6%98%A0%E5%B0%84"><span class="toc-text">单独映射</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%89%B9%E9%87%8F%E6%98%A0%E5%B0%84"><span class="toc-text">批量映射</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B0%86%E8%87%AA%E5%AE%9A%E4%B9%89%E5%85%83%E4%BB%B6%E5%BA%93%E5%8D%87%E7%BA%A7%E4%B8%BA%E9%9B%86%E6%88%90%E5%BC%80%E5%8F%91%E5%BA%93"><span class="toc-text">将自定义元件库升级为集成开发库</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%9B%E5%BB%BA%E9%9B%86%E6%88%90%E5%BC%80%E5%8F%91%E5%BA%93"><span class="toc-text">创建集成开发库</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BC%96%E8%AF%91%E9%9B%86%E6%88%90%E5%BC%80%E5%8F%91%E5%BA%93"><span class="toc-text">编译集成开发库</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%89%8B%E5%8A%A8%E5%AE%89%E8%A3%85%E9%9B%86%E6%88%90%E5%BC%80%E5%8F%91%E5%BA%93"><span class="toc-text">手动安装集成开发库</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%8C%E6%88%90"><span class="toc-text">完成</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%82%E8%80%83%E6%96%87%E7%8C%AE"><span class="toc-text">参考文献</span></a></li></ol>
         </div>
-
-        
-          
-  <div class="mt-3">
-    
-    
-      <span class="post-meta">
-        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2022-12-03 18:38" pubdate>
-          2022:12:03
-        </time>
-      </span>
-    
-  </div>
-
-  <div class="mt-1">
-    
-
-    
-
-    
-    
-  </div>
-
-
-        
-      </div>
-
-      
-    </div>
-  </div>
-</div>
-
-</div>
-
-  </header>
-
-  <main>
-    
-      
-
-<div class="container-fluid nopadding-x">
-  <div class="row nomargin-x">
-    <div class="side-col d-none d-lg-block col-lg-2">
-      
-  <aside class="sidebar category-bar" style="margin-right: -1rem">
-    
-
-
-
-
-
-<div class="category-list">
-  
-  
-</div>
-
-
-  </aside>
-
-
+    </aside>
+    <a class="btn-toc button" id="btn-toc" tabindex="0">
+        <svg viewBox="0 0 1024 1024" width="32" height="32" xmlns="http://www.w3.org/2000/svg">
+            <path d="M128 256h64V192H128zM320 256h576V192H320zM128 544h64v-64H128zM320 544h576v-64H320zM128 832h64v-64H128zM320 832h576v-64H320z" fill="currentColor"></path>
+        </svg>
+    </a>
+    <div class="toc-menus" id="toc-menus">
+        <div class="toc-title">文章目录</div>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%89%8D%E8%A8%80"><span class="toc-text">前言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%A8%E5%B1%80%E9%85%8D%E7%BD%AE"><span class="toc-text">全局配置</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BF%AE%E6%94%B9%E7%94%BB%E5%B8%83%E7%BC%A9%E6%94%BE%E5%BF%AB%E6%8D%B7%E9%94%AE%EF%BC%88%E5%8F%AF%E9%80%89%EF%BC%89"><span class="toc-text">修改画布缩放快捷键（可选）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%85%B3%E9%97%AD%E5%B0%86%E5%AD%97%E5%BA%93%E9%99%84%E5%8A%A0%E5%88%B0%E5%B7%A5%E7%A8%8B%E6%96%87%E4%BB%B6%E4%B8%AD"><span class="toc-text">关闭将字库附加到工程文件中</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C"><span class="toc-text">基本操作</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BC%A9%E6%94%BE%E7%94%BB%E5%B8%83"><span class="toc-text">缩放画布</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8B%96%E6%8B%BD%E7%94%BB%E5%B8%83"><span class="toc-text">拖拽画布</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BF%AB%E9%80%9F%E5%88%87%E6%8D%A2%E6%8D%95%E6%8D%89%E6%A0%85%E6%A0%BC%E5%A4%A7%E5%B0%8F"><span class="toc-text">快速切换捕捉栅格大小</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BF%AB%E9%80%9F%E5%88%87%E6%8D%A2%E5%8D%95%E4%BD%8D"><span class="toc-text">快速切换单位</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BF%AB%E9%80%9F%E5%88%87%E6%8D%A2%E8%BF%9E%E7%BA%BF%E7%B1%BB%E5%9E%8B"><span class="toc-text">快速切换连线类型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%89%93%E5%BC%80%E5%AF%B9%E9%BD%90%E8%8F%9C%E5%8D%95"><span class="toc-text">打开对齐菜单</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BF%AB%E6%8D%B7%E9%94%AE"><span class="toc-text">快捷键</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9F%A5%E7%9C%8B%E6%89%80%E6%9C%89%E5%BF%AB%E6%8D%B7%E9%94%AE"><span class="toc-text">查看所有快捷键</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%9B%E5%BB%BA%E8%87%AA%E5%AE%9A%E4%B9%89%E5%BF%AB%E6%8D%B7%E9%94%AE"><span class="toc-text">创建自定义快捷键</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8E%9F%E7%90%86%E5%9B%BE%E9%85%8D%E7%BD%AE"><span class="toc-text">原理图配置</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%85%B3%E9%97%AD%E5%8F%B3%E4%B8%8B%E8%A7%92%E6%A0%87%E9%A2%98%E5%9D%97"><span class="toc-text">关闭右下角标题块</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BF%AE%E6%94%B9%E8%A1%A8%E6%A0%BC%E8%83%8C%E6%99%AF"><span class="toc-text">修改表格背景</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BF%AE%E6%94%B9%E8%A1%A8%E6%A0%BC%E7%BA%BF%E9%A2%9C%E8%89%B2"><span class="toc-text">修改表格线颜色</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8E%9F%E7%90%86%E5%9B%BE%E6%93%8D%E4%BD%9C"><span class="toc-text">原理图操作</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%94%BE%E7%BD%AE%E5%85%83%E4%BB%B6"><span class="toc-text">放置元件</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%BB%98%E5%88%B6%E5%9F%BA%E6%9C%AC%E7%94%B5%E8%B7%AF%E5%85%83%E4%BB%B6"><span class="toc-text">绘制基本电路元件</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E7%94%B5%E6%BA%90%E6%AD%A3%E6%9E%81"><span class="toc-text">电源正极</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%8E%A5%E5%9C%B0"><span class="toc-text">接地</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%BB%98%E5%88%B6%E5%BA%93%E4%B8%AD%E7%9A%84%E5%85%83%E4%BB%B6"><span class="toc-text">绘制库中的元件</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%94%BE%E7%BD%AE%E7%BD%91%E7%BB%9C%E6%A0%87%E5%8F%B7"><span class="toc-text">放置网络标号</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BF%AE%E6%94%B9%E5%85%83%E4%BB%B6%E5%BC%95%E8%84%9A%E6%A0%87%E5%8F%B7"><span class="toc-text">修改元件引脚标号</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%85%83%E4%BB%B6%E7%9A%84%E6%8E%A5%E7%BA%BF"><span class="toc-text">元件的接线</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%87%AA%E5%8A%A8%E8%BF%9E%E7%BA%BF"><span class="toc-text">自动连线</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%9B%E5%BB%BA%E5%85%83%E4%BB%B6%E7%9A%84%E5%89%AF%E6%9C%AC"><span class="toc-text">创建元件的副本</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%A0%E9%99%A4%E5%85%83%E4%BB%B6"><span class="toc-text">删除元件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AE%BE%E7%BD%AE%E5%85%83%E4%BB%B6%E5%B1%9E%E6%80%A7"><span class="toc-text">设置元件属性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BF%AB%E9%80%9F%E5%A1%AB%E5%85%85%E6%89%80%E6%9C%89%E5%8F%98%E9%87%8F"><span class="toc-text">快速填充所有变量</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%89%B9%E6%B3%A8%E6%8E%A5%E7%BA%BF"><span class="toc-text">批注接线</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%B8%85%E9%99%A4%E6%89%B9%E6%B3%A8"><span class="toc-text">清除批注</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BB%98%E5%88%B6%E5%9B%BE%E5%BD%A2"><span class="toc-text">绘制图形</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%BB%98%E5%88%B6%E5%89%8D%E8%AE%BE%E7%BD%AE%E5%B1%9E%E6%80%A7"><span class="toc-text">绘制前设置属性</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E5%9B%BE"><span class="toc-text">编译原理图</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%9F%A5%E7%9C%8B%E7%BC%96%E8%AF%91%E6%97%A5%E5%BF%97"><span class="toc-text">查看编译日志</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B0%86%E5%8E%9F%E7%90%86%E5%9B%BE%E7%94%9F%E6%88%90PCB%E5%9B%BE"><span class="toc-text">将原理图生成PCB图</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%A3%80%E6%9F%A5%E5%92%8C%E6%8C%87%E5%AE%9A%E5%B0%81%E8%A3%85"><span class="toc-text">检查和指定封装</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8E%9F%E7%90%86%E5%9B%BE%E4%B8%AD%E6%A3%80%E6%9F%A5%E5%85%83%E4%BB%B6%E7%9A%84%E5%B0%81%E8%A3%85%E6%98%A0%E5%B0%84"><span class="toc-text">原理图中检查元件的封装映射</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%85%83%E4%BB%B6%E7%AC%A6%E5%8F%B7%E5%BA%93%E4%B8%AD%E6%A3%80%E6%9F%A5%E5%85%83%E4%BB%B6%E7%9A%84%E5%B0%81%E8%A3%85%E6%98%A0%E5%B0%84"><span class="toc-text">元件符号库中检查元件的封装映射</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%87%8D%E6%96%B0%E6%8C%87%E5%AE%9A%E5%B0%81%E8%A3%85"><span class="toc-text">重新指定封装</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%9B%E5%BB%BA%E6%96%B0%E7%9A%84PCB%E6%96%87%E4%BB%B6"><span class="toc-text">创建新的PCB文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%94%9F%E6%88%90PCB%E5%9B%BE"><span class="toc-text">生成PCB图</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%87%8D%E6%96%B0%E8%BD%AC%E5%8C%96%E6%88%90PCB%E5%9B%BE"><span class="toc-text">重新转化成PCB图</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%B8%85%E7%90%86%E7%BD%91%E7%BB%9C"><span class="toc-text">清理网络</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%B8%85%E7%90%86%E5%AF%B9%E8%B1%A1"><span class="toc-text">清理对象</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#PCB%E6%9D%BF%E7%9A%84%E7%BB%93%E6%9E%84"><span class="toc-text">PCB板的结构</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#PCB%E5%9B%BE%E9%85%8D%E7%BD%AE"><span class="toc-text">PCB图配置</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8C%87%E5%AE%9A%E5%8E%9F%E7%82%B9"><span class="toc-text">指定原点</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%98%BE%E7%A4%BA%E6%88%96%E9%9A%90%E8%97%8F%E6%89%80%E6%9C%89%E7%BD%91%E7%BB%9C%E6%88%96%E5%99%A8%E4%BB%B6"><span class="toc-text">显示或隐藏所有网络或器件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%9A%90%E8%97%8F%E6%8C%87%E5%AE%9A%E5%B1%82"><span class="toc-text">隐藏指定层</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%BB%98%E8%AE%A4%E8%A7%84%E5%88%99%E7%9A%84%E4%BF%AE%E6%94%B9%E5%92%8C%E8%87%AA%E5%AE%9A%E4%B9%89%E8%A7%84%E5%88%99%E7%9A%84%E5%88%9B%E5%BB%BA"><span class="toc-text">默认规则的修改和自定义规则的创建</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%89%93%E5%BC%80PCB%E8%A7%84%E5%88%99%E5%8F%8A%E7%BA%A6%E6%9D%9F%E7%BC%96%E8%BE%91%E5%99%A8"><span class="toc-text">打开PCB规则及约束编辑器</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%88%9B%E5%BB%BA%E8%87%AA%E5%AE%9A%E4%B9%89%E8%A7%84%E5%88%99"><span class="toc-text">创建自定义规则</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BF%AE%E6%94%B9%E7%B3%BB%E7%BB%9F%E9%BB%98%E8%AE%A4%E8%A7%84%E5%88%99"><span class="toc-text">修改系统默认规则</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BF%AE%E6%94%B9%E8%A7%84%E5%88%99%E4%BC%98%E5%85%88%E7%BA%A7"><span class="toc-text">修改规则优先级</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%9B%B4%E5%A4%9A%E8%A7%84%E5%88%99%E9%85%8D%E7%BD%AE"><span class="toc-text">更多规则配置</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E8%AE%BE%E7%BD%AE%E5%85%83%E4%BB%B6%E4%B8%8E%E5%85%83%E4%BB%B6%E7%9A%84%E5%AE%89%E5%85%A8%E8%B7%9D%E7%A6%BB"><span class="toc-text">设置元件与元件的安全距离</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E8%AE%BE%E7%BD%AE%E8%B5%B0%E7%BA%BF%E9%BB%98%E8%AE%A4%E5%AE%BD%E5%BA%A6"><span class="toc-text">设置走线默认宽度</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E8%AE%BE%E7%BD%AE%E8%B5%B0%E7%BA%BF%E4%B8%8E%E7%84%8A%E7%9B%98%E7%9A%84%E5%AE%89%E5%85%A8%E8%B7%9D%E7%A6%BB"><span class="toc-text">设置走线与焊盘的安全距离</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E8%AE%BE%E7%BD%AE%E4%B8%9D%E5%8D%B0%E4%B8%8E%E7%84%8A%E7%9B%98%E7%9A%84%E5%AE%89%E5%85%A8%E8%B7%9D%E7%A6%BB"><span class="toc-text">设置丝印与焊盘的安全距离</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E8%AE%BE%E7%BD%AE%E8%BF%87%E5%AD%94%E5%B0%BA%E5%AF%B8%E5%AE%89%E5%85%A8%E5%80%BC"><span class="toc-text">设置过孔尺寸安全值</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%B0%86%E8%BF%87%E5%AD%94%E7%9A%84%E6%95%B7%E9%93%9C%E4%BB%8E%E5%8D%81%E5%AD%97%E6%94%B9%E4%B8%BA%E5%AE%8C%E5%85%A8"><span class="toc-text">将过孔的敷铜从十字改为完全</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E8%AE%BE%E7%BD%AE%E6%9D%BF%E8%BE%B9%E8%B7%9D"><span class="toc-text">设置板边距</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%80%9A%E8%BF%87%E8%AE%BE%E7%BD%AE%E4%BF%AE%E6%94%B9%E8%BF%87%E5%AD%94%E9%BB%98%E8%AE%A4%E5%80%BC"><span class="toc-text">通过设置修改过孔默认值</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#PCB%E5%9B%BE%E6%93%8D%E4%BD%9C"><span class="toc-text">PCB图操作</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B0%86%E9%80%89%E4%B8%AD%E7%9A%84%E6%89%80%E6%9C%89%E5%85%83%E4%BB%B6%E6%94%BE%E5%88%B0%E6%8C%87%E5%AE%9A%E5%8C%BA%E5%9F%9F"><span class="toc-text">将选中的所有元件放到指定区域</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%A7%86%E5%9B%BE%E6%93%8D%E4%BD%9C"><span class="toc-text">视图操作</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%A7%86%E5%9B%BE%E5%88%87%E6%8D%A2"><span class="toc-text">视图切换</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%87%AA%E5%8A%A8%E7%BC%A9%E6%94%BE"><span class="toc-text">自动缩放</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%9C%A83D%E8%A7%86%E5%9B%BE%E4%B8%8B%E7%BF%BB%E8%BD%AC%E6%9D%BF%E5%AD%90"><span class="toc-text">在3D视图下翻转板子</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%94%81%E5%AE%9A%E5%85%83%E4%BB%B6%E4%BD%8D%E7%BD%AE"><span class="toc-text">锁定元件位置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%9A%90%E8%97%8F%E5%85%B6%E4%BB%96%E5%B1%82"><span class="toc-text">隐藏其他层</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%81%A2%E5%A4%8D%E6%98%BE%E7%A4%BA"><span class="toc-text">恢复显示</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9F%A5%E7%9C%8B%E9%99%84%E8%BF%91%E8%BF%9E%E6%8E%A5%E7%82%B9"><span class="toc-text">查看附近连接点</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%81%A2%E5%A4%8D%E6%98%BE%E7%A4%BA-1"><span class="toc-text">恢复显示</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%89%B9%E9%87%8F%E9%80%89%E6%8B%A9"><span class="toc-text">批量选择</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%80%9A%E8%BF%87%E6%9F%A5%E6%89%BE%E5%B7%A5%E5%85%B7%E6%89%B9%E9%87%8F%E9%80%89%E6%8B%A9"><span class="toc-text">通过查找工具批量选择</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%89%93%E5%BC%80%E6%89%B9%E9%87%8F%E9%80%89%E6%8B%A9%E8%8F%9C%E5%8D%95"><span class="toc-text">打开批量选择菜单</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B5%8B%E9%87%8F%E8%B7%9D%E7%A6%BB"><span class="toc-text">测量距离</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8F%96%E6%B6%88%E6%A0%87%E5%B0%BA"><span class="toc-text">取消标尺</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%A3%81%E6%9D%BF"><span class="toc-text">裁板</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%BB%98%E5%88%B6%E8%A3%81%E6%9D%BF%E7%BA%BF"><span class="toc-text">绘制裁板线</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%9B%9B%E4%B8%AA%E8%A7%92%E5%AE%9A%E4%BD%8D%E5%AD%94%E5%B0%BA%E5%AF%B8"><span class="toc-text">四个角定位孔尺寸</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%A0%B9%E6%8D%AE%E8%A3%81%E6%9D%BF%E7%BA%BF%E8%A3%81%E6%9D%BF"><span class="toc-text">根据裁板线裁板</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E4%BF%9D%E7%95%99%E5%B0%81%E9%97%AD%E5%9B%BE%E5%BD%A2%E5%86%85%E9%83%A8"><span class="toc-text">保留封闭图形内部</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#%E5%B0%81%E9%97%AD%E5%9B%BE%E5%BD%A2%E5%86%85%E9%83%A8%E6%8C%96%E7%A9%BA"><span class="toc-text">封闭图形内部挖空</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B8%83%E5%B1%80"><span class="toc-text">布局</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B8%83%E7%BA%BF"><span class="toc-text">布线</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%89%8B%E5%8A%A8%E5%B8%83%E7%BA%BF"><span class="toc-text">手动布线</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%88%A0%E9%99%A4%E6%8C%87%E5%AE%9A%E7%9A%84%E7%BD%91%E7%BB%9C"><span class="toc-text">删除指定的网络</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%88%87%E6%8D%A2%E9%A1%B6%E7%AB%AF%E5%B8%83%E7%BA%BF%E5%92%8C%E5%BA%95%E7%AB%AF%E5%B8%83%E7%BA%BF"><span class="toc-text">切换顶端布线和底端布线</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%94%BE%E7%BD%AE%E8%BF%87%E5%AD%94"><span class="toc-text">放置过孔</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#%E5%BF%AB%E9%80%9F%E6%94%BE%E7%BD%AE%E8%BF%87%E5%AD%94"><span class="toc-text">快速放置过孔</span></a></li></ol></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%99%B6%E6%8C%AF-x2F-%E9%AB%98%E9%80%9F%E4%BF%A1%E6%81%AF%E5%8C%85%E5%9C%B0%E5%A4%84%E7%90%86"><span class="toc-text">晶振&#x2F;高速信息包地处理</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E4%B8%BA%E7%84%8A%E7%9B%98%E4%B8%8E%E8%B5%B0%E7%BA%BF%E8%BF%9E%E6%8E%A5%E5%A4%84%E6%B7%BB%E5%8A%A0%E6%B3%AA%E6%BB%B4"><span class="toc-text">为焊盘与走线连接处添加泪滴</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%87%AA%E5%8A%A8%E5%B8%83%E7%BA%BF"><span class="toc-text">自动布线</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%A7%84%E5%88%99%E6%A3%80%E6%9F%A5"><span class="toc-text">规则检查</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%95%B7%E9%93%9C"><span class="toc-text">敷铜</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%95%B4%E6%9D%BF%E6%95%B7%E9%93%9C"><span class="toc-text">整板敷铜</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%87%8D%E6%96%B0%E6%B8%B2%E6%9F%93"><span class="toc-text">重新渲染</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B7%BB%E5%8A%A0%E7%BC%9D%E5%90%88%E5%AD%94"><span class="toc-text">添加缝合孔</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%87%AA%E5%8A%A8%E4%B8%BA%E6%95%B4%E4%B8%AAPCB%E6%9D%BF%E6%89%93%E7%BC%9D%E5%90%88%E5%AD%94"><span class="toc-text">自动为整个PCB板打缝合孔</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%89%8B%E5%8A%A8%E9%80%89%E5%AE%9A%E5%8C%BA%E5%9F%9F%E6%89%93%E7%BC%9D%E5%90%88%E5%AD%94"><span class="toc-text">手动选定区域打缝合孔</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%88%A0%E9%99%A4%E7%BC%9D%E5%90%88%E5%AD%94"><span class="toc-text">删除缝合孔</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%A0%87%E6%B3%A8"><span class="toc-text">标注</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%87%AA%E5%AE%9A%E4%B9%89%E5%85%83%E4%BB%B6%E5%BA%93"><span class="toc-text">自定义元件库</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%9B%E5%BB%BA%E7%AC%A6%E5%8F%B7%E5%BA%93%EF%BC%88Schematic-Library%EF%BC%89%E5%92%8C%E5%B0%81%E8%A3%85%E5%BA%93%EF%BC%88PCB-Library%EF%BC%89"><span class="toc-text">创建符号库（Schematic Library）和封装库（PCB Library）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%87%AA%E5%AE%9A%E4%B9%89%E7%AC%A6%E5%8F%B7%E5%BA%93"><span class="toc-text">自定义符号库</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%88%9B%E5%BB%BA%E8%87%AA%E5%AE%9A%E4%B9%89%E5%85%83%E4%BB%B6"><span class="toc-text">创建自定义元件</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%BB%98%E5%88%B6%E8%87%AA%E5%AE%9A%E4%B9%89%E5%85%83%E4%BB%B6"><span class="toc-text">绘制自定义元件</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BF%AE%E6%94%B9%E8%87%AA%E5%AE%9A%E4%B9%89%E5%85%83%E4%BB%B6%E5%B1%9E%E6%80%A7%EF%BC%8C%E5%AE%8C%E6%88%90%E8%87%AA%E5%AE%9A%E4%B9%89%E7%AC%A6%E5%8F%B7"><span class="toc-text">修改自定义元件属性，完成自定义符号</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%87%AA%E5%AE%9A%E4%B9%89%E5%B0%81%E8%A3%85%E5%BA%93"><span class="toc-text">自定义封装库</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%A4%8D%E4%BD%8D%E7%94%BB%E5%B8%83"><span class="toc-text">复位画布</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%BF%AB%E9%80%9F%E5%88%87%E6%8D%A2%E6%A0%85%E6%A0%BC%E5%A4%A7%E5%B0%8F"><span class="toc-text">快速切换栅格大小</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%BB%98%E5%88%B6%E8%87%AA%E5%AE%9A%E4%B9%89%E5%85%83%E4%BB%B6%E7%9A%84%E5%B0%81%E8%A3%85"><span class="toc-text">绘制自定义元件的封装</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%94%BE%E7%BD%AE%E7%BA%BF%E6%9D%A1"><span class="toc-text">放置线条</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%94%BE%E7%BD%AE%E7%84%8A%E7%9B%98"><span class="toc-text">放置焊盘</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#%E4%BF%AE%E6%94%B9%E7%84%8A%E7%9B%98%E5%B1%9E%E6%80%A7"><span class="toc-text">修改焊盘属性</span></a></li></ol></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%94%BE%E7%BD%AE3D%E5%85%83%E4%BB%B6%E4%BD%93"><span class="toc-text">放置3D元件体</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%87%8D%E6%96%B0%E8%AE%BE%E7%BD%AE%E5%8E%9F%E7%82%B9"><span class="toc-text">重新设置原点</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BF%AE%E6%94%B9%E8%87%AA%E5%AE%9A%E4%B9%89%E5%85%83%E4%BB%B6%E5%B1%9E%E6%80%A7%EF%BC%8C%E5%AE%8C%E6%88%90%E8%87%AA%E5%AE%9A%E4%B9%89%E5%B0%81%E8%A3%85"><span class="toc-text">修改自定义元件属性，完成自定义封装</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%BB%A7%E7%BB%AD%E6%B7%BB%E5%8A%A0%E6%96%B0%E7%9A%84%E8%87%AA%E5%AE%9A%E4%B9%89%E5%B0%81%E8%A3%85"><span class="toc-text">继续添加新的自定义封装</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%98%A0%E5%B0%84%E7%AC%A6%E5%8F%B7%E5%BA%93%E4%B8%8E%E5%B0%81%E8%A3%85%E5%BA%93"><span class="toc-text">映射符号库与封装库</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8D%95%E7%8B%AC%E6%98%A0%E5%B0%84"><span class="toc-text">单独映射</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%89%B9%E9%87%8F%E6%98%A0%E5%B0%84"><span class="toc-text">批量映射</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B0%86%E8%87%AA%E5%AE%9A%E4%B9%89%E5%85%83%E4%BB%B6%E5%BA%93%E5%8D%87%E7%BA%A7%E4%B8%BA%E9%9B%86%E6%88%90%E5%BC%80%E5%8F%91%E5%BA%93"><span class="toc-text">将自定义元件库升级为集成开发库</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%9B%E5%BB%BA%E9%9B%86%E6%88%90%E5%BC%80%E5%8F%91%E5%BA%93"><span class="toc-text">创建集成开发库</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BC%96%E8%AF%91%E9%9B%86%E6%88%90%E5%BC%80%E5%8F%91%E5%BA%93"><span class="toc-text">编译集成开发库</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%89%8B%E5%8A%A8%E5%AE%89%E8%A3%85%E9%9B%86%E6%88%90%E5%BC%80%E5%8F%91%E5%BA%93"><span class="toc-text">手动安装集成开发库</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%8C%E6%88%90"><span class="toc-text">完成</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%82%E8%80%83%E6%96%87%E7%8C%AE"><span class="toc-text">参考文献</span></a></li></ol>
     </div>
 
-    <div class="col-lg-8 nopadding-x-md">
-      <div class="container nopadding-x-md" id="board-ctn">
-        <div id="board">
-          <article class="post-content mx-auto">
-            <h1 id="seo-header">【笔记】AltiumDesigner学习笔记</h1>
-            
-              <p id="updated-time" class="note note-info" style="">
-                
-                  
-                    本文最后更新于 2024:08:06
-                  
-                
-              </p>
-            
-            
-              <div class="markdown-body">
-                
-                <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p><code>Altium Designer 16.1</code>学习笔记</p>
+
+<article class="post post__with-toc content-card">
+    <div class="post__header"></div>
+    <div class="post__content">
+        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p><code>Altium Designer 16.1</code>学习笔记</p>
 <span id="more"></span>
 
 <h2 id="全局配置"><a href="#全局配置" class="headerlink" title="全局配置"></a>全局配置</h2><h3 id="修改画布缩放快捷键（可选）"><a href="#修改画布缩放快捷键（可选）" class="headerlink" title="修改画布缩放快捷键（可选）"></a>修改画布缩放快捷键（可选）</h3><ul>
@@ -452,15 +304,15 @@
 <li><p><code>DXP</code>-&gt;<code>参数选择</code></p>
 </li>
 </ul>
-<p><img src="/images/20221203183848/04.webp" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/images/20221203183848/04.webp"></p>
 <ul>
 <li><code>Schematic</code>-&gt;<code>Mouse Wheel Configuration</code>-&gt;<code>Zoom Main Window</code>行的<code>Ctrl</code>取消勾选-&gt;<code>确定</code></li>
 </ul>
-<p><img src="/images/20221203183848/06.webp" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/images/20221203183848/06.webp"></p>
 <h3 id="关闭将字库附加到工程文件中"><a href="#关闭将字库附加到工程文件中" class="headerlink" title="关闭将字库附加到工程文件中"></a>关闭将字库附加到工程文件中</h3><ul>
 <li><code>DXP</code>-&gt;<code>参数选择</code></li>
 </ul>
-<p><img src="/images/20221203183848/04.webp" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/images/20221203183848/04.webp"></p>
 <ul>
 <li><code>PCB Editor</code>-&gt;<code>True Type Fonts</code>-&gt;取消勾选<code>嵌入TrueType字体到PCB文档</code></li>
 </ul>
@@ -500,39 +352,39 @@
 <h2 id="快捷键"><a href="#快捷键" class="headerlink" title="快捷键"></a>快捷键</h2><h3 id="查看所有快捷键"><a href="#查看所有快捷键" class="headerlink" title="查看所有快捷键"></a>查看所有快捷键</h3><ul>
 <li><code>快捷方式</code></li>
 </ul>
-<p><img src="/images/20221203183848/12.webp" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/images/20221203183848/12.webp"></p>
 <h3 id="创建自定义快捷键"><a href="#创建自定义快捷键" class="headerlink" title="创建自定义快捷键"></a>创建自定义快捷键</h3><ul>
 <li>按住<code>Ctrl</code>不松，点击需要创建快捷键的功能按钮打开<code>Edit Command</code>窗口-&gt;在<code>快捷方式</code>中的<code>主要的</code>文本框内设置快捷键</li>
 </ul>
-<p><img src="/images/20221203183848/13.webp" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/images/20221203183848/13.webp"></p>
 <h2 id="原理图配置"><a href="#原理图配置" class="headerlink" title="原理图配置"></a>原理图配置</h2><h3 id="关闭右下角标题块"><a href="#关闭右下角标题块" class="headerlink" title="关闭右下角标题块"></a>关闭右下角标题块</h3><ul>
 <li>右键画布空白处-&gt;<code>选项</code>-&gt;<code>文档选项</code></li>
 </ul>
-<p><img src="/images/20221203183848/01.webp" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/images/20221203183848/01.webp"></p>
 <ul>
 <li>取消勾选<code>标题块</code>-&gt;<code>确定</code></li>
 </ul>
-<p><img src="/images/20221203183848/02.webp" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/images/20221203183848/02.webp"></p>
 <h3 id="修改表格背景"><a href="#修改表格背景" class="headerlink" title="修改表格背景"></a>修改表格背景</h3><ul>
 <li>右键画布空白处-&gt;<code>选项</code>-&gt;<code>文档选项</code></li>
 </ul>
-<p><img src="/images/20221203183848/01.webp" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/images/20221203183848/01.webp"></p>
 <ul>
 <li>修改<code>方块电路颜色</code>-&gt;<code>确定</code></li>
 </ul>
-<p><img src="/images/20221203183848/03.webp" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/images/20221203183848/03.webp"></p>
 <h3 id="修改表格线颜色"><a href="#修改表格线颜色" class="headerlink" title="修改表格线颜色"></a>修改表格线颜色</h3><ul>
 <li><code>DXP</code>-&gt;<code>参数选择</code></li>
 </ul>
-<p><img src="/images/20221203183848/04.webp" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/images/20221203183848/04.webp"></p>
 <ul>
 <li><code>Schematic</code>-&gt;<code>Grids</code>-&gt;修改<code>栅格颜色</code></li>
 </ul>
-<p><img src="/images/20221203183848/05.webp" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/images/20221203183848/05.webp"></p>
 <h2 id="原理图操作"><a href="#原理图操作" class="headerlink" title="原理图操作"></a>原理图操作</h2><h3 id="放置元件"><a href="#放置元件" class="headerlink" title="放置元件"></a>放置元件</h3><h4 id="绘制基本电路元件"><a href="#绘制基本电路元件" class="headerlink" title="绘制基本电路元件"></a>绘制基本电路元件</h4><h5 id="电源正极"><a href="#电源正极" class="headerlink" title="电源正极"></a>电源正极</h5><ul>
 <li>在快速工具栏选择<code>VCC电源端口</code>图标</li>
 </ul>
-<p><img src="/images/20221203183848/09.webp" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/images/20221203183848/09.webp"></p>
 <ul>
 <li>空格元件顺时针旋转90度，左键确认释放元件，右键取消释放元件</li>
 </ul>
@@ -542,14 +394,14 @@
 </ul>
 </li>
 </ul>
-<p><img src="/images/20221203183848/08.webp" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/images/20221203183848/08.webp"></p>
 <ul>
 <li>空格元件顺时针旋转90度，左键确认释放元件，右键取消释放元件</li>
 </ul>
 <h4 id="绘制库中的元件"><a href="#绘制库中的元件" class="headerlink" title="绘制库中的元件"></a>绘制库中的元件</h4><ul>
 <li>在库中选择元件</li>
 </ul>
-<p><img src="/images/20221203183848/10.webp" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/images/20221203183848/10.webp"></p>
 <ul>
 <li>Tab键先<a href="/2022/12/03/AltiumDesigner%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/#%E4%BF%AE%E6%94%B9%E5%85%83%E4%BB%B6%E5%B1%9E%E6%80%A7">修改元件属性</a>，空格元件顺时针旋转90度，左键确认释放元件，右键取消释放元件</li>
 </ul>
@@ -562,15 +414,15 @@
 </ul>
 </li>
 </ul>
-<p><img src="/images/20221203183848/60.webp" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/images/20221203183848/60.webp"></p>
 <h3 id="修改元件引脚标号"><a href="#修改元件引脚标号" class="headerlink" title="修改元件引脚标号"></a>修改元件引脚标号</h3><ul>
 <li>双击元件打开元件设置-&gt;<code>Edit Pins</code></li>
 </ul>
-<p><img src="/images/20221203183848/71.webp" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/images/20221203183848/71.webp"></p>
 <ul>
 <li>单机需要修改的标号名称开始修改-&gt;<code>确定</code></li>
 </ul>
-<p><img src="/images/20221203183848/72.webp" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/images/20221203183848/72.webp"></p>
 <h3 id="元件的接线"><a href="#元件的接线" class="headerlink" title="元件的接线"></a>元件的接线</h3><ul>
 <li><code>放置</code>（<code>P</code>）-<code>总线</code>（<code>B</code>）<ul>
 <li>或者在快速工具栏选择<code>放置总线</code>图标</li>
@@ -579,7 +431,7 @@
 <li>点击一个元件的一端，再点击另一个元件的一端，进行接线</li>
 <li>如果从里往外接线，最终需要右键释放；如果从外往里接线，不用右键释放</li>
 </ul>
-<p><img src="/images/20221203183848/07.webp" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/images/20221203183848/07.webp"></p>
 <h4 id="自动连线"><a href="#自动连线" class="headerlink" title="自动连线"></a>自动连线</h4><ul>
 <li>在一个元件放置时，直接将引脚相互对接放置，即可自动连线</li>
 </ul>
@@ -602,48 +454,48 @@
 </ul>
 </li>
 </ul>
-<p><img src="/images/20221203183848/11.webp" srcset="/img/loading.gif" lazyload><br><img src="/images/20221203183848/22.webp" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/images/20221203183848/11.webp"><br><img src="/images/20221203183848/22.webp"></p>
 <h3 id="快速填充所有变量"><a href="#快速填充所有变量" class="headerlink" title="快速填充所有变量"></a>快速填充所有变量</h3><ul>
 <li><p>如果原理图中存在用<code>?</code>占位的有序变量，可以快速填充所有变量</p>
 </li>
 <li><p><code>工具</code>（<code>T</code>）-&gt;<code>标注所有器件</code>（<code>N</code>）</p>
 </li>
 </ul>
-<p><img src="/images/20221203183848/19.webp" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/images/20221203183848/19.webp"></p>
 <h3 id="批注接线"><a href="#批注接线" class="headerlink" title="批注接线"></a>批注接线</h3><ul>
 <li><p>将所有想通的界线高亮显示</p>
 </li>
 <li><p>在快捷工具栏选择<code>Net Colors</code></p>
 </li>
 </ul>
-<p><img src="/images/20221203183848/23.webp" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/images/20221203183848/23.webp"></p>
 <h4 id="清除批注"><a href="#清除批注" class="headerlink" title="清除批注"></a>清除批注</h4><ul>
 <li>在快捷工具栏选择<code>Net Colors</code>-&gt;选择<code>Clear All Net Colors</code></li>
 </ul>
-<p><img src="/images/20221203183848/24.webp" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/images/20221203183848/24.webp"></p>
 <h3 id="绘制图形"><a href="#绘制图形" class="headerlink" title="绘制图形"></a>绘制图形</h3><ul>
 <li>在快捷工具栏选择<code>实用工具</code>，可以绘制直线、多边线、弧线、曲线、文字、文本框、矩形、圆角矩形、圆形等图形</li>
 </ul>
-<p><img src="/images/20221203183848/18.webp" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/images/20221203183848/18.webp"></p>
 <h4 id="绘制前设置属性"><a href="#绘制前设置属性" class="headerlink" title="绘制前设置属性"></a>绘制前设置属性</h4><ul>
 <li>如果在释放之前，可以使用Tab键先修改图形属性</li>
 <li>例如如果绘制文字，可以设置文字内容、字体字号、文字颜色、位置等属性</li>
 </ul>
-<p><img src="/images/20221203183848/21.webp" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/images/20221203183848/21.webp"></p>
 <h3 id="编译原理图"><a href="#编译原理图" class="headerlink" title="编译原理图"></a>编译原理图</h3><ul>
 <li><p>编译原理图可以检查制作好的原理图书否有接线错误</p>
 </li>
 <li><p><code>工程</code>-&gt;<code>Compile Document XXX.SchDoc</code></p>
 </li>
 </ul>
-<p><img src="/images/20221203183848/14.webp" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/images/20221203183848/14.webp"></p>
 <h4 id="查看编译日志"><a href="#查看编译日志" class="headerlink" title="查看编译日志"></a>查看编译日志</h4><ul>
 <li><p>如果编译出错，会自动跳出编译日志；如果没有编译出错，也可以手动打开编译日志</p>
 </li>
 <li><p><code>System</code>-&gt;<code>Message</code></p>
 </li>
 </ul>
-<p><img src="/images/20221203183848/20.webp" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/images/20221203183848/20.webp"></p>
 <h2 id="将原理图生成PCB图"><a href="#将原理图生成PCB图" class="headerlink" title="将原理图生成PCB图"></a>将原理图生成PCB图</h2><ul>
 <li>在原理图编译无误之后，通过原理图生成PCB图</li>
 </ul>
@@ -654,30 +506,30 @@
 <h4 id="原理图中检查元件的封装映射"><a href="#原理图中检查元件的封装映射" class="headerlink" title="原理图中检查元件的封装映射"></a>原理图中检查元件的封装映射</h4><ul>
 <li><code>工具</code>（<code>T</code>）-&gt;<code>封装管理器</code>（<code>G</code>）</li>
 </ul>
-<p><img src="/images/20221203183848/69.webp" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/images/20221203183848/69.webp"></p>
 <h4 id="元件符号库中检查元件的封装映射"><a href="#元件符号库中检查元件的封装映射" class="headerlink" title="元件符号库中检查元件的封装映射"></a>元件符号库中检查元件的封装映射</h4><ul>
 <li><code>工具</code>（<code>T</code>）-&gt;<code>模式管理</code>（<code>A</code>）</li>
 </ul>
-<p><img src="/images/20221203183848/73.webp" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/images/20221203183848/73.webp"></p>
 <h4 id="重新指定封装"><a href="#重新指定封装" class="headerlink" title="重新指定封装"></a>重新指定封装</h4><ul>
 <li><p>如果一个元件有多个封装，可以手动重新指定封装</p>
 </li>
 <li><p>选择元件-&gt;选择需要指定的封装，右键封装-&gt;<code>设定为当前</code>-&gt;<code>接受变化</code></p>
 </li>
 </ul>
-<p><img src="/images/20221203183848/70.webp" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/images/20221203183848/70.webp"></p>
 <h3 id="创建新的PCB文件"><a href="#创建新的PCB文件" class="headerlink" title="创建新的PCB文件"></a>创建新的PCB文件</h3><ul>
 <li>在项目管理器右键项目名-&gt;<code>给工程添加新的</code>-&gt;<code>PCB文件</code></li>
 </ul>
-<p><img src="/images/20221203183848/15.webp" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/images/20221203183848/15.webp"></p>
 <h3 id="生成PCB图"><a href="#生成PCB图" class="headerlink" title="生成PCB图"></a>生成PCB图</h3><ul>
 <li>在原理图中选择<code>设计</code>（<code>D</code>）-&gt;<code>Update PCB Document XXX.PcbDoc</code>（<code>U</code>）</li>
 </ul>
-<p><img src="/images/20221203183848/16.webp" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/images/20221203183848/16.webp"></p>
 <ul>
 <li>检查是否有不通过的项，如果有就修改原理图，直到全部通过检测，即可生成PCB图</li>
 </ul>
-<p><img src="/images/20221203183848/17.webp" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/images/20221203183848/17.webp"></p>
 <h3 id="重新转化成PCB图"><a href="#重新转化成PCB图" class="headerlink" title="重新转化成PCB图"></a>重新转化成PCB图</h3><ul>
 <li>如果是第二次生成PCB图，需要清理网络和对象，否则生成会报错</li>
 </ul>
@@ -687,15 +539,15 @@
 </ul>
 </li>
 </ul>
-<p><img src="/images/20221203183848/29.webp" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/images/20221203183848/29.webp"></p>
 <h4 id="清理对象"><a href="#清理对象" class="headerlink" title="清理对象"></a>清理对象</h4><ul>
 <li>在PCB图中选择<code>设计</code>（<code>D</code>）-&gt;<code>类</code>（<code>C</code>）</li>
 </ul>
-<p><img src="/images/20221203183848/30.webp" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/images/20221203183848/30.webp"></p>
 <ul>
 <li>在<code>Object Classes</code>-&gt;<code>Component Classes</code>-&gt;右键自己项目的原理图名-&gt;<code>删除</code></li>
 </ul>
-<p><img src="/images/20221203183848/31.webp" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/images/20221203183848/31.webp"></p>
 <h2 id="PCB板的结构"><a href="#PCB板的结构" class="headerlink" title="PCB板的结构"></a>PCB板的结构</h2><ul>
 <li>从顶至底依次是：<code>顶层丝印层</code>（<code>Top Overlay</code>）、<code>顶层阻焊层</code>（<code>Top Paste</code>）、<code>顶层铜膜层</code>（<code>Top Layer</code>）、<code>中间玻纤板</code>、<code>底层铜膜层</code>（<code>Bottom Layer</code>）、<code>底层阻焊层</code>（<code>Bottom Paste</code>）、<code>底层丝印层</code>（<code>Bottom Overlay</code>）</li>
 </ul>
@@ -712,22 +564,22 @@
 <li><p><code>编辑</code>（<code>E</code>）-&gt;<code>原点</code>（<code>O</code>）-&gt;<code>设置</code>（<code>S</code>）</p>
 </li>
 </ul>
-<p><img src="/images/20221203183848/63.webp" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/images/20221203183848/63.webp"></p>
 <h3 id="显示或隐藏所有网络或器件"><a href="#显示或隐藏所有网络或器件" class="headerlink" title="显示或隐藏所有网络或器件"></a>显示或隐藏所有网络或器件</h3><ul>
 <li><code>N</code></li>
 </ul>
 <blockquote>
 <p><code>显示连接</code>-&gt;<code>所有</code>：显示所有网络<br><code>隐藏连接</code>-&gt;<code>所有</code>：隐藏所有网络</p>
 </blockquote>
-<p><img src="/images/20221203183848/67.webp" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/images/20221203183848/67.webp"></p>
 <h3 id="隐藏指定层"><a href="#隐藏指定层" class="headerlink" title="隐藏指定层"></a>隐藏指定层</h3><ul>
 <li>在底部视图菜单中打开视图配置（<code>L</code>）（<code>Ctrl</code>+<code>D</code>）</li>
 </ul>
-<p><img src="/images/20221203183848/61.webp" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/images/20221203183848/61.webp"></p>
 <ul>
 <li><code>显示/隐藏</code>-&gt;将需要隐藏的层勾选隐藏-&gt;<code>确定</code></li>
 </ul>
-<p><img src="/images/20221203183848/62.webp" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/images/20221203183848/62.webp"></p>
 <h3 id="默认规则的修改和自定义规则的创建"><a href="#默认规则的修改和自定义规则的创建" class="headerlink" title="默认规则的修改和自定义规则的创建"></a>默认规则的修改和自定义规则的创建</h3><ul>
 <li>修改规则后，只会在当前工程内生效，如果需要在所有工程都生效，可以通过<code>规则向导</code>将规则导入或导出</li>
 <li>修改规则时可以直接修改系统默认规则，也可以创建自定义规则。如果有多个同类的规则，可以通过<code>优先权</code>修改规则的优先级</li>
@@ -736,26 +588,26 @@
 <h4 id="打开PCB规则及约束编辑器"><a href="#打开PCB规则及约束编辑器" class="headerlink" title="打开PCB规则及约束编辑器"></a>打开PCB规则及约束编辑器</h4><ul>
 <li><code>设计</code>（<code>D</code>）-&gt;<code>规则</code>（<code>R</code>）</li>
 </ul>
-<p><img src="/images/20221203183848/74.webp" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/images/20221203183848/74.webp"></p>
 <h4 id="创建自定义规则"><a href="#创建自定义规则" class="headerlink" title="创建自定义规则"></a>创建自定义规则</h4><ul>
 <li>在系统默认规则模版上右键-&gt;<code>新建规则</code></li>
 </ul>
-<p><img src="/images/20221203183848/75.webp" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/images/20221203183848/75.webp"></p>
 <h4 id="修改系统默认规则"><a href="#修改系统默认规则" class="headerlink" title="修改系统默认规则"></a>修改系统默认规则</h4><ul>
 <li><p>以修改元件安全距离规则为例，直接在系统默认规则上修改</p>
 </li>
 <li><p><code>Design Rules</code>-&gt;<code>Placement</code>-&gt;<code>Component Clearance</code>-&gt;<code>ComponentClearance</code></p>
 </li>
 </ul>
-<p><img src="/images/20221203183848/76.webp" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/images/20221203183848/76.webp"></p>
 <h4 id="修改规则优先级"><a href="#修改规则优先级" class="headerlink" title="修改规则优先级"></a>修改规则优先级</h4><ul>
 <li><code>优先权</code>-&gt;选择需要修改优先级的规则，提高或降低选中规则的优先级-&gt;<code>关闭</code></li>
 </ul>
-<p><img src="/images/20221203183848/77.webp" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/images/20221203183848/77.webp"></p>
 <h4 id="更多规则配置"><a href="#更多规则配置" class="headerlink" title="更多规则配置"></a>更多规则配置</h4><h5 id="设置元件与元件的安全距离"><a href="#设置元件与元件的安全距离" class="headerlink" title="设置元件与元件的安全距离"></a>设置元件与元件的安全距离</h5><ul>
 <li><code>Design Rules</code>-&gt;<code>Placement</code>-&gt;<code>Component Clearance</code>-&gt;<code>ComponentClearance</code></li>
 </ul>
-<p><img src="/images/20221203183848/76.webp" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/images/20221203183848/76.webp"></p>
 <h5 id="设置走线默认宽度"><a href="#设置走线默认宽度" class="headerlink" title="设置走线默认宽度"></a>设置走线默认宽度</h5><ul>
 <li><code>Design Rules</code>-&gt;<code>Routing</code>-&gt;<code>Width</code>-&gt;<code>Width</code></li>
 </ul>
@@ -765,35 +617,35 @@
 <h5 id="设置丝印与焊盘的安全距离"><a href="#设置丝印与焊盘的安全距离" class="headerlink" title="设置丝印与焊盘的安全距离"></a>设置丝印与焊盘的安全距离</h5><ul>
 <li><code>Design Rules</code>-&gt;<code>Manufacturing</code>-&gt;<code>Silk To Solder Mask Clearance</code>-&gt;<code>SilkToSolderMaskClearance</code></li>
 </ul>
-<p><img src="/images/20221203183848/89.webp" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/images/20221203183848/89.webp"></p>
 <h5 id="设置过孔尺寸安全值"><a href="#设置过孔尺寸安全值" class="headerlink" title="设置过孔尺寸安全值"></a>设置过孔尺寸安全值</h5><ul>
 <li><code>Design Rules</code>-&gt;<code>Routing</code>-&gt;<code>Routing Via Style</code>-&gt;<code>RoutingVias</code></li>
 </ul>
 <h5 id="将过孔的敷铜从十字改为完全"><a href="#将过孔的敷铜从十字改为完全" class="headerlink" title="将过孔的敷铜从十字改为完全"></a>将过孔的敷铜从十字改为完全</h5><ul>
 <li><code>Design Rules</code>-&gt;<code>Plane</code>-&gt;<code>Polygon Connect Style</code>-&gt;创建一个新规则-&gt;将范围设置为仅过控-&gt;将连接类型从<code>Relief Connect</code>改为<code>Direct Connect</code></li>
 </ul>
-<p><img src="/images/20221203183848/96.webp" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/images/20221203183848/96.webp"></p>
 <h5 id="设置板边距"><a href="#设置板边距" class="headerlink" title="设置板边距"></a>设置板边距</h5><ul>
 <li><code>Design Rules</code>-&gt;<code>Manufacturing</code>-&gt;<code>Board Outline Clearance</code>-&gt;创建一个新规则-&gt;将<code>Outline Edge</code>行<code>Poly</code>列从10mil改为30mil</li>
 </ul>
-<p><img src="/images/20221203183848/101.webp" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/images/20221203183848/101.webp"></p>
 <h3 id="通过设置修改过孔默认值"><a href="#通过设置修改过孔默认值" class="headerlink" title="通过设置修改过孔默认值"></a>通过设置修改过孔默认值</h3><ul>
 <li><code>DXP</code>-&gt;<code>参数选择</code></li>
 </ul>
-<p><img src="/images/20221203183848/04.webp" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/images/20221203183848/04.webp"></p>
 <ul>
 <li><code>PCB Editor</code>-&gt;<code>Defaults</code>-&gt;<code>Via</code>-&gt;<code>编辑值</code>-&gt;修改过孔默认值-&gt;<code>确定</code>-&gt;<code>确定</code></li>
 </ul>
-<p><img src="/images/20221203183848/84.webp" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/images/20221203183848/84.webp"></p>
 <h2 id="PCB图操作"><a href="#PCB图操作" class="headerlink" title="PCB图操作"></a>PCB图操作</h2><h3 id="将选中的所有元件放到指定区域"><a href="#将选中的所有元件放到指定区域" class="headerlink" title="将选中的所有元件放到指定区域"></a>将选中的所有元件放到指定区域</h3><ul>
 <li>选中一批元件（可以在原理图中批量选取，在PCB图中会同步选中的元件）-&gt;<code>工具</code>（<code>T</code>）-&gt;<code>器件布局</code>（<code>O</code>）-&gt;<code>在矩形区域排列</code>（<code>R</code>）</li>
 <li>然后依次点击需要放置的矩形区域左上角和右下角</li>
 </ul>
-<p><img src="/images/20221203183848/64.webp" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/images/20221203183848/64.webp"></p>
 <ul>
 <li>或在工具栏选择<code>在区域内排列器件</code></li>
 </ul>
-<p><img src="/images/20221203183848/65.webp" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/images/20221203183848/65.webp"></p>
 <h3 id="视图操作"><a href="#视图操作" class="headerlink" title="视图操作"></a>视图操作</h3><h4 id="视图切换"><a href="#视图切换" class="headerlink" title="视图切换"></a>视图切换</h4><p>输入法需要在英文状态下</p>
 <ul>
 <li>切换为2D视图（缺省值）：<code>2</code></li>
@@ -805,15 +657,15 @@
 <h4 id="自动缩放"><a href="#自动缩放" class="headerlink" title="自动缩放"></a>自动缩放</h4><ul>
 <li><code>察看</code>（<code>V</code>）-&gt;<code>适合文件</code>（<code>D</code>）</li>
 </ul>
-<p><img src="/images/20221203183848/49.webp" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/images/20221203183848/49.webp"></p>
 <h4 id="在3D视图下翻转板子"><a href="#在3D视图下翻转板子" class="headerlink" title="在3D视图下翻转板子"></a>在3D视图下翻转板子</h4><ul>
 <li><code>察看</code>（<code>V</code>）-&gt;<code>反转板子</code>（<code>B</code>）</li>
 </ul>
-<p><img src="/images/20221203183848/27.webp" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/images/20221203183848/27.webp"></p>
 <h3 id="锁定元件位置"><a href="#锁定元件位置" class="headerlink" title="锁定元件位置"></a>锁定元件位置</h3><ul>
 <li>选中需要锁定的元件右键-&gt;<code>Component Locked</code></li>
 </ul>
-<p><img src="/images/20221203183848/79.webp" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/images/20221203183848/79.webp"></p>
 <h3 id="隐藏其他层"><a href="#隐藏其他层" class="headerlink" title="隐藏其他层"></a>隐藏其他层</h3><ul>
 <li><code>Shift</code>+<code>S</code></li>
 </ul>
@@ -829,19 +681,19 @@
 <h3 id="批量选择"><a href="#批量选择" class="headerlink" title="批量选择"></a>批量选择</h3><h4 id="通过查找工具批量选择"><a href="#通过查找工具批量选择" class="headerlink" title="通过查找工具批量选择"></a>通过查找工具批量选择</h4><ul>
 <li>右键一种类型的元件-&gt;<code>查找相似对象</code></li>
 </ul>
-<p><img src="/images/20221203183848/80.webp" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/images/20221203183848/80.webp"></p>
 <ul>
 <li>在<code>发现相似目标</code>对话框中根据指定范围（<code>Any</code>表示任何情况都可以）进行批量选择</li>
 </ul>
-<p><img src="/images/20221203183848/81.webp" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/images/20221203183848/81.webp"></p>
 <h4 id="打开批量选择菜单"><a href="#打开批量选择菜单" class="headerlink" title="打开批量选择菜单"></a>打开批量选择菜单</h4><ul>
 <li><code>S</code></li>
 </ul>
-<p><img src="/images/20221203183848/78.webp" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/images/20221203183848/78.webp"></p>
 <h3 id="测量距离"><a href="#测量距离" class="headerlink" title="测量距离"></a>测量距离</h3><ul>
 <li><code>报告</code>（<code>R</code>）-&gt;<code>测量距离</code>（<code>M</code>）</li>
 </ul>
-<p><img src="/images/20221203183848/50.webp" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/images/20221203183848/50.webp"></p>
 <h4 id="取消标尺"><a href="#取消标尺" class="headerlink" title="取消标尺"></a>取消标尺</h4><ul>
 <li><code>Shift</code>+<code>C</code></li>
 </ul>
@@ -849,7 +701,7 @@
 <li>在禁止布线层（<code>Keep-Out Layer</code>）或机械层（<code>Mechanical 1</code>）使用快捷工具栏的<code>应用工具</code>中的<code>放置走线</code>功能绘制裁板线，走线需要绘制闭合图形</li>
 </ul>
 <p>边角通常绘制为圆角</p>
-<p><img src="/images/20221203183848/25.webp" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/images/20221203183848/25.webp"></p>
 <h5 id="四个角定位孔尺寸"><a href="#四个角定位孔尺寸" class="headerlink" title="四个角定位孔尺寸"></a>四个角定位孔尺寸</h5><ul>
 <li>放一个焊盘用于制作定位孔</li>
 </ul>
@@ -868,11 +720,11 @@
 <h5 id="保留封闭图形内部"><a href="#保留封闭图形内部" class="headerlink" title="保留封闭图形内部"></a>保留封闭图形内部</h5><ul>
 <li><code>设计</code>（<code>D</code>）-&gt;<code>板子形状</code>（<code>S</code>）-&gt;<code>按照选择对象定义</code>（<code>D</code>）</li>
 </ul>
-<p><img src="/images/20221203183848/26.webp" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/images/20221203183848/26.webp"></p>
 <h6 id="封闭图形内部挖空"><a href="#封闭图形内部挖空" class="headerlink" title="封闭图形内部挖空"></a>封闭图形内部挖空</h6><ul>
 <li><code>工具</code>（<code>T</code>）-&gt;<code>转换</code>（<code>V</code>）<code>从选择的元素创建板剪切</code>-&gt;（<code>B</code>）</li>
 </ul>
-<p><img src="/images/20221203183848/68.webp" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/images/20221203183848/68.webp"></p>
 <h3 id="布局"><a href="#布局" class="headerlink" title="布局"></a>布局</h3><ul>
 <li><p>将元件封装拖拽到PCB板上</p>
 </li>
@@ -912,14 +764,14 @@
 </ul>
 </li>
 </ul>
-<p><img src="/images/20221203183848/32.webp" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/images/20221203183848/32.webp"></p>
 <h5 id="删除指定的网络"><a href="#删除指定的网络" class="headerlink" title="删除指定的网络"></a>删除指定的网络</h5><ul>
 <li><code>U</code></li>
 </ul>
 <blockquote>
 <p><code>器件</code>：删除指定器件的所有相连网络<br><code>连接</code>：删除指定连接点的所有相连网络<br><code>网络</code>：删除所有网络</p>
 </blockquote>
-<p><img src="/images/20221203183848/66.webp" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/images/20221203183848/66.webp"></p>
 <h5 id="切换顶端布线和底端布线"><a href="#切换顶端布线和底端布线" class="headerlink" title="切换顶端布线和底端布线"></a>切换顶端布线和底端布线</h5><ul>
 <li>如果还没开始布线，可以通过层切换来切换顶端布线和底端布线</li>
 <li>在已经拉出来的线，没有完成连接前，按<code>L</code>键可以快速切换顶端布线和底端布线</li>
@@ -933,7 +785,7 @@
 </ul>
 </li>
 </ul>
-<p><img src="/images/20221203183848/82.webp" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/images/20221203183848/82.webp"></p>
 <ul>
 <li>如果需要敷绿油，需要勾选<code>强制完成顶部的隆起</code>和<code>强制完成在底部的隆起</code><ul>
 <li>如果是为了跳跃接线的过孔，需要敷绿油</li>
@@ -944,7 +796,7 @@
 <blockquote>
 <p>孔尺寸：0.4mm<br>直径：0.7mm<br>NET：将过孔设置为与需要相连的焊盘相同的网络</p>
 </blockquote>
-<p><img src="/images/20221203183848/83.webp" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/images/20221203183848/83.webp"></p>
 <h6 id="快速放置过孔"><a href="#快速放置过孔" class="headerlink" title="快速放置过孔"></a>快速放置过孔</h6><ul>
 <li>在已经拉出来的线，没有完成连接前，按<code>2</code>键可以快速将线末端添加过孔</li>
 </ul>
@@ -963,34 +815,34 @@
 <li><p><code>工具</code>（<code>T</code>）-&gt;<code>滴类</code>（<code>E</code>）</p>
 </li>
 </ul>
-<p><img src="/images/20221203183848/85.webp" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/images/20221203183848/85.webp"></p>
 <ul>
 <li><code>确定</code></li>
 </ul>
-<p><img src="/images/20221203183848/86.webp" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/images/20221203183848/86.webp"></p>
 <ul>
 <li>如果需要修改泪滴，需要先移除泪滴，再添加新泪滴，否则会出现重复添加泪滴的情况</li>
 </ul>
 <h4 id="自动布线"><a href="#自动布线" class="headerlink" title="自动布线"></a>自动布线</h4><ul>
 <li><code>自动布线</code>（<code>A</code>）-&gt;<code>全部</code>（<code>A</code>）</li>
 </ul>
-<p><img src="/images/20221203183848/28.webp" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/images/20221203183848/28.webp"></p>
 <h3 id="规则检查"><a href="#规则检查" class="headerlink" title="规则检查"></a>规则检查</h3><ul>
 <li><code>工具</code>（<code>T</code>）-&gt;<code>设计规则检查</code>（<code>D</code>）</li>
 </ul>
-<p><img src="/images/20221203183848/87.webp" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/images/20221203183848/87.webp"></p>
 <ul>
 <li><code>运行DRC</code>（<code>R</code>）</li>
 </ul>
-<p><img src="/images/20221203183848/88.webp" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/images/20221203183848/88.webp"></p>
 <h3 id="敷铜"><a href="#敷铜" class="headerlink" title="敷铜"></a>敷铜</h3><ul>
 <li>通过快捷工具栏选择<code>放置多边形平面</code>图标</li>
 </ul>
-<p><img src="/images/20221203183848/90.webp" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/images/20221203183848/90.webp"></p>
 <ul>
 <li>在<code>多边形敷铜</code>窗口调整参数</li>
 </ul>
-<p><img src="/images/20221203183848/91.webp" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/images/20221203183848/91.webp"></p>
 <blockquote>
 <p>填充模式：选择<code>Solid(Copper Regions)</code><br>层：先选择<code>Top Layer</code>在顶层敷铜，再选择<code>Bottom Layer</code>在底层敷铜<br>链接到网络：<code>GND</code><br><code>Pour Over All Same Net Objects</code><br>勾选<code>死铜移除</code></p>
 </blockquote>
@@ -1003,26 +855,26 @@
 <li><p><code>工具</code>（<code>T</code>）-&gt;<code>多边形填充</code>（<code>G</code>）-&gt;<code>多边形管理器</code>（<code>M</code>）</p>
 </li>
 </ul>
-<p><img src="/images/20221203183848/92.webp" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/images/20221203183848/92.webp"></p>
 <ul>
 <li><code>从...创建多边形...</code>-&gt;<code>板外形</code></li>
 </ul>
-<p><img src="/images/20221203183848/93.webp" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/images/20221203183848/93.webp"></p>
 <ul>
 <li>在<code>多边形敷铜</code>窗口调整参数</li>
 </ul>
 <blockquote>
 <p>填充模式：选择<code>Solid(Copper Regions)</code><br>层：先选择<code>Top Layer</code>在顶层敷铜，再选择<code>Bottom Layer</code>在底层敷铜<br>链接到网络：<code>GND</code><br><code>Pour Over All Same Net Objects</code><br>勾选<code>死铜移除</code></p>
 </blockquote>
-<p><img src="/images/20221203183848/91.webp" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/images/20221203183848/91.webp"></p>
 <ul>
 <li>依次添加顶层和底层的敷铜规则-&gt;<code>确定</code></li>
 </ul>
-<p><img src="/images/20221203183848/94.webp" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/images/20221203183848/94.webp"></p>
 <h4 id="重新渲染"><a href="#重新渲染" class="headerlink" title="重新渲染"></a>重新渲染</h4><ul>
 <li><code>工具</code>（<code>T</code>）-&gt;<code>多边形填充</code>（<code>G</code>）-&gt;<code>重新填充所有的多边形</code></li>
 </ul>
-<p><img src="/images/20221203183848/95.webp" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/images/20221203183848/95.webp"></p>
 <h3 id="添加缝合孔"><a href="#添加缝合孔" class="headerlink" title="添加缝合孔"></a>添加缝合孔</h3><ul>
 <li>批量在电路板周围打一圈过孔，这些过孔用于连接顶层和底层的敷铜，这种过控也被称为缝合孔</li>
 </ul>
@@ -1030,27 +882,27 @@
 <li><code>工具</code>（<code>T</code>）-&gt;<code>Via Stitching/Shielding</code>-&gt;<code>Add Stitching to Net</code></li>
 </ul>
 <p>缝合孔：缝合孔的使用目的是防止外界对整个PCB板的干扰，所以打孔范围在整个PCB板周围<br>屏蔽孔：屏蔽孔的使用目的是防止外界对高速数据走线的干扰，所以打孔范围在一整根走线周围</p>
-<p><img src="/images/20221203183848/97.webp" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/images/20221203183848/97.webp"></p>
 <ul>
 <li>在<code>添加过控阵列到网络</code>窗口配置缝合孔-&gt;<code>确定</code></li>
 </ul>
 <p>栅格尺寸应大于过孔外径尺寸</p>
-<p><img src="/images/20221203183848/98.webp" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/images/20221203183848/98.webp"></p>
 <h4 id="手动选定区域打缝合孔"><a href="#手动选定区域打缝合孔" class="headerlink" title="手动选定区域打缝合孔"></a>手动选定区域打缝合孔</h4><ul>
 <li><p>如果觉得自动打缝合孔影响美观，可以手动打缝合孔，只需要将元件区域内打缝合孔即可做到既不影响美观又能起到效果</p>
 </li>
 <li><p><code>工具</code>（<code>T</code>）-&gt;<code>Via Stitching/Shielding</code>-&gt;<code>Add Stitching to Net</code></p>
 </li>
 </ul>
-<p><img src="/images/20221203183848/97.webp" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/images/20221203183848/97.webp"></p>
 <ul>
 <li>在<code>添加过控阵列到网络</code>窗口配置缝合孔-&gt;配置完成后，选择左上角<code>Constrain Area</code>，即可绘制用于打缝合孔的多边形区域-&gt;完成区域绘制后右键释放，回到<code>添加过控阵列到网络</code>窗口-&gt;<code>确定</code></li>
 </ul>
-<p><img src="/images/20221203183848/100.webp" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/images/20221203183848/100.webp"></p>
 <h4 id="删除缝合孔"><a href="#删除缝合孔" class="headerlink" title="删除缝合孔"></a>删除缝合孔</h4><ul>
 <li><code>工具</code>（<code>T</code>）-&gt;<code>Via Stitching/Shielding</code>-&gt;<code>Remove Via Stitching Group</code></li>
 </ul>
-<p><img src="/images/20221203183848/99.webp" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/images/20221203183848/99.webp"></p>
 <ul>
 <li>此时选定一个缝合孔，其他在同一时间创建的一批缝合孔都会被删除</li>
 </ul>
@@ -1069,39 +921,39 @@
 </ul>
 </li>
 </ul>
-<p><img src="/images/20221203183848/102.webp" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/images/20221203183848/102.webp"></p>
 <ul>
 <li>在放置之前按<code>Tab</code>键设置字符串内容和字体字号<ul>
 <li>字号需要通过设置文字高度，自动等比例放大或缩小</li>
 </ul>
 </li>
 </ul>
-<p><img src="/images/20221203183848/103.webp" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/images/20221203183848/103.webp"></p>
 <ul>
 <li>批量选择元件默认标注，改为放在底层丝印层，并镜像</li>
 </ul>
-<p><img src="/images/20221203183848/104.webp" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/images/20221203183848/104.webp"></p>
 <h2 id="自定义元件库"><a href="#自定义元件库" class="headerlink" title="自定义元件库"></a>自定义元件库</h2><h3 id="创建符号库（Schematic-Library）和封装库（PCB-Library）"><a href="#创建符号库（Schematic-Library）和封装库（PCB-Library）" class="headerlink" title="创建符号库（Schematic Library）和封装库（PCB Library）"></a>创建符号库（Schematic Library）和封装库（PCB Library）</h3><ul>
 <li>在项目管理器右键项目名-&gt;<code>给工程添加新的</code>-&gt;选择<code>Schematic Library</code>创建符号库</li>
 <li>在项目管理器右键项目名-&gt;<code>给工程添加新的</code>-&gt;选择<code>PCB Library</code>创建封装库</li>
 </ul>
-<p><img src="/images/20221203183848/33.webp" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/images/20221203183848/33.webp"></p>
 <h3 id="自定义符号库"><a href="#自定义符号库" class="headerlink" title="自定义符号库"></a>自定义符号库</h3><h4 id="创建自定义元件"><a href="#创建自定义元件" class="headerlink" title="创建自定义元件"></a>创建自定义元件</h4><ul>
 <li>切换到<code>SCH Library</code>-&gt;<code>新建</code>-&gt;指定自定义元件的元件名-&gt;<code>确定</code></li>
 </ul>
-<p><img src="/images/20221203183848/34.webp" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/images/20221203183848/34.webp"></p>
 <h4 id="绘制自定义元件"><a href="#绘制自定义元件" class="headerlink" title="绘制自定义元件"></a>绘制自定义元件</h4><ul>
 <li>通过图形绘制工具绘制自定义元件</li>
 </ul>
-<p><img src="/images/20221203183848/35.webp" srcset="/img/loading.gif" lazyload><br><img src="/images/20221203183848/36.webp" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/images/20221203183848/35.webp"><br><img src="/images/20221203183848/36.webp"></p>
 <ul>
 <li>通过图形绘制工具绘制可以接线的引脚，有<code>X</code>的一端用于对外提供接线</li>
 </ul>
-<p><img src="/images/20221203183848/37.webp" srcset="/img/loading.gif" lazyload><br><img src="/images/20221203183848/38.webp" srcset="/img/loading.gif" lazyload><br><img src="/images/20221203183848/39.webp" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/images/20221203183848/37.webp"><br><img src="/images/20221203183848/38.webp"><br><img src="/images/20221203183848/39.webp"></p>
 <h4 id="修改自定义元件属性，完成自定义符号"><a href="#修改自定义元件属性，完成自定义符号" class="headerlink" title="修改自定义元件属性，完成自定义符号"></a>修改自定义元件属性，完成自定义符号</h4><ul>
 <li>双击库中自定义元件名可以修改自定义元件属性</li>
 </ul>
-<p><img src="/images/20221203183848/40.webp" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/images/20221203183848/40.webp"></p>
 <h3 id="自定义封装库"><a href="#自定义封装库" class="headerlink" title="自定义封装库"></a>自定义封装库</h3><h4 id="复位画布"><a href="#复位画布" class="headerlink" title="复位画布"></a>复位画布</h4><ul>
 <li><p>将画布中心复位到原点</p>
 </li>
@@ -1115,14 +967,14 @@
 <h4 id="绘制自定义元件的封装"><a href="#绘制自定义元件的封装" class="headerlink" title="绘制自定义元件的封装"></a>绘制自定义元件的封装</h4><h5 id="放置线条"><a href="#放置线条" class="headerlink" title="放置线条"></a>放置线条</h5><ul>
 <li>通过图形绘制工具绘制走线、弧线、填充徒刑、字符串</li>
 </ul>
-<p><img src="/images/20221203183848/43.webp" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/images/20221203183848/43.webp"></p>
 <h5 id="放置焊盘"><a href="#放置焊盘" class="headerlink" title="放置焊盘"></a>放置焊盘</h5><ul>
 <li><code>放置</code>（<code>P</code>）-&gt;<code>焊盘</code>（<code>P</code>）<ul>
 <li>或通过快捷工具栏选择<code>放置焊盘</code>图标</li>
 </ul>
 </li>
 </ul>
-<p><img src="/images/20221203183848/41.webp" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/images/20221203183848/41.webp"></p>
 <h6 id="修改焊盘属性"><a href="#修改焊盘属性" class="headerlink" title="修改焊盘属性"></a>修改焊盘属性</h6><ul>
 <li><p>双击已放置在画布上的焊盘，可以修改焊盘属性</p>
 <ul>
@@ -1132,18 +984,18 @@
 <li><p>根据需要切换配置中的单位（毫米&#x2F;密尔）：左上角图标-&gt;<code>Toggle Units</code>（<code>Ctrl</code>+<code>Q</code>）</p>
 </li>
 </ul>
-<p><img src="/images/20221203183848/42.webp" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/images/20221203183848/42.webp"></p>
 <h5 id="放置3D元件体"><a href="#放置3D元件体" class="headerlink" title="放置3D元件体"></a>放置3D元件体</h5><ul>
 <li><p>3D元件需要放到放在机械层</p>
 </li>
 <li><p><code>放置</code>（<code>P</code>）-&gt;<code>3D元件体</code>（<code>B</code>）</p>
 </li>
 </ul>
-<p><img src="/images/20221203183848/47.webp" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/images/20221203183848/47.webp"></p>
 <ul>
 <li>导入<code>.step</code>格式的3D元件</li>
 </ul>
-<p><img src="/images/20221203183848/48.webp" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/images/20221203183848/48.webp"></p>
 <ul>
 <li>调整位置，使模型的所有引脚刚好装在对应焊盘，并且高度不能将丝印层压没</li>
 </ul>
@@ -1153,26 +1005,26 @@
 <li><p><code>编辑</code>（<code>E</code>）-&gt;<code>设置参考</code>（<code>F</code>）-&gt;<code>1脚</code>（<code>P</code>）</p>
 </li>
 </ul>
-<p><img src="/images/20221203183848/44.webp" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/images/20221203183848/44.webp"></p>
 <h4 id="修改自定义元件属性，完成自定义封装"><a href="#修改自定义元件属性，完成自定义封装" class="headerlink" title="修改自定义元件属性，完成自定义封装"></a>修改自定义元件属性，完成自定义封装</h4><ul>
 <li>双击库中自定义封装名可以修改自定义封装的属性</li>
 </ul>
-<p><img src="/images/20221203183848/45.webp" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/images/20221203183848/45.webp"></p>
 <h4 id="继续添加新的自定义封装"><a href="#继续添加新的自定义封装" class="headerlink" title="继续添加新的自定义封装"></a>继续添加新的自定义封装</h4><ul>
 <li>在库中右键空白处-&gt;<code>新建空白元件</code></li>
 </ul>
-<p><img src="/images/20221203183848/46.webp" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/images/20221203183848/46.webp"></p>
 <h3 id="映射符号库与封装库"><a href="#映射符号库与封装库" class="headerlink" title="映射符号库与封装库"></a>映射符号库与封装库</h3><ul>
 <li>一个符号可以映射多种封装</li>
 </ul>
 <h4 id="单独映射"><a href="#单独映射" class="headerlink" title="单独映射"></a>单独映射</h4><ul>
 <li>打开一个符号库中的元件-&gt;<code>Add Footprint</code>-&gt;<code>浏览</code>-&gt;选择一个封装库中的封装-&gt;<code>确定</code>-&gt;<code>确定</code></li>
 </ul>
-<p><img src="/images/20221203183848/51.webp" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/images/20221203183848/51.webp"></p>
 <h4 id="批量映射"><a href="#批量映射" class="headerlink" title="批量映射"></a>批量映射</h4><ul>
 <li><code>工具</code>（<code>T</code>）-&gt;<code>模式管理</code>（<code>A</code>）</li>
 </ul>
-<p><img src="/images/20221203183848/52.webp" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/images/20221203183848/52.webp"></p>
 <h2 id="将自定义元件库升级为集成开发库"><a href="#将自定义元件库升级为集成开发库" class="headerlink" title="将自定义元件库升级为集成开发库"></a>将自定义元件库升级为集成开发库</h2><ul>
 <li>在项目中自定义的元件库只能在当前项目内使用，而集成开发库可以在所有项目内使用</li>
 <li>集成开发库打包后不能修改内部结构</li>
@@ -1180,30 +1032,30 @@
 <h3 id="创建集成开发库"><a href="#创建集成开发库" class="headerlink" title="创建集成开发库"></a>创建集成开发库</h3><ul>
 <li><code>文件</code>-&gt;<code>新建</code>-&gt;<code>Project</code></li>
 </ul>
-<p><img src="/images/20221203183848/53.webp" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/images/20221203183848/53.webp"></p>
 <ul>
 <li><code>Integrated Library</code>-&gt;指定集成开发库名称-&gt;指定集成开发库项目存放位置-&gt;<code>OK</code></li>
 </ul>
-<p><img src="/images/20221203183848/54.webp" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/images/20221203183848/54.webp"></p>
 <ul>
 <li>如果是已经开发好的<code>.SchLib</code>和<code>.PcbLib</code>库文件，可以直接导入。右键集成开发库-&gt;<code>添加现有的文件到工程</code></li>
 </ul>
-<p><img src="/images/20221203183848/55.webp" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/images/20221203183848/55.webp"></p>
 <ul>
 <li>选择<code>.SchLib</code>和<code>.PcbLib</code>库文件并打开</li>
 </ul>
-<p><img src="/images/20221203183848/56.webp" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/images/20221203183848/56.webp"></p>
 <ul>
 <li>右键集成开发库-&gt;<code>保存工程</code></li>
 </ul>
-<p><img src="/images/20221203183848/57.webp" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/images/20221203183848/57.webp"></p>
 <h3 id="编译集成开发库"><a href="#编译集成开发库" class="headerlink" title="编译集成开发库"></a>编译集成开发库</h3><ul>
 <li><p>将集成开发库项目编译成<code>.LibPkg</code>集成开发库文件，并生成集成开发库安装包<code>.IntLib</code>文件</p>
 </li>
 <li><p>右键集成开发库-&gt;<code>Compile Integrated Library XXX.LibPkg</code></p>
 </li>
 </ul>
-<p><img src="/images/20221203183848/58.webp" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/images/20221203183848/58.webp"></p>
 <ul>
 <li>编译后集成开发库会自动将集成开发库导入到软件中</li>
 </ul>
@@ -1211,381 +1063,222 @@
 <h3 id="手动安装集成开发库"><a href="#手动安装集成开发库" class="headerlink" title="手动安装集成开发库"></a>手动安装集成开发库</h3><ul>
 <li>在侧边栏打开<code>库</code>菜单-&gt;<code>Libraries</code>-&gt;<code>安装</code>-&gt;<code>Install from file</code>-&gt;选择<code>.IntLib</code>集成开发库安装文件</li>
 </ul>
-<p><img src="/images/20221203183848/59.webp" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/images/20221203183848/59.webp"></p>
 <h2 id="完成"><a href="#完成" class="headerlink" title="完成"></a>完成</h2><h2 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h2><p><a href="/302.html?target=https://jingyan.baidu.com/article/c74d6000ce871c0f6a595dfc.html">百度经验——哦wps咯</a><br><a target="_blank" rel="noopener" href="https://www.pcbbar.com/thread-28691-1-1.html">pcb联盟——Kivy</a></p>
 
-                
-              </div>
-            
-            <hr/>
-            <div>
-              <div class="post-metas my-3">
-  
-  
-    <div class="post-meta">
-      <i class="iconfont icon-tags"></i>
-      
-        <a href="/tags/Microcontroller/" class="print-no-link">#Microcontroller</a>
-      
     </div>
-  
-</div>
+     
+    <div class="post-footer__meta"><p>更新于 2024-08-06</p></div> 
+    <div class="post-entry__tags"><a href="/tags/Microcontroller/" class="post-tags__link button"># Microcontroller</a></div> 
+</article>
 
 
-              
-
-              
-                <div class="post-prevnext my-3">
-                  <article class="post-prev col-6">
-                    
-                    
-                      <a href="/2022/12/07/CPP%E7%BC%96%E8%AF%91%E6%97%B6%E6%8A%A5%E9%94%99/" title="【踩坑】C++编译时报错">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">【踩坑】C++编译时报错</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
-                  </article>
-                  <article class="post-next col-6">
-                    
-                    
-                      <a href="/2022/12/03/Proteus%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" title="【笔记】Proteus学习笔记">
-                        <span class="hidden-mobile">【笔记】Proteus学习笔记</span>
-                        <span class="visible-mobile">下一篇</span>
-                        <i class="iconfont icon-arrowright"></i>
-                      </a>
-                    
-                  </article>
-                </div>
-              
-            </div>
-
+    <div class="nav">
+        <div class="nav__prev">
             
-  
-  
-    <article id="comments" lazyload>
-      
-  <div id="twikoo"></div>
-  <script type="text/javascript">
-    Fluid.utils.loadComments('#comments', function() {
-      Fluid.utils.createScript('https://lib.baomitu.com/twikoo/1.6.8/twikoo.all.min.js', function() {
-        var options = Object.assign(
-          {"envId":"https://twikoo.loli.fj.cn","region":"ap-shanghai","path":"window.location.pathname"},
-          {
-            el: '#twikoo',
-            path: 'window.location.pathname',
-            onCommentLoaded: function() {
-              Fluid.utils.listenDOMLoaded(function() {
-                var imgSelector = '#twikoo .tk-content img:not(.tk-owo-emotion)';
-                Fluid.plugins.imageCaption(imgSelector);
-                Fluid.plugins.fancyBox(imgSelector);
-              });
+                <a href="/2022/12/07/CPP%E7%BC%96%E8%AF%91%E6%97%B6%E6%8A%A5%E9%94%99/" class="nav__link">
+                    <div>
+                        <svg viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" width="24" height="24"><path d="M589.088 790.624L310.464 512l278.624-278.624 45.248 45.248L400.96 512l233.376 233.376z" fill="#808080"></path></svg>
+                    </div>
+                    <div>
+                        <div class="nav__label">
+                            上一篇
+                        </div>
+                        <div class="nav__title">
+                            【踩坑】C++编译时报错
+                        </div>
+                    </div>
+                </a>
+            
+        </div>
+        <div class="nav__next">
+            
+                <a href="/2022/12/03/Proteus%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" class="nav__link">
+                    <div>
+                        <div class="nav__label">
+                            下一篇
+                        </div>
+                        <div class="nav__title">
+                            【笔记】Proteus学习笔记
+                        </div>
+                    </div>
+                    <div>
+                        <svg viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" width="24" height="24"><path d="M434.944 790.624l-45.248-45.248L623.04 512l-233.376-233.376 45.248-45.248L713.568 512z" fill="#808080"></path></svg>
+                    </div>
+                </a>
+            
+        </div>
+    </div>
+
+
+
+    <div class="post__comments post__with-toc content-card" id="comment">
+        
+    <h4>评论</h4>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <div id="tcomment" class="twikoo_thread"></div>
+
+    
+
+
+
+    </div>
+
+
+
+</main>
+
+            <footer class="footer">
+     
+    <a href="#" class="button" id="b2t" aria-label="回到顶部" title="回到顶部">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" width="32" height="32">
+            <path d="M233.376 722.752L278.624 768 512 534.624 745.376 768l45.248-45.248L512 444.128zM192 352h640V288H192z" fill="currentColor"></path>
+        </svg>
+    </a>
+
+    
+
+
+    
+    
+    
+        <span id="busuanzi_container_site_uv" hidden>
+            <span></span>
+            <span id="busuanzi_value_site_uv"></span>
+            <span>Viewers</span>
+            
+                <span>&amp;nbsp;&amp;nbsp;&amp;nbsp;|</span>
+            
+        </span>
+    
+    
+        <span id="busuanzi_container_site_pv" hidden>
+            <span></span>
+            <span id="busuanzi_value_site_pv"></span>
+            <span>Views</span>
+            
+        </span>
+    
+ 
+ 
+
+ 
+    
+        
+        <p class="footer-copyright">
+            Copyright © 2024 <a href="/">绯鞠的博客</a>
+        </p>
+    
+    
+    <p>Powered by <a href="https://hexo.io" target="_blank">Hexo</a> | Theme - <a href="https://github.com/ChrAlpha/hexo-theme-cards" target="_blank">Cards</a></p>
+</footer>
+
+        </div>
+         
+
+ 
+
+ 
+
+ 
+
+ 
+
+
+
+ 
+
+
+
+ 
+
+
+    
+ 
+
+ 
+
+ 
+
+ 
+
+
+    <script src='https://cdn.jsdelivr.net/npm/mermaid@8.10.2/dist/mermaid.min.js'></script>
+    <script>
+            mermaid.initialize(JSON.stringify(''));
+    </script>
+ 
+
+ 
+
+
+    
+
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+
+    
+    
+    
+    
+    
+
+    
+    
+    
+    <script>
+        function loadComment() {
+            let e;
+            (e = document.createElement("script")).src = 'https://cdn.jsdelivr.net/npm/twikoo@0.3.2/dist/twikoo.all.min.js',
+            document.body.appendChild(e);
+            e.onload = () => {
+                twikoo.init({
+                    envId: 'https://twikoo.loli.fj.cn',
+                    el: '#tcomment'
+                });
+            };
+        }
+    
+        var runningOnBrowser = typeof window !== "undefined";
+        var isBot = runningOnBrowser && !("onscroll" in window) || typeof navigator !== "undefined" && /(gle|ing|ro|msn)bot|crawl|spider|yand|duckgo/i.test(navigator.userAgent);
+        var supportsIntersectionObserver = runningOnBrowser && "IntersectionObserver" in window;
+    
+        setTimeout(function () {
+            if (!isBot && supportsIntersectionObserver) {
+                var comment_observer = new IntersectionObserver(function(entries) {
+                    if (entries[0].isIntersecting) {
+                        loadComment();
+                        comment_observer.disconnect();
+                    }
+                }, { threshold: [0] });
+                comment_observer.observe(document.getElementById('comment'));
+            } else {
+                loadComment();
             }
-          }
-        )
-        twikoo.init(options)
-      });
-    });
-  </script>
-  <noscript>Please enable JavaScript to view the comments</noscript>
+        }, 1);
+    </script>
 
 
-    </article>
-  
 
 
-          </article>
-        </div>
-      </div>
-    </div>
-
-    <div class="side-col d-none d-lg-block col-lg-2">
-      
-  <aside class="sidebar" style="margin-left: -1rem">
-    <div id="toc">
-  <p class="toc-header">
-    <i class="iconfont icon-list"></i>
-    <span>目录</span>
-  </p>
-  <div class="toc-body" id="toc-body"></div>
-</div>
-
-
-
-  </aside>
-
-
-    </div>
-  </div>
-</div>
-
-
-
-
-
-  
-
-
-
-  
-
-
-
-  
-
-
-
-  
-
-
-
-
-
-  <script>
-  Fluid.utils.createScript('https://lib.baomitu.com/mermaid/8.14.0/mermaid.min.js', function() {
-    mermaid.initialize({"theme":"default"});
-
-    Fluid.utils.listenDOMLoaded(function() {
-      Fluid.events.registerRefreshCallback(function() {
-        if ('mermaid' in window) {
-          mermaid.init();
-        }
-      });
-    });
-  });
-</script>
-
-
-
-
-
-
-    
-
-    
-      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
-        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
-      </a>
-    
-
-    
-      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
-     aria-hidden="true">
-  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
-    <div class="modal-content">
-      <div class="modal-header text-center">
-        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
-        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body mx-3">
-        <div class="md-form mb-5">
-          <input type="text" id="local-search-input" class="form-control validate">
-          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
-        </div>
-        <div class="list-group" id="local-search-result"></div>
-      </div>
-    </div>
-  </div>
-</div>
-
-    
-
-    
-  </main>
-
-  <footer>
-    <div class="footer-inner">
-  
-    <div class="footer-content">
-       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> <br> <!-- 当前在线人数统计 --> <div>当前在线人数 <span id="current_visitors_count">0</span></div> <script src="/dist/js/current_visitors_count.js"></script> <!-- 网站运行时间统计 --> <div id="sitetime"></div> <script type="text/javascript" src="/dist/js/sitetime.js"></script> 
-    </div>
-  
-  
-    <div class="statistics">
-  
-  
-
-  
-    
-      <span id="busuanzi_container_site_pv" style="display: none">
-        总访问量 
-        <span id="busuanzi_value_site_pv"></span>
-         次
-      </span>
-    
-    
-      <span id="busuanzi_container_site_uv" style="display: none">
-        总访客数 
-        <span id="busuanzi_value_site_uv"></span>
-         人
-      </span>
-    
-    
-  
-</div>
-
-  
-  
-  
-</div>
-
-  </footer>
-
-  <!-- Scripts -->
-  
-  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
-  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
-
-  <script>
-    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
-    NProgress.start()
-    window.addEventListener('load', function() {
-      NProgress.done();
-    })
-  </script>
-
-
-<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
-<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
-<script  src="/js/events.js" ></script>
-<script  src="/js/plugins.js" ></script>
-
-
-  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
-  <script>
-    (function (window, document) {
-      var typing = Fluid.plugins.typing;
-      var subtitle = document.getElementById('subtitle');
-      if (!subtitle || !typing) {
-        return;
-      }
-      var text = subtitle.getAttribute('data-typed-text');
-      
-        typing(text);
-      
-    })(window, document);
-  </script>
-
-
-
-
-  
-    <script  src="/js/img-lazyload.js" ></script>
-  
-
-
-
-
-  
-<script>
-  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
-    var toc = jQuery('#toc');
-    if (toc.length === 0 || !window.tocbot) { return; }
-    var boardCtn = jQuery('#board-ctn');
-    var boardTop = boardCtn.offset().top;
-
-    window.tocbot.init(Object.assign({
-      tocSelector     : '#toc-body',
-      contentSelector : '.markdown-body',
-      linkClass       : 'tocbot-link',
-      activeLinkClass : 'tocbot-active-link',
-      listClass       : 'tocbot-list',
-      isCollapsedClass: 'tocbot-is-collapsed',
-      collapsibleClass: 'tocbot-is-collapsible',
-      scrollSmooth    : true,
-      includeTitleTags: true,
-      headingsOffset  : -boardTop,
-    }, CONFIG.toc));
-    if (toc.find('.toc-list-item').length > 0) {
-      toc.css('visibility', 'visible');
-    }
-
-    Fluid.events.registerRefreshCallback(function() {
-      if ('tocbot' in window) {
-        tocbot.refresh();
-        var toc = jQuery('#toc');
-        if (toc.length === 0 || !tocbot) {
-          return;
-        }
-        if (toc.find('.toc-list-item').length > 0) {
-          toc.css('visibility', 'visible');
-        }
-      }
-    });
-  });
-</script>
-
-
-  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
-
-  <script>Fluid.plugins.codeWidget();</script>
-
-
-  
-<script>
-  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
-    window.anchors.options = {
-      placement: CONFIG.anchorjs.placement,
-      visible  : CONFIG.anchorjs.visible
-    };
-    if (CONFIG.anchorjs.icon) {
-      window.anchors.options.icon = CONFIG.anchorjs.icon;
-    }
-    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
-    var res = [];
-    for (var item of el) {
-      res.push('.markdown-body > ' + item.trim());
-    }
-    if (CONFIG.anchorjs.placement === 'left') {
-      window.anchors.options.class = 'anchorjs-link-left';
-    }
-    window.anchors.add(res.join(', '));
-
-    Fluid.events.registerRefreshCallback(function() {
-      if ('anchors' in window) {
-        anchors.removeAll();
-        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
-        var res = [];
-        for (var item of el) {
-          res.push('.markdown-body > ' + item.trim());
-        }
-        if (CONFIG.anchorjs.placement === 'left') {
-          anchors.options.class = 'anchorjs-link-left';
-        }
-        anchors.add(res.join(', '));
-      }
-    });
-  });
-</script>
-
-
-  
-<script>
-  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
-    Fluid.plugins.fancyBox();
-  });
-</script>
-
-
-  <script  src="/js/local-search.js" ></script>
-
-  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
-
-
-
-
-
-<!-- 主题的启动项，将它保持在最底部 -->
-<!-- the boot of the theme, keep it at the bottom -->
-<script  src="/js/boot.js" ></script>
-
-
-  
-
-  <noscript>
-    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
-  </noscript>
-</body>
+    </body>
 </html>
