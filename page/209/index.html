@@ -1,21 +1,635 @@
-<!DOCTYPE html><html lang="zh-CN"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta name="description" content="捕捉一只爱折腾的绯鞠"><meta name="keywords" content=""><meta name="author" content="绯鞠"><meta name="copyright" content="绯鞠"><title>连蜜统治世界!!!💕 | 绯鞠的博客</title><link rel="shortcut icon" href="/dist/images/favicon_package/favicon.ico"><link rel="stylesheet" href="/css/index.css?version=1.9.1"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@latest/css/font-awesome.min.css?version=1.9.1"><meta name="format-detection" content="telephone=no"><meta http-equiv="x-dns-prefetch-control" content="on"><link rel="dns-prefetch" href="https://cdn.jsdelivr.net"><link rel="manifest" href="/dist/images/favicon_package/site.webmanifest"><link rel="manifest" href="/dist/images/favicon_package/site.webmanifest"><meta name="theme-color" content="#F6CDE1"><meta name="msapplication-TileColor" content="#F6CDE1"><link rel="apple-touch-icon" sizes="180x180" href="/dist/images/favicon_package/apple-touch-icon.png"><link rel="icon" type="image/png" sizes="32x32" href="/dist/images/favicon_package/favicon-32x32.png"><link rel="icon" type="image/png" sizes="16x16" href="/dist/images/favicon_package/favicon-16x16.png"><link rel="mask-icon" href="/dist/images/favicon_package/safari-pinned-tab.svg" color="#F6CDE1"><meta http-equiv="Cache-Control" content="no-transform"><meta http-equiv="Cache-Control" content="no-siteapp"><script>var GLOBAL_CONFIG = { 
-  root: '/',
-  algolia: undefined,
-  localSearch: {"path":"search.xml","languages":{"hits_empty":"We didn't find any results for the search: ${query}"}},
-  copy: {
-    success: 'Copy successfully',
-    error: 'Copy error',
-    noSupport: 'The browser does not support'
-  },
-  hexoVersion: '6.3.0'
-} </script><meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="绯鞠的博客" type="application/atom+xml">
-</head><body><i class="fa fa-arrow-right" id="toggle-sidebar" aria-hidden="true"></i><div id="sidebar" data-display="false"><div class="author-info"><div class="author-info__avatar text-center"><img src="/dist/images/avatar.gif"></div><div class="author-info__name text-center">绯鞠</div><div class="author-info__description text-center">捕捉一只爱折腾的绯鞠</div><hr><div class="author-info-articles"><a class="author-info-articles__archives article-meta" href="/archives"><span class="pull-left">Articles</span><span class="pull-right">2918</span></a><a class="author-info-articles__tags article-meta" href="/tags"><span class="pull-left">Tags</span><span class="pull-right">115</span></a><a class="author-info-articles__categories article-meta" href="/categories"><span class="pull-left">Categories</span><span class="pull-right">17</span></a></div></div></div><nav class="no-bg" id="nav"><div id="page-header"><span class="pull-left"> <a id="site-name" href="/">绯鞠的博客</a></span><i class="fa fa-bars toggle-menu pull-right" aria-hidden="true"></i><span class="pull-right menus">   <a class="site-page" href="/">主页</a><a class="site-page" href="/about/">关于</a><a class="site-page" href="/tags/">标签</a><a class="site-page" href="/categories/">分类</a><a class="site-page" href="/archives/">归档</a><a class="site-page" href="/links/">友链</a><a class="site-page" href="/reward/">赞助</a><a class="site-page" href="/atom.xml">订阅</a><a class="site-page" target="_blank" rel="noopener" href="//hacker.loli.fj.cn">主题</a></span><span class="pull-right"><a class="site-page social-icon search"><i class="fa fa-search"></i><span> Search</span></a></span></div><div id="site-info"><div id="site-title">绯鞠的博客</div><div id="site-sub-title">连蜜统治世界!!!💕</div></div></nav><div id="content-outer"><div class="layout" id="content-inner"><div class="recent-post-item article-container"><a class="article-title" href="/2021/10/31/NexT8-8%E5%AE%9E%E7%8E%B0%E9%9B%AA%E8%8A%B1%E9%A3%9E%E8%88%9E%E7%89%B9%E6%95%88/">【笔记】NexT8.8实现雪花飞舞特效</a><time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> 2021-10-31</time><span class="article-meta tags"><span class="article-meta__separator">|</span><i class="fa fa-tag article-meta__icon" aria-hidden="true"></i><a class="article-meta__tags" href="/tags/Hexo/">Hexo</a></span><div class="content"><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>这是一款京东为配合双12年终盛宴活动在活动页面添加的雪花飞舞3D视觉特效</p>
-<p>这个特效目前无法找到原作者<br>网上大部分版本都是一个民间网友分享的，从自己服务器引入js文件的文章介绍（其实还有一个很丑的飘落小圆点的版本）<br>很多人都不知道它来自于京东，照搬照抄他的外链，然而现在那个服务器已经挂掉了，在这里分享一下源码（我也不记得我是从哪里找到的了）</p></div><a class="more" href="/2021/10/31/NexT8-8%E5%AE%9E%E7%8E%B0%E9%9B%AA%E8%8A%B1%E9%A3%9E%E8%88%9E%E7%89%B9%E6%95%88/#more">Read more</a><hr></div><div class="recent-post-item article-container"><a class="article-title" href="/2021/10/31/NexT8-8%E9%85%8D%E7%BD%AELive2d%E7%9C%8B%E6%9D%BF%E5%A8%98/">【笔记】NexT8.8配置Live2d看板娘</a><time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> 2021-10-31</time><span class="article-meta tags"><span class="article-meta__separator">|</span><i class="fa fa-tag article-meta__icon" aria-hidden="true"></i><a class="article-meta__tags" href="/tags/Hexo/">Hexo</a></span><div class="content"><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>NexT8.8主题配置升级版Live2d看板娘</p></div><a class="more" href="/2021/10/31/NexT8-8%E9%85%8D%E7%BD%AELive2d%E7%9C%8B%E6%9D%BF%E5%A8%98/#more">Read more</a><hr></div><div class="recent-post-item article-container"><a class="article-title" href="/2021/10/30/Mysql%E5%8E%BB%E9%99%A4%E9%87%8D%E5%A4%8D%E8%A1%8C/">【笔记】Mysql去除重复行</a><time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> 2021-10-30</time><span class="article-meta tags"><span class="article-meta__separator">|</span><i class="fa fa-tag article-meta__icon" aria-hidden="true"></i><a class="article-meta__tags" href="/tags/Mysql/">Mysql</a><span class="article-meta__link">-</span><i class="fa fa-tag article-meta__icon" aria-hidden="true"></i><a class="article-meta__tags" href="/tags/Database/">Database</a></span><div class="content"><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>MySQL使用DISTINCT去除重复行</p></div><a class="more" href="/2021/10/30/Mysql%E5%8E%BB%E9%99%A4%E9%87%8D%E5%A4%8D%E8%A1%8C/#more">Read more</a><hr></div><div class="recent-post-item article-container"><a class="article-title" href="/2021/10/30/Mysql%E6%9B%BF%E6%8D%A2%E8%AF%AD%E5%8F%A5/">【笔记】Mysql替换语句</a><time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> 2021-10-30</time><span class="article-meta tags"><span class="article-meta__separator">|</span><i class="fa fa-tag article-meta__icon" aria-hidden="true"></i><a class="article-meta__tags" href="/tags/Mysql/">Mysql</a><span class="article-meta__link">-</span><i class="fa fa-tag article-meta__icon" aria-hidden="true"></i><a class="article-meta__tags" href="/tags/Database/">Database</a></span><div class="content"><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>当查询出来的数据，想通过一定的计算方式，转换成其他文本展示时，可以使用替换语句</p>
-<p>替换语句只在展示时做替换，不会实际修改表中的数据，所以通常配合查询语句做筛选查询</p></div><a class="more" href="/2021/10/30/Mysql%E6%9B%BF%E6%8D%A2%E8%AF%AD%E5%8F%A5/#more">Read more</a><hr></div><div class="recent-post-item article-container"><a class="article-title" href="/2021/10/30/Hexo%E7%9A%84NexT%E4%B8%BB%E9%A2%98%E9%85%8D%E7%BD%AE/">【笔记】Hexo的NexT主题配置</a><time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> 2021-10-30</time><span class="article-meta tags"><span class="article-meta__separator">|</span><i class="fa fa-tag article-meta__icon" aria-hidden="true"></i><a class="article-meta__tags" href="/tags/Hexo/">Hexo</a></span><div class="content"><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>Hexo的NexT主题配置，我这里使用的NexT版本是8.8.0，不同版本的主题之间配置稍有不同，具体配置可参见<a href="/302.html?target=http://theme-next.iissnan.com">NexT中文官网</a>或<a href="/302.html?target=https://theme-next.js.org">NexT主题官方博客</a></p>
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>第 209 页 | 绯鞠的博客 | 连蜜统治世界!!!💕</title>
+
+  
+  <meta name="author" content="绯鞠">
+  
+
+  
+  <meta name="description" content="捕捉一只爱折腾的绯鞠">
+  
+
+  
+
+  <meta id="viewport" name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+  
+
+  <meta property="og:site_name" content="绯鞠的博客"/>
+
+  
+  <meta property="og:image" content="/favicon.ico"/>
+  
+
+  <link href="/favicon.ico" rel="icon">
+  <link rel="alternate" href="/atom.xml" title="绯鞠的博客" type="application/atom+xml">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+
+<body>
+<div class="blog">
+  <div class="content">
+
+    <header>
+  <div class="site-branding">
+    <h1 class="site-title">
+      <a href="/">绯鞠的博客</a>
+    </h1>
+    <p class="site-description">连蜜统治世界!!!💕</p>
+  </div>
+  <nav class="site-navigation">
+    <ul>
+      
+        <li><a href="/">主页</a></li>
+      
+        <li><a href="/about/">关于</a></li>
+      
+        <li><a href="/tags/">标签</a></li>
+      
+        <li><a href="/categories/">分类</a></li>
+      
+        <li><a href="/archives/">归档</a></li>
+      
+        <li><a href="/links/">友链</a></li>
+      
+        <li><a href="/reward/">赞助</a></li>
+      
+        <li><a href="/atom.xml">订阅</a></li>
+      
+        <li><a target="_blank" rel="noopener" href="//stellar.loli.fj.cn">主题</a></li>
+      
+    </ul>
+  </nav>
+</header>
+
+    <main class="site-main posts-loop">
+    
+  <article>
+
+  
+    
+    <h3 class="article-title"><a href="/2021/10/31/NexT8-8实现雪花飞舞特效/"><span>【笔记】NexT8.8实现雪花飞舞特效</span></a></h3>
+    
+  
+
+  <div class="article-top-meta">
+    <span class="posted-on">
+      <a href="/2021/10/31/NexT8-8实现雪花飞舞特效/" rel="bookmark">
+        <time class="entry-date published" datetime="2021-10-31T00:55:01.000Z">
+          2021-10-31
+        </time>
+      </a>
+    </span>
+  </div>
+
+
+  
+
+  <div class="article-content">
+    <div class="entry">
+      
+        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>这是一款京东为配合双12年终盛宴活动在活动页面添加的雪花飞舞3D视觉特效</p>
+<p>这个特效目前无法找到原作者<br>网上大部分版本都是一个民间网友分享的，从自己服务器引入js文件的文章介绍（其实还有一个很丑的飘落小圆点的版本）<br>很多人都不知道它来自于京东，照搬照抄他的外链，然而现在那个服务器已经挂掉了，在这里分享一下源码（我也不记得我是从哪里找到的了）</p>
+        
+      
+    </div>
+
+  </div>
+
+  <div class="article-footer">
+    <div class="article-meta pull-left">
+
+    
+
+    
+    
+
+    <span class="post-tags">
+      <i class="icon-tags"></i>
+        <a href="/tags/Hexo/">Hexo</a>
+    </span>
+    
+
+    </div>
+
+    
+  </div>
+</article>
+
+
+
+  <article>
+
+  
+    
+    <h3 class="article-title"><a href="/2021/10/31/NexT8-8配置Live2d看板娘/"><span>【笔记】NexT8.8配置Live2d看板娘</span></a></h3>
+    
+  
+
+  <div class="article-top-meta">
+    <span class="posted-on">
+      <a href="/2021/10/31/NexT8-8配置Live2d看板娘/" rel="bookmark">
+        <time class="entry-date published" datetime="2021-10-31T00:14:41.000Z">
+          2021-10-31
+        </time>
+      </a>
+    </span>
+  </div>
+
+
+  
+
+  <div class="article-content">
+    <div class="entry">
+      
+        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>NexT8.8主题配置升级版Live2d看板娘</p>
+        
+      
+    </div>
+
+  </div>
+
+  <div class="article-footer">
+    <div class="article-meta pull-left">
+
+    
+
+    
+    
+
+    <span class="post-tags">
+      <i class="icon-tags"></i>
+        <a href="/tags/Hexo/">Hexo</a>
+    </span>
+    
+
+    </div>
+
+    
+  </div>
+</article>
+
+
+
+  <article>
+
+  
+    
+    <h3 class="article-title"><a href="/2021/10/30/Mysql去除重复行/"><span>【笔记】Mysql去除重复行</span></a></h3>
+    
+  
+
+  <div class="article-top-meta">
+    <span class="posted-on">
+      <a href="/2021/10/30/Mysql去除重复行/" rel="bookmark">
+        <time class="entry-date published" datetime="2021-10-30T13:09:25.000Z">
+          2021-10-30
+        </time>
+      </a>
+    </span>
+  </div>
+
+
+  
+
+  <div class="article-content">
+    <div class="entry">
+      
+        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>MySQL使用DISTINCT去除重复行</p>
+        
+      
+    </div>
+
+  </div>
+
+  <div class="article-footer">
+    <div class="article-meta pull-left">
+
+    
+
+    
+    
+
+    <span class="post-tags">
+      <i class="icon-tags"></i>
+        <a href="/tags/Mysql/">Mysql</a><a href="/tags/Database/">Database</a>
+    </span>
+    
+
+    </div>
+
+    
+  </div>
+</article>
+
+
+
+  <article>
+
+  
+    
+    <h3 class="article-title"><a href="/2021/10/30/Mysql替换语句/"><span>【笔记】Mysql替换语句</span></a></h3>
+    
+  
+
+  <div class="article-top-meta">
+    <span class="posted-on">
+      <a href="/2021/10/30/Mysql替换语句/" rel="bookmark">
+        <time class="entry-date published" datetime="2021-10-30T12:25:28.000Z">
+          2021-10-30
+        </time>
+      </a>
+    </span>
+  </div>
+
+
+  
+
+  <div class="article-content">
+    <div class="entry">
+      
+        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>当查询出来的数据，想通过一定的计算方式，转换成其他文本展示时，可以使用替换语句</p>
+<p>替换语句只在展示时做替换，不会实际修改表中的数据，所以通常配合查询语句做筛选查询</p>
+        
+      
+    </div>
+
+  </div>
+
+  <div class="article-footer">
+    <div class="article-meta pull-left">
+
+    
+
+    
+    
+
+    <span class="post-tags">
+      <i class="icon-tags"></i>
+        <a href="/tags/Mysql/">Mysql</a><a href="/tags/Database/">Database</a>
+    </span>
+    
+
+    </div>
+
+    
+  </div>
+</article>
+
+
+
+  <article>
+
+  
+    
+    <h3 class="article-title"><a href="/2021/10/30/Hexo的NexT主题配置/"><span>【笔记】Hexo的NexT主题配置</span></a></h3>
+    
+  
+
+  <div class="article-top-meta">
+    <span class="posted-on">
+      <a href="/2021/10/30/Hexo的NexT主题配置/" rel="bookmark">
+        <time class="entry-date published" datetime="2021-10-30T07:13:12.000Z">
+          2021-10-30
+        </time>
+      </a>
+    </span>
+  </div>
+
+
+  
+
+  <div class="article-content">
+    <div class="entry">
+      
+        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>Hexo的NexT主题配置，我这里使用的NexT版本是8.8.0，不同版本的主题之间配置稍有不同，具体配置可参见<a href="/302.html?target=http://theme-next.iissnan.com">NexT中文官网</a>或<a href="/302.html?target=https://theme-next.js.org">NexT主题官方博客</a></p>
 <p>本文是我的个性化设置，请根据注释自定义修改自己的个性化设置</p>
 <p>更多第三方插件或功能需要参照对应的其说明文档，这里省略</p>
-<p>如果想要加入自己的自定义HTML&#x2F;CSS&#x2F;JS，请移步<a href="/2021/10/29/NexT8-8%E4%B8%AD%E6%B7%BB%E5%8A%A0%E8%87%AA%E5%AE%9A%E4%B9%89%E4%BB%A3%E7%A0%81/">传送门</a></p></div><a class="more" href="/2021/10/30/Hexo%E7%9A%84NexT%E4%B8%BB%E9%A2%98%E9%85%8D%E7%BD%AE/#more">Read more</a><hr></div><div class="recent-post-item article-container"><a class="article-title" href="/2021/10/29/NexT8-8%E6%B7%BB%E5%8A%A0%E9%9F%B3%E4%B9%90%E7%9B%92/">【笔记】NexT8.8添加音乐盒</a><time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> 2021-10-29</time><span class="article-meta tags"><span class="article-meta__separator">|</span><i class="fa fa-tag article-meta__icon" aria-hidden="true"></i><a class="article-meta__tags" href="/tags/Hexo/">Hexo</a></span><div class="content"><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>NexT8.8添加音乐盒</p></div><a class="more" href="/2021/10/29/NexT8-8%E6%B7%BB%E5%8A%A0%E9%9F%B3%E4%B9%90%E7%9B%92/#more">Read more</a><hr></div><div class="recent-post-item article-container"><a class="article-title" href="/2021/10/29/NexT8-8%E6%B8%B2%E6%9F%93%E6%B5%81%E7%A8%8B%E5%9B%BE/">【笔记】NexT8.8渲染流程图</a><time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> 2021-10-29</time><span class="article-meta tags"><span class="article-meta__separator">|</span><i class="fa fa-tag article-meta__icon" aria-hidden="true"></i><a class="article-meta__tags" href="/tags/Hexo/">Hexo</a></span><div class="content"><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>NexT8.8通过代码块渲染流程图</p></div><a class="more" href="/2021/10/29/NexT8-8%E6%B8%B2%E6%9F%93%E6%B5%81%E7%A8%8B%E5%9B%BE/#more">Read more</a><hr></div><div class="recent-post-item article-container"><a class="article-title" href="/2021/10/29/Hexo%E5%9B%BE%E7%89%87%E6%94%BE%E5%A4%A7/">【笔记】Hexo图片放大</a><time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> 2021-10-29</time><span class="article-meta tags"><span class="article-meta__separator">|</span><i class="fa fa-tag article-meta__icon" aria-hidden="true"></i><a class="article-meta__tags" href="/tags/Hexo/">Hexo</a></span><div class="content"><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>在Hexo中增加Fancybox图片放大插件，还可以实现一个相册效果</p></div><a class="more" href="/2021/10/29/Hexo%E5%9B%BE%E7%89%87%E6%94%BE%E5%A4%A7/#more">Read more</a><hr></div><div class="recent-post-item article-container"><a class="article-title" href="/2021/10/29/NexT8-8%E4%B8%AD%E6%B7%BB%E5%8A%A0%E8%87%AA%E5%AE%9A%E4%B9%89%E4%BB%A3%E7%A0%81/">【笔记】NexT8.8中添加自定义代码</a><time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> 2021-10-29</time><span class="article-meta tags"><span class="article-meta__separator">|</span><i class="fa fa-tag article-meta__icon" aria-hidden="true"></i><a class="article-meta__tags" href="/tags/Hexo/">Hexo</a></span><div class="content"><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>NexT8.8中添加自定义代码</p></div><a class="more" href="/2021/10/29/NexT8-8%E4%B8%AD%E6%B7%BB%E5%8A%A0%E8%87%AA%E5%AE%9A%E4%B9%89%E4%BB%A3%E7%A0%81/#more">Read more</a><hr></div><div class="recent-post-item article-container"><a class="article-title" href="/2021/10/29/NexT8-8%E6%9B%B4%E5%A4%9A%E5%9B%BE%E6%A0%87/">【笔记】NexT8.8更多图标</a><time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> 2021-10-29</time><span class="article-meta tags"><span class="article-meta__separator">|</span><i class="fa fa-tag article-meta__icon" aria-hidden="true"></i><a class="article-meta__tags" href="/tags/Hexo/">Hexo</a></span><div class="content"><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>NexT8.8中调用更多的图标</p></div><a class="more" href="/2021/10/29/NexT8-8%E6%9B%B4%E5%A4%9A%E5%9B%BE%E6%A0%87/#more">Read more</a><hr></div><nav id="pagination"><div class="pagination"><a class="extend prev" rel="prev" href="/page/208/"><i class="fa fa-chevron-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/208/">208</a><span class="page-number current">209</span><a class="page-number" href="/page/210/">210</a><span class="space">&hellip;</span><a class="page-number" href="/page/292/">292</a><a class="extend next" rel="next" href="/page/210/"><i class="fa fa-chevron-right"></i></a></div></nav></div></div><footer><div class="layout" id="footer"><div class="copyright">&copy;2019 - 2024 By 绯鞠</div><div class="framework-info"><span>Driven - </span><a target="_blank" rel="noopener" href="http://hexo.io"><span>Hexo</span></a><span class="footer-separator">|</span><span>Theme - </span><a target="_blank" rel="noopener" href="https://github.com/Molunerfinn/hexo-theme-melody"><span>Melody</span></a></div><div class="busuanzi"><script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><span id="busuanzi_container_site_uv"><i class="fa fa-user"></i><span id="busuanzi_value_site_uv"></span><span></span></span><span class="footer-separator">|</span><span id="busuanzi_container_site_pv"><i class="fa fa-eye"></i><span id="busuanzi_value_site_pv"></span><span></span></span></div></div></footer><i class="fa fa-arrow-up" id="go-up" aria-hidden="true"></i><script src="https://cdn.jsdelivr.net/npm/animejs@latest/lib/anime.min.js"></script><script src="https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-animate@latest/velocity.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-ui-pack@latest/velocity.ui.min.js"></script><script src="/js/utils.js?version=1.9.1"></script><script src="/js/fancybox.js?version=1.9.1"></script><script src="/js/sidebar.js?version=1.9.1"></script><script src="/js/copy.js?version=1.9.1"></script><script src="/js/fireworks.js?version=1.9.1"></script><script src="/js/transition.js?version=1.9.1"></script><script src="/js/scroll.js?version=1.9.1"></script><script src="/js/head.js?version=1.9.1"></script><script src="/js/search/local-search.js"></script><script>if(/Android|webOS|iPhone|iPod|iPad|BlackBerry/i.test(navigator.userAgent)) {
-  $('#nav').addClass('is-mobile')
-  $('footer').addClass('is-mobile')
-  $('#top-container').addClass('is-mobile')
-}</script><div class="search-dialog" id="local-search"><div class="search-dialog__title" id="local-search-title">Local search</div><div id="local-input-panel"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="Search for Posts"></div></div></div><hr><div id="local-search-results"><div id="local-hits"></div><div id="local-stats"><div class="local-search-stats__hr" id="hr"><span>Powered by</span> <a target="_blank" rel="noopener" href="https://github.com/wzpan/hexo-generator-search" style="color:#49B1F5;">hexo-generator-search</a></div></div></div><span class="search-close-button"><i class="fa fa-times"></i></span></div><div class="search-mask"></div></body></html>
+<p>如果想要加入自己的自定义HTML&#x2F;CSS&#x2F;JS，请移步<a href="/2021/10/29/NexT8-8%E4%B8%AD%E6%B7%BB%E5%8A%A0%E8%87%AA%E5%AE%9A%E4%B9%89%E4%BB%A3%E7%A0%81/">传送门</a></p>
+        
+      
+    </div>
+
+  </div>
+
+  <div class="article-footer">
+    <div class="article-meta pull-left">
+
+    
+
+    
+    
+
+    <span class="post-tags">
+      <i class="icon-tags"></i>
+        <a href="/tags/Hexo/">Hexo</a>
+    </span>
+    
+
+    </div>
+
+    
+  </div>
+</article>
+
+
+
+  <article>
+
+  
+    
+    <h3 class="article-title"><a href="/2021/10/29/NexT8-8添加音乐盒/"><span>【笔记】NexT8.8添加音乐盒</span></a></h3>
+    
+  
+
+  <div class="article-top-meta">
+    <span class="posted-on">
+      <a href="/2021/10/29/NexT8-8添加音乐盒/" rel="bookmark">
+        <time class="entry-date published" datetime="2021-10-29T05:30:16.000Z">
+          2021-10-29
+        </time>
+      </a>
+    </span>
+  </div>
+
+
+  
+
+  <div class="article-content">
+    <div class="entry">
+      
+        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>NexT8.8添加音乐盒</p>
+        
+      
+    </div>
+
+  </div>
+
+  <div class="article-footer">
+    <div class="article-meta pull-left">
+
+    
+
+    
+    
+
+    <span class="post-tags">
+      <i class="icon-tags"></i>
+        <a href="/tags/Hexo/">Hexo</a>
+    </span>
+    
+
+    </div>
+
+    
+  </div>
+</article>
+
+
+
+  <article>
+
+  
+    
+    <h3 class="article-title"><a href="/2021/10/29/NexT8-8渲染流程图/"><span>【笔记】NexT8.8渲染流程图</span></a></h3>
+    
+  
+
+  <div class="article-top-meta">
+    <span class="posted-on">
+      <a href="/2021/10/29/NexT8-8渲染流程图/" rel="bookmark">
+        <time class="entry-date published" datetime="2021-10-29T05:22:26.000Z">
+          2021-10-29
+        </time>
+      </a>
+    </span>
+  </div>
+
+
+  
+
+  <div class="article-content">
+    <div class="entry">
+      
+        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>NexT8.8通过代码块渲染流程图</p>
+        
+      
+    </div>
+
+  </div>
+
+  <div class="article-footer">
+    <div class="article-meta pull-left">
+
+    
+
+    
+    
+
+    <span class="post-tags">
+      <i class="icon-tags"></i>
+        <a href="/tags/Hexo/">Hexo</a>
+    </span>
+    
+
+    </div>
+
+    
+  </div>
+</article>
+
+
+
+  <article>
+
+  
+    
+    <h3 class="article-title"><a href="/2021/10/29/Hexo图片放大/"><span>【笔记】Hexo图片放大</span></a></h3>
+    
+  
+
+  <div class="article-top-meta">
+    <span class="posted-on">
+      <a href="/2021/10/29/Hexo图片放大/" rel="bookmark">
+        <time class="entry-date published" datetime="2021-10-29T05:17:10.000Z">
+          2021-10-29
+        </time>
+      </a>
+    </span>
+  </div>
+
+
+  
+
+  <div class="article-content">
+    <div class="entry">
+      
+        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>在Hexo中增加Fancybox图片放大插件，还可以实现一个相册效果</p>
+        
+      
+    </div>
+
+  </div>
+
+  <div class="article-footer">
+    <div class="article-meta pull-left">
+
+    
+
+    
+    
+
+    <span class="post-tags">
+      <i class="icon-tags"></i>
+        <a href="/tags/Hexo/">Hexo</a>
+    </span>
+    
+
+    </div>
+
+    
+  </div>
+</article>
+
+
+
+  <article>
+
+  
+    
+    <h3 class="article-title"><a href="/2021/10/29/NexT8-8中添加自定义代码/"><span>【笔记】NexT8.8中添加自定义代码</span></a></h3>
+    
+  
+
+  <div class="article-top-meta">
+    <span class="posted-on">
+      <a href="/2021/10/29/NexT8-8中添加自定义代码/" rel="bookmark">
+        <time class="entry-date published" datetime="2021-10-29T05:10:59.000Z">
+          2021-10-29
+        </time>
+      </a>
+    </span>
+  </div>
+
+
+  
+
+  <div class="article-content">
+    <div class="entry">
+      
+        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>NexT8.8中添加自定义代码</p>
+        
+      
+    </div>
+
+  </div>
+
+  <div class="article-footer">
+    <div class="article-meta pull-left">
+
+    
+
+    
+    
+
+    <span class="post-tags">
+      <i class="icon-tags"></i>
+        <a href="/tags/Hexo/">Hexo</a>
+    </span>
+    
+
+    </div>
+
+    
+  </div>
+</article>
+
+
+
+  <article>
+
+  
+    
+    <h3 class="article-title"><a href="/2021/10/29/NexT8-8更多图标/"><span>【笔记】NexT8.8更多图标</span></a></h3>
+    
+  
+
+  <div class="article-top-meta">
+    <span class="posted-on">
+      <a href="/2021/10/29/NexT8-8更多图标/" rel="bookmark">
+        <time class="entry-date published" datetime="2021-10-29T04:57:15.000Z">
+          2021-10-29
+        </time>
+      </a>
+    </span>
+  </div>
+
+
+  
+
+  <div class="article-content">
+    <div class="entry">
+      
+        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>NexT8.8中调用更多的图标</p>
+        
+      
+    </div>
+
+  </div>
+
+  <div class="article-footer">
+    <div class="article-meta pull-left">
+
+    
+
+    
+    
+
+    <span class="post-tags">
+      <i class="icon-tags"></i>
+        <a href="/tags/Hexo/">Hexo</a>
+    </span>
+    
+
+    </div>
+
+    
+  </div>
+</article>
+
+
+
+
+<nav class="pagination">
+  
+  <a href="/page/208/" class="pagination-prev">上一页</a>
+  
+  
+  <a href="/page/210/" class="pagination-next">下一页</a>
+  
+</nav>
+    </main>
+
+    <footer class="site-footer">
+  <p class="site-info">
+    Proudly powered by <a href="https://hexo.io/" target="_blank">Hexo</a> and
+    Theme by <a href="https://github.com/CodeDaraW/Hacker" target="_blank">Hacker</a>
+    </br>
+    
+    &copy; 2024 绯鞠
+    
+  </p>
+</footer>
+    
+    
+  </div>
+</div>
+</body>
+</html>

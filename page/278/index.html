@@ -1,18 +1,632 @@
-<!DOCTYPE html><html lang="zh-CN"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta name="description" content="捕捉一只爱折腾的绯鞠"><meta name="keywords" content=""><meta name="author" content="绯鞠"><meta name="copyright" content="绯鞠"><title>连蜜统治世界!!!💕 | 绯鞠的博客</title><link rel="shortcut icon" href="/dist/images/favicon_package/favicon.ico"><link rel="stylesheet" href="/css/index.css?version=1.9.1"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@latest/css/font-awesome.min.css?version=1.9.1"><meta name="format-detection" content="telephone=no"><meta http-equiv="x-dns-prefetch-control" content="on"><link rel="dns-prefetch" href="https://cdn.jsdelivr.net"><link rel="manifest" href="/dist/images/favicon_package/site.webmanifest"><link rel="manifest" href="/dist/images/favicon_package/site.webmanifest"><meta name="theme-color" content="#F6CDE1"><meta name="msapplication-TileColor" content="#F6CDE1"><link rel="apple-touch-icon" sizes="180x180" href="/dist/images/favicon_package/apple-touch-icon.png"><link rel="icon" type="image/png" sizes="32x32" href="/dist/images/favicon_package/favicon-32x32.png"><link rel="icon" type="image/png" sizes="16x16" href="/dist/images/favicon_package/favicon-16x16.png"><link rel="mask-icon" href="/dist/images/favicon_package/safari-pinned-tab.svg" color="#F6CDE1"><meta http-equiv="Cache-Control" content="no-transform"><meta http-equiv="Cache-Control" content="no-siteapp"><script>var GLOBAL_CONFIG = { 
-  root: '/',
-  algolia: undefined,
-  localSearch: {"path":"search.xml","languages":{"hits_empty":"We didn't find any results for the search: ${query}"}},
-  copy: {
-    success: 'Copy successfully',
-    error: 'Copy error',
-    noSupport: 'The browser does not support'
-  },
-  hexoVersion: '6.3.0'
-} </script><meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="绯鞠的博客" type="application/atom+xml">
-</head><body><i class="fa fa-arrow-right" id="toggle-sidebar" aria-hidden="true"></i><div id="sidebar" data-display="false"><div class="author-info"><div class="author-info__avatar text-center"><img src="/dist/images/avatar.gif"></div><div class="author-info__name text-center">绯鞠</div><div class="author-info__description text-center">捕捉一只爱折腾的绯鞠</div><hr><div class="author-info-articles"><a class="author-info-articles__archives article-meta" href="/archives"><span class="pull-left">Articles</span><span class="pull-right">2918</span></a><a class="author-info-articles__tags article-meta" href="/tags"><span class="pull-left">Tags</span><span class="pull-right">115</span></a><a class="author-info-articles__categories article-meta" href="/categories"><span class="pull-left">Categories</span><span class="pull-right">17</span></a></div></div></div><nav class="no-bg" id="nav"><div id="page-header"><span class="pull-left"> <a id="site-name" href="/">绯鞠的博客</a></span><i class="fa fa-bars toggle-menu pull-right" aria-hidden="true"></i><span class="pull-right menus">   <a class="site-page" href="/">主页</a><a class="site-page" href="/about/">关于</a><a class="site-page" href="/tags/">标签</a><a class="site-page" href="/categories/">分类</a><a class="site-page" href="/archives/">归档</a><a class="site-page" href="/links/">友链</a><a class="site-page" href="/reward/">赞助</a><a class="site-page" href="/atom.xml">订阅</a><a class="site-page" target="_blank" rel="noopener" href="//hacker.loli.fj.cn">主题</a></span><span class="pull-right"><a class="site-page social-icon search"><i class="fa fa-search"></i><span> Search</span></a></span></div><div id="site-info"><div id="site-title">绯鞠的博客</div><div id="site-sub-title">连蜜统治世界!!!💕</div></div></nav><div id="content-outer"><div class="layout" id="content-inner"><div class="recent-post-item article-container"><a class="article-title" href="/2020/02/02/Hadoop%E5%88%86%E5%B8%83%E5%BC%8F%E6%A8%A1%E5%BC%8F/">【笔记】Hadoop 分布式模式</a><time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> 2020-02-02</time><span class="article-meta tags"><span class="article-meta__separator">|</span><i class="fa fa-tag article-meta__icon" aria-hidden="true"></i><a class="article-meta__tags" href="/tags/Hadoop/">Hadoop</a></span><div class="content"><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p><code>Hadoop</code>分布式模式，至少6台计算机（学习阶段使用3台）</p>
-<p>MacOS环境下Hadoop3学习笔记</p></div><a class="more" href="/2020/02/02/Hadoop%E5%88%86%E5%B8%83%E5%BC%8F%E6%A8%A1%E5%BC%8F/#more">Read more</a><hr></div><div class="recent-post-item article-container"><a class="article-title" href="/2020/02/01/Rsync%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">【笔记】Rsync 学习笔记</a><time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> 2020-02-01</time><span class="article-meta tags"><span class="article-meta__separator">|</span><i class="fa fa-tag article-meta__icon" aria-hidden="true"></i><a class="article-meta__tags" href="/tags/Linux/">Linux</a></span><div class="content"><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p><code>rsync</code>是Unix下的一款应用软件，它能同步更新两处计算机的文件与目录，并适当利用差分编码以减少数据传输量。rsync中的一项同类软件不常见的重要特性是每个目标的镜像只需发送一次。rsync可以拷贝／显示目录内容，以及拷贝文件，并可选压缩以及递归拷贝。（<a href="/302.html?target=https://zh.wikipedia.org/wiki/Rsync">维基百科</a>）</p></div><a class="more" href="/2020/02/01/Rsync%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/#more">Read more</a><hr></div><div class="recent-post-item article-container"><a class="article-title" href="/2020/02/01/%E5%91%BD%E4%BB%A4%E8%A1%8C%E5%B1%95%E7%A4%BA%E8%AE%BE%E5%A4%87%E4%BF%A1%E6%81%AF/">【骚操作】命令行展示设备信息</a><time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> 2020-02-01</time><span class="article-meta tags"><span class="article-meta__separator">|</span><i class="fa fa-tag article-meta__icon" aria-hidden="true"></i><a class="article-meta__tags" href="/tags/MacOS/">MacOS</a></span><div class="content"><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>在命令行展示一个多彩的<code>Apple Logo</code>，并展示设备信息</p></div><a class="more" href="/2020/02/01/%E5%91%BD%E4%BB%A4%E8%A1%8C%E5%B1%95%E7%A4%BA%E8%AE%BE%E5%A4%87%E4%BF%A1%E6%81%AF/#more">Read more</a><hr></div><div class="recent-post-item article-container"><a class="article-title" href="/2020/02/01/%E5%91%BD%E4%BB%A4%E8%A1%8C%E6%96%87%E6%9C%AC%E6%A0%BC%E5%BC%8F%E8%BD%AC%E6%8D%A2/">【骚操作】命令行文本格式转换</a><time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> 2020-02-01</time><span class="article-meta tags"><span class="article-meta__separator">|</span><i class="fa fa-tag article-meta__icon" aria-hidden="true"></i><a class="article-meta__tags" href="/tags/MacOS/">MacOS</a></span><div class="content"><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>在命令行转换文件格式</p></div><a class="more" href="/2020/02/01/%E5%91%BD%E4%BB%A4%E8%A1%8C%E6%96%87%E6%9C%AC%E6%A0%BC%E5%BC%8F%E8%BD%AC%E6%8D%A2/#more">Read more</a><hr></div><div class="recent-post-item article-container"><a class="article-title" href="/2020/02/01/%E5%91%BD%E4%BB%A4%E8%A1%8C%E6%89%93%E5%8D%B0%E6%A8%AA%E5%B9%85/">【骚操作】命令行打印横幅</a><time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> 2020-02-01</time><span class="article-meta tags"><span class="article-meta__separator">|</span><i class="fa fa-tag article-meta__icon" aria-hidden="true"></i><a class="article-meta__tags" href="/tags/MacOS/">MacOS</a></span><div class="content"><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>在<code>MacOS</code>命令行打印横幅</p></div><a class="more" href="/2020/02/01/%E5%91%BD%E4%BB%A4%E8%A1%8C%E6%89%93%E5%8D%B0%E6%A8%AA%E5%B9%85/#more">Read more</a><hr></div><div class="recent-post-item article-container"><a class="article-title" href="/2020/02/01/Scp%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">【笔记】Scp 学习笔记</a><time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> 2020-02-01</time><span class="article-meta tags"><span class="article-meta__separator">|</span><i class="fa fa-tag article-meta__icon" aria-hidden="true"></i><a class="article-meta__tags" href="/tags/Linux/">Linux</a></span><div class="content"><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>安全复制是指在本地主机与远程主机或者两台远程主机之间基于Secure Shell协议安全地传输计算机文件。“SCP”通常指安全复制协议或者程序本身。（<a href="/302.html?target=https://zh.wikipedia.org/zh-cn/%E5%AE%89%E5%85%A8%E5%A4%8D%E5%88%B6">维基百科</a>）</p></div><a class="more" href="/2020/02/01/Scp%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/#more">Read more</a><hr></div><div class="recent-post-item article-container"><a class="article-title" href="/2020/02/01/NameNode%E6%A0%BC%E5%BC%8F%E5%8C%96/">【踩坑】NameNode 格式化</a><time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> 2020-02-01</time><span class="article-meta tags"><span class="article-meta__separator">|</span><i class="fa fa-tag article-meta__icon" aria-hidden="true"></i><a class="article-meta__tags" href="/tags/Hadoop/">Hadoop</a></span><div class="content"><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>在首次配置完<code>Hadoop</code>，需要格式化<code>NameNode</code>节点，但是只能首次使用之前格式化</p></div><a class="more" href="/2020/02/01/NameNode%E6%A0%BC%E5%BC%8F%E5%8C%96/#more">Read more</a><hr></div><div class="recent-post-item article-container"><a class="article-title" href="/2020/01/31/Hadoop%E4%BC%AA%E5%88%86%E5%B8%83%E5%BC%8F%E6%A8%A1%E5%BC%8F/">【笔记】Hadoop 伪分布式模式</a><time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> 2020-01-31</time><span class="article-meta tags"><span class="article-meta__separator">|</span><i class="fa fa-tag article-meta__icon" aria-hidden="true"></i><a class="article-meta__tags" href="/tags/Hadoop/">Hadoop</a></span><div class="content"><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>Hadoop伪分布式模式配置</p></div><a class="more" href="/2020/01/31/Hadoop%E4%BC%AA%E5%88%86%E5%B8%83%E5%BC%8F%E6%A8%A1%E5%BC%8F/#more">Read more</a><hr></div><div class="recent-post-item article-container"><a class="article-title" href="/2020/01/31/Hadoop%E6%9C%AC%E5%9C%B0%E6%A8%A1%E5%BC%8F/">【笔记】Hadoop 本地模式</a><time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> 2020-01-31</time><span class="article-meta tags"><span class="article-meta__separator">|</span><i class="fa fa-tag article-meta__icon" aria-hidden="true"></i><a class="article-meta__tags" href="/tags/Hadoop/">Hadoop</a></span><div class="content"><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p><code>Hadoop</code>本地模式运行两个<code>demo</code></p>
-<p>MacOS环境下Hadoop3学习笔记</p></div><a class="more" href="/2020/01/31/Hadoop%E6%9C%AC%E5%9C%B0%E6%A8%A1%E5%BC%8F/#more">Read more</a><hr></div><div class="recent-post-item article-container"><a class="article-title" href="/2020/01/31/%E9%85%8D%E7%BD%AEHadoop%E8%BF%90%E8%A1%8C%E7%8E%AF%E5%A2%83/">【笔记】配置 Hadoop 运行环境</a><time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> 2020-01-31</time><span class="article-meta tags"><span class="article-meta__separator">|</span><i class="fa fa-tag article-meta__icon" aria-hidden="true"></i><a class="article-meta__tags" href="/tags/Hadoop/">Hadoop</a></span><div class="content"><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>配置<code>Hadoop</code>运行环境</p></div><a class="more" href="/2020/01/31/%E9%85%8D%E7%BD%AEHadoop%E8%BF%90%E8%A1%8C%E7%8E%AF%E5%A2%83/#more">Read more</a><hr></div><nav id="pagination"><div class="pagination"><a class="extend prev" rel="prev" href="/page/277/"><i class="fa fa-chevron-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/277/">277</a><span class="page-number current">278</span><a class="page-number" href="/page/279/">279</a><span class="space">&hellip;</span><a class="page-number" href="/page/292/">292</a><a class="extend next" rel="next" href="/page/279/"><i class="fa fa-chevron-right"></i></a></div></nav></div></div><footer><div class="layout" id="footer"><div class="copyright">&copy;2019 - 2024 By 绯鞠</div><div class="framework-info"><span>Driven - </span><a target="_blank" rel="noopener" href="http://hexo.io"><span>Hexo</span></a><span class="footer-separator">|</span><span>Theme - </span><a target="_blank" rel="noopener" href="https://github.com/Molunerfinn/hexo-theme-melody"><span>Melody</span></a></div><div class="busuanzi"><script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><span id="busuanzi_container_site_uv"><i class="fa fa-user"></i><span id="busuanzi_value_site_uv"></span><span></span></span><span class="footer-separator">|</span><span id="busuanzi_container_site_pv"><i class="fa fa-eye"></i><span id="busuanzi_value_site_pv"></span><span></span></span></div></div></footer><i class="fa fa-arrow-up" id="go-up" aria-hidden="true"></i><script src="https://cdn.jsdelivr.net/npm/animejs@latest/lib/anime.min.js"></script><script src="https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-animate@latest/velocity.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-ui-pack@latest/velocity.ui.min.js"></script><script src="/js/utils.js?version=1.9.1"></script><script src="/js/fancybox.js?version=1.9.1"></script><script src="/js/sidebar.js?version=1.9.1"></script><script src="/js/copy.js?version=1.9.1"></script><script src="/js/fireworks.js?version=1.9.1"></script><script src="/js/transition.js?version=1.9.1"></script><script src="/js/scroll.js?version=1.9.1"></script><script src="/js/head.js?version=1.9.1"></script><script src="/js/search/local-search.js"></script><script>if(/Android|webOS|iPhone|iPod|iPad|BlackBerry/i.test(navigator.userAgent)) {
-  $('#nav').addClass('is-mobile')
-  $('footer').addClass('is-mobile')
-  $('#top-container').addClass('is-mobile')
-}</script><div class="search-dialog" id="local-search"><div class="search-dialog__title" id="local-search-title">Local search</div><div id="local-input-panel"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="Search for Posts"></div></div></div><hr><div id="local-search-results"><div id="local-hits"></div><div id="local-stats"><div class="local-search-stats__hr" id="hr"><span>Powered by</span> <a target="_blank" rel="noopener" href="https://github.com/wzpan/hexo-generator-search" style="color:#49B1F5;">hexo-generator-search</a></div></div></div><span class="search-close-button"><i class="fa fa-times"></i></span></div><div class="search-mask"></div></body></html>
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>第 278 页 | 绯鞠的博客 | 连蜜统治世界!!!💕</title>
+
+  
+  <meta name="author" content="绯鞠">
+  
+
+  
+  <meta name="description" content="捕捉一只爱折腾的绯鞠">
+  
+
+  
+
+  <meta id="viewport" name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+  
+
+  <meta property="og:site_name" content="绯鞠的博客"/>
+
+  
+  <meta property="og:image" content="/favicon.ico"/>
+  
+
+  <link href="/favicon.ico" rel="icon">
+  <link rel="alternate" href="/atom.xml" title="绯鞠的博客" type="application/atom+xml">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+
+<body>
+<div class="blog">
+  <div class="content">
+
+    <header>
+  <div class="site-branding">
+    <h1 class="site-title">
+      <a href="/">绯鞠的博客</a>
+    </h1>
+    <p class="site-description">连蜜统治世界!!!💕</p>
+  </div>
+  <nav class="site-navigation">
+    <ul>
+      
+        <li><a href="/">主页</a></li>
+      
+        <li><a href="/about/">关于</a></li>
+      
+        <li><a href="/tags/">标签</a></li>
+      
+        <li><a href="/categories/">分类</a></li>
+      
+        <li><a href="/archives/">归档</a></li>
+      
+        <li><a href="/links/">友链</a></li>
+      
+        <li><a href="/reward/">赞助</a></li>
+      
+        <li><a href="/atom.xml">订阅</a></li>
+      
+        <li><a target="_blank" rel="noopener" href="//stellar.loli.fj.cn">主题</a></li>
+      
+    </ul>
+  </nav>
+</header>
+
+    <main class="site-main posts-loop">
+    
+  <article>
+
+  
+    
+    <h3 class="article-title"><a href="/2020/02/02/Hadoop分布式模式/"><span>【笔记】Hadoop 分布式模式</span></a></h3>
+    
+  
+
+  <div class="article-top-meta">
+    <span class="posted-on">
+      <a href="/2020/02/02/Hadoop分布式模式/" rel="bookmark">
+        <time class="entry-date published" datetime="2020-02-02T04:00:11.000Z">
+          2020-02-02
+        </time>
+      </a>
+    </span>
+  </div>
+
+
+  
+
+  <div class="article-content">
+    <div class="entry">
+      
+        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p><code>Hadoop</code>分布式模式，至少6台计算机（学习阶段使用3台）</p>
+<p>MacOS环境下Hadoop3学习笔记</p>
+        
+      
+    </div>
+
+  </div>
+
+  <div class="article-footer">
+    <div class="article-meta pull-left">
+
+    
+
+    
+    
+
+    <span class="post-tags">
+      <i class="icon-tags"></i>
+        <a href="/tags/Hadoop/">Hadoop</a>
+    </span>
+    
+
+    </div>
+
+    
+  </div>
+</article>
+
+
+
+  <article>
+
+  
+    
+    <h3 class="article-title"><a href="/2020/02/01/Rsync学习笔记/"><span>【笔记】Rsync 学习笔记</span></a></h3>
+    
+  
+
+  <div class="article-top-meta">
+    <span class="posted-on">
+      <a href="/2020/02/01/Rsync学习笔记/" rel="bookmark">
+        <time class="entry-date published" datetime="2020-02-01T13:27:41.000Z">
+          2020-02-01
+        </time>
+      </a>
+    </span>
+  </div>
+
+
+  
+
+  <div class="article-content">
+    <div class="entry">
+      
+        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p><code>rsync</code>是Unix下的一款应用软件，它能同步更新两处计算机的文件与目录，并适当利用差分编码以减少数据传输量。rsync中的一项同类软件不常见的重要特性是每个目标的镜像只需发送一次。rsync可以拷贝／显示目录内容，以及拷贝文件，并可选压缩以及递归拷贝。（<a href="/302.html?target=https://zh.wikipedia.org/wiki/Rsync">维基百科</a>）</p>
+        
+      
+    </div>
+
+  </div>
+
+  <div class="article-footer">
+    <div class="article-meta pull-left">
+
+    
+
+    
+    
+
+    <span class="post-tags">
+      <i class="icon-tags"></i>
+        <a href="/tags/Linux/">Linux</a>
+    </span>
+    
+
+    </div>
+
+    
+  </div>
+</article>
+
+
+
+  <article>
+
+  
+    
+    <h3 class="article-title"><a href="/2020/02/01/命令行展示设备信息/"><span>【骚操作】命令行展示设备信息</span></a></h3>
+    
+  
+
+  <div class="article-top-meta">
+    <span class="posted-on">
+      <a href="/2020/02/01/命令行展示设备信息/" rel="bookmark">
+        <time class="entry-date published" datetime="2020-02-01T12:14:16.000Z">
+          2020-02-01
+        </time>
+      </a>
+    </span>
+  </div>
+
+
+  
+
+  <div class="article-content">
+    <div class="entry">
+      
+        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>在命令行展示一个多彩的<code>Apple Logo</code>，并展示设备信息</p>
+        
+      
+    </div>
+
+  </div>
+
+  <div class="article-footer">
+    <div class="article-meta pull-left">
+
+    
+
+    
+    
+
+    <span class="post-tags">
+      <i class="icon-tags"></i>
+        <a href="/tags/MacOS/">MacOS</a>
+    </span>
+    
+
+    </div>
+
+    
+  </div>
+</article>
+
+
+
+  <article>
+
+  
+    
+    <h3 class="article-title"><a href="/2020/02/01/命令行文本格式转换/"><span>【骚操作】命令行文本格式转换</span></a></h3>
+    
+  
+
+  <div class="article-top-meta">
+    <span class="posted-on">
+      <a href="/2020/02/01/命令行文本格式转换/" rel="bookmark">
+        <time class="entry-date published" datetime="2020-02-01T09:57:27.000Z">
+          2020-02-01
+        </time>
+      </a>
+    </span>
+  </div>
+
+
+  
+
+  <div class="article-content">
+    <div class="entry">
+      
+        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>在命令行转换文件格式</p>
+        
+      
+    </div>
+
+  </div>
+
+  <div class="article-footer">
+    <div class="article-meta pull-left">
+
+    
+
+    
+    
+
+    <span class="post-tags">
+      <i class="icon-tags"></i>
+        <a href="/tags/MacOS/">MacOS</a>
+    </span>
+    
+
+    </div>
+
+    
+  </div>
+</article>
+
+
+
+  <article>
+
+  
+    
+    <h3 class="article-title"><a href="/2020/02/01/命令行打印横幅/"><span>【骚操作】命令行打印横幅</span></a></h3>
+    
+  
+
+  <div class="article-top-meta">
+    <span class="posted-on">
+      <a href="/2020/02/01/命令行打印横幅/" rel="bookmark">
+        <time class="entry-date published" datetime="2020-02-01T09:49:23.000Z">
+          2020-02-01
+        </time>
+      </a>
+    </span>
+  </div>
+
+
+  
+
+  <div class="article-content">
+    <div class="entry">
+      
+        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>在<code>MacOS</code>命令行打印横幅</p>
+        
+      
+    </div>
+
+  </div>
+
+  <div class="article-footer">
+    <div class="article-meta pull-left">
+
+    
+
+    
+    
+
+    <span class="post-tags">
+      <i class="icon-tags"></i>
+        <a href="/tags/MacOS/">MacOS</a>
+    </span>
+    
+
+    </div>
+
+    
+  </div>
+</article>
+
+
+
+  <article>
+
+  
+    
+    <h3 class="article-title"><a href="/2020/02/01/Scp学习笔记/"><span>【笔记】Scp 学习笔记</span></a></h3>
+    
+  
+
+  <div class="article-top-meta">
+    <span class="posted-on">
+      <a href="/2020/02/01/Scp学习笔记/" rel="bookmark">
+        <time class="entry-date published" datetime="2020-02-01T08:44:29.000Z">
+          2020-02-01
+        </time>
+      </a>
+    </span>
+  </div>
+
+
+  
+
+  <div class="article-content">
+    <div class="entry">
+      
+        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>安全复制是指在本地主机与远程主机或者两台远程主机之间基于Secure Shell协议安全地传输计算机文件。“SCP”通常指安全复制协议或者程序本身。（<a href="/302.html?target=https://zh.wikipedia.org/zh-cn/%E5%AE%89%E5%85%A8%E5%A4%8D%E5%88%B6">维基百科</a>）</p>
+        
+      
+    </div>
+
+  </div>
+
+  <div class="article-footer">
+    <div class="article-meta pull-left">
+
+    
+
+    
+    
+
+    <span class="post-tags">
+      <i class="icon-tags"></i>
+        <a href="/tags/Linux/">Linux</a>
+    </span>
+    
+
+    </div>
+
+    
+  </div>
+</article>
+
+
+
+  <article>
+
+  
+    
+    <h3 class="article-title"><a href="/2020/02/01/NameNode格式化/"><span>【踩坑】NameNode 格式化</span></a></h3>
+    
+  
+
+  <div class="article-top-meta">
+    <span class="posted-on">
+      <a href="/2020/02/01/NameNode格式化/" rel="bookmark">
+        <time class="entry-date published" datetime="2020-02-01T04:00:04.000Z">
+          2020-02-01
+        </time>
+      </a>
+    </span>
+  </div>
+
+
+  
+
+  <div class="article-content">
+    <div class="entry">
+      
+        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>在首次配置完<code>Hadoop</code>，需要格式化<code>NameNode</code>节点，但是只能首次使用之前格式化</p>
+        
+      
+    </div>
+
+  </div>
+
+  <div class="article-footer">
+    <div class="article-meta pull-left">
+
+    
+
+    
+    
+
+    <span class="post-tags">
+      <i class="icon-tags"></i>
+        <a href="/tags/Hadoop/">Hadoop</a>
+    </span>
+    
+
+    </div>
+
+    
+  </div>
+</article>
+
+
+
+  <article>
+
+  
+    
+    <h3 class="article-title"><a href="/2020/01/31/Hadoop伪分布式模式/"><span>【笔记】Hadoop 伪分布式模式</span></a></h3>
+    
+  
+
+  <div class="article-top-meta">
+    <span class="posted-on">
+      <a href="/2020/01/31/Hadoop伪分布式模式/" rel="bookmark">
+        <time class="entry-date published" datetime="2020-01-31T15:36:54.000Z">
+          2020-01-31
+        </time>
+      </a>
+    </span>
+  </div>
+
+
+  
+
+  <div class="article-content">
+    <div class="entry">
+      
+        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>Hadoop伪分布式模式配置</p>
+        
+      
+    </div>
+
+  </div>
+
+  <div class="article-footer">
+    <div class="article-meta pull-left">
+
+    
+
+    
+    
+
+    <span class="post-tags">
+      <i class="icon-tags"></i>
+        <a href="/tags/Hadoop/">Hadoop</a>
+    </span>
+    
+
+    </div>
+
+    
+  </div>
+</article>
+
+
+
+  <article>
+
+  
+    
+    <h3 class="article-title"><a href="/2020/01/31/Hadoop本地模式/"><span>【笔记】Hadoop 本地模式</span></a></h3>
+    
+  
+
+  <div class="article-top-meta">
+    <span class="posted-on">
+      <a href="/2020/01/31/Hadoop本地模式/" rel="bookmark">
+        <time class="entry-date published" datetime="2020-01-31T15:15:11.000Z">
+          2020-01-31
+        </time>
+      </a>
+    </span>
+  </div>
+
+
+  
+
+  <div class="article-content">
+    <div class="entry">
+      
+        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p><code>Hadoop</code>本地模式运行两个<code>demo</code></p>
+<p>MacOS环境下Hadoop3学习笔记</p>
+        
+      
+    </div>
+
+  </div>
+
+  <div class="article-footer">
+    <div class="article-meta pull-left">
+
+    
+
+    
+    
+
+    <span class="post-tags">
+      <i class="icon-tags"></i>
+        <a href="/tags/Hadoop/">Hadoop</a>
+    </span>
+    
+
+    </div>
+
+    
+  </div>
+</article>
+
+
+
+  <article>
+
+  
+    
+    <h3 class="article-title"><a href="/2020/01/31/配置Hadoop运行环境/"><span>【笔记】配置 Hadoop 运行环境</span></a></h3>
+    
+  
+
+  <div class="article-top-meta">
+    <span class="posted-on">
+      <a href="/2020/01/31/配置Hadoop运行环境/" rel="bookmark">
+        <time class="entry-date published" datetime="2020-01-31T15:07:55.000Z">
+          2020-01-31
+        </time>
+      </a>
+    </span>
+  </div>
+
+
+  
+
+  <div class="article-content">
+    <div class="entry">
+      
+        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>配置<code>Hadoop</code>运行环境</p>
+        
+      
+    </div>
+
+  </div>
+
+  <div class="article-footer">
+    <div class="article-meta pull-left">
+
+    
+
+    
+    
+
+    <span class="post-tags">
+      <i class="icon-tags"></i>
+        <a href="/tags/Hadoop/">Hadoop</a>
+    </span>
+    
+
+    </div>
+
+    
+  </div>
+</article>
+
+
+
+
+<nav class="pagination">
+  
+  <a href="/page/277/" class="pagination-prev">上一页</a>
+  
+  
+  <a href="/page/279/" class="pagination-next">下一页</a>
+  
+</nav>
+    </main>
+
+    <footer class="site-footer">
+  <p class="site-info">
+    Proudly powered by <a href="https://hexo.io/" target="_blank">Hexo</a> and
+    Theme by <a href="https://github.com/CodeDaraW/Hacker" target="_blank">Hacker</a>
+    </br>
+    
+    &copy; 2024 绯鞠
+    
+  </p>
+</footer>
+    
+    
+  </div>
+</div>
+</body>
+</html>

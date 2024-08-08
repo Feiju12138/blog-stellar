@@ -1,22 +1,159 @@
-<!DOCTYPE html><html lang="zh-CN"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta name="description" content="【代码】树之红黑树"><meta name="keywords" content="Java"><meta name="author" content="绯鞠"><meta name="copyright" content="绯鞠"><title>【代码】树之红黑树 | 绯鞠的博客</title><link rel="shortcut icon" href="/dist/images/favicon_package/favicon.ico"><link rel="stylesheet" href="/css/index.css?version=1.9.1"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@latest/css/font-awesome.min.css?version=1.9.1"><meta name="format-detection" content="telephone=no"><meta http-equiv="x-dns-prefetch-control" content="on"><link rel="dns-prefetch" href="https://cdn.jsdelivr.net"><link rel="manifest" href="/dist/images/favicon_package/site.webmanifest"><link rel="manifest" href="/dist/images/favicon_package/site.webmanifest"><meta name="theme-color" content="#F6CDE1"><meta name="msapplication-TileColor" content="#F6CDE1"><link rel="apple-touch-icon" sizes="180x180" href="/dist/images/favicon_package/apple-touch-icon.png"><link rel="icon" type="image/png" sizes="32x32" href="/dist/images/favicon_package/favicon-32x32.png"><link rel="icon" type="image/png" sizes="16x16" href="/dist/images/favicon_package/favicon-16x16.png"><link rel="mask-icon" href="/dist/images/favicon_package/safari-pinned-tab.svg" color="#F6CDE1"><meta http-equiv="Cache-Control" content="no-transform"><meta http-equiv="Cache-Control" content="no-siteapp"><script>var GLOBAL_CONFIG = { 
-  root: '/',
-  algolia: undefined,
-  localSearch: {"path":"search.xml","languages":{"hits_empty":"We didn't find any results for the search: ${query}"}},
-  copy: {
-    success: 'Copy successfully',
-    error: 'Copy error',
-    noSupport: 'The browser does not support'
-  },
-  hexoVersion: '6.3.0'
-} </script><meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="绯鞠的博客" type="application/atom+xml">
-</head><body><i class="fa fa-arrow-right" id="toggle-sidebar" aria-hidden="true"></i><div id="sidebar" data-display="true"><div class="toggle-sidebar-info text-center"><span data-toggle="Toggle article">Toggle site</span><hr></div><div class="sidebar-toc"><div class="sidebar-toc__title">Catalog</div><div class="sidebar-toc__progress"><span class="progress-notice">You've read</span><span class="progress-num">0</span><span class="progress-percentage">%</span><div class="sidebar-toc__progress-bar"></div></div><div class="sidebar-toc__content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%89%8D%E8%A8%80"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%BA%90%E4%BB%A3%E7%A0%81"><span class="toc-number">2.</span> <span class="toc-text">源代码</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%8C%E6%88%90"><span class="toc-number">3.</span> <span class="toc-text">完成</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%82%E8%80%83%E6%96%87%E7%8C%AE"><span class="toc-number">4.</span> <span class="toc-text">参考文献</span></a></li></ol></div></div><div class="author-info hide"><div class="author-info__avatar text-center"><img src="/dist/images/avatar.gif"></div><div class="author-info__name text-center">绯鞠</div><div class="author-info__description text-center">捕捉一只爱折腾的绯鞠</div><hr><div class="author-info-articles"><a class="author-info-articles__archives article-meta" href="/archives"><span class="pull-left">Articles</span><span class="pull-right">2918</span></a><a class="author-info-articles__tags article-meta" href="/tags"><span class="pull-left">Tags</span><span class="pull-right">115</span></a><a class="author-info-articles__categories article-meta" href="/categories"><span class="pull-left">Categories</span><span class="pull-right">17</span></a></div></div></div><div id="content-outer"><div class="no-bg" id="top-container"><div id="page-header"><span class="pull-left"> <a id="site-name" href="/">绯鞠的博客</a></span><i class="fa fa-bars toggle-menu pull-right" aria-hidden="true"></i><span class="pull-right menus">   <a class="site-page" href="/">主页</a><a class="site-page" href="/about/">关于</a><a class="site-page" href="/tags/">标签</a><a class="site-page" href="/categories/">分类</a><a class="site-page" href="/archives/">归档</a><a class="site-page" href="/links/">友链</a><a class="site-page" href="/reward/">赞助</a><a class="site-page" href="/atom.xml">订阅</a><a class="site-page" target="_blank" rel="noopener" href="//hacker.loli.fj.cn">主题</a></span><span class="pull-right"><a class="site-page social-icon search"><i class="fa fa-search"></i><span> Search</span></a></span></div><div id="post-info"><div id="post-title">【代码】树之红黑树</div><div id="post-meta"><time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> 2021-10-23</time></div></div></div><div class="layout" id="content-inner"><article id="post"><div class="article-container" id="post-content"><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>树之红黑树的Java版API实现</p>
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>【代码】树之红黑树 | 绯鞠的博客 | 连蜜统治世界!!!💕</title>
+
+  
+  <meta name="author" content="绯鞠">
+  
+
+  
+  <meta name="description" content="捕捉一只爱折腾的绯鞠">
+  
+
+  
+  
+  <meta name="keywords" content="Java">
+  
+
+  <meta id="viewport" name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+  <meta property="og:title" content="【代码】树之红黑树"/>
+
+  <meta property="og:site_name" content="绯鞠的博客"/>
+
+  
+  <meta property="og:image" content="/favicon.ico"/>
+  
+
+  <link href="/favicon.ico" rel="icon">
+  <link rel="alternate" href="/atom.xml" title="绯鞠的博客" type="application/atom+xml">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+
+<body>
+<div class="blog">
+  <div class="content">
+
+    <header>
+  <div class="site-branding">
+    <h1 class="site-title">
+      <a href="/">绯鞠的博客</a>
+    </h1>
+    <p class="site-description">连蜜统治世界!!!💕</p>
+  </div>
+  <nav class="site-navigation">
+    <ul>
+      
+        <li><a href="/">主页</a></li>
+      
+        <li><a href="/about/">关于</a></li>
+      
+        <li><a href="/tags/">标签</a></li>
+      
+        <li><a href="/categories/">分类</a></li>
+      
+        <li><a href="/archives/">归档</a></li>
+      
+        <li><a href="/links/">友链</a></li>
+      
+        <li><a href="/reward/">赞助</a></li>
+      
+        <li><a href="/atom.xml">订阅</a></li>
+      
+        <li><a target="_blank" rel="noopener" href="//stellar.loli.fj.cn">主题</a></li>
+      
+    </ul>
+  </nav>
+</header>
+
+    <main class="site-main posts-loop">
+    <article>
+
+  
+    
+    <h3 class="article-title"><span>【代码】树之红黑树</span></h3>
+    
+  
+
+  <div class="article-top-meta">
+    <span class="posted-on">
+      <a href="/2021/10/23/树之红黑树/" rel="bookmark">
+        <time class="entry-date published" datetime="2021-10-23T02:57:34.000Z">
+          2021-10-23
+        </time>
+      </a>
+    </span>
+  </div>
+
+
+  
+
+  <div class="article-content">
+    <div class="entry">
+      
+        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>树之红黑树的Java版API实现</p>
 <span id="more"></span>
 
 <h2 id="源代码"><a href="#源代码" class="headerlink" title="源代码"></a>源代码</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br></pre></td><td class="code"><pre><span class="line">package com;</span><br><span class="line"></span><br><span class="line">public class RedBlackTree&lt;Key extends Comparable&lt;Key&gt;, Value&gt; &#123;</span><br><span class="line"></span><br><span class="line">    private class Node &#123;</span><br><span class="line">        public Key key;</span><br><span class="line">        public Value value;</span><br><span class="line">        public Node left;</span><br><span class="line">        public Node right;</span><br><span class="line">        public boolean color;</span><br><span class="line"></span><br><span class="line">        public Node(Key key, Value value, Node left, Node right, boolean color) &#123;</span><br><span class="line">            this.key = key;</span><br><span class="line">            this.value = value;</span><br><span class="line">            this.left = left;</span><br><span class="line">            this.right = right;</span><br><span class="line">            this.color = color;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    private Node root;</span><br><span class="line">    private int redBlackTreeLength;</span><br><span class="line">    private static final boolean RED = true;</span><br><span class="line">    private static final boolean Black = false;</span><br><span class="line"></span><br><span class="line">    RedBlackTree() &#123;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    // 获取树中元素的个数</span><br><span class="line">    public int size() &#123;</span><br><span class="line">        return redBlackTreeLength;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    // 判断当前结点的父结点指向是否为红色</span><br><span class="line">    private boolean isRed(Node node) &#123;</span><br><span class="line">        if (node==null) &#123;</span><br><span class="line">            return false;</span><br><span class="line">        &#125;</span><br><span class="line">        return node.color==RED;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    // 左旋调整</span><br><span class="line">    private Node rotateLeft(Node head) &#123;</span><br><span class="line">        // 获取右子结点为son</span><br><span class="line">        Node son = head.right;</span><br><span class="line">        // 把head的右子结点改为son的左子结点</span><br><span class="line">        head.right = son.left;</span><br><span class="line">        // 把son的左子结点改为head</span><br><span class="line">        son.left = head;</span><br><span class="line">        // 把son的颜色改为head以前的颜色</span><br><span class="line">        son.color = head.color;</span><br><span class="line">        // 把head的颜色改为红色</span><br><span class="line">        head.color = RED;</span><br><span class="line">        return son;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    // 右旋调整</span><br><span class="line">    private Node rotateRight(Node head) &#123;</span><br><span class="line">        // 获取做子结点为son</span><br><span class="line">        Node son = head.left;</span><br><span class="line">        // 把head的左子结点改为son的右子结点</span><br><span class="line">        head.left = son.right;</span><br><span class="line">        // 把son的右子结点改为head</span><br><span class="line">        son.right = head;</span><br><span class="line">        // 把son的颜色改为head以前的颜色</span><br><span class="line">        son.color = head.color;</span><br><span class="line">        // 把head的颜色改为红色</span><br><span class="line">        head.color = RED;</span><br><span class="line">        return son;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    // 颜色反转（完全拆分4- 结点）</span><br><span class="line">    private void flipColors(Node head) &#123;</span><br><span class="line">        head.right.color = Black;</span><br><span class="line">        head.left.color = Black;</span><br><span class="line">        head.color = RED;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    // 在整个树上插入一个元素</span><br><span class="line">    public void put(Key key, Value value) &#123;</span><br><span class="line">        root = put(root, key, value);</span><br><span class="line">        // 跟结点的颜色总是黑色</span><br><span class="line">        root.color = Black;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    // 在指定子树上插入一个元素</span><br><span class="line">    private Node put(Node node, Key key, Value value) &#123;</span><br><span class="line">        // 判断node是否为空，如果为空，就直接返回一个新的红色结点</span><br><span class="line">        if (node == null) &#123;</span><br><span class="line">            redBlackTreeLength++;</span><br><span class="line">            return new Node(key, value, null, null, RED);</span><br><span class="line">        &#125;</span><br><span class="line">        // 比较node结点的ke的大小</span><br><span class="line">        int cmp = key.compareTo(node.key);</span><br><span class="line">        if (cmp&lt;0) &#123;</span><br><span class="line">            // 继续往左</span><br><span class="line">            node.left = put(node.left, key, value);</span><br><span class="line">        &#125; else if (cmp&gt;0) &#123;</span><br><span class="line">            // 继续往右</span><br><span class="line">            node.right = put(node.right, key, value);</span><br><span class="line">        &#125; else &#123;</span><br><span class="line">            // 发生值的替换</span><br><span class="line">            node.value = value;</span><br><span class="line">        &#125;</span><br><span class="line">        // 进行左旋：当前结点的左子结点为黑色，右子结点为红色时，需要进行左旋</span><br><span class="line">        if (!isRed(node.left) &amp;&amp; isRed(node.right)) &#123;</span><br><span class="line">            node = rotateLeft(node);</span><br><span class="line">        &#125;</span><br><span class="line">        // 进行右旋：当前结点的左子结点为红色，当前结点的左子结点的左子结点也为红色时，需要进行右旋</span><br><span class="line">        if (isRed(node.left) &amp;&amp; isRed(node.left.left)) &#123;</span><br><span class="line">            node = rotateRight(node);</span><br><span class="line">        &#125;</span><br><span class="line">        // 进行颜色反转：当前结点的左子结点为红色，当前结点的右子结点也为红色时，需要进行颜色反转</span><br><span class="line">        if (isRed(node.left) &amp;&amp; isRed(node.right)) &#123;</span><br><span class="line">            flipColors(node);</span><br><span class="line">        &#125;</span><br><span class="line">        return node;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    // 在整个树中，通过键获取值</span><br><span class="line">    public Value get(Key key) &#123;</span><br><span class="line">        return get(root, key);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    // 在指定树中，通过键获取值</span><br><span class="line">    private Value get(Node node, Key key) &#123;</span><br><span class="line">        if (node==null) &#123;</span><br><span class="line">            return null;</span><br><span class="line">        &#125;</span><br><span class="line">        // 比较键的大小</span><br><span class="line">        int cmp = key.compareTo(node.key);</span><br><span class="line">        if (cmp&lt;0) &#123;</span><br><span class="line">            // 继续向左查找</span><br><span class="line">            return get(node.left.key);</span><br><span class="line">        &#125; else if (cmp&gt;0) &#123;</span><br><span class="line">            // 继续向右查找</span><br><span class="line">            return get(node.right.key);</span><br><span class="line">        &#125; else &#123;</span><br><span class="line">            return node.value;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <h2 id="完成"><a href="#完成" class="headerlink" title="完成"></a>完成</h2><h2 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h2><p><a href="/302.html?target=https://www.bilibili.com/video/BV1iJ411E7xW">哔哩哔哩——黑马程序员</a></p>
-</div></article><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/Java/">Java</a></div><nav id="pagination"><div class="prev-post pull-left"><a href="/2021/10/23/Python3%E5%A4%8D%E5%88%B6%E5%88%97%E8%A1%A8/"><i class="fa fa-chevron-left">  </i><span>【笔记】Python3复制列表</span></a></div><div class="next-post pull-right"><a href="/2021/10/22/%E9%98%9F%E5%88%97%E4%B9%8B%E7%B4%A2%E5%BC%95%E4%BC%98%E5%85%88%E9%98%9F%E5%88%97/"><span>【笔记】队列之索引优先队列</span><i class="fa fa-chevron-right"></i></a></div></nav></div></div><footer><div class="layout" id="footer"><div class="copyright">&copy;2019 - 2024 By 绯鞠</div><div class="framework-info"><span>Driven - </span><a target="_blank" rel="noopener" href="http://hexo.io"><span>Hexo</span></a><span class="footer-separator">|</span><span>Theme - </span><a target="_blank" rel="noopener" href="https://github.com/Molunerfinn/hexo-theme-melody"><span>Melody</span></a></div><div class="busuanzi"><script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><span id="busuanzi_container_site_uv"><i class="fa fa-user"></i><span id="busuanzi_value_site_uv"></span><span></span></span><span class="footer-separator">|</span><span id="busuanzi_container_site_pv"><i class="fa fa-eye"></i><span id="busuanzi_value_site_pv"></span><span></span></span></div></div></footer><i class="fa fa-arrow-up" id="go-up" aria-hidden="true"></i><script src="https://cdn.jsdelivr.net/npm/animejs@latest/lib/anime.min.js"></script><script src="https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-animate@latest/velocity.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-ui-pack@latest/velocity.ui.min.js"></script><script src="/js/utils.js?version=1.9.1"></script><script src="/js/fancybox.js?version=1.9.1"></script><script src="/js/sidebar.js?version=1.9.1"></script><script src="/js/copy.js?version=1.9.1"></script><script src="/js/fireworks.js?version=1.9.1"></script><script src="/js/transition.js?version=1.9.1"></script><script src="/js/scroll.js?version=1.9.1"></script><script src="/js/head.js?version=1.9.1"></script><script src="/js/search/local-search.js"></script><script>if(/Android|webOS|iPhone|iPod|iPad|BlackBerry/i.test(navigator.userAgent)) {
-  $('#nav').addClass('is-mobile')
-  $('footer').addClass('is-mobile')
-  $('#top-container').addClass('is-mobile')
-}</script><div class="search-dialog" id="local-search"><div class="search-dialog__title" id="local-search-title">Local search</div><div id="local-input-panel"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="Search for Posts"></div></div></div><hr><div id="local-search-results"><div id="local-hits"></div><div id="local-stats"><div class="local-search-stats__hr" id="hr"><span>Powered by</span> <a target="_blank" rel="noopener" href="https://github.com/wzpan/hexo-generator-search" style="color:#49B1F5;">hexo-generator-search</a></div></div></div><span class="search-close-button"><i class="fa fa-times"></i></span></div><div class="search-mask"></div></body></html>
+
+      
+    </div>
+
+  </div>
+
+  <div class="article-footer">
+    <div class="article-meta pull-left">
+
+    
+
+    
+    
+
+    <span class="post-tags">
+      <i class="icon-tags"></i>
+        <a href="/tags/Java/">Java</a>
+    </span>
+    
+
+    </div>
+
+    
+  </div>
+</article>
+
+  
+
+
+
+
+
+
+
+
+
+    </main>
+
+    <footer class="site-footer">
+  <p class="site-info">
+    Proudly powered by <a href="https://hexo.io/" target="_blank">Hexo</a> and
+    Theme by <a href="https://github.com/CodeDaraW/Hacker" target="_blank">Hacker</a>
+    </br>
+    
+    &copy; 2024 绯鞠
+    
+  </p>
+</footer>
+    
+    
+  </div>
+</div>
+</body>
+</html>

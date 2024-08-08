@@ -1,15 +1,103 @@
-<!DOCTYPE html><html lang="zh-CN"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta name="description" content="【笔记】Express学习笔记"><meta name="keywords" content="Nodejs"><meta name="author" content="绯鞠"><meta name="copyright" content="绯鞠"><title>【笔记】Express学习笔记 | 绯鞠的博客</title><link rel="shortcut icon" href="/dist/images/favicon_package/favicon.ico"><link rel="stylesheet" href="/css/index.css?version=1.9.1"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@latest/css/font-awesome.min.css?version=1.9.1"><meta name="format-detection" content="telephone=no"><meta http-equiv="x-dns-prefetch-control" content="on"><link rel="dns-prefetch" href="https://cdn.jsdelivr.net"><link rel="manifest" href="/dist/images/favicon_package/site.webmanifest"><link rel="manifest" href="/dist/images/favicon_package/site.webmanifest"><meta name="theme-color" content="#F6CDE1"><meta name="msapplication-TileColor" content="#F6CDE1"><link rel="apple-touch-icon" sizes="180x180" href="/dist/images/favicon_package/apple-touch-icon.png"><link rel="icon" type="image/png" sizes="32x32" href="/dist/images/favicon_package/favicon-32x32.png"><link rel="icon" type="image/png" sizes="16x16" href="/dist/images/favicon_package/favicon-16x16.png"><link rel="mask-icon" href="/dist/images/favicon_package/safari-pinned-tab.svg" color="#F6CDE1"><meta http-equiv="Cache-Control" content="no-transform"><meta http-equiv="Cache-Control" content="no-siteapp"><script>var GLOBAL_CONFIG = { 
-  root: '/',
-  algolia: undefined,
-  localSearch: {"path":"search.xml","languages":{"hits_empty":"We didn't find any results for the search: ${query}"}},
-  copy: {
-    success: 'Copy successfully',
-    error: 'Copy error',
-    noSupport: 'The browser does not support'
-  },
-  hexoVersion: '6.3.0'
-} </script><meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="绯鞠的博客" type="application/atom+xml">
-</head><body><i class="fa fa-arrow-right" id="toggle-sidebar" aria-hidden="true"></i><div id="sidebar" data-display="true"><div class="toggle-sidebar-info text-center"><span data-toggle="Toggle article">Toggle site</span><hr></div><div class="sidebar-toc"><div class="sidebar-toc__title">Catalog</div><div class="sidebar-toc__progress"><span class="progress-notice">You've read</span><span class="progress-num">0</span><span class="progress-percentage">%</span><div class="sidebar-toc__progress-bar"></div></div><div class="sidebar-toc__content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%89%8D%E8%A8%80"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%89%E8%A3%85"><span class="toc-number">2.</span> <span class="toc-text">安装</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%9B%E5%BB%BA%E6%9C%8D%E5%8A%A1%E5%99%A8"><span class="toc-number">3.</span> <span class="toc-text">创建服务器</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%A4%84%E7%90%86GET%E8%AF%B7%E6%B1%82%E5%8F%82%E6%95%B0"><span class="toc-number">4.</span> <span class="toc-text">处理GET请求参数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%A4%84%E7%90%86RESTful%E9%A3%8E%E6%A0%BC%E7%9A%84GET%E8%AF%B7%E6%B1%82%E5%8F%82%E6%95%B0"><span class="toc-number">5.</span> <span class="toc-text">处理RESTful风格的GET请求参数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%A4%84%E7%90%86POST%E8%AF%B7%E6%B1%82%E4%BD%93%E6%95%B0%E6%8D%AE"><span class="toc-number">6.</span> <span class="toc-text">处理POST请求体数据</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%AE%BE%E7%BD%AE%E5%93%8D%E5%BA%94%E5%A4%B4"><span class="toc-number">7.</span> <span class="toc-text">设置响应头</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AE%BE%E7%BD%AECORS%E5%93%8D%E5%BA%94%E5%A4%B4"><span class="toc-number">7.1.</span> <span class="toc-text">设置CORS响应头</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%AE%BE%E7%BD%AE%E5%85%81%E8%AE%B8%E8%B7%A8%E5%9F%9F"><span class="toc-number">7.1.1.</span> <span class="toc-text">设置允许跨域</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%85%81%E8%AE%B8%E6%8C%87%E5%AE%9A%E5%9F%9F%E7%9A%84%E8%B7%A8%E5%9F%9F%E8%AF%B7%E6%B1%82"><span class="toc-number">7.1.1.1.</span> <span class="toc-text">允许指定域的跨域请求</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%85%81%E8%AE%B8%E4%BB%BB%E4%BD%95%E5%9F%9F%E7%9A%84%E8%B7%A8%E5%9F%9F%E8%AF%B7%E6%B1%82"><span class="toc-number">7.1.1.2.</span> <span class="toc-text">允许任何域的跨域请求</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%AE%BE%E7%BD%AE%E5%85%81%E8%AE%B8%E9%A2%9D%E5%A4%96%E7%9A%84%E8%AF%B7%E6%B1%82%E5%A4%B4"><span class="toc-number">7.1.2.</span> <span class="toc-text">设置允许额外的请求头</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%AE%BE%E7%BD%AE%E5%85%81%E8%AE%B8%E7%9A%84%E8%AF%B7%E6%B1%82%E6%96%B9%E5%BC%8F"><span class="toc-number">7.1.3.</span> <span class="toc-text">设置允许的请求方式</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%85%81%E8%AE%B8%E5%AE%A2%E6%88%B7%E7%AB%AF%E5%8F%91%E9%80%81%E6%8C%87%E5%AE%9A%E8%AF%B7%E6%B1%82"><span class="toc-number">7.1.3.1.</span> <span class="toc-text">允许客户端发送指定请求</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%85%81%E8%AE%B8%E5%AE%A2%E6%88%B7%E7%AB%AF%E5%8F%91%E9%80%81%E4%BB%BB%E4%BD%95%E8%AF%B7%E6%B1%82"><span class="toc-number">7.1.3.2.</span> <span class="toc-text">允许客户端发送任何请求</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%9B%E5%BB%BA%E9%9D%99%E6%80%81%E8%B5%84%E6%BA%90%E6%9C%8D%E5%8A%A1%E5%99%A8"><span class="toc-number">8.</span> <span class="toc-text">创建静态资源服务器</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8C%87%E5%AE%9A%E8%AE%BF%E9%97%AE%E8%B7%AF%E5%BE%84%E5%89%8D%E7%BC%80"><span class="toc-number">8.1.</span> <span class="toc-text">指定访问路径前缀</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%B7%AF%E7%94%B1"><span class="toc-number">9.</span> <span class="toc-text">路由</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8C%82%E8%BD%BD%E5%88%B0app%E5%AF%B9%E8%B1%A1"><span class="toc-number">9.1.</span> <span class="toc-text">挂载到app对象</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%A8%A1%E5%9D%97%E5%8C%96%E8%B7%AF%E7%94%B1"><span class="toc-number">9.2.</span> <span class="toc-text">模块化路由</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%8C%87%E5%AE%9A%E8%AE%BF%E9%97%AE%E8%B7%AF%E5%BE%84%E5%89%8D%E7%BC%80-1"><span class="toc-number">9.2.1.</span> <span class="toc-text">指定访问路径前缀</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%AD%E9%97%B4%E4%BB%B6%EF%BC%88Middleware%EF%BC%89"><span class="toc-number">10.</span> <span class="toc-text">中间件（Middleware）</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%85%A8%E5%B1%80%E7%94%9F%E6%95%88%E4%B8%AD%E9%97%B4%E4%BB%B6"><span class="toc-number">10.1.</span> <span class="toc-text">全局生效中间件</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%AE%80%E5%8C%96"><span class="toc-number">10.1.1.</span> <span class="toc-text">简化</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%AE%9A%E4%B9%89%E5%A4%9A%E4%B8%AA%E5%85%A8%E5%B1%80%E7%94%9F%E6%95%88%E4%B8%AD%E9%97%B4%E4%BB%B6"><span class="toc-number">10.1.2.</span> <span class="toc-text">定义多个全局生效中间件</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B1%80%E9%83%A8%E7%94%9F%E6%95%88%E4%B8%AD%E9%97%B4%E4%BB%B6"><span class="toc-number">10.2.</span> <span class="toc-text">局部生效中间件</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%AE%9A%E4%B9%89%E5%A4%9A%E4%B8%AA%E5%B1%80%E9%83%A8%E7%94%9F%E6%95%88%E4%B8%AD%E9%97%B4%E4%BB%B6"><span class="toc-number">10.2.1.</span> <span class="toc-text">定义多个局部生效中间件</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%94%99%E8%AF%AF%E7%BA%A7%E5%88%AB%E4%B8%AD%E9%97%B4%E4%BB%B6"><span class="toc-number">10.3.</span> <span class="toc-text">错误级别中间件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Express%E5%86%85%E7%BD%AE%E4%B8%AD%E9%97%B4%E4%BB%B6"><span class="toc-number">10.4.</span> <span class="toc-text">Express内置中间件</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#express-static"><span class="toc-number">10.4.1.</span> <span class="toc-text">express.static</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#express-json"><span class="toc-number">10.4.2.</span> <span class="toc-text">express.json</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#express-urlencoded"><span class="toc-number">10.4.3.</span> <span class="toc-text">express.urlencoded</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AC%AC%E4%B8%89%E6%96%B9%E4%B8%AD%E9%97%B4%E4%BB%B6"><span class="toc-number">10.5.</span> <span class="toc-text">第三方中间件</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#body-parser"><span class="toc-number">10.5.1.</span> <span class="toc-text">body-parser</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%AE%89%E8%A3%85-1"><span class="toc-number">10.5.1.1.</span> <span class="toc-text">安装</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%BC%95%E5%85%A5"><span class="toc-number">10.5.1.2.</span> <span class="toc-text">引入</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%B3%A8%E5%86%8C%E5%B9%B6%E4%BD%BF%E7%94%A8"><span class="toc-number">10.5.1.3.</span> <span class="toc-text">注册并使用</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#cors"><span class="toc-number">10.5.2.</span> <span class="toc-text">cors</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%AE%89%E8%A3%85-2"><span class="toc-number">10.5.2.1.</span> <span class="toc-text">安装</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%BC%95%E5%85%A5-1"><span class="toc-number">10.5.2.2.</span> <span class="toc-text">引入</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%B3%A8%E5%86%8C%E5%B9%B6%E4%BD%BF%E7%94%A8-1"><span class="toc-number">10.5.2.3.</span> <span class="toc-text">注册并使用</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#express-session%E8%BF%9B%E8%A1%8C%E8%BA%AB%E4%BB%BD%E8%AE%A4%E8%AF%81"><span class="toc-number">10.5.3.</span> <span class="toc-text">express-session进行身份认证</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%AE%89%E8%A3%85-3"><span class="toc-number">10.5.3.1.</span> <span class="toc-text">安装</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%BC%95%E5%85%A5-2"><span class="toc-number">10.5.3.2.</span> <span class="toc-text">引入</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%B3%A8%E5%86%8C"><span class="toc-number">10.5.3.3.</span> <span class="toc-text">注册</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E9%80%9A%E8%BF%87req-session%E5%AF%B9%E8%B1%A1%E4%B8%AD%E5%AD%98%E5%8F%96%E6%95%B0%E6%8D%AE"><span class="toc-number">10.5.3.4.</span> <span class="toc-text">通过req.session对象中存取数据</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E9%94%80%E6%AF%81req-session%E5%AF%B9%E8%B1%A1%E4%B8%AD%E5%AD%98%E5%82%A8%E7%9A%84%E6%95%B0%E6%8D%AE"><span class="toc-number">10.5.3.5.</span> <span class="toc-text">销毁req.session对象中存储的数据</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#jsonwebtoken%E5%92%8Cexpress-jwt"><span class="toc-number">10.5.4.</span> <span class="toc-text">jsonwebtoken和express-jwt</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%AE%89%E8%A3%85-4"><span class="toc-number">10.5.4.1.</span> <span class="toc-text">安装</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%BC%95%E5%85%A5-3"><span class="toc-number">10.5.4.2.</span> <span class="toc-text">引入</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%AE%9A%E4%B9%89%E4%B8%80%E4%B8%AA%E7%94%A8%E4%BA%8E%E5%8A%A0%E8%A7%A3%E5%AF%86%E7%9A%84%E5%AF%86%E9%92%A5"><span class="toc-number">10.5.4.3.</span> <span class="toc-text">定义一个用于加解密的密钥</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%8A%A0%E5%AF%86"><span class="toc-number">10.5.4.4.</span> <span class="toc-text">加密</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E8%A7%A3%E5%AF%86"><span class="toc-number">10.5.4.5.</span> <span class="toc-text">解密</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#%E6%B3%A8%E5%86%8C%E4%B8%AD%E9%97%B4%E4%BB%B6"><span class="toc-number">10.5.4.5.1.</span> <span class="toc-text">注册中间件</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#%E8%8E%B7%E5%8F%96%E8%A7%A3%E5%AF%86%E5%90%8E%E7%9A%84%E5%AF%B9%E8%B1%A1"><span class="toc-number">10.5.4.5.2.</span> <span class="toc-text">获取解密后的对象</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#%E5%BC%82%E5%B8%B8%E5%A4%84%E7%90%86"><span class="toc-number">10.5.4.5.3.</span> <span class="toc-text">异常处理</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%87%AA%E5%AE%9A%E4%B9%89%E4%B8%AD%E9%97%B4%E4%BB%B6"><span class="toc-number">10.6.</span> <span class="toc-text">自定义中间件</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%B0%86%E8%87%AA%E5%AE%9A%E4%B9%89%E4%B8%AD%E9%97%B4%E4%BB%B6%E5%B0%81%E8%A3%85%E4%B8%BA%E6%A8%A1%E5%9D%97"><span class="toc-number">10.6.1.</span> <span class="toc-text">将自定义中间件封装为模块</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%80%9A%E8%BF%87Express%E7%BC%96%E5%86%99%E5%90%8E%E7%AB%AF%E6%8E%A5%E5%8F%A3"><span class="toc-number">11.</span> <span class="toc-text">通过Express编写后端接口</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%AF%B7%E6%B1%82%E7%9A%84%E5%88%86%E7%B1%BB"><span class="toc-number">12.</span> <span class="toc-text">请求的分类</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AE%80%E5%8D%95%E8%AF%B7%E6%B1%82"><span class="toc-number">12.1.</span> <span class="toc-text">简单请求</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%A2%84%E6%A3%80%E8%AF%B7%E6%B1%82"><span class="toc-number">12.2.</span> <span class="toc-text">预检请求</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#JSONP"><span class="toc-number">13.</span> <span class="toc-text">JSONP</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BC%96%E5%86%99JSONP%E6%8E%A5%E5%8F%A3"><span class="toc-number">13.1.</span> <span class="toc-text">编写JSONP接口</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%8C%E6%88%90"><span class="toc-number">14.</span> <span class="toc-text">完成</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%82%E8%80%83%E6%96%87%E7%8C%AE"><span class="toc-number">15.</span> <span class="toc-text">参考文献</span></a></li></ol></div></div><div class="author-info hide"><div class="author-info__avatar text-center"><img src="/dist/images/avatar.gif"></div><div class="author-info__name text-center">绯鞠</div><div class="author-info__description text-center">捕捉一只爱折腾的绯鞠</div><hr><div class="author-info-articles"><a class="author-info-articles__archives article-meta" href="/archives"><span class="pull-left">Articles</span><span class="pull-right">2918</span></a><a class="author-info-articles__tags article-meta" href="/tags"><span class="pull-left">Tags</span><span class="pull-right">115</span></a><a class="author-info-articles__categories article-meta" href="/categories"><span class="pull-left">Categories</span><span class="pull-right">17</span></a></div></div></div><div id="content-outer"><div class="no-bg" id="top-container"><div id="page-header"><span class="pull-left"> <a id="site-name" href="/">绯鞠的博客</a></span><i class="fa fa-bars toggle-menu pull-right" aria-hidden="true"></i><span class="pull-right menus">   <a class="site-page" href="/">主页</a><a class="site-page" href="/about/">关于</a><a class="site-page" href="/tags/">标签</a><a class="site-page" href="/categories/">分类</a><a class="site-page" href="/archives/">归档</a><a class="site-page" href="/links/">友链</a><a class="site-page" href="/reward/">赞助</a><a class="site-page" href="/atom.xml">订阅</a><a class="site-page" target="_blank" rel="noopener" href="//hacker.loli.fj.cn">主题</a></span><span class="pull-right"><a class="site-page social-icon search"><i class="fa fa-search"></i><span> Search</span></a></span></div><div id="post-info"><div id="post-title">【笔记】Express学习笔记</div><div id="post-meta"><time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> 2022-12-12</time><span class="post-meta__separator">|</span><i class="fa fa-inbox post-meta__icon" aria-hidden="true"></i><a class="post-meta__categories" href="/categories/Nodejs%E5%AD%A6%E4%B9%A0%E6%8C%87%E5%8C%97/">Nodejs学习指北</a></div></div></div><div class="layout" id="content-inner"><article id="post"><div class="article-container" id="post-content"><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>Fast, unopinionated, minimalist web framework for Node.js（<a href="/302.html?target=https://expressjs.com">官网</a>）</p>
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>【笔记】Express学习笔记 | 绯鞠的博客 | 连蜜统治世界!!!💕</title>
+
+  
+  <meta name="author" content="绯鞠">
+  
+
+  
+  <meta name="description" content="捕捉一只爱折腾的绯鞠">
+  
+
+  
+  
+  <meta name="keywords" content="Nodejs">
+  
+
+  <meta id="viewport" name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+  <meta property="og:title" content="【笔记】Express学习笔记"/>
+
+  <meta property="og:site_name" content="绯鞠的博客"/>
+
+  
+  <meta property="og:image" content="/favicon.ico"/>
+  
+
+  <link href="/favicon.ico" rel="icon">
+  <link rel="alternate" href="/atom.xml" title="绯鞠的博客" type="application/atom+xml">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+
+<body>
+<div class="blog">
+  <div class="content">
+
+    <header>
+  <div class="site-branding">
+    <h1 class="site-title">
+      <a href="/">绯鞠的博客</a>
+    </h1>
+    <p class="site-description">连蜜统治世界!!!💕</p>
+  </div>
+  <nav class="site-navigation">
+    <ul>
+      
+        <li><a href="/">主页</a></li>
+      
+        <li><a href="/about/">关于</a></li>
+      
+        <li><a href="/tags/">标签</a></li>
+      
+        <li><a href="/categories/">分类</a></li>
+      
+        <li><a href="/archives/">归档</a></li>
+      
+        <li><a href="/links/">友链</a></li>
+      
+        <li><a href="/reward/">赞助</a></li>
+      
+        <li><a href="/atom.xml">订阅</a></li>
+      
+        <li><a target="_blank" rel="noopener" href="//stellar.loli.fj.cn">主题</a></li>
+      
+    </ul>
+  </nav>
+</header>
+
+    <main class="site-main posts-loop">
+    <article>
+
+  
+    
+    <h3 class="article-title"><span>【笔记】Express学习笔记</span></h3>
+    
+  
+
+  <div class="article-top-meta">
+    <span class="posted-on">
+      <a href="/2022/12/12/Express学习笔记/" rel="bookmark">
+        <time class="entry-date published" datetime="2022-12-12T08:46:21.000Z">
+          2022-12-12
+        </time>
+      </a>
+    </span>
+  </div>
+
+
+  
+
+  <div class="article-content">
+    <div class="entry">
+      
+        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>Fast, unopinionated, minimalist web framework for Node.js（<a href="/302.html?target=https://expressjs.com">官网</a>）</p>
 <p>使用Express快速创建Web服务器或API接口服务器</p>
 <span id="more"></span>
 
@@ -322,8 +410,64 @@
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">app.<span class="title function_">get</span>(<span class="string">&quot;/jsonp&quot;</span>, <span class="keyword">function</span> (<span class="params">req, resp</span>) &#123;</span><br><span class="line">  <span class="comment">// 1. 获取客户端发送过来的回调函数的名字</span></span><br><span class="line">  <span class="keyword">const</span> funcName = req.<span class="property">query</span>.<span class="property">callback</span>;</span><br><span class="line">  <span class="comment">// 2. 得到要通过JSONP形式发送给客户端的数据对象</span></span><br><span class="line">  <span class="keyword">let</span> data = &#123;<span class="string">&quot;key&quot;</span>, <span class="string">&quot;value&quot;</span>&#125;;</span><br><span class="line">  <span class="comment">// 3. 根据得到的数据拼接一个函数调用的字符串</span></span><br><span class="line">  <span class="keyword">const</span> scriptStr = <span class="string">`<span class="subst">$&#123;funcName&#125;</span>(<span class="subst">$&#123;<span class="built_in">JSON</span>.stringify(data)&#125;</span>)`</span>;</span><br><span class="line">  <span class="comment">// 4. 响应给前段的&lt;script&gt;&lt;/script&gt;标签进行解析</span></span><br><span class="line">  resp.<span class="title function_">send</span>(scriptStr);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
 
 <h2 id="完成"><a href="#完成" class="headerlink" title="完成"></a>完成</h2><h2 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h2><p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1a34y167AZ/">哔哩哔哩——黑马程序员</a></p>
-</div></article><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/Nodejs/">Nodejs</a></div><nav id="pagination"><div class="prev-post pull-left"><a href="/2022/12/12/Nodemon%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"><i class="fa fa-chevron-left">  </i><span>【笔记】Nodemon学习笔记</span></a></div><div class="next-post pull-right"><a href="/2022/12/11/%E5%AE%89%E5%8D%93%E6%89%8B%E6%9C%BA%E6%89%93%E5%BC%80%E5%B7%A5%E7%A8%8B%E8%8F%9C%E5%8D%95/"><span>【笔记】安卓手机打开工程菜单</span><i class="fa fa-chevron-right"></i></a></div></nav></div></div><footer><div class="layout" id="footer"><div class="copyright">&copy;2019 - 2024 By 绯鞠</div><div class="framework-info"><span>Driven - </span><a target="_blank" rel="noopener" href="http://hexo.io"><span>Hexo</span></a><span class="footer-separator">|</span><span>Theme - </span><a target="_blank" rel="noopener" href="https://github.com/Molunerfinn/hexo-theme-melody"><span>Melody</span></a></div><div class="busuanzi"><script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><span id="busuanzi_container_site_uv"><i class="fa fa-user"></i><span id="busuanzi_value_site_uv"></span><span></span></span><span class="footer-separator">|</span><span id="busuanzi_container_site_pv"><i class="fa fa-eye"></i><span id="busuanzi_value_site_pv"></span><span></span></span></div></div></footer><i class="fa fa-arrow-up" id="go-up" aria-hidden="true"></i><script src="https://cdn.jsdelivr.net/npm/animejs@latest/lib/anime.min.js"></script><script src="https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-animate@latest/velocity.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-ui-pack@latest/velocity.ui.min.js"></script><script src="/js/utils.js?version=1.9.1"></script><script src="/js/fancybox.js?version=1.9.1"></script><script src="/js/sidebar.js?version=1.9.1"></script><script src="/js/copy.js?version=1.9.1"></script><script src="/js/fireworks.js?version=1.9.1"></script><script src="/js/transition.js?version=1.9.1"></script><script src="/js/scroll.js?version=1.9.1"></script><script src="/js/head.js?version=1.9.1"></script><script src="/js/search/local-search.js"></script><script>if(/Android|webOS|iPhone|iPod|iPad|BlackBerry/i.test(navigator.userAgent)) {
-  $('#nav').addClass('is-mobile')
-  $('footer').addClass('is-mobile')
-  $('#top-container').addClass('is-mobile')
-}</script><div class="search-dialog" id="local-search"><div class="search-dialog__title" id="local-search-title">Local search</div><div id="local-input-panel"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="Search for Posts"></div></div></div><hr><div id="local-search-results"><div id="local-hits"></div><div id="local-stats"><div class="local-search-stats__hr" id="hr"><span>Powered by</span> <a target="_blank" rel="noopener" href="https://github.com/wzpan/hexo-generator-search" style="color:#49B1F5;">hexo-generator-search</a></div></div></div><span class="search-close-button"><i class="fa fa-times"></i></span></div><div class="search-mask"></div></body></html>
+
+      
+    </div>
+
+  </div>
+
+  <div class="article-footer">
+    <div class="article-meta pull-left">
+
+    
+      
+
+    <span class="post-categories">
+      <i class="icon-categories"></i>
+        <a href="/categories/Nodejs学习指北/">Nodejs学习指北</a>
+    </span>
+    
+
+    
+    
+
+    <span class="post-tags">
+      <i class="icon-tags"></i>
+        <a href="/tags/Nodejs/">Nodejs</a>
+    </span>
+    
+
+    </div>
+
+    
+  </div>
+</article>
+
+  
+
+
+
+
+
+
+
+
+
+    </main>
+
+    <footer class="site-footer">
+  <p class="site-info">
+    Proudly powered by <a href="https://hexo.io/" target="_blank">Hexo</a> and
+    Theme by <a href="https://github.com/CodeDaraW/Hacker" target="_blank">Hacker</a>
+    </br>
+    
+    &copy; 2024 绯鞠
+    
+  </p>
+</footer>
+    
+    
+  </div>
+</div>
+</body>
+</html>
